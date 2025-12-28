@@ -1,24 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-const testimonials = [{
-  name: "Martin Kováč",
-  role: "Začiatočník",
-  text: "Vďaka BSGA som sa naučil základy golfu za pár týždňov. Tréneri sú trpezliví a profesionálni. Odporúčam každému, kto chce začať s golfom."
-}, {
-  name: "Zuzana Horváthová",
-  role: "Pokročilá hráčka",
-  text: "Peter a Jakub sú skvelí tréneri. Po individuálnych lekciách som výrazne zlepšila svoj handicap. Akadémia má profesionálny prístup."
-}, {
-  name: "Tomáš Novák",
-  role: "Firemný klient",
-  text: "Organizovali sme firemný teambuilding s BSGA a bolo to fantastické. Perfektná organizácia a všetci si to užili."
-}];
+
+const testimonials = [
+  {
+    name: "Martin Kováč",
+    role: "Začiatočník",
+    text: "Vďaka BSGA som sa naučil základy golfu za pár týždňov. Tréneri sú trpezliví a profesionálni. Odporúčam každému, kto chce začať s golfom."
+  },
+  {
+    name: "Zuzana Horváthová",
+    role: "Pokročilá hráčka",
+    text: "Peter a Jakub sú skvelí tréneri. Po individuálnych lekciách som výrazne zlepšila svoj handicap. Akadémia má profesionálny prístup."
+  },
+  {
+    name: "Tomáš Novák",
+    role: "Firemný klient",
+    text: "Organizovali sme firemný teambuilding s BSGA a bolo to fantastické. Perfektná organizácia a všetci si to užili."
+  },
+  {
+    name: "Lucia Szabová",
+    role: "Členka klubu",
+    text: "Už tretí rok som členkou BSGA a som nadmieru spokojná. Komunita je priateľská a turnaje sú vždy perfektne pripravené."
+  },
+  {
+    name: "Peter Baláž",
+    role: "Golfový nadšenec",
+    text: "BSGA Tour je najlepšia amatérska séria na Slovensku. Skvelé ihriská, super atmosféra a profesionálna organizácia."
+  }
+];
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   const nextSlide = () => {
     setCurrentIndex(prev => (prev + 1) % testimonials.length);
   };
+
   const prevSlide = () => {
     setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
@@ -41,10 +70,12 @@ const Testimonials = () => {
               <div
                 key={index}
                 className={cn(
-                  "group relative bg-card rounded-2xl p-6 sm:p-8 border border-border/50 transition-all duration-500 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5",
+                  "group relative bg-card rounded-2xl p-6 sm:p-8 border border-border/50 transition-all duration-500 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5 cursor-pointer",
                   index === currentIndex ? "md:scale-105 border-gold/40 shadow-lg shadow-gold/10" : "md:opacity-70 md:hover:opacity-100"
                 )}
                 onClick={() => setCurrentIndex(index)}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
                 <Quote className="absolute top-4 right-4 text-gold/10 w-10 h-10 sm:w-12 sm:h-12 group-hover:text-gold/20 transition-colors" />
                 
