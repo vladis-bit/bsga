@@ -30,7 +30,7 @@ const About = () => {
                   O nás
                 </span>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-                  Náš príbeh
+                  O nás
                 </h1>
                 <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
                   Od roku 2016 pomáhame ľuďom objavovať krásu golfu
