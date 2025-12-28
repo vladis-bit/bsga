@@ -2,39 +2,22 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Award, Star } from "lucide-react";
-
-const team = [
-  {
-    name: "Peter Švajlen",
-    role: "Hlavný profesionál BSGA",
-    achievements: [
-      "6-násobný majster Slovenska",
-      '5-násobný víťaz PGA SK Order of Merit',
-      'Licencia "A" Five Star Golf Academy',
-    ],
-    email: "peter@bsga.sk",
-  },
-  {
-    name: "Jakub Hrbáň",
-    role: "Spoluzakladateľ a profesionál",
-    achievements: [
-      "Hlavný tréner CTM v Hrubej Borši",
-      "Špecialista na fitting golfových palíc",
-      'Licencia "B" Five Star Golf Academy',
-    ],
-    email: "jakub@bsga.sk",
-  },
-];
-
+const team = [{
+  name: "Peter Švajlen",
+  role: "Hlavný profesionál BSGA",
+  achievements: ["6-násobný majster Slovenska", '5-násobný víťaz PGA SK Order of Merit', 'Licencia "A" Five Star Golf Academy'],
+  email: "peter@bsga.sk"
+}, {
+  name: "Jakub Hrbáň",
+  role: "Spoluzakladateľ a profesionál",
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", 'Licencia "B" Five Star Golf Academy'],
+  email: "jakub@bsga.sk"
+}];
 const About = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>O nás | BSGA - Best Swing Golf Academy</title>
-        <meta
-          name="description"
-          content="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností."
-        />
+        <meta name="description" content="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností." />
       </Helmet>
       <Navbar />
       <main>
@@ -69,12 +52,7 @@ const About = () => {
                 misiou: propagovať golf na Slovensku, vytvárať pozitívny obraz o
                 tejto hre a sprístupniť ju všetkým vekovým kategóriám.
               </p>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-                Naši zakladatelia, Peter Švajlen a Jakub Hrbáň, sú plne
-                kvalifikovaní PGA profesionáli s bohatými skúsenosťami. Tréningy
-                prebiehajú najmä v rezortoch Hrubá Borša a Nitra (Red Oak Golf
-                Club).
-              </p>
+              
             </div>
           </div>
         </section>
@@ -93,11 +71,7 @@ const About = () => {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
-              {team.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg"
-                >
+              {team.map((member, index) => <div key={index} className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
                     <span className="text-gold text-2xl sm:text-3xl font-serif font-bold">
                       {member.name.charAt(0)}
@@ -109,33 +83,22 @@ const About = () => {
                   <p className="text-gold text-sm sm:text-base text-center mb-4 sm:mb-6">{member.role}</p>
 
                   <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {member.achievements.map((achievement, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2 sm:gap-3 text-muted-foreground"
-                      >
+                    {member.achievements.map((achievement, i) => <li key={i} className="flex items-start gap-2 sm:gap-3 text-muted-foreground">
                         <Award className="text-gold flex-shrink-0 mt-0.5 sm:mt-1" size={14} />
                         <span className="text-xs sm:text-sm">{achievement}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
 
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="flex items-center justify-center gap-2 text-sm sm:text-base text-foreground hover:text-gold transition-colors"
-                  >
+                  <a href={`mailto:${member.email}`} className="flex items-center justify-center gap-2 text-sm sm:text-base text-foreground hover:text-gold transition-colors">
                     <Mail size={16} />
                     <span>{member.email}</span>
                   </a>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default About;
