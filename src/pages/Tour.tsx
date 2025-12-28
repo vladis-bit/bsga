@@ -43,13 +43,13 @@ const Tour = () => {
         {/* Partners */}
         <section className="py-8 sm:py-12 bg-secondary">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8">
+            <div className="flex flex-col justify-center items-center gap-4 sm:gap-6">
               <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
-                Hlavní partneri:
+                Hlavní partneri
               </span>
-              <div className="flex items-center gap-6 sm:gap-10">
-                <img src={asbisLogo} alt="ASBIS" className="h-10 sm:h-14 w-auto object-contain" />
-                <img src={checkpointLogo} alt="Check Point" className="h-8 sm:h-12 w-auto object-contain" />
+              <div className="flex items-center gap-8 sm:gap-12">
+                <img src={asbisLogo} alt="ASBIS" className="h-16 sm:h-20 w-auto object-contain" />
+                <img src={checkpointLogo} alt="Check Point" className="h-14 sm:h-18 w-auto object-contain" />
               </div>
             </div>
           </div>
@@ -92,6 +92,30 @@ const Tour = () => {
                 </div>
               ))}
             </div>
+
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
+              <a
+                href="#"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all"
+              >
+                <FileText size={16} className="text-gold" />
+                Program turnaja
+              </a>
+              <a
+                href="#"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all"
+              >
+                <Trophy size={16} className="text-gold" />
+                Priebežné hodnotenie
+              </a>
+              <a
+                href="#"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all"
+              >
+                <FileText size={16} className="text-gold" />
+                Prezentácia BSGA Tour
+              </a>
+            </div>
           </div>
         </section>
 
@@ -112,29 +136,6 @@ const Tour = () => {
               touroffice@bsga.sk
             </a>
 
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base rounded-full hover:bg-primary-foreground/10 transition-all"
-              >
-                <FileText size={16} />
-                Program turnaja
-              </a>
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base rounded-full hover:bg-primary-foreground/10 transition-all"
-              >
-                <Trophy size={16} />
-                Priebežné hodnotenie
-              </a>
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base rounded-full hover:bg-primary-foreground/10 transition-all"
-              >
-                <FileText size={16} />
-                Prezentácia BSGA Tour
-              </a>
-            </div>
           </div>
         </section>
       </main>
