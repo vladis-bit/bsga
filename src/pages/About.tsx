@@ -39,17 +39,21 @@ const About = () => {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 bg-primary">
-          <div className="container mx-auto px-4 sm:px-6 text-center">
-            <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-              O nás
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-              Náš príbeh
-            </h1>
-            <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-              Od roku 2016 pomáhame ľuďom objavovať krásu golfu
-            </p>
+        <section className="relative w-full bg-background pt-4 sm:pt-8">
+          <div className="px-2 sm:px-4 md:px-8">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+              <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                  O nás
+                </span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+                  Náš príbeh
+                </h1>
+                <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
+                  Od roku 2016 pomáhame ľuďom objavovať krásu golfu
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

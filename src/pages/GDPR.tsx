@@ -15,11 +15,15 @@ const GDPR = () => {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-24 sm:pt-32 pb-8 sm:pb-12 bg-primary">
-          <div className="container mx-auto px-4 sm:px-6 text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary-foreground">
-              Zásady ochrany osobných údajov
-            </h1>
+        <section className="relative w-full bg-background pt-4 sm:pt-8">
+          <div className="px-2 sm:px-4 md:px-8">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-12 sm:py-16 md:py-20">
+              <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary-foreground">
+                  Zásady ochrany osobných údajov
+                </h1>
+              </div>
+            </div>
           </div>
         </section>
 
