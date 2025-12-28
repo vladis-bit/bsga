@@ -40,7 +40,7 @@ const PartnersLoop = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
-                className="h-40 md:h-56 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+                className="h-80 md:h-[28rem] w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
               />
             </div>
           ))}
