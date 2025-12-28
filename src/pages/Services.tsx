@@ -91,38 +91,38 @@ const Services = () => {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="container mx-auto px-6 text-center">
-            <span className="text-gold text-sm tracking-[0.2em] uppercase">
+        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 bg-primary">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
               Služby
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-4 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
               Čo ponúkame
             </h1>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+            <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
               10 profesionálnych služieb pre každého golfistu
             </p>
           </div>
         </section>
 
         {/* Services Grid */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-12 sm:py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
                   <div
                     key={index}
-                    className="group p-8 bg-card rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl"
+                    className="group p-5 sm:p-6 md:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl"
                   >
-                    <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
-                      <Icon className="text-gold" size={28} />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+                      <Icon className="text-gold" size={22} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-foreground mb-4">
+                    <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2 sm:mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -130,10 +130,10 @@ const Services = () => {
               })}
             </div>
 
-            <div className="text-center mt-16">
+            <div className="text-center mt-10 sm:mt-12 md:mt-16">
               <Link
                 to="/#kontakt"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-primary font-medium rounded-full hover:bg-gold-light transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300"
               >
                 Mám záujem o službu
               </Link>
