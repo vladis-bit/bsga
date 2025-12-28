@@ -1,14 +1,16 @@
 import asbisLogo from "@/assets/partner-asbis.png";
 import checkpointLogo from "@/assets/partner-checkpoint.png";
+import doniTravelLogo from "@/assets/partner-doni-travel.png";
 
 interface Partner {
   name: string;
-  logo?: string;
+  logo: string;
 }
 
 const partners: Partner[] = [
   { name: "ASBIS", logo: asbisLogo },
   { name: "Check Point", logo: checkpointLogo },
+  { name: "Doni Travel", logo: doniTravelLogo },
 ];
 
 const PartnersLoop = () => {
