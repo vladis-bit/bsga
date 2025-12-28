@@ -18,10 +18,10 @@ const Footer = () => {
               <a href="https://www.facebook.com/p/Best-Swing-Golf-Academy-100057246887696/?locale=sk_SK" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
                 <Facebook className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
               </a>
-              <a href="https://linktr.ee/BSGAmedia" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
+              <a href="https://linktr.ee" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
                 <ExternalLink className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
               </a>
-              <a href="https://drive.google.com/drive/folders/1XOqhY_QPTgG02WjEoDbi-Zb5JJH6R8Jd?usp=drive_link" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
+              <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-primary transition-all">
                 <FolderOpen className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
               </a>
             </div>
@@ -61,30 +61,22 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Služby</h4>
+            
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <span className="text-primary-foreground/70 text-xs sm:text-sm">
-                  Individuálne lekcie
-                </span>
+                
               </li>
               <li>
-                <span className="text-primary-foreground/70 text-xs sm:text-sm">
-                  Skupinové lekcie
-                </span>
+                
               </li>
               <li>
-                <span className="text-primary-foreground/70 text-xs sm:text-sm">Zelené karty</span>
+                
               </li>
               <li>
-                <span className="text-primary-foreground/70 text-xs sm:text-sm">
-                  Detská akadémia
-                </span>
+                
               </li>
               <li>
-                <span className="text-primary-foreground/70 text-xs sm:text-sm">
-                  Firemné akcie
-                </span>
+                
               </li>
             </ul>
           </div>
