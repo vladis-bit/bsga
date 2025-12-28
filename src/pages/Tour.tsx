@@ -57,16 +57,6 @@ const Tour = () => {
         {/* Tournament Schedule */}
         <section className="py-12 sm:py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                Kalendár
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                Termíny turnajov
-              </h2>
-              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
-            </div>
-
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
               <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
                 <FileText size={16} className="text-gold" />
@@ -80,6 +70,16 @@ const Tour = () => {
                 <FileText size={16} className="text-gold" />
                 Prezentácia BSGA Tour
               </a>
+            </div>
+
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                Kalendár
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                Termíny turnajov
+              </h2>
+              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
             <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
