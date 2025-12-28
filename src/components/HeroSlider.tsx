@@ -46,9 +46,7 @@ const HeroSlider = () => {
           {/* Content */}
           <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
             <div className="max-w-4xl w-full">
-              <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 text-gold text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border border-gold/30 rounded-full">
-                Od roku 2016
-              </span>
+              
               <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-3 sm:mb-6 leading-tight">
                 {slides[currentSlide].title}
               </h1>
