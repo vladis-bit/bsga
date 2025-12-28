@@ -63,13 +63,13 @@ const ContactForm = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Meno *
                     </label>
-                    <Input required placeholder="Vaše meno" className="bg-background border-border focus:border-gold" />
+                    <Input required placeholder="Vaše meno" className="bg-muted/50 border-border/50 focus:border-gold shadow-sm" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Priezvisko *
                     </label>
-                    <Input required placeholder="Vaše priezvisko" className="bg-background border-border focus:border-gold" />
+                    <Input required placeholder="Vaše priezvisko" className="bg-muted/50 border-border/50 focus:border-gold shadow-sm" />
                   </div>
                 </div>
 
@@ -78,13 +78,13 @@ const ContactForm = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Email *
                     </label>
-                    <Input type="email" required placeholder="vas@email.sk" className="bg-background border-border focus:border-gold" />
+                    <Input type="email" required placeholder="vas@email.sk" className="bg-muted/50 border-border/50 focus:border-gold shadow-sm" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Telefón
                     </label>
-                    <Input type="tel" placeholder="+421 XXX XXX XXX" className="bg-background border-border focus:border-gold" />
+                    <Input type="tel" placeholder="+421 XXX XXX XXX" className="bg-muted/50 border-border/50 focus:border-gold shadow-sm" />
                   </div>
                 </div>
 
@@ -93,7 +93,7 @@ const ContactForm = () => {
                     Služba
                   </label>
                   <Select>
-                    <SelectTrigger className="bg-background border-border">
+                    <SelectTrigger className="bg-muted/50 border-border/50 shadow-sm">
                       <SelectValue placeholder="Vyberte službu" />
                     </SelectTrigger>
                     <SelectContent>
@@ -108,7 +108,7 @@ const ContactForm = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Správa *
                   </label>
-                  <Textarea required placeholder="Napíšte nám vašu správu..." rows={4} className="bg-background border-border focus:border-gold resize-none" />
+                  <Textarea required placeholder="Napíšte nám vašu správu..." rows={4} className="bg-muted/50 border-border/50 focus:border-gold shadow-sm resize-none" />
                 </div>
 
                 <Button type="submit" disabled={isSubmitting} className="w-full bg-gold text-primary hover:bg-gold-light py-6 rounded-full font-medium">
