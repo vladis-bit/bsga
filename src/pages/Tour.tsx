@@ -47,7 +47,7 @@ const Tour = () => {
                 Hlavní partneri
               </span>
               <div className="flex items-center gap-8 sm:gap-12">
-                <img src={asbisLogo} alt="ASBIS" className="h-16 sm:h-20 w-auto object-contain" />
+                <img src={asbisLogo} alt="ASBIS" className="h-20 sm:h-28 w-auto object-contain" />
                 <img src={checkpointLogo} alt="Check Point" className="h-14 sm:h-18 w-auto object-contain" />
               </div>
             </div>
