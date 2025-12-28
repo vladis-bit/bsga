@@ -5,7 +5,7 @@ const stats = [
   { value: 8, suffix: "+", label: "Rokov skúseností" },
   { value: 2000, suffix: "+", label: "Spokojných študentov" },
   { value: 10, suffix: "", label: "Rôznych služieb" },
-  { value: 2, suffix: "", label: "PGA profesionáli" },
+  { value: 4, suffix: "", label: "PGA profesionáli" },
 ];
 
 const AnimatedStats = () => {
