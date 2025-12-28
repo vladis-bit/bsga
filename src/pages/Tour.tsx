@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar, MapPin, Mail, FileText, Trophy } from "lucide-react";
+import asbisLogo from "@/assets/partner-asbis-tour.png";
+import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 
 const tournaments = [
   { date: "15.5.2026", location: "Hrubá Borša" },
@@ -45,13 +47,9 @@ const Tour = () => {
               <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
                 Hlavní partneri:
               </span>
-              <div className="flex items-center gap-6 sm:gap-8">
-                <span className="text-xl sm:text-2xl font-serif font-bold text-foreground">
-                  ASBIS
-                </span>
-                <span className="text-xl sm:text-2xl font-serif font-bold text-foreground">
-                  Check Point
-                </span>
+              <div className="flex items-center gap-6 sm:gap-10">
+                <img src={asbisLogo} alt="ASBIS" className="h-10 sm:h-14 w-auto object-contain" />
+                <img src={checkpointLogo} alt="Check Point" className="h-8 sm:h-12 w-auto object-contain" />
               </div>
             </div>
           </div>
