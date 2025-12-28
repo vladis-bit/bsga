@@ -48,7 +48,7 @@ const Tour = () => {
               </span>
               <div className="flex items-center gap-8 sm:gap-12">
                 <img src={asbisLogo} alt="ASBIS" className="h-20 sm:h-28 w-auto object-contain" />
-                <img src={checkpointLogo} alt="Check Point" className="h-14 sm:h-18 w-auto object-contain" />
+                <img src={checkpointLogo} alt="Check Point" className="h-20 sm:h-28 w-auto object-contain" />
               </div>
             </div>
           </div>
@@ -65,6 +65,21 @@ const Tour = () => {
                 Termíny turnajov
               </h2>
               <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+            </div>
+
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <FileText size={16} className="text-gold" />
+                Program turnaja
+              </a>
+              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <Trophy size={16} className="text-gold" />
+                Priebežné hodnotenie
+              </a>
+              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <FileText size={16} className="text-gold" />
+                Prezentácia BSGA Tour
+              </a>
             </div>
 
             <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
@@ -85,21 +100,6 @@ const Tour = () => {
                     </div>
                   </div>
                 </div>)}
-            </div>
-
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
-              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
-                <FileText size={16} className="text-gold" />
-                Program turnaja
-              </a>
-              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
-                <Trophy size={16} className="text-gold" />
-                Priebežné hodnotenie
-              </a>
-              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
-                <FileText size={16} className="text-gold" />
-                Prezentácia BSGA Tour
-              </a>
             </div>
           </div>
         </section>
