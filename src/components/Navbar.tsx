@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram, Facebook, ExternalLink } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -16,6 +16,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,19 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   return (
     <nav
@@ -51,107 +65,43 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={cn(
-                  "text-sm font-medium tracking-wide transition-all duration-300 hover:text-gold",
-                  scrolled ? "text-foreground" : "text-primary-foreground",
-                  location.pathname === link.href && "text-gold"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Social Icons - Desktop */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
+          {/* Menu Button - Right Corner */}
+          <div className="relative" ref={menuRef}>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
               className={cn(
-                "transition-colors duration-300 hover:text-gold",
+                "p-2 transition-colors duration-300 flex items-center gap-2",
                 scrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              <span className="text-sm font-medium tracking-wide hidden sm:inline">MENU</span>
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Dropdown Menu */}
+            <div
               className={cn(
-                "transition-colors duration-300 hover:text-gold",
-                scrolled ? "text-foreground" : "text-primary-foreground"
+                "absolute right-0 top-full mt-2 w-56 bg-background/98 backdrop-blur-md rounded-lg shadow-xl border border-border overflow-hidden transition-all duration-300 origin-top-right",
+                isOpen 
+                  ? "opacity-100 scale-100 translate-y-0" 
+                  : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
               )}
             >
-              <Facebook size={20} />
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              "lg:hidden p-2 transition-colors duration-300",
-              scrolled ? "text-foreground" : "text-primary-foreground"
-            )}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu - Roll Down */}
-      <div
-        className={cn(
-          "lg:hidden overflow-hidden transition-all duration-500 ease-in-out bg-background/98 backdrop-blur-md",
-          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        )}
-      >
-        <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={cn(
-                "text-foreground text-lg font-medium py-2 border-b border-border transition-colors hover:text-gold",
-                location.pathname === link.href && "text-gold"
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="flex items-center gap-6 pt-4">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:text-gold transition-colors"
-            >
-              <Instagram size={24} />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:text-gold transition-colors"
-            >
-              <Facebook size={24} />
-            </a>
-            <a
-              href="https://linktr.ee"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:text-gold transition-colors"
-            >
-              <ExternalLink size={24} />
-            </a>
+              <div className="py-2">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className={cn(
+                      "block px-6 py-3 text-foreground text-sm font-medium tracking-wide transition-colors hover:bg-muted hover:text-gold",
+                      location.pathname === link.href && "text-gold bg-muted"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
