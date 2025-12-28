@@ -4,24 +4,27 @@ import Footer from "@/components/Footer";
 import { Calendar, MapPin, Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.png";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
-
-const tournaments = [
-  { date: "15.5.2026", location: "Hrubá Borša" },
-  { date: "5.6.2026", location: "Tále" },
-  { date: "17.7.2026", location: "Penati Legend" },
-  { date: "14.8.2026", location: "Penati Heritage" },
-  { date: "4.9.2026", location: "Ostravice" },
-];
-
+const tournaments = [{
+  date: "15.5.2026",
+  location: "Hrubá Borša"
+}, {
+  date: "5.6.2026",
+  location: "Tále"
+}, {
+  date: "17.7.2026",
+  location: "Penati Legend"
+}, {
+  date: "14.8.2026",
+  location: "Penati Heritage"
+}, {
+  date: "4.9.2026",
+  location: "Ostravice"
+}];
 const Tour = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>BSGA Tour 2026 | Séria golfových turnajov</title>
-        <meta
-          name="description"
-          content="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice."
-        />
+        <meta name="description" content="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice." />
       </Helmet>
       <Navbar />
       <main>
@@ -31,12 +34,8 @@ const Tour = () => {
             <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
               Turnaje
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-              BSGA Tour 2026
-            </h1>
-            <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-              Séria turnajov v najlepších slovenských rezortoch
-            </p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">BSGA Tour 2026</h1>
+            <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">Exkluzívna séria turnajov na najlepších slovenských ihriskách</p>
           </div>
         </section>
 
@@ -69,11 +68,7 @@ const Tour = () => {
             </div>
 
             <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
-              {tournaments.map((tournament, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg"
-                >
+              {tournaments.map((tournament, index) => <div key={index} className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg">
                   <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center">
                     <Trophy className="text-gold" size={20} />
                   </div>
@@ -89,29 +84,19 @@ const Tour = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
 
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all"
-              >
+              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
                 <FileText size={16} className="text-gold" />
                 Program turnaja
               </a>
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all"
-              >
+              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
                 <Trophy size={16} className="text-gold" />
                 Priebežné hodnotenie
               </a>
-              <a
-                href="#"
-                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all"
-              >
+              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
                 <FileText size={16} className="text-gold" />
                 Prezentácia BSGA Tour
               </a>
@@ -128,10 +113,7 @@ const Tour = () => {
             <p className="text-primary-foreground/80 text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto px-2">
               Pre prihlásenie na turnaje alebo viac informácií nás kontaktuj na:
             </p>
-            <a
-              href="mailto:touroffice@bsga.sk"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300"
-            >
+            <a href="mailto:touroffice@bsga.sk" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300">
               <Mail size={18} />
               touroffice@bsga.sk
             </a>
@@ -140,8 +122,6 @@ const Tour = () => {
         </section>
       </main>
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default Tour;
