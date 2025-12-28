@@ -57,9 +57,7 @@ const HeroSlider = () => {
                 <a href="#sluzby" className="px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-lg">
                   Naše služby
                 </a>
-                <a href="#kontakt" className="px-6 sm:px-8 py-3 sm:py-4 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base font-medium rounded-full hover:bg-primary-foreground/10 transition-all duration-300">
-                  Kontaktujte nás
-                </a>
+                
               </div>
             </div>
           </div>
