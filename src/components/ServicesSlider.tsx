@@ -35,16 +35,16 @@ const ServicesSlider = () => {
   };
 
   return (
-    <section id="sluzby" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-gold text-sm tracking-[0.2em] uppercase">
+    <section id="sluzby" className="py-12 sm:py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
             Naše služby
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4">
             Čo ponúkame
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto mt-6" />
+          <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
         </div>
 
         {/* Mobile Slider */}
@@ -111,14 +111,14 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const Icon = service.icon;
 
   return (
-    <div className="group p-8 bg-card rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl">
-      <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
-        <Icon className="text-gold" size={28} />
+    <div className="group p-5 sm:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl">
+      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+        <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
       </div>
-      <h3 className="text-xl font-serif font-bold text-foreground mb-4">
+      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
         {service.title}
       </h3>
-      <p className="text-muted-foreground leading-relaxed">
+      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
         {service.description}
       </p>
     </div>

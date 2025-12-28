@@ -30,9 +30,9 @@ const AnimatedStats = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 bg-primary">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+    <section ref={ref} className="py-12 sm:py-16 md:py-20 bg-primary">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <StatItem
               key={index}
@@ -88,11 +88,11 @@ const StatItem = ({ value, suffix, label, isVisible, delay }: StatItemProps) => 
 
   return (
     <div className="text-center">
-      <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gold mb-2">
+      <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gold mb-1 sm:mb-2">
         {count.toLocaleString()}
         {suffix}
       </div>
-      <p className="text-primary-foreground/70 text-sm md:text-base">{label}</p>
+      <p className="text-primary-foreground/70 text-xs sm:text-sm md:text-base">{label}</p>
     </div>
   );
 };
