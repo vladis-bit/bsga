@@ -3,52 +3,32 @@ import { Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-
-const services = [
-  "Individuálne lekcie",
-  "Skupinové lekcie",
-  "Zelená karta",
-  "Detská akadémia",
-  "Firemný teambuilding",
-  "BSGA Tour",
-  "Fitting",
-  "Iné",
-];
-
+const services = ["Individuálne lekcie", "Skupinové lekcie", "Zelená karta", "Detská akadémia", "Firemný teambuilding", "BSGA Tour", "Fitting", "Iné"];
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    await new Promise(resolve => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
-
     toast({
       title: "Správa odoslaná!",
-      description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať.",
+      description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať."
     });
 
     // Reset form after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
   };
-
-  return (
-    <section id="kontakt" className="py-12 sm:py-16 md:py-24 bg-background">
+  return <section id="kontakt" className="py-12 sm:py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
           <div>
@@ -70,31 +50,23 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Email</p>
-                  <a
-                    href="mailto:info@bsga.sk"
-                    className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base"
-                  >
+                  <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base">
                     info@bsga.sk
                   </a>
                 </div>
               </div>
               <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center">
-                  <span className="text-gold text-base sm:text-lg">📍</span>
-                </div>
+                
                 <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Lokácie</p>
-                  <p className="text-foreground font-medium text-sm sm:text-base">
-                    Hrubá Borša, Nitra
-                  </p>
+                  
+                  
                 </div>
               </div>
             </div>
           </div>
 
           <div className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-border shadow-lg">
-            {isSubmitted ? (
-              <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
+            {isSubmitted ? <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
                 <CheckCircle className="text-gold w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4" />
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-2">
                   Ďakujeme!
@@ -102,29 +74,19 @@ const ContactForm = () => {
                 <p className="text-muted-foreground text-sm sm:text-base">
                   Vaša správa bola úspešne odoslaná.
                 </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              </div> : <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Meno *
                     </label>
-                    <Input
-                      required
-                      placeholder="Vaše meno"
-                      className="bg-background border-border focus:border-gold"
-                    />
+                    <Input required placeholder="Vaše meno" className="bg-background border-border focus:border-gold" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Priezvisko *
                     </label>
-                    <Input
-                      required
-                      placeholder="Vaše priezvisko"
-                      className="bg-background border-border focus:border-gold"
-                    />
+                    <Input required placeholder="Vaše priezvisko" className="bg-background border-border focus:border-gold" />
                   </div>
                 </div>
 
@@ -133,22 +95,13 @@ const ContactForm = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Email *
                     </label>
-                    <Input
-                      type="email"
-                      required
-                      placeholder="vas@email.sk"
-                      className="bg-background border-border focus:border-gold"
-                    />
+                    <Input type="email" required placeholder="vas@email.sk" className="bg-background border-border focus:border-gold" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Telefón
                     </label>
-                    <Input
-                      type="tel"
-                      placeholder="+421 XXX XXX XXX"
-                      className="bg-background border-border focus:border-gold"
-                    />
+                    <Input type="tel" placeholder="+421 XXX XXX XXX" className="bg-background border-border focus:border-gold" />
                   </div>
                 </div>
 
@@ -161,11 +114,9 @@ const ContactForm = () => {
                       <SelectValue placeholder="Vyberte službu" />
                     </SelectTrigger>
                     <SelectContent>
-                      {services.map((service) => (
-                        <SelectItem key={service} value={service}>
+                      {services.map(service => <SelectItem key={service} value={service}>
                           {service}
-                        </SelectItem>
-                      ))}
+                        </SelectItem>)}
                     </SelectContent>
                   </Select>
                 </div>
@@ -174,35 +125,19 @@ const ContactForm = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Správa *
                   </label>
-                  <Textarea
-                    required
-                    placeholder="Napíšte nám vašu správu..."
-                    rows={4}
-                    className="bg-background border-border focus:border-gold resize-none"
-                  />
+                  <Textarea required placeholder="Napíšte nám vašu správu..." rows={4} className="bg-background border-border focus:border-gold resize-none" />
                 </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gold text-primary hover:bg-gold-light py-6 rounded-full font-medium"
-                >
-                  {isSubmitting ? (
-                    "Odosielam..."
-                  ) : (
-                    <>
+                <Button type="submit" disabled={isSubmitting} className="w-full bg-gold text-primary hover:bg-gold-light py-6 rounded-full font-medium">
+                  {isSubmitting ? "Odosielam..." : <>
                       <Send size={18} className="mr-2" />
                       Odoslať správu
-                    </>
-                  )}
+                    </>}
                 </Button>
-              </form>
-            )}
+              </form>}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactForm;
