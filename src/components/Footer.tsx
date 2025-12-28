@@ -21,7 +21,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Navigácia</h4>
+            <h4 className="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Menu</h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link to="/" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
