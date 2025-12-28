@@ -39,33 +39,33 @@ const About = () => {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="container mx-auto px-6 text-center">
-            <span className="text-gold text-sm tracking-[0.2em] uppercase">
+        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 bg-primary">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
               O nás
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-4 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
               Náš príbeh
             </h1>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+            <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
               Od roku 2016 pomáhame ľuďom objavovať krásu golfu
             </p>
           </div>
         </section>
 
         {/* Story */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
+        <section className="py-12 sm:py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 sm:mb-8">
                 Najväčšia golfová akadémia na Slovensku
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                 Best Swing Golf Academy (BSGA) vznikla koncom roku 2016 s jasnou
                 misiou: propagovať golf na Slovensku, vytvárať pozitívny obraz o
                 tejto hre a sprístupniť ju všetkým vekovým kategóriám.
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                 Naši zakladatelia, Peter Švajlen a Jakub Hrbáň, sú plne
                 kvalifikovaní PGA profesionáli s bohatými skúsenosťami. Tréningy
                 prebiehajú najmä v rezortoch Hrubá Borša a Nitra (Red Oak Golf
@@ -76,51 +76,51 @@ const About = () => {
         </section>
 
         {/* Team */}
-        <section className="py-24 bg-secondary">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <span className="text-gold text-sm tracking-[0.2em] uppercase">
+        <section className="py-12 sm:py-16 md:py-24 bg-secondary">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 Náš tím
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
                 Profesionálni tréneri
               </h2>
-              <div className="w-24 h-1 bg-gold mx-auto mt-6" />
+              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
               {team.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-2xl p-8 border border-border hover:border-gold/30 transition-all duration-300"
+                  className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-gold text-3xl font-serif font-bold">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                    <span className="text-gold text-2xl sm:text-3xl font-serif font-bold">
                       {member.name.charAt(0)}
                     </span>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-foreground text-center mb-2">
+                  <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground text-center mb-1 sm:mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-gold text-center mb-6">{member.role}</p>
+                  <p className="text-gold text-sm sm:text-base text-center mb-4 sm:mb-6">{member.role}</p>
 
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                     {member.achievements.map((achievement, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-3 text-muted-foreground"
+                        className="flex items-start gap-2 sm:gap-3 text-muted-foreground"
                       >
-                        <Award className="text-gold flex-shrink-0 mt-1" size={16} />
-                        <span className="text-sm">{achievement}</span>
+                        <Award className="text-gold flex-shrink-0 mt-0.5 sm:mt-1" size={14} />
+                        <span className="text-xs sm:text-sm">{achievement}</span>
                       </li>
                     ))}
                   </ul>
 
                   <a
                     href={`mailto:${member.email}`}
-                    className="flex items-center justify-center gap-2 text-foreground hover:text-gold transition-colors"
+                    className="flex items-center justify-center gap-2 text-sm sm:text-base text-foreground hover:text-gold transition-colors"
                   >
-                    <Mail size={18} />
+                    <Mail size={16} />
                     <span>{member.email}</span>
                   </a>
                 </div>

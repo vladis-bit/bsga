@@ -24,68 +24,70 @@ const Tour = () => {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="container mx-auto px-6 text-center">
-            <span className="text-gold text-sm tracking-[0.2em] uppercase">
+        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 bg-primary">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
               Turnaje
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-4 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
               BSGA Tour 2026
             </h1>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+            <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
               Séria turnajov v najlepších slovenských rezortoch
             </p>
           </div>
         </section>
 
         {/* Partners */}
-        <section className="py-12 bg-secondary">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              <span className="text-muted-foreground text-sm uppercase tracking-wider">
+        <section className="py-8 sm:py-12 bg-secondary">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8">
+              <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
                 Hlavní partneri:
               </span>
-              <span className="text-2xl font-serif font-bold text-foreground">
-                ASBIS
-              </span>
-              <span className="text-2xl font-serif font-bold text-foreground">
-                Check Point
-              </span>
+              <div className="flex items-center gap-6 sm:gap-8">
+                <span className="text-xl sm:text-2xl font-serif font-bold text-foreground">
+                  ASBIS
+                </span>
+                <span className="text-xl sm:text-2xl font-serif font-bold text-foreground">
+                  Check Point
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Tournament Schedule */}
-        <section className="py-24 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <span className="text-gold text-sm tracking-[0.2em] uppercase">
+        <section className="py-12 sm:py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 Kalendár
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
                 Termíny turnajov
               </h2>
-              <div className="w-24 h-1 bg-gold mx-auto mt-6" />
+              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
               {tournaments.map((tournament, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-6 p-6 bg-card rounded-2xl border border-border mb-4 hover:border-gold/30 transition-all duration-300"
+                  className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center">
-                    <Trophy className="text-gold" size={24} />
+                  <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center">
+                    <Trophy className="text-gold" size={20} />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <div className="flex items-center gap-2 text-foreground font-medium">
-                        <Calendar size={18} className="text-gold" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                      <div className="flex items-center gap-2 text-foreground font-medium text-sm sm:text-base">
+                        <Calendar size={16} className="text-gold flex-shrink-0" />
                         <span>{tournament.date}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <MapPin size={18} className="text-gold" />
-                        <span>{tournament.location}</span>
+                      <div className="flex items-center gap-2 text-muted-foreground text-sm sm:text-base">
+                        <MapPin size={16} className="text-gold flex-shrink-0" />
+                        <span className="truncate">{tournament.location}</span>
                       </div>
                     </div>
                   </div>
@@ -96,42 +98,42 @@ const Tour = () => {
         </section>
 
         {/* Registration */}
-        <section className="py-24 bg-primary">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-6">
+        <section className="py-12 sm:py-16 md:py-24 bg-primary">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-4 sm:mb-6">
               Chceš sa zúčastniť?
             </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-primary-foreground/80 text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto px-2">
               Pre prihlásenie na turnaje alebo viac informácií nás kontaktuj na:
             </p>
             <a
               href="mailto:touroffice@bsga.sk"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-primary font-medium rounded-full hover:bg-gold-light transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300"
             >
-              <Mail size={20} />
+              <Mail size={18} />
               touroffice@bsga.sk
             </a>
 
-            <div className="flex flex-wrap justify-center gap-4 mt-12">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
               <a
                 href="#"
-                className="flex items-center gap-2 px-6 py-3 border border-primary-foreground/30 text-primary-foreground rounded-full hover:bg-primary-foreground/10 transition-all"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base rounded-full hover:bg-primary-foreground/10 transition-all"
               >
-                <FileText size={18} />
+                <FileText size={16} />
                 Program turnaja
               </a>
               <a
                 href="#"
-                className="flex items-center gap-2 px-6 py-3 border border-primary-foreground/30 text-primary-foreground rounded-full hover:bg-primary-foreground/10 transition-all"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base rounded-full hover:bg-primary-foreground/10 transition-all"
               >
-                <Trophy size={18} />
+                <Trophy size={16} />
                 Priebežné hodnotenie
               </a>
               <a
                 href="#"
-                className="flex items-center gap-2 px-6 py-3 border border-primary-foreground/30 text-primary-foreground rounded-full hover:bg-primary-foreground/10 transition-all"
+                className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base rounded-full hover:bg-primary-foreground/10 transition-all"
               >
-                <FileText size={18} />
+                <FileText size={16} />
                 Prezentácia BSGA Tour
               </a>
             </div>
