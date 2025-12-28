@@ -9,10 +9,6 @@ interface Partner {
 const partners: Partner[] = [
   { name: "ASBIS", logo: asbisLogo },
   { name: "Check Point", logo: checkpointLogo },
-  { name: "Hrubá Borša" },
-  { name: "Red Oak Golf Club" },
-  { name: "Penati Golf Resort" },
-  { name: "Tále" },
 ];
 
 const PartnersLoop = () => {
@@ -39,17 +35,11 @@ const PartnersLoop = () => {
               key={index}
               className="flex-shrink-0 px-12 py-4 flex items-center"
             >
-              {partner.logo ? (
-                <img 
-                  src={partner.logo} 
-                  alt={partner.name} 
-                  className="h-12 md:h-16 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
-                />
-              ) : (
-                <div className="text-xl md:text-2xl font-serif font-bold text-muted-foreground hover:text-gold transition-colors cursor-pointer whitespace-nowrap">
-                  {partner.name}
-                </div>
-              )}
+              <img 
+                src={partner.logo} 
+                alt={partner.name} 
+                className="h-20 md:h-28 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+              />
             </div>
           ))}
         </div>
