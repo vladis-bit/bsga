@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
               <img src={bsgaLogo} alt="BSGA Logo" className="h-10 sm:h-12 w-auto" />
-              <h3 className="text-xl sm:text-2xl font-serif font-bold">Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku. Od roku 2016 pomáhame ľuďom objavovať krásu golfu.</h3>
+              <h3 className="text-xl sm:text-2xl font-serif font-bold">BSGA</h3>
             </div>
             <p className="text-background/70 text-xs sm:text-sm leading-relaxed">Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku. 
 
