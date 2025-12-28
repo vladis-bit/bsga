@@ -34,9 +34,7 @@ const ContactForm = () => {
           <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
             Kontaktujte nás
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-            Máte záujem o naše služby?
-          </h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">Zaujali vás naše služby?</h2>
           <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom
             správneho programu pre vás alebo vašu firmu.
