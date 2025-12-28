@@ -30,42 +30,25 @@ const ContactForm = () => {
   };
   return <section id="kontakt" className="py-12 sm:py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
-          <div>
-            <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
-              Kontaktujte nás
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-              Máte záujem o naše služby?
-            </h2>
-            <p className="text-muted-foreground text-sm sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-              Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom
-              správneho programu pre vás alebo vašu firmu.
-            </p>
-
-            <div className="space-y-3 sm:space-y-4">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center">
-                  <span className="text-gold text-base sm:text-lg">📧</span>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base">
-                    info@bsga.sk
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 sm:gap-4">
-                
-                <div>
-                  
-                  
-                </div>
-              </div>
-            </div>
+        <div className="text-center mb-8 sm:mb-12">
+          <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
+            Kontaktujte nás
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+            Máte záujem o naše služby?
+          </h2>
+          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom
+            správneho programu pre vás alebo vašu firmu.
+          </p>
+          <div className="flex justify-center mt-4">
+            <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
+              <span className="text-gold">📧</span> info@bsga.sk
+            </a>
           </div>
+        </div>
 
-          <div className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-border shadow-lg">
+        <div className="max-w-3xl mx-auto bg-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-border shadow-lg">
             {isSubmitted ? <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
                 <CheckCircle className="text-gold w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4" />
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-2">
@@ -135,7 +118,6 @@ const ContactForm = () => {
                     </>}
                 </Button>
               </form>}
-          </div>
         </div>
       </div>
     </section>;
