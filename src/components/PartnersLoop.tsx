@@ -1,12 +1,18 @@
-import { cn } from "@/lib/utils";
+import asbisLogo from "@/assets/partner-asbis.png";
+import checkpointLogo from "@/assets/partner-checkpoint.png";
 
-const partners = [
-  "ASBIS",
-  "Check Point",
-  "Hrubá Borša",
-  "Red Oak Golf Club",
-  "Penati Golf Resort",
-  "Tále",
+interface Partner {
+  name: string;
+  logo?: string;
+}
+
+const partners: Partner[] = [
+  { name: "ASBIS", logo: asbisLogo },
+  { name: "Check Point", logo: checkpointLogo },
+  { name: "Hrubá Borša" },
+  { name: "Red Oak Golf Club" },
+  { name: "Penati Golf Resort" },
+  { name: "Tále" },
 ];
 
 const PartnersLoop = () => {
@@ -31,11 +37,19 @@ const PartnersLoop = () => {
           {[...partners, ...partners].map((partner, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-12 py-4"
+              className="flex-shrink-0 px-12 py-4 flex items-center"
             >
-              <div className="text-xl md:text-2xl font-serif font-bold text-muted-foreground hover:text-gold transition-colors cursor-pointer whitespace-nowrap">
-                {partner}
-              </div>
+              {partner.logo ? (
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  className="h-12 md:h-16 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+                />
+              ) : (
+                <div className="text-xl md:text-2xl font-serif font-bold text-muted-foreground hover:text-gold transition-colors cursor-pointer whitespace-nowrap">
+                  {partner.name}
+                </div>
+              )}
             </div>
           ))}
         </div>
