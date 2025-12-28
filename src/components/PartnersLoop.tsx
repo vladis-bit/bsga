@@ -22,9 +22,7 @@ const PartnersLoop = () => {
           <span className="text-gold text-sm tracking-[0.2em] uppercase">
             Spolupracujeme
           </span>
-          <h2 className="text-2xl font-serif font-bold text-foreground mt-4 md:text-5xl">
-            Naši partneri
-          </h2>
+          <h2 className="text-2xl font-serif font-bold text-foreground mt-4 md:text-5xl">Hlavní partneri</h2>
         </div>
       </div>
 
