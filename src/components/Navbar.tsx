@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-16 sm:h-24 w-auto" />
-            <span className="sm:text-2xl font-bold text-foreground tracking-wide text-3xl font-mono">BSGA</span>
+            <span className="sm:text-2xl font-bold text-foreground tracking-wide font-mono text-2xl">BSGA</span>
           </Link>
 
           {/* Menu Button - Right Corner */}
