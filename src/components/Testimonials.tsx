@@ -34,24 +34,24 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-gold text-sm tracking-[0.2em] uppercase">
+    <section className="py-12 sm:py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
             Referencie
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4">
             Čo hovoria naši klienti
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto mt-6" />
+          <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            <Quote className="absolute -top-4 -left-4 text-gold/20" size={80} />
+            <Quote className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 text-gold/20 w-12 h-12 sm:w-20 sm:h-20" />
 
-            <div className="bg-card rounded-2xl p-8 md:p-12 border border-border shadow-lg">
-              <div className="relative min-h-[200px]">
+            <div className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-12 border border-border shadow-lg">
+              <div className="relative min-h-[180px] sm:min-h-[200px]">
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={index}
@@ -62,20 +62,20 @@ const Testimonials = () => {
                         : "opacity-0 translate-x-8"
                     )}
                   >
-                    <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8 italic">
+                    <p className="text-sm sm:text-lg md:text-xl text-foreground leading-relaxed mb-5 sm:mb-8 italic">
                       "{testimonial.text}"
                     </p>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
-                        <span className="text-gold font-bold text-lg">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                        <span className="text-gold font-bold text-base sm:text-lg">
                           {testimonial.name.charAt(0)}
                         </span>
                       </div>
                       <div>
-                        <h4 className="font-bold text-foreground">
+                        <h4 className="font-bold text-foreground text-sm sm:text-base">
                           {testimonial.name}
                         </h4>
-                        <p className="text-muted-foreground text-sm">
+                        <p className="text-muted-foreground text-xs sm:text-sm">
                           {testimonial.role}
                         </p>
                       </div>

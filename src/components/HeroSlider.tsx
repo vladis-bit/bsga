@@ -64,28 +64,28 @@ const HeroSlider = () => {
       ))}
 
       {/* Rounded Container */}
-      <div className="absolute inset-4 md:inset-8 rounded-3xl overflow-hidden">
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-          <div className="max-w-4xl">
-            <span className="inline-block px-4 py-2 mb-6 text-gold text-sm tracking-[0.3em] uppercase border border-gold/30 rounded-full">
+      <div className="absolute inset-2 sm:inset-4 md:inset-8 rounded-2xl sm:rounded-3xl overflow-hidden">
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
+          <div className="max-w-4xl w-full">
+            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 text-gold text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase border border-gold/30 rounded-full">
               Od roku 2016
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-3 sm:mb-6 leading-tight">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg md:text-xl text-primary-foreground/80 mb-6 sm:mb-10 max-w-2xl mx-auto px-2">
               {slides[currentSlide].subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
               <a
                 href="#sluzby"
-                className="px-8 py-4 bg-gold text-primary font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-lg"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-lg"
               >
                 Naše služby
               </a>
               <a
                 href="#kontakt"
-                className="px-8 py-4 border border-primary-foreground/30 text-primary-foreground font-medium rounded-full hover:bg-primary-foreground/10 transition-all duration-300"
+                className="px-6 sm:px-8 py-3 sm:py-4 border border-primary-foreground/30 text-primary-foreground text-sm sm:text-base font-medium rounded-full hover:bg-primary-foreground/10 transition-all duration-300"
               >
                 Kontaktujte nás
               </a>
@@ -97,17 +97,17 @@ const HeroSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 p-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+        className="absolute left-2 sm:left-6 md:left-12 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={40} />
+        <ChevronLeft className="w-6 h-6 sm:w-10 sm:h-10" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 p-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+        className="absolute right-2 sm:right-6 md:right-12 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
         aria-label="Next slide"
       >
-        <ChevronRight size={40} />
+        <ChevronRight className="w-6 h-6 sm:w-10 sm:h-10" />
       </button>
 
       {/* Dots */}
