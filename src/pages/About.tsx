@@ -3,6 +3,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Instagram } from "lucide-react";
 
+const founders = [
+  { name: "Peter Švajlen", role: "Hlavný profesionál BSGA", instagram: "#", email: "peter@bsga.sk" },
+  { name: "Jakub Hrbáň", role: "Spoluzakladateľ a profesionál", instagram: "#", email: "jakub@bsga.sk" },
+];
+
 const team = [
   { name: "Michał Wirdzek", role: "Tréner BSGA", instagram: "#", email: "michal@bsga.sk" },
   { name: "Maroš Gajan", role: "Tréner BSGA", instagram: "#", email: "maros@bsga.sk" },
@@ -93,9 +98,31 @@ const About = () => {
         {/* Team - Trainers */}
         <section className="py-12 sm:py-16 md:py-24 bg-secondary">
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            {/* Founders Section */}
             <div className="text-center mb-12 md:mb-16">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 O nás
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                Zakladatelia
+              </h2>
+              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-items-center">
+              {founders.map((member, index) => (
+                <TeamCard key={index} member={member} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section className="py-12 sm:py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div className="text-center mb-12 md:mb-16">
+              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                Tím
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
                 Náš tím
