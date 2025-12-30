@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Instagram } from "lucide-react";
+import Tilt3DCard from "@/components/Tilt3DCard";
 
 const founders = [
   { 
@@ -46,7 +47,7 @@ type TeamMember = {
 };
 
 const FounderCard = ({ member }: { member: TeamMember }) => (
-  <div className="group text-center">
+  <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
@@ -84,11 +85,11 @@ const FounderCard = ({ member }: { member: TeamMember }) => (
         <Mail size={20} />
       </a>
     </div>
-  </div>
+  </Tilt3DCard>
 );
 
 const TeamCard = ({ member }: { member: typeof team[0] }) => (
-  <div className="group text-center">
+  <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
@@ -119,7 +120,7 @@ const TeamCard = ({ member }: { member: typeof team[0] }) => (
         <Mail size={18} />
       </a>
     </div>
-  </div>
+  </Tilt3DCard>
 );
 const About = () => {
   return <>
