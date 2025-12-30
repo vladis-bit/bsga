@@ -69,34 +69,39 @@ export function ExpandableTabs({
     onChange?.(null);
   });
 
-  const handleSelect = (index: number, href?: string) => {
-    setSelected(index);
-    onChange?.(index);
+  const handleSelect = (tabIndex: number, href?: string) => {
+    setSelected(tabIndex);
+    onChange?.(tabIndex);
     if (href && onNavigate) {
       onNavigate(href);
     }
   };
 
-  const SeparatorComponent = () => (
-    <div className="mx-1 h-8 w-px bg-border" />
+  const SeparatorComponent = ({ separatorKey }: { separatorKey: string }) => (
+    <div key={separatorKey} className="mx-0.5 sm:mx-1 h-6 sm:h-8 w-px bg-border hidden sm:block" />
   );
+
+  // Track actual tab index (excluding separators)
+  let tabIndex = -1;
 
   return (
     <div
       ref={outsideClickRef}
       className={cn(
-        "flex items-center gap-1 rounded-full border border-border bg-background p-1 shadow-md",
+        "flex items-center gap-0.5 sm:gap-1 rounded-full border border-border bg-background p-0.5 sm:p-1 shadow-md",
         className
       )}
     >
-      {tabs.map((tab, index) => {
+      {tabs.map((tab, arrayIndex) => {
         if (!isTab(tab)) {
-          return <SeparatorComponent key={`separator-${index}`} />;
+          return <SeparatorComponent key={`separator-${arrayIndex}`} separatorKey={`separator-${arrayIndex}`} />;
         }
 
+        tabIndex++;
+        const currentTabIndex = tabIndex;
         const Icon = tab.icon;
-        const isActive = activeIndex === index;
-        const isSelected = selected === index || isActive;
+        const isActive = activeIndex === currentTabIndex;
+        const isSelected = selected === currentTabIndex || isActive;
 
         return (
           <motion.button
@@ -105,16 +110,16 @@ export function ExpandableTabs({
             initial="initial"
             animate="animate"
             custom={isSelected}
-            onClick={() => handleSelect(index, tab.href)}
+            onClick={() => handleSelect(currentTabIndex, tab.href)}
             transition={transition}
             className={cn(
-              "relative flex items-center rounded-full px-3 py-2 text-sm font-medium transition-colors duration-300",
+              "relative flex items-center rounded-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-300",
               isSelected
                 ? cn("bg-muted", activeColor)
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
-            <Icon size={18} />
+            <Icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
             <AnimatePresence initial={false}>
               {isSelected && (
                 <motion.span
