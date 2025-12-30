@@ -3,41 +3,50 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Instagram } from "lucide-react";
 import Tilt3DCard from "@/components/Tilt3DCard";
-
-const founders = [
-  { 
-    name: "Peter Švajlen", 
-    role: "Hlavný profesionál BSGA", 
-    instagram: "#", 
-    email: "peter@bsga.sk",
-    achievements: [
-      "6-násobný majster Slovenska",
-      "5-násobný víťaz PGA SK Order of Merit",
-      "Držiteľ Licencie \"A\" Five Star Golf Academy"
-    ]
-  },
-  { 
-    name: "Jakub Hrbáň", 
-    role: "Profesionál", 
-    instagram: "#", 
-    email: "jakub@bsga.sk",
-    achievements: [
-      "Hlavný tréner CTM v Hrubej Borši",
-      "Špecialista na fitting golfových palíc",
-      "Držiteľ Licencie \"B\" Five Star Golf Academy"
-    ]
-  },
-];
-
-const team = [
-  { name: "Michał Wirdzek", role: "Tréner BSGA", instagram: "#", email: "michal@bsga.sk" },
-  { name: "Maroš Gajan", role: "Tréner BSGA", instagram: "#", email: "maros@bsga.sk" },
-  { name: "Vanessa Fajkusová", role: "Tréner BSGA", instagram: "#", email: "vanessa@bsga.sk" },
-  { name: "Milan Neštický", role: "Tréner BSGA", instagram: "#", email: "milan@bsga.sk" },
-  { name: "Vladimír Leško", role: "Tréner BSGA", instagram: "#", email: "vladimir@bsga.sk" },
-  { name: "Donka Švajlenová", role: "Administratíva", instagram: "#", email: "donka@bsga.sk" },
-];
-
+const founders = [{
+  name: "Peter Švajlen",
+  role: "Hlavný profesionál BSGA",
+  instagram: "#",
+  email: "peter@bsga.sk",
+  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
+}, {
+  name: "Jakub Hrbáň",
+  role: "Profesionál",
+  instagram: "#",
+  email: "jakub@bsga.sk",
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
+}];
+const team = [{
+  name: "Michał Wirdzek",
+  role: "Tréner BSGA",
+  instagram: "#",
+  email: "michal@bsga.sk"
+}, {
+  name: "Maroš Gajan",
+  role: "Tréner BSGA",
+  instagram: "#",
+  email: "maros@bsga.sk"
+}, {
+  name: "Vanessa Fajkusová",
+  role: "Tréner BSGA",
+  instagram: "#",
+  email: "vanessa@bsga.sk"
+}, {
+  name: "Milan Neštický",
+  role: "Tréner BSGA",
+  instagram: "#",
+  email: "milan@bsga.sk"
+}, {
+  name: "Vladimír Leško",
+  role: "Tréner BSGA",
+  instagram: "#",
+  email: "vladimir@bsga.sk"
+}, {
+  name: "Donka Švajlenová",
+  role: "Administratíva",
+  instagram: "#",
+  email: "donka@bsga.sk"
+}];
 type TeamMember = {
   name: string;
   role: string;
@@ -45,9 +54,11 @@ type TeamMember = {
   email: string;
   achievements?: string[];
 };
-
-const FounderCard = ({ member }: { member: TeamMember }) => (
-  <Tilt3DCard className="group text-center">
+const FounderCard = ({
+  member
+}: {
+  member: TeamMember;
+}) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
@@ -62,34 +73,23 @@ const FounderCard = ({ member }: { member: TeamMember }) => (
     <p className="text-base text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
-    {member.achievements && (
-      <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-        {member.achievements.map((achievement, idx) => (
-          <li key={idx}>{achievement}</li>
-        ))}
-      </ul>
-    )}
+    {member.achievements && <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
+        {member.achievements.map((achievement, idx) => <li key={idx}>{achievement}</li>)}
+      </ul>}
     <div className="flex justify-center gap-3">
-      <a
-        href={member.instagram}
-        className="text-muted-foreground hover:text-gold transition-colors duration-300"
-        aria-label="Instagram"
-      >
+      <a href={member.instagram} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Instagram">
         <Instagram size={20} />
       </a>
-      <a
-        href={`mailto:${member.email}`}
-        className="text-muted-foreground hover:text-gold transition-colors duration-300"
-        aria-label="Email"
-      >
+      <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Email">
         <Mail size={20} />
       </a>
     </div>
-  </Tilt3DCard>
-);
-
-const TeamCard = ({ member }: { member: typeof team[0] }) => (
-  <Tilt3DCard className="group text-center">
+  </Tilt3DCard>;
+const TeamCard = ({
+  member
+}: {
+  member: typeof team[0];
+}) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
@@ -105,23 +105,14 @@ const TeamCard = ({ member }: { member: typeof team[0] }) => (
       {member.role}
     </p>
     <div className="flex justify-center gap-3">
-      <a
-        href={member.instagram}
-        className="text-muted-foreground hover:text-gold transition-colors duration-300"
-        aria-label="Instagram"
-      >
+      <a href={member.instagram} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Instagram">
         <Instagram size={18} />
       </a>
-      <a
-        href={`mailto:${member.email}`}
-        className="text-muted-foreground hover:text-gold transition-colors duration-300"
-        aria-label="Email"
-      >
+      <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Email">
         <Mail size={18} />
       </a>
     </div>
-  </Tilt3DCard>
-);
+  </Tilt3DCard>;
 const About = () => {
   return <>
       <Helmet>
@@ -156,11 +147,7 @@ const About = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 sm:mb-8">
                 Najväčšia golfová akadémia na Slovensku
               </h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
-                Best Swing Golf Academy (BSGA) vznikla koncom roku 2016 s jasnou
-                misiou: propagovať golf na Slovensku, vytvárať pozitívny obraz o
-                tejto hre a sprístupniť ju všetkým vekovým kategóriám.
-              </p>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám</p>
               
             </div>
           </div>
@@ -181,9 +168,7 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto">
-              {founders.map((member, index) => (
-                <FounderCard key={index} member={member} />
-              ))}
+              {founders.map((member, index) => <FounderCard key={index} member={member} />)}
             </div>
           </div>
         </section>
@@ -202,9 +187,7 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-              {team.map((member, index) => (
-                <TeamCard key={index} member={member} />
-              ))}
+              {team.map((member, index) => <TeamCard key={index} member={member} />)}
             </div>
           </div>
         </section>
