@@ -3,19 +3,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Instagram } from "lucide-react";
 
-const trainers = [
+const team = [
   { name: "Michał Wirdzek", role: "Tréner BSGA", instagram: "#", email: "michal@bsga.sk" },
   { name: "Maroš Gajan", role: "Tréner BSGA", instagram: "#", email: "maros@bsga.sk" },
   { name: "Vanessa Fajkusová", role: "Tréner BSGA", instagram: "#", email: "vanessa@bsga.sk" },
   { name: "Milan Neštický", role: "Tréner BSGA", instagram: "#", email: "milan@bsga.sk" },
   { name: "Vladimír Leško", role: "Tréner BSGA", instagram: "#", email: "vladimir@bsga.sk" },
-];
-
-const admin = [
   { name: "Donka Mihaleva", role: "Administratíva", instagram: "#", email: "donka@bsga.sk" },
 ];
 
-const TeamCard = ({ member }: { member: typeof trainers[0] }) => (
+const TeamCard = ({ member }: { member: typeof team[0] }) => (
   <div className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       <div className="absolute inset-0 flex items-center justify-center">
@@ -107,18 +104,9 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-              {trainers.map((member, index) => (
+              {team.map((member, index) => (
                 <TeamCard key={index} member={member} />
               ))}
-            </div>
-
-            {/* Admin Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mt-8 md:mt-10">
-              <div className="sm:col-start-1 lg:col-start-2">
-                {admin.map((member, index) => (
-                  <TeamCard key={index} member={member} />
-                ))}
-              </div>
             </div>
           </div>
         </section>
