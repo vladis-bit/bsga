@@ -50,9 +50,9 @@ const Tour = () => {
               <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
                 Hlavní partneri
               </span>
-              <div className="flex items-center gap-8 sm:gap-12">
-                <img src={asbisLogo} alt="ASBIS" className="h-20 sm:h-28 w-auto object-contain" />
-                <img src={checkpointLogo} alt="Check Point" className="h-20 sm:h-28 w-auto object-contain" />
+              <div className="flex items-center gap-12 sm:gap-16">
+                <img src={asbisLogo} alt="ASBIS" className="h-40 sm:h-56 w-auto object-contain" />
+                <img src={checkpointLogo} alt="Check Point" className="h-40 sm:h-56 w-auto object-contain" />
               </div>
             </div>
           </div>
