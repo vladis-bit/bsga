@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Home, Users, Briefcase, Trophy, Image, Mail } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Home, Users, Briefcase, Trophy, Image, Mail } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-logo.png";
 import { ExpandableTabs, type TabItem } from "@/components/ui/expandable-tabs";
 
@@ -32,22 +31,12 @@ const navLinks: NavItem[] = [
   { name: "Kontakt", href: "/#kontakt", icon: Mail },
 ];
 
-const mobileNavLinks = [
-  { name: "Domov", href: "/" },
-  { name: "O nás", href: "/o-nas" },
-  { name: "Služby", href: "/sluzby" },
-  { name: "Tour 2026", href: "/tour" },
-  { name: "Galéria", href: "/galeria" },
-  { name: "Kontakt", href: "/#kontakt" },
-];
-
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<number | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const menuRef = useRef<HTMLDivElement>(null);
 
-  // Get active tab index based on current route
+  // Get active tab index based on current route (counting only non-separator items)
   const getActiveIndex = (): number | null => {
     const currentPath = location.pathname;
     let tabIndex = 0;
@@ -56,15 +45,18 @@ const Navbar = () => {
       const link = navLinks[i];
       if (!isNavLink(link)) continue;
 
-      if (
-        link.href === currentPath ||
-        (link.href === "/#kontakt" && currentPath === "/" && location.hash === "#kontakt")
-      ) {
+      if (link.href === currentPath) {
+        return tabIndex;
+      }
+      if (link.href === "/#kontakt" && currentPath === "/" && location.hash === "#kontakt") {
         return tabIndex;
       }
       tabIndex++;
     }
-    return currentPath === "/" ? 0 : null;
+    
+    // Default to home if on root
+    if (currentPath === "/") return 0;
+    return null;
   };
 
   // Convert navLinks to tabs format
@@ -79,22 +71,10 @@ const Navbar = () => {
     };
   });
 
+  // Update active tab when route changes
   useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen]);
+    setActiveTab(getActiveIndex());
+  }, [location.pathname, location.hash]);
 
   const handleNavigate = (href: string) => {
     if (href.startsWith("/#")) {
@@ -110,56 +90,21 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md py-2 sm:py-3">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <img src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-14 sm:h-20 w-auto" />
+      <div className="container mx-auto px-2 sm:px-4 md:px-6">
+        <div className="flex items-center justify-between gap-2">
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-12 sm:h-16 md:h-20 w-auto" />
           </Link>
 
-          {/* Desktop: ExpandableTabs */}
-          <div className="hidden md:block">
+          {/* ExpandableTabs for all screen sizes */}
+          <div className="flex-shrink-0">
             <ExpandableTabs
               tabs={tabs}
               activeColor="text-gold"
-              activeIndex={getActiveIndex()}
+              activeIndex={activeTab}
               onNavigate={handleNavigate}
+              className="text-xs sm:text-sm"
             />
-          </div>
-
-          {/* Mobile: Hamburger Menu */}
-          <div className="relative md:hidden" ref={menuRef}>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-foreground transition-colors duration-300 flex items-center gap-2 hover:text-gold"
-            >
-              <span className="text-sm font-medium tracking-wide">MENU</span>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-
-            {/* Dropdown Menu */}
-            <div
-              className={cn(
-                "absolute right-0 top-full mt-2 w-56 bg-background rounded-lg shadow-xl border border-border overflow-hidden transition-all duration-300 origin-top-right",
-                isOpen
-                  ? "opacity-100 scale-100 translate-y-0"
-                  : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-              )}
-            >
-              <div className="py-2">
-                {mobileNavLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className={cn(
-                      "block px-6 py-3 text-foreground text-sm font-medium tracking-wide transition-colors hover:bg-muted hover:text-gold",
-                      location.pathname === link.href && "text-gold bg-muted"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
