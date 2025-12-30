@@ -35,7 +35,7 @@ const team = [
   { name: "Vanessa Fajkusová", role: "Tréner BSGA", instagram: "#", email: "vanessa@bsga.sk" },
   { name: "Milan Neštický", role: "Tréner BSGA", instagram: "#", email: "milan@bsga.sk" },
   { name: "Vladimír Leško", role: "Tréner BSGA", instagram: "#", email: "vladimir@bsga.sk" },
-  { name: "Donka Mihaleva", role: "Administratíva", instagram: "#", email: "donka@bsga.sk" },
+  { name: "Donka Švajlenová", role: "Administratíva", instagram: "#", email: "donka@bsga.sk" },
 ];
 
 type TeamMember = {
