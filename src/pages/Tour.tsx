@@ -44,7 +44,7 @@ const Tour = () => {
         </section>
 
         {/* Partners */}
-        <section className="py-8 sm:py-12 bg-secondary">
+        <section className="py-4 sm:py-6 bg-secondary">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="flex flex-col justify-center items-center gap-4 sm:gap-6">
               <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
