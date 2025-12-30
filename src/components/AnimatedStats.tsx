@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: 8, suffix: "+", label: "Rokov skúseností" },
+  { value: 10, suffix: "+", label: "Rokov skúseností" },
   { value: 2000, suffix: "+", label: "Spokojných klientov" },
   { value: 10, suffix: "", label: "Rôznych služieb" },
   { value: 4, suffix: "", label: "PGA profesionáli" },
