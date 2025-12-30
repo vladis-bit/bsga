@@ -16,7 +16,7 @@ const admin = [
 ];
 
 const TeamCard = ({ member }: { member: typeof trainers[0] }) => (
-  <div className="group">
+  <div className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
@@ -31,7 +31,7 @@ const TeamCard = ({ member }: { member: typeof trainers[0] }) => (
     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
-    <div className="flex gap-3">
+    <div className="flex justify-center gap-3">
       <a
         href={member.instagram}
         className="text-muted-foreground hover:text-gold transition-colors duration-300"
@@ -116,24 +116,18 @@ const About = () => {
             <div className="flex items-center gap-4 my-16 md:my-20">
               <div className="flex-1 h-px bg-border" />
               <span className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider px-4">
-                Support & Management
+                Administratíva
               </span>
               <div className="flex-1 h-px bg-border" />
             </div>
 
             {/* Admin Section */}
-            <div className="text-center mb-10">
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground">
-                Administratíva
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-md mx-auto lg:max-w-none lg:justify-items-center">
-              {admin.map((member, index) => (
-                <div key={index} className="lg:col-start-2">
-                  <TeamCard member={member} />
-                </div>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              <div className="sm:col-start-1 lg:col-start-2">
+                {admin.map((member, index) => (
+                  <TeamCard key={index} member={member} />
+                ))}
+              </div>
             </div>
           </div>
         </section>
