@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import CursorGlowCard from "@/components/CursorGlowCard";
 import {
   User,
   Users,
@@ -116,20 +117,22 @@ const Services = () => {
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <div
+                  <CursorGlowCard
                     key={index}
-                    className="group p-5 sm:p-6 md:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl"
+                    className="group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl"
                   >
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
-                      <Icon className="text-gold" size={22} />
+                    <div className="p-5 sm:p-6 md:p-8">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+                        <Icon className="text-gold" size={22} />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2 sm:mb-4">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2 sm:mb-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
+                  </CursorGlowCard>
                 );
               })}
             </div>
