@@ -55,14 +55,14 @@ const FounderCard = ({ member }: { member: TeamMember }) => (
       </div>
       <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
     </div>
-    <h3 className="text-lg font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
+    <h3 className="text-xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
       {member.name}
     </h3>
-    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-3">
+    <p className="text-base text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
     {member.achievements && (
-      <ul className="text-xs text-muted-foreground space-y-1 mb-3">
+      <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
         {member.achievements.map((achievement, idx) => (
           <li key={idx}>{achievement}</li>
         ))}
@@ -74,14 +74,14 @@ const FounderCard = ({ member }: { member: TeamMember }) => (
         className="text-muted-foreground hover:text-gold transition-colors duration-300"
         aria-label="Instagram"
       >
-        <Instagram size={18} />
+        <Instagram size={20} />
       </a>
       <a
         href={`mailto:${member.email}`}
         className="text-muted-foreground hover:text-gold transition-colors duration-300"
         aria-label="Email"
       >
-        <Mail size={18} />
+        <Mail size={20} />
       </a>
     </div>
   </div>
@@ -179,7 +179,7 @@ const About = () => {
               <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto">
               {founders.map((member, index) => (
                 <FounderCard key={index} member={member} />
               ))}
