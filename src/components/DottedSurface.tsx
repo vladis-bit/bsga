@@ -1,12 +1,10 @@
 import { cn } from '@/lib/utils';
-import { useTheme } from 'next-themes';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 type DottedSurfaceProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'ref'>;
 
 export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
-  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<{
     scene: THREE.Scene;
@@ -61,11 +59,8 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
         const z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2;
 
         positions.push(x, y, z);
-        if (theme === 'dark') {
-          colors.push(200, 200, 200);
-        } else {
-          colors.push(0, 0, 0);
-        }
+        // Gold color (RGB normalized to 0-1)
+        colors.push(0.96, 0.77, 0.26);
       }
     }
 
@@ -166,7 +161,7 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
         }
       }
     };
-  }, [theme]);
+  }, []);
 
   return (
     <div
