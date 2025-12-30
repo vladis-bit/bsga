@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink, FolderOpen } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-logo.png";
+
 const Footer = () => {
-  return <footer className="bg-foreground text-background">
+  return (
+    <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
               <img src={bsgaLogo} alt="BSGA Logo" className="h-10 sm:h-12 w-auto" />
               <h3 className="text-xl sm:text-2xl font-serif font-bold">BSGA</h3>
             </div>
-            <p className="text-background/70 text-xs sm:text-sm leading-relaxed">Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku. 
-
-Od roku 2016 pomáhame ľuďom objavovať krásu golfu.
-          </p>
+            <p className="text-background/70 text-xs sm:text-sm leading-relaxed">
+              Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku.
+              Od roku 2016 pomáhame ľuďom objavovať krásu golfu.
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -45,6 +47,23 @@ Od roku 2016 pomáhame ľuďom objavovať krásu golfu.
                 <Link to="/galeria" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
                   Galéria
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Extra */}
+          <div>
+            <h4 className="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Extra</h4>
+            <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <a
+                  href="https://bsga-performance-center.reenio.sk/sk/terms/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm"
+                >
+                  BSGA Performance Centre
+                </a>
               </li>
             </ul>
           </div>
@@ -97,6 +116,8 @@ Od roku 2016 pomáhame ľuďom objavovať krásu golfu.
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
