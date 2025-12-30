@@ -4,8 +4,28 @@ import Footer from "@/components/Footer";
 import { Mail, Instagram } from "lucide-react";
 
 const founders = [
-  { name: "Peter Švajlen", role: "Hlavný profesionál BSGA", instagram: "#", email: "peter@bsga.sk" },
-  { name: "Jakub Hrbáň", role: "Spoluzakladateľ a profesionál", instagram: "#", email: "jakub@bsga.sk" },
+  { 
+    name: "Peter Švajlen", 
+    role: "Hlavný profesionál BSGA", 
+    instagram: "#", 
+    email: "peter@bsga.sk",
+    achievements: [
+      "6-násobný majster Slovenska",
+      "5-násobný víťaz PGA SK Order of Merit",
+      "Držiteľ Licencie \"A\" Five Star Golf Academy"
+    ]
+  },
+  { 
+    name: "Jakub Hrbáň", 
+    role: "Profesionál", 
+    instagram: "#", 
+    email: "jakub@bsga.sk",
+    achievements: [
+      "Hlavný tréner CTM v Hrubej Borši",
+      "Špecialista na fitting golfových palíc",
+      "Držiteľ Licencie \"B\" Five Star Golf Academy"
+    ]
+  },
 ];
 
 const team = [
@@ -16,6 +36,56 @@ const team = [
   { name: "Vladimír Leško", role: "Tréner BSGA", instagram: "#", email: "vladimir@bsga.sk" },
   { name: "Donka Mihaleva", role: "Administratíva", instagram: "#", email: "donka@bsga.sk" },
 ];
+
+type TeamMember = {
+  name: string;
+  role: string;
+  instagram: string;
+  email: string;
+  achievements?: string[];
+};
+
+const FounderCard = ({ member }: { member: TeamMember }) => (
+  <div className="group text-center">
+    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
+          {member.name.charAt(0)}
+        </span>
+      </div>
+      <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
+    </div>
+    <h3 className="text-lg font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
+      {member.name}
+    </h3>
+    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-3">
+      {member.role}
+    </p>
+    {member.achievements && (
+      <ul className="text-xs text-muted-foreground space-y-1 mb-3">
+        {member.achievements.map((achievement, idx) => (
+          <li key={idx}>{achievement}</li>
+        ))}
+      </ul>
+    )}
+    <div className="flex justify-center gap-3">
+      <a
+        href={member.instagram}
+        className="text-muted-foreground hover:text-gold transition-colors duration-300"
+        aria-label="Instagram"
+      >
+        <Instagram size={18} />
+      </a>
+      <a
+        href={`mailto:${member.email}`}
+        className="text-muted-foreground hover:text-gold transition-colors duration-300"
+        aria-label="Email"
+      >
+        <Mail size={18} />
+      </a>
+    </div>
+  </div>
+);
 
 const TeamCard = ({ member }: { member: typeof team[0] }) => (
   <div className="group text-center">
@@ -109,9 +179,9 @@ const About = () => {
               <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
               {founders.map((member, index) => (
-                <TeamCard key={index} member={member} />
+                <FounderCard key={index} member={member} />
               ))}
             </div>
           </div>
