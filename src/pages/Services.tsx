@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import CursorGlowCard from "@/components/CursorGlowCard";
+import ShaderAnimation from "@/components/ShaderAnimation";
 import {
   User,
   Users,
@@ -95,6 +96,8 @@ const Services = () => {
         <section className="relative w-full bg-background pt-4 sm:pt-8">
           <div className="px-2 sm:px-4 md:px-8">
             <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+              {/* Shader Animation Background */}
+              <ShaderAnimation />
               <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
                 <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                   Služby
