@@ -1,18 +1,54 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Award, Star } from "lucide-react";
-const team = [{
-  name: "Peter Švajlen",
-  role: "Hlavný profesionál BSGA",
-  achievements: ["6-násobný majster Slovenska", '5-násobný víťaz PGA SK Order of Merit', 'Licencia "A" Five Star Golf Academy'],
-  email: "peter@bsga.sk"
-}, {
-  name: "Jakub Hrbáň",
-  role: "Spoluzakladateľ a profesionál",
-  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", 'Licencia "B" Five Star Golf Academy'],
-  email: "jakub@bsga.sk"
-}];
+import { Mail, Instagram } from "lucide-react";
+
+const trainers = [
+  { name: "Michał Wirdzek", role: "Tréner BSGA", instagram: "#", email: "michal@bsga.sk" },
+  { name: "Maroš Gajan", role: "Tréner BSGA", instagram: "#", email: "maros@bsga.sk" },
+  { name: "Vanessa Fajkusová", role: "Tréner BSGA", instagram: "#", email: "vanessa@bsga.sk" },
+  { name: "Milan Neštický", role: "Tréner BSGA", instagram: "#", email: "milan@bsga.sk" },
+  { name: "Vladimír Leško", role: "Tréner BSGA", instagram: "#", email: "vladimir@bsga.sk" },
+];
+
+const admin = [
+  { name: "Donka Mihaleva", role: "Administratíva", instagram: "#", email: "donka@bsga.sk" },
+];
+
+const TeamCard = ({ member }: { member: typeof trainers[0] }) => (
+  <div className="group">
+    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
+          {member.name.charAt(0)}
+        </span>
+      </div>
+      <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
+    </div>
+    <h3 className="text-lg font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
+      {member.name}
+    </h3>
+    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-3">
+      {member.role}
+    </p>
+    <div className="flex gap-3">
+      <a
+        href={member.instagram}
+        className="text-muted-foreground hover:text-gold transition-colors duration-300"
+        aria-label="Instagram"
+      >
+        <Instagram size={18} />
+      </a>
+      <a
+        href={`mailto:${member.email}`}
+        className="text-muted-foreground hover:text-gold transition-colors duration-300"
+        aria-label="Email"
+      >
+        <Mail size={18} />
+      </a>
+    </div>
+  </div>
+);
 const About = () => {
   return <>
       <Helmet>
@@ -57,10 +93,10 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team */}
+        {/* Team - Trainers */}
         <section className="py-12 sm:py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div className="text-center mb-12 md:mb-16">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 Náš tím
               </span>
@@ -70,30 +106,34 @@ const About = () => {
               <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
-              {team.map((member, index) => <div key={index} className="bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
-                    <span className="text-gold text-2xl sm:text-3xl font-serif font-bold">
-                      {member.name.charAt(0)}
-                    </span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground text-center mb-1 sm:mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-gold text-sm sm:text-base text-center mb-4 sm:mb-6">{member.role}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {trainers.map((member, index) => (
+                <TeamCard key={index} member={member} />
+              ))}
+            </div>
 
-                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {member.achievements.map((achievement, i) => <li key={i} className="flex items-start gap-2 sm:gap-3 text-muted-foreground">
-                        <Award className="text-gold flex-shrink-0 mt-0.5 sm:mt-1" size={14} />
-                        <span className="text-xs sm:text-sm">{achievement}</span>
-                      </li>)}
-                  </ul>
+            {/* Divider */}
+            <div className="flex items-center gap-4 my-16 md:my-20">
+              <div className="flex-1 h-px bg-border" />
+              <span className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider px-4">
+                Support & Management
+              </span>
+              <div className="flex-1 h-px bg-border" />
+            </div>
 
-                  <a href={`mailto:${member.email}`} className="flex items-center justify-center gap-2 text-sm sm:text-base text-foreground hover:text-gold transition-colors">
-                    <Mail size={16} />
-                    <span>{member.email}</span>
-                  </a>
-                </div>)}
+            {/* Admin Section */}
+            <div className="text-center mb-10">
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground">
+                Administratíva
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-md mx-auto lg:max-w-none lg:justify-items-center">
+              {admin.map((member, index) => (
+                <div key={index} className="lg:col-start-2">
+                  <TeamCard member={member} />
+                </div>
+              ))}
             </div>
           </div>
         </section>
