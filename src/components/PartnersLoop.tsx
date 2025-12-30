@@ -47,7 +47,7 @@ const PartnersLoop = () => {
           }
         }
         .animate-scroll {
-          animation: scroll 10s linear infinite;
+          animation: scroll 5s linear infinite;
         }
         .animate-scroll:hover {
           animation-play-state: paused;
