@@ -98,10 +98,10 @@ const About = () => {
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
             <div className="text-center mb-12 md:mb-16">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                Náš tím
+                O nás
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                Profesionálni tréneri
+                Náš tím
               </h2>
               <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
@@ -112,17 +112,8 @@ const About = () => {
               ))}
             </div>
 
-            {/* Divider */}
-            <div className="flex items-center gap-4 my-16 md:my-20">
-              <div className="flex-1 h-px bg-border" />
-              <span className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider px-4">
-                Administratíva
-              </span>
-              <div className="flex-1 h-px bg-border" />
-            </div>
-
             {/* Admin Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mt-8 md:mt-10">
               <div className="sm:col-start-1 lg:col-start-2">
                 {admin.map((member, index) => (
                   <TeamCard key={index} member={member} />
