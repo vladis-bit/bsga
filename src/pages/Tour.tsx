@@ -1,25 +1,43 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, MapPin, Mail, FileText, Trophy } from "lucide-react";
+import { Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.png";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
-const tournaments = [{
-  date: "15.5.2026",
-  location: "Hrubá Borša"
-}, {
-  date: "5.6.2026",
-  location: "Tále"
-}, {
-  date: "17.7.2026",
-  location: "Penati Legend"
-}, {
-  date: "14.8.2026",
-  location: "Penati Heritage"
-}, {
-  date: "4.9.2026",
-  location: "Ostravice"
-}];
+import TournamentCard from "@/components/TournamentCard";
+
+const tournaments = [
+  {
+    number: 1,
+    date: "15.5.2026",
+    location: "Hrubá Borša",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 2,
+    date: "5.6.2026",
+    location: "Tále",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 3,
+    date: "17.7.2026",
+    location: "Penati Legend",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 4,
+    date: "14.8.2026",
+    location: "Penati Heritage",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 5,
+    date: "4.9.2026",
+    location: "Ostravice",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  }
+];
 const Tour = () => {
   return <>
       <Helmet>
@@ -87,23 +105,15 @@ const Tour = () => {
             </div>
 
             <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
-              {tournaments.map((tournament, index) => <div key={index} className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg">
-                  <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center">
-                    <Trophy className="text-gold" size={20} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                      <div className="flex items-center gap-2 text-foreground font-medium text-sm sm:text-base">
-                        <Calendar size={16} className="text-gold flex-shrink-0" />
-                        <span>{tournament.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm sm:text-base">
-                        <MapPin size={16} className="text-gold flex-shrink-0" />
-                        <span className="truncate">{tournament.location}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>)}
+              {tournaments.map((tournament) => (
+                <TournamentCard
+                  key={tournament.number}
+                  number={tournament.number}
+                  date={tournament.date}
+                  location={tournament.location}
+                  links={tournament.links}
+                />
+              ))}
             </div>
           </div>
         </section>
