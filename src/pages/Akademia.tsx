@@ -21,20 +21,9 @@ const Akademia = () => {
         {/* Hero Section with News Slider */}
         <section className="relative w-full bg-background pt-4 sm:pt-8">
           <div className="px-2 sm:px-4 md:px-8">
-            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-12 sm:py-16 md:py-20">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-20 md:py-24">
               <DottedSurface />
               <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                <div className="text-center mb-8 sm:mb-10 md:mb-12">
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                    Akadémia
-                  </span>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-                    BSGA Development Program
-                  </h1>
-                  <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-                    Komplexný rozvoj mladého športovca od útleho veku
-                  </p>
-                </div>
                 <div className="max-w-4xl mx-auto">
                   <AkademiaNewsSlider />
                 </div>

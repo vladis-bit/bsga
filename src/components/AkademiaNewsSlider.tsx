@@ -53,22 +53,22 @@ const AkademiaNewsSlider = () => {
   };
 
   return (
-    <div className="relative bg-card border border-border rounded-2xl sm:rounded-3xl overflow-hidden">
-      <div className="relative min-h-[200px] sm:min-h-[240px] md:min-h-[280px] flex items-center justify-center p-6 sm:p-8 md:p-12">
+    <div className="relative">
+      <div className="relative min-h-[180px] sm:min-h-[200px] md:min-h-[220px] flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 flex flex-col items-center justify-center p-6 sm:p-8 md:p-12 text-center transition-opacity duration-500 ${
+            className={`absolute inset-0 flex flex-col items-center justify-center text-center transition-opacity duration-500 ${
               index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
             <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase mb-2">
               Novinky
             </span>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-foreground mb-2 sm:mb-3">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-primary-foreground mb-2 sm:mb-3">
               {slide.title}
             </h3>
-            <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 max-w-lg">
+            <p className="text-primary-foreground/80 text-sm sm:text-base mb-4 sm:mb-6 max-w-lg">
               {slide.subtitle}
             </p>
             <button
@@ -84,27 +84,27 @@ const AkademiaNewsSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-background/80 border border-border flex items-center justify-center hover:bg-gold/10 transition-colors"
+        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
         aria-label="Predchádzajúci"
       >
-        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-background/80 border border-border flex items-center justify-center hover:bg-gold/10 transition-colors"
+        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
         aria-label="Nasledujúci"
       >
-        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="flex justify-center gap-2 mt-6">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-gold w-6" : "bg-border hover:bg-gold/50"
+              index === currentSlide ? "bg-gold w-6" : "bg-primary-foreground/30 hover:bg-primary-foreground/50"
             }`}
             aria-label={`Slide ${index + 1}`}
           />
