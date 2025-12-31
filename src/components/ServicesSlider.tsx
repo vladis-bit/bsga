@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Users, User, Award } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar } from "lucide-react";
 
 const services = [
   {
@@ -16,21 +15,75 @@ const services = [
       "Tréning v príjemnej skupine, kde sa učíš spolu s ostatnými. Dynamika, zdravá motivácia a praktické cvičenia.",
   },
   {
+    icon: GraduationCap,
+    title: "Štart karty",
+    description:
+      "Ideálny program pre úplných začiatočníkov. Získaš pevné základy a pochopíš, ako golf funguje.",
+  },
+  {
     icon: Award,
     title: "Zelené karty",
     description:
       "Kompletný kurz, ktorý ťa pripraví na samostatnú hru. Technika, pravidlá, etika a záverečný test.",
   },
+  {
+    icon: Baby,
+    title: "Detská akadémia",
+    description:
+      "Tréningy pre deti, ktoré spájajú pohyb, hravosť a systematický rozvoj techniky.",
+  },
+  {
+    icon: Tent,
+    title: "Detské kempy",
+    description:
+      "Týždne plné golfu a zážitkov. Šport, hry a aktivity, ktoré zlepšia golfové schopnosti.",
+  },
+  {
+    icon: Building2,
+    title: "Firemné akcie",
+    description:
+      "Kombinácia golfu, zábavy a spolupráce. Vhodné pre firmy, ktoré chcú podporiť tímového ducha.",
+  },
+  {
+    icon: Trophy,
+    title: "BSGA Tour",
+    description:
+      "Séria turnajov, kde môžeš otestovať svoju formu a súťažiť s hráčmi podobnej úrovne.",
+  },
+  {
+    icon: Wrench,
+    title: "Fitting",
+    description:
+      "Merania a testovanie palíc, aby si našiel vybavenie, ktoré ti skutočne sedí.",
+  },
+  {
+    icon: Calendar,
+    title: "Akcie na mieru",
+    description:
+      "Golfové podujatia pripravené podľa tvojich predstáv – od menších osláv až po viacdňové pobyty.",
+  },
 ];
 
 const ServicesSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Calculate how many items to show based on screen size
+  const itemsPerView = 3; // Desktop shows 3
+  const maxIndex = Math.max(0, services.length - itemsPerView);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % services.length);
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const prevSlide = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const nextSlideMobile = () => {
+    setCurrentIndex((prev) => (prev + 1) % services.length);
+  };
+
+  const prevSlideMobile = () => {
     setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
   };
 
@@ -62,15 +115,18 @@ const ServicesSlider = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-4 mt-8">
             <button
-              onClick={prevSlide}
+              onClick={prevSlideMobile}
               className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronLeft size={24} />
             </button>
+            <span className="text-muted-foreground text-sm">
+              {currentIndex + 1} / {services.length}
+            </span>
             <button
-              onClick={nextSlide}
+              onClick={nextSlideMobile}
               className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronRight size={24} />
@@ -78,11 +134,48 @@ const ServicesSlider = () => {
           </div>
         </div>
 
-        {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} />
-          ))}
+        {/* Desktop Slider */}
+        <div className="hidden lg:block relative">
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500"
+              style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+            >
+              {services.map((service, index) => (
+                <div key={index} className="w-1/3 flex-shrink-0 px-4">
+                  <ServiceCard service={service} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button
+              onClick={prevSlide}
+              disabled={currentIndex === 0}
+              className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <div className="flex gap-2">
+              {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    idx === currentIndex ? "bg-gold" : "bg-border hover:bg-gold/50"
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={nextSlide}
+              disabled={currentIndex === maxIndex}
+              className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
         </div>
 
         <div className="text-center mt-12">
@@ -111,7 +204,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const Icon = service.icon;
 
   return (
-    <div className="group p-5 sm:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl">
+    <div className="group p-5 sm:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
       <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
         <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
       </div>
