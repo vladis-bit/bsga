@@ -72,29 +72,26 @@ const TimelineCard = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const Icon = stage.icon;
-  const isLeft = index % 2 === 0;
 
   return (
-    <div ref={ref} className="relative flex items-center justify-center mb-8 md:mb-12">
+    <div ref={ref} className="relative flex items-start mb-8 md:mb-12">
       {/* Timeline line */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
+      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border" />
 
       {/* Timeline dot */}
       <motion.div
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
-        className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-gold border-4 border-background md:-translate-x-1/2 z-10"
+        className="absolute left-6 top-7 w-4 h-4 rounded-full bg-gold border-4 border-background -translate-x-1/2 z-10"
       />
 
       {/* Card */}
       <motion.div
-        initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -50 : 50 }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className={`w-full md:w-[calc(50%-2rem)] ml-10 md:ml-0 ${
-          isLeft ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-        }`}
+        className="w-full ml-14"
       >
         <div className="bg-card border border-border hover:border-gold/30 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:shadow-lg">
           <div className="flex items-center gap-4 mb-4">
