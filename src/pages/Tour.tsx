@@ -6,35 +6,46 @@ import asbisLogo from "@/assets/partner-asbis-tour.png";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 
+import hrubaBorsaImg from "@/assets/courses/hruba-borsa.jpeg";
+import taleImg from "@/assets/courses/tale.jpg";
+import heritageImg from "@/assets/courses/heritage.jpg";
+import legendImg from "@/assets/courses/legend.jpg";
+import ostraviceImg from "@/assets/courses/ostravice.jpg";
+
 const tournaments = [
   {
     number: 1,
     date: "15.5.2026",
     location: "Hrubá Borša",
+    image: hrubaBorsaImg,
     links: { locationUrl: "https://maps.app.goo.gl/4RYGX7fM6i6JNign6", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/1TLphxWdQEHPAuaNvflVUHiIw8qfApUiC?usp=sharing" }
   },
   {
     number: 2,
     date: "5.6.2026",
     location: "Tále",
+    image: taleImg,
     links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/1TLphxWdQEHPAuaNvflVUHiIw8qfApUiC?usp=sharing" }
   },
   {
     number: 3,
     date: "17.7.2026",
     location: "Penati Heritage",
+    image: heritageImg,
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/1D6lcI6d3Ojp6wXup8qxJmXqqY88ed_LX?usp=drive_link" }
   },
   {
     number: 4,
     date: "14.8.2026",
     location: "Penati Legend",
+    image: legendImg,
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/12TcsW8fck2_i5miq28QNIDxl_tdyDmpu?usp=drive_link" }
   },
   {
     number: 5,
     date: "4.9.2026",
     location: "Ostravice",
+    image: ostraviceImg,
     links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
   }
 ];
@@ -111,6 +122,7 @@ const Tour = () => {
                   number={tournament.number}
                   date={tournament.date}
                   location={tournament.location}
+                  image={tournament.image}
                   links={tournament.links}
                 />
               ))}
