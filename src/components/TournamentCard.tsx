@@ -28,7 +28,14 @@ const TournamentCard = ({ number, date, location, links }: TournamentCardProps) 
     <motion.div
       className="bg-primary border border-gold/30 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10"
       onClick={() => setIsExpanded(!isExpanded)}
-      layout
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setIsExpanded(!isExpanded);
+        }
+      }}
+      role="button"
+      tabIndex={0}
     >
       {/* Header - always visible */}
       <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6">

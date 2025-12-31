@@ -104,7 +104,7 @@ const Tour = () => {
               <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
             </div>
 
-            <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
               {tournaments.map((tournament) => (
                 <TournamentCard
                   key={tournament.number}
