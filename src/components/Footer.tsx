@@ -44,8 +44,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/galeria" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
-                  Galéria
+                <Link to="/akademia" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                  Akadémia
                 </Link>
               </li>
             </ul>
@@ -64,6 +64,11 @@ const Footer = () => {
                 >
                   BSGA Performance Centre
                 </a>
+              </li>
+              <li>
+                <Link to="/galeria" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                  Galéria
+                </Link>
               </li>
             </ul>
           </div>

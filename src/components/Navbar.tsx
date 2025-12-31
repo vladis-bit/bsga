@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, Users, Briefcase, Trophy, Image, Mail } from "lucide-react";
+import { Home, Users, Briefcase, Trophy, Star, Mail } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-logo.png";
 import { ExpandableTabs, type TabItem } from "@/components/ui/expandable-tabs";
 
@@ -27,7 +27,7 @@ const navLinks: NavItem[] = [
   { name: "Služby", href: "/sluzby", icon: Briefcase },
   { type: "separator" },
   { name: "Tour 2026", href: "/tour", icon: Trophy },
-  { name: "Galéria", href: "/galeria", icon: Image },
+  { name: "Akadémia", href: "/akademia", icon: Star },
   { name: "Kontakt", href: "/#kontakt", icon: Mail },
 ];
 
