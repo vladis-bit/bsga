@@ -22,13 +22,13 @@ const tournaments = [
   {
     number: 3,
     date: "17.7.2026",
-    location: "Penati Legend",
+    location: "Penati Heritage",
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 4,
     date: "14.8.2026",
-    location: "Penati Heritage",
+    location: "Penati Legend",
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "#", galleryUrl: "#" }
   },
   {
