@@ -67,7 +67,7 @@ const TournamentCard = ({ number, date, location, links }: TournamentCardProps) 
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-gold/20">
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 {actionButtons.map((button, index) => (
                   <a
                     key={index}
