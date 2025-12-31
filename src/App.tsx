@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Tour from "./pages/Tour";
+import Akademia from "./pages/Akademia";
 import Gallery from "./pages/Gallery";
 import GDPR from "./pages/GDPR";
 import NotFound from "./pages/NotFound";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/o-nas" element={<About />} />
             <Route path="/sluzby" element={<Services />} />
             <Route path="/tour" element={<Tour />} />
+            <Route path="/akademia" element={<Akademia />} />
             <Route path="/galeria" element={<Gallery />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="*" element={<NotFound />} />
