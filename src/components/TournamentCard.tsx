@@ -12,10 +12,11 @@ interface TournamentCardProps {
   number: number;
   date: string;
   location: string;
+  image?: string;
   links?: TournamentLinks;
 }
 
-const TournamentCard = ({ number, date, location, links }: TournamentCardProps) => {
+const TournamentCard = ({ number, date, location, image, links }: TournamentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const actionButtons = [
@@ -30,6 +31,19 @@ const TournamentCard = ({ number, date, location, links }: TournamentCardProps) 
       onClick={() => setIsExpanded(!isExpanded)}
       layout
     >
+      {/* Course Image */}
+      {image && (
+        <div className="p-3 sm:p-4 pb-0">
+          <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-gold/20">
+            <img
+              src={image}
+              alt={location}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Header - always visible */}
       <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6">
         {/* Tournament number */}
