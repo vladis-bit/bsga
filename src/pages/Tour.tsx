@@ -11,31 +11,31 @@ const tournaments = [
     number: 1,
     date: "15.5.2026",
     location: "Hrubá Borša",
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/4RYGX7fM6i6JNign6", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 2,
     date: "5.6.2026",
     location: "Tále",
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 3,
     date: "17.7.2026",
     location: "Penati Legend",
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 4,
     date: "14.8.2026",
     location: "Penati Heritage",
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 5,
     date: "4.9.2026",
     location: "Ostravice",
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "#" }
   }
 ];
 const Tour = () => {
