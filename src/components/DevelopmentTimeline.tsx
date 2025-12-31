@@ -75,17 +75,6 @@ const TimelineCard = ({
 
   return (
     <div ref={ref} className="relative flex items-start mb-8 md:mb-12">
-      {/* Timeline line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border" />
-
-      {/* Timeline dot */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={isInView ? { scale: 1 } : { scale: 0 }}
-        transition={{ duration: 0.3, delay: 0.2 }}
-        className="absolute left-6 top-7 w-4 h-4 rounded-full bg-gold border-4 border-background -translate-x-1/2 z-10"
-      />
-
       {/* Card */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -128,6 +117,9 @@ const TimelineCard = ({
 const DevelopmentTimeline = () => {
   return (
     <div className="relative">
+      {/* Single continuous timeline line */}
+      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border" />
+      
       {stages.map((stage, index) => (
         <TimelineCard key={index} stage={stage} index={index} />
       ))}
