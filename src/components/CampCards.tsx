@@ -15,17 +15,17 @@ const camps: Camp[] = [
   {
     title: "Turnus 1",
     date: "TBD",
-    location: "Bude upresnené",
+    location: "Hrubá Borša",
   },
   {
     title: "Turnus 2",
     date: "TBD",
-    location: "Bude upresnené",
+    location: "Hrubá Borša",
   },
   {
     title: "Turnus 3",
     date: "TBD",
-    location: "Bude upresnené",
+    location: "Hrubá Borša",
   },
 ];
 
