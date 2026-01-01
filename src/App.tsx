@@ -12,6 +12,7 @@ import Tour from "./pages/Tour";
 import Akademia from "./pages/Akademia";
 import Gallery from "./pages/Gallery";
 import GDPR from "./pages/GDPR";
+import EducationCenter from "./pages/EducationCenter";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/tour" element={<Tour />} />
             <Route path="/akademia" element={<Akademia />} />
             <Route path="/galeria" element={<Gallery />} />
+            <Route path="/edukacne-centrum" element={<EducationCenter />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
