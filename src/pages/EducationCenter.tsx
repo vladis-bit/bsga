@@ -42,11 +42,11 @@ const EducationCenter = () => {
                 Edukačné centrum
               </h1>
 
-              <div className="relative flex justify-center h-12 sm:h-16 md:h-20 overflow-hidden">
+              <div className="relative w-full flex items-center justify-center h-12 sm:h-16 md:h-20 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={titleNumber}
-                    className="absolute text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-gold"
+                    className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-foreground"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -50 }}
