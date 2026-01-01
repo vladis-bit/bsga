@@ -46,7 +46,7 @@ const Akademia = () => {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase">
-                Leto 2026
+                Akadémia
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-2 mb-4">
                 Detské tábory 2026
