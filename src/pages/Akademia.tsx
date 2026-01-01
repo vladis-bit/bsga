@@ -33,9 +33,7 @@ const Akademia = () => {
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase">AKADÉMIA</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-2 mb-4">Rozvoj detí od skorého veku</h2>
-              <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
-                Náš program sprevádza mladých športovcov od prvých krokov až po profesionálnu kariéru
-              </p>
+              <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">Náš program sprevádza mladých golfistov od prvých krokov až po prijatie na americkú univerzitu alebo profesionálnu kariéru</p>
             </div>
             <DevelopmentTimeline />
           </div>
