@@ -37,16 +37,16 @@ const EducationCenter = () => {
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center justify-center min-h-screen gap-6 sm:gap-8">
-            <div className="flex flex-col items-center gap-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground tracking-tight text-center">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground tracking-tight">
                 Edukačné centrum
               </h1>
 
-              <div className="relative w-full flex items-center justify-center h-12 sm:h-16 md:h-20 overflow-hidden">
+              <div className="relative h-12 sm:h-16 md:h-20 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={titleNumber}
-                    className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-foreground"
+                    className="block whitespace-nowrap text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-foreground"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -50 }}
