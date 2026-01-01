@@ -36,7 +36,7 @@ const EducationCenter = () => {
 
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col items-center justify-center min-h-[80vh] gap-6 sm:gap-8 py-20">
+          <div className="flex flex-col items-center justify-center min-h-screen gap-6 sm:gap-8">
             <div className="flex flex-col items-center gap-4">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground tracking-tight text-center">
                 Edukačné centrum
