@@ -28,20 +28,25 @@ const EducationCenter = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center pt-24 sm:pt-28 md:pt-32 gap-4 sm:gap-6">
             <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight font-sans">
+              <h1 className="sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight font-sans text-4xl">
                 Edukačné centrum
               </h1>
 
               <div className="relative h-10 sm:h-12 md:h-16 overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.span 
-                    key={titleNumber} 
-                    className="block whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground" 
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                  >
+                  <motion.span key={titleNumber} className="block whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground" initial={{
+                  opacity: 0,
+                  y: 50
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} exit={{
+                  opacity: 0,
+                  y: -50
+                }} transition={{
+                  duration: 0.4,
+                  ease: "easeInOut"
+                }}>
                     {titles[titleNumber]}
                   </motion.span>
                 </AnimatePresence>
