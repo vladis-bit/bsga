@@ -5,16 +5,11 @@ import DottedSurface from "@/components/DottedSurface";
 import AkademiaNewsSlider from "@/components/AkademiaNewsSlider";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
-
 const Akademia = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Akadémia | BSGA - Best Swing Golf Academy</title>
-        <meta
-          name="description"
-          content="BSGA Akadémia - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku."
-        />
+        <meta name="description" content="BSGA Akadémia - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku." />
       </Helmet>
       <Navbar />
       <main className="bg-background">
@@ -36,12 +31,8 @@ const Akademia = () => {
         <section id="timeline" className="py-12 sm:py-16 md:py-20 bg-background scroll-mt-24">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase">
-                Fázy rozvoja
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-2 mb-4">
-                Vývoj dieťaťa od skorého veku
-              </h2>
+              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase">AKADÉMIA</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-2 mb-4">Rozvoj detí od skorého veku</h2>
               <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
                 Náš program sprevádza mladých športovcov od prvých krokov až po profesionálnu kariéru
               </p>
@@ -78,10 +69,7 @@ const Akademia = () => {
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Kontaktujte nás a dozvie sa viac o našich programoch pre mladých golfistov.
               </p>
-              <a
-                href="mailto:kids@bsga.sk?subject=Otázka k BSGA Akadémii"
-                className="inline-flex items-center justify-center px-8 py-3 bg-gold text-primary font-semibold rounded-full hover:bg-gold-light transition-colors"
-              >
+              <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Akadémii" className="inline-flex items-center justify-center px-8 py-3 bg-gold text-primary font-semibold rounded-full hover:bg-gold-light transition-colors">
                 Napísať nám
               </a>
             </div>
@@ -89,8 +77,6 @@ const Akademia = () => {
         </section>
       </main>
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default Akademia;
