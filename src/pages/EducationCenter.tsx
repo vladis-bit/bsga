@@ -44,20 +44,16 @@ const EducationCenter = () => {
 
               <div className="relative flex justify-center h-12 sm:h-16 md:h-20 overflow-hidden">
                 <AnimatePresence mode="wait">
-                  {titles.map((title, index) => (
-                    titleNumber === index && (
-                      <motion.span
-                        key={index}
-                        className="absolute text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-gold"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -50 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                      >
-                        {title}
-                      </motion.span>
-                    )
-                  ))}
+                  <motion.span
+                    key={titleNumber}
+                    className="absolute text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-gold"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    {titles[titleNumber]}
+                  </motion.span>
                 </AnimatePresence>
               </div>
             </div>
