@@ -47,58 +47,75 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className={`relative rounded-2xl sm:rounded-3xl border p-5 sm:p-6 md:p-8 transition-all duration-300 hover:shadow-lg ${
+      className={`relative rounded-3xl border p-4 sm:p-6 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10 ${
         camp.isHighlight
           ? "bg-gradient-to-br from-gold/20 to-gold/5 border-gold/50"
           : "bg-card border-border hover:border-gold/30"
       }`}
     >
-      {camp.isHighlight && (
-        <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-gold text-primary text-xs font-medium px-3 py-1 rounded-full">
-          <Sparkles className="w-3 h-3" />
-          Novinky
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        {/* Left - Number/Icon */}
+        <div className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg ${
+          camp.isHighlight 
+            ? "bg-gold text-primary" 
+            : "bg-gold/10 text-gold"
+        }`}>
+          {camp.isHighlight ? <Sparkles className="w-5 h-5" /> : index + 1}
         </div>
-      )}
 
-      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3">
-        {camp.title}
-      </h3>
-
-      <div className="space-y-2 mb-4">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Calendar className="w-4 h-4 text-gold" />
-          <span>Dátum: {camp.date}</span>
-        </div>
-        {camp.location && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <MapPin className="w-4 h-4 text-gold" />
-            <span>{camp.location}</span>
+        {/* Center - Content */}
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 mb-1">
+            <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
+              {camp.title}
+            </h3>
+            {camp.isHighlight && (
+              <span className="bg-gold text-primary text-xs font-medium px-2 py-0.5 rounded-full">
+                Novinky
+              </span>
+            )}
           </div>
-        )}
+          
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1.5">
+              <Calendar className="w-4 h-4 text-gold" />
+              <span>{camp.date}</span>
+            </div>
+            {camp.location && (
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-gold" />
+                <span>{camp.location}</span>
+              </div>
+            )}
+          </div>
+          
+          {camp.description && (
+            <p className="text-muted-foreground text-sm mt-2">{camp.description}</p>
+          )}
+        </div>
+
+        {/* Right - Button */}
+        <div className="flex-shrink-0 sm:ml-4">
+          <a
+            href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
+            className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+              camp.isHighlight
+                ? "bg-gold text-primary hover:bg-gold-light"
+                : "bg-gold/10 text-gold hover:bg-gold/20"
+            }`}
+          >
+            <Mail className="w-4 h-4" />
+            Prihlásiť sa
+          </a>
+        </div>
       </div>
-
-      {camp.description && (
-        <p className="text-muted-foreground text-sm mb-4">{camp.description}</p>
-      )}
-
-      <a
-        href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
-        className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
-          camp.isHighlight
-            ? "bg-gold text-primary hover:bg-gold-light"
-            : "bg-gold/10 text-gold hover:bg-gold/20"
-        }`}
-      >
-        <Mail className="w-4 h-4" />
-        Prihlásiť sa
-      </a>
     </motion.div>
   );
 };
 
 const CampCards = () => {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
       {camps.map((camp, index) => (
         <CampCard key={index} camp={camp} index={index} />
       ))}
