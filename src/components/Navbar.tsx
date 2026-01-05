@@ -1,14 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, Users, Briefcase, Trophy, Star, Mail } from "lucide-react";
+import { Menu } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-logo.png";
-import { ExpandableTabs, type TabItem } from "@/components/ui/expandable-tabs";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 type NavLink = {
   type?: "link";
   name: string;
   href: string;
-  icon: typeof Home;
 };
 
 type NavSeparator = {
@@ -22,61 +27,29 @@ function isNavLink(item: NavItem): item is NavLink {
 }
 
 const navLinks: NavItem[] = [
-  { name: "Domov", href: "/", icon: Home },
-  { name: "O nás", href: "/o-nas", icon: Users },
-  { name: "Služby", href: "/sluzby", icon: Briefcase },
+  { name: "Domov", href: "/" },
+  { name: "O nás", href: "/o-nas" },
+  { name: "Služby", href: "/sluzby" },
   { type: "separator" },
-  { name: "Tour 2026", href: "/tour", icon: Trophy },
-  { name: "Akadémia", href: "/akademia", icon: Star },
-  { name: "Kontakt", href: "/#kontakt", icon: Mail },
+  { name: "Tour 2026", href: "/tour" },
+  { name: "Akadémia", href: "/akademia" },
+  { name: "Kontakt", href: "/#kontakt" },
 ];
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Get active tab index based on current route (counting only non-separator items)
-  const getActiveIndex = (): number | null => {
-    const currentPath = location.pathname;
-    let tabIndex = 0;
-
-    for (let i = 0; i < navLinks.length; i++) {
-      const link = navLinks[i];
-      if (!isNavLink(link)) continue;
-
-      if (link.href === currentPath) {
-        return tabIndex;
-      }
-      if (link.href === "/#kontakt" && currentPath === "/" && location.hash === "#kontakt") {
-        return tabIndex;
-      }
-      tabIndex++;
+  const isActive = (href: string): boolean => {
+    if (href === "/#kontakt") {
+      return location.pathname === "/" && location.hash === "#kontakt";
     }
-    
-    // Default to home if on root
-    if (currentPath === "/") return 0;
-    return null;
+    return location.pathname === href;
   };
 
-  // Convert navLinks to tabs format
-  const tabs: TabItem[] = navLinks.map((link) => {
-    if (!isNavLink(link)) {
-      return { type: "separator" as const };
-    }
-    return {
-      title: link.name,
-      icon: link.icon,
-      href: link.href,
-    };
-  });
-
-  // Update active tab when route changes
-  useEffect(() => {
-    setActiveTab(getActiveIndex());
-  }, [location.pathname, location.hash]);
-
   const handleNavigate = (href: string) => {
+    setIsOpen(false);
     if (href.startsWith("/#")) {
       navigate("/");
       setTimeout(() => {
@@ -90,21 +63,83 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md py-2 sm:py-3">
-      <div className="container mx-auto px-2 sm:px-4 md:px-6">
-        <div className="flex items-center justify-between gap-2">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-12 sm:h-16 md:h-20 w-auto" />
+            <img
+              src={bsgaLogo}
+              alt="BSGA - Best Swing Golf Academy"
+              className="h-12 sm:h-16 md:h-20 w-auto"
+            />
           </Link>
 
-          {/* ExpandableTabs for all screen sizes */}
-          <div className="flex-shrink-0">
-            <ExpandableTabs
-              tabs={tabs}
-              activeColor="text-gold"
-              activeIndex={activeTab}
-              onNavigate={handleNavigate}
-              className="text-xs sm:text-sm"
-            />
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((item, index) => {
+              if (!isNavLink(item)) {
+                return (
+                  <span
+                    key={`sep-${index}`}
+                    className="text-border mx-3"
+                  >
+                    |
+                  </span>
+                );
+              }
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavigate(item.href)}
+                  className={`px-3 py-2 text-sm font-medium transition-colors hover:text-gold ${
+                    isActive(item.href)
+                      ? "text-gold"
+                      : "text-foreground"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Mobile/Tablet Hamburger Menu */}
+          <div className="lg:hidden">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-10 w-10">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Otvoriť menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] pt-12">
+                <nav className="flex flex-col gap-1">
+                  {navLinks.map((item, index) => {
+                    if (!isNavLink(item)) {
+                      return (
+                        <div
+                          key={`sep-${index}`}
+                          className="h-px bg-border my-3"
+                        />
+                      );
+                    }
+                    return (
+                      <SheetClose asChild key={item.href}>
+                        <button
+                          onClick={() => handleNavigate(item.href)}
+                          className={`px-4 py-3 text-left text-base font-medium rounded-lg transition-colors hover:bg-gold/10 hover:text-gold ${
+                            isActive(item.href)
+                              ? "text-gold bg-gold/5"
+                              : "text-foreground"
+                          }`}
+                        >
+                          {item.name}
+                        </button>
+                      </SheetClose>
+                    );
+                  })}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
