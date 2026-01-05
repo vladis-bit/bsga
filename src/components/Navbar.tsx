@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu } from "lucide-react";
-import bsgaLogo from "@/assets/bsga-logo.png";
+import bsgaLogo from "@/assets/bsga-web-logo.png";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -69,7 +69,7 @@ const Navbar = () => {
             <img
               src={bsgaLogo}
               alt="BSGA - Best Swing Golf Academy"
-              className="h-12 sm:h-16 md:h-20 w-auto"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto max-w-[200px] sm:max-w-[280px] md:max-w-none"
             />
           </Link>
 
