@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
-              <img src={bsgaLogo} alt="BSGA Logo" className="h-10 sm:h-12 w-auto" />
+              
               
             </div>
             <p className="text-background/70 text-xs sm:text-sm leading-relaxed">
