@@ -63,27 +63,36 @@ const StatItem = ({ value, suffix, label, isVisible, delay }: StatItemProps) => 
   useEffect(() => {
     if (!isVisible) return;
 
+    let animationId: number;
+    let startTime: number | null = null;
+    const duration = 1500;
+
     const timeout = setTimeout(() => {
-      const duration = 2000;
-      const steps = 60;
-      const increment = value / steps;
-      let current = 0;
-      const interval = duration / steps;
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = Math.floor(easeOutQuart * value);
+        
+        setCount(currentValue);
 
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= value) {
-          setCount(value);
-          clearInterval(timer);
+        if (progress < 1) {
+          animationId = requestAnimationFrame(animate);
         } else {
-          setCount(Math.floor(current));
+          setCount(value);
         }
-      }, interval);
+      };
 
-      return () => clearInterval(timer);
+      animationId = requestAnimationFrame(animate);
     }, delay);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      if (animationId) cancelAnimationFrame(animationId);
+    };
   }, [isVisible, value, delay]);
 
   return (
