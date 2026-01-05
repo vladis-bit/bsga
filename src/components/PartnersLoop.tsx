@@ -30,27 +30,49 @@ const PartnersLoop = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-secondary to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-secondary to-transparent z-10" />
 
-        <div className="flex animate-scroll">
-          {[...partners, ...partners].map((partner, index) => <div key={index} className="flex-shrink-0 px-12 py-4 flex items-center">
-              <img src={partner.logo} alt={partner.name} className="h-40 md:h-56 w-auto hover:scale-105 transition-transform cursor-pointer object-cover" />
-            </div>)}
+        <div className="flex w-max animate-scroll motion-reduce:animate-none">
+          {[...partners, ...partners].map((partner, index) => (
+            <div
+              key={`${partner.name}-${index}`}
+              className="flex-shrink-0 px-10 sm:px-12 py-4 flex items-center"
+            >
+              <img
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="h-28 sm:h-36 md:h-44 w-auto hover:scale-105 transition-transform cursor-pointer object-contain select-none"
+              />
+            </div>
+          ))}
         </div>
       </div>
 
       <style>{`
         @keyframes scroll {
           0% {
-            transform: translateX(0);
+            transform: translate3d(0, 0, 0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translate3d(-50%, 0, 0);
           }
         }
         .animate-scroll {
-          animation: scroll 5s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
+          transform: translate3d(0, 0, 0);
+          animation: scroll 22s linear infinite;
         }
-        .animate-scroll:hover {
-          animation-play-state: paused;
+        @media (max-width: 640px) {
+          .animate-scroll {
+            animation-duration: 32s;
+          }
+        }
+        @media (hover: hover) {
+          .animate-scroll:hover {
+            animation-play-state: paused;
+          }
         }
       `}</style>
     </section>;
