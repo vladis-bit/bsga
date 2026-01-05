@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Instagram } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Tilt3DCard from "@/components/Tilt3DCard";
 const founders = [{
   name: "Peter Švajlen",
@@ -17,11 +17,6 @@ const founders = [{
   achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
 }];
 const team = [{
-  name: "Michał Wirdzek",
-  role: "Tréner BSGA",
-  instagram: "#",
-  email: "michal@bsga.sk"
-}, {
   name: "Maroš Gajan",
   role: "Tréner BSGA",
   instagram: "#",
@@ -77,8 +72,8 @@ const FounderCard = ({
         {member.achievements.map((achievement, idx) => <li key={idx}>{achievement}</li>)}
       </ul>}
     <div className="flex justify-center gap-3">
-      <a href={member.instagram} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Instagram">
-        <Instagram size={20} />
+      <a href={`tel:${member.instagram}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
+        <Phone size={20} />
       </a>
       <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Email">
         <Mail size={20} />
@@ -105,8 +100,8 @@ const TeamCard = ({
       {member.role}
     </p>
     <div className="flex justify-center gap-3">
-      <a href={member.instagram} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Instagram">
-        <Instagram size={18} />
+      <a href={`tel:${member.instagram}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
+        <Phone size={18} />
       </a>
       <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Email">
         <Mail size={18} />
