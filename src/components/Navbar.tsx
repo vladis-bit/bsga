@@ -62,14 +62,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md h-16 sm:h-20 md:h-24">
-      <div className="container mx-auto px-4 md:px-6 h-full">
-        <div className="flex items-center justify-between h-full">
-          <Link to="/" className="flex items-center flex-shrink-0 h-full py-1">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md py-2 sm:py-3">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <img
               src={bsgaLogo}
               alt="BSGA - Best Swing Golf Academy"
-              className="h-full w-auto"
+              className="h-48 sm:h-56 md:h-64 lg:h-80 w-auto"
             />
           </Link>
 
