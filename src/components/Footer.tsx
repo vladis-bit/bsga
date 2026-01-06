@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink, FolderOpen } from "lucide-react";
-import bsgaLogo from "@/assets/bsga-logo.png";
+import bsgaLogo from "@/assets/logo2.png";
 const Footer = () => {
   return <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-16">
@@ -8,8 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
-              
-              
+              <img src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-12 sm:h-14 w-auto" />
             </div>
             <p className="text-background/70 text-xs sm:text-sm leading-relaxed">
               Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku.
