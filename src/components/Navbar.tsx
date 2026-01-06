@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu } from "lucide-react";
-import bsgaLogo from "@/assets/bsga-web-logo.png";
+import bsgaLogo from "@/assets/logonew.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 type NavLink = {
@@ -65,7 +65,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img alt="BSGA - Best Swing Golf Academy" className="h-48 sm:h-56 md:h-64 lg:h-80 w-auto" src="/lovable-uploads/44e18c8e-7f25-4eb2-b8dd-3a15bd5eb6c0.png" />
+            <img alt="BSGA - Best Swing Golf Academy" className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto" src={bsgaLogo} />
           </Link>
 
           {/* Desktop Menu */}
