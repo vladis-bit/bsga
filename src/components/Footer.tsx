@@ -67,6 +67,11 @@ const Footer = () => {
                   Galéria
                 </Link>
               </li>
+              <li>
+                <Link to="/o-nas#kariera" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                  Kariéra
+                </Link>
+              </li>
             </ul>
           </div>
 
