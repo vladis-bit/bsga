@@ -198,7 +198,7 @@ const About = () => {
                 Pridaj sa do najväčšej golfovej akadémie na Slovensku – staň sa súčasťou niečoho väčšieho.
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-md mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-lg mx-auto">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
                   <span className="text-foreground">Rozvoj slovenského golfu</span>
