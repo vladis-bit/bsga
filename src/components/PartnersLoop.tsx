@@ -16,7 +16,7 @@ const partners: Partner[] = [{
   logo: doniTravelLogo
 }];
 const PartnersLoop = () => {
-  return <section className="py-20 bg-secondary overflow-hidden">
+  return <section className="py-12 bg-secondary overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <div className="text-center">
           <span className="text-gold text-sm tracking-[0.2em] uppercase">
@@ -42,7 +42,7 @@ const PartnersLoop = () => {
                 loading="lazy"
                 decoding="async"
                 draggable={false}
-                className="h-28 sm:h-36 md:h-44 w-auto hover:scale-105 transition-transform cursor-pointer object-contain select-none"
+                className="h-36 sm:h-44 md:h-56 w-auto hover:scale-105 transition-transform cursor-pointer object-contain select-none"
               />
             </div>
           ))}
@@ -62,11 +62,11 @@ const PartnersLoop = () => {
           will-change: transform;
           backface-visibility: hidden;
           transform: translate3d(0, 0, 0);
-          animation: scroll 22s linear infinite;
+          animation: scroll 10s linear infinite;
         }
         @media (max-width: 640px) {
           .animate-scroll {
-            animation-duration: 32s;
+            animation-duration: 16s;
           }
         }
         @media (hover: hover) {
