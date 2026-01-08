@@ -205,7 +205,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
-                  <span className="text-foreground">Neobmedzený plat</span>
+                  <span className="text-foreground">Flexibilný pracovný čas</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
@@ -217,10 +217,7 @@ const About = () => {
                 </div>
               </div>
               
-              <a 
-                href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA"
-                className="inline-flex items-center justify-center px-8 py-3 bg-gold text-foreground font-semibold rounded-full hover:bg-gold/90 transition-colors duration-300"
-              >
+              <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="inline-flex items-center justify-center px-8 py-3 bg-gold text-foreground font-semibold rounded-full hover:bg-gold/90 transition-colors duration-300">
                 Dohodnúť si stretnutie
               </a>
             </div>
