@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, CheckCircle } from "lucide-react";
 import Tilt3DCard from "@/components/Tilt3DCard";
 const founders = [{
   name: "Peter Švajlen",
@@ -183,6 +183,43 @@ const About = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
               {team.map((member, index) => <TeamCard key={index} member={member} />)}
+            </div>
+          </div>
+        </section>
+
+        {/* Career CTA */}
+        <section id="kariera" className="py-12 sm:py-16 md:py-24 bg-secondary">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-2xl mx-auto bg-background rounded-3xl p-8 sm:p-12 text-center shadow-lg">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-8">
+                Kariéra v BSGA?
+              </h2>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-md mx-auto">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                  <span className="text-foreground">Rozvoj slovenského golfu</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                  <span className="text-foreground">Neobmedzený plat</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                  <span className="text-foreground">Férové podmienky</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                  <span className="text-foreground">Tímová podpora</span>
+                </div>
+              </div>
+              
+              <a 
+                href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA"
+                className="inline-flex items-center justify-center px-8 py-3 bg-gold text-foreground font-semibold rounded-full hover:bg-gold/90 transition-colors duration-300"
+              >
+                Dohodnúť si stretnutie
+              </a>
             </div>
           </div>
         </section>
