@@ -15,6 +15,7 @@ import {
   Trophy,
   Wrench,
   Calendar,
+  MapPin,
 } from "lucide-react";
 
 const services = [
@@ -74,9 +75,15 @@ const services = [
   },
   {
     icon: Calendar,
-    title: "Akcie, pobyty a eventy na mieru",
+    title: "Eventy, teambuildingy a golfové pobyty",
     description:
-      "Golfové podujatia pripravené podľa tvojich predstáv – od menších osláv až po viacdňové pobyty. Všetko zabezpečené tak, aby si si to naplno užil.",
+      "Golfové akcie a eventy na mieru. Ponúkame jednodňové akcie až po kompletné sústredenia s PGA trénermi. Záruka spokojnosti. Všetko zabezpečené tak, aby ste si to naplno užili.",
+  },
+  {
+    icon: MapPin,
+    title: "Course Management",
+    description:
+      "Tréning s PGA trénerom na ihrisku. Analýza hry, know-how a odborné poradenstvo za cieľom dosiahnutia najnižšieho skóre.",
   },
 ];
 
