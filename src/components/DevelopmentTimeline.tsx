@@ -50,7 +50,7 @@ const stages: TimelineStage[] = [
   },
   {
     icon: Trophy,
-    title: "BSGA Development Program",
+    title: "Tour kids",
     ageRange: "13+ rokov",
     description: "Profesionálna cesta mladého golfistu",
     features: [
