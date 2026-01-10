@@ -17,7 +17,7 @@ const slides: NewsSlide[] = [{
   cta: "Zistiť viac",
   anchor: "#tabory"
 }, {
-  title: "BSGA Development Program",
+  title: "Tour Kids",
   subtitle: "Komplexný rozvoj mladého športovca",
   cta: "Zistiť viac",
   anchor: "#timeline"
