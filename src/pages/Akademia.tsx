@@ -61,15 +61,9 @@ const Akademia = () => {
         <section className="py-12 sm:py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center">
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4">
-                Máte otázky?
-              </h2>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Kontaktujte nás a dozvie sa viac o našich programoch pre mladých golfistov.
-              </p>
-              <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Akadémii" className="inline-flex items-center justify-center px-8 py-3 bg-gold text-primary font-semibold rounded-full hover:bg-gold-light transition-colors">
-                Napísať nám
-              </a>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4">Máte nezodpovedané otázky?</h2>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">Kontaktujte nás a dozvie sa viac o našich programoch pre mladých golfistov</p>
+              <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Akadémii" className="inline-flex items-center justify-center px-8 py-3 bg-gold text-primary font-semibold rounded-full hover:bg-gold-light transition-colors">Napíšte nám</a>
             </div>
           </div>
         </section>
