@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Baby, Bike, Target, Trophy } from "lucide-react";
+import { Baby, Bike, Target, Trophy, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface TimelineStage {
   icon: React.ElementType;
@@ -9,12 +10,13 @@ interface TimelineStage {
   ageRange: string;
   description: string;
   features: string[];
+  coach: string;
 }
 
 const stages: TimelineStage[] = [
   {
     icon: Baby,
-    title: "BABY Kids",
+    title: "Baby Kids",
     ageRange: "0–3 roky",
     description: "Prvé kroky k pohybu a koordinácii",
     features: [
@@ -23,6 +25,7 @@ const stages: TimelineStage[] = [
       "Hravé aktivity s rodičmi",
       "Budovanie lásky k pohybu",
     ],
+    coach: "Vanessa Fajkusová",
   },
   {
     icon: Bike,
@@ -35,6 +38,7 @@ const stages: TimelineStage[] = [
       "Rozvoj flexibility a sily",
       "Tímové hry a súťaže",
     ],
+    coach: "Vladimír Leško",
   },
   {
     icon: Target,
@@ -47,10 +51,11 @@ const stages: TimelineStage[] = [
       "Súťažná príprava",
       "Individuálny tréningový plán",
     ],
+    coach: "Maroš Gajan",
   },
   {
     icon: Trophy,
-    title: "Tour kids",
+    title: "Tour Kids",
     ageRange: "13+ rokov",
     description: "Profesionálna cesta mladého golfistu",
     features: [
@@ -59,6 +64,7 @@ const stages: TimelineStage[] = [
       "Fyzická kondícia",
       "Kariérne poradenstvo",
     ],
+    coach: "Jakub Hrbáň",
   },
 ];
 
@@ -95,7 +101,7 @@ const TimelineCard = ({
       <p className="text-muted-foreground text-sm sm:text-base mb-4">
         {stage.description}
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
         {stage.features.map((feature, i) => (
           <div
             key={i}
@@ -106,6 +112,20 @@ const TimelineCard = ({
           </div>
         ))}
       </div>
+      <div className="flex items-center gap-3 mb-4 pt-4 border-t border-border">
+        <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+          <User className="w-5 h-5 text-gold" />
+        </div>
+        <span className="text-foreground font-medium">{stage.coach}</span>
+      </div>
+      <Button
+        className="w-full rounded-full bg-gold hover:bg-gold/90 text-primary-foreground font-medium"
+        onClick={() => {
+          document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        Prihlásiť sa
+      </Button>
     </motion.div>
   );
 };
