@@ -11,7 +11,7 @@ const founders = [{
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
-  role: "Profesionál",
+  role: "Hlavný Profesionál BSGA",
   instagram: "#",
   email: "jakub@bsga.sk",
   achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
