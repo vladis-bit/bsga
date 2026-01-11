@@ -4,7 +4,7 @@ const faqs = [{
   answer: "Na prvú lekciu nepotrebujete žiadne vlastné vybavenie. Všetky potrebné palice a loptičky vám zapožičiame. Stačí prísť v pohodlnom oblečení a športovej obuvi."
 }, {
   question: "Ako dlho trvá získanie zelenej karty?",
-  answer: "Získanie zelenej karty trvá zvyčajne 4-6 týždňov, v závislosti od intenzity tréningov. Kurz zahŕňa praktický tréning, teoretickú prípravu a záverečný test z pravidiel a etikety."
+  answer: "Získanie zelenej karty trvá zvyčajne 1-2 týždne, v závislosti od intenzity tréningov. Kurz zahŕňa praktický tréning, teoretickú prípravu a záverečný test z pravidiel a etikety."
 }, {
   question: "Organizujete tréningy pre deti?",
   answer: "Áno, máme špeciálnu detskú akadémiu pre deti od 6 rokov. Tréningy sú prispôsobené veku a schopnostiam detí, kombinujú hru s učením a systematickým rozvojom techniky."
