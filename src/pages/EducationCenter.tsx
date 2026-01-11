@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GreenCardQuiz from "@/components/GreenCardQuiz";
+
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(() => ["rady", "otázky", "analýzy", "know-how"], []);
+  
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -16,7 +19,9 @@ const EducationCenter = () => {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-  return <>
+
+  return (
+    <>
       <Helmet>
         <title>Edukačné centrum | BSGA</title>
         <meta name="description" content="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how. Napíš text, nahraj fotku či video a uvidíš zázraky." />
@@ -34,19 +39,14 @@ const EducationCenter = () => {
 
               <div className="relative h-10 sm:h-12 md:h-16 overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.span key={titleNumber} className="block whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground" initial={{
-                  opacity: 0,
-                  y: 50
-                }} animate={{
-                  opacity: 1,
-                  y: 0
-                }} exit={{
-                  opacity: 0,
-                  y: -50
-                }} transition={{
-                  duration: 0.4,
-                  ease: "easeInOut"
-                }}>
+                  <motion.span
+                    key={titleNumber}
+                    className="block whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
                     {titles[titleNumber]}
                   </motion.span>
                 </AnimatePresence>
@@ -58,9 +58,18 @@ const EducationCenter = () => {
             </p>
           </div>
         </div>
+
+        {/* Quiz Section */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4 sm:px-6">
+            <GreenCardQuiz />
+          </div>
+        </section>
       </main>
 
       <Footer />
-    </>;
+    </>
+  );
 };
+
 export default EducationCenter;
