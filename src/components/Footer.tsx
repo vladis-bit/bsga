@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, ExternalLink, FolderOpen, Phone } from "lucide-react";
+import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail } from "lucide-react";
 import bsgaLogo from "@/assets/logo2.png";
 const Footer = () => {
   return <footer className="bg-foreground text-background">
@@ -86,12 +86,14 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@bsga.sk" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                <a href="mailto:info@bsga.sk" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5" />
                   info@bsga.sk
                 </a>
               </li>
               <li>
-                <a href="mailto:touroffice@bsga.sk" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                <a href="mailto:touroffice@bsga.sk" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5" />
                   touroffice@bsga.sk
                 </a>
               </li>

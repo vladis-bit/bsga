@@ -7,7 +7,7 @@ const faqs = [{
   answer: "Získanie zelenej karty trvá zvyčajne 1-2 týždne, v závislosti od intenzity tréningov. Kurz zahŕňa praktický tréning, teoretickú prípravu a záverečný test z pravidiel a etikety."
 }, {
   question: "Organizujete tréningy pre deti?",
-  answer: "Áno, máme špeciálnu detskú akadémiu pre deti od 6 rokov. Tréningy sú prispôsobené veku a schopnostiam detí, kombinujú hru s učením a systematickým rozvojom techniky."
+  answer: "Áno, máme špeciálnu detskú akadémiu pre deti od 5 rokov. Tréningy sú prispôsobené veku a schopnostiam detí, kombinujú hru s učením a systematickým rozvojom techniky."
 }, {
   question: "Môžem si vyskúšať golf pred kúpou balíka lekcií?",
   answer: "Samozrejme! Ponúkame úvodnú skúšobnú lekciu, kde si môžete vyskúšať základy golfu a zistiť, či je tento šport pre vás. Kontaktujte nás pre rezerváciu."
