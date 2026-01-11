@@ -17,7 +17,7 @@ const stages: TimelineStage[] = [
   {
     icon: Baby,
     title: "Baby Kids",
-    ageRange: "0–3 roky",
+    ageRange: "5–8 rokov",
     description: "Prvé kroky k pohybu a koordinácii",
     features: [
       "Základné motorické zručnosti",
@@ -30,7 +30,7 @@ const stages: TimelineStage[] = [
   {
     icon: Bike,
     title: "Sport Kids",
-    ageRange: "4–7 rokov",
+    ageRange: "9–12 rokov",
     description: "Všeobecný pohybový rozvoj",
     features: [
       "Multišportové aktivity",
@@ -43,7 +43,7 @@ const stages: TimelineStage[] = [
   {
     icon: Target,
     title: "Master Kids",
-    ageRange: "8–12 rokov",
+    ageRange: "13–17 rokov",
     description: "Zdokonaľovanie golfových zručností",
     features: [
       "Pokročilá technika švihu",
@@ -56,7 +56,7 @@ const stages: TimelineStage[] = [
   {
     icon: Trophy,
     title: "Tour Kids",
-    ageRange: "13+ rokov",
+    ageRange: "10+",
     description: "Profesionálna cesta mladého golfistu",
     features: [
       "Komplexný rozvoj športovca",
