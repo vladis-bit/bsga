@@ -13,17 +13,17 @@ interface Camp {
 
 const camps: Camp[] = [
   {
-    title: "Turnus 1",
+    title: "Denný tábor - Turnus 1",
     date: "6. – 10. 7. 2026",
     location: "Hrubá Borša",
   },
   {
-    title: "Turnus 2",
+    title: "Denný tábor - Turnus 2",
     date: "3. – 7. 8. 2026",
     location: "Hrubá Borša",
   },
   {
-    title: "Turnus 3",
+    title: "Denný tábor - Turnus 3",
     date: "TBD",
     location: "Hrubá Borša",
   },
