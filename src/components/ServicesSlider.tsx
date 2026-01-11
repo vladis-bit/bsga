@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar } from "lucide-react";
+import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar, MapPin } from "lucide-react";
 
 const services = [
   {
@@ -40,27 +40,33 @@ const services = [
   },
   {
     icon: Building2,
-    title: "Firemné akcie",
+    title: "Firemné akcie a teambuildingy",
     description:
-      "Kombinácia golfu, zábavy a spolupráce. Vhodné pre firmy, ktoré chcú podporiť tímového ducha.",
+      "Príjemná kombinácia golfu, zábavy a spolupráce. Vhodné pre firmy, ktoré chcú zažiť niečo nové a podporiť tímového ducha v uvoľnenej atmosfére.",
   },
   {
     icon: Trophy,
-    title: "BSGA Tour",
+    title: "Turnaje – BSGA Tour",
     description:
-      "Séria turnajov, kde môžeš otestovať svoju formu a súťažiť s hráčmi podobnej úrovne.",
+      "Séria turnajov, kde môžeš otestovať svoju formu, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a profesionálna organizácia.",
   },
   {
     icon: Wrench,
-    title: "Fitting",
+    title: "Fitting – vybavenie na mieru",
     description:
-      "Merania a testovanie palíc, aby si našiel vybavenie, ktoré ti skutočne sedí.",
+      "Merania a testovanie palíc, aby si našiel vybavenie, ktoré ti skutočne sedí. Správny výber dokáže urobiť citeľný rozdiel v tvojej hre.",
   },
   {
     icon: Calendar,
-    title: "Akcie na mieru",
+    title: "Eventy, teambuildingy a golfové pobyty",
     description:
-      "Golfové podujatia pripravené podľa tvojich predstáv – od menších osláv až po viacdňové pobyty.",
+      "Golfové akcie a eventy na mieru. Ponúkame jednodňové akcie až po kompletné sústredenia s PGA trénermi. Záruka spokojnosti.",
+  },
+  {
+    icon: MapPin,
+    title: "Course Management",
+    description:
+      "Tréning s PGA trénerom na ihrisku. Analýza hry, know-how a odborné poradenstvo za cieľom dosiahnutia najnižšieho skóre.",
   },
 ];
 
