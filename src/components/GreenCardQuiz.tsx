@@ -414,9 +414,6 @@ const GreenCardQuiz = () => {
               </div>
             </button>
           </div>
-          <div className="mt-12 pt-8 border-t border-border text-xs text-muted-foreground uppercase tracking-widest font-bold">
-            Best Swing Golf Academy
-          </div>
         </div>
       </div>
     );
