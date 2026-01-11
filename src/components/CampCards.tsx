@@ -22,6 +22,11 @@ const camps: Camp[] = [
     date: "3. – 7. 8. 2026",
     location: "Hrubá Borša",
   },
+  {
+    title: "Turnus 3",
+    date: "TBD",
+    location: "Hrubá Borša",
+  },
 ];
 
 const highlightCamp: Camp = {
