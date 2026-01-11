@@ -37,6 +37,11 @@ const team = [{
   instagram: "#",
   email: "vladimir@bsga.sk"
 }, {
+  name: "Michal Wirdzek",
+  role: "Tréner BSGA",
+  instagram: "#",
+  email: "michal@bsga.sk"
+}, {
   name: "Donka Švajlenová",
   role: "Administratíva",
   instagram: "#",
