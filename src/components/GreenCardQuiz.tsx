@@ -387,27 +387,31 @@ const GreenCardQuiz = () => {
 
   if (section === 'welcome') {
     return (
-      <div className="flex flex-col items-center justify-center p-4">
-        <div className="max-w-xl w-full bg-card rounded-3xl shadow-2xl p-8 md:p-12 border border-gold/20 text-center">
-          <div className="w-24 h-24 bg-gold rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-gold/20 rotate-3 transform transition-transform hover:rotate-0">
-            <Trophy className="text-primary-foreground w-12 h-12" />
+      <div className="flex flex-col items-center justify-center px-4">
+        <div className="max-w-2xl w-full bg-card rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gold/20 text-center">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gold rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-xl shadow-gold/20 rotate-3 transform transition-transform hover:rotate-0">
+            <Trophy className="text-primary-foreground w-10 h-10 sm:w-12 sm:h-12" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-3 sm:mb-4 tracking-tight">
             Záverečný test
           </h2>
-          <h3 className="text-xl md:text-2xl font-medium text-gold mb-10">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gold mb-8 sm:mb-10">
             Kurz zelenej karty
           </h3>
           <div className="flex flex-col items-center">
             <button 
               onClick={handleStart}
-              className="group w-full max-w-sm p-8 bg-card hover:bg-gold/5 border-2 border-gold/20 hover:border-gold rounded-3xl transition-all duration-300 shadow-sm hover:shadow-md text-center"
+              className="group w-full p-5 sm:p-6 md:p-8 bg-card hover:bg-gold/5 border-2 border-gold/20 hover:border-gold rounded-2xl sm:rounded-3xl transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <div className="bg-gold/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
-                <Trophy className="w-8 h-8 text-gold group-hover:text-primary-foreground transition-colors" />
+              <div className="flex items-center gap-4 sm:gap-5">
+                <div className="bg-gold/10 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors">
+                  <Trophy className="w-7 h-7 sm:w-8 sm:h-8 text-gold group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <div className="text-left">
+                  <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-1">Kompletný kurz</h4>
+                  <p className="text-muted-foreground text-sm">33 otázok (Etika + Pravidlá)</p>
+                </div>
               </div>
-              <h4 className="text-2xl font-bold text-foreground mb-1">Kompletný kurz</h4>
-              <p className="text-muted-foreground text-sm">33 otázok (Etika + Pravidlá)</p>
             </button>
           </div>
           <div className="mt-12 pt-8 border-t border-border text-xs text-muted-foreground uppercase tracking-widest font-bold">
