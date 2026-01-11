@@ -14,7 +14,7 @@ const founders = [{
   role: "Hlavný Profesionál BSGA",
   phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
-  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }];
 const team = [{
   name: "Maroš Gajan",
