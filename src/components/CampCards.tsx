@@ -95,10 +95,10 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
         </div>
 
         {/* Right - Button */}
-        <div className="flex-shrink-0 sm:ml-4">
+        <div className="w-full sm:w-auto sm:flex-shrink-0 sm:ml-4">
           <a
             href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
-            className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
               camp.isHighlight
                 ? "bg-gold text-primary hover:bg-gold-light"
                 : "bg-gold/10 text-gold hover:bg-gold/20"
