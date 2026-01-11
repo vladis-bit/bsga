@@ -6,45 +6,45 @@ import Tilt3DCard from "@/components/Tilt3DCard";
 const founders = [{
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
-  phone: "#",
+  phone: "+421 905 335 501",
   email: "peter@bsga.sk",
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
   role: "Hlavný Profesionál BSGA",
-  phone: "#",
+  phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
   achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
 }];
 const team = [{
   name: "Maroš Gajan",
   role: "Tréner BSGA",
-  phone: "#",
+  phone: "+421 903 243 999",
   email: "maros@bsga.sk"
 }, {
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA",
-  phone: "#",
+  phone: "+421 911 183 429",
   email: "vanessa@bsga.sk"
 }, {
   name: "Milan Neštický",
   role: "Tréner BSGA",
-  phone: "#",
+  phone: "+421 911 193 429",
   email: "milan@bsga.sk"
 }, {
   name: "Vladimír Leško",
   role: "Tréner BSGA",
-  phone: "#",
+  phone: "+421 949 116 889",
   email: "vladimir@bsga.sk"
 }, {
   name: "Michal Wirdzek",
   role: "Tréner BSGA",
-  phone: "#",
+  phone: "+421 905 427 355",
   email: "michal@bsga.sk"
 }, {
   name: "Donka Švajlenová",
   role: "Administratíva",
-  phone: "#",
+  phone: "+421 917 225 276",
   email: "donka@bsga.sk"
 }];
 type TeamMember = {
