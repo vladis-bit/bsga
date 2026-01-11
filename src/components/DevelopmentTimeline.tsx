@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Baby, Bike, Target, Trophy, User } from "lucide-react";
+import { Baby, Bike, Target, Trophy, User, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface TimelineStage {
@@ -11,6 +11,7 @@ interface TimelineStage {
   description: string;
   features: string[];
   coach: string;
+  coachPhone: string;
 }
 
 const stages: TimelineStage[] = [
@@ -26,6 +27,7 @@ const stages: TimelineStage[] = [
       "Budovanie lásky k pohybu",
     ],
     coach: "Vanessa Fajkusová",
+    coachPhone: "+421 911 183 429",
   },
   {
     icon: Bike,
@@ -39,6 +41,7 @@ const stages: TimelineStage[] = [
       "Tímové hry a súťaže",
     ],
     coach: "Vladimír Leško",
+    coachPhone: "+421 949 116 889",
   },
   {
     icon: Target,
@@ -52,6 +55,7 @@ const stages: TimelineStage[] = [
       "Individuálny tréningový plán",
     ],
     coach: "Maroš Gajan",
+    coachPhone: "+421 903 243 999",
   },
   {
     icon: Trophy,
@@ -65,6 +69,7 @@ const stages: TimelineStage[] = [
       "Kariérne poradenstvo",
     ],
     coach: "Jakub Hrbáň",
+    coachPhone: "+421 911 994 888",
   },
 ];
 
@@ -118,14 +123,26 @@ const TimelineCard = ({
         </div>
         <span className="text-foreground font-medium">{stage.coach}</span>
       </div>
-      <Button
-        className="w-full rounded-full bg-gold hover:bg-gold/90 text-primary-foreground font-medium"
-        onClick={() => {
-          document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        Prihlásiť sa
-      </Button>
+      <div className="flex gap-2">
+        <Button
+          asChild
+          className="flex-1 rounded-full bg-gold/10 hover:bg-gold/20 text-gold border border-gold/30 font-medium"
+        >
+          <a href={`tel:${stage.coachPhone.replace(/\s/g, '')}`}>
+            <Phone className="w-4 h-4 mr-1" />
+            Zavolať
+          </a>
+        </Button>
+        <Button
+          asChild
+          className="flex-1 rounded-full bg-gold hover:bg-gold/90 text-primary-foreground font-medium"
+        >
+          <a href={`mailto:kids@bsga.sk?subject=Prihlásenie - ${stage.title}`}>
+            <Mail className="w-4 h-4 mr-1" />
+            Prihlásiť sa
+          </a>
+        </Button>
+      </div>
     </motion.div>
   );
 };
