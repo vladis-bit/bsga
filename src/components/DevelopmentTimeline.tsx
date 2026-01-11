@@ -56,7 +56,7 @@ const stages: TimelineStage[] = [
   {
     icon: Trophy,
     title: "Tour Kids",
-    ageRange: "10+",
+    ageRange: "10+ rokov",
     description: "Profesionálna cesta mladého golfistu",
     features: [
       "Komplexný rozvoj športovca",
