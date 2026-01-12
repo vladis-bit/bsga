@@ -1,6 +1,7 @@
 import asbisLogo from "@/assets/partner-asbis.png";
 import checkpointLogo from "@/assets/partner-checkpoint.png";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
+import borsaLogo from "@/assets/partner-borsa.png";
 interface Partner {
   name: string;
   logo: string;
@@ -14,6 +15,9 @@ const partners: Partner[] = [{
 }, {
   name: "Doni Travel",
   logo: doniTravelLogo
+}, {
+  name: "Borša Golf Club",
+  logo: borsaLogo
 }];
 const PartnersLoop = () => {
   return <section className="py-12 bg-secondary overflow-hidden">
