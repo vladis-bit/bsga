@@ -74,7 +74,7 @@ const stages: TimelineStage[] = [
     ],
     coach: "Jakub Hrbáň",
     coachPhone: "+421 911 994 888",
-    coachEmail: "kids@bsga.sk",
+    coachEmail: "jakub@bsga.sk",
   },
 ];
 
