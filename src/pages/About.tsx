@@ -35,17 +35,17 @@ const team = [{
   name: "Vladimír Leško",
   role: "Tréner BSGA",
   phone: "+421 949 116 889",
-  email: "vladimir@bsga.sk"
+  email: "vlado@bsga.sk"
 }, {
   name: "Michal Wirdzek",
   role: "Tréner BSGA",
   phone: "+421 905 427 355",
-  email: "michal@bsga.sk"
+  email: "miso@bsga.sk"
 }, {
   name: "Donka Švajlenová",
   role: "Administratíva",
   phone: "+421 917 225 276",
-  email: "donka@bsga.sk"
+  email: "touroffice@bsga.sk"
 }];
 type TeamMember = {
   name: string;

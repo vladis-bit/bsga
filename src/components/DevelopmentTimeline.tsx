@@ -12,6 +12,7 @@ interface TimelineStage {
   features: string[];
   coach: string;
   coachPhone: string;
+  coachEmail: string;
 }
 
 const stages: TimelineStage[] = [
@@ -28,6 +29,7 @@ const stages: TimelineStage[] = [
     ],
     coach: "Vanessa Fajkusová",
     coachPhone: "+421 911 183 429",
+    coachEmail: "vanessa@bsga.sk",
   },
   {
     icon: Bike,
@@ -42,6 +44,7 @@ const stages: TimelineStage[] = [
     ],
     coach: "Vladimír Leško",
     coachPhone: "+421 949 116 889",
+    coachEmail: "vlado@bsga.sk",
   },
   {
     icon: Target,
@@ -56,6 +59,7 @@ const stages: TimelineStage[] = [
     ],
     coach: "Maroš Gajan",
     coachPhone: "+421 903 243 999",
+    coachEmail: "maros@bsga.sk",
   },
   {
     icon: Trophy,
@@ -70,6 +74,7 @@ const stages: TimelineStage[] = [
     ],
     coach: "Jakub Hrbáň",
     coachPhone: "+421 911 994 888",
+    coachEmail: "jakub@bsga.sk",
   },
 ];
 
@@ -137,7 +142,7 @@ const TimelineCard = ({
           asChild
           className="flex-1 rounded-full bg-gold hover:bg-gold/90 text-primary-foreground font-medium"
         >
-          <a href={`mailto:kids@bsga.sk?subject=Prihlásenie - ${stage.title}`}>
+          <a href={`mailto:${stage.coachEmail}?subject=Prihlásenie - ${stage.title}`}>
             <Mail className="w-4 h-4 mr-1" />
             Prihlásiť sa
           </a>
