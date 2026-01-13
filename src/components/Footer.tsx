@@ -72,6 +72,11 @@ const Footer = () => {
                   Kariéra
                 </Link>
               </li>
+              <li>
+                <Link to="/#kontakt" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                  Kontakt
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -34,8 +34,8 @@ const navLinks: NavItem[] = [{
   name: "Akadémia",
   href: "/akademia"
 }, {
-  name: "Kontakt",
-  href: "/#kontakt"
+  name: "Obchod",
+  href: "/obchod"
 }];
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
