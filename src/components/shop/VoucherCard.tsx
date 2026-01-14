@@ -9,8 +9,8 @@ interface VoucherCardProps {
 
 const VoucherCard = ({ value, image }: VoucherCardProps) => {
   return (
-    <CursorGlowCard className="h-full">
-      <div className="bg-card rounded-xl overflow-hidden h-full flex flex-col">
+    <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
+      <div className="overflow-hidden h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Image placeholder */}
         <div className="aspect-[4/3] bg-muted flex items-center justify-center relative overflow-hidden">
           {image ? (

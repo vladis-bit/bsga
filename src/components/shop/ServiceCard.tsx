@@ -11,8 +11,8 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, price, icon: Icon }: ServiceCardProps) => {
   return (
-    <CursorGlowCard className="h-full">
-      <div className="bg-card rounded-xl p-6 h-full flex flex-col">
+    <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
+      <div className="p-6 h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Icon */}
         <div className="w-14 h-14 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
           <Icon className="w-7 h-7 text-gold" />
