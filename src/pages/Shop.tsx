@@ -47,17 +47,21 @@ const Shop = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden pt-20">
-        <DottedSurface className="absolute inset-0 z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-10" />
-        
-        <div className="container mx-auto px-4 relative z-20 text-center py-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Obchod
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Darčekové poukážky a golfové služby na jednom mieste
-          </p>
+      <section className="relative w-full bg-background pt-4 sm:pt-8">
+        <div className="px-2 sm:px-4 md:px-8">
+          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+            <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                E-shop
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+                Obchod
+              </h1>
+              <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
+                Darčekové poukážky a golfové služby na jednom mieste
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
