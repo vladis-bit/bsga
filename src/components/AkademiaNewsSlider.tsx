@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronRight } from "lucide-react";
+import { MovingBorderButton } from "@/components/ui/moving-border";
 interface NewsSlide {
   title: string;
   subtitle: string;
@@ -53,9 +53,14 @@ const AkademiaNewsSlider = () => {
             <p className="text-primary-foreground/80 text-sm sm:text-base mb-4 sm:mb-6 max-w-lg">
               {slide.subtitle}
             </p>
-            <button onClick={() => handleAnchorClick(slide.anchor)} className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-gold text-primary text-sm font-medium rounded-full hover:bg-gold-light transition-all duration-300">
+            <MovingBorderButton
+              onClick={() => handleAnchorClick(slide.anchor)}
+              borderRadius="9999px"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 bg-gold text-primary text-sm font-medium"
+              containerClassName="text-sm"
+            >
               {slide.cta}
-            </button>
+            </MovingBorderButton>
           </div>)}
       </div>
 
