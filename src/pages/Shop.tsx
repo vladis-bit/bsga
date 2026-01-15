@@ -46,7 +46,8 @@ const Shop = () => {
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
         "Technika úderov",
-        "Príprava na zelenú kartu"
+        "Príprava na zelenú kartu",
+        "Profesionálny dohľad"
       ]
     },
   ];
