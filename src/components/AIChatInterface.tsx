@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Paperclip, Globe, Brain, PenTool, Mic } from "lucide-react";
+import { Paperclip, Globe, Brain, PenTool, Mic, Send } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -35,17 +35,6 @@ const AIChatInterface = () => {
         return "Vytvor niečo nové...";
       default:
         return "Napíš svoju otázku...";
-    }
-  };
-
-  const getModeLabel = (modeType: ChatMode) => {
-    switch (modeType) {
-      case "ask":
-        return "Ask";
-      case "think":
-        return "Think";
-      case "canvas":
-        return "Canvas";
     }
   };
 
@@ -93,6 +82,15 @@ const AIChatInterface = () => {
         <div className="flex items-center justify-between mt-2">
           {/* Left Icons */}
           <div className="flex items-center gap-1">
+            {/* Mic Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-9 w-9 rounded-full bg-background border border-border hover:bg-muted text-foreground shadow-sm"
+            >
+              <Mic className="h-5 w-5" />
+            </Button>
+
             {/* Upload File */}
             <Button
               variant="ghost"
@@ -106,16 +104,18 @@ const AIChatInterface = () => {
             {/* Ask Mode */}
             <Button
               variant="ghost"
-              size="icon"
               onClick={() => setMode("ask")}
               className={cn(
-                "h-9 w-9 rounded-full transition-all",
+                "h-9 px-3 rounded-full transition-all flex items-center gap-1.5",
                 mode === "ask"
                   ? "text-primary border border-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               )}
             >
               <Globe className="h-5 w-5" />
+              {mode === "ask" && (
+                <span className="text-sm font-medium">Ask</span>
+              )}
             </Button>
             
             <div className="w-px h-5 bg-border/50 mx-1" />
@@ -133,32 +133,36 @@ const AIChatInterface = () => {
             >
               <Brain className="h-5 w-5" />
               {mode === "think" && (
-                <span className="text-sm font-medium">{getModeLabel("think")}</span>
+                <span className="text-sm font-medium">Think</span>
               )}
             </Button>
 
             {/* Canvas Mode */}
             <Button
               variant="ghost"
-              size="icon"
               onClick={() => setMode("canvas")}
               className={cn(
-                "h-9 w-9 rounded-full transition-all",
+                "h-9 px-3 rounded-full transition-all flex items-center gap-1.5",
                 mode === "canvas"
                   ? "text-primary border border-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               )}
             >
               <PenTool className="h-5 w-5" />
+              {mode === "canvas" && (
+                <span className="text-sm font-medium">Canvas</span>
+              )}
             </Button>
           </div>
 
-          {/* Mic Button */}
+          {/* Send Button */}
           <Button
             size="icon"
-            className="h-10 w-10 rounded-full bg-background border border-border hover:bg-muted text-foreground shadow-sm"
+            onClick={handleSubmit}
+            disabled={!message.trim() && !selectedFile}
+            className="h-10 w-10 rounded-full bg-gold hover:bg-gold/90 text-primary shadow-sm disabled:opacity-50"
           >
-            <Mic className="h-5 w-5" />
+            <Send className="h-5 w-5" />
           </Button>
         </div>
       </div>
