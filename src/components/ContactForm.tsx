@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle } from "lucide-react";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -109,12 +109,12 @@ const ContactForm = () => {
                   <Textarea required placeholder="Napíšte nám vašu správu..." rows={4} className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none" />
                 </div>
 
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-gold text-primary hover:bg-gold-light py-6 rounded-full font-medium">
-                  {isSubmitting ? "Odosielam..." : <>
-                      <Send size={18} className="mr-2" />
-                      Odoslať správu
-                    </>}
-                </Button>
+                <InteractiveHoverButton
+                  type="submit"
+                  disabled={isSubmitting}
+                  text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
+                  className="py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                />
               </form>}
         </div>
       </div>
