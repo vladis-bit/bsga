@@ -78,11 +78,11 @@ const ServicesSlider = () => {
   const maxIndex = Math.max(0, services.length - itemsPerView);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
   const nextSlideMobile = () => {
@@ -158,8 +158,7 @@ const ServicesSlider = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevSlide}
-              disabled={currentIndex === 0}
-              className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronLeft size={24} />
             </button>
@@ -176,8 +175,7 @@ const ServicesSlider = () => {
             </div>
             <button
               onClick={nextSlide}
-              disabled={currentIndex === maxIndex}
-              className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronRight size={24} />
             </button>
