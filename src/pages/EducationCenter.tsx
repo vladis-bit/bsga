@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GreenCardQuiz from "@/components/GreenCardQuiz";
+import AIChatInterface from "@/components/AIChatInterface";
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -58,6 +59,13 @@ const EducationCenter = () => {
             </p>
           </div>
         </div>
+
+        {/* AI Chat Interface */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4 sm:px-6">
+            <AIChatInterface />
+          </div>
+        </section>
 
         {/* Quiz Section */}
         <section className="py-16 md:py-24">
