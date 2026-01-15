@@ -1,26 +1,76 @@
-import { useState } from "react";
-import { Paperclip, Globe, Settings, Images, Mic } from "lucide-react";
+import { useState, useRef } from "react";
+import { Paperclip, Globe, Brain, PenTool, Mic } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+type ChatMode = "ask" | "think" | "canvas";
 
 const AIChatInterface = () => {
   const [message, setMessage] = useState("");
+  const [mode, setMode] = useState<ChatMode>("ask");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = () => {
-    if (message.trim()) {
-      console.log("Sending message:", message);
+    if (message.trim() || selectedFile) {
+      console.log("Sending message:", message, "File:", selectedFile?.name, "Mode:", mode);
       setMessage("");
+      setSelectedFile(null);
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  };
+
+  const getPlaceholder = () => {
+    switch (mode) {
+      case "think":
+        return "Premýšľaj hlboko...";
+      case "canvas":
+        return "Vytvor niečo nové...";
+      default:
+        return "Napíš svoju otázku...";
+    }
+  };
+
+  const getModeLabel = (modeType: ChatMode) => {
+    switch (modeType) {
+      case "ask":
+        return "Ask";
+      case "think":
+        return "Think";
+      case "canvas":
+        return "Canvas";
     }
   };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
       <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl p-4 shadow-lg">
+        {/* Selected File Preview */}
+        {selectedFile && (
+          <div className="mb-3 flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 rounded-lg px-3 py-2">
+            <Paperclip className="h-4 w-4" />
+            <span className="truncate">{selectedFile.name}</span>
+            <button
+              onClick={() => setSelectedFile(null)}
+              className="ml-auto text-muted-foreground hover:text-foreground"
+            >
+              ×
+            </button>
+          </div>
+        )}
+
         {/* Text Input Area */}
         <Textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Napíš svoju otázku..."
+          placeholder={getPlaceholder()}
           className="min-h-[80px] bg-transparent border-0 resize-none text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 text-base"
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
@@ -30,40 +80,76 @@ const AIChatInterface = () => {
           }}
         />
 
+        {/* Hidden File Input */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*,video/*"
+          onChange={handleFileSelect}
+          className="hidden"
+        />
+
         {/* Bottom Controls */}
         <div className="flex items-center justify-between mt-2">
           {/* Left Icons */}
           <div className="flex items-center gap-1">
+            {/* Upload File */}
             <Button
               variant="ghost"
               size="icon"
+              onClick={() => fileInputRef.current?.click()}
               className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full"
             >
               <Paperclip className="h-5 w-5" />
             </Button>
+
+            {/* Ask Mode */}
             <Button
               variant="ghost"
               size="icon"
-              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full"
+              onClick={() => setMode("ask")}
+              className={cn(
+                "h-9 w-9 rounded-full transition-all",
+                mode === "ask"
+                  ? "text-primary border border-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              )}
             >
               <Globe className="h-5 w-5" />
             </Button>
             
             <div className="w-px h-5 bg-border/50 mx-1" />
             
+            {/* Think Mode */}
             <Button
               variant="ghost"
-              size="icon"
-              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full"
+              onClick={() => setMode("think")}
+              className={cn(
+                "h-9 px-3 rounded-full transition-all flex items-center gap-1.5",
+                mode === "think"
+                  ? "text-primary border border-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              )}
             >
-              <Settings className="h-5 w-5" />
+              <Brain className="h-5 w-5" />
+              {mode === "think" && (
+                <span className="text-sm font-medium">{getModeLabel("think")}</span>
+              )}
             </Button>
+
+            {/* Canvas Mode */}
             <Button
               variant="ghost"
               size="icon"
-              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full"
+              onClick={() => setMode("canvas")}
+              className={cn(
+                "h-9 w-9 rounded-full transition-all",
+                mode === "canvas"
+                  ? "text-primary border border-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              )}
             >
-              <Images className="h-5 w-5" />
+              <PenTool className="h-5 w-5" />
             </Button>
           </div>
 
