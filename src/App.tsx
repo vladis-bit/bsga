@@ -13,6 +13,9 @@ import Akademia from "./pages/Akademia";
 import Gallery from "./pages/Gallery";
 import GDPR from "./pages/GDPR";
 import EducationCenter from "./pages/EducationCenter";
+import EducationTests from "./pages/EducationTests";
+import EducationCalculators from "./pages/EducationCalculators";
+import EducationBlog from "./pages/EducationBlog";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
 
@@ -34,6 +37,9 @@ const App = () => (
             <Route path="/akademia" element={<Akademia />} />
             <Route path="/galeria" element={<Gallery />} />
             <Route path="/edukacne-centrum" element={<EducationCenter />} />
+            <Route path="/edukacne-centrum/testy" element={<EducationTests />} />
+            <Route path="/edukacne-centrum/kalkulacky" element={<EducationCalculators />} />
+            <Route path="/edukacne-centrum/blog" element={<EducationBlog />} />
             <Route path="/obchod" element={<Shop />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="*" element={<NotFound />} />
