@@ -29,7 +29,7 @@ const ServiceCard = ({ title, price, features }: ServiceCardProps) => {
         </ul>
         
         {/* Cena */}
-        <div className="mb-4">
+        <div className="mb-4 text-center">
           <span className="text-3xl font-bold text-gold">
             {price.toLocaleString('sk-SK', { minimumFractionDigits: 2 })}
           </span>
