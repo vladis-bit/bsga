@@ -16,21 +16,38 @@ const Shop = () => {
   const services = [
     {
       title: "Individuálna lekcia",
-      description: "60-minútová súkromná lekcia s profesionálnym trénerom. Analýza švihu, personalizované cvičenia a okamžitá spätná väzba.",
       price: 59.99,
       icon: User,
+      features: [
+        "60-minútová súkromná lekcia",
+        "Profesionálny tréner",
+        "Analýza švihu",
+        "Personalizované cvičenia",
+        "Okamžitá spätná väzba"
+      ]
     },
     {
       title: "Kurz zelenej karty",
-      description: "Kompletný kurz pre získanie zelenej karty. Obsahuje teóriu, etiketu, pravidlá a praktický tréning na ihrisku.",
       price: 549.99,
       icon: Award,
+      features: [
+        "Kompletný kurz pre získanie karty",
+        "Teória a pravidlá golfu",
+        "Golfová etiketa",
+        "Praktický tréning na ihrisku",
+        "Certifikát po absolvovaní"
+      ]
     },
     {
       title: "Štart karta",
-      description: "Úvodný kurz pre začiatočníkov. Základy golfu, technika úderov a príprava na získanie zelenej karty.",
       price: 139.99,
       icon: Flag,
+      features: [
+        "Úvodný kurz pre začiatočníkov",
+        "Základy golfu",
+        "Technika úderov",
+        "Príprava na zelenú kartu"
+      ]
     },
   ];
 
@@ -102,9 +119,9 @@ const Shop = () => {
               <ServiceCard
                 key={service.title}
                 title={service.title}
-                description={service.description}
                 price={service.price}
                 icon={service.icon}
+                features={service.features}
               />
             ))}
           </div>
