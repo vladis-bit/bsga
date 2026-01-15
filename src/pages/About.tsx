@@ -4,23 +4,18 @@ import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
-import jakubPhoto from "@/assets/founders/jakub.png";
-import peterPhoto from "@/assets/founders/peter.png";
-
 const founders = [{
-  name: "Jakub Hrbáň",
-  role: "Hlavný Profesionál BSGA",
-  phone: "+421 911 994 888",
-  email: "jakub@bsga.sk",
-  photo: jakubPhoto,
-  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
-}, {
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
-  photo: peterPhoto,
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
+}, {
+  name: "Jakub Hrbáň",
+  role: "Hlavný Profesionál BSGA",
+  phone: "+421 911 994 888",
+  email: "jakub@bsga.sk",
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }];
 const team = [{
   name: "Maroš Gajan",
@@ -58,7 +53,6 @@ type TeamMember = {
   role: string;
   phone: string;
   email: string;
-  photo?: string;
   achievements?: string[];
 };
 const FounderCard = ({
@@ -67,19 +61,11 @@ const FounderCard = ({
   member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
-      {member.photo ? (
-        <img 
-          src={member.photo} 
-          alt={member.name} 
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-        />
-      ) : (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
-            {member.name.charAt(0)}
-          </span>
-        </div>
-      )}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
+          {member.name.charAt(0)}
+        </span>
+      </div>
       <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
     </div>
     <h3 className="text-xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
