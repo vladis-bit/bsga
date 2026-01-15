@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle } from "lucide-react";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 const founders = [{
   name: "Peter Švajlen",
@@ -222,8 +223,8 @@ const About = () => {
                 </div>
               </div>
               
-              <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="inline-flex items-center justify-center px-8 py-3 bg-gold text-foreground font-semibold rounded-full hover:bg-gold/90 transition-colors duration-300">
-                Dohodnúť si stretnutie
+              <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="max-w-xs mx-auto block">
+                <InteractiveHoverButton text="Dohodnúť si stretnutie" />
               </a>
             </div>
           </div>
