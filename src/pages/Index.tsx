@@ -6,6 +6,7 @@ import ServicesSlider from "@/components/ServicesSlider";
 import PartnersLoop from "@/components/PartnersLoop";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import SimpleContactForm from "@/components/SimpleContactForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
         <PartnersLoop />
         <Testimonials />
         <FAQ />
+        <SimpleContactForm />
       </main>
       <Footer />
     </>
