@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { sk } from "date-fns/locale";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 const services = ["Individuálne lekcie", "Skupinové lekcie", "Zelená karta", "Detská akadémia", "Firemný teambuilding", "BSGA Tour", "Fitting", "Iné"];
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
