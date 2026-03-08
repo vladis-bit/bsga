@@ -129,12 +129,12 @@ const Footer = () => {
               © {new Date().getFullYear()} BSGA. Všetky práva vyhradené.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
-              <Link to="/obchodne-podmienky" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
+              <a href="/documents/BSGA_Obchodne_Podmienky_2026.pdf" target="_blank" rel="noopener noreferrer" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
                 Obchodné podmienky
-              </Link>
-              <Link to="/gdpr" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
+              </a>
+              <a href="/documents/BSGA_Zasady_ochrany_osobnych_udajov.pdf" target="_blank" rel="noopener noreferrer" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
                 Zásady ochrany osobných údajov
-              </Link>
+              </a>
             </div>
           </div>
         </div>
