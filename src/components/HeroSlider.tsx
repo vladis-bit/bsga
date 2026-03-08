@@ -22,6 +22,12 @@ const slides = [{
   subtitle: "Exkluzívna túra sa vracia späť",
   buttonText: "Tour 2026",
   buttonHref: "/tour"
+}, {
+  image: heroImage1,
+  title: "Akadémia",
+  subtitle: "Objavte naše akadémie pre deti",
+  buttonText: "Zisti viac",
+  buttonHref: "/akademia"
 }];
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
