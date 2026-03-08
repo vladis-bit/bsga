@@ -27,6 +27,7 @@ const Index = () => {
         <PartnersLoop />
         <Testimonials />
         <FAQ />
+        <SimpleContactForm />
       </main>
       <Footer />
     </>
