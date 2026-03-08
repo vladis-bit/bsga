@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ClipboardCheck, Calculator, Newspaper, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AIChatInterface from "@/components/AIChatInterface";
+
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
