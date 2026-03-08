@@ -70,10 +70,9 @@ const HeroSlider = () => {
                 {slides[currentSlide].subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
-                <a href="#sluzby" className="px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-lg">
-                  Naše služby
-                </a>
-                
+                <button onClick={() => handleButtonClick(slides[currentSlide].buttonHref)} className="px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-lg">
+                  {slides[currentSlide].buttonText}
+                </button>
               </div>
             </div>
           </div>
