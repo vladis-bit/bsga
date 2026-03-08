@@ -17,7 +17,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
     toast({
@@ -35,10 +35,10 @@ const ContactForm = () => {
             Kontaktujte nás
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">Zaujali vás naše služby?</h2>
-          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom
-            správneho programu pre vás alebo vašu firmu.
-          </p>
+          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom správnej služby pre vás alebo vašu firmu.
+
+
+        </p>
           <div className="flex justify-center mt-4">
             <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
               <span className="text-gold">📧</span> info@bsga.sk
@@ -95,7 +95,7 @@ const ContactForm = () => {
                       <SelectValue placeholder="Vyberte službu" />
                     </SelectTrigger>
                     <SelectContent>
-                      {services.map(service => <SelectItem key={service} value={service}>
+                      {services.map((service) => <SelectItem key={service} value={service}>
                           {service}
                         </SelectItem>)}
                     </SelectContent>
@@ -110,11 +110,11 @@ const ContactForm = () => {
                 </div>
 
                 <InteractiveHoverButton
-                  type="submit"
-                  disabled={isSubmitting}
-                  text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
-                  className="py-6 disabled:opacity-50 disabled:cursor-not-allowed"
-                />
+            type="submit"
+            disabled={isSubmitting}
+            text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
+            className="py-6 disabled:opacity-50 disabled:cursor-not-allowed" />
+          
               </form>}
         </div>
       </div>
