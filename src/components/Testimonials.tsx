@@ -27,6 +27,21 @@ const testimonials = [
     name: "Peter Baláž",
     role: "Golfový nadšenec",
     text: "BSGA Tour je najlepšia amatérska séria na Slovensku. Skvelé ihriská, super atmosféra a profesionálna organizácia."
+  },
+  {
+    name: "Jana Dvořáková",
+    role: "Začiatočníčka",
+    text: "Nikdy som nehrala golf, no po kurze s BSGA som sa zamilovala do tohto športu. Tréneri vysvetlia všetko zrozumiteľne a s úsmevom."
+  },
+  {
+    name: "Róbert Tóth",
+    role: "Firemný manažér",
+    text: "S BSGA spolupracujeme už druhý rok na firemných eventoch. Vždy profesionálny prístup, flexibilita a skvelá spätná väzba od kolegov."
+  },
+  {
+    name: "Monika Kráľová",
+    role: "Hráčka HCP 18",
+    text: "Individuálne tréningy s Petrom mi pomohli zlepšiť krátku hru o úroveň vyššie. Oceňujem analytický prístup a videoanýzu švihu."
   }
 ];
 
