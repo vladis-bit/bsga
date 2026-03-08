@@ -127,6 +127,8 @@ const Shop = () => {
                 key={service.title}
                 title={service.title}
                 price={service.price}
+                originalPrice={service.originalPrice}
+                discount={service.discount}
                 icon={service.icon}
                 features={service.features}
                 popular={service.popular}
