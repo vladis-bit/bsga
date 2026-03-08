@@ -49,6 +49,7 @@ const ServiceCard = ({ title, price, features, popular }: ServiceCardProps) => {
         </Button>
       </div>
     </CursorGlowCard>
+    </div>
   );
 };
 
