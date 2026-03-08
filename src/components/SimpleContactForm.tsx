@@ -18,7 +18,7 @@ const SimpleContactForm = () => {
     setIsSubmitted(true);
     toast({
       title: "Správa odoslaná!",
-      description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať.",
+      description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať."
     });
     setTimeout(() => setIsSubmitted(false), 3000);
   };
@@ -34,7 +34,7 @@ const SimpleContactForm = () => {
             Kontaktujte nás
           </h2>
           <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom správnej služby pre vás alebo vašu firmu.
+            Vyplňte formulár a my sa vám ozveme. Radi vám poradíme a pomôžeme.  
           </p>
           <div className="flex justify-center mt-4">
             <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
@@ -45,8 +45,8 @@ const SimpleContactForm = () => {
         </div>
 
         <div className="max-w-3xl mx-auto bg-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-border shadow-lg">
-          {isSubmitted ? (
-            <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
+          {isSubmitted ?
+          <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
               <CheckCircle className="text-gold w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4" />
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-2">
                 Ďakujeme!
@@ -54,29 +54,29 @@ const SimpleContactForm = () => {
               <p className="text-muted-foreground text-sm sm:text-base">
                 Vaša správa bola úspešne odoslaná.
               </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            </div> :
+
+          <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Meno *
                   </label>
                   <Input
-                    required
-                    placeholder="Vaše meno"
-                    className="bg-muted border-border/60 focus:border-gold shadow-sm"
-                  />
+                  required
+                  placeholder="Vaše meno"
+                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+                
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Priezvisko *
                   </label>
                   <Input
-                    required
-                    placeholder="Vaše priezvisko"
-                    className="bg-muted border-border/60 focus:border-gold shadow-sm"
-                  />
+                  required
+                  placeholder="Vaše priezvisko"
+                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+                
                 </div>
               </div>
 
@@ -85,25 +85,25 @@ const SimpleContactForm = () => {
                   Správa *
                 </label>
                 <Textarea
-                  required
-                  placeholder="Napíšte nám vašu správu..."
-                  rows={4}
-                  className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none"
-                />
+                required
+                placeholder="Napíšte nám vašu správu..."
+                rows={4}
+                className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none" />
+              
               </div>
 
               <InteractiveHoverButton
-                type="submit"
-                disabled={isSubmitting}
-                text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
-                className="py-6 disabled:opacity-50 disabled:cursor-not-allowed"
-              />
+              type="submit"
+              disabled={isSubmitting}
+              text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
+              className="py-6 disabled:opacity-50 disabled:cursor-not-allowed" />
+            
             </form>
-          )}
+          }
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default SimpleContactForm;
