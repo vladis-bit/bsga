@@ -33,6 +33,14 @@ const SimpleContactForm = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
             Kontaktujte nás
           </h2>
+          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom správnej služby pre vás alebo vašu firmu.
+          </p>
+          <div className="flex justify-center mt-4">
+            <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
+              <span className="text-gold">📧</span> info@bsga.sk
+            </a>
+          </div>
           <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-5 sm:mt-7" />
         </div>
 
