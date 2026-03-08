@@ -138,6 +138,7 @@ const ContactForm = () => {
                   </Popover>
                 </div>
 
+                <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Správa *
                   </label>
