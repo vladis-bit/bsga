@@ -14,6 +14,9 @@ const faqs = [{
 }, {
   question: "Kde prebiehajú tréningy?",
   answer: "Naše tréningy prebiehajú primárne v rezortoch Hrubá Borša (Golfový klub Hrubá Borša) a Nitra (Red Oak Golf Club). Podľa potreby organizujeme eventy v iných lokalitách."
+}, {
+  question: "Na aké služby môžem využiť darčekovú poukážku od BSGA?",
+  answer: "Darčekové poukážky BSGA môžete využiť na všetky naše služby bez akéhokoľvek obmedzenia. Nie sú žiadne výnimky — poukážka platí na individuálne lekcie, kurzy zelenej karty, štart kartu, kempy aj všetky ostatné služby v našej ponuke."
 }];
 const FAQ = () => {
   return <section className="py-12 sm:py-16 md:py-24 bg-secondary">
