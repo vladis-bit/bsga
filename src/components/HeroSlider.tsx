@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import heroImage1 from "@/assets/hero-golf-1.jpg";
 import heroImage2 from "@/assets/hero-golf-2.jpg";
@@ -6,15 +7,21 @@ import heroImage3 from "@/assets/hero-golf-3.jpg";
 const slides = [{
   image: heroImage1,
   title: "Best Swing Golf Academy",
-  subtitle: "Najväčšia golfová akadémia na Slovensku"
+  subtitle: "Najväčšia golfová akadémia na Slovensku",
+  buttonText: "Naše služby",
+  buttonHref: "#sluzby"
 }, {
   image: heroImage2,
   title: "Profesionálni tréneri",
-  subtitle: "Plne kvalifikovaní PGA profesionáli"
+  subtitle: "Plne kvalifikovaní PGA profesionáli",
+  buttonText: "O nás",
+  buttonHref: "/o-nas"
 }, {
   image: heroImage3,
-  title: "Začni svoju cestu",
-  subtitle: "Golf pre všetky vekové kategórie"
+  title: "BSGA Tour '26",
+  subtitle: "Exkluzívna túra sa vracia späť",
+  buttonText: "Tour 2026",
+  buttonHref: "/tour"
 }];
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
