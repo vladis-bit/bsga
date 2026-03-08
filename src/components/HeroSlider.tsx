@@ -25,6 +25,7 @@ const slides = [{
 }];
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
@@ -39,6 +40,14 @@ const HeroSlider = () => {
   };
   const prevSlide = () => {
     setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
+  };
+  const handleButtonClick = (href: string) => {
+    if (href.startsWith("#")) {
+      const element = document.getElementById(href.slice(1));
+      element?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(href);
+    }
   };
   return <section className="relative h-screen w-full bg-background pt-16 sm:pt-20">
       <div className="absolute inset-0 top-16 sm:top-20 p-2 sm:p-4 md:p-8">
