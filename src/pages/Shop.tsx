@@ -5,12 +5,15 @@ import Footer from "@/components/Footer";
 import { DottedSurface } from "@/components/DottedSurface";
 import VoucherCard from "@/components/shop/VoucherCard";
 import ServiceCard from "@/components/shop/ServiceCard";
+import voucher50 from "@/assets/voucher-50.png";
+import voucher100 from "@/assets/voucher-100.png";
+import voucher200 from "@/assets/voucher-200.png";
 
 const Shop = () => {
   const vouchers = [
-    { value: 50 },
-    { value: 100 },
-    { value: 200 },
+    { value: 50, image: voucher50 },
+    { value: 100, image: voucher100 },
+    { value: 200, image: voucher200 },
   ];
 
   const services = [
