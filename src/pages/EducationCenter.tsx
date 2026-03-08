@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ClipboardCheck, Calculator, Newspaper, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AIChatInterface from "@/components/AIChatInterface";
+
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -82,12 +82,6 @@ const EducationCenter = () => {
           </div>
         </div>
 
-        {/* AI Chat Interface */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <AIChatInterface />
-          </div>
-        </section>
 
         {/* Navigation Cards */}
         <section className="py-12 md:py-16">
