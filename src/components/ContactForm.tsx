@@ -111,6 +111,34 @@ const ContactForm = () => {
 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
+                    Preferovaný dátum
+                  </label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal bg-muted border-border/60 shadow-sm",
+                          !selectedDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {selectedDate ? format(selectedDate, "d. MMMM yyyy", { locale: sk }) : "Vyberte dátum"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={selectedDate}
+                        onSelect={setSelectedDate}
+                        disabled={(date) => date < new Date()}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
+
+                  <label className="text-sm font-medium text-foreground mb-2 block">
                     Správa *
                   </label>
                   <Textarea required placeholder="Napíšte nám vašu správu..." rows={4} className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none" />
