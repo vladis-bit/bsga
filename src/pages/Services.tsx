@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import DottedSurface from "@/components/DottedSurface";
 import {
@@ -147,16 +147,10 @@ const Services = () => {
               })}
             </div>
 
-            <div className="text-center mt-10 sm:mt-12 md:mt-16">
-              <Link
-                to="/#kontakt"
-                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300"
-              >
-                Mám záujem o službu
-              </Link>
-            </div>
           </div>
         </section>
+
+        <ContactForm />
       </main>
       <Footer />
     </>
