@@ -12,7 +12,7 @@ interface ServiceCardProps {
   popular?: boolean;
 }
 
-const ServiceCard = ({ title, price, features, popular }: ServiceCardProps) => {
+const ServiceCard = ({ title, price, originalPrice, discount, features, popular }: ServiceCardProps) => {
   return (
     <div className="relative">
       {popular && (
