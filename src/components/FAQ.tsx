@@ -13,7 +13,7 @@ const faqs = [{
   answer: "Samozrejme! Ponúkame úvodnú skúšobnú lekciu, kde si môžete vyskúšať základy golfu a zistiť, či je tento šport pre vás. Kontaktujte nás pre rezerváciu."
 }, {
   question: "Kde prebiehajú tréningy?",
-  answer: "Naše tréningy prebiehajú primárne v rezortoch Hrubá Borša (Golfový klub Hrubá Borša) a Nitra (Red Oak Golf Club). Podľa potreby organizujeme aj eventy v iných lokalitách."
+  answer: "Naše tréningy prebiehajú primárne v rezortoch Hrubá Borša (Golfový klub Hrubá Borša) a Nitra (Red Oak Golf Club). Podľa potreby organizujeme eventy v iných lokalitách."
 }];
 const FAQ = () => {
   return <section className="py-12 sm:py-16 md:py-24 bg-secondary">
