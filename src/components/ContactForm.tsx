@@ -15,6 +15,7 @@ const services = ["Individuálne lekcie", "Skupinové lekcie", "Zelená karta", 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const {
     toast
   } = useToast();
