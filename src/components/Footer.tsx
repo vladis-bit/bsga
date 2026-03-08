@@ -128,12 +128,12 @@ const Footer = () => {
             <p className="text-background/50 text-xs sm:text-sm text-center sm:text-left">
               © {new Date().getFullYear()} BSGA. Všetky práva vyhradené.
             </p>
-            <div className="flex gap-4 sm:gap-6">
-              <Link to="/gdpr" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
-                Zásady ochrany osobných údajov
-              </Link>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
               <Link to="/obchodne-podmienky" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
                 Obchodné podmienky
+              </Link>
+              <Link to="/gdpr" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
+                Zásady ochrany osobných údajov
               </Link>
             </div>
           </div>
