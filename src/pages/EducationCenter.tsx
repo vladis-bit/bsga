@@ -82,12 +82,6 @@ const EducationCenter = () => {
           </div>
         </div>
 
-        {/* AI Chat Interface */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <AIChatInterface />
-          </div>
-        </section>
 
         {/* Navigation Cards */}
         <section className="py-12 md:py-16">
