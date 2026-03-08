@@ -39,10 +39,22 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular 
         
         {/* Cena */}
         <div className="mb-4 text-center">
+          {originalPrice && (
+            <span className="text-muted-foreground line-through text-lg mr-2">
+              {originalPrice.toLocaleString('sk-SK', { minimumFractionDigits: 2 })} €
+            </span>
+          )}
           <span className="text-3xl font-bold text-gold">
             {price.toLocaleString('sk-SK', { minimumFractionDigits: 2 })}
           </span>
           <span className="text-xl text-gold ml-1">€</span>
+          {discount && (
+            <div className="mt-2">
+              <span className="bg-green-500/20 text-green-400 text-sm font-semibold px-3 py-1 rounded-full">
+                Ušetri {discount}%
+              </span>
+            </div>
+          )}
         </div>
         
         {/* Button */}
