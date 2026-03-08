@@ -5,6 +5,8 @@ import CursorGlowCard from "@/components/CursorGlowCard";
 interface ServiceCardProps {
   title: string;
   price: number;
+  originalPrice?: number;
+  discount?: number;
   icon: LucideIcon;
   features: string[];
   popular?: boolean;
