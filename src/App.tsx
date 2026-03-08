@@ -12,6 +12,7 @@ import Tour from "./pages/Tour";
 import Akademia from "./pages/Akademia";
 import Gallery from "./pages/Gallery";
 import GDPR from "./pages/GDPR";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import EducationCenter from "./pages/EducationCenter";
 import EducationTests from "./pages/EducationTests";
 import EducationCalculators from "./pages/EducationCalculators";
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/edukacne-centrum/blog" element={<EducationBlog />} />
             <Route path="/obchod" element={<Shop />} />
             <Route path="/gdpr" element={<GDPR />} />
+            <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
