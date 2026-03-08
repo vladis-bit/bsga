@@ -12,7 +12,7 @@ const VoucherCard = ({ value, image }: VoucherCardProps) => {
     <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
       <div className="overflow-hidden h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Image placeholder */}
-        <div className="aspect-[4/3] bg-muted flex items-center justify-center relative overflow-hidden">
+        <div className="aspect-[16/9] bg-muted flex items-center justify-center relative overflow-hidden">
           {image ? (
             <img src={image} alt={`Darčeková poukážka ${value}€`} className="w-full h-full object-cover" />
           ) : (
