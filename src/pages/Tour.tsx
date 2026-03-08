@@ -99,7 +99,7 @@ const Tour = () => {
                 <FileText size={16} className="text-gold" />
                 Program turnaja
               </a>
-              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+              <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
                 <FileText size={16} className="text-gold" />
                 Prezentácia BSGA Tour
               </a>
