@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail } from "lucide-react";
-import bsgaLogo from "@/assets/logo2.png";
+import bsgaLogo from "@/assets/bsga-footer-logo.png";
 const Footer = () => {
   return <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-16">
