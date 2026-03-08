@@ -12,6 +12,7 @@ import Tour from "./pages/Tour";
 import Akademia from "./pages/Akademia";
 import Gallery from "./pages/Gallery";
 import GDPR from "./pages/GDPR";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import EducationCenter from "./pages/EducationCenter";
 import EducationTests from "./pages/EducationTests";
 import EducationCalculators from "./pages/EducationCalculators";
