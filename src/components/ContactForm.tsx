@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { sk } from "date-fns/locale";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 const services = ["Individuálne lekcie", "Skupinové lekcie", "Zelená karta", "Detská akadémia", "Firemný teambuilding", "BSGA Tour", "Fitting", "Iné"];
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const {
     toast
   } = useToast();
@@ -100,6 +107,35 @@ const ContactForm = () => {
                         </SelectItem>)}
                     </SelectContent>
                   </Select>
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">
+                    Preferovaný dátum
+                  </label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal bg-muted border-border/60 shadow-sm",
+                          !selectedDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {selectedDate ? format(selectedDate, "d. MMMM yyyy", { locale: sk }) : "Vyberte dátum"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={selectedDate}
+                        onSelect={setSelectedDate}
+                        disabled={(date) => date < new Date()}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </div>
 
                 <div>
