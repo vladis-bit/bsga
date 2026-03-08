@@ -6,7 +6,6 @@ import ServicesSlider from "@/components/ServicesSlider";
 import PartnersLoop from "@/components/PartnersLoop";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
-import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 const Index = () => {
