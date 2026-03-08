@@ -132,6 +132,9 @@ const Footer = () => {
               <Link to="/gdpr" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
                 Zásady ochrany osobných údajov
               </Link>
+              <Link to="/obchodne-podmienky" className="text-background/50 text-xs sm:text-sm hover:text-gold transition-colors">
+                Obchodné podmienky
+              </Link>
             </div>
           </div>
         </div>

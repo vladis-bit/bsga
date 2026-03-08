@@ -43,6 +43,7 @@ const App = () => (
             <Route path="/edukacne-centrum/blog" element={<EducationBlog />} />
             <Route path="/obchod" element={<Shop />} />
             <Route path="/gdpr" element={<GDPR />} />
+            <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
