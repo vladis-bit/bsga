@@ -19,22 +19,22 @@ const founders = [{
 }];
 const team = [{
   name: "Maroš Gajan",
-  role: "Tréner BSGA",
+  role: "Tréner BSGA · Licencia A",
   phone: "+421 903 243 999",
   email: "maros@bsga.sk"
 }, {
   name: "Vanessa Fajkusová",
-  role: "Tréner BSGA",
+  role: "Tréner BSGA · Licencia D",
   phone: "+421 911 183 429",
   email: "vanessa@bsga.sk"
 }, {
   name: "Milan Neštický",
-  role: "Tréner BSGA",
+  role: "Tréner BSGA · Licencia D",
   phone: "+421 911 193 429",
   email: "milan@bsga.sk"
 }, {
   name: "Vladimír Leško",
-  role: "Tréner BSGA",
+  role: "Tréner BSGA · Licencia D",
   phone: "+421 949 116 889",
   email: "vlado@bsga.sk"
 }, {
