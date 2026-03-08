@@ -31,7 +31,9 @@ const Shop = () => {
     },
     {
       title: "Štart karta",
-      price: 139.99,
+      price: 129.99,
+      originalPrice: 500,
+      discount: 74,
       icon: Flag,
       popular: true,
       features: [
@@ -125,6 +127,8 @@ const Shop = () => {
                 key={service.title}
                 title={service.title}
                 price={service.price}
+                originalPrice={service.originalPrice}
+                discount={service.discount}
                 icon={service.icon}
                 features={service.features}
                 popular={service.popular}
