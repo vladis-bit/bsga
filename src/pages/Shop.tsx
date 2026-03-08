@@ -31,7 +31,9 @@ const Shop = () => {
     },
     {
       title: "Štart karta",
-      price: 139.99,
+      price: 129.99,
+      originalPrice: 500,
+      discount: 74,
       icon: Flag,
       popular: true,
       features: [
