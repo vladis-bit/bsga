@@ -7,12 +7,19 @@ interface ServiceCardProps {
   price: number;
   icon: LucideIcon;
   features: string[];
+  popular?: boolean;
 }
 
-const ServiceCard = ({ title, price, features }: ServiceCardProps) => {
+const ServiceCard = ({ title, price, features, popular }: ServiceCardProps) => {
   return (
-    <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
-      <div className="p-6 sm:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
+    <div className="relative">
+      {popular && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 bg-gold text-primary font-bold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg">
+          Populárne
+        </div>
+      )}
+      <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/50 shadow-lg shadow-gold/5' : 'border-border hover:border-gold/30'}`}>
+        <div className="p-6 sm:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Názov */}
         <h3 className="text-xl font-bold text-foreground mb-6">
           {title}
