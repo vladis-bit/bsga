@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail } from "lucide-react";
-import bsgaLogo from "@/assets/logo2.png";
+import bsgaLogo from "@/assets/bsga-footer-logo.png";
 const Footer = () => {
   return <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-16">
@@ -12,10 +12,8 @@ const Footer = () => {
             </div>
             <p className="text-background/70 text-xs sm:text-sm leading-relaxed">
               Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku.
-
- Od roku 2016 pomáhame ľuďom objavovať krásu golfu.
-            
-          </p>
+              Od roku 2016 pomáhame ľuďom objavovať krásu golfu.
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -141,4 +139,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;};export default Footer;
+    </footer>;
+};
+export default Footer;
