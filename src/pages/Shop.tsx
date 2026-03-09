@@ -30,7 +30,7 @@ const Shop = () => {
       ]
     },
     {
-      title: "Štart karta",
+      title: "Víkendový kurz zelenej karty",
       price: 129.99,
       originalPrice: 500,
       discount: 74,
