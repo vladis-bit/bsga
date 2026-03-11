@@ -26,7 +26,8 @@ const team = [{
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Licencia D",
   phone: "+421 911 183 429",
-  email: "vanessa@bsga.sk"
+  email: "vanessa@bsga.sk",
+  image: "@/assets/team/vanessa-fajkusova.jpg"
 }, {
   name: "Milan Neštický",
   role: "Tréner BSGA · Licencia D",
@@ -41,7 +42,8 @@ const team = [{
   name: "Donka Švajlenová",
   role: "Administratíva",
   phone: "+421 917 225 276",
-  email: "touroffice@bsga.sk"
+  email: "touroffice@bsga.sk",
+  image: "@/assets/team/donka-svajlenova.jpg"
 }];
 type TeamMember = {
   name: string;
