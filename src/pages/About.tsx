@@ -51,6 +51,7 @@ type TeamMember = {
   phone: string;
   email: string;
   achievements?: string[];
+  image?: string;
 };
 const FounderCard = ({
   member
