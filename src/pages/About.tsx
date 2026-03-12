@@ -8,6 +8,8 @@ import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.jpg";
 import marosGajanImg from "@/assets/team/maros-gajan.jpg";
 import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
+import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
+import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
 const founders = [{
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
