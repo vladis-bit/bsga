@@ -48,7 +48,8 @@ const team = [{
   name: "Vladimír Leško",
   role: "Tréner BSGA · Licencia D",
   phone: "+421 949 116 889",
-  email: "vlado@bsga.sk"
+  email: "vlado@bsga.sk",
+  image: vladimirLeskoImg
 }, {
   name: "Donka Švajlenová",
   role: "Administratíva",
