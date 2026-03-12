@@ -5,6 +5,8 @@ import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
+import jakubHrbanImg from "@/assets/team/jakub-hrban.jpg";
+import marosGajanImg from "@/assets/team/maros-gajan.jpg";
 import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 const founders = [{
   name: "Peter Švajlen",
