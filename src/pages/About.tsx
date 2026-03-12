@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
+import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
+import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 const founders = [{
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
