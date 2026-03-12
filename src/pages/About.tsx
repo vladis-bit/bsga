@@ -27,7 +27,8 @@ const team = [{
   name: "Maroš Gajan",
   role: "Tréner BSGA · Licencia A",
   phone: "+421 903 243 999",
-  email: "maros@bsga.sk"
+  email: "maros@bsga.sk",
+  image: marosGajanImg
 }, {
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Licencia D",
