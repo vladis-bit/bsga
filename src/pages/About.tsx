@@ -8,6 +8,8 @@ import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.jpg";
 import marosGajanImg from "@/assets/team/maros-gajan.jpg";
 import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
+import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
+import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
 const founders = [{
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
@@ -33,7 +35,8 @@ const team = [{
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Licencia D",
   phone: "+421 911 183 429",
-  email: "vanessa@bsga.sk"
+  email: "vanessa@bsga.sk",
+  image: vanessaFajkusovaImg
 }, {
   name: "Milan Neštický",
   role: "Tréner BSGA · Licencia D",
@@ -49,7 +52,8 @@ const team = [{
   name: "Donka Švajlenová",
   role: "Administratíva",
   phone: "+421 917 225 276",
-  email: "touroffice@bsga.sk"
+  email: "touroffice@bsga.sk",
+  image: donkaSvajlenovaImg
 }];
 type TeamMember = {
   name: string;
