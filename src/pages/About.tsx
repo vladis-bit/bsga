@@ -61,11 +61,11 @@ const FounderCard = ({
   member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
-          {member.name.charAt(0)}
-        </span>
-      </div>
+      {member.image ? <img src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
+            {member.name.charAt(0)}
+          </span>
+        </div>}
       <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
     </div>
     <h3 className="text-xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
