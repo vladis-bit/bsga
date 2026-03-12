@@ -5,6 +5,8 @@ import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
+import jakubHrbanImg from "@/assets/team/jakub-hrban.jpg";
+import marosGajanImg from "@/assets/team/maros-gajan.jpg";
 import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 const founders = [{
   name: "Peter Švajlen",
@@ -18,13 +20,15 @@ const founders = [{
   role: "Hlavný Profesionál BSGA",
   phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
+  image: jakubHrbanImg,
   achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }];
 const team = [{
   name: "Maroš Gajan",
   role: "Tréner BSGA · Licencia A",
   phone: "+421 903 243 999",
-  email: "maros@bsga.sk"
+  email: "maros@bsga.sk",
+  image: marosGajanImg
 }, {
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Licencia D",
