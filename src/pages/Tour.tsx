@@ -91,7 +91,7 @@ const Tour = () => {
         <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 md:pb-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
-              <a href="#" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+<a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
                 <FileText size={16} className="text-gold" />
                 Propozície
               </a>
