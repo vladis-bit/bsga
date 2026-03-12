@@ -4,11 +4,14 @@ import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
+import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
+import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 const founders = [{
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
+  image: peterSvajlenImg,
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
@@ -31,7 +34,8 @@ const team = [{
   name: "Milan Neštický",
   role: "Tréner BSGA · Licencia D",
   phone: "+421 911 193 429",
-  email: "milan@bsga.sk"
+  email: "milan@bsga.sk",
+  image: milanNestickyImg
 }, {
   name: "Vladimír Leško",
   role: "Tréner BSGA · Licencia D",
@@ -48,6 +52,7 @@ type TeamMember = {
   role: string;
   phone: string;
   email: string;
+  image?: string;
   achievements?: string[];
 };
 const FounderCard = ({
@@ -56,11 +61,11 @@ const FounderCard = ({
   member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
-          {member.name.charAt(0)}
-        </span>
-      </div>
+      {member.image ? <img src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
+            {member.name.charAt(0)}
+          </span>
+        </div>}
       <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
     </div>
     <h3 className="text-xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
@@ -87,11 +92,11 @@ const TeamCard = ({
   member: typeof team[0];
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
-          {member.name.charAt(0)}
-        </span>
-      </div>
+      {member.image ? <img src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
+            {member.name.charAt(0)}
+          </span>
+        </div>}
       <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
     </div>
     <h3 className="text-lg font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
