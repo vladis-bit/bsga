@@ -11,6 +11,7 @@ const founders = [{
   role: "Hlavný profesionál BSGA",
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
+  image: peterSvajlenImg,
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
