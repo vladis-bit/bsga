@@ -34,7 +34,8 @@ const team = [{
   name: "Milan Neštický",
   role: "Tréner BSGA · Licencia D",
   phone: "+421 911 193 429",
-  email: "milan@bsga.sk"
+  email: "milan@bsga.sk",
+  image: milanNestickyImg
 }, {
   name: "Vladimír Leško",
   role: "Tréner BSGA · Licencia D",
