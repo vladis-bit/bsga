@@ -10,6 +10,7 @@ import marosGajanImg from "@/assets/team/maros-gajan.jpg";
 import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
 import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
+import vladimirLeskoImg from "@/assets/team/vladimir-lesko.jpg";
 const founders = [{
   name: "Peter Švajlen",
   role: "Hlavný profesionál BSGA",
@@ -47,7 +48,8 @@ const team = [{
   name: "Vladimír Leško",
   role: "Tréner BSGA · Licencia D",
   phone: "+421 949 116 889",
-  email: "vlado@bsga.sk"
+  email: "vlado@bsga.sk",
+  image: vladimirLeskoImg
 }, {
   name: "Donka Švajlenová",
   role: "Administratíva",
