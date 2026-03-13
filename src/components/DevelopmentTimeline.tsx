@@ -1,8 +1,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Baby, Bike, Target, Trophy, User, Phone, Mail } from "lucide-react";
+import { Baby, Bike, Target, Trophy, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import vanessaImg from "@/assets/team/vanessa-fajkusova.jpg";
+import vladimirImg from "@/assets/team/vladimir-lesko.jpg";
+import marosImg from "@/assets/team/maros-gajan.jpg";
+import jakubImg from "@/assets/team/jakub-hrban.jpg";
+
+const coachImages: Record<string, string> = {
+  "Vanessa Fajkusová": vanessaImg,
+  "Vladimír Leško": vladimirImg,
+  "Maroš Gajan": marosImg,
+  "Jakub Hrbáň": jakubImg,
+};
 
 interface TimelineStage {
   icon: React.ElementType;
@@ -123,8 +134,8 @@ const TimelineCard = ({
         ))}
       </div>
       <div className="flex items-center gap-3 mb-4 pt-4 border-t border-border">
-        <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-          <User className="w-5 h-5 text-gold" />
+        <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+          <img src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
         </div>
         <span className="text-foreground font-medium">{stage.coach}</span>
       </div>
