@@ -211,6 +211,7 @@ interface ServiceCardProps {
   service: {
     icon: React.ElementType;
     title: string;
+    keywords?: string[];
     description: string;
   };
 }

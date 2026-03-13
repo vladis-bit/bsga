@@ -146,9 +146,18 @@ const Services = () => {
                       <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
                         <Icon className="text-gold" size={22} />
                       </div>
-                      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2 sm:mb-4">
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2">
                         {service.title}
                       </h3>
+                      {service.keywords && (
+                        <div className="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
+                          {service.keywords.map((kw, i) => (
+                            <span key={i} className="text-xs font-bold text-gold bg-gold/10 rounded-full px-2.5 py-0.5">
+                              {kw}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                       <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                         {service.description}
                       </p>
