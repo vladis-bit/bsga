@@ -224,9 +224,18 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
         <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
       </div>
-      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
+      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2">
         {service.title}
       </h3>
+      {service.keywords && (
+        <div className="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
+          {service.keywords.map((kw, i) => (
+            <span key={i} className="text-xs font-bold text-gold bg-gold/10 rounded-full px-2.5 py-0.5">
+              {kw}
+            </span>
+          ))}
+        </div>
+      )}
       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
         {service.description}
       </p>
