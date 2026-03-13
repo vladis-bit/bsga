@@ -5,68 +5,79 @@ const services = [
   {
     icon: User,
     title: "Individuálne lekcie",
-    description:
-      "Osobný tréning, kde sa tréner venuje len tebe. Jasné vysvetlenia, presné rady a cvičenia, ktoré ťa posunú vpred už po pár lekciách.",
+    description: (
+      <>Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.</>
+    ),
   },
   {
     icon: Users,
     title: "Skupinové lekcie",
-    description:
-      "Tréning v príjemnej skupine, kde sa učíš spolu s ostatnými. Dynamika, zdravá motivácia a praktické cvičenia.",
+    description: (
+      <>Tréning v <strong>príjemnej skupine</strong>, kde sa učíš spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia.</>
+    ),
   },
   {
     icon: GraduationCap,
     title: "Štart karty",
-    description:
-      "Ideálny program pre úplných začiatočníkov. Získaš pevné základy a pochopíš, ako golf funguje.",
+    description: (
+      <>Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong> a pochopíš, ako golf funguje.</>
+    ),
   },
   {
     icon: Award,
     title: "Zelené karty",
-    description:
-      "Kompletný kurz, ktorý ťa pripraví na samostatnú hru. Technika, pravidlá, etika a záverečný test.",
+    description: (
+      <>Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong>.</>
+    ),
   },
   {
     icon: Baby,
     title: "Detská akadémia",
-    description:
-      "Tréningy pre deti, ktoré spájajú pohyb, hravosť a systematický rozvoj techniky.",
+    description: (
+      <>Tréningy pre deti, ktoré spájajú <strong>pohyb, hravosť</strong> a systematický <strong>rozvoj techniky</strong>.</>
+    ),
   },
   {
     icon: Tent,
     title: "Detské kempy",
-    description:
-      "Týždne plné golfu a zážitkov. Šport, hry a aktivity, ktoré zlepšia golfové schopnosti.",
+    description: (
+      <>Týždne <strong>plné golfu a zážitkov</strong>. Šport, hry a aktivity, ktoré zlepšia <strong>golfové schopnosti</strong>.</>
+    ),
   },
   {
     icon: Building2,
     title: "Firemné akcie a teambuildingy",
-    description:
-      "Príjemná kombinácia golfu, zábavy a spolupráce. Vhodné pre firmy, ktoré chcú zažiť niečo nové a podporiť tímového ducha v uvoľnenej atmosfére.",
+    description: (
+      <>Príjemná kombinácia <strong>golfu, zábavy a spolupráce</strong>. Vhodné pre firmy, ktoré chcú zažiť niečo nové a podporiť <strong>tímového ducha</strong> v uvoľnenej atmosfére.</>
+    ),
   },
   {
     icon: Trophy,
     title: "Turnaje – BSGA Tour",
-    description:
-      "Séria turnajov, kde môžeš otestovať svoju formu, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a profesionálna organizácia.",
+    description: (
+      <>Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
+    ),
   },
   {
     icon: Wrench,
     title: "Fitting – vybavenie na mieru",
-    description:
-      "Merania a testovanie palíc, aby si našiel vybavenie, ktoré ti skutočne sedí. Správny výber dokáže urobiť citeľný rozdiel v tvojej hre.",
+    description: (
+      <>Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.</>
+    ),
   },
   {
     icon: Calendar,
     title: "Eventy, teambuildingy a golfové pobyty",
-    description:
-      "Golfové akcie a eventy na mieru. Ponúkame jednodňové akcie až po kompletné sústredenia s PGA trénermi. Záruka spokojnosti.",
+    description: (
+      <>Golfové akcie a <strong>eventy na mieru</strong>. Ponúkame jednodňové akcie až po kompletné <strong>sústredenia s PGA trénermi</strong>. Záruka spokojnosti.</>
+    ),
   },
   {
     icon: MapPin,
     title: "Course Management",
-    description:
-      "Tréning s PGA trénerom na ihrisku. Analýza hry, know-how a odborné poradenstvo za cieľom dosiahnutia najnižšieho skóre.",
+    description: (
+      <>Tréning s <strong>PGA trénerom</strong> na ihrisku. <strong>Analýza hry</strong>, know-how a odborné poradenstvo za cieľom dosiahnutia <strong>najnižšieho skóre</strong>.</>
+    ),
   },
 ];
 
