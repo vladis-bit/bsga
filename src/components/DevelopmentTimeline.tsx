@@ -1,8 +1,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Baby, Bike, Target, Trophy, User, Phone, Mail } from "lucide-react";
+import { Baby, Bike, Target, Trophy, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import vanessaImg from "@/assets/team/vanessa-fajkusova.jpg";
+import vladimirImg from "@/assets/team/vladimir-lesko.jpg";
+import marosImg from "@/assets/team/maros-gajan.jpg";
+import jakubImg from "@/assets/team/jakub-hrban.jpg";
+
+const coachImages: Record<string, string> = {
+  "Vanessa Fajkusová": vanessaImg,
+  "Vladimír Leško": vladimirImg,
+  "Maroš Gajan": marosImg,
+  "Jakub Hrbáň": jakubImg,
+};
 
 interface TimelineStage {
   icon: React.ElementType;
