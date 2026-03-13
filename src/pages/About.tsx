@@ -13,14 +13,14 @@ import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.jpg";
 const founders = [{
   name: "Peter Švajlen",
-  role: "Hlavný profesionál BSGA",
+  role: "Tréner BSGA · Licencia A",
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
   image: peterSvajlenImg,
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
-  role: "Hlavný Profesionál BSGA",
+  role: "Tréner BSGA · Licencia A",
   phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
   image: jakubHrbanImg,
