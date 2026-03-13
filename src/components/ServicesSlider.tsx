@@ -5,77 +5,66 @@ const services = [
   {
     icon: User,
     title: "Individuálne lekcie",
-    keywords: ["Osobný tréning", "Presné rady", "Rýchly progres"],
     description:
       "Osobný tréning, kde sa tréner venuje len tebe. Jasné vysvetlenia, presné rady a cvičenia, ktoré ťa posunú vpred už po pár lekciách.",
   },
   {
     icon: Users,
     title: "Skupinové lekcie",
-    keywords: ["Skupinová dynamika", "Motivácia", "Praktické cvičenia"],
     description:
       "Tréning v príjemnej skupine, kde sa učíš spolu s ostatnými. Dynamika, zdravá motivácia a praktické cvičenia.",
   },
   {
     icon: GraduationCap,
     title: "Štart karty",
-    keywords: ["Pre začiatočníkov", "Pevné základy", "Vstup na ihrisko"],
     description:
       "Ideálny program pre úplných začiatočníkov. Získaš pevné základy a pochopíš, ako golf funguje.",
   },
   {
     icon: Award,
     title: "Zelené karty",
-    keywords: ["Kompletný kurz", "Pravidlá a etika", "Oficiálna spôsobilosť"],
     description:
       "Kompletný kurz, ktorý ťa pripraví na samostatnú hru. Technika, pravidlá, etika a záverečný test.",
   },
   {
     icon: Baby,
     title: "Detská akadémia",
-    keywords: ["Pohyb a hravosť", "Rozvoj techniky", "Nové kamarátstva"],
     description:
       "Tréningy pre deti, ktoré spájajú pohyb, hravosť a systematický rozvoj techniky.",
   },
   {
     icon: Tent,
     title: "Detské kempy",
-    keywords: ["Týždeň plný golfu", "Šport a zážitky", "Aktivity každý deň"],
     description:
       "Týždne plné golfu a zážitkov. Šport, hry a aktivity, ktoré zlepšia golfové schopnosti.",
   },
   {
     icon: Building2,
     title: "Firemné akcie a teambuildingy",
-    keywords: ["Golf pre firmy", "Tímový duch", "Uvoľnená atmosféra"],
     description:
       "Príjemná kombinácia golfu, zábavy a spolupráce. Vhodné pre firmy, ktoré chcú zažiť niečo nové a podporiť tímového ducha v uvoľnenej atmosfére.",
   },
   {
     icon: Trophy,
     title: "Turnaje – BSGA Tour",
-    keywords: ["Séria turnajov", "Zbieranie bodov", "Profesionálna organizácia"],
     description:
       "Séria turnajov, kde môžeš otestovať svoju formu, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a profesionálna organizácia.",
   },
   {
     icon: Wrench,
     title: "Fitting – vybavenie na mieru",
-    keywords: ["Testovanie palíc", "Na mieru", "Citeľný rozdiel"],
     description:
       "Merania a testovanie palíc, aby si našiel vybavenie, ktoré ti skutočne sedí. Správny výber dokáže urobiť citeľný rozdiel v tvojej hre.",
   },
   {
     icon: Calendar,
     title: "Eventy, teambuildingy a golfové pobyty",
-    keywords: ["Akcie na mieru", "PGA tréneri", "Kompletný servis"],
     description:
       "Golfové akcie a eventy na mieru. Ponúkame jednodňové akcie až po kompletné sústredenia s PGA trénermi. Záruka spokojnosti.",
   },
   {
     icon: MapPin,
     title: "Course Management",
-    keywords: ["Tréning na ihrisku", "Analýza hry", "Najnižšie skóre"],
     description:
       "Tréning s PGA trénerom na ihrisku. Analýza hry, know-how a odborné poradenstvo za cieľom dosiahnutia najnižšieho skóre.",
   },
@@ -211,7 +200,6 @@ interface ServiceCardProps {
   service: {
     icon: React.ElementType;
     title: string;
-    keywords?: string[];
     description: string;
   };
 }
@@ -224,18 +212,9 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
         <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
       </div>
-      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-2">
+      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
         {service.title}
       </h3>
-      {service.keywords && (
-        <div className="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
-          {service.keywords.map((kw, i) => (
-            <span key={i} className="text-xs font-bold text-gold bg-gold/10 rounded-full px-2.5 py-0.5">
-              {kw}
-            </span>
-          ))}
-        </div>
-      )}
       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
         {service.description}
       </p>
