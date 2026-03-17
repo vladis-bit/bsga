@@ -155,18 +155,18 @@ const Services = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    <CursorGlowCard
-                      key={index}
-                      className="group rounded-xl border border-primary-foreground/15 bg-background/10 transition-all duration-300 hover:border-gold/30 hover:shadow-xl sm:rounded-2xl"
-                    >
-                      <div className="p-5 sm:p-6 md:p-8">
-                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
-                          <Icon className="text-gold" size={22} />
-                        </div>
-                        <h2 className="mb-2 font-serif text-lg font-bold text-primary-foreground sm:mb-4 sm:text-xl">
-                          {service.title}
-                        </h2>
-                        <p className="text-sm leading-relaxed text-primary-foreground/72 sm:text-base">
+                      <CursorGlowCard
+                        key={index}
+                        className="group rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl"
+                      >
+                        <div className="p-5 sm:p-6 md:p-8">
+                          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
+                            <Icon className="text-gold" size={22} />
+                          </div>
+                          <h2 className="mb-2 font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
+                            {service.title}
+                          </h2>
+                          <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
                           {service.description}
                         </p>
                       </div>

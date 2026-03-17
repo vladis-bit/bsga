@@ -35,7 +35,7 @@ const ContactForm = () => {
     // Reset form after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
   };
-  return <section id="kontakt" className="py-12 sm:py-16 md:py-24 bg-background">
+  return <section id="kontakt" className="bg-transparent py-12 sm:py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
