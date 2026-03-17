@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -12,18 +12,18 @@ type WaveConfig = {
   opacity: number;
 };
 
-const highlightPills = [
-  "Darčekové poukážky",
-  "Profesionálni tréneri",
-  "BSGA Tour",
-] as const;
+type HeroStat = {
+  label: string;
+  value: number;
+  suffix: string;
+};
 
-const heroStats = [
-  { label: "Rok založenia", value: "2016" },
-  { label: "PGA tréneri", value: "100%" },
-  { label: "Programy", value: "4+" },
-  { label: "Eventy & Tour", value: "Celoročne" },
-] as const;
+const heroStats: HeroStat[] = [
+  { value: 10, suffix: "+", label: "Rokov skúseností" },
+  { value: 2000, suffix: "+", label: "Spokojných klientov" },
+  { value: 10, suffix: "", label: "Rôznych služieb" },
+  { value: 6, suffix: "", label: "Trénerov" },
+];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -60,6 +60,57 @@ const statCardVariants: Variants = {
     scale: 1,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
+};
+
+const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let animationId = 0;
+    let startTime: number | null = null;
+    const duration = 1500;
+
+    const timeout = window.setTimeout(() => {
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = Math.floor(easeOutQuart * stat.value);
+
+        setCount(currentValue);
+
+        if (progress < 1) {
+          animationId = requestAnimationFrame(animate);
+        } else {
+          setCount(stat.value);
+        }
+      };
+
+      animationId = requestAnimationFrame(animate);
+    }, index * 200);
+
+    return () => {
+      window.clearTimeout(timeout);
+      if (animationId) cancelAnimationFrame(animationId);
+    };
+  }, [index, stat.value]);
+
+  return (
+    <motion.div
+      variants={statCardVariants}
+      whileHover={{ y: -8, scale: 1.03 }}
+      className="group rounded-[2rem] border border-primary-foreground/14 bg-background/8 px-5 py-6 backdrop-blur-md transition-all duration-300 hover:border-gold/35 hover:bg-background/14 hover:shadow-[0_20px_60px_hsl(var(--gold)/0.16)] sm:px-6"
+    >
+      <div className="text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground/68 transition-colors duration-300 group-hover:text-primary-foreground/82">
+        {stat.label}
+      </div>
+      <div className="mt-3 text-2xl font-bold text-gold transition-transform duration-300 group-hover:translate-x-0.5 sm:text-3xl lg:text-4xl">
+        {count.toLocaleString("sk-SK")}
+        {stat.suffix}
+      </div>
+    </motion.div>
+  );
 };
 
 const HeroSlider = () => {
@@ -332,35 +383,12 @@ const HeroSlider = () => {
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-12 flex flex-wrap items-center justify-center gap-3">
-              {highlightPills.map((pill) => (
-                <span
-                  key={pill}
-                  className="rounded-full border border-primary-foreground/14 bg-background/5 px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/72 backdrop-blur-sm sm:text-sm"
-                >
-                  {pill}
-                </span>
-              ))}
-            </motion.div>
-
             <motion.div
               variants={statsVariants}
               className="mt-14 grid w-full max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4"
             >
-              {heroStats.map((stat) => (
-                <motion.div
-                  key={stat.label}
-                  variants={statCardVariants}
-                  whileHover={{ y: -8, scale: 1.03 }}
-                  className="group rounded-[2rem] border border-primary-foreground/14 bg-background/8 px-5 py-6 backdrop-blur-md transition-all duration-300 hover:border-gold/35 hover:bg-background/14 hover:shadow-[0_20px_60px_hsl(var(--gold)/0.16)] sm:px-6"
-                >
-                  <div className="text-xs font-medium uppercase tracking-[0.28em] text-primary-foreground/58 transition-colors duration-300 group-hover:text-primary-foreground/78">
-                    {stat.label}
-                  </div>
-                  <div className="mt-3 text-2xl font-bold text-gold transition-transform duration-300 group-hover:translate-x-0.5 sm:text-3xl lg:text-4xl">
-                    {stat.value}
-                  </div>
-                </motion.div>
+              {heroStats.map((stat, index) => (
+                <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
               ))}
             </motion.div>
           </motion.div>
