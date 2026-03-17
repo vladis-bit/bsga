@@ -130,8 +130,8 @@ const Services = () => {
           content="Kompletné golfové služby - individuálne a skupinové lekcie, zelené karty, detská akadémia, firemné akcie, turnaje BSGA Tour a fitting na mieru."
         />
       </Helmet>
+      <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
-        <Navbar />
         <main>
           <section className="bg-transparent pb-8 pt-28 md:pt-32">
             <div className="container mx-auto px-4">
@@ -160,8 +160,8 @@ const Services = () => {
                       className="group rounded-xl border border-primary-foreground/15 bg-background/10 transition-all duration-300 hover:border-gold/30 hover:shadow-xl sm:rounded-2xl"
                     >
                       <div className="p-5 sm:p-6 md:p-8">
-                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold transition-colors group-hover:bg-gold-light sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
-                          <Icon className="text-primary" size={22} />
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
+                          <Icon className="text-gold" size={22} />
                         </div>
                         <h2 className="mb-2 font-serif text-lg font-bold text-primary-foreground sm:mb-4 sm:text-xl">
                           {service.title}
@@ -179,8 +179,8 @@ const Services = () => {
 
           <ContactForm />
         </main>
-        <Footer className="bg-transparent" />
       </AuroraBackground>
+      <Footer />
     </>
   );
 };
