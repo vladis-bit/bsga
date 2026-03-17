@@ -12,39 +12,23 @@ const InteractiveHoverButton = React.forwardRef<
   InteractiveHoverButtonProps
 >(({ text = "Button", className, ...props }, ref) => {
   return (
-    <>
-      <style>
-        {`
-          .interactive-hover-button:hover .interactive-hover-button__icon-wrap {
-            animation: interactive-hover-button-fly 0.6s ease-in-out infinite alternate;
-          }
-
-          @keyframes interactive-hover-button-fly {
-            from {
-              transform: translateY(0.1em);
-            }
-            to {
-              transform: translateY(-0.1em);
-            }
-          }
-        `}
-      </style>
-      <button
-        ref={ref}
-        className={cn(
-          "interactive-hover-button group inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-2xl border border-gold bg-gold px-5 py-4 font-bold text-primary transition-all duration-200 active:scale-95 disabled:pointer-events-none disabled:opacity-50",
-          className
-        )}
-        {...props}
-      >
-        <span className="interactive-hover-button__icon-wrap flex shrink-0 items-center justify-center">
-          <ArrowRight className="transition-transform duration-300 ease-in-out group-hover:translate-x-[1.2em] group-hover:rotate-45 group-hover:scale-110" />
-        </span>
-        <span className="block transition-transform duration-300 ease-in-out group-hover:translate-x-[5em]">
-          {text}
-        </span>
-      </button>
-    </>
+    <button
+      ref={ref}
+      className={cn(
+        "group relative w-full cursor-pointer overflow-hidden rounded-full border border-gold bg-gold p-4 text-center font-medium text-primary",
+        className
+      )}
+      {...props}
+    >
+      <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0 font-bold">
+        {text}
+      </span>
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-primary opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
+        <span className="font-bold">{text}</span>
+        <ArrowRight />
+      </div>
+      <div className="absolute left-[20%] top-[40%] h-2 w-2 scale-[1] rounded-full bg-gold-light transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8]" />
+    </button>
   );
 });
 
