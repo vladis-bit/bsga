@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -345,14 +345,6 @@ const HeroSlider = () => {
               initial="hidden"
               animate="visible"
             >
-              <motion.div
-                variants={itemVariants}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-background/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary-foreground/80 backdrop-blur-md"
-              >
-                <Sparkles className="h-4 w-4 text-gold" />
-                Best Swing Golf Academy
-              </motion.div>
-
               <motion.h1
                 variants={itemVariants}
                 className="max-w-5xl text-balance font-sans text-4xl font-bold leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
@@ -384,7 +376,7 @@ const HeroSlider = () => {
                   onClick={() => handleButtonClick("/o-nas")}
                   className="h-14 rounded-full border border-primary-foreground/45 bg-background/15 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground"
                 >
-                  Spoznajte BSGA
+                  O nás
                 </Button>
               </motion.div>
 
