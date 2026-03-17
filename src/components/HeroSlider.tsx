@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 type WaveConfig = {
   offset: number;
@@ -68,7 +69,9 @@ const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) =>
   useEffect(() => {
     let animationId = 0;
     let startTime: number | null = null;
-    const duration = 1500;
+    const duration = 1800;
+
+    setCount(0);
 
     const timeout = window.setTimeout(() => {
       const animate = (currentTime: number) => {
@@ -88,7 +91,7 @@ const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) =>
       };
 
       animationId = requestAnimationFrame(animate);
-    }, index * 200);
+    }, index * 220);
 
     return () => {
       window.clearTimeout(timeout);
@@ -167,36 +170,36 @@ const HeroSlider = () => {
       };
 
       return {
-        backgroundTop: resolveColor(["--primary"], 1),
-        backgroundBottom: resolveColor(["--background", "--muted"], 1),
+        backgroundTop: resolveColor(["--primary"], 0.18),
+        backgroundBottom: resolveColor(["--background", "--muted"], 0.1),
         wavePalette: [
           {
             offset: 0,
             amplitude: 60,
             frequency: 0.003,
-            color: resolveColor(["--primary-foreground"], 0.52),
-            opacity: 0.42,
+            color: resolveColor(["--primary-foreground"], 0.58),
+            opacity: 0.46,
           },
           {
             offset: Math.PI / 2,
             amplitude: 78,
             frequency: 0.0025,
-            color: resolveColor(["--gold", "--primary-foreground"], 0.46),
-            opacity: 0.38,
+            color: resolveColor(["--gold", "--primary-foreground"], 0.5),
+            opacity: 0.42,
           },
           {
             offset: Math.PI,
             amplitude: 52,
             frequency: 0.0034,
-            color: resolveColor(["--gold-light", "--foreground"], 0.28),
-            opacity: 0.28,
+            color: resolveColor(["--gold-light", "--foreground"], 0.34),
+            opacity: 0.3,
           },
           {
             offset: Math.PI * 1.5,
             amplitude: 70,
             frequency: 0.0021,
-            color: resolveColor(["--muted-foreground", "--primary-foreground"], 0.22),
-            opacity: 0.22,
+            color: resolveColor(["--muted-foreground", "--primary-foreground"], 0.26),
+            opacity: 0.24,
           },
         ] satisfies WaveConfig[],
       };
@@ -296,6 +299,7 @@ const HeroSlider = () => {
       gradient.addColorStop(0, themeColors.backgroundTop);
       gradient.addColorStop(1, themeColors.backgroundBottom);
 
+      ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
       ctx.globalAlpha = 1;
@@ -327,74 +331,76 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-primary pt-16 text-primary-foreground sm:pt-20">
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--foreground)/0.08),transparent_32%),linear-gradient(to_bottom,transparent_55%,hsl(var(--background)/0.35)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,hsl(var(--gold)/0.24),transparent_58%)]" />
+    <AuroraBackground className="bg-primary text-primary-foreground" showRadialGradient={false}>
+      <section className="relative min-h-screen overflow-hidden pt-16 text-primary-foreground sm:pt-20">
+        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--foreground)/0.06),transparent_30%),linear-gradient(to_bottom,hsl(var(--primary)/0.08),transparent_38%,hsl(var(--background)/0.24)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,hsl(var(--gold)/0.24),transparent_58%)]" />
 
-      <div className="relative z-10 flex min-h-[calc(100vh-4rem)] items-center py-10 sm:min-h-[calc(100vh-5rem)] sm:py-14">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="mx-auto flex max-w-6xl flex-col items-center text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+        <div className="relative z-10 flex min-h-[calc(100vh-4rem)] items-center py-10 sm:min-h-[calc(100vh-5rem)] sm:py-14">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
-              variants={itemVariants}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-background/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary-foreground/80 backdrop-blur-md"
+              className="mx-auto flex max-w-6xl flex-col items-center text-center"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
             >
-              <Sparkles className="h-4 w-4 text-gold" />
-              Best Swing Golf Academy
-            </motion.div>
-
-            <motion.h1
-              variants={itemVariants}
-              className="max-w-5xl text-balance font-sans text-4xl font-bold leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
-            >
-              Golf, ktorý mení
-              <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-primary-foreground/78 sm:text-lg md:text-xl"
-            >
-              Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
-              detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
-            </motion.p>
-
-            <motion.div variants={itemVariants} className="mt-10 flex w-full max-w-xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
-              <Button
-                size="lg"
-                onClick={() => handleButtonClick("#sluzby")}
-                className="h-14 rounded-full border border-gold/30 bg-gold px-8 text-sm font-bold uppercase tracking-[0.24em] text-primary shadow-[0_18px_48px_hsl(var(--gold)/0.34)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-[0_24px_60px_hsl(var(--gold)/0.42)]"
+              <motion.div
+                variants={itemVariants}
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-background/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary-foreground/80 backdrop-blur-md"
               >
-                Naše služby
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => handleButtonClick("/o-nas")}
-                className="h-14 rounded-full border border-primary-foreground/45 bg-background/15 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground"
-              >
-                Spoznajte BSGA
-              </Button>
-            </motion.div>
+                <Sparkles className="h-4 w-4 text-gold" />
+                Best Swing Golf Academy
+              </motion.div>
 
-            <motion.div
-              variants={statsVariants}
-              className="mt-14 grid w-full max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4"
-            >
-              {heroStats.map((stat, index) => (
-                <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
-              ))}
+              <motion.h1
+                variants={itemVariants}
+                className="max-w-5xl text-balance font-sans text-4xl font-bold leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
+              >
+                Golf, ktorý mení
+                <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
+              </motion.h1>
+
+              <motion.p
+                variants={itemVariants}
+                className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-primary-foreground/78 sm:text-lg md:text-xl"
+              >
+                Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
+                detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
+              </motion.p>
+
+              <motion.div variants={itemVariants} className="mt-10 flex w-full max-w-xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+                <Button
+                  size="lg"
+                  onClick={() => handleButtonClick("#sluzby")}
+                  className="h-14 rounded-full border border-gold/30 bg-gold px-8 text-sm font-bold uppercase tracking-[0.24em] text-primary shadow-[0_18px_48px_hsl(var(--gold)/0.34)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-[0_24px_60px_hsl(var(--gold)/0.42)]"
+                >
+                  Naše služby
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => handleButtonClick("/o-nas")}
+                  className="h-14 rounded-full border border-primary-foreground/45 bg-background/15 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground"
+                >
+                  Spoznajte BSGA
+                </Button>
+              </motion.div>
+
+              <motion.div
+                variants={statsVariants}
+                className="mt-14 grid w-full max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4"
+              >
+                {heroStats.map((stat, index) => (
+                  <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </AuroraBackground>
   );
 };
 
