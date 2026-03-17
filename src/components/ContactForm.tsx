@@ -41,13 +41,13 @@ const ContactForm = () => {
           <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
             Kontaktujte nás
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">Zaujali vás naše služby?</h2>
-          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom správnej služby pre vás alebo vašu firmu.
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">Zaujali vás naše služby?</h2>
+          <p className="text-primary-foreground/78 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">Vyplňte formulár a my sa vám ozveme. Radi vám poradíme s výberom správnej služby pre vás alebo vašu firmu.
 
 
         </p>
           <div className="flex justify-center mt-4">
-            <a href="mailto:info@bsga.sk" className="text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
+            <a href="mailto:info@bsga.sk" className="text-primary-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
               <span className="text-gold">📧</span> info@bsga.sk
             </a>
           </div>
