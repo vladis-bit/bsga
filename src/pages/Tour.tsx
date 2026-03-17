@@ -67,10 +67,10 @@ const Tour = () => {
                 alt="BSGA Tour 2026 na ihrisku Tále"
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/15 to-primary/45" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-primary/20" />
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/55 to-primary/80" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/35 to-primary/60" />
               <div className="container relative z-10 mx-auto flex min-h-[460px] sm:min-h-[540px] md:min-h-[620px] items-end justify-center px-4 py-12 sm:px-6 sm:py-16 md:items-center md:py-20 text-center">
-                <div className="max-w-3xl rounded-2xl border border-primary-foreground/10 bg-primary/35 px-6 py-8 sm:px-8 sm:py-10 backdrop-blur-sm">
+                <div className="max-w-3xl">
                   <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-sm">
                     Turnaje
                   </span>
