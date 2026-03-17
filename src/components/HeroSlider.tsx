@@ -22,6 +22,7 @@ const heroStats = [
   { label: "Rok založenia", value: "2016" },
   { label: "PGA tréneri", value: "100%" },
   { label: "Programy", value: "4+" },
+  { label: "Eventy & Tour", value: "Celoročne" },
 ] as const;
 
 const containerVariants: Variants = {
@@ -43,11 +44,21 @@ const itemVariants: Variants = {
 };
 
 const statsVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: { opacity: 0, scale: 0.96 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.08 },
+    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.1 },
+  },
+};
+
+const statCardVariants: Variants = {
+  hidden: { opacity: 0, y: 34, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -268,8 +279,9 @@ const HeroSlider = () => {
     <section className="relative min-h-screen overflow-hidden bg-primary pt-16 text-primary-foreground sm:pt-20">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" aria-hidden="true" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--foreground)/0.08),transparent_32%),linear-gradient(to_bottom,transparent_55%,hsl(var(--background)/0.35)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,hsl(var(--gold)/0.24),transparent_58%)]" />
 
-      <div className="relative z-10 flex min-h-[calc(100vh-4rem)] items-center sm:min-h-[calc(100vh-5rem)]">
+      <div className="relative z-10 flex min-h-[calc(100vh-4rem)] items-center py-10 sm:min-h-[calc(100vh-5rem)] sm:py-14">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="mx-auto flex max-w-6xl flex-col items-center text-center"
@@ -279,7 +291,7 @@ const HeroSlider = () => {
           >
             <motion.div
               variants={itemVariants}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary-foreground/80 backdrop-blur-md"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-background/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary-foreground/80 backdrop-blur-md"
             >
               <Sparkles className="h-4 w-4 text-gold" />
               Best Swing Golf Academy
@@ -287,25 +299,25 @@ const HeroSlider = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="max-w-6xl text-balance font-sans text-5xl font-bold leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[7rem]"
+              className="max-w-5xl text-balance font-sans text-4xl font-bold leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
             >
               Golf, ktorý mení
-              <span className="block text-primary-foreground/68">začiatočníkov na hráčov</span>
+              <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="mt-6 max-w-4xl text-balance text-lg leading-relaxed text-primary-foreground/70 sm:text-xl md:text-2xl"
+              className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-primary-foreground/78 sm:text-lg md:text-xl"
             >
               Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
               detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <motion.div variants={itemVariants} className="mt-10 flex w-full max-w-xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
               <Button
                 size="lg"
                 onClick={() => handleButtonClick("#sluzby")}
-                className="h-14 rounded-full bg-primary-foreground px-8 text-sm font-semibold uppercase tracking-[0.24em] text-primary hover:bg-primary-foreground/90"
+                className="h-14 rounded-full border border-gold/30 bg-gold px-8 text-sm font-bold uppercase tracking-[0.24em] text-primary shadow-[0_18px_48px_hsl(var(--gold)/0.34)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-[0_24px_60px_hsl(var(--gold)/0.42)]"
               >
                 Naše služby
                 <ArrowRight className="h-4 w-4" />
@@ -314,7 +326,7 @@ const HeroSlider = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => handleButtonClick("/o-nas")}
-                className="h-14 rounded-full border-border bg-background/5 px-8 text-sm font-semibold text-primary-foreground backdrop-blur-md hover:bg-background/10 hover:text-primary-foreground"
+                className="h-14 rounded-full border border-primary-foreground/45 bg-background/15 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground"
               >
                 Spoznajte BSGA
               </Button>
@@ -324,7 +336,7 @@ const HeroSlider = () => {
               {highlightPills.map((pill) => (
                 <span
                   key={pill}
-                  className="rounded-full border border-border bg-background/5 px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/72 backdrop-blur-sm sm:text-sm"
+                  className="rounded-full border border-primary-foreground/14 bg-background/5 px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary-foreground/72 backdrop-blur-sm sm:text-sm"
                 >
                   {pill}
                 </span>
@@ -333,18 +345,21 @@ const HeroSlider = () => {
 
             <motion.div
               variants={statsVariants}
-              className="mt-14 grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3"
+              className="mt-14 grid w-full max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4"
             >
               {heroStats.map((stat) => (
                 <motion.div
                   key={stat.label}
-                  variants={itemVariants}
-                  className="rounded-[2rem] border border-border bg-background/5 px-6 py-6 backdrop-blur-md"
+                  variants={statCardVariants}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="group rounded-[2rem] border border-primary-foreground/14 bg-background/8 px-5 py-6 backdrop-blur-md transition-all duration-300 hover:border-gold/35 hover:bg-background/14 hover:shadow-[0_20px_60px_hsl(var(--gold)/0.16)] sm:px-6"
                 >
-                  <div className="text-xs font-medium uppercase tracking-[0.28em] text-primary-foreground/55">
+                  <div className="text-xs font-medium uppercase tracking-[0.28em] text-primary-foreground/58 transition-colors duration-300 group-hover:text-primary-foreground/78">
                     {stat.label}
                   </div>
-                  <div className="mt-3 text-3xl font-bold text-gold sm:text-4xl">{stat.value}</div>
+                  <div className="mt-3 text-2xl font-bold text-gold transition-transform duration-300 group-hover:translate-x-0.5 sm:text-3xl lg:text-4xl">
+                    {stat.value}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
