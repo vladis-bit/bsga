@@ -70,87 +70,89 @@ const Shop = () => {
 
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative w-full bg-background pt-4 sm:pt-8">
-        <div className="px-2 sm:px-4 md:px-8">
-          <AuroraBackground className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden py-16 sm:py-24 md:py-32">
-            <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                E-shop
-              </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-                Obchod
-              </h1>
-              <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-                Darčekové poukážky a golfové služby na jednom mieste
+      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+        {/* Hero Section */}
+        <section className="relative w-full bg-transparent pt-4 sm:pt-8">
+          <div className="px-2 sm:px-4 md:px-8">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-gold/20 bg-primary/70 py-16 sm:py-24 md:py-32 backdrop-blur-sm">
+              <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                  E-shop
+                </span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+                  Obchod
+                </h1>
+                <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
+                  Darčekové poukážky a golfové služby na jednom mieste
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Vouchers Section */}
+        <section className="py-16 md:py-24 bg-transparent">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+                Darčekové poukážky
+              </h2>
+              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
+                Darujte zážitok z golfu svojim blízkym. Poukážky sú platné 12 mesiacov od zakúpenia.
               </p>
             </div>
-          </AuroraBackground>
-        </div>
-      </section>
 
-      {/* Vouchers Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Darčekové poukážky
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Darujte zážitok z golfu svojim blízkym. Poukážky sú platné 12 mesiacov od zakúpenia.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {vouchers.map((voucher) => (
+                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} />
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {vouchers.map((voucher) => (
-              <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} />
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* Services Section */}
+        <section className="py-16 md:py-24 bg-transparent">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+                Služby
+              </h2>
+              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
+                Vyberte si z našej ponuky golfových kurzov a lekcií
+              </p>
+            </div>
 
-      {/* Services Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Služby
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Vyberte si z našej ponuky golfových kurzov a lekcií
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start pt-6">
+              {services.map((service) => (
+                <ServiceCard
+                  key={service.title}
+                  title={service.title}
+                  price={service.price}
+                  originalPrice={service.originalPrice}
+                  discount={service.discount}
+                  icon={service.icon}
+                  features={service.features}
+                  popular={service.popular}
+                />
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start pt-6">
-            {services.map((service) => (
-              <ServiceCard
-                key={service.title}
-                title={service.title}
-                price={service.price}
-                originalPrice={service.originalPrice}
-                discount={service.discount}
-                icon={service.icon}
-                features={service.features}
-                popular={service.popular}
-              />
-            ))}
+        {/* BSGA Merch Section */}
+        <section className="py-16 md:py-24 bg-transparent">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+                BSGA Merch
+              </h2>
+              <p className="text-primary-foreground/70 text-lg">
+                Viac už čoskoro
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* BSGA Merch Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              BSGA Merch
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Viac už čoskoro
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </AuroraBackground>
 
       <Footer />
     </>
