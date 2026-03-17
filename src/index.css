@@ -72,6 +72,9 @@ All colors MUST be HSL.
     --gold: 45 93% 58%;
     --gold-light: 45 93% 68%;
     --gold-dark: 45 93% 45%;
+    --silver: 210 8% 78%;
+    --silver-light: 210 12% 94%;
+    --silver-dark: 215 8% 58%;
 
     --font-sans: Poppins, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 
