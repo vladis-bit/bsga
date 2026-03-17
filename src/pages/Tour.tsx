@@ -11,6 +11,7 @@ import taleImg from "@/assets/courses/tale.jpg";
 import heritageImg from "@/assets/courses/heritage.jpg";
 import legendImg from "@/assets/courses/legend.jpg";
 import ostraviceImg from "@/assets/courses/ostravice.jpg";
+import taleHeroImg from "@/assets/tour/bsga-tour-tale-hero.jpg";
 
 const tournaments = [
   {
