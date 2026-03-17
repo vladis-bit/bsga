@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.jpg";
 import marosGajanImg from "@/assets/team/maros-gajan.jpg";
@@ -11,6 +12,7 @@ import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
 import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.jpg";
+
 const founders = [{
   name: "Peter Švajlen",
   role: "Tréner BSGA · Licencia A",
@@ -26,6 +28,7 @@ const founders = [{
   image: jakubHrbanImg,
   achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
 }];
+
 const team = [{
   name: "Maroš Gajan",
   role: "Tréner BSGA · Licencia A",
@@ -57,6 +60,7 @@ const team = [{
   email: "touroffice@bsga.sk",
   image: donkaSvajlenovaImg
 }];
+
 type TeamMember = {
   name: string;
   role: string;
@@ -65,6 +69,7 @@ type TeamMember = {
   image?: string;
   achievements?: string[];
 };
+
 const FounderCard = ({
   member
 }: {
@@ -96,6 +101,7 @@ const FounderCard = ({
       </a>
     </div>
   </Tilt3DCard>;
+
 const TeamCard = ({
   member
 }: {
@@ -124,6 +130,7 @@ const TeamCard = ({
       </a>
     </div>
   </Tilt3DCard>;
+
 const About = () => {
   return <>
       <Helmet>
@@ -131,116 +138,118 @@ const About = () => {
         <meta name="description" content="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností." />
       </Helmet>
       <Navbar />
-      <main>
-        {/* Hero */}
-        <section className="relative w-full bg-background pt-4 sm:pt-8">
-          <div className="px-2 sm:px-4 md:px-8">
-            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
-              <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+      <AuroraBackground variant="silver">
+        <main className="bg-transparent">
+          {/* Hero */}
+          <section className="relative w-full bg-transparent pt-4 sm:pt-8">
+            <div className="px-2 sm:px-4 md:px-8">
+              <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+                <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                    O nás
+                  </span>
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+                    O nás
+                  </h1>
+                  <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
+                    Od roku 2016 pomáhame ľuďom objavovať krásu golfu
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Story */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 sm:mb-8">
+                  Najväčšia golfová akadémia na Slovensku
+                </h2>
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Team - Trainers */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+              {/* Founders Section */}
+              <div className="text-center mb-12 md:mb-16">
                 <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                   O nás
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                  Zakladatelia
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto">
+                {founders.map((member, index) => <FounderCard key={index} member={member} />)}
+              </div>
+            </div>
+          </section>
+
+          {/* Team */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+              <div className="text-center mb-12 md:mb-16">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                   O nás
-                </h1>
-                <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-                  Od roku 2016 pomáhame ľuďom objavovať krásu golfu
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                  Náš tím
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                {team.map((member, index) => <TeamCard key={index} member={member} />)}
+              </div>
+            </div>
+          </section>
+
+          {/* Career CTA */}
+          <section id="kariera" className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto bg-background rounded-3xl p-8 sm:p-12 text-center shadow-lg">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
+                  Kariéra v BSGA?
+                </h2>
+                <p className="text-muted-foreground text-sm sm:text-base mb-8">
+                  Pridaj sa do najväčšej golfovej akadémie na Slovensku – staň sa súčasťou niečoho väčšieho.
                 </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-lg mx-auto">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                    <span className="text-foreground">Rozvoj slovenského golfu</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                    <span className="text-foreground">Flexibilný pracovný čas</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                    <span className="text-foreground">Férové podmienky</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
+                    <span className="text-foreground">Tímová podpora</span>
+                  </div>
+                </div>
+                
+                <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="max-w-xs mx-auto block">
+                  <InteractiveHoverButton text="Dohodnúť si stretnutie" />
+                </a>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Story */}
-        <section className="py-12 sm:py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 sm:mb-8">
-                Najväčšia golfová akadémia na Slovensku
-              </h2>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám</p>
-              
-            </div>
-          </div>
-        </section>
-
-        {/* Team - Trainers */}
-        <section className="py-12 sm:py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            {/* Founders Section */}
-            <div className="text-center mb-12 md:mb-16">
-              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                O nás
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                Zakladatelia
-              </h2>
-              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto">
-              {founders.map((member, index) => <FounderCard key={index} member={member} />)}
-            </div>
-          </div>
-        </section>
-
-        {/* Team */}
-        <section className="py-12 sm:py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <div className="text-center mb-12 md:mb-16">
-              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                O nás
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                Náš tím
-              </h2>
-              <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-              {team.map((member, index) => <TeamCard key={index} member={member} />)}
-            </div>
-          </div>
-        </section>
-
-        {/* Career CTA */}
-        <section id="kariera" className="py-12 sm:py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-3xl mx-auto bg-background rounded-3xl p-8 sm:p-12 text-center shadow-lg">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
-                Kariéra v BSGA?
-              </h2>
-              <p className="text-muted-foreground text-sm sm:text-base mb-8">
-                Pridaj sa do najväčšej golfovej akadémie na Slovensku – staň sa súčasťou niečoho väčšieho.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-lg mx-auto">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
-                  <span className="text-foreground">Rozvoj slovenského golfu</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
-                  <span className="text-foreground">Flexibilný pracovný čas</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
-                  <span className="text-foreground">Férové podmienky</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
-                  <span className="text-foreground">Tímová podpora</span>
-                </div>
-              </div>
-              
-              <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="max-w-xs mx-auto block">
-                <InteractiveHoverButton text="Dohodnúť si stretnutie" />
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
+      </AuroraBackground>
       <Footer />
     </>;
 };
+
 export default About;
