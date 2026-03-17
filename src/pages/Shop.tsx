@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { User, Award, Flag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { DottedSurface } from "@/components/DottedSurface";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import VoucherCard from "@/components/shop/VoucherCard";
 import ServiceCard from "@/components/shop/ServiceCard";
 import voucher50 from "@/assets/voucher-50.png";
@@ -73,7 +73,7 @@ const Shop = () => {
       {/* Hero Section */}
       <section className="relative w-full bg-background pt-4 sm:pt-8">
         <div className="px-2 sm:px-4 md:px-8">
-          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+          <AuroraBackground className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden py-16 sm:py-24 md:py-32">
             <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 E-shop
@@ -85,7 +85,7 @@ const Shop = () => {
                 Darčekové poukážky a golfové služby na jednom mieste
               </p>
             </div>
-          </div>
+          </AuroraBackground>
         </div>
       </section>
 
