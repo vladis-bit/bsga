@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { User, Award, Flag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { DottedSurface } from "@/components/DottedSurface";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import VoucherCard from "@/components/shop/VoucherCard";
 import ServiceCard from "@/components/shop/ServiceCard";
 import voucher50 from "@/assets/voucher-50.png";
