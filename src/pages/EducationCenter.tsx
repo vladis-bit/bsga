@@ -2,15 +2,14 @@ import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ClipboardCheck, Calculator, Newspaper, ChevronRight } from "lucide-react";
+import { ClipboardCheck, Newspaper, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(() => ["rady", "otázky", "analýzy", "know-how"], []);
-  
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -30,12 +29,6 @@ const EducationCenter = () => {
       description: "Záverečné otázky na zelenú kartu"
     },
     {
-      to: "/edukacne-centrum/kalkulacky",
-      icon: Calculator,
-      title: "Golfové kalkulačky",
-      description: "Výpočty pre váš golf"
-    },
-    {
       to: "/edukacne-centrum/blog",
       icon: Newspaper,
       title: "BSGA Blog",
@@ -47,7 +40,7 @@ const EducationCenter = () => {
     <>
       <Helmet>
         <title>Edukačné centrum | BSGA</title>
-        <meta name="description" content="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how. Napíš text, nahraj fotku či video a uvidíš zázraky." />
+        <meta name="description" content="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how." />
       </Helmet>
 
       <Navbar />
@@ -75,13 +68,8 @@ const EducationCenter = () => {
                 </AnimatePresence>
               </div>
             </div>
-
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-md sm:max-w-xl text-center leading-relaxed px-4">
-              Napíš text, nahraj fotku či video a uvidíš zázraky.
-            </p>
           </div>
         </div>
-
 
         {/* Navigation Cards */}
         <section className="py-12 md:py-16">
