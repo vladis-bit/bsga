@@ -11,7 +11,6 @@ import taleImg from "@/assets/courses/tale.jpg";
 import heritageImg from "@/assets/courses/heritage.jpg";
 import legendImg from "@/assets/courses/legend.jpg";
 import ostraviceImg from "@/assets/courses/ostravice.jpg";
-import taleHeroImg from "@/assets/tour/bsga-tour-tale-hero.jpg";
 
 const tournaments = [
   {
@@ -61,26 +60,13 @@ const Tour = () => {
         {/* Hero */}
         <section className="relative w-full bg-background pt-4 sm:pt-8">
           <div className="px-2 sm:px-4 md:px-8">
-            <div className="relative w-full min-h-[460px] sm:min-h-[540px] md:min-h-[620px] rounded-2xl sm:rounded-3xl overflow-hidden">
-              <img
-                src={taleHeroImg}
-                alt="BSGA Tour 2026 na ihrisku Tále"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/55 to-primary/80" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/35 to-primary/60" />
-              <div className="container relative z-10 mx-auto flex min-h-[460px] sm:min-h-[540px] md:min-h-[620px] items-end justify-center px-4 py-12 sm:px-6 sm:py-16 md:items-center md:py-20 text-center">
-                <div className="max-w-3xl">
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-sm">
-                    Turnaje
-                  </span>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6 drop-shadow-md">
-                    BSGA Tour 2026
-                  </h1>
-                  <p className="text-primary-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2 drop-shadow-sm">
-                    Exkluzívna séria turnajov na najlepších slovenských ihriskách
-                  </p>
-                </div>
+            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+              <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                  Turnaje
+                </span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">BSGA Tour 2026</h1>
+                <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">Exkluzívna séria turnajov na najlepších slovenských ihriskách</p>
               </div>
             </div>
           </div>

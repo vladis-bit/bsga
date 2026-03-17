@@ -30,6 +30,12 @@ const EducationCenter = () => {
       description: "Záverečné otázky na zelenú kartu"
     },
     {
+      to: "/edukacne-centrum/kalkulacky",
+      icon: Calculator,
+      title: "Golfové kalkulačky",
+      description: "Výpočty pre váš golf"
+    },
+    {
       to: "/edukacne-centrum/blog",
       icon: Newspaper,
       title: "BSGA Blog",
@@ -69,6 +75,10 @@ const EducationCenter = () => {
                 </AnimatePresence>
               </div>
             </div>
+
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-md sm:max-w-xl text-center leading-relaxed px-4">
+              Napíš text, nahraj fotku či video a uvidíš zázraky.
+            </p>
           </div>
         </div>
 
