@@ -64,25 +64,23 @@ const Tour = () => {
           {/* Hero */}
           <section className="relative w-full bg-transparent pt-4 sm:pt-8">
             <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl aspect-[1350/1272] max-h-[calc(100vh-8rem)]">
+              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-8rem)]">
                 <img
                   src={tourHeroImage}
                   alt="BSGA Tour 2026 na golfovom ihrisku"
-                  className="absolute inset-0 h-full w-full object-contain"
+                  className="absolute inset-0 h-full w-full object-cover"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/40 to-transparent" />
 
-                <div className="relative z-10 flex h-full items-end">
+                <div className="relative z-10 flex h-full min-h-[460px] items-end sm:min-h-[560px] md:min-h-[680px]">
                   <div className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 md:py-14">
-                    <span className="text-primary-foreground/80 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                    <span className="text-primary-foreground/90 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                       Turnaje
                     </span>
                     <h1 className="mt-3 max-w-5xl text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
                       BSGA Tour 2026
                     </h1>
-                    <p className="mt-4 max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
+                    <p className="mt-4 max-w-3xl text-base text-primary-foreground/95 sm:text-lg md:text-xl">
                       Exkluzívna séria turnajov na najlepších slovenských ihriskách
                     </p>
                   </div>
