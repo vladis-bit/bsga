@@ -3,27 +3,30 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { X } from "lucide-react";
-import heroImage1 from "@/assets/hero-golf-1.jpg";
-import heroImage2 from "@/assets/hero-golf-2.jpg";
-import heroImage3 from "@/assets/hero-golf-3.jpg";
+import galleryTeamMen from "@/assets/gallery-team-men.png";
+import galleryTraining from "@/assets/gallery-training.png";
+import galleryTourAwards from "@/assets/gallery-tour-awards.png";
+import galleryTeamTournament from "@/assets/gallery-team-tournament.png";
+import galleryTeamWomen from "@/assets/gallery-team-women.png";
+import galleryGroupEvent from "@/assets/gallery-group-event.png";
 const images = [{
-  src: heroImage1,
-  alt: "Golfový odpich pri západe slnka"
+  src: galleryTeamMen,
+  alt: "Trojica trénerov BSGA v klubových bundách"
 }, {
-  src: heroImage2,
-  alt: "Tréning na driving range"
+  src: galleryTraining,
+  alt: "Individuálny golfový tréning na ihrisku"
 }, {
-  src: heroImage3,
-  alt: "Golfová loptička na odpalisku"
+  src: galleryTourAwards,
+  alt: "BSGA Tour trofeje a partneri turnaja"
 }, {
-  src: heroImage1,
-  alt: "Profesionálny golfista"
+  src: galleryTeamTournament,
+  alt: "Hráči BSGA pred turnajom na odpalisku"
 }, {
-  src: heroImage2,
-  alt: "Golfová lekcia"
+  src: galleryTeamWomen,
+  alt: "Dve členky tímu BSGA v klubovom oblečení"
 }, {
-  src: heroImage3,
-  alt: "Golfové ihrisko"
+  src: galleryGroupEvent,
+  alt: "Skupinová fotografia účastníkov golfového eventu"
 }];
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
