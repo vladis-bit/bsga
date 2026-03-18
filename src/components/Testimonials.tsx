@@ -4,44 +4,34 @@ import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
-    name: "Martin Kováč",
-    role: "Začiatočník",
-    text: "Vďaka BSGA som sa naučil základy golfu za pár týždňov. Tréneri sú trpezliví a profesionálni. Odporúčam každému, kto chce začať s golfom."
+    name: "Pavel Uher",
+    role: "Dlhoročný klient BSGA",
+    text: "S BSGA som od samého začiatku. Za tie roky som videl, ako akadémia rástla – z dvoch trénerov na celý tím profesionálov a trénerov. Čo sa nezmenilo, je prístup: osobný, odborný a vždy s dôrazom na progres. BSGA sa o mňa komplexne stará - od tréningov pre moju rodinu a kamarátov až po golfové vybavenie."
   },
   {
-    name: "Zuzana Horváthová",
-    role: "Pokročilá hráčka",
-    text: "Peter a Jakub sú skvelí tréneri. Po individuálnych lekciách som výrazne zlepšila svoj handicap. Akadémia má profesionálny prístup."
+    name: "Juraj Fábry",
+    role: "Individuálne tréningy",
+    text: "Individuálne lekcie v BSGA sú na vysokej úrovni. Tréner sa venuje len vám, analýza na TrackMane odhalí veci, ktoré by ste sami nikdy nepostrehli. Za tri mesiace pravidelných tréningov som znížil handicap."
   },
   {
-    name: "Tomáš Novák",
-    role: "Firemný klient",
-    text: "Organizovali sme firemný teambuilding s BSGA a bolo to fantastické. Perfektná organizácia a všetci si to užili."
+    name: "Peter Bánik",
+    role: "Golfové zájazdy",
+    text: "Golfový zájazd cez BSGA – tá najlepšia voľba. Všetko zorganizované na kľúč, partnerstvo s Doni-Travel to posúva na skutočne profesionálnu úroveň. Ihrisko, top all-inclusive ubytovanie, tréningy s PGA profesionálmi. Určite sa vrátim."
   },
   {
-    name: "Lucia Szabová",
-    role: "Členka klubu",
-    text: "Už tretí rok som členkou BSGA a som nadmieru spokojná. Komunita je priateľská a turnaje sú vždy perfektne pripravené."
+    name: "Ján Mesko",
+    role: "Golfová akadémia",
+    text: "Môj syn začínal v BSGA na HCP 54. Tréner mal trpezlivosť, jasné vysvetlenia a správny mentoring. Teraz má HCP 4. Kto uvažuje nad golfom – BSGA je správna cesta."
   },
   {
-    name: "Peter Baláž",
-    role: "Golfový nadšenec",
-    text: "BSGA Tour je najlepšia amatérska séria na Slovensku. Skvelé ihriská, super atmosféra a profesionálna organizácia."
+    name: "HC Slovan Bratislava",
+    role: "Firemná akcia",
+    text: "Teambuilding na ihrisku v Hrubej Borši prekonal naše očakávania. Organizácia bezchybná, trénerský tím profesionálny, atmosféra uvoľnená. Odporúčame každej firme, ktorá hľadá niečo iné ako šablónový event."
   },
   {
-    name: "Jana Dvořáková",
-    role: "Začiatočníčka",
-    text: "Nikdy som nehrala golf, no po kurze s BSGA som sa zamilovala do tohto športu. Tréneri vysvetlia všetko zrozumiteľne a s úsmevom."
-  },
-  {
-    name: "Róbert Tóth",
-    role: "Firemný manažér",
-    text: "S BSGA spolupracujeme už druhý rok na firemných eventoch. Vždy profesionálny prístup, flexibilita a skvelá spätná väzba od kolegov."
-  },
-  {
-    name: "Monika Kráľová",
-    role: "Hráčka HCP 18",
-    text: "Individuálne tréningy s Petrom mi pomohli zlepšiť krátku hru o úroveň vyššie. Oceňujem analytický prístup a videoanýzu švihu."
+    name: "Miroslav Blaha",
+    role: "BSGA Tour a eventy",
+    text: "BSGA Tour je séria, na ktorú sa teším každý rok. Päť turnajov, päť prémiových ihrísk, profesionálna organizácia. Catering, networking, vyhlasovanie výsledkov – detail, na ktorý myslí málokto."
   }
 ];
 
