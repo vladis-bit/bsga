@@ -157,13 +157,13 @@ const About = () => {
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-36 lg:h-40" />
                 <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-36 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.85),transparent_72%)] blur-xl sm:h-44" />
 
-                <p className="absolute left-6 top-6 z-20 font-sans text-3xl font-black uppercase leading-none tracking-[-0.06em] text-foreground sm:left-10 sm:top-8 sm:text-4xl md:left-12 md:top-10 md:text-5xl">
+                <p className="absolute left-6 top-16 z-20 font-sans text-3xl font-black uppercase leading-none tracking-[-0.06em] text-foreground sm:left-10 sm:top-20 sm:text-4xl md:left-12 md:top-24 md:text-5xl">
                   O nás
                 </p>
 
                 <div className="relative z-10 flex min-h-[560px] items-end sm:min-h-[680px] lg:min-h-[760px]">
                   <div className="max-w-3xl px-6 pb-10 pt-28 sm:px-10 sm:pb-14 sm:pt-32 md:px-12 lg:px-14 lg:pb-16">
-                    <h1 className="max-w-2xl text-balance font-sans text-3xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-foreground sm:text-5xl md:text-6xl lg:text-[4.5rem]">
+                    <h1 className="max-w-2xl text-balance font-sans text-xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-foreground sm:text-3xl md:text-4xl lg:text-[2.25rem]">
                       Najväčšia golfová akadémia na Slovensku
                     </h1>
                     <p className="mt-6 max-w-xl text-pretty font-sans text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">
