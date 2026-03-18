@@ -5,9 +5,10 @@ import CursorGlowCard from "@/components/CursorGlowCard";
 interface VoucherCardProps {
   value: number;
   image?: string;
+  purchaseUrl?: string;
 }
 
-const VoucherCard = ({ value, image }: VoucherCardProps) => {
+const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
   return (
     <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
       <div className="overflow-hidden h-full flex flex-col rounded-xl sm:rounded-2xl">
@@ -22,7 +23,7 @@ const VoucherCard = ({ value, image }: VoucherCardProps) => {
             </div>
           )}
         </div>
-        
+
         {/* Content */}
         <div className="p-6 flex flex-col flex-grow">
           <h3 className="text-xl font-bold text-foreground mb-2">
@@ -33,9 +34,17 @@ const VoucherCard = ({ value, image }: VoucherCardProps) => {
           </p>
           <div className="flex items-center justify-between">
             <span className="text-2xl font-bold text-gold">{value} €</span>
-            <Button className="bg-gold hover:bg-gold/90 text-foreground">
-              Kúpiť
-            </Button>
+            {purchaseUrl ? (
+              <Button asChild className="bg-gold hover:bg-gold/90 text-foreground">
+                <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
+                  Kúpiť
+                </a>
+              </Button>
+            ) : (
+              <Button className="bg-gold hover:bg-gold/90 text-foreground">
+                Kúpiť
+              </Button>
+            )}
           </div>
         </div>
       </div>

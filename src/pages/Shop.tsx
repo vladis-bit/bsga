@@ -28,7 +28,7 @@ const Shop = () => {
   }, [titleNumber, titles]);
 
   const vouchers = [
-    { value: 50, image: voucher50 },
+    { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/bJebJ1bj9bcSfE08xm8so00" },
     { value: 100, image: voucher100 },
     { value: 200, image: voucher200 },
   ];
@@ -127,7 +127,7 @@ const Shop = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {vouchers.map((voucher) => (
-                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} />
+                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} purchaseUrl={voucher.purchaseUrl} />
               ))}
             </div>
           </div>
