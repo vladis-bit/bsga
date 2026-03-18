@@ -38,13 +38,14 @@ const Shop = () => {
       title: "Individuálna lekcia",
       price: 59.99,
       icon: User,
+      purchaseUrl: "https://buy.stripe.com/dRm8wP5YP5SycrOdRG8so03",
       features: [
         "60-minútová súkromná lekcia",
         "Profesionálny tréner",
         "Analýza švihu",
         "Personalizované cvičenia",
-        "Okamžitá spätná väzba"
-      ]
+        "Okamžitá spätná väzba",
+      ],
     },
     {
       title: "Víkendový kurz zelenej karty",
@@ -53,25 +54,27 @@ const Shop = () => {
       discount: 74,
       icon: Flag,
       popular: true,
+      purchaseUrl: "https://buy.stripe.com/dRm4gz9b12Gm63q5la8so05",
       features: [
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
         "Technika úderov",
         "Príprava na zelenú kartu",
-        "Profesionálny dohľad"
-      ]
+        "Profesionálny dohľad",
+      ],
     },
     {
       title: "Kurz zelenej karty",
       price: 549.99,
       icon: Award,
+      purchaseUrl: "https://buy.stripe.com/8x25kD2MD3KqdvSbJy8so04",
       features: [
         "Kompletný kurz pre získanie karty",
         "Teória a pravidlá golfu",
         "Golfová etiketa",
         "Praktický tréning na ihrisku",
-        "Certifikát po absolvovaní"
-      ]
+        "Certifikát po absolvovaní",
+      ],
     },
   ];
 
@@ -113,7 +116,6 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Vouchers Section */}
         <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -133,7 +135,6 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Services Section */}
         <section className="py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -156,13 +157,13 @@ const Shop = () => {
                   icon={service.icon}
                   features={service.features}
                   popular={service.popular}
+                  purchaseUrl={service.purchaseUrl}
                 />
               ))}
             </div>
           </div>
         </section>
 
-        {/* BSGA Merch Section */}
         <section className="py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
             <div className="text-center">

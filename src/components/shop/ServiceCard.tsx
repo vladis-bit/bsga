@@ -10,9 +10,10 @@ interface ServiceCardProps {
   icon: LucideIcon;
   features: string[];
   popular?: boolean;
+  purchaseUrl?: string;
 }
 
-const ServiceCard = ({ title, price, originalPrice, discount, features, popular }: ServiceCardProps) => {
+const ServiceCard = ({ title, price, originalPrice, discount, features, popular, purchaseUrl }: ServiceCardProps) => {
   return (
     <div className="relative">
       {popular && (
@@ -58,9 +59,17 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular 
         </div>
         
         {/* Button */}
-        <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-3">
-          Kúpiť
-        </Button>
+        {purchaseUrl ? (
+          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-3">
+            <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
+              Kúpiť
+            </a>
+          </Button>
+        ) : (
+          <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-3">
+            Kúpiť
+          </Button>
+        )}
       </div>
     </CursorGlowCard>
     </div>
