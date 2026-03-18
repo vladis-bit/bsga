@@ -142,24 +142,21 @@ const About = () => {
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero */}
-          <section className="relative overflow-hidden bg-transparent pt-6 sm:pt-10 md:pt-14">
+          <section className="relative overflow-hidden bg-transparent pt-4 sm:pt-6 md:pt-8">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="relative text-center">
-                <div className="relative mx-auto w-full max-w-6xl overflow-hidden py-6 sm:py-10 md:py-14">
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute left-1/2 top-1/2 hidden w-full -translate-x-[47%] -translate-y-[46%] select-none font-sans text-[4.6rem] font-black uppercase leading-none tracking-[-0.08em] text-muted-foreground/10 sm:block sm:text-[7rem] md:text-[9rem] lg:text-[11rem]"
-                  >
-                    O NÁS
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute left-1/2 top-1/2 hidden w-full -translate-x-[44%] -translate-y-[48%] select-none font-sans text-[4.6rem] font-black uppercase leading-none tracking-[-0.08em] text-muted-foreground/20 sm:block sm:text-[7rem] md:text-[9rem] lg:text-[11rem]"
-                  >
-                    O NÁS
-                  </span>
-                  <h1 className="relative z-10 font-sans text-[4.5rem] font-black uppercase leading-none tracking-[-0.08em] text-foreground sm:text-[7rem] md:text-[9rem] lg:text-[11rem]">
-                    O NÁS
+              <div className="mx-auto max-w-6xl">
+                <div className="relative overflow-hidden rounded-[2rem] border border-border/40 bg-card/40 shadow-lg">
+                  <img
+                    src={aboutHeroTeamImg}
+                    alt="Tím BSGA"
+                    className="h-[420px] w-full object-cover object-center sm:h-[560px] lg:h-[720px]"
+                    loading="eager"
+                  />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-32 lg:h-40" />
+                </div>
+                <div className="pt-6 text-center sm:pt-8 md:pt-10">
+                  <h1 className="font-sans text-5xl font-black uppercase leading-none tracking-[-0.08em] text-foreground sm:text-7xl md:text-8xl lg:text-[9rem]">
+                    O nás
                   </h1>
                 </div>
               </div>
