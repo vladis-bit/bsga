@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.png";
+import tourHeroImage from "@/assets/tour-hero-2026.png";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -63,13 +64,28 @@ const Tour = () => {
           {/* Hero */}
           <section className="relative w-full bg-transparent pt-4 sm:pt-8">
             <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
-                <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                    Turnaje
-                  </span>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">BSGA Tour 2026</h1>
-                  <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">Exkluzívna séria turnajov na najlepších slovenských ihriskách</p>
+              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl min-h-[420px] sm:min-h-[520px] md:min-h-[640px]">
+                <img
+                  src={tourHeroImage}
+                  alt="BSGA Tour 2026 na golfovom ihrisku"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/35 to-transparent" />
+
+                <div className="relative z-10 flex min-h-[420px] items-end sm:min-h-[520px] md:min-h-[640px]">
+                  <div className="container mx-auto px-4 py-10 sm:px-6 sm:py-14 md:py-16">
+                    <span className="text-primary-foreground/80 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                      Turnaje
+                    </span>
+                    <h1 className="mt-3 max-w-5xl text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                      BSGA Tour 2026
+                    </h1>
+                    <p className="mt-4 max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
+                      Exkluzívna séria turnajov na najlepších slovenských ihriskách
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
