@@ -141,32 +141,42 @@ const About = () => {
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero */}
-          <section className="relative w-full bg-transparent pt-4 sm:pt-8">
-            <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
-                <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                    O nás
+          <section className="relative overflow-hidden bg-transparent pt-6 sm:pt-10 md:pt-14">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="relative text-center">
+                <div className="relative mx-auto w-full max-w-6xl overflow-hidden py-6 sm:py-10 md:py-14">
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-1/2 top-1/2 hidden w-full -translate-x-[47%] -translate-y-[46%] select-none font-sans text-[4.6rem] font-black uppercase leading-none tracking-[-0.08em] text-muted-foreground/10 sm:block sm:text-[7rem] md:text-[9rem] lg:text-[11rem]"
+                  >
+                    O NÁS
                   </span>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-                    O nás
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-1/2 top-1/2 hidden w-full -translate-x-[44%] -translate-y-[48%] select-none font-sans text-[4.6rem] font-black uppercase leading-none tracking-[-0.08em] text-muted-foreground/20 sm:block sm:text-[7rem] md:text-[9rem] lg:text-[11rem]"
+                  >
+                    O NÁS
+                  </span>
+                  <h1 className="relative z-10 font-sans text-[4.5rem] font-black uppercase leading-none tracking-[-0.08em] text-foreground sm:text-[7rem] md:text-[9rem] lg:text-[11rem]">
+                    O NÁS
                   </h1>
-                  <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-                    Od roku 2016 pomáhame ľuďom objavovať krásu golfu
-                  </p>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Story */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="pb-12 pt-4 sm:pb-16 sm:pt-8 md:pb-24 md:pt-10 bg-transparent">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 sm:mb-8">
+              <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+                <div className="mb-6 h-16 w-px bg-border sm:h-20" />
+                <span className="mb-4 font-serif text-5xl leading-none text-muted-foreground/40 sm:text-6xl">”</span>
+                <h2 className="max-w-3xl text-balance font-sans text-3xl font-semibold leading-tight tracking-[-0.04em] text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
                   Najväčšia golfová akadémia na Slovensku
                 </h2>
-                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám</p>
+                <p className="mt-6 max-w-3xl text-pretty font-sans text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+                  Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám
+                </p>
               </div>
             </div>
           </section>
