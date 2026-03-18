@@ -9,27 +9,67 @@ import galleryTourAwards from "@/assets/gallery-tour-awards.png";
 import galleryTeamTournament from "@/assets/gallery-team-tournament.png";
 import galleryTeamWomen from "@/assets/gallery-team-women.png";
 import galleryGroupEvent from "@/assets/gallery-group-event.png";
-const images = [{
-  src: galleryTeamMen,
-  alt: "Trojica trénerov BSGA v klubových bundách"
-}, {
-  src: galleryTraining,
-  alt: "Individuálny golfový tréning na ihrisku"
-}, {
-  src: galleryTourAwards,
-  alt: "BSGA Tour trofeje a partneri turnaja"
-}, {
-  src: galleryTeamTournament,
-  alt: "Hráči BSGA pred turnajom na odpalisku"
-}, {
-  src: galleryTeamWomen,
-  alt: "Dve členky tímu BSGA v klubovom oblečení"
-}, {
-  src: galleryGroupEvent,
-  alt: "Skupinová fotografia účastníkov golfového eventu"
-}];
+import galleryFlags from "@/assets/gallery-flags.png";
+import galleryFullTeam from "@/assets/gallery-full-team.png";
+import galleryCourseGroup from "@/assets/gallery-course-group.png";
+import galleryKidsTraining from "@/assets/gallery-kids-training.png";
+import galleryJuniorGroup from "@/assets/gallery-junior-group.png";
+import galleryStageEvent from "@/assets/gallery-stage-event.png";
+
+const images = [
+  {
+    src: galleryTeamMen,
+    alt: "Trojica trénerov BSGA v klubových bundách"
+  },
+  {
+    src: galleryTraining,
+    alt: "Individuálny golfový tréning na ihrisku"
+  },
+  {
+    src: galleryTourAwards,
+    alt: "BSGA Tour trofeje a partneri turnaja"
+  },
+  {
+    src: galleryTeamTournament,
+    alt: "Hráči BSGA pred turnajom na odpalisku"
+  },
+  {
+    src: galleryTeamWomen,
+    alt: "Dve členky tímu BSGA v klubovom oblečení"
+  },
+  {
+    src: galleryGroupEvent,
+    alt: "Skupinová fotografia účastníkov golfového eventu"
+  },
+  {
+    src: galleryFlags,
+    alt: "Vlajky partnerov BSGA Tour pri ihrisku"
+  },
+  {
+    src: galleryFullTeam,
+    alt: "Kompletný tím BSGA v klubovom oblečení"
+  },
+  {
+    src: galleryCourseGroup,
+    alt: "Skupina golfistov na fairwayi počas zájazdu"
+  },
+  {
+    src: galleryKidsTraining,
+    alt: "Tréner BSGA s deťmi na putting greene"
+  },
+  {
+    src: galleryJuniorGroup,
+    alt: "Juniorská golfová skupina s trénermi BSGA"
+  },
+  {
+    src: galleryStageEvent,
+    alt: "Vyhlasovanie a moderovanie počas eventu BSGA Tour"
+  }
+];
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
   return <>
       <Helmet>
         <title>Galéria | BSGA - Best Swing Golf Academy</title>
@@ -79,4 +119,5 @@ const Gallery = () => {
       <Footer />
     </>;
 };
+
 export default Gallery;
