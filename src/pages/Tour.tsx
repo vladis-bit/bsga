@@ -64,18 +64,18 @@ const Tour = () => {
           {/* Hero */}
           <section className="relative w-full bg-transparent pt-4 sm:pt-8">
             <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl min-h-[420px] sm:min-h-[520px] md:min-h-[640px]">
+              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl aspect-[1350/1272] max-h-[calc(100vh-8rem)]">
                 <img
                   src={tourHeroImage}
                   alt="BSGA Tour 2026 na golfovom ihrisku"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-contain"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/40 to-transparent" />
 
-                <div className="relative z-10 flex min-h-[420px] items-end sm:min-h-[520px] md:min-h-[640px]">
-                  <div className="container mx-auto px-4 py-10 sm:px-6 sm:py-14 md:py-16">
+                <div className="relative z-10 flex h-full items-end">
+                  <div className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 md:py-14">
                     <span className="text-primary-foreground/80 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                       Turnaje
                     </span>
