@@ -151,26 +151,35 @@ const About = () => {
                   className="absolute inset-0 h-full w-full scale-[1.18] object-cover object-[center_14%] sm:scale-100 sm:object-[center_18%]"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-background/28" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/84 via-background/50 to-background/8" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.12),transparent_32%)]" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-36 lg:h-40" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-36 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.85),transparent_72%)] blur-xl sm:h-44" />
+                <div className="absolute inset-0 bg-background/34" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/88 via-background/58 to-background/12" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.1),transparent_32%)]" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-44 lg:h-48" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.92),transparent_72%)] blur-xl sm:h-48" />
 
                 <p className="absolute left-6 top-16 z-20 font-sans text-3xl font-black uppercase leading-none tracking-[-0.06em] text-foreground sm:left-10 sm:top-20 sm:text-4xl md:left-12 md:top-24 md:text-5xl">
                   O nás
                 </p>
 
                 <div className="relative z-10 flex min-h-[560px] items-end sm:min-h-[680px] lg:min-h-[760px]">
-                  <div className="max-w-3xl px-6 pb-10 pt-28 sm:px-10 sm:pb-14 sm:pt-32 md:px-12 lg:px-14 lg:pb-16">
+                  <div className="max-w-3xl px-6 pb-14 pt-36 sm:px-10 sm:pb-20 sm:pt-40 md:px-12 lg:px-14 lg:pb-24">
                     <h1 className="max-w-2xl text-balance font-sans text-xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-foreground sm:text-3xl md:text-4xl lg:text-[2.25rem]">
                       Najväčšia golfová akadémia na Slovensku
                     </h1>
-                    <p className="mt-6 max-w-xl text-pretty font-sans text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">
-                      <strong className="font-semibold text-foreground">Best Swing Golf Academy</strong> vznikla <strong className="font-semibold text-foreground">koncom roku 2016</strong> s jasnou <strong className="font-semibold text-foreground">misiou</strong> – <strong className="font-semibold text-foreground">propagovať golf na Slovensku</strong>, vytvárať <strong className="font-semibold text-foreground">pozitívny obraz</strong> o tejto hre a <strong className="font-semibold text-foreground">sprístupniť ho všetkým vekovým kategóriám</strong>.
-                    </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-transparent pb-12 sm:pb-16 md:pb-20">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mx-auto max-w-3xl">
+                <p className="text-pretty font-sans text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">
+                  <strong className="font-semibold text-foreground">Best Swing Golf Academy</strong> vznikla <strong className="font-semibold text-foreground">koncom roku 2016</strong> s jasnou <strong className="font-semibold text-foreground">misiou</strong> – <strong className="font-semibold text-foreground">propagovať golf na Slovensku</strong>, vytvárať <strong className="font-semibold text-foreground">pozitívny obraz</strong> o tejto hre a <strong className="font-semibold text-foreground">sprístupniť ho všetkým vekovým kategóriám</strong>.
+                </p>
+              </div>
+            </div>
               </div>
             </div>
           </section>
