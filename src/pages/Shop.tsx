@@ -28,7 +28,7 @@ const Shop = () => {
   }, [titleNumber, titles]);
 
   const vouchers = [
-    { value: 50, image: voucher50 },
+    { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/bJebJ1bj9bcSfE08xm8so00" },
     { value: 100, image: voucher100 },
     { value: 200, image: voucher200 },
   ];
