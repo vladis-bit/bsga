@@ -84,9 +84,9 @@ const EducationCenter = () => {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-white/80 bg-white/88 p-6 shadow-[0_20px_60px_hsl(var(--background)/0.18)] backdrop-blur-md transition-all hover:border-gold sm:gap-6 md:p-8"
+                      className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-border/60 bg-background/75 p-6 transition-all hover:border-gold sm:gap-6 md:p-8"
                     >
-                      <div className="rounded-xl bg-gold/12 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
+                      <div className="rounded-xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
                         <card.icon className="h-8 w-8 text-gold md:h-10 md:w-10" />
                       </div>
                       <div className="flex-1">
