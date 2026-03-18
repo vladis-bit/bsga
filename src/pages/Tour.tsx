@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.png";
+import tourHeroImage from "@/assets/tour-hero-2026.png";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
