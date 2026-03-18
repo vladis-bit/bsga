@@ -71,16 +71,17 @@ const Tour = () => {
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="eager"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
 
-                <div className="relative z-10 flex h-full min-h-[460px] items-end sm:min-h-[560px] md:min-h-[680px]">
-                  <div className="container mx-auto px-4 py-8 sm:px-6 sm:py-12 md:py-14">
+                <div className="relative z-10 flex h-full min-h-[460px] items-center sm:min-h-[560px] md:min-h-[680px]">
+                  <div className="container mx-auto px-4 py-10 text-center sm:px-6 sm:py-12 md:py-14">
                     <span className="text-primary-foreground/90 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                       Turnaje
                     </span>
-                    <h1 className="mt-3 max-w-5xl text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                    <h1 className="mt-3 text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
                       BSGA Tour 2026
                     </h1>
-                    <p className="mt-4 max-w-3xl text-base text-primary-foreground/95 sm:text-lg md:text-xl">
+                    <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/95 sm:text-lg md:text-xl">
                       Exkluzívna séria turnajov na najlepších slovenských ihriskách
                     </p>
                   </div>
