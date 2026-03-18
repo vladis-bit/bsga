@@ -29,8 +29,8 @@ const Shop = () => {
 
   const vouchers = [
     { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/bJebJ1bj9bcSfE08xm8so00" },
-    { value: 100, image: voucher100 },
-    { value: 200, image: voucher200 },
+    { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/fZu28r0Evdl01Na5la8so01" },
+    { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/eVqeVdbj9gxc8by8xm8so02" },
   ];
 
   const services = [
