@@ -90,9 +90,6 @@ const FounderCard = ({
     <p className="text-base text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
-    {member.achievements && <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-        {member.achievements.map((achievement, idx) => <li key={idx}>{achievement}</li>)}
-      </ul>}
     <div className="flex justify-center gap-3">
       <a href={`tel:${member.phone}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
         <Phone size={20} />
