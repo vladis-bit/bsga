@@ -19,12 +19,12 @@ import galleryStageEvent from "@/assets/gallery-stage-event.png";
 
 const images = [
   {
-    src: galleryTeamMen,
-    alt: "Trojica trénerov BSGA v klubových bundách"
-  },
-  {
     src: galleryTraining,
     alt: "Individuálny golfový tréning na ihrisku"
+  },
+  {
+    src: galleryTeamMen,
+    alt: "Trojica trénerov BSGA v klubových bundách"
   },
   {
     src: galleryTourAwards,
