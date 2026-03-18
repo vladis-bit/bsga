@@ -140,7 +140,7 @@ const Services = () => {
                   Služby
                 </span>
                 <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                  Služby
+                  Čo ponúkame
                 </h1>
                 <p className="max-w-2xl text-primary-foreground/70 sm:text-lg">
                   11 profesionálnych služieb pre každého golfistu
