@@ -38,6 +38,7 @@ const Shop = () => {
       title: "Individuálna lekcia",
       price: 59.99,
       icon: User,
+      purchaseUrl: "https://buy.stripe.com/dRm8wP5YP5SycrOdRG8so03",
       features: [
         "60-minútová súkromná lekcia",
         "Profesionálny tréner",
@@ -53,6 +54,7 @@ const Shop = () => {
       discount: 74,
       icon: Flag,
       popular: true,
+      purchaseUrl: "https://buy.stripe.com/dRm4gz9b12Gm63q5la8so05",
       features: [
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
@@ -65,6 +67,7 @@ const Shop = () => {
       title: "Kurz zelenej karty",
       price: 549.99,
       icon: Award,
+      purchaseUrl: "https://buy.stripe.com/8x25kD2MD3KqdvSbJy8so04",
       features: [
         "Kompletný kurz pre získanie karty",
         "Teória a pravidlá golfu",
@@ -74,79 +77,7 @@ const Shop = () => {
       ]
     },
   ];
-
-  return (
-    <>
-      <Helmet>
-        <title>Obchod | BSGA - Best Swing Golf Academy</title>
-        <meta
-          name="description"
-          content="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
-        />
-      </Helmet>
-
-      <Navbar />
-
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
-        <section className="bg-transparent pb-10 pt-28 md:pt-32">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center gap-4 text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                Obchod
-              </h1>
-
-              <div className="relative h-10 overflow-hidden sm:h-12 md:h-16">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={titleNumber}
-                    className="block whitespace-nowrap text-2xl font-serif font-semibold capitalize text-gold sm:text-3xl md:text-4xl lg:text-5xl"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                  >
-                    {titles[titleNumber]}
-                  </motion.span>
-                </AnimatePresence>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Vouchers Section */}
-        <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-                Darčekové poukážky
-              </h2>
-              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-                Darujte zážitok z golfu svojim blízkym. Poukážky sú platné 12 mesiacov od zakúpenia.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {vouchers.map((voucher) => (
-                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} purchaseUrl={voucher.purchaseUrl} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="py-16 md:py-24 bg-transparent">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-                Služby
-              </h2>
-              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-                Vyberte si z našej ponuky golfových kurzov a lekcií
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start pt-6">
-              {services.map((service) => (
+...
                 <ServiceCard
                   key={service.title}
                   title={service.title}
@@ -156,6 +87,7 @@ const Shop = () => {
                   icon={service.icon}
                   features={service.features}
                   popular={service.popular}
+                  purchaseUrl={service.purchaseUrl}
                 />
               ))}
             </div>
