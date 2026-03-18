@@ -12,6 +12,7 @@ import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
 import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.jpg";
+import aboutHeroTeamImg from "@/assets/team/about-hero-team.png";
 
 const founders = [{
   name: "Peter Švajlen",
