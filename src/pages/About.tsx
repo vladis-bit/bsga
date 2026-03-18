@@ -139,26 +139,26 @@ const About = () => {
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero */}
-          <section className="relative overflow-hidden bg-transparent pt-0 sm:pt-2 md:pt-4">
-            <div className="relative isolate w-full overflow-hidden">
+          <section className="relative overflow-hidden bg-transparent px-3 pt-2 sm:px-6 sm:pt-4 md:px-8">
+            <div className="relative isolate w-full overflow-hidden rounded-[1.75rem] sm:rounded-[2.5rem]">
               <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
               <img
                 src={aboutHeroTeamImg}
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-30 blur-2xl"
+                className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-35 blur-2xl"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/12 to-background/78 sm:to-background/68" />
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,hsl(var(--background)/0.18),transparent)] sm:h-24 md:h-28" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-56 md:h-64 lg:h-72" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-[-10%] h-44 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.98),transparent_72%)] blur-3xl sm:h-56 md:h-64" />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/12 via-background/14 to-background/72 sm:to-background/64" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,hsl(var(--background)/0.16),transparent)] sm:h-24 md:h-28" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)/0.98))] sm:h-48 md:h-56" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-3xl sm:h-52 md:h-60" />
 
-              <div className="relative z-10 min-h-[360px] w-full sm:min-h-[520px] md:min-h-[640px] lg:min-h-[760px]">
+              <div className="relative z-10 flex min-h-[320px] w-full items-end justify-center px-2 pt-4 sm:min-h-[500px] sm:px-5 sm:pt-6 md:min-h-[620px] md:px-8 lg:min-h-[720px] lg:px-10">
                 <img
                   src={aboutHeroTeamImg}
                   alt="Tím BSGA"
-                  className="block h-full w-full object-cover object-[center_18%] sm:object-[center_22%] md:object-[center_26%]"
+                  className="block h-full w-full object-contain object-center"
                   loading="eager"
                 />
               </div>
