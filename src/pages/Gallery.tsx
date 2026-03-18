@@ -78,8 +78,8 @@ const Gallery = () => {
       </Helmet>
       <Navbar />
       <AuroraBackground variant="silver">
-        <main className="bg-transparent">
-          <section className="bg-transparent pb-12 pt-8 sm:pb-16 sm:pt-10 md:pb-24 md:pt-12">
+        <main className="bg-transparent pt-24 sm:pt-28 md:pt-32">
+          <section className="bg-transparent pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-8 text-center sm:mb-10 md:mb-12">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground">
