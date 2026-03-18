@@ -12,7 +12,7 @@ import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
 import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
 import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.jpg";
-import aboutHeroTeamImg from "@/assets/team/about-hero-team.png";
+import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.png";
 
 const founders = [{
   name: "Peter Švajlen",
@@ -141,25 +141,26 @@ const About = () => {
           {/* Hero */}
           <section className="relative overflow-hidden bg-transparent pt-4 sm:pt-6 md:pt-8">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="relative isolate mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-border/40 shadow-lg">
+              <div className="relative isolate mx-auto flex max-w-5xl items-center justify-center overflow-hidden rounded-[2rem] border border-border/40 bg-card shadow-lg">
+                <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
                 <img
                   src={aboutHeroTeamImg}
-                  alt="Tím BSGA"
-                  className="absolute inset-0 h-full w-full scale-[1.18] object-cover object-[center_14%] sm:scale-100 sm:object-[center_18%]"
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-35 blur-xl"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-background/44" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/94 via-background/72 to-background/18" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.08),transparent_32%)]" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-64 lg:h-72" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-[-12%] h-56 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.98),transparent_72%)] blur-3xl sm:h-64" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background/70 sm:to-background/60" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-48 md:h-56" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-2xl sm:h-48 md:h-56" />
 
-                <div className="relative z-10 flex min-h-[560px] items-end sm:min-h-[680px] lg:min-h-[760px]">
-                  <div className="max-w-3xl px-6 pb-8 pt-44 sm:px-10 sm:pb-12 sm:pt-48 md:px-12 lg:px-14 lg:pb-14 lg:pt-[29rem]">
-                    <h1 className="max-w-2xl text-balance font-sans text-xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-foreground sm:text-3xl md:text-4xl lg:text-[2.25rem]">
-                      Najväčšia golfová akadémia na Slovensku
-                    </h1>
-                  </div>
+                <div className="relative z-10 flex min-h-[460px] w-full items-end justify-center px-2 pt-6 sm:min-h-[620px] sm:px-6 sm:pt-8 md:min-h-[720px] lg:min-h-[780px]">
+                  <img
+                    src={aboutHeroTeamImg}
+                    alt="Tím BSGA"
+                    className="h-full w-full max-w-[980px] object-contain object-bottom"
+                    loading="eager"
+                  />
                 </div>
               </div>
             </div>
