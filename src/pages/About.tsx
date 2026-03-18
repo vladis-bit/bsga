@@ -144,37 +144,31 @@ const About = () => {
           {/* Hero */}
           <section className="relative overflow-hidden bg-transparent pt-4 sm:pt-6 md:pt-8">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="mx-auto max-w-6xl">
-                <div className="relative overflow-hidden rounded-[2rem] border border-border/40 bg-card/40 shadow-lg">
-                  <img
-                    src={aboutHeroTeamImg}
-                    alt="Tím BSGA"
-                    className="h-[420px] w-full object-cover object-center sm:h-[560px] lg:h-[720px]"
-                    loading="eager"
-                  />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-32 lg:h-40" />
-                </div>
-                <div className="pt-6 text-center sm:pt-8 md:pt-10">
-                  <h1 className="font-sans text-5xl font-black uppercase leading-none tracking-[-0.08em] text-foreground sm:text-7xl md:text-8xl lg:text-[9rem]">
-                    O nás
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </section>
+              <div className="relative isolate mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-border/40 shadow-lg">
+                <img
+                  src={aboutHeroTeamImg}
+                  alt="Tím BSGA"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-background/40" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/10" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.24),transparent_34%)]" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-36 lg:h-44" />
 
-          {/* Story */}
-          <section className="pb-12 pt-4 sm:pb-16 sm:pt-8 md:pb-24 md:pt-10 bg-transparent">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-                <div className="mb-6 h-16 w-px bg-border sm:h-20" />
-                <span className="mb-4 font-serif text-5xl leading-none text-muted-foreground/40 sm:text-6xl">”</span>
-                <h2 className="max-w-3xl text-balance font-sans text-3xl font-semibold leading-tight tracking-[-0.04em] text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
-                  Najväčšia golfová akadémia na Slovensku
-                </h2>
-                <p className="mt-6 max-w-3xl text-pretty font-sans text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-                  Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám
-                </p>
+                <div className="relative z-10 flex min-h-[560px] items-end sm:min-h-[680px] lg:min-h-[760px]">
+                  <div className="max-w-3xl px-6 pb-10 pt-24 sm:px-10 sm:pb-14 md:px-12 lg:px-14 lg:pb-16">
+                    <p className="mb-4 font-sans text-sm font-semibold uppercase tracking-[0.28em] text-foreground/70 sm:text-base">
+                      O nás
+                    </p>
+                    <h1 className="max-w-2xl text-balance font-sans text-5xl font-black uppercase leading-[0.9] tracking-[-0.08em] text-foreground sm:text-7xl md:text-8xl lg:text-[6.5rem]">
+                      Najväčšia golfová akadémia na Slovensku
+                    </h1>
+                    <p className="mt-6 max-w-xl text-pretty font-sans text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">
+                      Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
