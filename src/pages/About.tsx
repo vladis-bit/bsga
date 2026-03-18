@@ -143,17 +143,14 @@ const About = () => {
           {/* Hero */}
           <section className="relative w-full bg-transparent pt-4 sm:pt-8">
             <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-16 sm:py-24 md:py-32">
+              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-background/70 py-12 sm:py-16 md:py-24 backdrop-blur-sm">
                 <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                    O nás
-                  </span>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
-                    O nás
-                  </h1>
-                  <p className="text-primary-foreground/80 text-base sm:text-lg max-w-2xl mx-auto px-2">
-                    Od roku 2016 pomáhame ľuďom objavovať krásu golfu
+                  <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted-foreground">
+                    Best Swing Golf Academy
                   </p>
+                  <h1 className="mt-4 text-5xl font-black uppercase leading-none tracking-[-0.06em] text-foreground sm:text-7xl md:text-8xl lg:text-[8.5rem]">
+                    O NÁS
+                  </h1>
                 </div>
               </div>
             </div>
@@ -162,11 +159,18 @@ const About = () => {
           {/* Story */}
           <section className="py-12 sm:py-16 md:py-24 bg-transparent">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-6 sm:mb-8">
-                  Najväčšia golfová akadémia na Slovensku
-                </h2>
-                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">Best Swing Golf Academy vznikla koncom roku 2016 s jasnou misiou - propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám</p>
+              <div className="mx-auto max-w-5xl text-center">
+                <div className="mx-auto mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-border/70 bg-background/70 text-muted-foreground shadow-sm backdrop-blur-sm">
+                  <Quote className="h-6 w-6" />
+                </div>
+                <p className="mx-auto max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.05em] text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+                  Skutočná hodnota golfu nie je len v cieli.
+                  <br />
+                  Je v <span className="font-serif italic font-medium text-muted-foreground">umení cesty</span> za ním.
+                </p>
+                <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Od roku 2016 budujeme priestor, kde sa golf spája s disciplínou, radosťou z pohybu a osobným rastom. Vedieme začiatočníkov aj pokročilých hráčov tak, aby si na svojej golfovej ceste našli vlastný rytmus, istotu a dlhodobú motiváciu.
+                </p>
               </div>
             </div>
           </section>
