@@ -148,15 +148,11 @@ const About = () => {
                   className="absolute inset-0 h-full w-full scale-[1.18] object-cover object-[center_14%] sm:scale-100 sm:object-[center_18%]"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-background/34" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/88 via-background/58 to-background/12" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.1),transparent_32%)]" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-52 lg:h-56" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-[-10%] h-48 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-2xl sm:h-56" />
-
-                <p className="absolute left-6 top-16 z-20 font-sans text-3xl font-black uppercase leading-none tracking-[-0.06em] text-foreground sm:left-10 sm:top-20 sm:text-4xl md:left-12 md:top-24 md:text-5xl">
-                  O nás
-                </p>
+                <div className="absolute inset-0 bg-background/44" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/94 via-background/72 to-background/18" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.08),transparent_32%)]" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-64 lg:h-72" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-[-12%] h-56 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.98),transparent_72%)] blur-3xl sm:h-64" />
 
                 <div className="relative z-10 flex min-h-[560px] items-end sm:min-h-[680px] lg:min-h-[760px]">
                   <div className="max-w-3xl px-6 pb-8 pt-44 sm:px-10 sm:pb-12 sm:pt-48 md:px-12 lg:px-14 lg:pb-14 lg:pt-[29rem]">
