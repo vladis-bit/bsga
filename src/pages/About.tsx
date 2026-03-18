@@ -172,11 +172,14 @@ const About = () => {
             </div>
           </section>
 
-          <section className="bg-transparent pb-12 sm:pb-16 md:pb-20">
+          <section className="bg-transparent pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="mx-auto max-w-3xl">
-                <p className="text-pretty font-sans text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">
-                  <strong className="font-semibold text-foreground">Best Swing Golf Academy</strong> vznikla <strong className="font-semibold text-foreground">koncom roku 2016</strong> s jasnou <strong className="font-semibold text-foreground">misiou</strong> – <strong className="font-semibold text-foreground">propagovať golf na Slovensku</strong>, vytvárať <strong className="font-semibold text-foreground">pozitívny obraz</strong> o tejto hre a <strong className="font-semibold text-foreground">sprístupniť ho všetkým vekovým kategóriám</strong>.
+              <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
+                <span className="mb-5 font-serif text-5xl leading-none text-muted-foreground/40 sm:mb-6 sm:text-6xl">
+                  “
+                </span>
+                <p className="max-w-4xl text-balance font-sans text-2xl font-black leading-[0.98] tracking-[-0.05em] text-foreground sm:text-4xl md:text-5xl lg:text-[4rem]">
+                  Best Swing Golf Academy vznikla koncom roku 2016 s jasnou <span className="font-serif text-muted-foreground italic">misiou</span> – propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám.
                 </p>
               </div>
             </div>
