@@ -151,17 +151,17 @@ const About = () => {
                   className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-background/40" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/10" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.24),transparent_34%)]" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-36 lg:h-44" />
+                <div className="absolute inset-0 bg-background/22" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/78 via-background/42 to-background/5" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_34%,hsl(var(--gold-light)/0.14),transparent_32%)]" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)))] sm:h-32 lg:h-36" />
 
                 <div className="relative z-10 flex min-h-[560px] items-end sm:min-h-[680px] lg:min-h-[760px]">
                   <div className="max-w-3xl px-6 pb-10 pt-24 sm:px-10 sm:pb-14 md:px-12 lg:px-14 lg:pb-16">
-                    <p className="mb-4 font-sans text-sm font-semibold uppercase tracking-[0.28em] text-foreground/70 sm:text-base">
+                    <p className="mb-4 font-sans text-2xl font-black uppercase leading-none tracking-[-0.05em] text-foreground sm:text-4xl md:text-5xl">
                       O nás
                     </p>
-                    <h1 className="max-w-2xl text-balance font-sans text-5xl font-black uppercase leading-[0.9] tracking-[-0.08em] text-foreground sm:text-7xl md:text-8xl lg:text-[6.5rem]">
+                    <h1 className="max-w-2xl text-balance font-sans text-3xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-foreground sm:text-5xl md:text-6xl lg:text-[4.5rem]">
                       Najväčšia golfová akadémia na Slovensku
                     </h1>
                     <p className="mt-6 max-w-xl text-pretty font-sans text-base leading-relaxed text-foreground/80 sm:text-lg lg:text-xl">
