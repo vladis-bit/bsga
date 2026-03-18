@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone, CheckCircle } from "lucide-react";
+import { Mail, Phone, CheckCircle, Quote } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
