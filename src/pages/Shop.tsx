@@ -44,8 +44,8 @@ const Shop = () => {
         "Profesionálny tréner",
         "Analýza švihu",
         "Personalizované cvičenia",
-        "Okamžitá spätná väzba"
-      ]
+        "Okamžitá spätná väzba",
+      ],
     },
     {
       title: "Víkendový kurz zelenej karty",
@@ -60,8 +60,8 @@ const Shop = () => {
         "Základy golfu",
         "Technika úderov",
         "Príprava na zelenú kartu",
-        "Profesionálny dohľad"
-      ]
+        "Profesionálny dohľad",
+      ],
     },
     {
       title: "Kurz zelenej karty",
@@ -73,11 +73,81 @@ const Shop = () => {
         "Teória a pravidlá golfu",
         "Golfová etiketa",
         "Praktický tréning na ihrisku",
-        "Certifikát po absolvovaní"
-      ]
+        "Certifikát po absolvovaní",
+      ],
     },
   ];
-...
+
+  return (
+    <>
+      <Helmet>
+        <title>Obchod | BSGA - Best Swing Golf Academy</title>
+        <meta
+          name="description"
+          content="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
+        />
+      </Helmet>
+
+      <Navbar />
+
+      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+        <section className="bg-transparent pb-10 pt-28 md:pt-32">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                Obchod
+              </h1>
+
+              <div className="relative h-10 overflow-hidden sm:h-12 md:h-16">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={titleNumber}
+                    className="block whitespace-nowrap text-2xl font-serif font-semibold capitalize text-gold sm:text-3xl md:text-4xl lg:text-5xl"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    {titles[titleNumber]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+                Darčekové poukážky
+              </h2>
+              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
+                Darujte zážitok z golfu svojim blízkym. Poukážky sú platné 12 mesiacov od zakúpenia.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {vouchers.map((voucher) => (
+                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} purchaseUrl={voucher.purchaseUrl} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-transparent">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+                Služby
+              </h2>
+              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
+                Vyberte si z našej ponuky golfových kurzov a lekcií
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start pt-6">
+              {services.map((service) => (
                 <ServiceCard
                   key={service.title}
                   title={service.title}
@@ -94,7 +164,6 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* BSGA Merch Section */}
         <section className="py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
             <div className="text-center">
