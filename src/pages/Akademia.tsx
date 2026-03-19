@@ -18,12 +18,8 @@ const Akademia = () => {
           {/* Hero Section with News Slider */}
           <section className="relative w-full bg-transparent pt-4 sm:pt-8">
             <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full overflow-hidden rounded-2xl border border-border/70 bg-primary py-16 shadow-xl sm:rounded-3xl sm:py-20 md:py-24">
-                <div className="container relative z-10 mx-auto px-4 sm:px-6">
-                  <div className="mx-auto max-w-4xl">
-                    <AkademiaNewsSlider />
-                  </div>
-                </div>
+              <div className="relative w-full overflow-hidden rounded-2xl border border-border/70 bg-transparent shadow-xl sm:rounded-3xl">
+                <AkademiaNewsSlider />
               </div>
             </div>
           </section>
