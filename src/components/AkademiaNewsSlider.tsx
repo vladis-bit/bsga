@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import heroSlide1 from "@/assets/akademia/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/akademia/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/akademia/hero-slide-3.jpg";
+import heroSlide2 from "@/assets/akademia/hero-slide-2-new.jpg";
+import heroSlide3 from "@/assets/akademia/hero-slide-3-new.jpg";
 
 interface NewsSlide {
   title: string;
@@ -25,7 +25,7 @@ const slides: NewsSlide[] = [
     subtitle: "Rezervácie otvorené",
     cta: "Zistiť viac",
     anchor: "#tabory",
-    image: heroSlide3,
+    image: heroSlide2,
   },
   {
     title: "Tour Kids",
