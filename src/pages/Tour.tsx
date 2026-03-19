@@ -59,7 +59,7 @@ const Tour = () => {
         <meta name="description" content="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice." />
       </Helmet>
       <Navbar />
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+      <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero */}
           <section className="relative w-full bg-transparent pt-4 sm:pt-8">
@@ -127,7 +127,7 @@ const Tour = () => {
                 <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                   Kalendár
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
                   Termíny turnajov
                 </h2>
                 <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
@@ -158,8 +158,8 @@ const Tour = () => {
           {/* Registration */}
           <section className="py-12 sm:py-16 md:py-24 bg-transparent">
             <div className="container mx-auto px-4 sm:px-6 text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-4 sm:mb-6">Oslovila vás BSGA Tour ?</h2>
-              <p className="text-primary-foreground/70 text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto px-2">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 sm:mb-6">Oslovila vás BSGA Tour ?</h2>
+              <p className="text-muted-foreground text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto px-2">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
               <a href="mailto:touroffice@bsga.sk" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300">
                 <Mail size={18} />
                 touroffice@bsga.sk
