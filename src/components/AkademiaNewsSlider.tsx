@@ -25,7 +25,7 @@ const slides: NewsSlide[] = [
     subtitle: "Rezervácie otvorené",
     cta: "Zistiť viac",
     anchor: "#tabory",
-    image: heroSlide2,
+    image: heroSlide3,
   },
   {
     title: "Tour Kids",
@@ -76,9 +76,9 @@ const AkademiaNewsSlider = () => {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/55 to-primary/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/65 to-primary/20" />
 
-      <div className="relative z-10 flex min-h-[420px] flex-col items-center justify-center px-6 py-12 text-center sm:min-h-[520px] sm:px-10 md:min-h-[620px] md:px-12">
+      <div className="relative z-10 flex min-h-[420px] flex-col items-center justify-end px-6 pb-10 pt-12 text-center sm:min-h-[520px] sm:px-10 sm:pb-14 md:min-h-[620px] md:px-12 md:pb-16">
         <span className="mb-3 text-xs uppercase tracking-[0.2em] text-gold sm:text-sm">
           Akadémia BSGA
         </span>
