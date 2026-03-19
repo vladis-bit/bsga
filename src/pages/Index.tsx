@@ -7,7 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import SimpleContactForm from "@/components/SimpleContactForm";
 import Footer from "@/components/Footer";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const Index = () => {
   return (
@@ -20,16 +19,14 @@ const Index = () => {
         />
       </Helmet>
       <Navbar />
-      <AuroraBackground>
-        <main className="bg-transparent">
-          <HeroSlider />
-          <ServicesSlider />
-          <PartnersLoop />
-          <Testimonials />
-          <FAQ />
-          <SimpleContactForm />
-        </main>
-      </AuroraBackground>
+      <main>
+        <HeroSlider />
+        <ServicesSlider />
+        <PartnersLoop />
+        <Testimonials />
+        <FAQ />
+        <SimpleContactForm />
+      </main>
       <Footer />
     </>
   );
