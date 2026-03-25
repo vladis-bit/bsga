@@ -56,7 +56,7 @@ const team = [{
   image: vladimirLeskoImg
 }, {
   name: "Donka Švajlenová",
-  role: "Administratíva",
+  role: "Event & Operations Manager",
   phone: "+421 917 225 276",
   email: "touroffice@bsga.sk",
   image: donkaSvajlenovaImg
