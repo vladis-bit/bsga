@@ -14,21 +14,14 @@ const GDPR = () => {
       </Helmet>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="relative w-full bg-background pt-4 sm:pt-8">
-          <div className="px-2 sm:px-4 md:px-8">
-            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-primary py-12 sm:py-16 md:py-20">
-              <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary-foreground">
-                  Zásady ochrany osobných údajov
-                </h1>
-                <p className="text-primary-foreground/70 mt-2 text-sm sm:text-base">
-                  Platné od 8. marca 2026
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-2">
+            Zásady ochrany osobných údajov
+          </h1>
+          <p className="text-muted-foreground text-sm sm:text-base">
+            Platné od 8. marca 2026
+          </p>
+        </div>
 
         {/* Content */}
         <section className="py-10 sm:py-12 md:py-16 bg-background">
