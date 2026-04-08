@@ -41,8 +41,11 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     1. Úvodné ustanovenia
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    Občianske združenie Rozvíjajme golf o.z., prevádzkujúce golfovú akadémiu pod marketingovým názvom Best Swing Golf Academy (BSGA) (ďalej len Prevádzkovateľ alebo BSGA) si plne uvedomuje dôležitosť ochrany osobných údajov svojich klientov, záujemcov o kurzy a návštevníkov webovej stránky.
+                  </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Občianske združenie Rozvíjajme golf o.z., prevádzkujúce golfovú akadémiu pod marketingovým názvom Best Swing Golf Academy (BSGA), si plne uvedomuje dôležitosť ochrany osobných údajov svojich klientov, záujemcov o kurzy a návštevníkov webovej stránky. Tieto Zásady upravujú spôsob, akým BSGA zhromažďuje, spracúva, uchováva a chráni osobné údaje v súlade s nariadením GDPR a zákonom č. 18/2018 Z. z. o ochrane osobných údajov.
+                    Tieto Zásady ochrany osobných údajov (ďalej len Zásady) upravujú spôsob, akým BSGA zhromažďuje, spracúva, uchováva a chráni osobné údaje v súlade s Nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 o ochrane fyzických osôb pri spracúvaní osobných údajov (ďalej len GDPR) a zákonom č. 18/2018 Z. z. o ochrane osobných údajov.
                   </p>
                 </div>
 
@@ -51,6 +54,9 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     2. Totožnosť a kontaktné údaje prevádzkovateľa
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    Prevádzkovateľom osobných údajov je:
+                  </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
                     <li>Obchodné meno: Rozvíjajme golf o.z.</li>
                     <li>Marketingový názov: Best Swing Golf Academy (BSGA)</li>
@@ -67,6 +73,9 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     3. Aké osobné údaje spracúvame
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    V závislosti od účelu spracúvania môžeme zhromažďovať nasledovné kategórie osobných údajov:
+                  </p>
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">3.1 Identifikačné a kontaktné údaje</h3>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
                     <li>Meno a priezvisko</li>
@@ -95,19 +104,22 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     4. Právny základ a účely spracúvania
                   </h2>
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.1 Plnenie zmluvy</h3>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    Vaše osobné údaje spracúvame len na základe zákonného právneho základu:
+                  </p>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.1 Plnenie zmluvy (čl. 6 ods. 1 písm. b) GDPR)</h3>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
                     Spracúvanie je nevyhnutné na registráciu a správu vašich golfových kurzov, lekcií a tréningov, vystavovanie faktúr a potvrdení, ako aj na komunikáciu súvisiacu s objednanými službami.
                   </p>
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.2 Oprávnený záujem</h3>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.2 Oprávnený záujem (čl. 6 ods. 1 písm. f) GDPR)</h3>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    Na základe oprávneného záujmu spracúvame údaje na účely zlepšovania kvality služieb, analýzy využívania webu, ochrany pred podvodmi a bezpečnosti IT systémov.
+                    Na základe oprávneného záujmu spracúvame údaje na účely zlepšovania kvality našich služieb, analýzy využívania webovej stránky, ochrany pred podvodmi a bezpečnosti IT systémov.
                   </p>
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.3 Súhlas</h3>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.3 Súhlas (čl. 6 ods. 1 písm. a) GDPR)</h3>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    Na základe vášho dobrovoľného súhlasu môžeme spracúvať vaše údaje na zasielanie newsletters, marketingových ponúk a informácií o novinkách. Súhlas môžete kedykoľvek odvolať.
+                    Na základe vášho dobrovoľného súhlasu môžeme spracúvať vaše údaje na zasielanie newsletters, marketingových ponúk a informácií o novinkách a podujatiach BSGA. Súhlas môžete kedykoľvek odvolať.
                   </p>
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.4 Zákonná povinnosť</h3>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">4.4 Zákonná povinnosť (čl. 6 ods. 1 písm. c) GDPR)</h3>
                   <p className="text-sm sm:text-base leading-relaxed">
                     V niektorých prípadoch sme povinní uchovávať vaše údaje na základe platných právnych predpisov (napr. daňové a účtovné povinnosti).
                   </p>
@@ -118,8 +130,11 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     5. Doba uchovávania osobných údajov
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    Vaše osobné údaje uchovávame len po dobu nevyhnutnú na splnenie účelu, na ktorý boli zhromaždené:
+                  </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
-                    <li>Zmluvné údaje: po dobu trvania zmluvy a 5 rokov po skončení</li>
+                    <li>Zmluvné údaje: po dobu trvania zmluvného vzťahu a 5 rokov po jeho skončení</li>
                     <li>Účtovné doklady: 10 rokov v súlade s účtovnými predpismi SR</li>
                     <li>Marketingové súhlasy: do odvolania súhlasu</li>
                     <li>Technické logy a cookies: 12 mesiacov</li>
@@ -132,9 +147,12 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     6. Príjemcovia osobných údajov
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    Vaše osobné údaje môžu byť poskytnuté nasledovným kategóriám príjemcov:
+                  </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
-                    <li>Akreditovaní tréneri a inštruktori BSGA</li>
-                    <li>Poskytovatelia IT služieb a cloudového hostingu</li>
+                    <li>Akreditovaní tréneri a inštruktori BSGA (v rozsahu potrebnom na poskytovanie tréningových služieb)</li>
+                    <li>Poskytovatelia IT služieb a cloudového hostingu (spracúvajú údaje výlučne podľa našich pokynov)</li>
                     <li>Platobné brány a banky (pri realizácii platieb)</li>
                   </ul>
                 </div>
@@ -145,12 +163,12 @@ const GDPR = () => {
                     7. Cookies a sledovacie technológie
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    Naša webová stránka využíva súbory cookies a podobné sledovacie technológie.
+                    Naša webová stránka https://bsga.sk využíva súbory cookies a podobné sledovacie technológie. Cookies sú malé textové súbory ukladané vo vašom prehliadači.
                   </p>
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">7.1 Typy cookies</h3>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
                     <li>Nevyhnutné cookies – zabezpečujú základnú funkčnosť webu (nevyžadujú súhlas)</li>
-                    <li>Analytické cookies – pomáhajú pochopiť, ako návštevníci používajú web (vyžadujú súhlas)</li>
+                    <li>Analytické cookies – pomáhajú nám pochopiť, ako návštevníci používajú náš web (vyžadujú súhlas)</li>
                     <li>Marketingové cookies – umožňujú zobrazovanie personalizovanej reklamy (vyžadujú súhlas)</li>
                   </ul>
                   <p className="text-sm sm:text-base leading-relaxed">
@@ -163,17 +181,20 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     8. Vaše práva ako dotknutej osoby
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    Ako dotknutá osoba máte podľa GDPR nasledovné práva:
+                  </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Právo na prístup – informácie o tom, aké údaje o vás spracúvame</li>
-                    <li>Právo na opravu – požadovať opravu nesprávnych údajov</li>
-                    <li>Právo na vymazanie („zabudnutie")</li>
-                    <li>Právo na obmedzenie spracúvania</li>
-                    <li>Právo na prenosnosť údajov</li>
-                    <li>Právo namietať voči spracúvaniu</li>
-                    <li>Právo odvolať súhlas</li>
+                    <li>Právo na prístup – máte právo získať informácie o tom, aké osobné údaje o vás spracúvame</li>
+                    <li>Právo na opravu – môžete požadovať opravu nesprávnych alebo neúplných údajov</li>
+                    <li>Právo na vymazanie („zabudnutie") – za určitých podmienok môžete požadovať vymazanie vašich údajov</li>
+                    <li>Právo na obmedzenie spracúvania – môžete požadovať dočasné pozastavenie spracúvania</li>
+                    <li>Právo na prenosnosť údajov – môžete získať svoje údaje v štruktúrovanom, strojovo čitateľnom formáte</li>
+                    <li>Právo namietať – máte právo namietať voči spracúvaniu na základe oprávneného záujmu alebo priameho marketingu</li>
+                    <li>Právo odvolať súhlas – ak je spracúvanie založené na súhlase, môžete ho kedykoľvek odvolať</li>
                   </ul>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Svoju žiadosť môžete uplatniť na e-mailovej adrese: info@bsga.sk. Na vašu žiadosť odpovieme najneskôr do 30 dní.
+                    Svoju žiadosť môžete uplatniť na e-mailovej adrese: info@bsga.sk. Na vašu žiadosť odpovieme bez zbytočného odkladu, najneskôr do 30 dní.
                   </p>
                 </div>
 
@@ -183,7 +204,7 @@ const GDPR = () => {
                     9. Právo podať sťažnosť
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    Ak sa domnievate, že spracúvaním vašich údajov dochádza k porušeniu GDPR, máte právo podať sťažnosť dozornému orgánu:
+                    Ak sa domnievate, že spracúvaním vašich osobných údajov dochádza k porušeniu GDPR alebo zákona o ochrane osobných údajov, máte právo podať sťažnosť dozornému orgánu:
                   </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
                     <li>Úrad na ochranu osobných údajov Slovenskej republiky</li>
@@ -198,7 +219,7 @@ const GDPR = () => {
                     10. Bezpečnosť osobných údajov
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    Prijímame primerané technické a organizačné opatrenia na ochranu vašich osobných údajov:
+                    Rozvíjajme golf o.z. prijíma primerané technické a organizačné opatrenia na ochranu vašich osobných údajov pred neoprávneným prístupom, stratou, zničením alebo neoprávneným zverejnením. Medzi tieto opatrenia patrí:
                   </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
                     <li>Šifrovanie dát pri prenose (SSL/TLS)</li>
@@ -215,7 +236,7 @@ const GDPR = () => {
                     11. Prenos osobných údajov do tretích krajín
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Osobné údaje primárne spracúvame v rámci EHP. V prípade prenosu do tretích krajín zabezpečujeme ochranu prostredníctvom štandardných zmluvných doložiek schválených Európskou komisiou.
+                    Rozvíjajme golf o.z. primárne spracúva osobné údaje v rámci Európskeho hospodárskeho priestoru (EHP). V prípade, že dochádza k prenosu údajov do tretích krajín, zabezpečujeme primeranú úroveň ochrany prostredníctvom štandardných zmluvných doložiek schválených Európskou komisiou alebo iných zákonných mechanizmov.
                   </p>
                 </div>
 
@@ -225,7 +246,7 @@ const GDPR = () => {
                     12. Zmeny Zásad ochrany osobných údajov
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Rozvíjajme golf o.z. si vyhradzuje právo tieto Zásady kedykoľvek aktualizovať. O podstatných zmenách vás budeme informovať prostredníctvom e-mailu alebo oznámením na webovej stránke.
+                    Rozvíjajme golf o.z. si vyhradzuje právo tieto Zásady kedykoľvek aktualizovať. O podstatných zmenách vás budeme informovať prostredníctvom e-mailu alebo oznámením na našej webovej stránke. Odporúčame vám pravidelne sledovať aktuálnu verziu Zásad na stránke https://bsga.sk.
                   </p>
                 </div>
 
@@ -234,6 +255,9 @@ const GDPR = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     13. Kontakt
                   </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
+                    V prípade akýchkoľvek otázok týkajúcich sa ochrany osobných údajov nás môžete kontaktovať:
+                  </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
                     <li>E-mail: info@bsga.sk</li>
                     <li>Webová stránka: https://bsga.sk</li>
