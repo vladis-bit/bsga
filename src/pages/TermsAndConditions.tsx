@@ -14,7 +14,7 @@ const TermsAndConditions = () => {
       </Helmet>
       <Navbar />
       <main>
-        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32">
+        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-2">
             Obchodné podmienky
           </h1>
