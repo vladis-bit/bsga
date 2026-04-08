@@ -46,7 +46,7 @@ const EducationCenter = () => {
 
       <Navbar />
 
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+      <AuroraBackground className="min-h-[50vh] bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
           <section className="bg-transparent pb-10 pt-28 md:pt-32">
             <div className="container mx-auto px-4 sm:px-6">
