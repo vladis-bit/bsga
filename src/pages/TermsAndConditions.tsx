@@ -48,7 +48,7 @@ const TermsAndConditions = () => {
                     1.2 Poskytovateľ – identifikačné údaje:
                   </p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Obchodné meno: Rozvíjajme golf o.z.</li>
+                    <li>Obchodné meno (právna forma): Rozvíjajme golf o.z.</li>
                     <li>Marketingové označenie: Best Swing Golf Academy (BSGA)</li>
                     <li>Zakladatelia: Peter Švajlen, MBA a Jakub Hrbáň</li>
                     <li>Sídlo: Župné námestie 3, 811 03 Bratislava</li>
@@ -74,33 +74,33 @@ const TermsAndConditions = () => {
 
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">2.1.1 Tréningové služby</h3>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Individuálne lekcie – osobný tréning s licencovaným trénerom</li>
-                    <li>Skupinové lekcie – tréning v malých skupinách</li>
-                    <li>Course Management – tréning s PGA trénerom priamo na ihrisku</li>
-                    <li>Fitting – meranie a testovanie golfového vybavenia na mieru</li>
+                    <li>Individuálne lekcie – osobný tréning s licencovaným trénerom, zameraný na individuálne potreby klienta.</li>
+                    <li>Skupinové lekcie – tréning v malých skupinách s dôrazom na techniku a tímovú dynamiku.</li>
+                    <li>Course Management – tréning s PGA trénerom priamo na ihrisku s analýzou hry.</li>
+                    <li>Fitting – meranie a testovanie golfového vybavenia na mieru.</li>
                   </ul>
 
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">2.1.2 Kurzy a certifikácia</h3>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Štart karty – program pre úplných začiatočníkov</li>
-                    <li>Zelená karta (HCP kurz) – komplexný kurz v trvaní 12 hodín s odbornou skúškou; doplatok za skúšku a vydanie zelenej karty je 80 EUR</li>
+                    <li>Štart karty – program pre úplných začiatočníkov zameraný na získanie pevných základov golfu.</li>
+                    <li>Zelená karta (HCP kurz) – komplexný kurz v trvaní 12 hodín s odbornou skúškou; absolvovaním získa Klient oficiálnu spôsobilosť hrať na ihrisku. Doplatok za záverečnú skúšku a vydanie zelenej karty je 80 EUR (platba na mieste).</li>
                   </ul>
 
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">2.1.3 Juniorská akadémia</h3>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Baby Kids (5 – 8 rokov) – hrávné aktivity, základné motorické zručnosti a koordinácia</li>
+                    <li>Baby Kids (5 – 8 rokov) – hrávné aktivity, základné motorické zručnosti a koordinácia. Trénerka: Vanessa Fajkusová.</li>
                   </ul>
 
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">2.1.4 Eventy, tábory a turnaje</h3>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Detské kempy – letné tábory s golfovým programom</li>
-                    <li>Firemné akcie a teambuildingy</li>
-                    <li>BSGA Tour 2026 – exkluzívna séria 5 turnajov na prémiových ihriskách Slovenska</li>
+                    <li>Detské kempy – letné tábory s golfovým programom. 1. turnus: 6. – 10. 7. 2026; 2. turnus: 3. – 7. 8. 2026.</li>
+                    <li>Firemné akcie a teambuildingy – príjemné podujatia prispôsobené potrebám firiem a kolektívov.</li>
+                    <li>BSGA Tour 2026 – exkluzívna séria 5 turnajov na prémiových ihriskách Slovenska: 15. 5. (Hrubá Borša), 5. 6. (Tále), 17. 7. (Penati – Heritage), 14. 8. (Penati – Legend), 4. 9. 2026 (Ostravice).</li>
                   </ul>
 
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">2.1.5 BSGA Performance Centre</h3>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Rezervácia tréningových termínov v Performance Centre prebieha výlučne online. Dostupné technológie: Trackman 4 a FlightScope Mevo+.
+                    Rezervácia tréningových termínov v Performance Centre (Zuzany Chalupovej 12, Bratislava – Petržalka) prebieha výlučne online prostredníctvom rezervačného systému na adrese https://bsga-performance-center.reenio.sk/sk/terms/. Dostupné technológie: Trackman 4 a FlightScope Mevo+. Vstup do centra je bezkontaktný a flexibilný – podrobnosti obdrží Klient po rezervácii.
                   </p>
                 </div>
 
@@ -110,13 +110,19 @@ const TermsAndConditions = () => {
                     Článok 3 – Objednávka a uzavretie zmluvy
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    3.1 Klient môže vykonať objednávku prostredníctvom webovej stránky, rezervačného systému, e-mailom alebo telefónicky.
+                    3.1 Klient môže vykonať objednávku prostredníctvom:
                   </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
+                    <li>webovej stránky www.bsga.sk alebo príslušných podstránok,</li>
+                    <li>rezervačného systému BSGA Performance Centre,</li>
+                    <li>e-mailom na adresu príslušného trénera alebo na info@bsga.sk,</li>
+                    <li>telefónicky na čísle +421 917 225 276.</li>
+                  </ul>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    3.2 Zmluva o poskytnutí služby je uzavretá okamihom potvrdenia objednávky zo strany BSGA. BSGA si vyhradzuje právo odmietnuť objednávku v odôvodnených prípadoch.
+                    3.2 Zmluva o poskytnutí služby je uzavretá okamihom potvrdenia objednávky zo strany BSGA (e-mailom alebo iným preukázateľným spôsobom). BSGA si vyhradzuje právo odmietnuť objednávku v odôvodnených prípadoch.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    3.3 Pri nákupe produktov cez online platformy tretích strán sa cena a platobné podmienky riadia podmienkami danej platformy.
+                    3.3 Pri nákupe produktov a darčekových poukazov cez online platformy tretích strán (napr. ZlavaDna.sk) sa cena a platobné podmienky riadia podmienkami danej platformy. Tieto OP sa vzťahujú na samotné poskytnutie služby.
                   </p>
                 </div>
 
@@ -126,14 +132,24 @@ const TermsAndConditions = () => {
                     Článok 4 – Ceny a platobné podmienky
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    4.1 Všetky ceny sú uvedené v EUR. Pokiaľ nie je výslovne uvedené inak, ceny nezahŕňajú DPH. Aktuálny cenník je zverejnený na www.bsga.sk.
+                    4.1 Všetky ceny sú uvedené v EUR. Pokiaľ nie je výslovne uvedené inak, ceny nezahŕňajú DPH. Aktuálny cenník je zverejnený na webovej stránke www.bsga.sk.
                   </p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-2">
+                    4.2 Príklady orientačných cien (podliehajú zmenám):
+                  </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
+                    <li>Kurz Zelenej karty (HCP): 129 EUR (zvýhodnená cena) / 500 EUR (bežná cena); doplatok za skúšku: 80 EUR (platba na mieste).</li>
+                    <li>Sponzorský balík BSGA Tour (celá sezóna): 5 500 EUR bez DPH.</li>
+                  </ul>
                   <p className="text-sm sm:text-base leading-relaxed mb-2">4.3 Platba je možná:</p>
-                  <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
+                  <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
                     <li>Bankovým prevodom na základe vystavenej faktúry (splatnosť 14 dní)</li>
-                    <li>Online platobnou kartou alebo iným elektronickým platobným prostriedkom</li>
+                    <li>Online platobnou kartou alebo iným elektronickým platobným prostriedkom (podľa dostupnosti v rezervačnom systéme)</li>
                     <li>V hotovosti na mieste (len pri vybraných službách)</li>
                   </ul>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    4.4 V prípade omeškania s úhradou má BSGA nárok na zákonný úrok z omeškania v súlade s platnými právnymi predpismi.
+                  </p>
                 </div>
 
                 {/* Článok 5 */}
@@ -143,15 +159,15 @@ const TermsAndConditions = () => {
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-2">5.1 Storno podmienky pre tréningové lekcie a kurzy:</p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Zrušenie viac ako 48 hodín pred termínom: plná suma bude vrátená alebo presunutá</li>
-                    <li>Zrušenie 24 – 48 hodín pred termínom: 50 % storno poplatok</li>
-                    <li>Zrušenie menej ako 24 hodín pred termínom alebo neúčasť: 100 % storno poplatok</li>
+                    <li>Zrušenie viac ako 48 hodín pred termínom: plná suma bude vrátená alebo presunutá na náhradný termín.</li>
+                    <li>Zrušenie 24 – 48 hodín pred termínom: 50 % storno poplatok; zostatok je možné preniesť na iný termín.</li>
+                    <li>Zrušenie menej ako 24 hodín pred termínom alebo neúčasť bez ohlásenia: 100 % storno poplatok, bez nároku na náhradu.</li>
                   </ul>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    5.2 V prípade zrušenia podujatia zo strany BSGA bude Klientovi ponúknutý náhradný termín, prípadne plné vrátenie uhradenej čiastky.
+                    5.2 V prípade zrušenia podujatia zo strany BSGA (napr. pre nepriaznivé počasie alebo nedostatočný počet prihlásených) bude Klientovi ponúknutý náhradný termín, prípadne plné vrátenie uhradenej čiastky.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    5.3 Vrátenie platieb prebieha rovnakou metódou, akou bola platba uskutočnená, do 14 pracovných dní od potvrdenia storna.
+                    5.3 Vrátenie platieb prebieha rovnakou metódou, akou bola platba uskutočnená, a to do 14 pracovných dní od potvrdenia storna.
                   </p>
                 </div>
 
@@ -162,14 +178,14 @@ const TermsAndConditions = () => {
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-2">6.1 Klient je povinný:</p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Dostaviť sa na objednaný tréning včas a v zodpovedajúcom zdravotnom stave</li>
-                    <li>Dodržiavať golfovú etiketu, pravidlá ihriska a pokyny trénerov</li>
-                    <li>Pri využívaní BSGA Performance Centre postupovať podľa prevádzkového poriadku</li>
-                    <li>Uhradiť dohodnutú cenu za objednané služby v stanovenej lehote</li>
-                    <li>Poskytnúť pravdivé a úplné kontaktné údaje</li>
+                    <li>Dostaviť sa na objednaný tréning alebo podujatie včas a v zodpovedajúcom zdravotnom stave.</li>
+                    <li>Dodržiavať golfovú etiketu, pravidlá ihriska a pokyny trénerov a organizátorov.</li>
+                    <li>Pri využívaní BSGA Performance Centre postupovať podľa prevádzkového poriadku (obsluha zariadení, vstup, parkovanie).</li>
+                    <li>Uhradiť dohodnutú cenu za objednané služby v stanovenej lehote.</li>
+                    <li>Poskytnúť pravdivé a úplné kontaktné údaje pri registrácii a objednávke.</li>
                   </ul>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    6.2 Klient berie na vedomie, že golf je športová aktivita. BSGA nezodpovedá za úrazy v dôsledku nerešpektovania pokynov trénerov alebo zdravotného stavu Klienta.
+                    6.2 Klient berie na vedomie, že golf je športová aktivita. BSGA nezodpovedá za úrazy, ku ktorým dôjde v dôsledku nerešpektovania pokynov trénerov, ihriskových pravidiel alebo v dôsledku zdravotného stavu Klienta.
                   </p>
                 </div>
 
@@ -178,15 +194,15 @@ const TermsAndConditions = () => {
                   <h2 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
                     Článok 7 – Práva a povinnosti Poskytovateľa
                   </h2>
-                  <p className="text-sm sm:text-base leading-relaxed mb-2">7.1 BSGA sa zaväzuje:</p>
+                  <p className="text-sm sm:text-base leading-relaxed mb-2">7.1 Rozvíjajme golf o.z. (BSGA) sa zaväzuje:</p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
-                    <li>Poskytovať služby prostredníctvom licencovaných trénerov (Licencia A, B, D – PGA Slovakia)</li>
-                    <li>Zabezpečiť kvalitné tréningové prostredie, vybavenie a pomôcky</li>
-                    <li>Informovať Klienta o prípadných zmenách termínov bez zbytočného odkladu</li>
-                    <li>Spracúvať osobné údaje v súlade s platnou legislatívou (GDPR)</li>
+                    <li>Poskytovať objednané služby prostredníctvom licencovaných trénerov (Licencia A, B, D – PGA Slovakia).</li>
+                    <li>Zabezpečiť kvalitné tréningové prostredie, vybavenie a pomôcky.</li>
+                    <li>Informovať Klienta o prípadných zmenách termínov alebo podmienok bez zbytočného odkladu.</li>
+                    <li>Spracúvať osobné údaje Klienta v súlade s platnou legislatívou (GDPR).</li>
                   </ul>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    7.2 BSGA si vyhradzuje právo zmeniť obsah lekcie v prípade nepriaznivých poveternostných podmienok alebo vyššej moci.
+                    7.2 BSGA si vyhradzuje právo zmeniť obsah lekcie alebo podujatia v prípade nepriaznivých poveternostných podmienok, vyššej moci alebo iných objektívnych dôvodov. Klientovi bude v takom prípade ponúknutá adekvátna náhrada.
                   </p>
                 </div>
 
@@ -196,16 +212,21 @@ const TermsAndConditions = () => {
                     Článok 8 – Ochrana osobných údajov (GDPR)
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    8.1 Rozvíjajme golf o.z. spracúva osobné údaje Klientov v súlade s nariadením GDPR a zákonom č. 18/2018 Z. z.
+                    8.1 Rozvíjajme golf o.z. spracúva osobné údaje Klientov v súlade s nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR) a zákonom č. 18/2018 Z. z. o ochrane osobných údajov.
                   </p>
-                  <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    8.2 Osobné údaje sú zhromažďované výlučne na účely plnenia zmluvy, komunikácie s Klientom a plnenia zákonných povinností.
+                  <p className="text-sm sm:text-base leading-relaxed mb-2">
+                    8.2 Osobné údaje (meno, priezvisko, e-mail, telefón) sú zhromažďované výlučne na účely:
                   </p>
+                  <ul className="list-disc list-inside text-sm sm:text-base space-y-1 mb-3">
+                    <li>plnenia zmluvy – poskytnutie objednaných služieb,</li>
+                    <li>komunikácie s Klientom – potvrdenia, zmeny termínov, obchodné informácie,</li>
+                    <li>plnenia zákonných povinností.</li>
+                  </ul>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    8.3 Klient má právo na prístup k svojim údajom, ich opravu, vymazanie, obmedzenie spracovania, prenosnosť a právo podať sťažnosť na Úrade na ochranu osobných údajov SR.
+                    8.3 Klient má právo na prístup k svojim údajom, ich opravu, vymazanie, obmedzenie spracovania, prenosnosť a právo podať sťažnosť na Úrade na ochranu osobných údajov SR (www.dataprotection.gov.sk).
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    8.4 Osobné údaje nie sú poskytované tretím stranám bez súhlasu Klienta, s výnimkou prípadov vyžadovaných zákonom.
+                    8.4 Osobné údaje nie sú poskytované tretím stranám bez súhlasu Klienta, s výnimkou prípadov vyžadovaných zákonom alebo potrebných na plnenie zmluvy (napr. partnerské ihriská v rámci BSGA Tour).
                   </p>
                 </div>
 
@@ -215,16 +236,16 @@ const TermsAndConditions = () => {
                     Článok 9 – Reklamácie a riešenie sporov
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    9.1 Reklamáciu môže Klient uplatniť písomne e-mailom na info@bsga.sk alebo bsga@bsga.sk, prípadne osobne na prevádzke.
+                    9.1 Akúkoľvek reklamáciu môže Klient uplatniť písomne e-mailom na adresu info@bsga.sk alebo bsga@bsga.sk, prípadne osobne na niektorej z prevádzok BSGA.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    9.2 BSGA sa zaväzuje vyjadriť sa k reklamácii do 30 dní od jej doručenia.
+                    9.2 BSGA sa zaväzuje vyjadriť sa k reklamácii do 30 dní od jej doručenia. V prípade oprávnenej reklamácie BSGA ponúkne Klientovi primerané riešenie – náhradný termín, zľavu alebo vrátenie platby.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    9.3 Klient má právo obrátiť sa na Slovenskú obchodnú inšpekciu (www.soi.sk).
+                    9.3 V prípade spotrebiteľských sporov má Klient právo obrátiť sa na príslušný orgán alternatívneho riešenia sporov (ARS) – Slovenská obchodná inšpekcia, www.soi.sk.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    9.4 Všetky vzťahy neupravené týmito OP sa riadia príslušnými ustanoveniami slovenského práva.
+                    9.4 Všetky vzťahy neupravené týmito OP sa riadia príslušnými ustanoveniami slovenského práva, najmä Obchodným zákonníkom a Občianskym zákonníkom.
                   </p>
                 </div>
 
@@ -234,13 +255,13 @@ const TermsAndConditions = () => {
                     Článok 10 – Darčekové poukazy a kupóny
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    10.1 Darčekové poukazy sú platné po dobu uvedenú na poukaze (spravidla 12 mesiacov). Po uplynutí platnosti poukaz zaniká bez náhrady.
+                    10.1 Darčekové poukazy a kupóny sú platné po dobu uvedenú na poukaze (spravidla do 12 mesiacov od zakúpenia). Po uplynutí platnosti poukaz zaniká bez náhrady.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    10.2 Poukaz nie je prenosný bez súhlasu BSGA a nie je možné ho zameniť za hotovosť.
+                    10.2 Poukaz nie je prenosný na inú osobu bez súhlasu BSGA a nie je možné ho zameniť za hotovosť.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    10.3 Pri kupónoch zo zľavových portálov sa podmienky riadia zároveň podmienkami daného portálu.
+                    10.3 V prípade kupónov zakúpených prostredníctvom zľavových portálov sa platnosť a podmienky riadia zároveň podmienkami daného portálu.
                   </p>
                 </div>
 
@@ -250,17 +271,17 @@ const TermsAndConditions = () => {
                     Článok 11 – Záverečné ustanovenia
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
-                    11.1 BSGA si vyhradzuje právo tieto OP kedykoľvek zmeniť. Aktuálna verzia je vždy zverejnená na www.bsga.sk.
+                    11.1 BSGA si vyhradzuje právo tieto OP kedykoľvek zmeniť. Aktuálna verzia je vždy zverejnená na www.bsga.sk. Zmeny nadobúdajú účinnosť dátumom ich zverejnenia.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed mb-3">
                     11.2 Tieto OP nadobúdajú platnosť a účinnosť dňa 9. marca 2026.
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed mb-2">11.3 Kontaktné osoby:</p>
                   <ul className="list-disc list-inside text-sm sm:text-base space-y-1">
-                    <li>Všeobecné informácie: info@bsga.sk | +421 917 225 276</li>
-                    <li>BSGA Tour a partnerstvá: touroffice@bsga.sk | +421 905 335 501</li>
+                    <li>Všeobecné informácie a objednávky: info@bsga.sk | bsga@bsga.sk | +421 917 225 276</li>
+                    <li>BSGA Tour a partnerstvá: Peter Švajlen, MBA – peter@bsga.sk | touroffice@bsga.sk | +421 905 335 501</li>
                     <li>Detské kempy: kids@bsga.sk</li>
-                    <li>BSGA Performance Centre: +421 905 335 501</li>
+                    <li>BSGA Performance Centre: Peter Švajlen – +421 905 335 501</li>
                   </ul>
                 </div>
 
