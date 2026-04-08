@@ -47,6 +47,7 @@ const App = () => (
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <CookieBanner />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
