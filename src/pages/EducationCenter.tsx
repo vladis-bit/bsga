@@ -73,7 +73,7 @@ const EducationCenter = () => {
             </div>
           </section>
 
-          <section className="bg-transparent py-12 md:py-16">
+          <section className="bg-transparent py-6 md:py-8">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto flex max-w-2xl flex-col gap-4">
                 {navigationCards.map((card, index) => (
@@ -84,7 +84,7 @@ const EducationCenter = () => {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-border/60 bg-background/75 p-6 transition-all hover:border-gold sm:gap-6 md:p-8"
+                      className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-border bg-background p-6 shadow-lg transition-all hover:border-gold hover:shadow-xl sm:gap-6 md:p-8"
                     >
                       <div className="rounded-xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
                         <card.icon className="h-8 w-8 text-gold md:h-10 md:w-10" />
