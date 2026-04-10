@@ -245,6 +245,7 @@ interface ServiceCardProps {
     title: string;
     description: React.ReactNode;
     image?: string;
+    objectPosition?: string;
   };
 }
 
