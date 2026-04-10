@@ -24,6 +24,7 @@ import {
   Wrench,
   Calendar,
   MapPin,
+  Target,
 } from "lucide-react";
 
 const services = [
