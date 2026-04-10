@@ -86,6 +86,7 @@ const services = [
     icon: Tent,
     title: "Detské kempy",
     image: serviceKidsCampsImg,
+    objectPosition: "center 60%",
     description: (
       <>
         Týždne <strong>plné golfu a zážitkov</strong>. Každý deň prináša šport, hry a aktivity, ktoré udržia deti <strong>v pohybe</strong> a zlepšia ich <strong>golfové schopnosti</strong>.
@@ -196,7 +197,7 @@ const Services = () => {
                         {service.image && (
                           <div className="p-4 sm:p-5 pb-0 sm:pb-0">
                             <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">
-                              <img src={service.image} alt={service.title} className="h-full w-full object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                              <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" style={{ objectPosition: service.objectPosition || 'center 25%' }} loading="lazy" />
                             </div>
                           </div>
                         )}
