@@ -15,6 +15,7 @@ import serviceCorporateImg from "@/assets/service-corporate.jpg";
 import servicePerformanceImg from "@/assets/service-performance.webp";
 import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
 import serviceEventsImg from "@/assets/service-events.jpg";
+import serviceGroupImg from "@/assets/service-group.jpg";
 import {
   User,
   Users,
@@ -44,6 +45,7 @@ const services = [
   {
     icon: Users,
     title: "Skupinové lekcie",
+    image: serviceGroupImg,
     description: (
       <>
         Tréning v <strong>príjemnej skupine</strong>, kde sa učíš spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia, ktoré robia každú lekciu <strong>zábavnou aj efektívnou</strong>.
