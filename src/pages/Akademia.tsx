@@ -1,12 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AkademiaNewsSlider from "@/components/AkademiaNewsSlider";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import heroImage from "@/assets/akademia/hero-slide-1.jpg";
 
 const Akademia = () => {
+  const handleScrollToCamps = () => {
+    const element = document.querySelector("#tabory");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return <>
       <Helmet>
         <title>Akadémia | BSGA - Best Swing Golf Academy</title>
@@ -15,11 +20,35 @@ const Akademia = () => {
       <Navbar />
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
-          {/* Hero Section with News Slider */}
-          <section className="relative w-full bg-transparent pt-4 sm:pt-8">
-            <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full overflow-hidden rounded-2xl border border-border/70 bg-transparent shadow-xl sm:rounded-3xl">
-                <AkademiaNewsSlider />
+          {/* Hero Section */}
+          <section className="relative w-full bg-transparent">
+            <div className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
+              <img
+                src={heroImage}
+                alt="BSGA Akadémia - detské tábory 2026"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
+
+              <div className="relative z-10 flex h-full min-h-[460px] items-end sm:min-h-[560px] md:min-h-[680px]">
+                <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-12 sm:pt-20 md:pb-14 md:pt-24">
+                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                    Akadémia BSGA
+                  </span>
+                  <h1 className="mt-3 text-3xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                    Spustenie prihlasovania na detské tábory 2026
+                  </h1>
+                  <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
+                    Rezervujte miesto pre vaše dieťa už teraz
+                  </p>
+                  <button
+                    onClick={handleScrollToCamps}
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
+                  >
+                    Prihlásiť sa
+                  </button>
+                </div>
               </div>
             </div>
           </section>
