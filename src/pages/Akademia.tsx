@@ -86,7 +86,7 @@ const Akademia = () => {
           {/* CTA Section */}
           <section className="bg-transparent py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/20 to-gold/5 p-8 text-center sm:rounded-3xl sm:p-12">
+              <div className="rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 text-center sm:rounded-3xl sm:p-12">
                 <h2 className="mb-4 text-2xl font-serif font-bold text-foreground sm:text-3xl">Máte nezodpovedané otázky?</h2>
                 <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">Kontaktujte nás a dozvie sa viac o našich programoch pre mladých golfistov</p>
                 <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Akadémii" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 font-semibold text-primary transition-colors hover:bg-gold-light">Napíšte nám</a>
