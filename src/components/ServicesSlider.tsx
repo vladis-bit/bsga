@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar, MapPin, Target } from "lucide-react";
 import serviceTourImg from "@/assets/service-tour.jpg";
 import serviceFittingImg from "@/assets/service-fitting.webp";
 import serviceCourseImg from "@/assets/service-course-management.png";
@@ -93,6 +93,13 @@ const services = [
     image: serviceCourseImg,
     description: (
       <>Tréning s <strong>PGA trénerom</strong> na ihrisku. <strong>Analýza hry</strong>, know-how a odborné poradenstvo za cieľom dosiahnutia <strong>najnižšieho skóre</strong>.</>
+    ),
+  },
+  {
+    icon: Target,
+    title: "Performance Center",
+    description: (
+      <>Tréningové centrum počas <strong>zimných mesiacov</strong> s <strong>Trackmanom</strong> a <strong>Flightscopom</strong> priamo v <strong>Petržalke</strong>.</>
     ),
   },
 ];

@@ -24,6 +24,7 @@ import {
   Wrench,
   Calendar,
   MapPin,
+  Target,
 } from "lucide-react";
 
 const services = [
@@ -134,6 +135,15 @@ const services = [
       </>
     ),
   },
+  {
+    icon: Target,
+    title: "Performance Center",
+    description: (
+      <>
+        Tréningové centrum počas <strong>zimných mesiacov</strong> s <strong>Trackmanom</strong> a <strong>Flightscopom</strong> priamo v <strong>Petržalke</strong>.
+      </>
+    ),
+  },
 ];
 
 const Services = () => {
@@ -159,7 +169,7 @@ const Services = () => {
                   Čo ponúkame
                 </h1>
                 <p className="max-w-2xl text-primary-foreground/70 sm:text-lg">
-                  11 profesionálnych služieb pre každého golfistu
+                  12 profesionálnych služieb pre každého golfistu
                 </p>
               </div>
             </div>
