@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar, MapPin } from "lucide-react";
+import serviceTourImg from "@/assets/service-tour.jpg";
+import serviceFittingImg from "@/assets/service-fitting.webp";
+import serviceCourseImg from "@/assets/service-course-management.png";
+import serviceIndividualImg from "@/assets/service-individual.jpg";
 
 const services = [
   {
     icon: User,
     title: "Individuálne lekcie",
+    image: serviceIndividualImg,
     description: (
       <>Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.</>
     ),
@@ -54,6 +59,7 @@ const services = [
   {
     icon: Trophy,
     title: "Turnaje – BSGA Tour",
+    image: serviceTourImg,
     description: (
       <>Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
     ),
@@ -61,6 +67,7 @@ const services = [
   {
     icon: Wrench,
     title: "Fitting – vybavenie na mieru",
+    image: serviceFittingImg,
     description: (
       <>Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.</>
     ),
@@ -75,6 +82,7 @@ const services = [
   {
     icon: MapPin,
     title: "Course Management",
+    image: serviceCourseImg,
     description: (
       <>Tréning s <strong>PGA trénerom</strong> na ihrisku. <strong>Analýza hry</strong>, know-how a odborné poradenstvo za cieľom dosiahnutia <strong>najnižšieho skóre</strong>.</>
     ),
@@ -212,6 +220,7 @@ interface ServiceCardProps {
     icon: React.ElementType;
     title: string;
     description: React.ReactNode;
+    image?: string;
   };
 }
 
@@ -219,16 +228,23 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const Icon = service.icon;
 
   return (
-    <div className="group p-5 sm:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
-      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
-        <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
+    <div className="group overflow-hidden bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
+      {service.image && (
+        <div className="aspect-[16/10] w-full overflow-hidden">
+          <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        </div>
+      )}
+      <div className="p-5 sm:p-8">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+          <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
+        </div>
+        <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
+          {service.title}
+        </h3>
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+          {service.description}
+        </p>
       </div>
-      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
-        {service.title}
-      </h3>
-      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-        {service.description}
-      </p>
     </div>
   );
 };
