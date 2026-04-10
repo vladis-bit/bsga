@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.png";
-import tourHeroImage from "@/assets/tour-hero-2026.png";
+import tourHeroImage from "@/assets/tour-hero-2026.jpg";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -101,9 +101,9 @@ const Tour = () => {
                 <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
                   Hlavní partneri
                 </span>
-                <div className="flex items-center gap-12 sm:gap-16">
-                  <img src={asbisLogo} alt="ASBIS" className="h-48 sm:h-[268px] w-auto object-contain" />
-                  <img src={checkpointLogo} alt="Check Point" className="h-48 sm:h-[268px] w-auto object-contain" />
+                <div className="flex items-center justify-center gap-8 sm:gap-16">
+                  <img src={asbisLogo} alt="ASBIS" className="h-24 sm:h-48 md:h-[268px] w-auto object-contain" />
+                  <img src={checkpointLogo} alt="Check Point" className="h-24 sm:h-48 md:h-[268px] w-auto object-contain" />
                 </div>
               </div>
             </div>
