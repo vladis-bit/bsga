@@ -12,6 +12,9 @@ import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceKidsAcademyImg from "@/assets/service-kids-academy.jpg";
 import serviceKidsCampsImg from "@/assets/service-kids-camps.jpg";
 import serviceCorporateImg from "@/assets/service-corporate.jpg";
+import servicePerformanceImg from "@/assets/service-performance.webp";
+import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
+import serviceEventsImg from "@/assets/service-events.jpg";
 import {
   User,
   Users,
@@ -60,6 +63,7 @@ const services = [
   {
     icon: Award,
     title: "Zelené karty",
+    image: serviceGreenCardsImg,
     description: (
       <>
         Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong> – po absolvovaní máš <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
@@ -119,6 +123,7 @@ const services = [
   {
     icon: Calendar,
     title: "Eventy, teambuildingy a golfové pobyty",
+    image: serviceEventsImg,
     description: (
       <>
         Golfové akcie a <strong>eventy na mieru</strong>. Ponúkame jednodňové akcie až po kompletné <strong>sústredenia s PGA trénermi</strong>. Záruka spokojnosti. Všetko zabezpečené tak, aby ste si to <strong>naplno užili</strong>.
@@ -138,6 +143,7 @@ const services = [
   {
     icon: Target,
     title: "Performance Center",
+    image: servicePerformanceImg,
     description: (
       <>
         Tréningové centrum počas <strong>zimných mesiacov</strong> s <strong>Trackmanom</strong> a <strong>Flightscopom</strong> priamo v <strong>Petržalke</strong>.
