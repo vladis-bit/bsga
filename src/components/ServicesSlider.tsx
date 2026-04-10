@@ -220,6 +220,7 @@ interface ServiceCardProps {
     icon: React.ElementType;
     title: string;
     description: React.ReactNode;
+    image?: string;
   };
 }
 
@@ -227,16 +228,23 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const Icon = service.icon;
 
   return (
-    <div className="group p-5 sm:p-8 bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
-      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
-        <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
+    <div className="group overflow-hidden bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
+      {service.image && (
+        <div className="aspect-[16/10] w-full overflow-hidden">
+          <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        </div>
+      )}
+      <div className="p-5 sm:p-8">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+          <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
+        </div>
+        <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
+          {service.title}
+        </h3>
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+          {service.description}
+        </p>
       </div>
-      <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
-        {service.title}
-      </h3>
-      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-        {service.description}
-      </p>
     </div>
   );
 };
