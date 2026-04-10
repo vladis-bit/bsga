@@ -139,8 +139,8 @@ const About = () => {
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero */}
-          <section className="relative overflow-hidden bg-transparent px-3 pt-2 sm:px-6 sm:pt-4 md:px-8">
-            <div className="relative isolate w-full overflow-hidden rounded-[1.75rem] sm:rounded-[2.5rem]">
+          <section className="relative overflow-hidden bg-transparent">
+            <div className="relative isolate w-full overflow-hidden">
               <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
               <img
                 src={aboutHeroTeamImg}
@@ -154,11 +154,11 @@ const About = () => {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)/0.98))] sm:h-48 md:h-56" />
               <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-3xl sm:h-52 md:h-60" />
 
-              <div className="relative z-10 flex min-h-[320px] w-full items-end justify-center px-2 pt-4 sm:min-h-[500px] sm:px-5 sm:pt-6 md:min-h-[620px] md:px-8 lg:min-h-[720px] lg:px-10">
+              <div className="relative z-10 flex min-h-[320px] w-full items-end justify-center pt-4 sm:min-h-[500px] sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
                 <img
                   src={aboutHeroTeamImg}
                   alt="Tím BSGA"
-                  className="block h-full w-[112%] max-w-none object-contain object-center sm:w-[108%] md:w-[106%]"
+                  className="block h-full w-full max-w-5xl object-contain object-bottom"
                   loading="eager"
                 />
               </div>
