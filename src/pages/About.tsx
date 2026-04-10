@@ -158,7 +158,7 @@ const About = () => {
                 <img
                   src={aboutHeroTeamImg}
                   alt="Tím BSGA"
-                  className="block h-full w-full max-w-5xl object-contain object-bottom"
+                  className="block w-full object-cover object-top"
                   loading="eager"
                 />
               </div>
