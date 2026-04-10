@@ -26,7 +26,7 @@ const Akademia = () => {
               <img
                 src={heroImage}
                 alt="BSGA Akadémia - detské tábory 2026"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
