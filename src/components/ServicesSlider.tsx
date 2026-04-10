@@ -230,8 +230,10 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   return (
     <div className="group overflow-hidden bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
       {service.image && (
-        <div className="aspect-[16/10] w-full overflow-hidden">
-          <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        <div className="p-4 sm:p-5 pb-0 sm:pb-0">
+          <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">
+            <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          </div>
         </div>
       )}
       <div className="p-5 sm:p-8">

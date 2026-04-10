@@ -168,8 +168,10 @@ const Services = () => {
                         className="group overflow-hidden rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl"
                       >
                         {service.image && (
-                          <div className="aspect-[16/10] w-full overflow-hidden">
-                            <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                          <div className="p-4 sm:p-5 pb-0 sm:pb-0">
+                            <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">
+                              <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                            </div>
                           </div>
                         )}
                         <div className="p-5 sm:p-6 md:p-8">
