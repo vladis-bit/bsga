@@ -165,8 +165,13 @@ const Services = () => {
                   return (
                       <CursorGlowCard
                         key={index}
-                        className="group rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl"
+                        className="group overflow-hidden rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl"
                       >
+                        {service.image && (
+                          <div className="aspect-[16/10] w-full overflow-hidden">
+                            <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                          </div>
+                        )}
                         <div className="p-5 sm:p-6 md:p-8">
                           <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
                             <Icon className="text-gold" size={22} />
