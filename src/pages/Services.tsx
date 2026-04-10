@@ -4,6 +4,10 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import serviceTourImg from "@/assets/service-tour.jpg";
+import serviceFittingImg from "@/assets/service-fitting.webp";
+import serviceCourseImg from "@/assets/service-course-management.png";
+import serviceIndividualImg from "@/assets/service-individual.jpg";
 import {
   User,
   Users,
@@ -22,6 +26,7 @@ const services = [
   {
     icon: User,
     title: "Individuálne lekcie",
+    image: serviceIndividualImg,
     description: (
       <>
         Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.
@@ -85,6 +90,7 @@ const services = [
   {
     icon: Trophy,
     title: "Turnaje – BSGA Tour",
+    image: serviceTourImg,
     description: (
       <>
         Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a <strong>profesionálna organizácia</strong>.
@@ -94,6 +100,7 @@ const services = [
   {
     icon: Wrench,
     title: "Fitting – vybavenie na mieru",
+    image: serviceFittingImg,
     description: (
       <>
         Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.
@@ -112,6 +119,7 @@ const services = [
   {
     icon: MapPin,
     title: "Course Management",
+    image: serviceCourseImg,
     description: (
       <>
         Tréning s <strong>PGA trénerom</strong> na ihrisku. <strong>Analýza hry</strong>, know-how a odborné poradenstvo za cieľom dosiahnutia <strong>najnižšieho skóre</strong>.
