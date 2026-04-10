@@ -62,9 +62,8 @@ const Tour = () => {
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero */}
-          <section className="relative w-full bg-transparent pt-4 sm:pt-8">
-            <div className="px-2 sm:px-4 md:px-8">
-              <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-8rem)]">
+          <section className="relative w-full bg-transparent">
+            <div className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={tourHeroImage}
                   alt="BSGA Tour 2026 na golfovom ihrisku"
@@ -78,15 +77,14 @@ const Tour = () => {
                     <span className="text-primary-foreground/90 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                       Turnaje
                     </span>
-                    <h1 className="mt-3 text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                    <h1 className="mt-3 text-5xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-6xl md:text-7xl lg:text-8xl">
                       BSGA Tour 2026
                     </h1>
                     <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/95 sm:text-lg md:text-xl">
-                      Exkluzívna séria turnajov na najlepších slovenských ihriskách
+                      Exkluzívna séria turnajov na najlepších slovenských a českých ihriskách
                     </p>
                   </div>
                 </div>
-              </div>
             </div>
           </section>
 
