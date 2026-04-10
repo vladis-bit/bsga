@@ -4,6 +4,10 @@ import serviceTourImg from "@/assets/service-tour.jpg";
 import serviceFittingImg from "@/assets/service-fitting.webp";
 import serviceCourseImg from "@/assets/service-course-management.png";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
+import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
+import serviceKidsAcademyImg from "@/assets/service-kids-academy.jpg";
+import serviceKidsCampsImg from "@/assets/service-kids-camps.jpg";
+import serviceCorporateImg from "@/assets/service-corporate.jpg";
 
 const services = [
   {
@@ -24,6 +28,7 @@ const services = [
   {
     icon: GraduationCap,
     title: "Štart karty",
+    image: serviceStartCardsImg,
     description: (
       <>Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong> a pochopíš, ako golf funguje.</>
     ),
@@ -38,6 +43,7 @@ const services = [
   {
     icon: Baby,
     title: "Detská akadémia",
+    image: serviceKidsAcademyImg,
     description: (
       <>Tréningy pre deti, ktoré spájajú <strong>pohyb, hravosť</strong> a systematický <strong>rozvoj techniky</strong>.</>
     ),
@@ -45,6 +51,7 @@ const services = [
   {
     icon: Tent,
     title: "Detské kempy",
+    image: serviceKidsCampsImg,
     description: (
       <>Týždne <strong>plné golfu a zážitkov</strong>. Šport, hry a aktivity, ktoré zlepšia <strong>golfové schopnosti</strong>.</>
     ),
@@ -52,6 +59,7 @@ const services = [
   {
     icon: Building2,
     title: "Firemné akcie a teambuildingy",
+    image: serviceCorporateImg,
     description: (
       <>Príjemná kombinácia <strong>golfu, zábavy a spolupráce</strong>. Vhodné pre firmy, ktoré chcú zažiť niečo nové a podporiť <strong>tímového ducha</strong> v uvoľnenej atmosfére.</>
     ),
