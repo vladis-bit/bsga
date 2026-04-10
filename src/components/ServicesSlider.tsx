@@ -8,6 +8,9 @@ import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceKidsAcademyImg from "@/assets/service-kids-academy.jpg";
 import serviceKidsCampsImg from "@/assets/service-kids-camps.jpg";
 import serviceCorporateImg from "@/assets/service-corporate.jpg";
+import servicePerformanceImg from "@/assets/service-performance.webp";
+import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
+import serviceEventsImg from "@/assets/service-events.jpg";
 
 const services = [
   {
