@@ -110,6 +110,14 @@ const tournaments2023 = [
   { number: 5, date: "2023", location: "Ihrisko 5", links: { galleryUrl: "#" } },
 ];
 
+const tournaments2022 = [
+  { number: 1, date: "2022", location: "Ihrisko 1", links: { galleryUrl: "#" } },
+  { number: 2, date: "2022", location: "Ihrisko 2", links: { galleryUrl: "#" } },
+  { number: 3, date: "2022", location: "Ihrisko 3", links: { galleryUrl: "#" } },
+  { number: 4, date: "2022", location: "Ihrisko 4", links: { galleryUrl: "#" } },
+  { number: 5, date: "2022", location: "Ihrisko 5", links: { galleryUrl: "#" } },
+];
+
 const Tour = () => {
   return <>
       <Helmet>
@@ -315,6 +323,41 @@ const Tour = () => {
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
                     {tournaments2023.map((tournament) => (
+                      <CarouselItem key={tournament.number}>
+                        <TournamentCard
+                          number={tournament.number}
+                          date={tournament.date}
+                          location={tournament.location}
+                          links={tournament.links}
+                          hideResults
+                          hideLocation
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                  </div>
+                </Carousel>
+              </div>
+            </div>
+          </section>
+
+          {/* BSGA Tour 2022 */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="text-center mb-8 sm:mb-12 md:mb-16">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
+                  BSGA Tour 2022
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="max-w-3xl mx-auto relative">
+                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
+                  <CarouselContent>
+                    {tournaments2022.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           number={tournament.number}
