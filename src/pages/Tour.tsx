@@ -7,6 +7,7 @@ import tourHeroImage from "@/assets/tour-hero-2026.jpg";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.jpeg";
 import taleImg from "@/assets/courses/tale.jpg";
@@ -49,6 +50,39 @@ const tournaments = [
     location: "Ostravice",
     image: ostraviceImg,
     links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
+  }
+];
+
+const tournaments2025 = [
+  {
+    number: 1,
+    date: "15.5.2025",
+    location: "Sedin Golf Resort",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 2,
+    date: "6.6.2025",
+    location: "Grey Bear Tále",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 3,
+    date: "11.7.2025",
+    location: "Penati Golf Resort - Heritage",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 4,
+    date: "15.8.2025",
+    location: "Penati Golf Resort - Legend",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 5,
+    date: "5.9.2025",
+    location: "Kaskáda Golf Resort",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   }
 ];
 
