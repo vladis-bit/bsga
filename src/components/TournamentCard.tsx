@@ -41,11 +41,6 @@ const TournamentCard = ({
       {image && <div className="p-3 sm:p-4 pb-0">
           <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-gold/20">
             <img src={image} alt={location} className="w-full h-full object-cover" loading="lazy" />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-wide drop-shadow-lg">
-                {tourLabel} {number}
-              </span>
-            </div>
           </div>
         </div>}
 
@@ -56,8 +51,11 @@ const TournamentCard = ({
           <span className="text-gold font-serif font-bold text-lg sm:text-xl">{number}</span>
         </div>
 
-        {/* Date and location */}
+        {/* Tour label, date and location */}
         <div className="flex-1 min-w-0">
+          <div className="text-primary-foreground font-serif font-bold text-sm sm:text-base tracking-wide mb-1">
+            {tourLabel} {number}
+          </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
             <span className="text-gold text-base sm:text-lg font-sans">{date}</span>
             <span className="text-primary-foreground font-medium text-sm sm:text-base uppercase tracking-wide truncate">
