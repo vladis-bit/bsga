@@ -116,10 +116,10 @@ const Navbar = () => {
                 <button
                   key={item.href}
                   onClick={() => handleNavigate(item.href)}
-                  className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`relative px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-0.5 after:left-4 after:bg-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
                     isActive(item.href)
-                      ? "bg-gold/20 text-gold"
-                      : "text-foreground hover:bg-gold/10 hover:text-gold"
+                      ? "bg-gold/20 text-gold after:scale-x-100 after:origin-bottom-left"
+                      : "text-foreground hover:text-gold"
                   }`}
                 >
                   {item.name}
