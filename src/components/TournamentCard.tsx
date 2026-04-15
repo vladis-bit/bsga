@@ -51,14 +51,14 @@ const TournamentCard = ({
           <span className="text-gold font-serif font-bold text-lg sm:text-xl">{number}</span>
         </div>
 
-        {/* Tour label, date and location */}
+        {/* Date, tour label, location */}
         <div className="flex-1 min-w-0">
-          <div className="text-primary-foreground font-serif font-bold text-sm sm:text-base tracking-wide mb-1">
-            {tourLabel} {number}
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
-            <span className="text-gold text-base sm:text-lg font-sans">{date}</span>
-            <span className="text-primary-foreground font-medium text-sm sm:text-base uppercase tracking-wide truncate">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <span className="text-gold text-base sm:text-lg font-sans flex-shrink-0">{date}</span>
+            <span className="text-primary-foreground font-serif font-bold text-sm sm:text-base tracking-wide">
+              {tourLabel} {number}
+            </span>
+            <span className="text-primary-foreground font-medium text-sm sm:text-base uppercase tracking-wide truncate text-right">
               {location}
             </span>
           </div>
