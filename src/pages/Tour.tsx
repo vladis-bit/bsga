@@ -94,6 +94,22 @@ const tournaments2025 = [
   }
 ];
 
+const tournaments2024 = [
+  { number: 1, date: "2024", location: "Ihrisko 1", links: { galleryUrl: "#" } },
+  { number: 2, date: "2024", location: "Ihrisko 2", links: { galleryUrl: "#" } },
+  { number: 3, date: "2024", location: "Ihrisko 3", links: { galleryUrl: "#" } },
+  { number: 4, date: "2024", location: "Ihrisko 4", links: { galleryUrl: "#" } },
+  { number: 5, date: "2024", location: "Ihrisko 5", links: { galleryUrl: "#" } },
+];
+
+const tournaments2023 = [
+  { number: 1, date: "2023", location: "Ihrisko 1", links: { galleryUrl: "#" } },
+  { number: 2, date: "2023", location: "Ihrisko 2", links: { galleryUrl: "#" } },
+  { number: 3, date: "2023", location: "Ihrisko 3", links: { galleryUrl: "#" } },
+  { number: 4, date: "2023", location: "Ihrisko 4", links: { galleryUrl: "#" } },
+  { number: 5, date: "2023", location: "Ihrisko 5", links: { galleryUrl: "#" } },
+];
+
 const Tour = () => {
   return <>
       <Helmet>
