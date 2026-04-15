@@ -8,6 +8,7 @@ import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.png";
 import taleImg from "@/assets/courses/tale.jpg";
@@ -226,7 +227,7 @@ const Tour = () => {
               </div>
 
               <div className="max-w-3xl mx-auto relative">
-                <Carousel opts={{ align: "start", loop: true }} className="w-full">
+                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
                     {tournaments2025.map((tournament) => (
                       <CarouselItem key={tournament.number}>
