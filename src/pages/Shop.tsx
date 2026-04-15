@@ -49,12 +49,12 @@ const Shop = () => {
     },
     {
       title: "Víkendový kurz zelenej karty",
-      price: 129.99,
+      price: 139.99,
       originalPrice: 500,
-      discount: 74,
+      discount: 72,
       icon: Flag,
       popular: true,
-      purchaseUrl: "https://buy.stripe.com/dRm4gz9b12Gm63q5la8so05",
+      purchaseUrl: "https://buy.stripe.com/28E3cvfzpep48by3d28so06",
       features: [
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
