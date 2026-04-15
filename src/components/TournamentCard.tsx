@@ -84,7 +84,7 @@ const TournamentCard = ({
         ease: "easeOut"
       }}>
             <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-gold/20">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className={`grid grid-cols-1 ${actionButtons.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'} gap-3 sm:gap-4`}>
                 {actionButtons.map((button, index) => <a key={index} href={button.url || "#"} onClick={e => {
               e.stopPropagation();
               if (!button.url || button.url === "#") {
