@@ -9,7 +9,7 @@ import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
-import hrubaBorsaImg from "@/assets/courses/hruba-borsa.jpeg";
+import hrubaBorsaImg from "@/assets/courses/hruba-borsa.png";
 import taleImg from "@/assets/courses/tale.jpg";
 import heritageImg from "@/assets/courses/heritage.jpg";
 import legendImg from "@/assets/courses/legend.jpg";
