@@ -28,7 +28,7 @@ const navLinks: NavItem[] = [{
 }, {
   type: "separator"
 }, {
-  name: "Tour 2026",
+  name: "BSGA Tour",
   href: "/tour"
 }, {
   name: "Akadémia",
