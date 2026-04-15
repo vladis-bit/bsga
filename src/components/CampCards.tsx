@@ -29,13 +29,6 @@ const camps: Camp[] = [
   },
 ];
 
-const highlightCamp: Camp = {
-  title: "Pobytový tábor na Táloch",
-  date: "TBD",
-  location: "Tale, Nízke Tatry",
-  isHighlight: true,
-  description: "Viac informácií čoskoro",
-};
 
 const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
   const ref = useRef(null);
@@ -119,7 +112,7 @@ const CampCards = () => {
       {camps.map((camp, index) => (
         <CampCard key={index} camp={camp} index={index} />
       ))}
-      <CampCard camp={highlightCamp} index={camps.length} />
+      
     </div>
   );
 };
