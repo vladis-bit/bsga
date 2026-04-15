@@ -99,7 +99,7 @@ const Tour = () => {
             <div className="container mx-auto px-4 sm:px-6">
               <div className="flex flex-col justify-center items-center gap-4 sm:gap-6 rounded-3xl border border-border/50 bg-background/60 px-6 py-6 backdrop-blur-sm">
                 <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
-                  Hlavní partneri
+                  Generální partneri
                 </span>
                 <div className="flex items-center justify-center gap-8 sm:gap-16">
                   <img src={asbisLogo} alt="ASBIS" className="h-24 sm:h-48 md:h-[268px] w-auto object-contain" />
