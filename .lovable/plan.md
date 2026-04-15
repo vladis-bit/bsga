@@ -1,17 +1,37 @@
 
 
-## Problem
+# Vylepšenie headru -- Premium navigácia
 
-The Footer component (`src/components/Footer.tsx`) links to PDF documents (`/documents/BSGA_Obchodne_Podmienky_2026.pdf` and `/documents/BSGA_Zasady_ochrany_osobnych_udajov.pdf`) instead of the new web page routes (`/obchodne-podmienky` and `/gdpr`).
+## Prehľad zmien
 
-## Plan
+Navbar dostane tri vylepšenia: glassmorphism efekt, zmenšovanie pri scrolle, skrývanie pri scrolle nadol a zlatý podklad pod aktívnou stránkou.
 
-### Step 1: Update Footer links
+## Čo sa zmení
 
-In `src/components/Footer.tsx`, change the two legal document links from `<a href="/documents/...pdf">` to React Router `<Link to="/obchodne-podmienky">` and `<Link to="/gdpr">` respectively. Remove `target="_blank"` and `rel="noopener noreferrer"` since these will now be internal page navigations.
+### 1. Glassmorphism pozadie
+- Namiesto plného `bg-background` bude header priehľadný s rozmazaním (`backdrop-blur-xl`, `bg-background/80`)
+- Jemný border na spodku headru namiesto `shadow-md`
 
-This requires importing `Link` from `react-router-dom` in Footer.tsx (if not already imported).
+### 2. Shrink on scroll
+- Pri scrolle nadol sa zmenší padding a logo (napr. logo z `h-16` na `h-10`)
+- Plynulá CSS transition animácia
 
-### Files to edit
-- `src/components/Footer.tsx` — change 2 links from PDF URLs to internal routes
+### 3. Skrytie pri scrolle nadol / zobrazenie pri scrolle nahor
+- Header sa posunie hore (`-translate-y-full`) keď scrolluješ nadol
+- Znovu sa objaví keď scrolluješ nahor
+- Plynulá transition animácia
 
+### 4. Zlatý podklad pod aktívnou stránkou
+- Aktívny nav link dostane zlatý background pill (`bg-gold/20 rounded-full`) namiesto len zmeny farby textu
+- Jemný hover efekt na ostatných linkoch
+
+## Technické detaily
+
+### Súbor: `src/components/Navbar.tsx`
+- Pridanie `useEffect` hooku na sledovanie scroll pozície a smeru
+- State: `isScrolled` (boolean), `isVisible` (boolean), `lastScrollY` (number)
+- Dynamické triedy na `<nav>`: `backdrop-blur-xl bg-background/80` + conditioned `py` padding + `-translate-y-full` keď skrytý
+- Aktívny link: `bg-gold/20 text-gold rounded-full px-4 py-1.5`
+- Všetky transitions cez `transition-all duration-300`
+
+### Žiadne nové závislosti ani súbory
