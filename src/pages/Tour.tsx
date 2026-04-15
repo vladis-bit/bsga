@@ -237,6 +237,7 @@ const Tour = () => {
                           location={tournament.location}
                           image={tournament.image}
                           links={tournament.links}
+                          hideResults
                         />
                       </CarouselItem>
                     ))}
