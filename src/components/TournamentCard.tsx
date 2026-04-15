@@ -12,13 +12,15 @@ interface TournamentCardProps {
   location: string;
   image?: string;
   links?: TournamentLinks;
+  tourLabel?: string;
 }
 const TournamentCard = ({
   number,
   date,
   location,
   image,
-  links
+  links,
+  tourLabel = "BSGA Tour"
 }: TournamentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const actionButtons = [{
@@ -39,6 +41,11 @@ const TournamentCard = ({
       {image && <div className="p-3 sm:p-4 pb-0">
           <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-gold/20">
             <img src={image} alt={location} className="w-full h-full object-cover" loading="lazy" />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <span className="text-primary-foreground font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-wide drop-shadow-lg">
+                {tourLabel} {number}
+              </span>
+            </div>
           </div>
         </div>}
 
