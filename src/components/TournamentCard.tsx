@@ -13,6 +13,7 @@ interface TournamentCardProps {
   image?: string;
   links?: TournamentLinks;
   tourLabel?: string;
+  hideResults?: boolean;
 }
 const TournamentCard = ({
   number,
@@ -20,22 +21,15 @@ const TournamentCard = ({
   location,
   image,
   links,
-  tourLabel = "BSGA Tour"
+  tourLabel = "BSGA Tour",
+  hideResults = false
 }: TournamentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const actionButtons = [{
-    icon: MapPin,
-    label: "LOKALITA",
-    url: links?.locationUrl
-  }, {
-    icon: Trophy,
-    label: "VÝSLEDKY",
-    url: links?.resultsUrl
-  }, {
-    icon: Camera,
-    label: "GALÉRIA",
-    url: links?.galleryUrl
-  }];
+  const actionButtons = [
+    { icon: MapPin, label: "LOKALITA", url: links?.locationUrl },
+    ...(!hideResults ? [{ icon: Trophy, label: "VÝSLEDKY", url: links?.resultsUrl }] : []),
+    { icon: Camera, label: "GALÉRIA", url: links?.galleryUrl },
+  ];
   return <motion.div className="bg-primary border border-gold/30 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10" onClick={() => setIsExpanded(!isExpanded)} layout>
       {/* Course Image */}
       {image && <div className="p-3 sm:p-4 pb-0">
