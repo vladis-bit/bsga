@@ -14,6 +14,8 @@ import taleImg from "@/assets/courses/tale.jpg";
 import heritageImg from "@/assets/courses/heritage.jpg";
 import legendImg from "@/assets/courses/legend.jpg";
 import ostraviceImg from "@/assets/courses/ostravice.jpg";
+import sedinImg from "@/assets/courses/sedin.jpg";
+import kaskadaImg from "@/assets/courses/kaskada.webp";
 
 const tournaments = [
   {
@@ -58,30 +60,35 @@ const tournaments2025 = [
     number: 1,
     date: "15.5.2025",
     location: "Sedin Golf Resort",
+    image: sedinImg,
     links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 2,
     date: "6.6.2025",
     location: "Grey Bear Tále",
+    image: taleImg,
     links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 3,
     date: "11.7.2025",
     location: "Penati Golf Resort - Heritage",
+    image: heritageImg,
     links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 4,
     date: "15.8.2025",
     location: "Penati Golf Resort - Legend",
+    image: legendImg,
     links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 5,
     date: "5.9.2025",
     location: "Kaskáda Golf Resort",
+    image: kaskadaImg,
     links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   }
 ];
@@ -207,7 +214,7 @@ const Tour = () => {
               </div>
 
               <div className="max-w-3xl mx-auto relative">
-                <Carousel opts={{ align: "start" }} className="w-full">
+                <Carousel opts={{ align: "start", loop: true }} className="w-full">
                   <CarouselContent>
                     {tournaments2025.map((tournament) => (
                       <CarouselItem key={tournament.number}>
