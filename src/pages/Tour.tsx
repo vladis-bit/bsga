@@ -222,6 +222,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          image={tournament.image}
                           links={tournament.links}
                         />
                       </CarouselItem>
