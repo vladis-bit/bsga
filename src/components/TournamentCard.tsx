@@ -87,7 +87,7 @@ const TournamentCard = ({
       }}>
             <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-gold/20">
               <div className={`grid ${actionButtons.length === 1 ? 'grid-cols-1 max-w-xs mx-auto' : actionButtons.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-3'} gap-3 sm:gap-4`}>
-                {actionButtons.map((button, index) => <a key={index} href={button.url || "#"} onClick={e => {
+{actionButtons.map((button, index) => <a key={index} href={button.url || "#"} target={button.url && button.url !== "#" ? "_blank" : undefined} rel={button.url && button.url !== "#" ? "noopener noreferrer" : undefined} onClick={e => {
               e.stopPropagation();
               if (!button.url || button.url === "#") {
                 e.preventDefault();
