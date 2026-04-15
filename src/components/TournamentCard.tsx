@@ -14,6 +14,7 @@ interface TournamentCardProps {
   links?: TournamentLinks;
   tourLabel?: string;
   hideResults?: boolean;
+  hideLocation?: boolean;
 }
 const TournamentCard = ({
   number,
@@ -22,11 +23,12 @@ const TournamentCard = ({
   image,
   links,
   tourLabel = "BSGA Tour",
-  hideResults = false
+  hideResults = false,
+  hideLocation = false
 }: TournamentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const actionButtons = [
-    { icon: MapPin, label: "LOKALITA", url: links?.locationUrl },
+    ...(!hideLocation ? [{ icon: MapPin, label: "LOKALITA", url: links?.locationUrl }] : []),
     ...(!hideResults ? [{ icon: Trophy, label: "VÝSLEDKY", url: links?.resultsUrl }] : []),
     { icon: Camera, label: "GALÉRIA", url: links?.galleryUrl },
   ];
