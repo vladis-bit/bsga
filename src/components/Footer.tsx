@@ -37,7 +37,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/tour" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
-                  Tour 2026
+                  BSGA Tour
                 </Link>
               </li>
               <li>
