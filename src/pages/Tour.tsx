@@ -270,10 +270,7 @@ const Tour = () => {
           <section className="py-12 sm:py-16 md:py-24 bg-transparent">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Archív
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
                   BSGA Tour 2024
                 </h2>
                 <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
@@ -308,10 +305,7 @@ const Tour = () => {
           <section className="py-12 sm:py-16 md:py-24 bg-transparent">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Archív
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
                   BSGA Tour 2023
                 </h2>
                 <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
