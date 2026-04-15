@@ -16,23 +16,23 @@ import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.png";
 
 const founders = [{
   name: "Peter Švajlen",
-  role: "Tréner BSGA · Licencia A",
+  role: "Tréner BSGA · Licencia B",
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
   image: peterSvajlenImg,
-  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
+  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
-  role: "Tréner BSGA · Licencia A",
+  role: "Tréner BSGA · Licencia B",
   phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
   image: jakubHrbanImg,
-  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"A\" Five Star Golf Academy"]
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
 }];
 
 const team = [{
   name: "Maroš Gajan",
-  role: "Tréner BSGA · Licencia A",
+  role: "Tréner BSGA · Licencia B",
   phone: "+421 903 243 999",
   email: "maros@bsga.sk",
   image: marosGajanImg
