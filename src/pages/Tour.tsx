@@ -94,6 +94,22 @@ const tournaments2025 = [
   }
 ];
 
+const tournaments2024 = [
+  { number: 1, date: "2024", location: "Ihrisko 1", links: { galleryUrl: "#" } },
+  { number: 2, date: "2024", location: "Ihrisko 2", links: { galleryUrl: "#" } },
+  { number: 3, date: "2024", location: "Ihrisko 3", links: { galleryUrl: "#" } },
+  { number: 4, date: "2024", location: "Ihrisko 4", links: { galleryUrl: "#" } },
+  { number: 5, date: "2024", location: "Ihrisko 5", links: { galleryUrl: "#" } },
+];
+
+const tournaments2023 = [
+  { number: 1, date: "2023", location: "Ihrisko 1", links: { galleryUrl: "#" } },
+  { number: 2, date: "2023", location: "Ihrisko 2", links: { galleryUrl: "#" } },
+  { number: 3, date: "2023", location: "Ihrisko 3", links: { galleryUrl: "#" } },
+  { number: 4, date: "2023", location: "Ihrisko 4", links: { galleryUrl: "#" } },
+  { number: 5, date: "2023", location: "Ihrisko 5", links: { galleryUrl: "#" } },
+];
+
 const Tour = () => {
   return <>
       <Helmet>
@@ -238,6 +254,81 @@ const Tour = () => {
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                  </div>
+                </Carousel>
+              </div>
+            </div>
+          </section>
+          {/* BSGA Tour 2024 */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="text-center mb-8 sm:mb-12 md:mb-16">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                  Archív
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                  BSGA Tour 2024
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="max-w-3xl mx-auto relative">
+                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
+                  <CarouselContent>
+                    {tournaments2024.map((tournament) => (
+                      <CarouselItem key={tournament.number}>
+                        <TournamentCard
+                          number={tournament.number}
+                          date={tournament.date}
+                          location={tournament.location}
+                          links={tournament.links}
+                          hideResults
+                          hideLocation
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                  </div>
+                </Carousel>
+              </div>
+            </div>
+          </section>
+
+          {/* BSGA Tour 2023 */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="text-center mb-8 sm:mb-12 md:mb-16">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                  Archív
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                  BSGA Tour 2023
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="max-w-3xl mx-auto relative">
+                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
+                  <CarouselContent>
+                    {tournaments2023.map((tournament) => (
+                      <CarouselItem key={tournament.number}>
+                        <TournamentCard
+                          number={tournament.number}
+                          date={tournament.date}
+                          location={tournament.location}
+                          links={tournament.links}
+                          hideResults
+                          hideLocation
                         />
                       </CarouselItem>
                     ))}
