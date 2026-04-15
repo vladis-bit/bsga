@@ -7,6 +7,7 @@ import tourHeroImage from "@/assets/tour-hero-2026.jpg";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.jpeg";
 import taleImg from "@/assets/courses/tale.jpg";
@@ -49,6 +50,39 @@ const tournaments = [
     location: "Ostravice",
     image: ostraviceImg,
     links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
+  }
+];
+
+const tournaments2025 = [
+  {
+    number: 1,
+    date: "15.5.2025",
+    location: "Sedin Golf Resort",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 2,
+    date: "6.6.2025",
+    location: "Grey Bear Tále",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 3,
+    date: "11.7.2025",
+    location: "Penati Golf Resort - Heritage",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 4,
+    date: "15.8.2025",
+    location: "Penati Golf Resort - Legend",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+  },
+  {
+    number: 5,
+    date: "5.9.2025",
+    location: "Kaskáda Golf Resort",
+    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
   }
 ];
 
@@ -155,6 +189,42 @@ const Tour = () => {
                   <Trophy size={16} className="text-gold" />
                   Priebežné hodnotenie
                 </a>
+              </div>
+            </div>
+          </section>
+
+          {/* BSGA Tour 2025 */}
+          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="text-center mb-8 sm:mb-12 md:mb-16">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                  Archív
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                  BSGA Tour 2025
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="max-w-3xl mx-auto relative">
+                <Carousel opts={{ align: "start" }} className="w-full">
+                  <CarouselContent>
+                    {tournaments2025.map((tournament) => (
+                      <CarouselItem key={tournament.number}>
+                        <TournamentCard
+                          number={tournament.number}
+                          date={tournament.date}
+                          location={tournament.location}
+                          links={tournament.links}
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                  </div>
+                </Carousel>
               </div>
             </div>
           </section>
