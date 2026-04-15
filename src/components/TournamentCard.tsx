@@ -40,7 +40,7 @@ const TournamentCard = ({
       {/* Course Image */}
       {image && <div className="p-3 sm:p-4 pb-0">
           <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-gold/20">
-            <img src={image} alt={location} className="w-full h-full object-contain bg-black/40" loading="lazy" />
+            <img src={image} alt={location} className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>}
 
