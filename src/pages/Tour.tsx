@@ -62,35 +62,35 @@ const tournaments2025 = [
     date: "15.5.2025",
     location: "Sedin Golf Resort",
     image: sedinImg,
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/8ozSp7g31v1baDVc8", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 2,
     date: "6.6.2025",
     location: "Grey Bear Tále",
     image: taleImg,
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/QR5zbcFmDYnCBygr7", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 3,
     date: "11.7.2025",
     location: "Penati - Heritage",
     image: heritageImg,
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/StdaRFJwztpQWAuX7", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 4,
     date: "15.8.2025",
     location: "Penati - Legend",
     image: legendImg,
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/StdaRFJwztpQWAuX7", resultsUrl: "#", galleryUrl: "#" }
   },
   {
     number: 5,
     date: "5.9.2025",
     location: "Kaskáda Golf Resort",
     image: kaskadaImg,
-    links: { locationUrl: "#", resultsUrl: "#", galleryUrl: "#" }
+    links: { locationUrl: "https://maps.app.goo.gl/31e6dkciYh7kvxuE9", resultsUrl: "#", galleryUrl: "#" }
   }
 ];
 
