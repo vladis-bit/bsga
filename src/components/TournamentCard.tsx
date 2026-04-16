@@ -51,7 +51,7 @@ const TournamentCard = ({
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-1.5 sm:gap-4">
             <span className="text-gold text-sm sm:text-lg font-sans flex-shrink-0">{date}</span>
-            <span className="text-primary-foreground font-serif font-bold text-xs sm:text-base tracking-wide flex-shrink-0 whitespace-nowrap">
+            <span className="text-primary-foreground font-serif font-bold text-xs sm:text-base tracking-wide whitespace-nowrap text-center flex-1">
               {tourLabel} {number}
             </span>
             <span className="text-primary-foreground font-medium text-xs sm:text-base uppercase tracking-wide truncate text-right">
