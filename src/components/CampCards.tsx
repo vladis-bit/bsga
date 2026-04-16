@@ -90,8 +90,20 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
           )}
         </div>
 
-        {/* Right - Button */}
-        <div className="w-full sm:w-auto sm:flex-shrink-0 sm:ml-4">
+        {/* Right - Buttons */}
+        <div className="w-full sm:w-auto sm:flex-shrink-0 sm:ml-4 flex flex-col sm:flex-row gap-2">
+          {camp.posterUrl && (
+            <a
+              href={camp.posterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={e => e.stopPropagation()}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20"
+            >
+              <FileText className="w-4 h-4" />
+              Plagát
+            </a>
+          )}
           <a
             href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
             className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
