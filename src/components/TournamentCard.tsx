@@ -41,20 +41,20 @@ const TournamentCard = ({
         </div>}
 
       {/* Header - always visible */}
-      <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6">
+      <div className="flex items-center gap-3 sm:gap-6 p-3 sm:p-6">
         {/* Tournament number */}
-        <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center">
-          <span className="text-gold font-serif font-bold text-lg sm:text-xl">{number}</span>
+        <div className="flex-shrink-0 w-10 h-10 sm:w-16 sm:h-16 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center">
+          <span className="text-gold font-serif font-bold text-base sm:text-xl">{number}</span>
         </div>
 
         {/* Date, tour label, location */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between gap-2 sm:gap-4">
-            <span className="text-gold text-base sm:text-lg font-sans flex-shrink-0">{date}</span>
-            <span className="text-primary-foreground font-serif font-bold text-sm sm:text-base tracking-wide">
+          <div className="flex items-center justify-between gap-1.5 sm:gap-4">
+            <span className="text-gold text-sm sm:text-lg font-sans flex-shrink-0">{date}</span>
+            <span className="text-primary-foreground font-serif font-bold text-xs sm:text-base tracking-wide flex-shrink-0 whitespace-nowrap">
               {tourLabel} {number}
             </span>
-            <span className="text-primary-foreground font-medium text-sm sm:text-base uppercase tracking-wide truncate text-right">
+            <span className="text-primary-foreground font-medium text-xs sm:text-base uppercase tracking-wide truncate text-right">
               {location}
             </span>
           </div>
