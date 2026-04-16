@@ -103,6 +103,38 @@ const images = [
   {
     src: gallerySunsetJump,
     alt: "Tím BSGA skáče pri západe slnka"
+  },
+  {
+    src: galleryNycDuo,
+    alt: "Dvaja tréneri BSGA na výlete v New Yorku"
+  },
+  {
+    src: galleryJuniorChipping,
+    alt: "Juniorský tréning čipovania na ihrisku"
+  },
+  {
+    src: galleryTourCheckpoint,
+    alt: "Check point partnera počas turnaja BSGA Tour"
+  },
+  {
+    src: galleryAwardCeremony,
+    alt: "Odovzdávanie cien víťazovi turnaja BSGA"
+  },
+  {
+    src: galleryClubhouseGroup,
+    alt: "Skupina účastníkov golfového zájazdu v klubovni"
+  },
+  {
+    src: galleryKidsCamp,
+    alt: "Detský golfový kemp s trénerkou BSGA"
+  },
+  {
+    src: galleryTrophies,
+    alt: "Trofeje a ceny BSGA Tour na stole"
+  },
+  {
+    src: galleryDuoCourse,
+    alt: "Dvaja golfisti na ihrisku počas tréningu"
   }
 ];
 
