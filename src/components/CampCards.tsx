@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Mail, MapPin, Sparkles } from "lucide-react";
+import { Calendar, Mail, MapPin, Sparkles, FileText } from "lucide-react";
 
 interface Camp {
   title: string;
@@ -9,6 +9,7 @@ interface Camp {
   location?: string;
   isHighlight?: boolean;
   description?: string;
+  posterUrl?: string;
 }
 
 const camps: Camp[] = [
@@ -16,11 +17,13 @@ const camps: Camp[] = [
     title: "Denný tábor - Turnus 1",
     date: "6. – 10. 7. 2026",
     location: "Hrubá Borša",
+    posterUrl: "/documents/kemp_6-10_jul.pdf",
   },
   {
     title: "Denný tábor - Turnus 2",
     date: "3. – 7. 8. 2026",
     location: "Hrubá Borša",
+    posterUrl: "/documents/kemp_3-7_august.pdf",
   },
   {
     title: "Denný tábor - Turnus 3",
@@ -87,8 +90,20 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
           )}
         </div>
 
-        {/* Right - Button */}
-        <div className="w-full sm:w-auto sm:flex-shrink-0 sm:ml-4">
+        {/* Right - Buttons */}
+        <div className="w-full sm:w-auto sm:flex-shrink-0 sm:ml-4 flex flex-col sm:flex-row gap-2">
+          {camp.posterUrl && (
+            <a
+              href={camp.posterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={e => e.stopPropagation()}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20"
+            >
+              <FileText className="w-4 h-4" />
+              Plagát
+            </a>
+          )}
           <a
             href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
             className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
