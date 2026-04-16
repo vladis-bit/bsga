@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Mail, MapPin, Sparkles } from "lucide-react";
+import { Calendar, Mail, MapPin, Sparkles, FileText } from "lucide-react";
 
 interface Camp {
   title: string;
@@ -9,6 +9,7 @@ interface Camp {
   location?: string;
   isHighlight?: boolean;
   description?: string;
+  posterUrl?: string;
 }
 
 const camps: Camp[] = [
