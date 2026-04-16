@@ -88,13 +88,13 @@ const ContactForm = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Meno *
                     </label>
-                    <Input required placeholder="Vaše meno" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
+                    <Input required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Vaše meno" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Priezvisko *
                     </label>
-                    <Input required placeholder="Vaše priezvisko" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
+                    <Input required value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Vaše priezvisko" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
                   </div>
                 </div>
 
@@ -103,13 +103,13 @@ const ContactForm = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Email *
                     </label>
-                    <Input type="email" required placeholder="vas@email.sk" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
+                    <Input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="vas@email.sk" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Telefón
                     </label>
-                    <Input type="tel" placeholder="+421 XXX XXX XXX" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
+                    <Input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+421 XXX XXX XXX" className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm" />
                   </div>
                 </div>
 
@@ -117,13 +117,13 @@ const ContactForm = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Služba
                   </label>
-                  <Select>
+                  <Select value={service} onValueChange={setService}>
                     <SelectTrigger className="bg-muted text-foreground border-border/60 shadow-sm">
                       <SelectValue placeholder="Vyberte službu" />
                     </SelectTrigger>
                     <SelectContent>
-                      {services.map((service) => <SelectItem key={service} value={service}>
-                          {service}
+                      {services.map((s) => <SelectItem key={s} value={s}>
+                          {s}
                         </SelectItem>)}
                     </SelectContent>
                   </Select>
@@ -162,7 +162,7 @@ const ContactForm = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Správa *
                   </label>
-                  <Textarea required placeholder="Napíšte nám vašu správu..." rows={4} className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm resize-none" />
+                  <Textarea required value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Napíšte nám vašu správu..." rows={4} className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm resize-none" />
                 </div>
 
                 <InteractiveHoverButton

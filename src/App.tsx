@@ -20,6 +20,8 @@ import EducationCalculators from "./pages/EducationCalculators";
 import EducationBlog from "./pages/EducationBlog";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +47,8 @@ const App = () => (
             <Route path="/obchod" element={<Shop />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieBanner />
