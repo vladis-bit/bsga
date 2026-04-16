@@ -16,6 +16,12 @@ import galleryCourseGroup from "@/assets/gallery-course-group.png";
 import galleryKidsTraining from "@/assets/gallery-kids-training.png";
 import galleryJuniorGroup from "@/assets/gallery-junior-group.png";
 import galleryStageEvent from "@/assets/gallery-stage-event.png";
+import gallerySelfie from "@/assets/gallery-selfie-course.png";
+import galleryStAndrews from "@/assets/gallery-st-andrews.png";
+import galleryTeamGreen from "@/assets/gallery-team-green.png";
+import galleryTrioGreen from "@/assets/gallery-trio-green.png";
+import galleryDuoClubhouse from "@/assets/gallery-duo-clubhouse.png";
+import gallerySunsetJump from "@/assets/gallery-sunset-jump.png";
 
 const images = [
   {
@@ -65,6 +71,30 @@ const images = [
   {
     src: galleryStageEvent,
     alt: "Vyhlasovanie a moderovanie počas eventu BSGA Tour"
+  },
+  {
+    src: gallerySelfie,
+    alt: "Selfie trénerov BSGA na golfovom ihrisku"
+  },
+  {
+    src: galleryStAndrews,
+    alt: "Tréner BSGA na legendárnom moste St Andrews"
+  },
+  {
+    src: galleryTeamGreen,
+    alt: "Tím BSGA v zelených dresoch"
+  },
+  {
+    src: galleryTrioGreen,
+    alt: "Trojica hráčov BSGA na ihrisku v zelenom"
+  },
+  {
+    src: galleryDuoClubhouse,
+    alt: "Dvaja tréneri BSGA pred klubovňou"
+  },
+  {
+    src: gallerySunsetJump,
+    alt: "Tím BSGA skáče pri západe slnka"
   }
 ];
 
