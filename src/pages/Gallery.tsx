@@ -16,6 +16,12 @@ import galleryCourseGroup from "@/assets/gallery-course-group.png";
 import galleryKidsTraining from "@/assets/gallery-kids-training.png";
 import galleryJuniorGroup from "@/assets/gallery-junior-group.png";
 import galleryStageEvent from "@/assets/gallery-stage-event.png";
+import gallerySelfie from "@/assets/gallery-selfie-course.png";
+import galleryStAndrews from "@/assets/gallery-st-andrews.png";
+import galleryTeamGreen from "@/assets/gallery-team-green.png";
+import galleryTrioGreen from "@/assets/gallery-trio-green.png";
+import galleryDuoClubhouse from "@/assets/gallery-duo-clubhouse.png";
+import gallerySunsetJump from "@/assets/gallery-sunset-jump.png";
 
 const images = [
   {
