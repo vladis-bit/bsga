@@ -21,8 +21,8 @@ type HeroStat = {
 
 const heroStats: HeroStat[] = [
   { value: 10, suffix: "+", label: "Rokov skúseností" },
-  { value: 2000, suffix: "+", label: "Spokojných klientov" },
-  { value: 10, suffix: "", label: "Rôznych služieb" },
+  { value: 2500, suffix: "+", label: "Spokojných klientov" },
+  { value: 12, suffix: "", label: "Rôznych služieb" },
   { value: 6, suffix: "", label: "Trénerov" },
 ];
 
