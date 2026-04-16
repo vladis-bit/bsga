@@ -22,6 +22,14 @@ import galleryTeamGreen from "@/assets/gallery-team-green.png";
 import galleryTrioGreen from "@/assets/gallery-trio-green.png";
 import galleryDuoClubhouse from "@/assets/gallery-duo-clubhouse.png";
 import gallerySunsetJump from "@/assets/gallery-sunset-jump.png";
+import galleryNycDuo from "@/assets/gallery-nyc-duo.png";
+import galleryJuniorChipping from "@/assets/gallery-junior-chipping.png";
+import galleryTourCheckpoint from "@/assets/gallery-tour-checkpoint.png";
+import galleryAwardCeremony from "@/assets/gallery-award-ceremony.png";
+import galleryClubhouseGroup from "@/assets/gallery-clubhouse-group.png";
+import galleryKidsCamp from "@/assets/gallery-kids-camp.png";
+import galleryTrophies from "@/assets/gallery-trophies.png";
+import galleryDuoCourse from "@/assets/gallery-duo-course.png";
 
 const images = [
   {
@@ -95,6 +103,38 @@ const images = [
   {
     src: gallerySunsetJump,
     alt: "Tím BSGA skáče pri západe slnka"
+  },
+  {
+    src: galleryNycDuo,
+    alt: "Dvaja tréneri BSGA na výlete v New Yorku"
+  },
+  {
+    src: galleryJuniorChipping,
+    alt: "Juniorský tréning čipovania na ihrisku"
+  },
+  {
+    src: galleryTourCheckpoint,
+    alt: "Check point partnera počas turnaja BSGA Tour"
+  },
+  {
+    src: galleryAwardCeremony,
+    alt: "Odovzdávanie cien víťazovi turnaja BSGA"
+  },
+  {
+    src: galleryClubhouseGroup,
+    alt: "Skupina účastníkov golfového zájazdu v klubovni"
+  },
+  {
+    src: galleryKidsCamp,
+    alt: "Detský golfový kemp s trénerkou BSGA"
+  },
+  {
+    src: galleryTrophies,
+    alt: "Trofeje a ceny BSGA Tour na stole"
+  },
+  {
+    src: galleryDuoCourse,
+    alt: "Dvaja golfisti na ihrisku počas tréningu"
   }
 ];
 
