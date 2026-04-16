@@ -71,6 +71,30 @@ const images = [
   {
     src: galleryStageEvent,
     alt: "Vyhlasovanie a moderovanie počas eventu BSGA Tour"
+  },
+  {
+    src: gallerySelfie,
+    alt: "Selfie trénerov BSGA na golfovom ihrisku"
+  },
+  {
+    src: galleryStAndrews,
+    alt: "Tréner BSGA na legendárnom moste St Andrews"
+  },
+  {
+    src: galleryTeamGreen,
+    alt: "Tím BSGA v zelených dresoch"
+  },
+  {
+    src: galleryTrioGreen,
+    alt: "Trojica hráčov BSGA na ihrisku v zelenom"
+  },
+  {
+    src: galleryDuoClubhouse,
+    alt: "Dvaja tréneri BSGA pred klubovňou"
+  },
+  {
+    src: gallerySunsetJump,
+    alt: "Tím BSGA skáče pri západe slnka"
   }
 ];
 
