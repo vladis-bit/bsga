@@ -98,7 +98,7 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={e => e.stopPropagation()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/30 text-foreground hover:bg-muted/80 hover:border-foreground/50"
             >
               <FileText className="w-4 h-4" />
               Plagát
