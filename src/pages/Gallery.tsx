@@ -22,6 +22,14 @@ import galleryTeamGreen from "@/assets/gallery-team-green.png";
 import galleryTrioGreen from "@/assets/gallery-trio-green.png";
 import galleryDuoClubhouse from "@/assets/gallery-duo-clubhouse.png";
 import gallerySunsetJump from "@/assets/gallery-sunset-jump.png";
+import galleryNycDuo from "@/assets/gallery-nyc-duo.png";
+import galleryJuniorChipping from "@/assets/gallery-junior-chipping.png";
+import galleryTourCheckpoint from "@/assets/gallery-tour-checkpoint.png";
+import galleryAwardCeremony from "@/assets/gallery-award-ceremony.png";
+import galleryClubhouseGroup from "@/assets/gallery-clubhouse-group.png";
+import galleryKidsCamp from "@/assets/gallery-kids-camp.png";
+import galleryTrophies from "@/assets/gallery-trophies.png";
+import galleryDuoCourse from "@/assets/gallery-duo-course.png";
 
 const images = [
   {
