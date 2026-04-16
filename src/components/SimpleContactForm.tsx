@@ -4,18 +4,38 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const SimpleContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const { error } = await supabase.from("contact_messages").insert({
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      message,
+      source: "home",
+    });
     setIsSubmitting(false);
+    if (error) {
+      toast({
+        title: "Nepodarilo sa odoslať",
+        description: error.message,
+        variant: "destructive",
+      });
+      return;
+    }
     setIsSubmitted(true);
+    setFirstName(""); setLastName(""); setEmail(""); setMessage("");
     toast({
       title: "Správa odoslaná!",
       description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať."
@@ -63,21 +83,36 @@ const SimpleContactForm = () => {
                     Meno *
                   </label>
                   <Input
-                  required
-                  placeholder="Vaše meno"
-                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
-                
+                    required
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="Vaše meno"
+                    className="bg-muted border-border/60 focus:border-gold shadow-sm" />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Priezvisko *
                   </label>
                   <Input
-                  required
-                  placeholder="Vaše priezvisko"
-                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
-                
+                    required
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Vaše priezvisko"
+                    className="bg-muted border-border/60 focus:border-gold shadow-sm" />
                 </div>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground mb-2 block">
+                  Email *
+                </label>
+                <Input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="vas@email.sk"
+                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
               </div>
 
               <div>
@@ -85,11 +120,12 @@ const SimpleContactForm = () => {
                   Správa *
                 </label>
                 <Textarea
-                required
-                placeholder="Napíšte nám vašu správu..."
-                rows={4}
-                className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none" />
-              
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Napíšte nám vašu správu..."
+                  rows={4}
+                  className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none" />
               </div>
 
               <InteractiveHoverButton
