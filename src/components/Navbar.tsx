@@ -137,20 +137,27 @@ const Navbar = () => {
                   <span className="sr-only">Otvoriť menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] pt-12">
-                <nav className="flex flex-col gap-1">
+              <SheetContent side="right" className="w-[300px] sm:w-[340px] pt-8 px-6">
+                <div className="flex items-center mb-8">
+                  <img
+                    alt="BSGA"
+                    className="h-10 w-auto"
+                    src={bsgaLogo}
+                  />
+                </div>
+                <nav className="flex flex-col gap-1.5">
                   {navLinks.map((item, index) => {
                     if (!isNavLink(item)) {
-                      return <div key={`sep-${index}`} className="h-px bg-border my-3" />;
+                      return <div key={`sep-${index}`} className="h-px bg-border/50 my-2" />;
                     }
                     return (
                       <SheetClose asChild key={item.href}>
                         <button
                           onClick={() => handleNavigate(item.href)}
-                          className={`px-4 py-3 text-left text-base font-medium rounded-lg transition-colors ${
+                          className={`px-5 py-3.5 text-left text-base font-medium rounded-xl transition-all duration-200 ${
                             isActive(item.href)
-                              ? "text-gold bg-gold/15"
-                              : "text-foreground hover:bg-gold/10 hover:text-gold"
+                              ? "text-gold bg-gold/15 border border-gold/30"
+                              : "text-foreground border border-transparent hover:bg-gold/10 hover:text-gold hover:border-gold/20"
                           }`}
                         >
                           {item.name}
