@@ -11,28 +11,48 @@ import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 const services = ["Individuálne lekcie", "Skupinové lekcie", "Zelená karta", "Detská akadémia", "Firemný teambuilding", "BSGA Tour", "Fitting", "Iné"];
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-  const {
-    toast
-  } = useToast();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState<string>("");
+  const [message, setMessage] = useState("");
+  const { toast } = useToast();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const { error } = await supabase.from("contact_messages").insert({
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      phone: phone || null,
+      service: service || null,
+      preferred_date: selectedDate ? format(selectedDate, "yyyy-MM-dd") : null,
+      message,
+      source: "services",
+    });
     setIsSubmitting(false);
+    if (error) {
+      toast({
+        title: "Nepodarilo sa odoslať",
+        description: error.message,
+        variant: "destructive",
+      });
+      return;
+    }
     setIsSubmitted(true);
+    setFirstName(""); setLastName(""); setEmail(""); setPhone("");
+    setService(""); setMessage(""); setSelectedDate(undefined);
     toast({
       title: "Správa odoslaná!",
       description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať."
     });
-
-    // Reset form after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
   };
   return <section id="kontakt" className="bg-transparent py-12 sm:py-16 md:py-24">
