@@ -105,12 +105,12 @@ const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) =>
       whileHover={{ y: -8, scale: 1.03 }}
       className="group rounded-[2rem] border border-primary-foreground/14 bg-background/8 px-5 py-6 backdrop-blur-md transition-all duration-300 hover:border-gold/35 hover:bg-background/14 hover:shadow-[0_20px_60px_hsl(var(--gold)/0.16)] sm:px-6"
     >
-      <div className="text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground/68 transition-colors duration-300 group-hover:text-primary-foreground/82">
-        {stat.label}
-      </div>
-      <div className="mt-3 text-2xl font-bold text-gold transition-transform duration-300 group-hover:translate-x-0.5 sm:text-3xl lg:text-4xl">
+      <div className="text-2xl font-bold text-gold transition-transform duration-300 group-hover:translate-x-0.5 sm:text-3xl lg:text-4xl">
         {count.toLocaleString("sk-SK")}
         {stat.suffix}
+      </div>
+      <div className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground/68 transition-colors duration-300 group-hover:text-primary-foreground/82">
+        {stat.label}
       </div>
     </motion.div>
   );

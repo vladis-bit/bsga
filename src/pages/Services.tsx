@@ -10,7 +10,7 @@ import serviceCourseImg from "@/assets/service-course-management.png";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceKidsAcademyImg from "@/assets/service-kids-academy.jpg";
-import serviceKidsCampsImg from "@/assets/service-kids-camps.jpg";
+import serviceKidsCampsImg from "@/assets/service-kids-camps-new.jpg";
 import serviceCorporateImg from "@/assets/service-corporate.jpg";
 import servicePerformanceImg from "@/assets/service-performance.webp";
 import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
