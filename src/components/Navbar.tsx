@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import bsgaLogo from "@/assets/logo2.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import GoogleTranslate from "@/components/GoogleTranslate";
 
 type NavLink = {
   type?: "link";
@@ -126,10 +127,13 @@ const Navbar = () => {
                 </button>
               );
             })}
+            <span className="text-border mx-2">|</span>
+            <GoogleTranslate />
           </div>
 
           {/* Mobile/Tablet Hamburger Menu */}
-          <div className="lg:hidden">
+          <div className="lg:hidden flex items-center gap-1">
+            <GoogleTranslate />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-10 w-10">
