@@ -165,3 +165,34 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Google Translate widget — hide top banner & tooltip artifacts */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.skiptranslate > iframe,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Hide highlight on translated elements */
+font[style*="background-color"],
+font[style*="background:"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Hide Google Translate gadget UI (we use our own button) */
+.goog-logo-link,
+.goog-te-gadget {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+.goog-te-gadget .goog-te-combo {
+  display: none !important;
+}
