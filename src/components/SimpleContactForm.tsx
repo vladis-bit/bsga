@@ -29,7 +29,7 @@ const SimpleContactForm = () => {
     if (error) {
       toast({
         title: "Nepodarilo sa odoslať",
-        description: error.message,
+        description: "Nastala chyba pri odosielaní. Skúste to prosím znova.",
         variant: "destructive",
       });
       return;
