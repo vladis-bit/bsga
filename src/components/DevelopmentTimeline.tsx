@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Baby, Bike, Target, Trophy, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslateLang } from "@/components/GoogleTranslate";
 import vanessaImg from "@/assets/team/vanessa-fajkusova.jpg";
 import vladimirImg from "@/assets/team/vladimir-lesko.jpg";
 import marosImg from "@/assets/team/maros-gajan.jpg";

@@ -37,6 +37,7 @@ const camps: Camp[] = [
 const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const lang = useTranslateLang();
 
   return (
     <motion.div
@@ -114,7 +115,7 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
             }`}
           >
             <Mail className="w-4 h-4" />
-            Prihlásiť sa
+            <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
           </a>
         </div>
       </div>
