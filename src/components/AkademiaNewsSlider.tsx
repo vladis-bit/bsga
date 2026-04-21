@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslateLang } from "@/components/GoogleTranslate";
 
 import heroSlide1 from "@/assets/akademia/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/akademia/hero-slide-2-new.jpg";

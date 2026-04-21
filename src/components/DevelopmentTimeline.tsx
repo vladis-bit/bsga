@@ -100,6 +100,7 @@ const TimelineCard = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = stage.icon;
+  const lang = useTranslateLang();
 
   return (
     <motion.div
@@ -156,7 +157,7 @@ const TimelineCard = ({
         >
           <a href={`mailto:${stage.coachEmail}?subject=Prihlásenie - ${stage.title}`}>
             <Mail className="w-4 h-4 mr-1" />
-            Prihlásiť sa
+            <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
           </a>
         </Button>
       </div>
