@@ -92,7 +92,7 @@ const Fitting = () => {
                     Nájdi palice, ktoré ti skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
                   </p>
                   <a
-                    href="mailto:info@bsga.sk?subject=Záujem o fitting"
+                    href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
                   >
                     <Mail className="w-4 h-4" />
@@ -149,7 +149,7 @@ const Fitting = () => {
                     Proces fittingu krok za krokom
                   </h2>
                   <p className="mt-4 text-primary-foreground/70 sm:text-lg">
-                    Celý proces trvá približne <strong className="text-gold">90 minút</strong> a prebieha v našom Performance Centre v Petržalke.
+                    Celý proces trvá približne <strong className="text-gold">120 minút</strong> a prebieha v našom Performance Centre v Petržalke.
                   </p>
                   <ul className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
                     {process.map((step, i) => (
@@ -163,18 +163,18 @@ const Fitting = () => {
                   </ul>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href="mailto:info@bsga.sk?subject=Rezervácia fittingu"
+                      href="mailto:jakub@bsga.sk?subject=Rezervácia fittingu"
                       className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
                     >
                       <Mail className="w-4 h-4" />
                       Rezervovať fitting
                     </a>
                     <a
-                      href="tel:+421917225276"
+                      href="tel:+421911994888"
                       className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-6 py-3 text-sm font-medium text-gold transition-all duration-300 hover:bg-gold/20 sm:text-base"
                     >
                       <Phone className="w-4 h-4" />
-                      +421 917 225 276
+                      +421 911 994 888
                     </a>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ const Fitting = () => {
                     />
                   </div>
                   <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-gold text-primary rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-xl">
-                    <div className="text-2xl sm:text-3xl font-serif font-bold">90 min</div>
+                    <div className="text-2xl sm:text-3xl font-serif font-bold">120 min</div>
                     <div className="text-xs sm:text-sm font-medium">jeden fitting</div>
                   </div>
                 </div>
