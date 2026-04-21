@@ -196,3 +196,21 @@ font[style*="background:"] {
 .goog-te-gadget .goog-te-combo {
   display: none !important;
 }
+
+/* Google Translate wraps translated text nodes in <font> tags.
+   Reset their styling so they don't break flex/grid layouts, hover effects,
+   transitions, or button group/icon alignment. */
+font {
+  font: inherit !important;
+  color: inherit !important;
+  background: transparent !important;
+  vertical-align: baseline !important;
+  display: inline !important;
+}
+
+/* Preserve transitions/transforms on translated buttons & links */
+button font,
+a font,
+[role="button"] font {
+  pointer-events: none;
+}

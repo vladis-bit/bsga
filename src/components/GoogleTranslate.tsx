@@ -34,6 +34,23 @@ const getCurrentLang = (): "sk" | "en" => {
   return match?.[1] === "en" ? "en" : "sk";
 };
 
+/**
+ * Hook to read the active Google Translate language.
+ * Returns "sk" or "en". Useful for conditionally rendering EN-specific labels
+ * (e.g. "Sign up" instead of GT's auto-translated "Log in" for "Prihlásiť sa").
+ */
+export const useTranslateLang = (): "sk" | "en" => {
+  const [lang, setLang] = useState<"sk" | "en">(() =>
+    typeof document !== "undefined" ? getCurrentLang() : "sk"
+  );
+  useEffect(() => {
+    const onChange = () => setLang(getCurrentLang());
+    window.addEventListener("bsga-lang-change", onChange);
+    return () => window.removeEventListener("bsga-lang-change", onChange);
+  }, []);
+  return lang;
+};
+
 const GoogleTranslate = () => {
   const [lang, setLang] = useState<"sk" | "en">("sk");
 
@@ -66,6 +83,7 @@ const GoogleTranslate = () => {
   const switchLang = (next: "sk" | "en") => {
     setLangCookie(next);
     setLang(next);
+    window.dispatchEvent(new CustomEvent("bsga-lang-change"));
     // Reload to apply translation cleanly
     window.location.reload();
   };
