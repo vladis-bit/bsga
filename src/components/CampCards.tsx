@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, Mail, MapPin, Sparkles, FileText } from "lucide-react";
+import { useTranslateLang } from "@/components/GoogleTranslate";
 
 interface Camp {
   title: string;

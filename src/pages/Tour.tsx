@@ -120,6 +120,7 @@ const tournaments2022 = [
 ];
 
 const Tour = () => {
+  const lang = useTranslateLang();
   return <>
       <Helmet>
         <title>BSGA Tour 2026 | Séria golfových turnajov</title>
@@ -154,7 +155,7 @@ const Tour = () => {
                       href="mailto:touroffice@bsga.sk?subject=Prihlásenie na BSGA Tour 2026"
                       className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
                     >
-                      Prihlásiť sa
+                      <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
                     </a>
                   </div>
                 </div>
