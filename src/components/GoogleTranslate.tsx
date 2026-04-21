@@ -83,6 +83,7 @@ const GoogleTranslate = () => {
   const switchLang = (next: "sk" | "en") => {
     setLangCookie(next);
     setLang(next);
+    window.dispatchEvent(new CustomEvent("bsga-lang-change"));
     // Reload to apply translation cleanly
     window.location.reload();
   };
