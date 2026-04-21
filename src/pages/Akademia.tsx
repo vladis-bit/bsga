@@ -36,7 +36,7 @@ const Akademia = () => {
               <div className="relative z-10 flex h-full min-h-[460px] items-end sm:min-h-[560px] md:min-h-[680px]">
                 <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-12 sm:pt-20 md:pb-14 md:pt-24">
                   <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                    Akadémia BSGA
+                    Akadémia
                   </span>
                   <h1 className="mt-3 text-3xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
                     Spustenie prihlasovania na detské tábory 2026
