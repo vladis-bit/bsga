@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
@@ -117,6 +118,7 @@ const services = [
     icon: Wrench,
     title: "Fitting – vybavenie na mieru",
     image: serviceFittingImg,
+    link: "/fitting",
     description: (
       <>
         Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.
@@ -190,10 +192,11 @@ const Services = () => {
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:grid-cols-3">
                 {services.map((service, index) => {
                   const Icon = service.icon;
-                  return (
+                  const card = (
                       <CursorGlowCard
-                        key={index}
-                        className="group overflow-hidden rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl"
+                        className={`group h-full overflow-hidden rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl ${
+                          (service as any).link ? "cursor-pointer hover:-translate-y-1" : ""
+                        }`}
                       >
                         {service.image && (
                           <div className="p-4 sm:p-5 pb-0 sm:pb-0">
@@ -208,6 +211,11 @@ const Services = () => {
                           </div>
                           <h2 className="mb-2 font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
                             {service.title}
+                            {(service as any).link && (
+                              <span className="ml-2 text-gold text-sm font-normal opacity-0 transition-opacity group-hover:opacity-100">
+                                →
+                              </span>
+                            )}
                           </h2>
                           <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
                           {service.description}
@@ -215,6 +223,14 @@ const Services = () => {
                       </div>
                     </CursorGlowCard>
                   );
+                  if ((service as any).link) {
+                    return (
+                      <Link key={index} to={(service as any).link} className="block h-full">
+                        {card}
+                      </Link>
+                    );
+                  }
+                  return <div key={index} className="h-full">{card}</div>;
                 })}
               </div>
             </div>
