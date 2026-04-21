@@ -78,7 +78,7 @@ const Akademia = () => {
                   Detské tábory 2026
                 </h2>
                 <p className="mx-auto max-w-2xl text-sm text-foreground/70 sm:text-base">
-                  Rezervujte miesto pre vaše dieťa na nezabudnuteľné golfové leto
+                  Rezervujte miesto pre vaše dieťa na <strong>nezabudnuteľné golfové leto</strong>
                 </p>
               </div>
               <CampCards />
