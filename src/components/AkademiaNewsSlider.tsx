@@ -39,6 +39,7 @@ const slides: NewsSlide[] = [
 
 const AkademiaNewsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const lang = useTranslateLang();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -93,7 +94,9 @@ const AkademiaNewsSlider = () => {
           onClick={() => handleAnchorClick(activeSlide.anchor)}
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:px-7 sm:text-base"
         >
-          {activeSlide.cta}
+          <span className="notranslate">
+            {lang === "en" && activeSlide.cta === "Prihlásiť sa" ? "Sign up" : activeSlide.cta}
+          </span>
         </button>
 
         <div className="mt-8 flex justify-center gap-2">
