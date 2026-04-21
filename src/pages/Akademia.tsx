@@ -4,9 +4,11 @@ import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { useTranslateLang } from "@/components/GoogleTranslate";
 import heroImage from "@/assets/akademia/hero-slide-1.jpg";
 
 const Akademia = () => {
+  const lang = useTranslateLang();
   const handleScrollToCamps = () => {
     const element = document.querySelector("#tabory");
     if (element) element.scrollIntoView({ behavior: "smooth" });
@@ -46,7 +48,7 @@ const Akademia = () => {
                     onClick={handleScrollToCamps}
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
                   >
-                    Prihlásiť sa
+                    <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
                   </button>
                 </div>
               </div>

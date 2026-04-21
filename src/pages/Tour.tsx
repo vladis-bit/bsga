@@ -9,6 +9,7 @@ import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslateLang } from "@/components/GoogleTranslate";
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.png";
 import taleImg from "@/assets/courses/tale.jpg";
