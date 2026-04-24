@@ -183,21 +183,21 @@ const Shop = () => {
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <button
                   onClick={() => scrollToSection("poukazky")}
-                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-primary hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
                 >
                   <Gift className="h-4 w-4" />
                   Poukážky
                 </button>
                 <button
                   onClick={() => scrollToSection("sluzby")}
-                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-primary hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
                 >
                   <Briefcase className="h-4 w-4" />
                   Služby
                 </button>
                 <button
                   onClick={() => scrollToSection("merch")}
-                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-primary hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
                 >
                   <ShoppingBag className="h-4 w-4" />
                   Merch
