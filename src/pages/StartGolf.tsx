@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, MapPin, Crown } from "lucide-react";
+import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, MapPin, Crown, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
