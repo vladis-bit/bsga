@@ -82,6 +82,13 @@ const StartGolf = () => {
       subtitle: "Posúvaj svoju hru",
       target: "zlepsuj-sa",
     },
+    {
+      number: "04",
+      icon: Crown,
+      title: "Dominuj v hre",
+      subtitle: "Hraj ako profesionál",
+      target: "dominuj",
+    },
   ];
 
   const scrollToSection = (id: string) => {
