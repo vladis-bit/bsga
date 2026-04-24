@@ -619,7 +619,7 @@ const StartGolf = () => {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-start pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-md sm:max-w-4xl mx-auto items-start pt-4">
                   <ServiceCard
                     title="Individuálna lekcia"
                     price={59.99}
