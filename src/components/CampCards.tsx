@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, Mail, MapPin, Sparkles, FileText } from "lucide-react";
-import { useTranslateLang } from "@/components/GoogleTranslate";
 
 interface Camp {
   title: string;
@@ -37,7 +36,6 @@ const camps: Camp[] = [
 const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const lang = useTranslateLang();
 
   return (
     <motion.div
@@ -115,7 +113,7 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
             }`}
           >
             <Mail className="w-4 h-4" />
-            <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
+            <span>Prihlásiť sa</span>
           </a>
         </div>
       </div>

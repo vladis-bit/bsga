@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { useTranslateLang } from "@/components/GoogleTranslate";
 import fittingImg from "@/assets/service-fitting.webp";
 
 const benefits = [
@@ -56,8 +55,6 @@ const process = [
 ];
 
 const Fitting = () => {
-  const lang = useTranslateLang();
-
   return (
     <>
       <Helmet>
@@ -96,7 +93,7 @@ const Fitting = () => {
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
                   >
                     <Mail className="w-4 h-4" />
-                    <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
+                    <span>Prihlásiť sa</span>
                   </a>
                 </div>
               </div>

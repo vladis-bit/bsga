@@ -3,7 +3,6 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Baby, Bike, Target, Trophy, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslateLang } from "@/components/GoogleTranslate";
 import vanessaImg from "@/assets/team/vanessa-fajkusova.jpg";
 import vladimirImg from "@/assets/team/vladimir-lesko.jpg";
 import marosImg from "@/assets/team/maros-gajan.jpg";
@@ -100,7 +99,6 @@ const TimelineCard = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = stage.icon;
-  const lang = useTranslateLang();
 
   return (
     <motion.div
@@ -157,7 +155,7 @@ const TimelineCard = ({
         >
           <a href={`mailto:${stage.coachEmail}?subject=Prihlásenie - ${stage.title}`}>
             <Mail className="w-4 h-4 mr-1" />
-            <span className="notranslate">{lang === "en" ? "Sign up" : "Prihlásiť sa"}</span>
+            <span>Prihlásiť sa</span>
           </a>
         </Button>
       </div>
