@@ -41,7 +41,7 @@ const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
                 </a>
               </Button>
             ) : (
-              <Button className="bg-gold hover:bg-gold/90 text-foreground">
+              <Button disabled className="bg-gold hover:bg-gold/90 text-foreground">
                 Kúpiť
               </Button>
             )}
