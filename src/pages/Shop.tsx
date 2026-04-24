@@ -62,6 +62,7 @@ const Shop = () => {
         "Príprava na zelenú kartu",
         "Profesionálny dohľad",
       ],
+      note: "V cene nie je zahrnutá záverečná skúška",
     },
     {
       title: "Kurz zelenej karty",

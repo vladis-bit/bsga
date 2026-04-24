@@ -11,9 +11,10 @@ interface ServiceCardProps {
   features: string[];
   popular?: boolean;
   purchaseUrl?: string;
+  note?: string;
 }
 
-const ServiceCard = ({ title, price, originalPrice, discount, features, popular, purchaseUrl }: ServiceCardProps) => {
+const ServiceCard = ({ title, price, originalPrice, discount, features, popular, purchaseUrl, note }: ServiceCardProps) => {
   return (
     <div className="relative">
       {popular && (
@@ -69,6 +70,11 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-3">
             Kúpiť
           </Button>
+        )}
+        {note && (
+          <p className="mt-3 text-center text-xs text-muted-foreground italic">
+            {note}
+          </p>
         )}
       </div>
     </CursorGlowCard>
