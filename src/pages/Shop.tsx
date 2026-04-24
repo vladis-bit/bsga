@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { User, Award, Flag } from "lucide-react";
+import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -15,6 +15,14 @@ import voucher200 from "@/assets/voucher-200.png";
 const Shop = () => {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(() => ["darčekové poukážky", "služby", "merch"], []);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navOffset = 96;
+    const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -171,11 +179,35 @@ const Shop = () => {
                   </motion.span>
                 </AnimatePresence>
               </div>
+
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <button
+                  onClick={() => scrollToSection("poukazky")}
+                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-primary hover:scale-105"
+                >
+                  <Gift className="h-4 w-4" />
+                  Poukážky
+                </button>
+                <button
+                  onClick={() => scrollToSection("sluzby")}
+                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-primary hover:scale-105"
+                >
+                  <Briefcase className="h-4 w-4" />
+                  Služby
+                </button>
+                <button
+                  onClick={() => scrollToSection("merch")}
+                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-primary hover:scale-105"
+                >
+                  <ShoppingBag className="h-4 w-4" />
+                  Merch
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+        <section id="poukazky" className="scroll-mt-24 bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
@@ -194,7 +226,7 @@ const Shop = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-transparent">
+        <section id="sluzby" className="scroll-mt-24 py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
@@ -224,7 +256,7 @@ const Shop = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-transparent">
+        <section id="merch" className="scroll-mt-24 py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
