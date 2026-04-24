@@ -23,36 +23,36 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         </div>
       )}
       <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/50 shadow-lg shadow-gold/5' : 'border-border hover:border-gold/30'}`}>
-        <div className="p-6 sm:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
+        <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Názov */}
-        <h3 className="text-xl font-bold text-foreground mb-6 text-center">
+        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6 text-center">
           {title}
         </h3>
         
         {/* Bullet points */}
-        <ul className="space-y-3 mb-8 flex-grow">
+        <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8 flex-grow">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-              <span className="text-muted-foreground text-sm">{feature}</span>
+            <li key={index} className="flex items-start gap-2.5 sm:gap-3">
+              <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
+              <span className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
         
         {/* Cena */}
-        <div className="mb-4 text-center">
+        <div className="mb-3 sm:mb-4 text-center">
           {originalPrice && (
-            <span className="text-muted-foreground line-through text-lg mr-2">
+            <span className="text-muted-foreground line-through text-base sm:text-lg mr-2">
               {originalPrice.toLocaleString('sk-SK', { minimumFractionDigits: 2 })} €
             </span>
           )}
-          <span className="text-3xl font-bold text-gold">
+          <span className="text-2xl sm:text-3xl font-bold text-gold">
             {price.toLocaleString('sk-SK', { minimumFractionDigits: 2 })}
           </span>
-          <span className="text-xl text-gold ml-1">€</span>
+          <span className="text-lg sm:text-xl text-gold ml-1">€</span>
           {discount && (
             <div className="mt-2">
-              <span className="bg-green-500/20 text-green-400 text-sm font-semibold px-3 py-1 rounded-full">
+              <span className="bg-green-500/20 text-green-400 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1 rounded-full">
                 Ušetri {discount}%
               </span>
             </div>
@@ -61,13 +61,13 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         
         {/* Button */}
         {purchaseUrl ? (
-          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-3">
+          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
             <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
               Kúpiť
             </a>
           </Button>
         ) : (
-          <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-3">
+          <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
             Kúpiť
           </Button>
         )}
