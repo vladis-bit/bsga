@@ -449,6 +449,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="zk"
+              faqs={[
+                {
+                  q: "Ako dlho trvá získanie zelenej karty?",
+                  a: "Kurz zelenej karty zvyčajne trvá 1–2 týždne v závislosti od intenzity tréningov a tvojich časových možností. Obsahuje praktickú prípravu, teóriu pravidiel a záverečný test.",
+                },
+                {
+                  q: "Čo zelená karta znamená v praxi?",
+                  a: "Zelená karta je oficiálne potvrdenie tvojej spôsobilosti hrať golf samostatne. Bez nej ti väčšina ihrísk neumožní hrať bez sprievodu trénera. Je medzinárodne uznávaná.",
+                },
+                {
+                  q: "Čo ak neprejdem záverečným testom?",
+                  a: "Test môžeš opakovať. Náš tréner ťa pred ním dôkladne pripraví a poradí ti, na čo sa zamerať. Veľká väčšina účastníkov ho zvláda na prvý pokus.",
+                },
+              ]}
+            />
           </div>
         </section>
 
