@@ -36,6 +36,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/zacni-s-golfom" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                  Začni s golfom
+                </Link>
+              </li>
+              <li>
                 <Link to="/tour" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
                   BSGA Tour
                 </Link>
