@@ -12,9 +12,10 @@ interface ServiceCardProps {
   popular?: boolean;
   purchaseUrl?: string;
   note?: string;
+  ctaLabel?: string;
 }
 
-const ServiceCard = ({ title, price, originalPrice, discount, features, popular, purchaseUrl, note }: ServiceCardProps) => {
+const ServiceCard = ({ title, price, originalPrice, discount, features, popular, purchaseUrl, note, ctaLabel = "Kúpiť" }: ServiceCardProps) => {
   return (
     <div className="relative">
       {popular && (
@@ -63,12 +64,12 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         {purchaseUrl ? (
           <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
             <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
-              Kúpiť
+              {ctaLabel}
             </a>
           </Button>
         ) : (
           <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
-            Kúpiť
+            {ctaLabel}
           </Button>
         )}
         {note && (
