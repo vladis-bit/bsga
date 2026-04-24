@@ -108,6 +108,7 @@ const services = [
     icon: MapPin,
     title: "Course Management",
     image: serviceCourseImg,
+    link: "/zacni-s-golfom#dominuj",
     description: (
       <>Tréning s <strong>PGA trénerom</strong> na ihrisku. <strong>Analýza hry</strong>, know-how a odborné poradenstvo za cieľom dosiahnutia <strong>najnižšieho skóre</strong>.</>
     ),
