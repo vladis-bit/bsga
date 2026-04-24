@@ -28,6 +28,7 @@ const services = [
     icon: Users,
     title: "Skupinové lekcie",
     image: serviceGroupImg,
+    link: "/zacni-s-golfom#zlepsuj-sa",
     description: (
       <>Tréning v <strong>príjemnej skupine</strong>, kde sa učíš spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia.</>
     ),
