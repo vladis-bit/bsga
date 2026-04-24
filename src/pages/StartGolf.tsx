@@ -139,7 +139,7 @@ const StartGolf = () => {
                 {/* Connecting line */}
                 <div className="absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-gold/10 via-gold/50 to-gold/10" />
 
-                <div className="relative grid grid-cols-3 gap-6">
+                <div className="relative grid grid-cols-4 gap-4 lg:gap-6">
                   {milestones.map((m, i) => {
                     const Icon = m.icon;
                     return (
