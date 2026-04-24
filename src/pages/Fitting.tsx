@@ -204,18 +204,36 @@ const Fitting = () => {
                     </a>
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="overflow-hidden rounded-2xl border border-border/60 shadow-2xl sm:rounded-3xl">
+                <div className="relative group">
+                  {/* Decorative gold glow */}
+                  <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold/30 via-gold/10 to-transparent blur-2xl opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+
+                  {/* Decorative gold corner frames */}
+                  <div className="pointer-events-none absolute -top-3 -left-3 h-16 w-16 border-t-2 border-l-2 border-gold rounded-tl-3xl" />
+                  <div className="pointer-events-none absolute -bottom-3 -right-3 h-16 w-16 border-b-2 border-r-2 border-gold rounded-br-3xl" />
+
+                  {/* Image card */}
+                  <div className="relative overflow-hidden rounded-2xl border border-gold/30 shadow-2xl sm:rounded-3xl ring-1 ring-gold/10">
                     <img
                       src={fittingImg}
                       alt="Proces golfového fittingu"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       loading="lazy"
                     />
+                    {/* Subtle bottom gradient for badge contrast */}
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/40 to-transparent" />
+
+                    {/* Trackman tag */}
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/80 backdrop-blur px-3 py-1.5 text-xs font-medium text-foreground border border-gold/30">
+                      <Sparkles className="h-3.5 w-3.5 text-gold" />
+                      Trackman technológia
+                    </div>
                   </div>
-                  <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-gold text-primary rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-xl">
-                    <div className="text-2xl sm:text-3xl font-serif font-bold">120 min</div>
-                    <div className="text-xs sm:text-sm font-medium">jeden fitting</div>
+
+                  {/* Floating badge */}
+                  <div className="absolute -bottom-5 -right-5 sm:-bottom-6 sm:-right-6 bg-gold text-primary rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-2xl ring-4 ring-background/40 transition-transform duration-300 group-hover:scale-105">
+                    <div className="text-2xl sm:text-3xl font-serif font-bold leading-none">120 min</div>
+                    <div className="text-xs sm:text-sm font-medium mt-1">jeden fitting</div>
                   </div>
                 </div>
               </div>
