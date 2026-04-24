@@ -63,7 +63,7 @@ const CursorGlowCard = ({ children, className = "" }: CursorGlowCardProps) => {
       />
 
       {/* Content */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 flex h-full flex-col">{children}</div>
     </div>
   );
 };
