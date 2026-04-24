@@ -262,16 +262,24 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           </div>
         </div>
       )}
-      <div className="p-5 sm:p-8">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+      <div className="flex h-full flex-col p-5 sm:p-8">
+        <div className="mx-auto w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
           <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
         </div>
-        <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
+        <h3 className="text-center text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
           {service.title}
         </h3>
-        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+        <p className="text-center text-muted-foreground text-sm sm:text-base leading-relaxed">
           {service.description}
         </p>
+        <div className="mt-6 flex flex-grow items-end justify-center pt-2">
+          <a
+            href="/sluzby"
+            className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary"
+          >
+            Zisti viac
+          </a>
+        </div>
       </div>
     </div>
   );
