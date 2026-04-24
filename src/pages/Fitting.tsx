@@ -99,67 +99,31 @@ const Fitting = () => {
         <main>
           {/* Hero */}
           <section className="relative w-full bg-transparent">
-            {/* Mobile / tablet: foto hore, text pod ňou */}
-            <div className="lg:hidden">
-              <div className="relative w-full overflow-hidden aspect-[4/3] sm:aspect-[16/10]">
-                <img
-                  src={fittingHeroImg}
-                  alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
-                  className="absolute inset-0 h-full w-full object-cover object-top"
-                  loading="eager"
-                />
-              </div>
-              <div className="container mx-auto px-4 py-10 text-center sm:px-6 sm:py-14">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Služba BSGA
-                </span>
-                <h1 className="mt-3 text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl">
-                  Fitting – vybavenie na mieru
-                </h1>
-                <p className="mt-4 mx-auto max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
-                  Nájdi palice, ktoré ti skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
-                </p>
-                <a
-                  href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:mt-8 sm:text-base"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Prihlásiť sa</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Desktop: foto vpravo, text vľavo */}
-            <div className="hidden lg:block">
-              <div className="relative w-full overflow-hidden min-h-[680px]">
-                <img
-                  src={fittingHeroImg}
-                  alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
-                  className="absolute inset-0 h-full w-full object-cover object-center"
-                  loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent" />
-                <div className="relative z-10 flex min-h-[680px] items-center">
-                  <div className="container mx-auto px-6">
-                    <div className="max-w-xl">
-                      <span className="text-gold text-sm tracking-[0.2em] uppercase">
-                        Služba BSGA
-                      </span>
-                      <h1 className="mt-4 text-6xl xl:text-7xl font-serif font-bold text-primary-foreground">
-                        Fitting – vybavenie na mieru
-                      </h1>
-                      <p className="mt-4 text-lg xl:text-xl text-primary-foreground/90">
-                        Nájdi palice, ktoré ti skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
-                      </p>
-                      <a
-                        href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
-                        className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-base font-medium text-primary transition-all duration-300 hover:bg-gold-light"
-                      >
-                        <Mail className="w-4 h-4" />
-                        <span>Prihlásiť sa</span>
-                      </a>
-                    </div>
-                  </div>
+            <div className="relative w-full overflow-hidden min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
+              <img
+                src={fittingHeroImg}
+                alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+                loading="eager"
+              />
+              <div className="relative z-10 flex h-full min-h-[480px] items-end sm:min-h-[580px] md:min-h-[680px]">
+                <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-14 sm:pt-20 md:pb-16 md:pt-24">
+                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                    Služba BSGA
+                  </span>
+                  <h1 className="mt-3 text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                    Fitting – vybavenie na mieru
+                  </h1>
+                  <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
+                    Nájdi palice, ktoré ti skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
+                  </p>
+                  <a
+                    href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Prihlásiť sa</span>
+                  </a>
                 </div>
               </div>
             </div>
