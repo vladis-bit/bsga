@@ -197,7 +197,7 @@ const Fitting = () => {
           {/* Trust block */}
           <section className="bg-transparent pb-16 sm:pb-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/80 sm:rounded-3xl shadow-2xl">
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-white sm:rounded-3xl shadow-2xl">
                 <div className="grid gap-0 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
                   {/* Foto */}
                   <div className="relative h-80 sm:h-[28rem] md:h-auto md:min-h-[460px] bg-white">
@@ -216,18 +216,18 @@ const Fitting = () => {
                   </div>
 
                   {/* Obsah */}
-                  <div className="flex flex-col justify-center p-6 sm:p-10 md:p-12">
+                  <div className="flex flex-col justify-center bg-white p-6 sm:p-10 md:p-12">
                     <span className="hidden md:inline-flex items-center gap-2 self-start rounded-full bg-gold/15 px-3 py-1 text-xs font-medium text-gold">
                       <Award className="h-3.5 w-3.5" />
                       Špecialista na fitting v BSGA
                     </span>
-                    <h3 className="mt-3 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+                    <h3 className="mt-3 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900">
                       Jakub Hrbáň
                     </h3>
                     <p className="mt-1 text-sm text-gold sm:text-base">
                       Hlavný tréner CTM Hrubá Borša
                     </p>
-                    <p className="mt-4 text-foreground/80 sm:text-lg leading-relaxed">
+                    <p className="mt-4 text-neutral-700 sm:text-lg leading-relaxed">
                       Držiteľ licencie <strong>„B" Five Star Golf Academy</strong>, sa špecializuje na fitting golfových palíc. Pomôže ti nájsť vybavenie, ktoré perfektne sedí tvojej hre.
                     </p>
 
