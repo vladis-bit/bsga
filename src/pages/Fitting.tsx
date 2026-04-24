@@ -2,11 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { Wrench, Ruler, Target, Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import fittingImg from "@/assets/service-fitting.webp";
-import jakubImg from "@/assets/team/jakub-hrban.jpg";
+import jakubImg from "@/assets/team/jakub-hrban-fitting.jpg";
 
 const benefits = [
   {
@@ -200,14 +200,13 @@ const Fitting = () => {
               <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/80 sm:rounded-3xl shadow-2xl">
                 <div className="grid gap-0 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
                   {/* Foto */}
-                  <div className="relative h-72 sm:h-96 md:h-auto md:min-h-[420px]">
+                  <div className="relative h-80 sm:h-[28rem] md:h-auto md:min-h-[460px] bg-white">
                     <img
                       src={jakubImg}
                       alt="Jakub Hrbáň – špecialista na fitting v BSGA"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="absolute inset-0 h-full w-full object-cover object-top"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-background/40" />
                     <div className="absolute bottom-4 left-4 right-4 md:hidden">
                       <div className="inline-flex items-center gap-2 rounded-full bg-gold/95 px-3 py-1 text-xs font-medium text-primary">
                         <Award className="h-3.5 w-3.5" />
@@ -255,7 +254,7 @@ const Fitting = () => {
             </div>
           </section>
 
-          <ContactForm />
+          <FittingContactForm />
         </main>
       </AuroraBackground>
       <Footer />
