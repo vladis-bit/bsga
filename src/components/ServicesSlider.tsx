@@ -19,6 +19,7 @@ const services = [
     icon: User,
     title: "Individuálne lekcie",
     image: serviceIndividualImg,
+    link: "/zacni-s-golfom#zlepsuj-sa",
     description: (
       <>Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.</>
     ),
@@ -35,6 +36,7 @@ const services = [
     icon: GraduationCap,
     title: "Víkendový kurz zelenej karty",
     image: serviceStartCardsImg,
+    link: "/zacni-s-golfom#vikendovy-kurz",
     description: (
       <>Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong> a pochopíš, ako golf funguje.</>
     ),
@@ -43,6 +45,7 @@ const services = [
     icon: Award,
     title: "Zelené karty",
     image: serviceGreenCardsImg,
+    link: "/zacni-s-golfom#zelena-karta",
     description: (
       <>Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong>.</>
     ),
