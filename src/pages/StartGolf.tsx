@@ -409,13 +409,13 @@ const StartGolf = () => {
                   Zlepšuj sa v golfe
                 </h2>
                 <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
-                  Posuň svoju hru na ďalšiu úroveň s individuálnymi lekciami pod vedením profesionálneho trénera.
+                  Posuň svoju hru na ďalšiu úroveň – vyber si individuálne lekcie alebo skupinové tréningy pod vedením profesionálneho trénera.
                 </p>
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="max-w-5xl mx-auto">
+              <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
@@ -457,6 +457,49 @@ const StartGolf = () => {
                     </div>
                   </div>
                 </CursorGlowCard>
+
+                <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="p-4 sm:p-5 md:p-6 md:order-2">
+                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                        <img
+                          src={serviceGroupImg}
+                          alt="Skupinové tréningy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          style={{ objectPosition: "center 25%" }}
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pr-2 md:order-1">
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
+                        <Users className="text-gold" size={22} />
+                      </div>
+                      <h3 className="mb-3 font-serif text-xl font-bold text-foreground sm:text-2xl">
+                        Skupinové tréningy
+                      </h3>
+                      <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
+                        Tréning v <strong>príjemnej skupine</strong>, kde sa učíš spolu s ostatnými. Dynamika,
+                        <strong> zdravá motivácia</strong> a praktické cvičenia, ktoré robia každú lekciu
+                        <strong> zábavnou aj efektívnou</strong>.
+                      </p>
+
+                      <ul className="mt-5 space-y-3">
+                        {[
+                          "Tréning v malej skupine",
+                          "Vzájomná motivácia a dynamika",
+                          "Praktické cvičenia a hry",
+                          "Výhodnejšia cena za lekciu",
+                        ].map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
+                            <span className="text-foreground/80 text-xs sm:text-sm leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CursorGlowCard>
               </div>
             </Reveal>
 
@@ -467,11 +510,11 @@ const StartGolf = () => {
                     Možnosť zakúpenia
                   </span>
                   <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
-                    Kúp si individuálnu lekciu
+                    Vyber si formát tréningu
                   </h3>
                 </div>
 
-                <div className="max-w-md mx-auto pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-start pt-4">
                   <ServiceCard
                     title="Individuálna lekcia"
                     price={59.99}
@@ -483,6 +526,117 @@ const StartGolf = () => {
                       "Analýza švihu",
                       "Personalizované cvičenia",
                       "Okamžitá spätná väzba",
+                    ]}
+                  />
+                  <ServiceCard
+                    title="Skupinový tréning"
+                    price={29.99}
+                    icon={Users}
+                    purchaseUrl="/#kontakt"
+                    ctaLabel="Mám záujem"
+                    features={[
+                      "Tréning v malej skupine",
+                      "Profesionálny tréner",
+                      "Praktické cvičenia",
+                      "Výhodnejšia cena za lekciu",
+                      "Skvelá atmosféra",
+                    ]}
+                  />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <MilestoneConnector />
+
+        {/* KROK 4 - DOMINUJ V HRE */}
+        <section id="dominuj" className="scroll-mt-24 bg-transparent py-6 sm:py-8">
+          <div className="container mx-auto px-4">
+            <Reveal>
+              <div className="text-center mb-8 sm:mb-12">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+                  Krok 04
+                </span>
+                <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
+                  Dominuj v hre
+                </h2>
+                <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
+                  Najvyšší level prípravy. Tréning priamo na ihrisku s PGA trénerom – stratégia, analýza hry a cesta k najnižšiemu skóre.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <div className="max-w-5xl mx-auto">
+                <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="p-4 sm:p-5 md:p-6">
+                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                        <img
+                          src={serviceCourseImg}
+                          alt="Course Management - tréning na ihrisku s PGA trénerom"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          style={{ objectPosition: "center 25%" }}
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
+                        <MapPin className="text-gold" size={22} />
+                      </div>
+                      <h3 className="mb-3 font-serif text-xl font-bold text-foreground sm:text-2xl">
+                        Course Management
+                      </h3>
+                      <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
+                        Tréning s <strong>PGA trénerom</strong> priamo na ihrisku. <strong>Analýza hry</strong>,
+                        know-how a odborné poradenstvo s cieľom dosiahnuť tvoje <strong>najnižšie skóre</strong>.
+                      </p>
+
+                      <ul className="mt-5 space-y-3">
+                        {[
+                          "Tréning priamo na golfovom ihrisku",
+                          "Strategický výber palíc a úderov",
+                          "Analýza tvojho herného štýlu",
+                          "Mentálna príprava a rozhodovanie",
+                        ].map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
+                            <span className="text-foreground/80 text-xs sm:text-sm leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CursorGlowCard>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="mt-10 sm:mt-14">
+                <div className="text-center mb-6 sm:mb-8">
+                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+                    Možnosť zakúpenia
+                  </span>
+                  <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
+                    Rezervuj si Course Management
+                  </h3>
+                </div>
+
+                <div className="max-w-md mx-auto pt-4">
+                  <ServiceCard
+                    title="Course Management"
+                    price={149.99}
+                    icon={MapPin}
+                    purchaseUrl="/#kontakt"
+                    ctaLabel="Mám záujem"
+                    features={[
+                      "Tréning priamo na ihrisku",
+                      "PGA tréner",
+                      "Strategická analýza hry",
+                      "Mentálna príprava",
+                      "Cesta k najnižšiemu skóre",
                     ]}
                   />
                 </div>
