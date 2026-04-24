@@ -290,7 +290,7 @@ const StartGolf = () => {
             <Reveal delay={0.1}>
               <div className="max-w-5xl mx-auto">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                  <div className="grid md:grid-cols-2 gap-0">
+                  <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
                       <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                         <img
@@ -408,7 +408,7 @@ const StartGolf = () => {
             <Reveal delay={0.1}>
               <div className="max-w-5xl mx-auto">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                  <div className="grid md:grid-cols-2 gap-0">
+                  <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
                       <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                         <img
@@ -522,7 +522,7 @@ const StartGolf = () => {
             <Reveal delay={0.1}>
               <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                  <div className="grid md:grid-cols-2 gap-0">
+                  <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
                       <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                         <img
@@ -564,7 +564,7 @@ const StartGolf = () => {
                 </CursorGlowCard>
 
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                  <div className="grid md:grid-cols-2 gap-0">
+                  <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6 md:order-2">
                       <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                         <img
@@ -693,7 +693,7 @@ const StartGolf = () => {
             <Reveal delay={0.1}>
               <div className="max-w-5xl mx-auto">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                  <div className="grid md:grid-cols-2 gap-0">
+                  <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
                       <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                         <img
