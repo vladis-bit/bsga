@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { GraduationCap, Award, Check, ArrowRight, User, Flag } from "lucide-react";
+import { GraduationCap, Award, Check, ArrowRight, Flag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -24,7 +24,7 @@ const StartGolf = () => {
         <title>Začni s golfom | BSGA - Best Swing Golf Academy</title>
         <meta
           name="description"
-          content="Začni s golfom - Štart karty pre úplných začiatočníkov a Zelené karty pre samostatnú hru. Vyber si program a kúp si lekciu online."
+          content="Začni s golfom - Štart karty pre úplných začiatočníkov a Zelené karty pre samostatnú hru. Vyber si program a kúp si kurz online."
         />
       </Helmet>
 
@@ -43,7 +43,7 @@ const StartGolf = () => {
               </h1>
               <p className="max-w-2xl text-sm sm:text-base md:text-lg text-primary-foreground/70 px-2">
                 Tvoja cesta od prvého švihu k samostatnej hre na ihrisku.
-                Vyber si program, ktorý ti sadne, a kúp si lekciu online.
+                Vyber si program, ktorý ti sadne, a kúp si kurz online.
               </p>
 
               <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-4">
@@ -68,7 +68,7 @@ const StartGolf = () => {
 
         {/* ŠTART KARTY */}
         <section id="start-karty" className="scroll-mt-24 bg-transparent pb-12 pt-6 sm:pb-16 sm:pt-8 md:pb-20 md:pt-10">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-8 sm:mb-12">
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
                 Krok 1
@@ -81,11 +81,11 @@ const StartGolf = () => {
               </p>
             </div>
 
-            <div className="grid gap-6 lg:gap-10 md:grid-cols-2 items-stretch">
-              {/* Info karta */}
-              <CursorGlowCard className="group h-full overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                <div className="p-4 sm:p-5 pb-0">
-                  <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">
+            {/* Popis služby */}
+            <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="p-4 sm:p-5 md:p-6">
+                  <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                     <img
                       src={serviceStartCardsImg}
                       alt="Štart karty - úvod do golfu"
@@ -95,19 +95,19 @@ const StartGolf = () => {
                     />
                   </div>
                 </div>
-                <div className="flex h-full flex-col p-5 sm:p-6 md:p-8">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14">
+                <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
                     <GraduationCap className="text-gold" size={22} />
                   </div>
-                  <h3 className="mb-3 text-center font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
+                  <h3 className="mb-3 font-serif text-xl font-bold text-foreground sm:text-2xl">
                     Čo je Štart karta?
                   </h3>
-                  <p className="text-center text-sm leading-relaxed text-foreground/80 sm:text-base">
+                  <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
                     Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong>,
                     pochopíš, ako golf funguje, a vytvoríš si istotu ešte pred <strong>vstupom na ihrisko</strong>.
                   </p>
 
-                  <ul className="mt-6 space-y-3">
+                  <ul className="mt-5 space-y-3">
                     {[
                       "Pevné základy a postoj",
                       "Úvod do techniky švihu",
@@ -121,29 +121,21 @@ const StartGolf = () => {
                     ))}
                   </ul>
                 </div>
-              </CursorGlowCard>
-
-              {/* Nákupná karta */}
-              <div className="flex flex-col gap-3">
-                <div className="hidden md:block text-center">
-                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                    Kúp si lekciu
-                  </span>
-                </div>
-                <ServiceCard
-                  title="Individuálna lekcia"
-                  price={59.99}
-                  icon={User}
-                  purchaseUrl="https://buy.stripe.com/dRm8wP5YP5SycrOdRG8so03"
-                  features={[
-                    "60-minútová súkromná lekcia",
-                    "Profesionálny tréner",
-                    "Analýza švihu",
-                    "Personalizované cvičenia",
-                    "Okamžitá spätná väzba",
-                  ]}
-                />
               </div>
+            </CursorGlowCard>
+
+            {/* CTA na služby */}
+            <div className="mt-8 text-center">
+              <p className="text-sm sm:text-base text-primary-foreground/70 mb-4">
+                Pripravený urobiť ďalší krok? Vyber si kurz zelenej karty.
+              </p>
+              <button
+                onClick={() => scrollToSection("zelene-karty")}
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-gold/90 hover:scale-105"
+              >
+                Zobraz kurzy zelenej karty
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </section>
@@ -163,55 +155,63 @@ const StartGolf = () => {
               </p>
             </div>
 
-            <div className="grid gap-6 lg:gap-10 md:grid-cols-2 items-stretch">
-              {/* Info karta */}
-              <CursorGlowCard className="group h-full overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
-                <div className="p-4 sm:p-5 pb-0">
-                  <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">
-                    <img
-                      src={serviceGreenCardsImg}
-                      alt="Zelené karty - kurz pre samostatnú hru"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      style={{ objectPosition: "center 25%" }}
-                      loading="lazy"
-                    />
+            {/* Popis služby */}
+            <div className="max-w-5xl mx-auto">
+              <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                      <img
+                        src={serviceGreenCardsImg}
+                        alt="Zelené karty - kurz pre samostatnú hru"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        style={{ objectPosition: "center 25%" }}
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex h-full flex-col p-5 sm:p-6 md:p-8">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14">
-                    <Award className="text-gold" size={22} />
-                  </div>
-                  <h3 className="mb-3 text-center font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
-                    Čo je Zelená karta?
-                  </h3>
-                  <p className="text-center text-sm leading-relaxed text-foreground/80 sm:text-base">
-                    Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a
-                    <strong> záverečný test</strong> – po absolvovaní máš <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
-                  </p>
+                  <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
+                      <Award className="text-gold" size={22} />
+                    </div>
+                    <h3 className="mb-3 font-serif text-xl font-bold text-foreground sm:text-2xl">
+                      Čo je Zelená karta?
+                    </h3>
+                    <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
+                      Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a
+                      <strong> záverečný test</strong> – po absolvovaní máš <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
+                    </p>
 
-                  <ul className="mt-6 space-y-3">
-                    {[
-                      "Technika úderov a swingu",
-                      "Pravidlá a golfová etika",
-                      "Praktický tréning na ihrisku",
-                      "Certifikát po absolvovaní",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground/80 text-xs sm:text-sm leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="mt-5 space-y-3">
+                      {[
+                        "Technika úderov a swingu",
+                        "Pravidlá a golfová etika",
+                        "Praktický tréning na ihrisku",
+                        "Certifikát po absolvovaní",
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground/80 text-xs sm:text-sm leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </CursorGlowCard>
+            </div>
 
-              {/* Nákupné karty - stack */}
-              <div className="flex flex-col gap-6">
-                <div className="hidden md:block text-center">
-                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                    Vyber si kurz
-                  </span>
-                </div>
+            {/* Nákupné karty pod popisom */}
+            <div className="mt-10 sm:mt-14">
+              <div className="text-center mb-6 sm:mb-8">
+                <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+                  Vyber si kurz
+                </span>
+                <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
+                  Kúp si kurz zelenej karty
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-start pt-4">
                 <ServiceCard
                   title="Víkendový kurz zelenej karty"
                   price={139.99}
@@ -249,7 +249,7 @@ const StartGolf = () => {
 
         {/* CTA */}
         <section className="bg-transparent pb-16 md:pb-24">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 max-w-4xl">
             <CursorGlowCard className="rounded-xl sm:rounded-2xl border border-gold/30 bg-background/75">
               <div className="flex flex-col items-center gap-4 p-6 sm:p-10 text-center">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
