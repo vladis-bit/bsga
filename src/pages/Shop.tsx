@@ -11,7 +11,6 @@ import MerchCard from "@/components/shop/MerchCard";
 import voucher50 from "@/assets/voucher-50.png";
 import voucher100 from "@/assets/voucher-100.png";
 import voucher200 from "@/assets/voucher-200.png";
-import merchWineGlass from "@/assets/merch-wine-glass.png";
 
 const Shop = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -107,7 +106,6 @@ const Shop = () => {
       price: 29.99,
       description:
         "Ekologický skladací pohár z nehrdzavejúcej ocele. Kompaktný, odolný a ľahko prenosný – perfektný na cesty za golfom.",
-      image: merchWineGlass,
     },
     {
       title: "Šiltovka",
@@ -276,7 +274,6 @@ const Shop = () => {
                   title={item.title}
                   price={item.price}
                   description={item.description}
-                  image={(item as any).image}
                 />
               ))}
             </div>
