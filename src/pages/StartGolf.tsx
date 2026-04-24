@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Award, Check, ArrowRight, Flag, User, TrendingUp, ChevronDown } from "lucide-react";
+import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, MapPin, Crown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -11,6 +11,8 @@ import ServiceCard from "@/components/shop/ServiceCard";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
+import serviceGroupImg from "@/assets/service-group.jpg";
+import serviceCourseImg from "@/assets/service-course-management.png";
 
 // Reveal-on-scroll wrapper (same pattern as DevelopmentTimeline)
 const Reveal = ({
