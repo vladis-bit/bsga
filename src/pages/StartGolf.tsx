@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import ServiceCard from "@/components/shop/ServiceCard";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
@@ -58,6 +59,44 @@ const MilestoneConnector = () => {
     </div>
   );
 };
+
+// Reusable FAQ block per step
+const StepFAQ = ({
+  faqs,
+  idPrefix,
+}: {
+  faqs: { q: string; a: string }[];
+  idPrefix: string;
+}) => (
+  <Reveal delay={0.3}>
+    <div className="mt-12 sm:mt-16 max-w-3xl mx-auto">
+      <div className="text-center mb-6 sm:mb-8">
+        <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+          Časté otázky
+        </span>
+        <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
+          Otázky k tomuto kroku
+        </h3>
+      </div>
+      <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+        {faqs.map((faq, i) => (
+          <AccordionItem
+            key={`${idPrefix}-${i}`}
+            value={`${idPrefix}-${i}`}
+            className="bg-background/75 rounded-lg sm:rounded-xl border border-border/60 px-4 sm:px-6 data-[state=open]:border-gold/40"
+          >
+            <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-4 sm:py-5 hover:no-underline text-sm sm:text-base">
+              {faq.q}
+            </AccordionTrigger>
+            <AccordionContent className="text-foreground/75 pb-4 sm:pb-5 leading-relaxed text-sm sm:text-base">
+              {faq.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  </Reveal>
+);
 
 const StartGolf = () => {
   const milestones = [
