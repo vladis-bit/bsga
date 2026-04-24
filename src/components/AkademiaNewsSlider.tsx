@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useTranslateLang } from "@/components/GoogleTranslate";
 
 import heroSlide1 from "@/assets/akademia/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/akademia/hero-slide-2-new.jpg";
@@ -39,7 +38,6 @@ const slides: NewsSlide[] = [
 
 const AkademiaNewsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const lang = useTranslateLang();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -94,9 +92,7 @@ const AkademiaNewsSlider = () => {
           onClick={() => handleAnchorClick(activeSlide.anchor)}
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:px-7 sm:text-base"
         >
-          <span className="notranslate">
-            {lang === "en" && activeSlide.cta === "Prihlásiť sa" ? "Sign up" : activeSlide.cta}
-          </span>
+          <span>{activeSlide.cta}</span>
         </button>
 
         <div className="mt-8 flex justify-center gap-2">
