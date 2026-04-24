@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async";
-import { Wrench, Ruler, Target, Sparkles, CheckCircle2, Mail, Phone } from "lucide-react";
+import { Wrench, Ruler, Target, Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import fittingImg from "@/assets/service-fitting.webp";
+import jakubImg from "@/assets/team/jakub-hrban.jpg";
 
 const benefits = [
   {
@@ -196,16 +197,60 @@ const Fitting = () => {
           {/* Trust block */}
           <section className="bg-transparent pb-16 sm:pb-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="rounded-2xl border border-border/60 bg-background/75 p-6 sm:p-10 md:p-12 text-center sm:rounded-3xl">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gold/15 sm:mb-6 sm:h-16 sm:w-16">
-                  <CheckCircle2 className="text-gold" size={28} />
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/80 sm:rounded-3xl shadow-2xl">
+                <div className="grid gap-0 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+                  {/* Foto */}
+                  <div className="relative h-72 sm:h-96 md:h-auto md:min-h-[420px]">
+                    <img
+                      src={jakubImg}
+                      alt="Jakub Hrbáň – špecialista na fitting v BSGA"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-background/40" />
+                    <div className="absolute bottom-4 left-4 right-4 md:hidden">
+                      <div className="inline-flex items-center gap-2 rounded-full bg-gold/95 px-3 py-1 text-xs font-medium text-primary">
+                        <Award className="h-3.5 w-3.5" />
+                        Špecialista na fitting
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Obsah */}
+                  <div className="flex flex-col justify-center p-6 sm:p-10 md:p-12">
+                    <span className="hidden md:inline-flex items-center gap-2 self-start rounded-full bg-gold/15 px-3 py-1 text-xs font-medium text-gold">
+                      <Award className="h-3.5 w-3.5" />
+                      Špecialista na fitting v BSGA
+                    </span>
+                    <h3 className="mt-3 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+                      Jakub Hrbáň
+                    </h3>
+                    <p className="mt-1 text-sm text-gold sm:text-base">
+                      Hlavný tréner CTM Hrubá Borša
+                    </p>
+                    <p className="mt-4 text-foreground/80 sm:text-lg leading-relaxed">
+                      Držiteľ licencie <strong>„B" Five Star Golf Academy</strong>, sa špecializuje na fitting golfových palíc. Pomôže ti nájsť vybavenie, ktoré perfektne sedí tvojej hre.
+                    </p>
+
+                    {/* Kontaktné buttony */}
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <a
+                        href="mailto:jakub@bsga.sk?subject=Fitting – konzultácia"
+                        className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light"
+                      >
+                        <Mail className="h-4 w-4" />
+                        jakub@bsga.sk
+                      </a>
+                      <a
+                        href="tel:+421911994888"
+                        className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-medium text-gold transition-all duration-300 hover:bg-gold/20"
+                      >
+                        <Phone className="h-4 w-4" />
+                        +421 911 994 888
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-                  Špecialista na fitting v BSGA
-                </h3>
-                <p className="mx-auto mt-3 max-w-2xl text-foreground/75 sm:mt-4 sm:text-lg">
-                  Náš tréner <strong>Jakub Hrbáň</strong> – hlavný tréner CTM v Hrubej Borši a držiteľ licencie „B" Five Star Golf Academy – sa špecializuje na fitting golfových palíc.
-                </p>
               </div>
             </div>
           </section>
