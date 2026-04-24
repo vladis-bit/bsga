@@ -292,7 +292,7 @@ const StartGolf = () => {
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
                   <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
-                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                      <div className="aspect-[16/10] lg:aspect-auto lg:h-full w-full overflow-hidden rounded-xl">
                         <img
                           src={serviceStartCardsImg}
                           alt="Víkendový kurz zelenej karty"
@@ -302,7 +302,7 @@ const StartGolf = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 lg:pl-2">
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
                         <Flag className="text-gold" size={22} />
                       </div>
@@ -410,7 +410,7 @@ const StartGolf = () => {
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
                   <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
-                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                      <div className="aspect-[16/10] lg:aspect-auto lg:h-full w-full overflow-hidden rounded-xl">
                         <img
                           src={serviceGreenCardsImg}
                           alt="Zelená karta - kurz pre samostatnú hru"
@@ -420,7 +420,7 @@ const StartGolf = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 lg:pl-2">
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
                         <Award className="text-gold" size={22} />
                       </div>
@@ -524,7 +524,7 @@ const StartGolf = () => {
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
                   <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
-                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                      <div className="aspect-[16/10] lg:aspect-auto lg:h-full w-full overflow-hidden rounded-xl">
                         <img
                           src={serviceIndividualImg}
                           alt="Individuálne lekcie - zlepšuj sa v golfe"
@@ -534,7 +534,7 @@ const StartGolf = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 lg:pl-2">
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
                         <User className="text-gold" size={22} />
                       </div>
@@ -565,8 +565,8 @@ const StartGolf = () => {
 
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
                   <div className="grid lg:grid-cols-2 gap-0">
-                    <div className="p-4 sm:p-5 md:p-6 md:order-2">
-                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                    <div className="p-4 sm:p-5 md:p-6 lg:order-2">
+                      <div className="aspect-[16/10] lg:aspect-auto lg:h-full w-full overflow-hidden rounded-xl">
                         <img
                           src={serviceGroupImg}
                           alt="Skupinové tréningy"
@@ -576,7 +576,7 @@ const StartGolf = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pr-2 md:order-1">
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 lg:pr-2 lg:order-1">
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
                         <Users className="text-gold" size={22} />
                       </div>
@@ -695,7 +695,7 @@ const StartGolf = () => {
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
                   <div className="grid lg:grid-cols-2 gap-0">
                     <div className="p-4 sm:p-5 md:p-6">
-                      <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
+                      <div className="aspect-[16/10] lg:aspect-auto lg:h-full w-full overflow-hidden rounded-xl">
                         <img
                           src={serviceCourseImg}
                           alt="Course Management - tréning na ihrisku s PGA trénerom"
@@ -705,7 +705,7 @@ const StartGolf = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col p-5 sm:p-6 md:p-8 md:pl-2">
+                    <div className="flex flex-col p-5 sm:p-6 md:p-8 lg:pl-2">
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:h-14 sm:w-14">
                         <MapPin className="text-gold" size={22} />
                       </div>
