@@ -227,9 +227,24 @@ const Services = () => {
                         </div>
                     </CursorGlowCard>
                   );
-                  if ((service as any).link) {
+                  const externalLink = (service as any).externalLink as string | undefined;
+                  const internalLink = (service as any).link as string | undefined;
+                  if (externalLink) {
                     return (
-                      <Link key={index} to={(service as any).link} className="block h-full">
+                      <a
+                        key={index}
+                        href={externalLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block h-full"
+                      >
+                        {card}
+                      </a>
+                    );
+                  }
+                  if (internalLink) {
+                    return (
+                      <Link key={index} to={internalLink} className="block h-full">
                         {card}
                       </Link>
                     );
