@@ -327,6 +327,47 @@ const StartGolf = () => {
                           </li>
                         ))}
                       </ul>
+
+                      <Accordion type="single" collapsible className="mt-5">
+                        <AccordionItem
+                          value="terminy-vikend"
+                          className="rounded-lg border border-foreground/30 bg-transparent px-4 data-[state=open]:border-gold/40"
+                        >
+                          <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-3 hover:no-underline text-sm sm:text-base">
+                            Termíny
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-4">
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {[
+                                "11. – 12. 4. 2026",
+                                "25. – 26. 4. 2026",
+                                "9. – 10. 5. 2026",
+                                "16. – 17. 5. 2026",
+                                "23. – 24. 5. 2026",
+                                "6. – 7. 6. 2026",
+                                "13. – 14. 6. 2026",
+                                "20. – 21. 6. 2026",
+                                "4. – 5. 7. 2026",
+                                "18. – 19. 7. 2026",
+                                "1. – 2. 8. 2026",
+                                "15. – 16. 8. 2026",
+                                "22. – 23. 8. 2026",
+                                "5. – 6. 9. 2026",
+                                "19. – 20. 9. 2026",
+                                "3. – 4. 10. 2026",
+                              ].map((date) => (
+                                <li
+                                  key={date}
+                                  className="flex items-center gap-2 text-sm text-foreground/80"
+                                >
+                                  <Check className="w-4 h-4 text-gold flex-shrink-0" />
+                                  <span>{date}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
                     </div>
                   </div>
                 </CursorGlowCard>
@@ -362,47 +403,6 @@ const StartGolf = () => {
                     ]}
                     note="V cene nie je zahrnutá záverečná skúška"
                   />
-
-                  <Accordion type="single" collapsible className="mt-4">
-                    <AccordionItem
-                      value="terminy-vikend"
-                      className="bg-secondary rounded-lg sm:rounded-xl border border-border px-4 sm:px-6 data-[state=open]:border-gold/40"
-                    >
-                      <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-4 sm:py-5 hover:no-underline text-sm sm:text-base">
-                        Termíny
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-4 sm:pb-5">
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {[
-                            "11. – 12. 4. 2026",
-                            "25. – 26. 4. 2026",
-                            "9. – 10. 5. 2026",
-                            "16. – 17. 5. 2026",
-                            "23. – 24. 5. 2026",
-                            "6. – 7. 6. 2026",
-                            "13. – 14. 6. 2026",
-                            "20. – 21. 6. 2026",
-                            "4. – 5. 7. 2026",
-                            "18. – 19. 7. 2026",
-                            "1. – 2. 8. 2026",
-                            "15. – 16. 8. 2026",
-                            "22. – 23. 8. 2026",
-                            "5. – 6. 9. 2026",
-                            "19. – 20. 9. 2026",
-                            "3. – 4. 10. 2026",
-                          ].map((date) => (
-                            <li
-                              key={date}
-                              className="flex items-center gap-2 text-sm text-foreground/80"
-                            >
-                              <Check className="w-4 h-4 text-gold flex-shrink-0" />
-                              <span>{date}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
                 </div>
               </div>
             </Reveal>
