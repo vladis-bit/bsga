@@ -620,6 +620,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="zlepsuj"
+              faqs={[
+                {
+                  q: "Aký je rozdiel medzi individuálnou a skupinovou lekciou?",
+                  a: "Pri individuálnej lekcii sa tréner venuje výlučne tebe – tréning je plne prispôsobený tvojej úrovni a cieľom. Skupinový tréning je dynamickejší, lacnejší a ideálny ak ťa baví učiť sa v komunite.",
+                },
+                {
+                  q: "Ako často by som mal trénovať, aby som sa zlepšoval?",
+                  a: "Pre viditeľný progres odporúčame aspoň 1 lekciu týždenne v kombinácii so samostatným tréningom na drivingu. Konzistencia je dôležitejšia než dĺžka jedného tréningu.",
+                },
+                {
+                  q: "Môžem si kúpiť balík viacerých lekcií so zľavou?",
+                  a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíš nám na kontaktný formulár a pripravíme ti ponuku na mieru podľa tvojich potrieb.",
+                },
+              ]}
+            />
           </div>
         </section>
 
