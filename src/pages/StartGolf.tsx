@@ -335,6 +335,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="vikend"
+              faqs={[
+                {
+                  q: "Pre koho je víkendový kurz vhodný?",
+                  a: "Kurz je určený pre úplných začiatočníkov, ktorí sa chcú zoznámiť so základmi golfu v intenzívnom víkendovom formáte. Nepotrebuješ žiadne predchádzajúce skúsenosti ani vlastné vybavenie.",
+                },
+                {
+                  q: "Čo všetko je v cene zahrnuté?",
+                  a: "V cene je zahrnutý dvojdňový tréning pod vedením profesionálneho trénera, zapožičanie golfových palíc a loptičiek, teoretická príprava a praktické cvičenia. Záverečná skúška na zelenú kartu nie je súčasťou ceny.",
+                },
+                {
+                  q: "Čo si mám priniesť na kurz?",
+                  a: "Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou (ideálne tenisky alebo turfové topánky). Všetko vybavenie ti zapožičiame priamo na mieste.",
+                },
+              ]}
+            />
           </div>
         </section>
 
