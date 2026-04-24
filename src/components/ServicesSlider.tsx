@@ -254,28 +254,28 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const Icon = service.icon;
 
   return (
-    <div className="group overflow-hidden bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full">
+    <div className="group overflow-hidden bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full flex flex-col">
       {service.image && (
-        <div className="p-4 sm:p-5 pb-0 sm:pb-0">
+        <div className="p-3 sm:p-4 pb-0 sm:pb-0">
           <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">
             <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" style={{ objectPosition: service.objectPosition || 'center 25%' }} loading="lazy" />
           </div>
         </div>
       )}
-      <div className="flex h-full flex-col p-5 sm:p-8">
-        <div className="mx-auto w-12 h-12 sm:w-16 sm:h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
-          <Icon className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
+      <div className="flex h-full flex-col p-4 sm:p-5">
+        <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
+          <Icon className="text-gold w-4 h-4 sm:w-5 sm:h-5" />
         </div>
-        <h3 className="text-center text-lg sm:text-xl font-serif font-bold text-foreground mb-3 sm:mb-4">
+        <h3 className="text-center text-base sm:text-lg font-serif font-bold text-foreground mb-2">
           {service.title}
         </h3>
-        <p className="text-center text-muted-foreground text-sm sm:text-base leading-relaxed">
+        <p className="text-center text-muted-foreground text-sm leading-relaxed">
           {service.description}
         </p>
-        <div className="mt-6 flex flex-grow items-end justify-center pt-2">
+        <div className="mt-4 flex flex-grow items-end justify-center pt-2">
           <a
             href="/sluzby"
-            className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary"
+            className="inline-flex items-center justify-center rounded-full border border-border bg-background px-5 py-2 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary"
           >
             Zisti viac
           </a>
