@@ -735,6 +735,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="dominuj"
+              faqs={[
+                {
+                  q: "Pre koho je Course Management vhodný?",
+                  a: "Pre hráčov so zelenou kartou, ktorí už ovládajú základy a chcú sa posunúť ďalej – znížiť skóre, lepšie čítať ihrisko a strategicky vyberať údery v reálnych herných situáciách.",
+                },
+                {
+                  q: "Kde tréning prebieha?",
+                  a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra). Hráš so svojím PGA trénerom, ktorý ťa sprevádza a analyzuje tvoju hru v reálnom čase.",
+                },
+                {
+                  q: "Sú v cene zahrnuté green fee a ďalšie poplatky?",
+                  a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne – radi ti pomôžeme s rezerváciou aj výberom najvhodnejšieho ihriska.",
+                },
+              ]}
+            />
           </div>
         </section>
 
