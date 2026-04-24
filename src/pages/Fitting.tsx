@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fittingImg from "@/assets/service-fitting.webp";
 import jakubImg from "@/assets/team/jakub-hrban-fitting.jpg";
 
@@ -53,6 +54,33 @@ const process = [
   "Testovanie rôznych konfigurácií (hlavy, shafty, gripy)",
   "Vyhodnotenie dát a odporúčanie ideálneho setupu",
   "Objednávka palíc na mieru alebo úprava existujúcich",
+];
+
+const faqs = [
+  {
+    question: "Aké značky fittujete?",
+    answer:
+      "Fittujeme všetky popredné značky, vrátane TaylorMade, Callaway, Ping, Titleist, PXG, Mizuno a Miura. Vďaka tomu vieme zostaviť setup presne podľa tvojich preferencií a hry.",
+  },
+  {
+    question: "Kde prebieha fitting golfového vybavenia?",
+    answer:
+      "Fitting prebieha primárne v našom Performance Centre v Petržalke, kde máme k dispozícii Trackman a kompletné fitting kary. V sezóne organizujeme fittingy aj v rezorte Hrubá Borša priamo na drivin range.",
+  },
+  {
+    question: "Ako dlho trvá a koľko stojí fitting?",
+    answer: "Štandardný fitting trvá približne 120 minút a jeho cena je 150 €. V cene je detailná analýza švihu, testovanie rôznych konfigurácií a odporúčanie ideálneho setupu na mieru.",
+  },
+  {
+    question: "Čo si mám priniesť na fitting?",
+    answer:
+      "Ideálne si prines vlastné palice (na porovnanie aktuálneho stavu so zvažovanými konfiguráciami), golfové topánky a rukavicu. Oblečenie zvoľ pohodlné, športové, v ktorom sa ti dobre švihá.",
+  },
+  {
+    question: "Ako dlho trvá, kým mi príde nová výbava?",
+    answer:
+      "Dodanie nových palíc na mieru trvá zvyčajne 2–4 týždne od objednávky. Termín závisí od konkrétnej značky, modelu a aktuálnej dostupnosti shaftov a hláv.",
+  },
 ];
 
 const Fitting = () => {
@@ -250,6 +278,38 @@ const Fitting = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="bg-transparent pb-16 sm:pb-20">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="text-center mb-8 sm:mb-12">
+                <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">FAQ</span>
+                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary-foreground">
+                  Často kladené otázky
+                </h2>
+                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              </div>
+
+              <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem
+                      key={index}
+                      value={`fitting-faq-${index}`}
+                      className="bg-white rounded-lg sm:rounded-xl border border-border/60 px-4 sm:px-6 data-[state=open]:border-gold/40 shadow-sm"
+                    >
+                      <AccordionTrigger className="text-left font-medium text-neutral-900 hover:text-gold py-4 sm:py-6 hover:no-underline text-sm sm:text-base">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-neutral-700 pb-4 sm:pb-6 leading-relaxed text-sm sm:text-base">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
             </div>
           </section>
