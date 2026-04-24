@@ -217,7 +217,7 @@ const Shop = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
               {vouchers.map((voucher) => (
-                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} purchaseUrl={voucher.purchaseUrl} />
+                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} />
               ))}
             </div>
           </div>
@@ -246,7 +246,6 @@ const Shop = () => {
                   features={service.features}
                   note={service.note}
                   popular={service.popular}
-                  purchaseUrl={service.purchaseUrl}
                 />
               ))}
             </div>
