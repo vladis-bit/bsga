@@ -76,7 +76,7 @@ const Akademia = () => {
                   Detské tábory 2026
                 </h2>
                 <p className="mx-auto max-w-2xl text-sm text-foreground/70 sm:text-base">
-                  Rezervujte miesto pre vaše dieťa na <strong>nezabudnuteľné golfové leto</strong>
+                  Golfové leto pod vedením skúsených trénerov <strong>Vanessy Fajkusovej</strong> a <strong>Vladimíra Leška</strong>. Deti získajú základy golfovej techniky, naučia sa pravidlá a etiketu hry v príjemnom prostredí <strong>Golfového Klubu Hrubá Borša</strong>.
                 </p>
               </div>
               <CampCards />
