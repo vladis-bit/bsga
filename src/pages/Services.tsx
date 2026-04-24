@@ -77,6 +77,7 @@ const services = [
     icon: Baby,
     title: "Detská akadémia",
     image: serviceKidsAcademyImg,
+    link: "/akademia#timeline",
     description: (
       <>
         Tréningy pre deti, ktoré spájajú <strong>pohyb, hravosť</strong> a systematický <strong>rozvoj techniky</strong>. Super prostredie, nové kamarátstva a tréningy, na ktoré sa <strong>deti tešia</strong>.
@@ -88,6 +89,7 @@ const services = [
     title: "Detské kempy",
     image: serviceKidsCampsImg,
     objectPosition: "center 60%",
+    link: "/akademia#tabory",
     description: (
       <>
         Týždne <strong>plné golfu a zážitkov</strong>. Každý deň prináša šport, hry a aktivity, ktoré udržia deti <strong>v pohybe</strong> a zlepšia ich <strong>golfové schopnosti</strong>.
@@ -108,6 +110,7 @@ const services = [
     icon: Trophy,
     title: "Turnaje – BSGA Tour",
     image: serviceTourImg,
+    link: "/tour",
     description: (
       <>
         Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a <strong>profesionálna organizácia</strong>.
@@ -150,6 +153,7 @@ const services = [
     icon: Target,
     title: "Performance Center",
     image: servicePerformanceImg,
+    externalLink: "https://bsga-performance-center.reenio.sk/sk/terms/",
     description: (
       <>
         Tréningové centrum počas <strong>zimných mesiacov</strong> s <strong>Trackmanom</strong> a <strong>Flightscopom</strong> priamo v <strong>Petržalke</strong>.
