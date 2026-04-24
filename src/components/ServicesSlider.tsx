@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, User, Users, GraduationCap, Award, Baby, Tent, Building2, Trophy, Wrench, Calendar, MapPin, Target } from "lucide-react";
 import serviceTourImg from "@/assets/service-tour.jpg";
 import serviceFittingImg from "@/assets/service-fitting.webp";
@@ -50,6 +51,7 @@ const services = [
     icon: Baby,
     title: "Detská akadémia",
     image: serviceKidsAcademyImg,
+    link: "/akademia#timeline",
     description: (
       <>Tréningy pre deti, ktoré spájajú <strong>pohyb, hravosť</strong> a systematický <strong>rozvoj techniky</strong>.</>
     ),
@@ -59,6 +61,7 @@ const services = [
     title: "Detské kempy",
     image: serviceKidsCampsImg,
     objectPosition: "center 60%",
+    link: "/akademia#tabory",
     description: (
       <>Týždne <strong>plné golfu a zážitkov</strong>. Šport, hry a aktivity, ktoré zlepšia <strong>golfové schopnosti</strong>.</>
     ),
@@ -75,6 +78,7 @@ const services = [
     icon: Trophy,
     title: "Turnaje – BSGA Tour",
     image: serviceTourImg,
+    link: "/tour",
     description: (
       <>Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
     ),
@@ -83,6 +87,7 @@ const services = [
     icon: Wrench,
     title: "Fitting – vybavenie na mieru",
     image: serviceFittingImg,
+    link: "/fitting",
     description: (
       <>Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.</>
     ),
@@ -108,6 +113,7 @@ const services = [
     icon: Target,
     title: "Performance Center",
     image: servicePerformanceImg,
+    externalLink: "https://bsga-performance-center.reenio.sk/sk/terms/",
     description: (
       <>Tréningové centrum počas <strong>zimných mesiacov</strong> s <strong>Trackmanom</strong> a <strong>Flightscopom</strong> priamo v <strong>Petržalke</strong>.</>
     ),
