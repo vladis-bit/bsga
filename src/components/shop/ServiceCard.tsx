@@ -24,7 +24,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
       <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/50 shadow-lg shadow-gold/5' : 'border-border hover:border-gold/30'}`}>
         <div className="p-6 sm:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Názov */}
-        <h3 className="text-xl font-bold text-foreground mb-6">
+        <h3 className="text-xl font-bold text-foreground mb-6 text-center">
           {title}
         </h3>
         

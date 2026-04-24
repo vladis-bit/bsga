@@ -205,22 +205,22 @@ const Services = () => {
                             </div>
                           </div>
                         )}
-                        <div className="p-5 sm:p-6 md:p-8">
-                          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
+                        <div className="flex h-full flex-col p-5 sm:p-6 md:p-8">
+                          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
                             <Icon className="text-gold" size={22} />
                           </div>
-                          <h2 className="mb-2 font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
+                          <h2 className="mb-3 text-center font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
                             {service.title}
-                            {(service as any).link && (
-                              <span className="ml-2 text-gold text-sm font-normal opacity-0 transition-opacity group-hover:opacity-100">
-                                →
-                              </span>
-                            )}
                           </h2>
-                          <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                          {service.description}
-                        </p>
-                      </div>
+                          <p className="text-center text-sm leading-relaxed text-foreground/80 sm:text-base">
+                            {service.description}
+                          </p>
+                          <div className="mt-6 flex flex-grow items-end justify-center pt-2">
+                            <span className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary">
+                              Zisti viac
+                            </span>
+                          </div>
+                        </div>
                     </CursorGlowCard>
                   );
                   if ((service as any).link) {
