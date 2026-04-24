@@ -57,6 +57,7 @@ const services = [
     icon: GraduationCap,
     title: "Štart karty",
     image: serviceStartCardsImg,
+    link: "/zacni-s-golfom#start-karty",
     description: (
       <>
         Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong>, pochopíš, ako golf funguje, a vytvoríš si istotu ešte pred <strong>vstupom na ihrisko</strong>.
@@ -67,6 +68,7 @@ const services = [
     icon: Award,
     title: "Zelené karty",
     image: serviceGreenCardsImg,
+    link: "/zacni-s-golfom#zelene-karty",
     description: (
       <>
         Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong> – po absolvovaní máš <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
