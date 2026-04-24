@@ -14,7 +14,7 @@ const benefits = [
     title: "Presné meranie",
     description: (
       <>
-        Detailná analýza tvojho švihu s <strong>profesionálnymi nástrojmi</strong> ako Trackman a Flightscope. Získaš presné dáta o rýchlosti, uhle a trajektórii.
+        Detailná analýza tvojho švihu s <strong>profesionálnym Trackmanom</strong>. Získaš presné dáta o rýchlosti, uhle a trajektórii.
       </>
     ),
   },
@@ -62,7 +62,7 @@ const Fitting = () => {
         <title>Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy</title>
         <meta
           name="description"
-          content="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom a Flightscopom. Nájdeme vybavenie, ktoré ti skutočne sedí."
+          content="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré ti skutočne sedí."
         />
       </Helmet>
       <Navbar />
