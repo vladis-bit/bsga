@@ -55,7 +55,7 @@ const services = [
   },
   {
     icon: GraduationCap,
-    title: "Štart karty",
+    title: "Víkendový kurz zelenej karty",
     image: serviceStartCardsImg,
     link: "/zacni-s-golfom#start-karty",
     description: (

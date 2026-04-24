@@ -33,7 +33,7 @@ const services = [
   },
   {
     icon: GraduationCap,
-    title: "Štart karty",
+    title: "Víkendový kurz zelenej karty",
     image: serviceStartCardsImg,
     description: (
       <>Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong> a pochopíš, ako golf funguje.</>
