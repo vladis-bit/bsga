@@ -37,9 +37,9 @@ const Shop = () => {
   }, [titleNumber, titles]);
 
   const vouchers = [
-    { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/bJebJ1bj9bcSfE08xm8so00" },
-    { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/fZu28r0Evdl01Na5la8so01" },
-    { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/eVqeVdbj9gxc8by8xm8so02" },
+    { value: 50, image: voucher50 },
+    { value: 100, image: voucher100 },
+    { value: 200, image: voucher200 },
   ];
 
   const services = [
@@ -47,7 +47,6 @@ const Shop = () => {
       title: "Individuálna lekcia",
       price: 59.99,
       icon: User,
-      purchaseUrl: "https://buy.stripe.com/dRm8wP5YP5SycrOdRG8so03",
       features: [
         "60-minútová súkromná lekcia",
         "Profesionálny tréner",
@@ -63,7 +62,6 @@ const Shop = () => {
       discount: 72,
       icon: Flag,
       popular: true,
-      purchaseUrl: "https://buy.stripe.com/28E3cvfzpep48by3d28so06",
       features: [
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
@@ -77,7 +75,6 @@ const Shop = () => {
       title: "Kurz zelenej karty",
       price: 549.99,
       icon: Award,
-      purchaseUrl: "https://buy.stripe.com/8x25kD2MD3KqdvSbJy8so04",
       features: [
         "Kompletný kurz pre získanie karty",
         "Teória a pravidlá golfu",
