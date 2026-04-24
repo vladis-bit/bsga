@@ -7,20 +7,47 @@ interface CursorGlowCardProps {
 
 const CursorGlowCard = ({ children, className = "" }: CursorGlowCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const cursorGlowRef = useRef<HTMLDivElement>(null);
+  const borderGlowRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
+  const rafRef = useRef<number | null>(null);
   const [isHovering, setIsHovering] = useState(false);
 
+  const updateRect = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
+
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+    if (!rectRef.current) return;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const rect = rectRef.current;
+      if (!rect) return;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+      cursorGlowRef.current?.style.setProperty("--cgx", `${x}px`);
+      cursorGlowRef.current?.style.setProperty("--cgy", `${y}px`);
+      borderGlowRef.current?.style.setProperty("--cgx", `${x}px`);
+      borderGlowRef.current?.style.setProperty("--cgy", `${y}px`);
     });
   };
 
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
+  const handleMouseEnter = () => {
+    updateRect();
+    setIsHovering(true);
+  };
+  const handleMouseLeave = () => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    setIsHovering(false);
+  };
 
   return (
     <div
@@ -35,10 +62,11 @@ const CursorGlowCard = ({ children, className = "" }: CursorGlowCardProps) => {
     >
       {/* Cursor glow effect */}
       <div
+        ref={cursorGlowRef}
         className="pointer-events-none absolute -inset-px transition-opacity duration-300"
         style={{
           opacity: isHovering ? 1 : 0,
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, 
+          background: `radial-gradient(600px circle at var(--cgx, 50%) var(--cgy, 50%), 
             hsl(45 93% 58% / 0.15), 
             hsl(0 0% 100% / 0.08) 40%, 
             hsl(0 0% 0% / 0.05) 60%,
@@ -48,10 +76,11 @@ const CursorGlowCard = ({ children, className = "" }: CursorGlowCardProps) => {
       
       {/* Border glow effect */}
       <div
+        ref={borderGlowRef}
         className="pointer-events-none absolute -inset-px rounded-xl sm:rounded-2xl transition-opacity duration-300"
         style={{
           opacity: isHovering ? 1 : 0,
-          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, 
+          background: `radial-gradient(400px circle at var(--cgx, 50%) var(--cgy, 50%), 
             hsl(45 93% 58% / 0.4), 
             hsl(0 0% 100% / 0.1) 50%,
             transparent 80%)`,
