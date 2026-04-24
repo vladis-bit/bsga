@@ -7,6 +7,7 @@ import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fittingImg from "@/assets/service-fitting.webp";
+import fittingHeroImg from "@/assets/fitting-hero.png";
 import jakubImg from "@/assets/team/jakub-hrban-fitting.jpg";
 
 const benefits = [
@@ -97,16 +98,16 @@ const Fitting = () => {
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-transparent pt-20 sm:pt-24">
-            <div className="relative w-full overflow-hidden min-h-[420px] sm:min-h-[520px] md:min-h-[600px]">
+          <section className="relative w-full bg-transparent">
+            <div className="relative w-full overflow-hidden min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
               <img
-                src={fittingImg}
-                alt="BSGA Fitting – vybavenie na mieru"
+                src={fittingHeroImg}
+                alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/30" />
-              <div className="relative z-10 flex h-full min-h-[420px] items-end sm:min-h-[520px] md:min-h-[600px]">
+              <div className="relative z-10 flex h-full min-h-[480px] items-end sm:min-h-[580px] md:min-h-[680px]">
                 <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-14 sm:pt-20 md:pb-16 md:pt-24">
                   <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                     Služba BSGA
