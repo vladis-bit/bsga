@@ -20,6 +20,7 @@ import EducationCalculators from "./pages/EducationCalculators";
 import EducationBlog from "./pages/EducationBlog";
 import Shop from "./pages/Shop";
 import Fitting from "./pages/Fitting";
+import StartGolf from "./pages/StartGolf";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/edukacne-centrum/blog" element={<EducationBlog />} />
             <Route path="/obchod" element={<Shop />} />
             <Route path="/fitting" element={<Fitting />} />
+            <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
             <Route path="*" element={<NotFound />} />
