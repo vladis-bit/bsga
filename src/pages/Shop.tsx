@@ -157,6 +157,7 @@ const Shop = () => {
                   discount={service.discount}
                   icon={service.icon}
                   features={service.features}
+                  note={service.note}
                   popular={service.popular}
                   purchaseUrl={service.purchaseUrl}
                 />
