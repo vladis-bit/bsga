@@ -108,10 +108,7 @@ const Fitting = () => {
               />
               <div className="relative z-10 flex h-full min-h-[480px] items-end sm:min-h-[580px] md:min-h-[680px]">
                 <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-14 sm:pt-20 md:pb-16 md:pt-24">
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                    Služba BSGA
-                  </span>
-                  <h1 className="mt-3 text-4xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                  <h1 className="text-4xl font-serif font-bold text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                     Fitting – vybavenie na mieru
                   </h1>
                   <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
