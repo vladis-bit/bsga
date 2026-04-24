@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import VoucherCard from "@/components/shop/VoucherCard";
 import ServiceCard from "@/components/shop/ServiceCard";
+import MerchCard from "@/components/shop/MerchCard";
 import voucher50 from "@/assets/voucher-50.png";
 import voucher100 from "@/assets/voucher-100.png";
 import voucher200 from "@/assets/voucher-200.png";
@@ -76,6 +77,63 @@ const Shop = () => {
         "Praktický tréning na ihrisku",
         "Certifikát po absolvovaní",
       ],
+    },
+  ];
+
+  const merch = [
+    {
+      title: "Športová mikina",
+      price: 59.99,
+      description:
+        "Mikina – 3 farby (čierna, žltá a zelená). Športová mikina s logom BSGA dostupná v 3 farebných variantách. Pohodlná, štýlová a vhodná na tréning aj šport.",
+    },
+    {
+      title: "Športová taška",
+      price: 29.99,
+      description:
+        "Priestranná športová taška vhodná do posilňovne aj na golf. Dostatok miesta na oblečenie, topánky a doplnky.",
+    },
+    {
+      title: "Vínový pohár",
+      price: 29.99,
+      description:
+        "Ekologický skladací pohár z nehrdzavejúcej ocele. Kompaktný, odolný a ľahko prenosný – perfektný na cesty za golfom.",
+    },
+    {
+      title: "Šiltovka",
+      price: 24.99,
+      description:
+        "Štýlová šiltovka s logom BSGA dostupná v bielej a šedej farbe. Ochrana pred slnkom so štýlom.",
+    },
+    {
+      title: "RZN Speed - 12 ks",
+      price: 19.99,
+      description:
+        "Balenie 12 golfových loptičiek RZN Speed. Vysoký výkon za skvelú cenu – ideálne na každodenný tréning aj hru.",
+    },
+    {
+      title: "Taška na topánky",
+      price: 14.99,
+      description:
+        "Praktická čierna taška na golfové topánky. Chráni obuv aj ostatné veci v golfovom vaku pred znečistením.",
+    },
+    {
+      title: "Uterák",
+      price: 9.99,
+      description:
+        "Kvalitný golfový uterák v modrej farbe. Nepostrádateľný doplnok pri golfe – na čistenie palíc, loptičiek a rúk.",
+    },
+    {
+      title: "Visačka s logom",
+      price: 4.99,
+      description:
+        "Štýlová identifikačná visačka na cestovnú tašku alebo golfový bag s logom BSGA. Už si budeš poznať svoj bag!",
+    },
+    {
+      title: "Tréningové sticks",
+      price: 4.99,
+      description:
+        "Practice Sticks v tube na zlepšenie švihu a postoja. Praktické balenie, ideálne na tréning vonku aj na domu.",
     },
   ];
 
@@ -168,13 +226,24 @@ const Shop = () => {
 
         <section className="py-16 md:py-24 bg-transparent">
           <div className="container mx-auto px-4">
-            <div className="text-center">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
                 BSGA Merch
               </h2>
-              <p className="text-primary-foreground/70 text-lg">
-                Viac už čoskoro
+              <p className="text-primary-foreground/70 max-w-2xl mx-auto">
+                Štýlové produkty s logom BSGA pre každého golfistu
               </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {merch.map((item) => (
+                <MerchCard
+                  key={item.title}
+                  title={item.title}
+                  price={item.price}
+                  description={item.description}
+                />
+              ))}
             </div>
           </div>
         </section>
