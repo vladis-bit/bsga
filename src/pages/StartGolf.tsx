@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, MapPin, Crown } from "lucide-react";
+import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, MapPin, Crown, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -328,7 +328,7 @@ const StartGolf = () => {
                         ))}
                       </ul>
 
-                      <Accordion type="single" collapsible className="mt-5">
+                      <Accordion type="single" collapsible className="mt-5 space-y-2">
                         <AccordionItem
                           value="terminy-vikend"
                           className="rounded-lg border border-foreground/30 bg-transparent px-4 data-[state=open]:border-gold/40"
@@ -362,6 +362,54 @@ const StartGolf = () => {
                                 >
                                   <Check className="w-4 h-4 text-gold flex-shrink-0" />
                                   <span>{date}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem
+                          value="v-cene-vikend"
+                          className="rounded-lg border border-foreground/30 bg-transparent px-4 data-[state=open]:border-gold/40"
+                        >
+                          <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-3 hover:no-underline text-sm sm:text-base">
+                            V cene je zahrnuté
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-4">
+                            <ul className="space-y-2">
+                              {[
+                                "Golfový kurz v trvaní 12 hodín s profesionálnymi trénermi (členmi PGA SK) a kvalifikovanými golfovými inštruktormi",
+                                "Zapožičanie kvalitného golfového vybavenia (golfové palice, golfové loptičky a tréningové pomôcky)",
+                                "Darček v cene",
+                                "Zelená karta po úspešnom absolvovaní záverečnej skúšky",
+                                "Miesto: Green Resort Hrubá Borša (cca 30 km od Bratislavy)",
+                              ].map((item) => (
+                                <li key={item} className="flex items-start gap-2 text-sm text-foreground/80 leading-relaxed">
+                                  <Check className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem
+                          value="neprehliadnite-vikend"
+                          className="rounded-lg border border-foreground/30 bg-transparent px-4 data-[state=open]:border-gold/40"
+                        >
+                          <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-3 hover:no-underline text-sm sm:text-base">
+                            Neprehliadnite
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-4">
+                            <ul className="space-y-2">
+                              {[
+                                "V cene nie je zahrnutý doplatok 80 € za záverečnú skúšku a vydanie zelenej karty (platba na mieste)",
+                                "Termín je možné po dohode s poskytovateľom neskôr zmeniť",
+                                "Termín sa presúva v prípade nepriaznivého počasia alebo nedostatočného počtu prihlásených",
+                              ].map((item) => (
+                                <li key={item} className="flex items-start gap-2 text-sm text-foreground/80 leading-relaxed">
+                                  <AlertCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                                  <span>{item}</span>
                                 </li>
                               ))}
                             </ul>
