@@ -8,26 +8,40 @@ interface Tilt3DCardProps {
 
 const Tilt3DCard = ({ children, className = "" }: Tilt3DCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
+  const rafRef = useRef<number | null>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
+  const handleMouseEnter = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    // Calculate position relative to center (-0.5 to 0.5)
-    const x = (e.clientX - centerX) / rect.width;
-    const y = (e.clientY - centerY) / rect.height;
-
-    // Apply rotation (max ±12 degrees)
-    setRotateX(y * -12);
-    setRotateY(x * 12);
+    if (!rectRef.current) return;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const rect = rectRef.current;
+      if (!rect) return;
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const x = (clientX - centerX) / rect.width;
+      const y = (clientY - centerY) / rect.height;
+      setRotateX(y * -12);
+      setRotateY(x * 12);
+    });
   };
 
   const handleMouseLeave = () => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
     setRotateX(0);
     setRotateY(0);
   };
@@ -36,6 +50,7 @@ const Tilt3DCard = ({ children, className = "" }: Tilt3DCardProps) => {
     <motion.div
       ref={cardRef}
       className={className}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{
