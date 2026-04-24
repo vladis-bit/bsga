@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import ServiceCard from "@/components/shop/ServiceCard";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
@@ -58,6 +59,44 @@ const MilestoneConnector = () => {
     </div>
   );
 };
+
+// Reusable FAQ block per step
+const StepFAQ = ({
+  faqs,
+  idPrefix,
+}: {
+  faqs: { q: string; a: string }[];
+  idPrefix: string;
+}) => (
+  <Reveal delay={0.3}>
+    <div className="mt-12 sm:mt-16 max-w-3xl mx-auto">
+      <div className="text-center mb-6 sm:mb-8">
+        <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+          Časté otázky
+        </span>
+        <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
+          Otázky k tomuto kroku
+        </h3>
+      </div>
+      <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+        {faqs.map((faq, i) => (
+          <AccordionItem
+            key={`${idPrefix}-${i}`}
+            value={`${idPrefix}-${i}`}
+            className="bg-background/75 rounded-lg sm:rounded-xl border border-border/60 px-4 sm:px-6 data-[state=open]:border-gold/40"
+          >
+            <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-4 sm:py-5 hover:no-underline text-sm sm:text-base">
+              {faq.q}
+            </AccordionTrigger>
+            <AccordionContent className="text-foreground/75 pb-4 sm:pb-5 leading-relaxed text-sm sm:text-base">
+              {faq.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  </Reveal>
+);
 
 const StartGolf = () => {
   const milestones = [
@@ -296,6 +335,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="vikend"
+              faqs={[
+                {
+                  q: "Pre koho je víkendový kurz vhodný?",
+                  a: "Kurz je určený pre úplných začiatočníkov, ktorí sa chcú zoznámiť so základmi golfu v intenzívnom víkendovom formáte. Nepotrebuješ žiadne predchádzajúce skúsenosti ani vlastné vybavenie.",
+                },
+                {
+                  q: "Čo všetko je v cene zahrnuté?",
+                  a: "V cene je zahrnutý dvojdňový tréning pod vedením profesionálneho trénera, zapožičanie golfových palíc a loptičiek, teoretická príprava a praktické cvičenia. Záverečná skúška na zelenú kartu nie je súčasťou ceny.",
+                },
+                {
+                  q: "Čo si mám priniesť na kurz?",
+                  a: "Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou (ideálne tenisky alebo turfové topánky). Všetko vybavenie ti zapožičiame priamo na mieste.",
+                },
+              ]}
+            />
           </div>
         </section>
 
@@ -392,6 +449,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="zk"
+              faqs={[
+                {
+                  q: "Ako dlho trvá získanie zelenej karty?",
+                  a: "Kurz zelenej karty zvyčajne trvá 1–2 týždne v závislosti od intenzity tréningov a tvojich časových možností. Obsahuje praktickú prípravu, teóriu pravidiel a záverečný test.",
+                },
+                {
+                  q: "Čo zelená karta znamená v praxi?",
+                  a: "Zelená karta je oficiálne potvrdenie tvojej spôsobilosti hrať golf samostatne. Bez nej ti väčšina ihrísk neumožní hrať bez sprievodu trénera. Je medzinárodne uznávaná.",
+                },
+                {
+                  q: "Čo ak neprejdem záverečným testom?",
+                  a: "Test môžeš opakovať. Náš tréner ťa pred ním dôkladne pripraví a poradí ti, na čo sa zamerať. Veľká väčšina účastníkov ho zvláda na prvý pokus.",
+                },
+              ]}
+            />
           </div>
         </section>
 
@@ -545,6 +620,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="zlepsuj"
+              faqs={[
+                {
+                  q: "Aký je rozdiel medzi individuálnou a skupinovou lekciou?",
+                  a: "Pri individuálnej lekcii sa tréner venuje výlučne tebe – tréning je plne prispôsobený tvojej úrovni a cieľom. Skupinový tréning je dynamickejší, lacnejší a ideálny ak ťa baví učiť sa v komunite.",
+                },
+                {
+                  q: "Ako často by som mal trénovať, aby som sa zlepšoval?",
+                  a: "Pre viditeľný progres odporúčame aspoň 1 lekciu týždenne v kombinácii so samostatným tréningom na drivingu. Konzistencia je dôležitejšia než dĺžka jedného tréningu.",
+                },
+                {
+                  q: "Môžem si kúpiť balík viacerých lekcií so zľavou?",
+                  a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíš nám na kontaktný formulár a pripravíme ti ponuku na mieru podľa tvojich potrieb.",
+                },
+              ]}
+            />
           </div>
         </section>
 
@@ -642,6 +735,24 @@ const StartGolf = () => {
                 </div>
               </div>
             </Reveal>
+
+            <StepFAQ
+              idPrefix="dominuj"
+              faqs={[
+                {
+                  q: "Pre koho je Course Management vhodný?",
+                  a: "Pre hráčov so zelenou kartou, ktorí už ovládajú základy a chcú sa posunúť ďalej – znížiť skóre, lepšie čítať ihrisko a strategicky vyberať údery v reálnych herných situáciách.",
+                },
+                {
+                  q: "Kde tréning prebieha?",
+                  a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra). Hráš so svojím PGA trénerom, ktorý ťa sprevádza a analyzuje tvoju hru v reálnom čase.",
+                },
+                {
+                  q: "Sú v cene zahrnuté green fee a ďalšie poplatky?",
+                  a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne – radi ti pomôžeme s rezerváciou aj výberom najvhodnejšieho ihriska.",
+                },
+              ]}
+            />
           </div>
         </section>
 
