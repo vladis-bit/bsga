@@ -83,7 +83,7 @@ const StepFAQ = ({
           <AccordionItem
             key={`${idPrefix}-${i}`}
             value={`${idPrefix}-${i}`}
-            className="bg-muted rounded-lg sm:rounded-xl border border-border px-4 sm:px-6 data-[state=open]:border-gold/40"
+            className="bg-secondary rounded-lg sm:rounded-xl border border-border px-4 sm:px-6 data-[state=open]:border-gold/40"
           >
             <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-4 sm:py-5 hover:no-underline text-sm sm:text-base">
               {faq.q}
