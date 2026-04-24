@@ -49,12 +49,12 @@ const CookieBanner = () => {
         />
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-border bg-card shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
-        <div className="mx-auto max-w-6xl">
-          {/* Compact view – classic full-width bar */}
+      <div className="fixed bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-[60]">
+        <div className="mx-auto max-w-5xl rounded-xl border border-border bg-card shadow-lg">
+          {/* Compact view – classic bar, smaller & rounded */}
           {!showDetails && (
-            <div className="flex flex-col gap-4 px-4 py-4 sm:px-6 sm:py-5 md:flex-row md:items-center md:justify-between md:gap-6">
-              <p className="flex-1 text-sm text-foreground leading-relaxed">
+            <div className="flex flex-col gap-3 px-4 py-3 sm:px-5 sm:py-3.5 md:flex-row md:items-center md:justify-between md:gap-5">
+              <p className="flex-1 text-xs sm:text-sm text-foreground leading-snug">
                 Táto stránka používa cookies pre základné fungovanie a analýzu návštevnosti.
                 Viac informácií v{" "}
                 <Link to="/gdpr" className="text-gold underline underline-offset-2 hover:text-gold-light">
@@ -62,22 +62,22 @@ const CookieBanner = () => {
                 </Link>
                 .
               </p>
-              <div className="flex flex-wrap items-center gap-2 md:flex-nowrap">
+              <div className="flex flex-wrap items-center gap-1.5 md:flex-nowrap">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setShowDetails(true)}
-                  className="text-muted-foreground hover:text-foreground"
+                  className="h-8 px-3 text-xs text-muted-foreground hover:text-foreground"
                 >
                   Nastavenia
                 </Button>
-                <Button variant="outline" size="sm" onClick={rejectAll}>
+                <Button variant="outline" size="sm" onClick={rejectAll} className="h-8 px-3 text-xs">
                   Odmietnuť
                 </Button>
                 <Button
                   size="sm"
                   onClick={acceptAll}
-                  className="bg-gold text-primary hover:bg-gold-light font-semibold"
+                  className="h-8 px-4 text-xs bg-gold text-primary hover:bg-gold-light font-semibold"
                 >
                   Súhlasím
                 </Button>
