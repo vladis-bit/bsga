@@ -24,7 +24,7 @@ const StartGolf = () => {
         <title>Začni s golfom | BSGA - Best Swing Golf Academy</title>
         <meta
           name="description"
-          content="Začni s golfom - Štart karty pre úplných začiatočníkov a Zelené karty pre samostatnú hru. Vyber si program a kúp si kurz online."
+          content="Začni s golfom - Víkendový kurz zelenej karty pre úplných začiatočníkov a Zelené karty pre samostatnú hru. Vyber si program a kúp si kurz online."
         />
       </Helmet>
 
@@ -52,7 +52,7 @@ const StartGolf = () => {
                   className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/40 bg-white/10 px-3.5 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
                 >
                   <GraduationCap className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  Štart karty
+                  Víkendový kurz zelenej karty
                 </button>
                 <button
                   onClick={() => scrollToSection("zelene-karty")}
@@ -74,7 +74,7 @@ const StartGolf = () => {
                 Krok 1
               </span>
               <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
-                Štart karty
+                Víkendový kurz zelenej karty
               </h2>
               <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
                 Tvoje prvé stretnutie s golfom. Pevné základy, prvé údery a istota pred vstupom na ihrisko.
@@ -89,7 +89,7 @@ const StartGolf = () => {
                     <div className="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden rounded-xl">
                       <img
                         src={serviceStartCardsImg}
-                        alt="Štart karty - úvod do golfu"
+                        alt="Víkendový kurz zelenej karty - úvod do golfu"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         style={{ objectPosition: "center 25%" }}
                         loading="lazy"
@@ -101,7 +101,7 @@ const StartGolf = () => {
                       <GraduationCap className="text-gold" size={22} />
                     </div>
                     <h3 className="mb-3 font-serif text-xl font-bold text-foreground sm:text-2xl">
-                      Čo je Štart karta?
+                      Čo je Víkendový kurz zelenej karty?
                     </h3>
                     <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
                       Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong>,
