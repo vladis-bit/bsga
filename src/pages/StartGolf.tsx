@@ -158,7 +158,7 @@ const StartGolf = () => {
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
                 Tvoja cesta
               </span>
-              <h1 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                 Začni s golfom
               </h1>
               <p className="max-w-2xl text-sm sm:text-base md:text-lg text-primary-foreground/70 px-2">
@@ -174,7 +174,7 @@ const StartGolf = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               {/* Desktop horizontal timeline */}
-              <div className="hidden md:block relative">
+              <div className="hidden lg:block relative">
                 {/* Connecting line */}
                 <div className="absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-gold/10 via-gold/50 to-gold/10" />
 
@@ -206,8 +206,38 @@ const StartGolf = () => {
                 </div>
               </div>
 
+              {/* Tablet 2x2 grid timeline */}
+              <div className="hidden sm:block lg:hidden">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-8">
+                  {milestones.map((m, i) => {
+                    const Icon = m.icon;
+                    return (
+                      <Reveal key={m.number} delay={i * 0.1}>
+                        <button
+                          onClick={() => scrollToSection(m.target)}
+                          className="group flex items-center gap-4 w-full text-left"
+                        >
+                          <div className="w-14 h-14 rounded-full bg-primary border-2 border-gold/60 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:border-gold group-hover:bg-gold/10 shadow-lg shadow-gold/10">
+                            <Icon className="w-6 h-6 text-gold" />
+                          </div>
+                          <div className="min-w-0">
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold/80">
+                              Krok {m.number}
+                            </span>
+                            <h3 className="text-base font-serif font-bold text-primary-foreground group-hover:text-gold transition-colors truncate">
+                              {m.title}
+                            </h3>
+                            <p className="text-xs text-primary-foreground/60 truncate">{m.subtitle}</p>
+                          </div>
+                        </button>
+                      </Reveal>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* Mobile vertical timeline */}
-              <div className="md:hidden relative">
+              <div className="sm:hidden relative">
                 <div className="absolute left-8 top-4 bottom-4 w-px bg-gradient-to-b from-gold/10 via-gold/50 to-gold/10" />
                 <div className="space-y-4">
                   {milestones.map((m, i) => {
