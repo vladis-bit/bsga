@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Cookie, X, Shield, BarChart3, Sparkles, Check } from "lucide-react";
+import { X, Shield, BarChart3, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 
@@ -42,74 +42,45 @@ const CookieBanner = () => {
 
   return (
     <>
-      {/* Subtle backdrop when details expanded */}
       {showDetails && (
         <div
-          className="fixed inset-0 z-[59] bg-background/40 backdrop-blur-sm animate-in fade-in duration-300"
+          className="fixed inset-0 z-[59] bg-black/50"
           onClick={() => setShowDetails(false)}
         />
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 z-[60] p-3 sm:p-5 md:p-6 animate-in slide-in-from-bottom-8 duration-500">
-        <div className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-gold/20 bg-card/90 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-          {/* Decorative gold glow */}
-          <div className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full bg-gold/10 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-gold/5 blur-3xl" />
-
-          {/* Top accent line */}
-          <div className="relative h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-
-          {/* Compact view */}
+      <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-border bg-card shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
+        <div className="mx-auto max-w-6xl">
+          {/* Compact view – classic full-width bar */}
           {!showDetails && (
-            <div className="relative p-6 sm:p-7">
-              <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
-                <div className="flex items-start gap-4 sm:flex-1">
-                  <div className="relative flex-shrink-0">
-                    <div className="absolute inset-0 rounded-2xl bg-gold/20 blur-md" />
-                    <div className="relative rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 p-3 ring-1 ring-gold/30">
-                      <Cookie className="h-6 w-6 text-gold" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base sm:text-lg font-serif font-semibold text-foreground mb-1.5 tracking-tight">
-                      Vážime si vaše súkromie
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Cookies nám pomáhajú zlepšovať váš zážitok a analyzovať návštevnosť. Viac v{" "}
-                      <Link to="/gdpr" className="text-gold font-medium underline-offset-4 hover:underline">
-                        zásadách ochrany údajov
-                      </Link>
-                      .
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <button
+            <div className="flex flex-col gap-4 px-4 py-4 sm:px-6 sm:py-5 md:flex-row md:items-center md:justify-between md:gap-6">
+              <p className="flex-1 text-sm text-foreground leading-relaxed">
+                Táto stránka používa cookies pre základné fungovanie a analýzu návštevnosti.
+                Viac informácií v{" "}
+                <Link to="/gdpr" className="text-gold underline underline-offset-2 hover:text-gold-light">
+                  zásadách ochrany osobných údajov
+                </Link>
+                .
+              </p>
+              <div className="flex flex-wrap items-center gap-2 md:flex-nowrap">
+                <Button
+                  variant="ghost"
+                  size="sm"
                   onClick={() => setShowDetails(true)}
-                  className="text-xs font-medium text-muted-foreground hover:text-gold transition-colors underline-offset-4 hover:underline self-start sm:self-auto px-1"
+                  className="text-muted-foreground hover:text-foreground"
                 >
-                  Prispôsobiť nastavenia
-                </button>
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={rejectAll}
-                    className="text-muted-foreground hover:text-foreground hover:bg-muted/60"
-                  >
-                    Odmietnuť
-                  </Button>
-                  <Button
-                    size="sm"
-                    onClick={acceptAll}
-                    className="bg-gold text-primary hover:bg-gold-light font-semibold shadow-lg shadow-gold/25 gap-1.5 px-5"
-                  >
-                    <Check className="h-4 w-4" />
-                    Súhlasím
-                  </Button>
-                </div>
+                  Nastavenia
+                </Button>
+                <Button variant="outline" size="sm" onClick={rejectAll}>
+                  Odmietnuť
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={acceptAll}
+                  className="bg-gold text-primary hover:bg-gold-light font-semibold"
+                >
+                  Súhlasím
+                </Button>
               </div>
             </div>
           )}
@@ -119,7 +90,7 @@ const CookieBanner = () => {
             <div className="relative p-6 sm:p-7 max-h-[80vh] overflow-y-auto">
               <div className="flex items-start justify-between mb-5">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground">
                     Nastavenia cookies
                   </h3>
                   <p className="text-sm text-muted-foreground mt-1">
@@ -128,7 +99,7 @@ const CookieBanner = () => {
                 </div>
                 <button
                   onClick={() => setShowDetails(false)}
-                  className="rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                   aria-label="Zavrieť"
                 >
                   <X className="h-5 w-5" />
@@ -137,14 +108,14 @@ const CookieBanner = () => {
 
               <div className="space-y-3 mb-6">
                 {/* Necessary */}
-                <div className="flex items-start gap-4 rounded-2xl border border-gold/20 bg-gold/5 p-4">
-                  <div className="rounded-xl bg-gold/15 p-2.5 flex-shrink-0 ring-1 ring-gold/20">
+                <div className="flex items-start gap-4 rounded-md border border-border bg-muted/40 p-4">
+                  <div className="rounded-md bg-gold/10 p-2.5 flex-shrink-0">
                     <Shield className="h-5 w-5 text-gold" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-3 mb-1">
                       <h4 className="font-semibold text-foreground text-sm">Nevyhnutné</h4>
-                      <span className="text-xs font-medium text-gold px-2.5 py-0.5 rounded-full bg-gold/10 border border-gold/30">
+                      <span className="text-xs font-medium text-muted-foreground">
                         Vždy aktívne
                       </span>
                     </div>
@@ -155,8 +126,8 @@ const CookieBanner = () => {
                 </div>
 
                 {/* Analytics */}
-                <div className="flex items-start gap-4 rounded-2xl border border-border/60 p-4 transition-colors hover:border-border">
-                  <div className="rounded-xl bg-muted p-2.5 flex-shrink-0">
+                <div className="flex items-start gap-4 rounded-md border border-border p-4">
+                  <div className="rounded-md bg-muted p-2.5 flex-shrink-0">
                     <BarChart3 className="h-5 w-5 text-gold" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -171,8 +142,8 @@ const CookieBanner = () => {
                 </div>
 
                 {/* Marketing */}
-                <div className="flex items-start gap-4 rounded-2xl border border-border/60 p-4 transition-colors hover:border-border">
-                  <div className="rounded-xl bg-muted p-2.5 flex-shrink-0">
+                <div className="flex items-start gap-4 rounded-md border border-border p-4">
+                  <div className="rounded-md bg-muted p-2.5 flex-shrink-0">
                     <Sparkles className="h-5 w-5 text-gold" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -191,27 +162,21 @@ const CookieBanner = () => {
                 <Button variant="outline" size="sm" onClick={rejectAll}>
                   Iba nevyhnutné
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={saveCustom}
-                  className="border-gold/40 text-foreground hover:bg-gold/10"
-                >
+                <Button variant="outline" size="sm" onClick={saveCustom}>
                   Uložiť výber
                 </Button>
                 <Button
                   size="sm"
                   onClick={acceptAll}
-                  className="bg-gold text-primary hover:bg-gold-light font-semibold gap-1.5"
+                  className="bg-gold text-primary hover:bg-gold-light font-semibold"
                 >
-                  <Check className="h-4 w-4" />
                   Súhlasím so všetkým
                 </Button>
               </div>
 
               <p className="text-xs text-muted-foreground text-center mt-5">
                 Viac informácií nájdete v{" "}
-                <Link to="/gdpr" className="text-gold underline-offset-4 hover:underline">
+                <Link to="/gdpr" className="text-gold underline underline-offset-2 hover:text-gold-light">
                   zásadách ochrany osobných údajov
                 </Link>
                 .
