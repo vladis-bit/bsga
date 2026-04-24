@@ -68,7 +68,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
             </a>
           </Button>
         ) : (
-          <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
+          <Button disabled className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
             {ctaLabel}
           </Button>
         )}
