@@ -66,7 +66,7 @@ const faqs = [
   {
     question: "Kde prebieha fitting golfového vybavenia?",
     answer:
-      "Fitting prebieha v našom BSGA Performance Center a tiež v priestoroch Golfuniverse. Obe lokality sú vybavené najmodernejšou technológiou, ktorá zabezpečí presnú analýzu tvojho švihu a optimálne nastavenie palíc.",
+      "Fitting prebieha v našom BSGA Performance Center a tiež v priestoroch obchodu Golf Universe. Obe lokality sú vybavené najmodernejšou technológiou, ktorá zabezpečí presnú analýzu tvojho švihu a optimálne nastavenie palíc.",
   },
   {
     question: "Ako dlho trvá a koľko stojí fitting?",
