@@ -50,6 +50,11 @@ const Footer = () => {
                   Akadémia
                 </Link>
               </li>
+              <li>
+                <Link to="/obchod" className="text-background/70 hover:text-gold transition-colors text-xs sm:text-sm">
+                  Obchod
+                </Link>
+              </li>
             </ul>
           </div>
 

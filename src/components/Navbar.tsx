@@ -23,11 +23,11 @@ const navLinks: NavItem[] = [
   { name: "Domov", href: "/" },
   { name: "O nás", href: "/o-nas" },
   { name: "Služby", href: "/sluzby" },
-  { type: "separator" },
-  { name: "BSGA Tour", href: "/tour" },
-  { name: "Akadémia", href: "/akademia" },
-  { name: "Obchod", href: "/obchod" },
   { name: "Začni s golfom", href: "/zacni-s-golfom" },
+  { type: "separator" },
+  { name: "Akadémia", href: "/akademia" },
+  { name: "BSGA Tour", href: "/tour" },
+  { name: "Obchod", href: "/obchod" },
 ];
 
 const Navbar = () => {
