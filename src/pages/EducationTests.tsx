@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GreenCardQuiz from "@/components/GreenCardQuiz";
 import KidsGolfQuiz from "@/components/KidsGolfQuiz";
 
 const EducationTests = () => {
-  const [activeQuiz, setActiveQuiz] = useState<"green" | "kids">("green");
-
   return (
     <>
       <Helmet>
@@ -32,34 +30,39 @@ const EducationTests = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-8">
             Testy
           </h1>
-
-          <div className="flex flex-wrap gap-3 mb-4">
-            <button
-              onClick={() => setActiveQuiz("green")}
-              className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all border-2 ${
-                activeQuiz === "green"
-                  ? "bg-gold text-primary-foreground border-gold shadow-lg shadow-gold/20"
-                  : "bg-card text-foreground border-border hover:border-gold/50"
-              }`}
-            >
-              🏌️ Zelená karta (33 otázok)
-            </button>
-            <button
-              onClick={() => setActiveQuiz("kids")}
-              className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all border-2 ${
-                activeQuiz === "kids"
-                  ? "bg-gold text-primary-foreground border-gold shadow-lg shadow-gold/20"
-                  : "bg-card text-foreground border-border hover:border-gold/50"
-              }`}
-            >
-              ⛳ Kvíz pre deti 8–16 rokov (30 otázok)
-            </button>
-          </div>
         </div>
 
         <section className="py-8 md:py-12">
           <div className="container mx-auto px-4 sm:px-6">
-            {activeQuiz === "green" ? <GreenCardQuiz /> : <KidsGolfQuiz />}
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem
+                value="green"
+                className="border-2 border-border rounded-2xl bg-card overflow-hidden data-[state=open]:border-gold/60 data-[state=open]:shadow-lg data-[state=open]:shadow-gold/10 transition-all"
+              >
+                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-gold/5 text-left">
+                  <span className="font-bold text-base sm:text-lg text-foreground">
+                    🏌️ Zelená karta (33 otázok)
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-2 sm:px-4 pb-6 pt-2">
+                  <GreenCardQuiz />
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem
+                value="kids"
+                className="border-2 border-border rounded-2xl bg-card overflow-hidden data-[state=open]:border-gold/60 data-[state=open]:shadow-lg data-[state=open]:shadow-gold/10 transition-all"
+              >
+                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-gold/5 text-left">
+                  <span className="font-bold text-base sm:text-lg text-foreground">
+                    ⛳ Kvíz pre deti 8–16 rokov (30 otázok)
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-2 sm:px-4 pb-6 pt-2">
+                  <KidsGolfQuiz />
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </section>
       </main>
