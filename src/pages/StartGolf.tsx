@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
-import ServiceCard from "@/components/shop/ServiceCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
