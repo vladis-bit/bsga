@@ -71,11 +71,8 @@ const StepFAQ = ({
   <Reveal delay={0.3}>
     <div className="mt-12 sm:mt-16 max-w-3xl mx-auto">
       <div className="text-center mb-6 sm:mb-8">
-        <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+        <h3 className="text-xl sm:text-2xl font-bold text-primary-foreground uppercase tracking-wide">
           Časté otázky
-        </span>
-        <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
-          Otázky k tomuto kroku
         </h3>
       </div>
       <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
@@ -422,39 +419,6 @@ const StartGolf = () => {
               </div>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="mt-10 sm:mt-14">
-                <div className="text-center mb-6 sm:mb-8">
-                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                    Možnosť zakúpenia
-                  </span>
-                  <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
-                    Kúp si víkendový kurz
-                  </h3>
-                </div>
-
-                <div className="max-w-md mx-auto pt-4">
-                  <ServiceCard
-                    title="Víkendový kurz zelenej karty"
-                    price={139.99}
-                    originalPrice={500}
-                    discount={72}
-                    icon={Flag}
-                    popular
-                    purchaseUrl="https://buy.stripe.com/28E3cvfzpep48by3d28so06"
-                    features={[
-                      "Úvodný kurz pre začiatočníkov",
-                      "Základy golfu",
-                      "Technika úderov",
-                      "Príprava na zelenú kartu",
-                      "Profesionálny dohľad",
-                    ]}
-                    note="V cene nie je zahrnutá záverečná skúška"
-                  />
-                </div>
-              </div>
-            </Reveal>
-
             <StepFAQ
               idPrefix="vikend"
               faqs={[
@@ -537,35 +501,6 @@ const StartGolf = () => {
                     </div>
                   </div>
                 </CursorGlowCard>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="mt-10 sm:mt-14">
-                <div className="text-center mb-6 sm:mb-8">
-                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                    Možnosť zakúpenia
-                  </span>
-                  <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
-                    Kúp si kurz zelenej karty
-                  </h3>
-                </div>
-
-                <div className="max-w-md mx-auto pt-4">
-                  <ServiceCard
-                    title="Kurz zelenej karty"
-                    price={549.99}
-                    icon={Award}
-                    purchaseUrl="https://buy.stripe.com/8x25kD2MD3KqdvSbJy8so04"
-                    features={[
-                      "Kompletný kurz pre získanie karty",
-                      "Teória a pravidlá golfu",
-                      "Golfová etiketa",
-                      "Praktický tréning na ihrisku",
-                      "Certifikát po absolvovaní",
-                    ]}
-                  />
-                </div>
               </div>
             </Reveal>
 
@@ -697,49 +632,6 @@ const StartGolf = () => {
               </div>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="mt-10 sm:mt-14">
-                <div className="text-center mb-6 sm:mb-8">
-                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                    Možnosť zakúpenia
-                  </span>
-                  <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
-                    Vyber si formát tréningu
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-md sm:max-w-4xl mx-auto items-start pt-4">
-                  <ServiceCard
-                    title="Individuálna lekcia"
-                    price={59.99}
-                    icon={User}
-                    purchaseUrl="https://buy.stripe.com/dRm8wP5YP5SycrOdRG8so03"
-                    features={[
-                      "60-minútová súkromná lekcia",
-                      "Profesionálny tréner",
-                      "Analýza švihu",
-                      "Personalizované cvičenia",
-                      "Okamžitá spätná väzba",
-                    ]}
-                  />
-                  <ServiceCard
-                    title="Skupinový tréning"
-                    price={29.99}
-                    icon={Users}
-                    purchaseUrl="/#kontakt"
-                    ctaLabel="Mám záujem"
-                    features={[
-                      "Tréning v malej skupine",
-                      "Profesionálny tréner",
-                      "Praktické cvičenia",
-                      "Výhodnejšia cena za lekciu",
-                      "Skvelá atmosféra",
-                    ]}
-                  />
-                </div>
-              </div>
-            </Reveal>
-
             <StepFAQ
               idPrefix="zlepsuj"
               faqs={[
@@ -822,36 +714,6 @@ const StartGolf = () => {
                     </div>
                   </div>
                 </CursorGlowCard>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="mt-10 sm:mt-14">
-                <div className="text-center mb-6 sm:mb-8">
-                  <span className="inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                    Možnosť zakúpenia
-                  </span>
-                  <h3 className="mt-2 text-xl sm:text-2xl font-bold text-primary-foreground">
-                    Rezervuj si Course Management
-                  </h3>
-                </div>
-
-                <div className="max-w-md mx-auto pt-4">
-                  <ServiceCard
-                    title="Course Management"
-                    price={149.99}
-                    icon={MapPin}
-                    purchaseUrl="/#kontakt"
-                    ctaLabel="Mám záujem"
-                    features={[
-                      "Tréning priamo na ihrisku",
-                      "PGA tréner",
-                      "Strategická analýza hry",
-                      "Mentálna príprava",
-                      "Cesta k najnižšiemu skóre",
-                    ]}
-                  />
-                </div>
               </div>
             </Reveal>
 
