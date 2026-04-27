@@ -728,7 +728,7 @@ const StartGolf = () => {
                   a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra). Hráš so svojím PGA trénerom, ktorý ťa sprevádza a analyzuje tvoju hru v reálnom čase.",
                 },
                 {
-                  q: "Sú v cene zahrnuté green fee a ďalšie poplatky?",
+                  q: "Sú v cene služby zahrnuté green fee a ďalšie poplatky?",
                   a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne – radi ti pomôžeme s rezerváciou aj výberom najvhodnejšieho ihriska.",
                 },
               ]}
