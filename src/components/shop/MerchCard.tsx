@@ -27,17 +27,9 @@ const MerchCard = ({ title, price, description, purchaseUrl }: MerchCardProps) =
           {description}
         </p>
 
-        {purchaseUrl ? (
-          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
-            <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
-              Kúpiť
-            </a>
-          </Button>
-        ) : (
-          <Button className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
-            Kúpiť
-          </Button>
-        )}
+        <Button disabled className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
+          Kúpiť
+        </Button>
       </div>
     </CursorGlowCard>
   );
