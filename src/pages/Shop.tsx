@@ -48,7 +48,7 @@ const Shop = () => {
       price: 59.99,
       icon: User,
       features: [
-        "60-minútová súkromná lekcia",
+        "55-minútová súkromná lekcia",
         "Profesionálny tréner",
         "Analýza švihu",
         "Personalizované cvičenia",
