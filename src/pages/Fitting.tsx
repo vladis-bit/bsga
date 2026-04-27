@@ -60,23 +60,28 @@ const process = [
 const faqs = [
   {
     question: "Aké značky fittujete?",
-    answer: "TaylorMade, PXG, PING, Titleist, Callaway, Srixon",
+    answer:
+      "Fittujeme palice popredných svetových značiek, konkrétne TaylorMade, PXG, PING, Titleist, Callaway a Srixon. Vďaka tejto širokej ponuke vieme zostaviť setup presne podľa tvojich preferencií, štýlu hry a individuálnych potrieb.",
   },
   {
     question: "Kde prebieha fitting golfového vybavenia?",
-    answer: "BSGS Performance Center, Golfuniverse",
+    answer:
+      "Fitting prebieha v našom BSGA Performance Center a tiež v priestoroch Golfuniverse. Obe lokality sú vybavené najmodernejšou technológiou, ktorá zabezpečí presnú analýzu tvojho švihu a optimálne nastavenie palíc.",
   },
   {
     question: "Ako dlho trvá a koľko stojí fitting?",
-    answer: "Trvá max 120 min a cena je od 80 € do 150 €",
+    answer:
+      "Štandardný fitting trvá maximálne 120 minút a jeho cena sa pohybuje od 80 € do 150 € v závislosti od rozsahu fittingu a typu palíc, ktoré chceš testovať. V cene je zahrnutá detailná analýza švihu, testovanie rôznych konfigurácií a odborné odporúčanie ideálneho setupu.",
   },
   {
     question: "Čo si mám priniesť na fitting?",
-    answer: "Svoje palice a oblečenie ako na tréning v indoor centre",
+    answer:
+      "Na fitting si prines svoje vlastné golfové palice, aby sme ich mohli porovnať s testovanými konfiguráciami. Odporúčame tiež pohodlné športové oblečenie, v akom bežne trénuješ v indoor centre, aby si sa mohol prirodzene a uvoľnene švihať.",
   },
   {
     question: "Ako dlho trvá, kým mi príde nová výbava?",
-    answer: "Približne 2 týždne",
+    answer:
+      "Dodanie nových palíc na mieru trvá zvyčajne približne 2 týždne od objednávky. Presný termín závisí od konkrétnej značky, modelu a aktuálnej dostupnosti shaftov a hláv u výrobcu.",
   },
 ];
 
