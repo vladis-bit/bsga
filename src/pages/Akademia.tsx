@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import WavesCanvas from "@/components/WavesCanvas";
 
 const Akademia = () => {
   const handleScrollToCamps = () => {
@@ -20,8 +21,9 @@ const Akademia = () => {
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
           {/* Hero Section */}
-          <section className="relative w-full bg-transparent pt-24 sm:pt-28 md:pt-32">
-            <div className="container mx-auto px-4 pb-10 text-center sm:px-6 sm:pb-12 md:pb-14">
+          <section className="relative w-full overflow-hidden bg-transparent pt-24 sm:pt-28 md:pt-32">
+            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
+            <div className="container relative z-10 mx-auto px-4 pb-10 text-center sm:px-6 sm:pb-12 md:pb-14">
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 Akadémia
               </span>
