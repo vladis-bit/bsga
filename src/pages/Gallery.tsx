@@ -30,8 +30,28 @@ import galleryClubhouseGroup from "@/assets/gallery-clubhouse-group.png";
 import galleryKidsCamp from "@/assets/gallery-kids-camp.png";
 import galleryTrophies from "@/assets/gallery-trophies.png";
 import galleryDuoCourse from "@/assets/gallery-duo-course.png";
+import galleryKidsCampLine from "@/assets/gallery/photo-30.png";
+import gallerySwingStatue from "@/assets/gallery/photo-31.png";
+import galleryDuoRange from "@/assets/gallery/photo-32.png";
+import galleryTeamClubhouseBig from "@/assets/gallery/photo-33.png";
 
 const images = [
+  {
+    src: galleryTeamClubhouseBig,
+    alt: "Tím BSGA s partnermi v klubovni"
+  },
+  {
+    src: gallerySwingStatue,
+    alt: "Tréneri BSGA pri soche golfistu"
+  },
+  {
+    src: galleryDuoRange,
+    alt: "Dvaja tréneri BSGA na driving range"
+  },
+  {
+    src: galleryKidsCampLine,
+    alt: "Detský golfový kemp - rozcvička na ihrisku"
+  },
   {
     src: galleryTraining,
     alt: "Individuálny golfový tréning na ihrisku"
