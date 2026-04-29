@@ -35,6 +35,22 @@ import {
   Target,
 } from "lucide-react";
 
+const RevealCard = ({ children, index }: { children: React.ReactNode; index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.4, delay: (index % 6) * 0.1 }}
+      className="h-full"
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const services = [
   {
     icon: User,
