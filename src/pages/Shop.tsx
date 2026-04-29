@@ -5,6 +5,7 @@ import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import WavesCanvas from "@/components/WavesCanvas";
 import VoucherCard from "@/components/shop/VoucherCard";
 import ServiceCard from "@/components/shop/ServiceCard";
 import MerchCard from "@/components/shop/MerchCard";
@@ -155,8 +156,9 @@ const Shop = () => {
       <Navbar />
 
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
-        <section className="bg-transparent pb-8 pt-24 sm:pt-28 md:pt-32 md:pb-10">
-          <div className="container mx-auto px-4">
+        <section className="relative overflow-hidden bg-transparent pb-8 pt-24 sm:pt-28 md:pt-32 md:pb-10">
+          <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
+          <div className="container relative z-10 mx-auto px-4">
             <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
               <h1 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                 Obchod
