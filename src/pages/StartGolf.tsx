@@ -158,8 +158,8 @@ const StartGolf = () => {
                 Začni s golfom
               </h1>
               <p className="max-w-2xl text-sm sm:text-base md:text-lg text-primary-foreground/70 px-2">
-                Tri jednoduché kroky od prvého švihu k samostatnej hre na ihrisku.
-                Vyber si program a kúp si kurz online.
+                Štyri jednoduché kroky od prvého švihu k samostatnej hre na ihrisku.
+                Budeme ťa sprevádzať celou tvojou kariérou.&nbsp;
               </p>
             </div>
           </div>
