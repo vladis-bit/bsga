@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import WavesCanvas from "@/components/WavesCanvas";
 import serviceTourImg from "@/assets/service-tour.jpg";
 import serviceFittingImg from "@/assets/service-fitting.webp";
 import serviceCourseImg from "@/assets/service-course-management.png";
@@ -180,8 +181,9 @@ const Services = () => {
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
-          <section className="bg-transparent pb-8 pt-28 md:pt-32">
-            <div className="container mx-auto px-4">
+          <section className="relative overflow-hidden bg-transparent pb-8 pt-28 md:pt-32">
+            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
+            <div className="container relative z-10 mx-auto px-4">
               <div className="flex flex-col items-center gap-4 text-center">
                 <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gold">
                   Služby
