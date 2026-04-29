@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
@@ -32,6 +34,22 @@ import {
   MapPin,
   Target,
 } from "lucide-react";
+
+const RevealCard = ({ children, index }: { children: React.ReactNode; index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.4, delay: (index % 6) * 0.1 }}
+      className="h-full"
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const services = [
   {
@@ -236,10 +254,10 @@ const Services = () => {
                   );
                   const externalLink = (service as any).externalLink as string | undefined;
                   const internalLink = (service as any).link as string | undefined;
+                  let inner: JSX.Element;
                   if (externalLink) {
-                    return (
+                    inner = (
                       <a
-                        key={index}
                         href={externalLink}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -248,15 +266,20 @@ const Services = () => {
                         {card}
                       </a>
                     );
-                  }
-                  if (internalLink) {
-                    return (
-                      <Link key={index} to={internalLink} className="block h-full">
+                  } else if (internalLink) {
+                    inner = (
+                      <Link to={internalLink} className="block h-full">
                         {card}
                       </Link>
                     );
+                  } else {
+                    inner = <div className="h-full">{card}</div>;
                   }
-                  return <div key={index} className="h-full">{card}</div>;
+                  return (
+                    <RevealCard key={index} index={index}>
+                      {inner}
+                    </RevealCard>
+                  );
                 })}
               </div>
             </div>
