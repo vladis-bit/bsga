@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import heroImage from "@/assets/akademia/hero-slide-1.jpg";
 
 const Akademia = () => {
   const handleScrollToCamps = () => {
@@ -22,15 +23,21 @@ const Akademia = () => {
           {/* Hero Section */}
           <section className="relative w-full bg-transparent">
             <div className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
+              <img
+                src={heroImage}
+                alt="BSGA Akadémia - detské tábory 2026"
+                className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
+                loading="eager"
+              />
               <div className="relative z-10 flex h-full min-h-[460px] items-end sm:min-h-[560px] md:min-h-[680px]">
                 <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-12 sm:pt-20 md:pb-14 md:pt-24">
                   <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                     Akadémia
                   </span>
-                  <h1 className="mt-3 text-3xl font-serif font-bold text-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+                  <h1 className="mt-3 text-3xl font-serif font-bold text-primary-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
                     Spustenie prihlasovania na detské tábory 2026
                   </h1>
-                  <p className="mt-4 mx-auto max-w-3xl text-base text-foreground/80 sm:text-lg md:text-xl">
+                  <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
                     Rezervujte miesto pre vaše dieťa už teraz
                   </p>
                   <button
