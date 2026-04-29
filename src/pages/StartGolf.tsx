@@ -571,7 +571,7 @@ const StartGolf = () => {
 
                       <ul className="mt-5 space-y-3">
                         {[
-                          "60-minútová súkromná lekcia",
+                          "55-minútová súkromná lekcia",
                           "Personalizované cvičenia",
                           "Analýza švihu a okamžitá spätná väzba",
                           "Tréning prispôsobený tvojej úrovni",
