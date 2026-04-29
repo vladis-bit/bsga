@@ -238,10 +238,10 @@ const Services = () => {
                   );
                   const externalLink = (service as any).externalLink as string | undefined;
                   const internalLink = (service as any).link as string | undefined;
+                  let inner: JSX.Element;
                   if (externalLink) {
-                    return (
+                    inner = (
                       <a
-                        key={index}
                         href={externalLink}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -250,15 +250,20 @@ const Services = () => {
                         {card}
                       </a>
                     );
-                  }
-                  if (internalLink) {
-                    return (
-                      <Link key={index} to={internalLink} className="block h-full">
+                  } else if (internalLink) {
+                    inner = (
+                      <Link to={internalLink} className="block h-full">
                         {card}
                       </Link>
                     );
+                  } else {
+                    inner = <div className="h-full">{card}</div>;
                   }
-                  return <div key={index} className="h-full">{card}</div>;
+                  return (
+                    <RevealCard key={index} index={index}>
+                      {inner}
+                    </RevealCard>
+                  );
                 })}
               </div>
             </div>
