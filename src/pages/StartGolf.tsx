@@ -740,15 +740,14 @@ const StartGolf = () => {
         <section className="bg-transparent pt-12 pb-16 md:pt-16 md:pb-24">
           <div className="container mx-auto px-4 max-w-4xl">
             <Reveal>
-              <CursorGlowCard className="rounded-xl sm:rounded-2xl border border-gold/30 bg-background/75">
-                <div className="flex flex-col items-center gap-4 p-6 sm:p-10 text-center">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-                    Nevieš, čo si vybrať?
-                  </h3>
-                  <p className="max-w-xl text-sm sm:text-base text-foreground/70">
-                    Napíš nám a my ti pomôžeme nájsť ideálny program podľa tvojich cieľov a skúseností.
-                  </p>
-                  <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-col items-center gap-4 p-6 sm:p-10 text-center">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                  Nevieš, čo si vybrať?
+                </h3>
+                <p className="max-w-xl text-sm sm:text-base text-white/80">
+                  Napíš nám a my ti pomôžeme nájsť ideálny program podľa tvojich cieľov a skúseností.
+                </p>
+                <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
                     <Link
                       to="/#kontakt"
                       className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-gold/90 hover:scale-105"
@@ -762,9 +761,8 @@ const StartGolf = () => {
                     >
                       Pozri všetky služby
                     </Link>
-                  </div>
                 </div>
-              </CursorGlowCard>
+              </div>
             </Reveal>
           </div>
         </section>
