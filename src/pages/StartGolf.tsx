@@ -508,7 +508,7 @@ const StartGolf = () => {
             <Reveal>
               <div className="text-center mb-8 sm:mb-12">
                 <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                  Krok 03
+                  Krok 02
                 </span>
                 <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
                   Zlepšuj sa v golfe
