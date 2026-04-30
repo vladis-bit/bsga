@@ -99,26 +99,19 @@ const StartGolf = () => {
     {
       number: "01",
       icon: Flag,
-      title: "Víkendový kurz",
-      subtitle: "Začni svoju cestu",
+      title: "Víkendový kurz & Zelená karta",
+      subtitle: "Začni a získaj spôsobilosť",
       target: "vikendovy-kurz",
     },
     {
       number: "02",
-      icon: Award,
-      title: "Zelená karta",
-      subtitle: "Získaj spôsobilosť",
-      target: "zelena-karta",
-    },
-    {
-      number: "03",
       icon: TrendingUp,
       title: "Zlepšuj sa",
       subtitle: "Posúvaj svoju hru",
       target: "zlepsuj-sa",
     },
     {
-      number: "04",
+      number: "03",
       icon: Crown,
       title: "Dominuj v hre",
       subtitle: "Hraj ako profesionál",
@@ -174,7 +167,7 @@ const StartGolf = () => {
                 {/* Connecting line */}
                 <div className="absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-gold/10 via-gold/50 to-gold/10" />
 
-                <div className="relative grid grid-cols-4 gap-4 lg:gap-6">
+                <div className="relative grid grid-cols-3 gap-4 lg:gap-6">
                   {milestones.map((m, i) => {
                     const Icon = m.icon;
                     return (
@@ -275,10 +268,10 @@ const StartGolf = () => {
                   Krok 01
                 </span>
                 <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
-                  Víkendový kurz zelenej karty
+                  Víkendový kurz & Zelená karta
                 </h2>
                 <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
-                  Tvoje prvé stretnutie s golfom v intenzívnom víkendovom formáte. Pevné základy a istota pred vstupom na ihrisko.
+                  Tvoje prvé stretnutie s golfom v intenzívnom víkendovom formáte. Získaš pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko.
                 </p>
               </div>
             </Reveal>
@@ -438,25 +431,9 @@ const StartGolf = () => {
           </div>
         </section>
 
-        <MilestoneConnector />
-
-        {/* KROK 2 - ZELENÁ KARTA */}
+        {/* ZELENÁ KARTA - súčasť Kroku 1 */}
         <section id="zelena-karta" className="scroll-mt-24 bg-transparent py-6 sm:py-8">
           <div className="container mx-auto px-4">
-            <Reveal>
-              <div className="text-center mb-8 sm:mb-12">
-                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                  Krok 02
-                </span>
-                <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
-                  Zelená karta
-                </h2>
-                <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
-                  Kompletná príprava na samostatnú hru. Po absolvovaní máš oficiálnu spôsobilosť hrať na ihriskách.
-                </p>
-              </div>
-            </Reveal>
-
             <Reveal delay={0.1}>
               <div className="max-w-5xl mx-auto">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
@@ -531,7 +508,7 @@ const StartGolf = () => {
             <Reveal>
               <div className="text-center mb-8 sm:mb-12">
                 <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                  Krok 03
+                  Krok 02
                 </span>
                 <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
                   Zlepšuj sa v golfe
@@ -659,7 +636,7 @@ const StartGolf = () => {
             <Reveal>
               <div className="text-center mb-8 sm:mb-12">
                 <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                  Krok 04
+                  Krok 03
                 </span>
                 <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
                   Dominuj v hre
