@@ -100,7 +100,7 @@ const StartGolf = () => {
       number: "01",
       icon: Flag,
       title: "Začni s golfom",
-      subtitle: "Začni a získaj spôsobilosť",
+      subtitle: "Začni a získaj spôsobilosť ZK",
       target: "vikendovy-kurz",
     },
     {
@@ -271,7 +271,7 @@ const StartGolf = () => {
                   Začni s golfom
                 </h2>
                 <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
-                  Tvoje prvé stretnutie s golfom v intenzívnom víkendovom formáte. Získaš pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko.
+                  Tvoje prvé stretnutie s golfom v intenzívnom formáte. Získaš pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko. Vyber si víkendový kurz alebo kurz ZK, voľba je na tebe !
                 </p>
               </div>
             </Reveal>
