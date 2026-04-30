@@ -486,7 +486,7 @@ const StartGolf = () => {
 
                       <ul className="mt-5 space-y-3">
                         {[
-                          "Technika úderov a swingu",
+                           "Technika golfového švihu",
                           "Pravidlá a golfová etika",
                           "Praktický tréning na ihrisku",
                           "Certifikát po absolvovaní",
