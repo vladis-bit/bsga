@@ -268,10 +268,10 @@ const StartGolf = () => {
                   Krok 01
                 </span>
                 <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
-                  Víkendový kurz zelenej karty
+                  Víkendový kurz & Zelená karta
                 </h2>
                 <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
-                  Tvoje prvé stretnutie s golfom v intenzívnom víkendovom formáte. Pevné základy a istota pred vstupom na ihrisko.
+                  Tvoje prvé stretnutie s golfom v intenzívnom víkendovom formáte. Získaš pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko.
                 </p>
               </div>
             </Reveal>
