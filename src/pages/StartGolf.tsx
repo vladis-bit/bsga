@@ -431,25 +431,9 @@ const StartGolf = () => {
           </div>
         </section>
 
-        <MilestoneConnector />
-
-        {/* KROK 2 - ZELENÁ KARTA */}
+        {/* ZELENÁ KARTA - súčasť Kroku 1 */}
         <section id="zelena-karta" className="scroll-mt-24 bg-transparent py-6 sm:py-8">
           <div className="container mx-auto px-4">
-            <Reveal>
-              <div className="text-center mb-8 sm:mb-12">
-                <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-gold">
-                  Krok 02
-                </span>
-                <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">
-                  Zelená karta
-                </h2>
-                <p className="mt-3 text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
-                  Kompletná príprava na samostatnú hru. Po absolvovaní máš oficiálnu spôsobilosť hrať na ihriskách.
-                </p>
-              </div>
-            </Reveal>
-
             <Reveal delay={0.1}>
               <div className="max-w-5xl mx-auto">
                 <CursorGlowCard className="group overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl">
