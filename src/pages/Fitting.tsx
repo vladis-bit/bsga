@@ -71,7 +71,7 @@ const faqs = [
   {
     question: "Ako dlho trvá a koľko stojí fitting?",
     answer:
-      "Štandardný fitting trvá maximálne 120 minút a jeho cena sa pohybuje od 80 € do 150 € v závislosti od rozsahu fittingu a typu palíc, ktoré chceš testovať. V cene je zahrnutá detailná analýza švihu, testovanie rôznych konfigurácií a odborné odporúčanie ideálneho setupu.",
+      "Štandardný fitting trvá 120 minút a jeho cena sa pohybuje od 80 € do 150 € v závislosti od rozsahu fittingu a typu palíc, ktoré chceš testovať. V cene je zahrnutá detailná analýza švihu, testovanie rôznych konfigurácií a odborné odporúčanie ideálneho setupu.",
   },
   {
     question: "Čo si mám priniesť na fitting?",
@@ -173,7 +173,7 @@ const Fitting = () => {
                     Proces fittingu krok za krokom
                   </h2>
                   <p className="mt-4 text-primary-foreground/70 sm:text-lg">
-                    Celý proces trvá približne <strong className="text-gold">120 minút</strong> a prebieha v našom Performance Centre v Petržalke.
+                    Celý proces trvá <strong className="text-gold">120 minút</strong> a prebieha v našom Performance Centre v Petržalke.
                   </p>
                   <ul className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
                     {process.map((step, i) => (
