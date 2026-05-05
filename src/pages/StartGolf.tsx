@@ -411,23 +411,6 @@ const StartGolf = () => {
               </div>
             </Reveal>
 
-            <StepFAQ
-              idPrefix="vikend"
-              faqs={[
-                {
-                  q: "Pre koho je víkendový kurz vhodný?",
-                  a: "Kurz je určený pre úplných začiatočníkov, ktorí sa chcú zoznámiť so základmi golfu v intenzívnom víkendovom formáte. Nepotrebuješ žiadne predchádzajúce skúsenosti ani vlastné vybavenie.",
-                },
-                {
-                  q: "Čo všetko je v cene zahrnuté?",
-                  a: "V cene je zahrnutý dvojdňový tréning pod vedením profesionálneho trénera, zapožičanie golfových palíc a loptičiek, teoretická príprava a praktické cvičenia. Záverečná skúška na zelenú kartu nie je súčasťou ceny.",
-                },
-                {
-                  q: "Čo si mám priniesť na kurz?",
-                  a: "Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou (ideálne tenisky alebo turfové topánky). Všetko vybavenie ti zapožičiame priamo na mieste.",
-                },
-              ]}
-            />
           </div>
         </section>
 
@@ -481,19 +464,19 @@ const StartGolf = () => {
             </Reveal>
 
             <StepFAQ
-              idPrefix="zk"
+              idPrefix="zacni"
               faqs={[
                 {
-                  q: "Ako dlho trvá získanie zelenej karty?",
-                  a: "Kurz zelenej karty zvyčajne trvá 1–2 týždne v závislosti od intenzity tréningov a tvojich časových možností. Obsahuje praktickú prípravu, teóriu pravidiel a záverečný test.",
+                  q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?",
+                  a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou (ideálne tenisky alebo turfové topánky). Všetko vybavenie – palice aj loptičky – ti zapožičiame priamo na mieste.",
                 },
                 {
-                  q: "Čo zelená karta znamená v praxi?",
-                  a: "Zelená karta je oficiálne potvrdenie tvojej spôsobilosti hrať golf samostatne. Bez nej ti väčšina ihrísk neumožní hrať bez sprievodu trénera. Je medzinárodne uznávaná.",
+                  q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?",
+                  a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získaš základy a pripravíš sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test, po ktorom získaš oficiálnu spôsobilosť hrať na ihriskách.",
                 },
                 {
-                  q: "Čo ak neprejdem záverečným testom?",
-                  a: "Test môžeš opakovať. Náš tréner ťa pred ním dôkladne pripraví a poradí ti, na čo sa zamerať. Veľká väčšina účastníkov ho zvláda na prvý pokus.",
+                  q: "Čo zelená karta znamená v praxi a čo ak neprejdem testom?",
+                  a: "Zelená karta je medzinárodne uznávané potvrdenie tvojej spôsobilosti hrať golf samostatne – bez nej ti väčšina ihrísk neumožní hrať bez sprievodu trénera. Ak by si testom neprešiel, môžeš ho opakovať. Náš tréner ťa pred ním dôkladne pripraví a väčšina účastníkov ho zvláda na prvý pokus.",
                 },
               ]}
             />
