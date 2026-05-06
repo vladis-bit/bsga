@@ -1,8 +1,65 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail } from "lucide-react";
+import { useState } from "react";
+import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, Send } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-footer-logo.png";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    const { error } = await supabase
+      .from("newsletter_subscribers")
+      .insert({ email: email.trim().toLowerCase() });
+    setLoading(false);
+    if (error) {
+      if (error.code === "23505") {
+        toast({ title: "Už ste prihlásení", description: "Tento email je už v našom newslettri." });
+      } else {
+        toast({ title: "Chyba", description: "Nepodarilo sa prihlásiť. Skúste znova.", variant: "destructive" });
+      }
+      return;
+    }
+    toast({ title: "Ďakujeme!", description: "Boli ste úspešne prihlásení na odber noviniek." });
+    setEmail("");
+  };
+
   return <footer className="bg-foreground text-background">
+      {/* Newsletter */}
+      <div className="border-b border-background/10">
+        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <div>
+              <h4 className="font-bold text-base sm:text-lg mb-1">Novinky z BSGA</h4>
+              <p className="text-background/70 text-xs sm:text-sm">Prihláste sa na odber a nezmeškajte žiadnu novinku.</p>
+            </div>
+            <form onSubmit={handleSubscribe} className="flex w-full md:w-auto gap-2">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="vas@email.sk"
+                className="flex-1 md:w-72 h-11 rounded-full bg-background/10 border border-background/20 px-4 text-sm text-background placeholder:text-background/50 focus:outline-none focus:border-gold transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="h-11 rounded-full bg-gold text-foreground font-semibold px-5 text-sm hover:bg-gold/90 transition-colors disabled:opacity-50 flex items-center gap-2"
+              >
+                <Send className="w-4 h-4" />
+                {loading ? "..." : "Odoberať"}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand */}
