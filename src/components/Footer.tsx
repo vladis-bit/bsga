@@ -30,36 +30,6 @@ const Footer = () => {
   };
 
   return <footer className="bg-foreground text-background">
-      {/* Newsletter */}
-      <div className="border-b border-background/10">
-        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-            <div>
-              <h4 className="font-bold text-base sm:text-lg mb-1">Novinky z BSGA</h4>
-              <p className="text-background/70 text-xs sm:text-sm">Prihláste sa na odber a nezmeškajte žiadnu novinku.</p>
-            </div>
-            <form onSubmit={handleSubscribe} className="flex w-full md:w-auto gap-2">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="vas@email.sk"
-                className="flex-1 md:w-72 h-11 rounded-full bg-background/10 border border-background/20 px-4 text-sm text-background placeholder:text-background/50 focus:outline-none focus:border-gold transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="h-11 rounded-full bg-gold text-foreground font-semibold px-5 text-sm hover:bg-gold/90 transition-colors disabled:opacity-50 flex items-center gap-2"
-              >
-                <Send className="w-4 h-4" />
-                {loading ? "..." : "Odoberať"}
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand */}
@@ -194,6 +164,37 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
+      {/* Newsletter */}
+      <div className="border-t border-background/10">
+        <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14">
+          <div className="max-w-xl mx-auto text-center">
+            <span className="text-gold text-[10px] sm:text-xs tracking-[0.25em] uppercase">Newsletter</span>
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold mt-2 mb-2">Buďte prvý, kto sa dozvie</h3>
+            <p className="text-background/70 text-sm mb-6">
+              Prihláste sa na odber noviniek z BSGA — turnaje, kurzy a exkluzívne ponuky priamo do vášho inboxu.
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="vas@email.sk"
+                className="flex-1 h-12 rounded-full bg-background/10 border border-background/20 px-5 text-sm text-background placeholder:text-background/50 focus:outline-none focus:border-gold transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="h-12 rounded-full bg-gold text-foreground font-bold px-6 text-sm hover:bg-gold/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 whitespace-nowrap"
+              >
+                <Send className="w-4 h-4" />
+                {loading ? "Odosielam..." : "Prihlásiť sa"}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div className="border-t border-background/10">
         <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
