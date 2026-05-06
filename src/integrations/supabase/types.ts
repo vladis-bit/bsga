@@ -98,6 +98,57 @@ export type Database = {
         }
         Relationships: []
       }
+      reservations: {
+        Row: {
+          created_at: string
+          email: string
+          equipment: string | null
+          first_name: string
+          id: string
+          last_name: string
+          notes: string | null
+          phone: string
+          reservation_date: string
+          reservation_time: string
+          status: Database["public"]["Enums"]["reservation_status"]
+          trainer_email: string | null
+          trainer_name: string | null
+          type: Database["public"]["Enums"]["reservation_type"]
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          equipment?: string | null
+          first_name: string
+          id?: string
+          last_name: string
+          notes?: string | null
+          phone: string
+          reservation_date: string
+          reservation_time: string
+          status?: Database["public"]["Enums"]["reservation_status"]
+          trainer_email?: string | null
+          trainer_name?: string | null
+          type: Database["public"]["Enums"]["reservation_type"]
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          equipment?: string | null
+          first_name?: string
+          id?: string
+          last_name?: string
+          notes?: string | null
+          phone?: string
+          reservation_date?: string
+          reservation_time?: string
+          status?: Database["public"]["Enums"]["reservation_status"]
+          trainer_email?: string | null
+          trainer_name?: string | null
+          type?: Database["public"]["Enums"]["reservation_type"]
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -124,6 +175,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_busy_slots: {
+        Args: { _from: string; _to: string }
+        Returns: {
+          equipment: string
+          reservation_date: string
+          reservation_time: string
+          trainer_email: string
+          type: Database["public"]["Enums"]["reservation_type"]
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -134,6 +195,8 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user"
+      reservation_status: "pending" | "confirmed" | "cancelled"
+      reservation_type: "lesson" | "performance"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -262,6 +325,8 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user"],
+      reservation_status: ["pending", "confirmed", "cancelled"],
+      reservation_type: ["lesson", "performance"],
     },
   },
 } as const
