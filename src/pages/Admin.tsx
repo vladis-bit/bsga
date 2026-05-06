@@ -23,18 +23,26 @@ type ContactMsg = {
 
 type Subscriber = { id: string; email: string; created_at: string };
 type Profile = { id: string; full_name: string | null; email: string | null; created_at: string };
+type Reservation = {
+  id: string; type: string; trainer_name: string | null; equipment: string | null;
+  reservation_date: string; reservation_time: string;
+  first_name: string; last_name: string; email: string; phone: string;
+  notes: string | null; status: string; created_at: string;
+};
 
 const Admin = () => {
   const { user, isAdmin, loading, signOut } = useAuth();
   const [messages, setMessages] = useState<ContactMsg[]>([]);
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [reservations, setReservations] = useState<Reservation[]>([]);
 
   useEffect(() => {
     if (!isAdmin) return;
     supabase.from("contact_messages").select("*").order("created_at", { ascending: false }).then(({ data }) => setMessages((data as ContactMsg[]) || []));
     supabase.from("newsletter_subscribers").select("*").order("created_at", { ascending: false }).then(({ data }) => setSubscribers((data as Subscriber[]) || []));
     supabase.from("profiles").select("*").order("created_at", { ascending: false }).then(({ data }) => setProfiles((data as Profile[]) || []));
+    supabase.from("reservations").select("*").order("reservation_date", { ascending: false }).then(({ data }) => setReservations((data as Reservation[]) || []));
   }, [isAdmin]);
 
   if (loading) return <div className="min-h-screen flex items-center justify-center">Načítavam...</div>;
@@ -58,6 +66,7 @@ const Admin = () => {
           <Tabs defaultValue="messages">
             <TabsList className="mb-6">
               <TabsTrigger value="messages">Správy ({messages.length})</TabsTrigger>
+              <TabsTrigger value="reservations">Rezervácie ({reservations.length})</TabsTrigger>
               <TabsTrigger value="newsletter">Newsletter ({subscribers.length})</TabsTrigger>
               <TabsTrigger value="users">Používatelia ({profiles.length})</TabsTrigger>
             </TabsList>
@@ -79,6 +88,31 @@ const Admin = () => {
                     </div>
                     {m.service && <div className="text-sm mb-1"><strong>Služba:</strong> {m.service}</div>}
                     <p className="text-sm whitespace-pre-wrap mt-2">{m.message}</p>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="reservations">
+              <div className="space-y-3">
+                {reservations.length === 0 && <p className="text-muted-foreground">Žiadne rezervácie.</p>}
+                {reservations.map((r) => (
+                  <div key={r.id} className="bg-background/80 backdrop-blur border border-border/50 rounded-xl p-5">
+                    <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
+                      <div>
+                        <div className="font-bold">{r.first_name} {r.last_name}</div>
+                        <div className="text-sm text-muted-foreground">{r.email} • {r.phone}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-gold">{r.reservation_date} • {r.reservation_time?.slice(0, 5)}</div>
+                        <div className="text-xs text-muted-foreground">{r.status}</div>
+                      </div>
+                    </div>
+                    <div className="text-sm">
+                      <strong>{r.type === "lesson" ? "Lekcia" : "Performance Center"}:</strong>{" "}
+                      {r.type === "lesson" ? r.trainer_name : r.equipment}
+                    </div>
+                    {r.notes && <p className="text-sm text-muted-foreground mt-2 italic">„{r.notes}"</p>}
                   </div>
                 ))}
               </div>
