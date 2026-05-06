@@ -23,6 +23,9 @@ import Shop from "./pages/Shop";
 import Fitting from "./pages/Fitting";
 import StartGolf from "./pages/StartGolf";
 import NotFound from "./pages/NotFound";
+import Auth from "./pages/Auth";
+import Account from "./pages/Account";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +53,9 @@ const App = () => (
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/ucet" element={<Account />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieBanner />
