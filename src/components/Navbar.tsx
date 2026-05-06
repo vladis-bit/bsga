@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu } from "lucide-react";
+import { Menu, LogIn, UserPlus, User as UserIcon, LogOut, Shield } from "lucide-react";
 import bsgaLogo from "@/assets/logo2.png";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { useAuth } from "@/hooks/useAuth";
 
 type NavLink = {
   type?: "link";
@@ -35,6 +36,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, isAdmin, signOut } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -105,7 +107,47 @@ const Navbar = () => {
           </Link>
 
           {/* Hamburger Menu (all viewports) */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2">
+            {!user ? (
+              <>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => navigate("/auth")}
+                  className="hidden sm:inline-flex gap-1.5 text-sm"
+                >
+                  <LogIn className="w-4 h-4" /> Prihlásiť
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={() => navigate("/auth")}
+                  className="hidden sm:inline-flex gap-1.5 bg-gold text-foreground hover:bg-gold/90 font-bold text-sm"
+                >
+                  <UserPlus className="w-4 h-4" /> Registrácia
+                </Button>
+              </>
+            ) : (
+              <>
+                {isAdmin && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigate("/admin")}
+                    className="hidden sm:inline-flex gap-1.5 text-sm text-gold"
+                  >
+                    <Shield className="w-4 h-4" /> Admin
+                  </Button>
+                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => navigate("/ucet")}
+                  className="hidden sm:inline-flex gap-1.5 text-sm"
+                >
+                  <UserIcon className="w-4 h-4" /> Účet
+                </Button>
+              </>
+            )}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-10 w-10">
@@ -141,6 +183,36 @@ const Navbar = () => {
                       </SheetClose>
                     );
                   })}
+                  <div className="h-px bg-border/50 my-2" />
+                  {!user ? (
+                    <>
+                      <SheetClose asChild>
+                        <button onClick={() => handleNavigate("/auth")} className="px-5 py-3.5 text-left text-base font-medium rounded-xl border border-gold/30 bg-gold/10 text-gold flex items-center gap-2">
+                          <LogIn className="w-4 h-4" /> Prihlásiť sa / Registrovať
+                        </button>
+                      </SheetClose>
+                    </>
+                  ) : (
+                    <>
+                      {isAdmin && (
+                        <SheetClose asChild>
+                          <button onClick={() => handleNavigate("/admin")} className="px-5 py-3.5 text-left text-base font-medium rounded-xl border border-transparent hover:bg-gold/10 hover:text-gold flex items-center gap-2">
+                            <Shield className="w-4 h-4" /> Admin panel
+                          </button>
+                        </SheetClose>
+                      )}
+                      <SheetClose asChild>
+                        <button onClick={() => handleNavigate("/ucet")} className="px-5 py-3.5 text-left text-base font-medium rounded-xl border border-transparent hover:bg-gold/10 hover:text-gold flex items-center gap-2">
+                          <UserIcon className="w-4 h-4" /> Môj účet
+                        </button>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <button onClick={() => { signOut(); setIsOpen(false); }} className="px-5 py-3.5 text-left text-base font-medium rounded-xl border border-transparent hover:bg-destructive/10 hover:text-destructive flex items-center gap-2">
+                          <LogOut className="w-4 h-4" /> Odhlásiť sa
+                        </button>
+                      </SheetClose>
+                    </>
+                  )}
                 </nav>
               </SheetContent>
             </Sheet>
