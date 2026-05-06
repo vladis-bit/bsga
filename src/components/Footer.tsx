@@ -106,7 +106,7 @@ const Footer = () => {
 
             <div className="col-span-2 sm:col-span-1">
               <h4 className="text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-5">Kontakt</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-6">
                 <li>
                   <a href="tel:+421917225276" className="group flex items-start gap-2.5 text-background/60 hover:text-gold transition-colors text-sm">
                     <Phone className="w-3.5 h-3.5 mt-0.5 shrink-0" />
@@ -130,45 +130,34 @@ const Footer = () => {
                   Bratislava, Slovensko
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
 
-        {/* Newsletter */}
-        <div className="py-12 sm:py-16 border-b border-background/10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div>
-              <span className="text-gold text-[11px] tracking-[0.25em] uppercase">Newsletter</span>
-              <h3 className="font-serif text-3xl sm:text-4xl font-bold mt-3 mb-3 leading-tight">
-                Buďte prvý, kto sa dozvie.
-              </h3>
-              <p className="text-background/60 text-sm sm:text-base max-w-md">
-                Turnaje, kurzy a exkluzívne ponuky priamo do vášho inboxu. Žiadny spam, len to podstatné.
-              </p>
-            </div>
-            <form onSubmit={handleSubscribe} className="lg:justify-self-end w-full lg:max-w-md">
-              <div className="relative flex items-center bg-background/5 border border-background/15 rounded-full p-1.5 focus-within:border-gold/60 transition-colors">
-                <Mail className="w-4 h-4 text-background/40 ml-4 shrink-0" />
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Zadajte váš email"
-                  className="flex-1 bg-transparent px-3 py-2.5 text-sm text-background placeholder:text-background/40 focus:outline-none min-w-0"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="h-11 rounded-full bg-gold text-foreground font-bold px-5 text-sm hover:bg-gold/90 transition-colors disabled:opacity-50 flex items-center gap-2 whitespace-nowrap shrink-0"
-                >
-                  {loading ? "..." : (<>Prihlásiť <Send className="w-3.5 h-3.5" /></>)}
-                </button>
+              {/* Newsletter under Kontakt */}
+              <div className="border-t border-background/10 pt-5">
+                <span className="text-gold text-[10px] tracking-[0.2em] uppercase">Newsletter</span>
+                <p className="text-background/50 text-xs mt-1.5 mb-3 leading-relaxed">
+                  Novinky, turnaje a ponuky priamo do mailu.
+                </p>
+                <form onSubmit={handleSubscribe}>
+                  <div className="relative flex items-center bg-background/5 border border-background/15 rounded-full p-1 focus-within:border-gold/60 transition-colors">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Email"
+                      className="flex-1 bg-transparent px-3 py-2 text-xs text-background placeholder:text-background/40 focus:outline-none min-w-0"
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="h-8 rounded-full bg-gold text-foreground font-bold px-3 text-xs hover:bg-gold/90 transition-colors disabled:opacity-50 flex items-center gap-1.5 whitespace-nowrap shrink-0"
+                    >
+                      {loading ? "..." : (<>Prihlásiť <Send className="w-3 h-3" /></>)}
+                    </button>
+                  </div>
+                </form>
               </div>
-              <p className="text-background/40 text-xs mt-3 ml-2">
-                Odhlásiť sa môžete kedykoľvek. Spracovanie údajov podľa našich <Link to="/gdpr" className="underline hover:text-gold">zásad ochrany</Link>.
-              </p>
-            </form>
+            </div>
           </div>
         </div>
 
