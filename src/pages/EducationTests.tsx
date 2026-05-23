@@ -6,7 +6,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GreenCardQuiz from "@/components/GreenCardQuiz";
-import KidsGolfQuiz from "@/components/KidsGolfQuiz";
 
 const EducationTests = () => {
   return (
