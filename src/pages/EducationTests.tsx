@@ -6,7 +6,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GreenCardQuiz from "@/components/GreenCardQuiz";
-import KidsGolfQuiz from "@/components/KidsGolfQuiz";
 
 const EducationTests = () => {
   return (
@@ -49,19 +48,6 @@ const EducationTests = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem
-                value="kids"
-                className="border-2 border-border rounded-2xl bg-card overflow-hidden data-[state=open]:border-gold/60 data-[state=open]:shadow-lg data-[state=open]:shadow-gold/10 transition-all"
-              >
-                <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-gold/5 text-left">
-                  <span className="font-bold text-base sm:text-lg text-foreground">
-                    ⛳ Kvíz pre deti 8–16 rokov (30 otázok)
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="px-2 sm:px-4 pb-6 pt-2">
-                  <KidsGolfQuiz />
-                </AccordionContent>
-              </AccordionItem>
             </Accordion>
           </div>
         </section>
