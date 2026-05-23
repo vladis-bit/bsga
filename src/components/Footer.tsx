@@ -2,34 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, Send, MapPin, ArrowUpRight } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-footer-logo.png";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    const { error } = await supabase
-      .from("newsletter_subscribers")
-      .insert({ email: email.trim().toLowerCase() });
-    setLoading(false);
-    if (error) {
-      if (error.code === "23505") {
-        toast({ title: "Už ste prihlásení", description: "Tento email je už v našom newslettri." });
-      } else {
-        toast({ title: "Chyba", description: "Nepodarilo sa prihlásiť. Skúste znova.", variant: "destructive" });
-      }
-      return;
-    }
-    toast({ title: "Ďakujeme!", description: "Boli ste úspešne prihlásení na odber noviniek." });
-    setEmail("");
-  };
-
   const linkClass = "group inline-flex items-center gap-1.5 text-background/60 hover:text-gold transition-colors text-sm";
 
   return (
@@ -106,7 +80,7 @@ const Footer = () => {
 
             <div className="col-span-2 sm:col-span-1">
               <h4 className="text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-5">Kontakt</h4>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3">
                 <li>
                   <a href="tel:+421917225276" className="group flex items-start gap-2.5 text-background/60 hover:text-gold transition-colors text-sm">
                     <Phone className="w-3.5 h-3.5 mt-0.5 shrink-0" />
@@ -130,33 +104,6 @@ const Footer = () => {
                   Bratislava, Slovensko
                 </li>
               </ul>
-
-              {/* Newsletter under Kontakt */}
-              <div className="border-t border-background/10 pt-5">
-                <span className="text-gold text-[10px] tracking-[0.2em] uppercase">Newsletter</span>
-                <p className="text-background/50 text-xs mt-1.5 mb-3 leading-relaxed">
-                  Novinky, turnaje a ponuky priamo do mailu.
-                </p>
-                <form onSubmit={handleSubscribe}>
-                  <div className="relative flex items-center bg-background/5 border border-background/15 rounded-full p-1 focus-within:border-gold/60 transition-colors">
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Email"
-                      className="flex-1 bg-transparent px-3 py-2 text-xs text-background placeholder:text-background/40 focus:outline-none min-w-0"
-                    />
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="h-8 rounded-full bg-gold text-foreground font-bold px-3 text-xs hover:bg-gold/90 transition-colors disabled:opacity-50 flex items-center gap-1.5 whitespace-nowrap shrink-0"
-                    >
-                      {loading ? "..." : (<>Prihlásiť <Send className="w-3 h-3" /></>)}
-                    </button>
-                  </div>
-                </form>
-              </div>
             </div>
           </div>
         </div>
