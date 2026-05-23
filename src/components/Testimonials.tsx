@@ -77,8 +77,8 @@ const Testimonials = () => {
           <div className="relative">
             <Quote className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-gold/15 w-16 h-16 sm:w-24 sm:h-24 z-0" />
 
-            <div className="bg-card rounded-2xl p-6 sm:p-10 md:p-14 border border-border/50 shadow-xl relative overflow-hidden">
-              <div className="relative min-h-[220px] sm:min-h-[200px]">
+            <div className="bg-card rounded-2xl p-5 sm:p-10 md:p-14 border border-border/50 shadow-xl relative overflow-hidden">
+              <div className="relative min-h-[420px] sm:min-h-[280px] md:min-h-[240px]">
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={index}
@@ -91,29 +91,29 @@ const Testimonials = () => {
                         : "opacity-0 translate-x-full"
                     )}
                   >
-                    <p className="text-base sm:text-lg md:text-xl text-foreground leading-relaxed mb-6 sm:mb-8 italic">
+                    <p className="text-sm sm:text-lg md:text-xl text-foreground leading-relaxed mb-5 sm:mb-8 italic">
                       "{testimonial.text}"
                     </p>
-                    
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-gold/20 to-gold/5 rounded-full flex items-center justify-center border border-gold/20">
-                        <span className="text-gold font-bold text-lg sm:text-xl">
+
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                      <div className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br from-gold/20 to-gold/5 rounded-full flex items-center justify-center border border-gold/20 flex-shrink-0">
+                        <span className="text-gold font-bold text-base sm:text-xl">
                           {testimonial.name.charAt(0)}
                         </span>
                       </div>
-                      <div>
-                        <h4 className="font-bold text-foreground text-sm sm:text-base">
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-bold text-foreground text-sm sm:text-base truncate">
                           {testimonial.name}
                         </h4>
                         <p className="text-gold/80 text-xs sm:text-sm font-medium">
                           {testimonial.role}
                         </p>
                       </div>
-                      <div className="flex gap-1 ml-auto">
+                      <div className="flex gap-0.5 sm:gap-1 w-full sm:w-auto sm:ml-auto">
                         {[...Array(5)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-4 h-4 text-gold"
+                            className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
