@@ -40,7 +40,7 @@ const EducationTests = () => {
               >
                 <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-gold/5 text-left">
                   <span className="font-bold text-base sm:text-lg text-foreground">
-                    🏌️ Skúška ZK – teória (33 otázok)
+                    🏌️ Testové otázky – teória (50 otázok)
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="px-2 sm:px-4 pb-6 pt-2">

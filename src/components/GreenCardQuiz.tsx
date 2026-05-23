@@ -2,338 +2,59 @@ import { useState } from 'react';
 import { Trophy, CheckCircle, XCircle, ChevronRight, ChevronLeft, RefreshCw, BookOpen, ShieldAlert, Flag } from 'lucide-react';
 
 const ETIKA_QUESTIONS = [
-  {
-    id: 'e1',
-    q: 'Kedy je potrebné zakričať slovo FORE?',
-    options: [
-      'keď niekto zahrá birdie (jeden úder pod par)',
-      'keď si niekto čupne a zakryje si hlavu rukami',
-      'keď vy alebo váš spoluhráč zahrá loptičku, ktorá letí priamo na iných hráčov'
-    ],
-    correct: 2
-  },
-  {
-    id: 'e2',
-    q: 'Kedy môžete predbehnúť flight pred vami?',
-    options: [
-      'svojvoľne, keď za ním čakáte',
-      'keď čakáte viac ako päť minút',
-      'keď vám to pred vami idúci flight naznačí (platí len mimo turnajovej hry)'
-    ],
-    correct: 2
-  },
-  {
-    id: 'e3',
-    q: 'Keď vkročíte do dráhy patu spoluhráčovi, musíte si pripočítať dve trestné rany?',
-    options: [
-      'áno',
-      'nie'
-    ],
-    correct: 1
-  },
-  {
-    id: 'e4',
-    q: 'Čo urobíte pred začiatkom hry?',
-    options: [
-      'podáme si ruky so svojimi spoluhráčmi, zoznámime sa a poprajeme si peknú hru',
-      'dáme si rukavicu',
-      'urobíme tri cvičné švihy'
-    ],
-    correct: 0
-  },
-  {
-    id: 'e5',
-    q: 'Kedy opravíme pitch mark (priehlbinu po dopade lopty)?',
-    options: [
-      'vždy',
-      'len keď som to spravil ja',
-      'nikdy to neopravujem'
-    ],
-    correct: 0
-  },
-  {
-    id: 'e6',
-    q: 'Keď robíte cvičný švih, na čo musíte dávať pozor?',
-    options: [
-      'či nestojíte v aute',
-      'či niekoho neohrozujete',
-      'či niekto iný sa nechystá na úder a vy ho vyrušujete'
-    ],
-    correct: 1
-  },
-  {
-    id: 'e7',
-    q: 'Kde sa postavíte keď váš spoluhráč hrá loptu?',
-    options: [
-      'oproti hráčovi - šikmo za úrovňou lopty',
-      'blízko oproti alebo za chrbtom hráča',
-      'ako chcete'
-    ],
-    correct: 0
-  },
-  {
-    id: 'e8',
-    q: 'Čo musíte urobiť pred tým ako opustíte pieskovisko?',
-    options: [
-      'musíte za sebou upraviť všetky stopy a nerovnosti v pieskovisku',
-      'musíte zakričať FORE',
-      'nemusíte nič upravovať'
-    ],
-    correct: 0
-  },
-  {
-    id: 'e9',
-    q: 'Kde zapisujeme výsledok práve dohranej jamky?',
-    options: [
-      'na gríne',
-      'na ďalšom odpalisku',
-      'v klube po dohraní všetkých jamiek'
-    ],
-    correct: 1
-  },
-  {
-    id: 'e10',
-    q: 'Koľko trestných rán dostane hráč za porušenie etiky?',
-    options: [
-      'jednu trestnú ranu',
-      'žiadny trest (súťažný výbor však môže udeliť diskvalifikáciu za vážne porušenie etiky)',
-      'dve trestné rany'
-    ],
-    correct: 1
-  }
+  { id: 'e1', q: '1. Čo urobíte pred začiatkom hry?', options: ['podáme si ruky, zoznámime sa, oznámime akou loptou hráme a poprajeme si peknú hru', 'dáme si rukavicu', 'urobíme tri cvičné švihy'], correct: 0 },
+  { id: 'e2', q: '2. Kedy je potrebné zakričať „FORE"?', options: ['keď niekto zahrá jednu ranu pod par', 'keď lopta skončí v pieskovej prekážke', 'keď lopta letí smerom na iných hráčov alebo môže niekoho ohroziť'], correct: 2 },
+  { id: 'e3', q: '3. Keď počujete na ihrisku kričať „FORE", čo urobíte?', options: ['pozeráte sa okolo seba, kto kričí', 'prikrčíte sa a zakryjete si hlavu rukami', 'pokračujete ďalej, akoby sa nič nestalo'], correct: 1 },
+  { id: 'e4', q: '4. Keď robíte cvičný švih, na čo musíte dávať pozor?', options: ['či nestojíte v aute', 'či niekoho neohrozujete a či niekoho nevyrušujete pri údere', 'aby ste pri cvičnom švihu trafili zem čo najsilnejšie'], correct: 1 },
+  { id: 'e5', q: '5. Kde sa postavíte, keď váš spoluhráč hrá loptu?', options: ['šikmo za hráčom, v bezpečnej vzdialenosti mimo smeru letu lopty', 'priamo pred hráča do smeru jeho švihu alebo letu lopty', 'tesne vedľa hráča počas švihu'], correct: 0 },
+  { id: 'e6', q: '6. Kedy môžete predbehnúť flight pred vami?', options: ['svojvoľne, keď za ním čakáte', 'keď čakáte viac ako päť minút', 'keď vám to flight pred vami naznačí, mimo turnajovej hry'], correct: 2 },
+  { id: 'e7', q: '7. Kde zapisujeme výsledok práve dohranej jamky?', options: ['na greene, kde sme práve dohrali', 'na ďalšom odpalisku', 'v klube po dohraní všetkých jamiek'], correct: 1 },
+  { id: 'e8', q: '8. Koľko trestných rán dostane hráč za porušenie etiky?', options: ['jednu trestnú ranu', 'zvyčajne žiadny trest, ale za vážne porušenie môže byť hráč diskvalifikovaný', 'vždy dve trestné rany'], correct: 1 },
+  { id: 'e9', q: '9. Kedy opravíme pitch mark na greene?', options: ['vždy, keď ho vidíme', 'len keď sme ho spravili my', 'nikdy ho neopravujeme'], correct: 0 },
+  { id: 'e10', q: '10. Čo je správne urobiť s odrezaným kusom trávy (divotom) po údere z fairwaye?', options: ['nechať ho ležať na zemi', 'vložiť ho späť na miesto a pritlačiť nohou', 'zahodiť ho do roughu, aby nezavadzal ostatným hráčom'], correct: 1 },
+  { id: 'e11', q: '11. Ktoré z uvedených je dôležité dodržiavať pri hre z piesku?', options: ['pred úderom si môžeme palicou skúšať piesok za loptou', 'pred úderom je vhodné rukou skúšať kvalitu piesku', 'pred úderom sa nesmieme dotknúť piesku palicou za loptou a po údere po sebe stopy v piesku pohrabeme'], correct: 2 },
+  { id: 'e12', q: '12. Čo urobí hráč po príchode na green ako prvé?', options: ['položí si golfový bag na green', 'opraví pitch mark, ak ho lopta vytvorila, a potom si označí (omarkuje) svoju loptu', 'vyzuje sa, aby nepoškodil green'], correct: 1 },
 ];
 
 const PRAVIDLA_QUESTIONS = [
-  {
-    id: 'p1',
-    q: 'Ak trafíte loptu svojho spoluhráča ležiacu na greene po odohratí svojej rany na greene, aký trest dostanete?',
-    options: [
-      'žiadny trest',
-      'všeobecný trest - dve trestné rany alebo strata jamky',
-      'jednu trestnú ranu'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p2',
-    q: 'Kedy hráme provizórnu loptu?',
-    options: [
-      'keď si chceme zatrénovať',
-      'ak by pôvodná lopta mohla byť stratená mimo vodnej prekážky v rafe alebo by sa mohla nachádzať mimo hraníc ihriska',
-      'keď vám nevyšla prvá rana'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p3',
-    q: 'Keď hráč zahrá loptu do autu (out of bounds), čo musí urobiť?',
-    options: [
-      'dropnúť si loptu v mieste kde preťala biele kolíky, beztrestne',
-      'dropnúť si loptu v mieste kde preťala biele kolíky s jednou trestnou ranou',
-      'zahrať loptu z pôvodného miesta s jednou trestnou ranou'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p4',
-    q: 'Koľko palíc najviac môže mať hráč v bagu?',
-    options: [
-      'koľko chce',
-      '18',
-      '14'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p5',
-    q: 'Kedy si môže hráč loptu vymeniť?',
-    options: [
-      'kedykoľvek',
-      'len medzi jednotlivými jamkami',
-      'medzi jamkami alebo aj keď je lopta poškodená (po súhlase zapisovateľa)'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p6',
-    q: 'Ak hráč trafí vlajku umiestnenú v jamke pri hre na greene, aký trest dostane?',
-    options: [
-      'jednu trestnú ranu',
-      'všeobecný trest - dve trestné rany alebo strata jamky',
-      'žiadny trest'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p7',
-    q: 'Lopta skončí pod stromčekom a bráni vám v švihu alebo v postoji, čo môžete urobiť?',
-    options: [
-      'loptu si beztrestne dropnúť na dĺžku jednej palice, hocikedy',
-      'loptu si beztrestne dropnúť na dĺžku jednej palice od najbližšieho miesta úľavy, ak je to uvedené v miestnych pravidlách',
-      'loptu si beztrestne dropnúť na dĺžku dvoch palíc'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p8',
-    q: 'Akými kolíkmi môže byť označená trestná zóna?',
-    options: [
-      'bielymi kolíkmi',
-      'modrými kolíkmi',
-      'červenými kolíkmi'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p9',
-    q: 'Ak lopta skončí v pôde v oprave, čo musíte urobiť?',
-    options: [
-      'musíte loptu hrať ako leží',
-      'musíte si loptu beztrestne dropnúť na dĺžku jednej palice od najbližšieho miesta úľavy, nie bližšie k jamke',
-      'môžete ranu opakovať'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p10',
-    q: 'Keď začne hrmieť a rozhodca preruší turnaj, čo musíte urobiť?',
-    options: [
-      'musíte loptu označiť, okamžite prestať s hraním a presunúť sa do bezpečia',
-      'musíte dohrať jamku a potom hru prerušiť',
-      'ak chcete môžete hrať ďalej bez prerušenia hry'
-    ],
-    correct: 0
-  },
-  {
-    id: 'p11',
-    q: 'Keď neviete, či je lopta ktorú ste pri hľadaní našli vaša, čo môžete urobiť?',
-    options: [
-      'loptu kdekoľvek bez označenia môžete zodvihnúť a očistiť ju',
-      'loptu nesmiete zodvihnúť a očistiť',
-      'pred zodvihnutím musíte oznámiť úmysel loptu identifikovať, pozíciu označiť a čistiť len nevyhnutne'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p12',
-    q: 'Čo sa stane ak hráč podpíše a odovzdá scorekartu s nižším výsledkom ako v skutočnosti zahral?',
-    options: [
-      'nič sa nedeje',
-      'musí byť diskvalifikovaný',
-      'musí chybu napraviť'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p13',
-    q: 'Hráč, ktorý trafí loptou seba, svoju výstroj alebo svojho nosiča, aký trest dostáva?',
-    options: [
-      'jednu trestnú ranu',
-      'všeobecný trest - dve trestné rany alebo strata jamky',
-      'žiadny trest'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p14',
-    q: 'Hráč spustil loptu nesprávnym spôsobom a následne zahral úder. Aký trest dostáva?',
-    options: [
-      'Bez trestu',
-      'jednu trestnú ranu',
-      'všeobecný trest - dve trestné rany alebo strata jamky'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p15',
-    q: 'Kolíky označujúce rôzne situácie na ihrisku vám prekážajú v postoji alebo vo švihu:',
-    options: [
-      'musíte loptu hrať a nesmiete koliky pohnúť',
-      'môžete si loptu beztrestne posunúť',
-      'môžete si kolík odstrániť (okrem bielych kolíkov alebo kolíkov ako integrálnej súčasti)'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p16',
-    q: 'Čo máte urobiť, keď si nie ste istý, či vašu loptu nájdete, alebo či zaletela za hranicu ihriska (out)?',
-    options: [
-      'zahrať alternatívnu loptu',
-      'zahrať provizórnu loptu',
-      'zahrať náhradnú loptu'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p17',
-    q: 'Koľko minút od začatia hľadania má hráč na to, aby našiel svoju loptu?',
-    options: [
-      '3 minúty',
-      '4 minúty',
-      '5 minút'
-    ],
-    correct: 0
-  },
-  {
-    id: 'p18',
-    q: 'Hráč našiel svoju loptu v kríku, kde nemôže hrať. Jeho provizórna lopta je v ideálnej pozícii.',
-    options: [
-      'hráč môže pokračovať provizórnou loptou',
-      'hráč musí nájsť spôsob ako zahrať loptu',
-      'hráč môže vyhlásiť loptu za nehrateľnú s jednou trestnou ranou'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p19',
-    q: 'Loptička skončila v trestnej zóne označenej žltými kolíkmi. Ktorá možnosť je správna?',
-    options: [
-      'dropnúť si loptičku na najbližšie miesto mimo trestnej zóny s jednou trestnou ranou',
-      'dropnúť si loptičku na dve dĺžky palice od miesta kde preťala hranicu s jednou trestnou ranou',
-      'hrať loptu ako leží s možnosťou cvičných švihov a založenia palice'
-    ],
-    correct: 2
-  },
-  {
-    id: 'p20',
-    q: 'Loptička skončila v trestnej zóne označenej červenými kolíkmi. Ktorá možnosť je správna?',
-    options: [
-      'dropnúť si loptičku na najbližšie miesto mimo trestnej zóny s jednou trestnou ranou',
-      'dropnúť si loptičku na dve dĺžky palice od miesta prechodu s jednou trestnou ranou',
-      'dropnúť si loptičku na spojnici miesta vstupu a odkiaľ hral s jednou trestnou ranou'
-    ],
-    correct: 1
-  },
-  {
-    id: 'p21',
-    q: 'Ak hráčova lopta skončí v pieskovej prekážke (v štandardnom stave):',
-    options: [
-      'musí loptu hrať ako leží',
-      'môže si loptičku spustiť na spojnici jamka-lopta mimo piesku s dvoma trestnými ranami',
-      'môže si loptičku spustiť na spojnici jamka-lopta mimo piesku s jednou trestnou ranou'
-    ],
-    correct: 0
-  },
-  {
-    id: 'p22',
-    q: 'Kedy môže hráč vyhlásiť loptu za nehrateľnú?',
-    options: [
-      'hocikedy s jednou trestnou ranou (s výnimkou trestnej zóny)',
-      'iba ak mu v postoji alebo švihu prekáža nejaký objekt',
-      'len ak mu v postoji, švihu alebo dráhe hry prekáža objekt'
-    ],
-    correct: 0
-  },
-  {
-    id: 'p23',
-    q: 'Hráč pri odstraňovaní pohyblivej zábrany spôsobil pohyb svojej loptičky:',
-    options: [
-      'beztrestne pokračuje v hre odtiaľ, kde loptička zastavila',
-      'musí loptičku vrátiť na pôvodné miesto beztrestne',
-      'musí loptičku vrátiť na pôvodné miesto s jednou trestnou ranou'
-    ],
-    correct: 1
-  }
+  { id: 'p13', q: '13. Ako je vyhradený priestor na odpalisku, kde si môžeme natíčkovať loptu?', options: ['kdekoľvek, kde je nízko pokosená tráva', 'medzi odpaliskovými kameňmi a najviac dve dĺžky palice dozadu', 'medzi odpaliskovými kameňmi a 50 cm dozadu'], correct: 1 },
+  { id: 'p14', q: '14. Koľko palíc najviac môže mať hráč v bagu?', options: ['koľko chce', '18', '14'], correct: 2 },
+  { id: 'p15', q: '15. Ako sa nazýva výsledok jeden úder nad par?', options: ['birdie', 'divot', 'bogey'], correct: 2 },
+  { id: 'p16', q: '16. Kedy hráme provizórnu loptu?', options: ['keď si chceme zatrénovať', 'ak môže byť pôvodná lopta stratená mimo trestnej zóny alebo môže byť mimo hraníc ihriska', 'keď sa nám nepodarila prvá rana'], correct: 1 },
+  { id: 'p17', q: '17. Koľko minút od začatia hľadania má hráč na nájdenie lopty?', options: ['3 minúty', '4 minúty', '5 minút'], correct: 0 },
+  { id: 'p18', q: '18. Ak hráč zahrá loptu do OUT-u, čo musí urobiť?', options: ['dropnúť si loptu tam, kde preťala biele kolíky, bez trestu', 'dropnúť si loptu tam, kde preťala biele kolíky, s jednou trestnou ranou', 'hrať znova z pôvodného miesta s jednou trestnou ranou'], correct: 2 },
+  { id: 'p19', q: '19. Hráč druhou ranou zahrá loptu do OUT-u. Čo nasleduje?', options: ['hrá štvrtú ranu z miesta posledného úderu', 'hrá štvrtú ranu z miesta, kde lopta preťala OUT', 'hrá tretiu ranu z miesta posledného úderu'], correct: 0 },
+  { id: 'p20', q: '20. Akými kolíkmi sú označené hranice ihriska?', options: ['červenými', 'modrými', 'bielymi'], correct: 2 },
+  { id: 'p21', q: '21. Akými kolíkmi môže byť označená trestná zóna?', options: ['bielymi alebo modrými', 'červenými alebo žltými', 'iba červenými'], correct: 1 },
+  { id: 'p22', q: '22. Lopta skončí v trestnej zóne označenej žltými kolíkmi. Ktorá možnosť je správna?', options: ['hráč môže s jednou trestnou ranou hrať znova z miesta predchádzajúceho úderu', 'hráč môže dropnúť loptu na dve dĺžky palice od miesta vstupu do trestnej zóny', 'hráč môže beztrestne premiestniť loptu mimo trestnej zóny'], correct: 0 },
+  { id: 'p23', q: '23. Lopta skončí v trestnej zóne označenej červenými kolíkmi. Ktorá možnosť je správna?', options: ['beztrestne dropnúť loptu čo najbližšie k miestu, kde lopta vstúpila do trestnej zóny', 'dropnúť do dvoch dĺžok palice od miesta, kde lopta preťala hranicu trestnej zóny, nie bližšie k jamke, s jednou trestnou ranou', 'hrať z pôvodného miesta s dvomi trestnými ranami'], correct: 1 },
+  { id: 'p24', q: '24. Ak lopta skončí v pôde v oprave, čo môže hráč urobiť?', options: ['musí ju hrať ako leží', 'môže si beztrestne dropnúť loptu na jednu dĺžku palice od najbližšieho miesta úľavy, nie bližšie k jamke', 'môže ranu automaticky opakovať'], correct: 1 },
+  { id: 'p25', q: '25. Lopta skončí pri mladom stromčeku, ktorý prekáža v postoji alebo švihu. Čo môžete urobiť?', options: ['vždy si beztrestne dropnúť loptu na jednu dĺžku palice', 'ak to povoľujú miestne pravidlá, môžete si vziať beztrestnú úľavu', 'vždy si beztrestne dropnúť loptu na dve dĺžky palice'], correct: 1 },
+  { id: 'p26', q: '26. Ak hráč nevie, či je nájdená lopta jeho, čo môže urobiť?', options: ['loptu môže zdvihnúť a úplne očistiť bez označenia', 'loptu nesmie nikdy zdvihnúť', 'musí si označiť polohu lopty, môže ju zdvihnúť na identifikáciu a očistiť len nevyhnutne'], correct: 2 },
+  { id: 'p27', q: '27. Kedy si môže hráč vymeniť loptu?', options: ['kedykoľvek počas jamky', 'len medzi jednotlivými jamkami', 'medzi jamkami alebo keď to pravidlá dovoľujú, napríklad pri poškodenej lopte alebo pri úľave'], correct: 2 },
+  { id: 'p28', q: '28. Ak hráč trafí vlajku umiestnenú v jamke pri hre na greene, aký trest dostane?', options: ['jednu trestnú ranu', 'všeobecný trest', 'žiadny trest'], correct: 2 },
+  { id: 'p29', q: '29. Ak hráč pri putte z greenu trafí loptu spoluhráča ležiacu na greene, aký trest dostane?', options: ['žiadny trest', 'všeobecný trest – dve trestné rany alebo strata jamky', 'jednu trestnú ranu'], correct: 1 },
+  { id: 'p30', q: '30. Hráč trafí loptou seba, svoju výstroj alebo svojho nosiča. Aký trest dostáva?', options: ['jednu trestnú ranu', 'všeobecný trest', 'žiadny trest'], correct: 2 },
+  { id: 'p31', q: '31. Hráč pri odstraňovaní pohyblivej zábrany spôsobí pohyb svojej lopty. Čo musí urobiť?', options: ['pokračuje beztrestne odtiaľ, kde lopta zastavila', 'vráti loptu na pôvodné miesto bez trestu', 'vráti loptu na pôvodné miesto s jednou trestnou ranou'], correct: 1 },
+  { id: 'p32', q: '32. Kolíky na ihrisku vám prekážajú v postoji alebo švihu. Čo platí?', options: ['nikdy sa nesmú pohnúť', 'môžete si beztrestne posunúť loptu', 'môžete odstrániť pohyblivý kolík, okrem bielych kolíkov označujúcich hranicu ihriska'], correct: 2 },
+  { id: 'p33', q: '33. Hráč našiel loptu v kríku, kde nevie zaujať postoj ani zahrať úder. Jeho provizórna lopta je v ideálnej pozícii. Čo platí?', options: ['môže pokračovať provizórnou loptou, lebo je v lepšej pozícii', 'môže beztrestne presunúť pôvodnú loptu na ľahšie hrateľné miesto', 'môže vyhlásiť pôvodnú loptu za nehrateľnú a pokračovať s jednou trestnou ranou podľa pravidiel'], correct: 2 },
+  { id: 'p34', q: '34. Kedy môže hráč vyhlásiť loptu za nehrateľnú?', options: ['kedykoľvek s jednou trestnou ranou, okrem trestnej zóny', 'iba ak mu prekáža nejaký objekt', 'len ak s tým súhlasí spoluhráč'], correct: 0 },
+  { id: 'p35', q: '35. Ktorú možnosť NEMÔŽE hráč využiť pri nehrateľnej lopte?', options: ['hrať z najbližšieho možného miesta úľavy beztrestne', 'hrať z pôvodného miesta s jednou trestnou ranou', 'hrať dozadu na spojnici lopta – jamka s jednou trestnou ranou'], correct: 0 },
+  { id: 'p36', q: '36. Ak hráčova lopta skončí v pieskovej prekážke a nechce alebo nevie ju zahrať, čo môže urobiť?', options: ['beztrestne ju vybrať a položiť mimo piesku', 's dvoma trestnými ranami dropnúť mimo pieskoviska dozadu na spojnici jamka – lopta', 's jednou trestnou ranou dropnúť mimo pieskoviska kdekoľvek podľa vlastného výberu'], correct: 1 },
+  { id: 'p37', q: '37. Kedy môže hráč počas turnaja dostať radu od iného hráča?', options: ['kedykoľvek počas celej hry', 'len ak ide o pravidlá alebo bezpečnosť', 'pri každom údere a výbere palice'], correct: 1 },
+  { id: 'p38', q: '38. Čo sa stane, ak hráč podpíše a odovzdá scorekartu s nižším výsledkom, ako v skutočnosti zahral?', options: ['nič sa nedeje', 'je diskvalifikovaný', 'musí chybu len dodatočne opraviť'], correct: 1 },
+  { id: 'p39', q: '39. Keď začne hrmieť a rozhodca preruší turnaj, čo musíte urobiť?', options: ['okamžite prestať hrať a presunúť sa do bezpečia', 'dohrať jamku a potom prerušiť hru', 'môžete hrať ďalej, ak chcete'], correct: 0 },
+  { id: 'yn40', q: '40. ÁNO/NIE: Keď vkročíte spoluhráčovi do dráhy puttu, musíte si pripočítať dve trestné rany?', options: ['ÁNO', 'NIE'], correct: 1 },
+  { id: 'yn41', q: '41. ÁNO/NIE: Loptičku môžeme kedykoľvek zdvihnúť a očistiť.', options: ['ÁNO', 'NIE'], correct: 1 },
+  { id: 'yn42', q: '42. ÁNO/NIE: Spoluhráča na turnaji sa môžeme pýtať, akou palicou hrá.', options: ['ÁNO', 'NIE'], correct: 1 },
+  { id: 'yn43', q: '43. ÁNO/NIE: Počet trestných rán v červenej a žltej trestnej zóne je rovnaký.', options: ['ÁNO', 'NIE'], correct: 0 },
+  { id: 'yn44', q: '44. ÁNO/NIE: Hráč by mal mať počas hry vypnutý alebo stíšený mobilný telefón, aby nerušil ostatných hráčov.', options: ['ÁNO', 'NIE'], correct: 0 },
+  { id: 'yn45', q: '45. ÁNO/NIE: Voľnú úľavu (free drop) môžeme použiť aj vtedy, keď lopta leží na tráve, ale hráč stojí jednou nohou na ceste.', options: ['ÁNO', 'NIE'], correct: 0 },
+  { id: 'yn46', q: '46. ÁNO/NIE: Za úľavu z pôdy v oprave je jedna trestná rana.', options: ['ÁNO', 'NIE'], correct: 1 },
+  { id: 'yn47', q: '47. ÁNO/NIE: Ak zahráme mimo poradia v bežnej hre na rany, je za to trestná rana.', options: ['ÁNO', 'NIE'], correct: 1 },
+  { id: 'b48', q: '48. BONUS – Situácia: Hráč chipuje štvrtú ranu z roughu, trafí spoluhráčovu loptu ležiacu na greene a jeho lopta sa po odraze zakotúľa do jamky. Dostane hráč jednu trestnú ranu?', options: ['ÁNO', 'NIE'], correct: 1 },
+  { id: 'b49', q: '49. BONUS – Rovnaká situácia: Počíta sa jeho úder ako zahraný do jamky?', options: ['ÁNO', 'NIE'], correct: 0 },
+  { id: 'b50', q: '50. BONUS – Rovnaká situácia: Spoluhráčova lopta sa vráti na pôvodné miesto.', options: ['ÁNO', 'NIE'], correct: 0 },
 ];
 
 type Section = 'welcome' | 'quiz' | 'results';
@@ -396,7 +117,7 @@ const GreenCardQuiz = () => {
             Záverečný test
           </h2>
           <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gold mb-8 sm:mb-10">
-            Kurz zelenej karty
+            Testové otázky podľa oficiálneho dokumentu
           </h3>
           <div className="flex flex-col items-center">
             <button 
@@ -408,8 +129,8 @@ const GreenCardQuiz = () => {
                   <Trophy className="w-7 h-7 sm:w-8 sm:h-8 text-gold group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-1">Kompletný kurz</h4>
-                  <p className="text-muted-foreground text-sm">33 otázok (Etika + Pravidlá)</p>
+                  <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-1">Kompletný test</h4>
+                  <p className="text-muted-foreground text-sm">50 otázok (Etika, Pravidlá, ÁNO/NIE + Bonus)</p>
                 </div>
               </div>
             </button>
