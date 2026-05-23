@@ -117,7 +117,7 @@ const GreenCardQuiz = () => {
             Záverečný test
           </h2>
           <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gold mb-8 sm:mb-10">
-            Testové otázky podľa oficiálneho dokumentu
+            Testové otázky pre účastníkov ZK
           </h3>
           <div className="flex flex-col items-center">
             <button 
@@ -130,7 +130,7 @@ const GreenCardQuiz = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-1">Kompletný test</h4>
-                  <p className="text-muted-foreground text-sm">50 otázok (Etika, Pravidlá, ÁNO/NIE + Bonus)</p>
+                  <p className="text-muted-foreground text-sm">50 otázok z golfového ihriska a etiky</p>
                 </div>
               </div>
             </button>
