@@ -78,7 +78,7 @@ const Testimonials = () => {
             <Quote className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-gold/15 w-16 h-16 sm:w-24 sm:h-24 z-0" />
 
             <div className="bg-card rounded-2xl p-5 sm:p-10 md:p-14 border border-border/50 shadow-xl relative overflow-hidden">
-              <div className="relative min-h-[420px] sm:min-h-[280px] md:min-h-[240px]">
+              <div className="relative min-h-[360px] sm:min-h-[260px] md:min-h-[240px]">
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={index}
