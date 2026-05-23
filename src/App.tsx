@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
-import NewsletterPopup from "./components/NewsletterPopup";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -23,10 +22,6 @@ import Shop from "./pages/Shop";
 import Fitting from "./pages/Fitting";
 import StartGolf from "./pages/StartGolf";
 import NotFound from "./pages/NotFound";
-import Auth from "./pages/Auth";
-import Account from "./pages/Account";
-import Admin from "./pages/Admin";
-import Reservation from "./pages/Reservation";
 
 const queryClient = new QueryClient();
 
@@ -54,14 +49,9 @@ const App = () => (
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/ucet" element={<Account />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/rezervacia" element={<Reservation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieBanner />
-          <NewsletterPopup />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
