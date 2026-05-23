@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, Send, MapPin, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-footer-logo.png";
 
 const Footer = () => {
