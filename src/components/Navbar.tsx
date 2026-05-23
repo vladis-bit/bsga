@@ -29,8 +29,6 @@ const navLinks: NavItem[] = [
   { name: "BSGA Tour", href: "/tour" },
   { name: "Fitting", href: "/fitting" },
   { name: "Obchod", href: "/obchod" },
-  { type: "separator" },
-  { name: "Rezervácia", href: "/rezervacia" },
 ];
 
 const Navbar = () => {
