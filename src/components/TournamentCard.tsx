@@ -41,23 +41,21 @@ const TournamentCard = ({
         </div>}
 
       {/* Header - always visible */}
-      <div className="flex items-center gap-3 sm:gap-6 p-3 sm:p-6">
+      <div className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6">
         {/* Tournament number */}
-        <div className="flex-shrink-0 w-10 h-10 sm:w-16 sm:h-16 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center">
+        <div className="flex-shrink-0 w-11 h-11 sm:w-16 sm:h-16 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center">
           <span className="text-gold font-serif font-bold text-base sm:text-xl">{number}</span>
         </div>
 
         {/* Date, tour label, location */}
         <div className="flex-1 min-w-0">
           {/* Mobile: stacked layout */}
-          <div className="flex flex-col sm:hidden">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-gold text-sm font-sans">{date}</span>
-              <span className="text-primary-foreground font-serif font-bold text-xs tracking-wide whitespace-nowrap">
-                {tourLabel} {number}
-              </span>
-            </div>
-            <span className="text-primary-foreground font-medium text-xs uppercase tracking-wide truncate mt-1">
+          <div className="flex flex-col sm:hidden gap-0.5">
+            <span className="text-primary-foreground/70 font-serif text-[11px] tracking-wide uppercase">
+              {tourLabel} {number}
+            </span>
+            <span className="text-gold text-base font-sans font-medium leading-tight">{date}</span>
+            <span className="text-primary-foreground font-medium text-xs uppercase tracking-wide truncate">
               {location}
             </span>
           </div>
