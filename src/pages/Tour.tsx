@@ -31,7 +31,7 @@ const tournaments = [
     date: "5.6.2026",
     location: "Tále",
     image: taleImg,
-    links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028133", galleryUrl: "https://drive.google.com/drive/folders/1TLphxWdQEHPAuaNvflVUHiIw8qfApUiC?usp=sharing" }
+    links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028133", galleryUrl: "https://drive.google.com/drive/folders/1WsLb9zka0RqK7mYmQU-koTFq_0IgcpOP?usp=sharing" }
   },
   {
     number: 3,
