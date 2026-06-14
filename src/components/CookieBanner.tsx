@@ -49,38 +49,46 @@ const CookieBanner = () => {
         />
       )}
 
-      <div className="fixed bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 z-[60]">
-        <div className="mx-auto max-w-3xl rounded-lg border border-border bg-card shadow-md">
-          {/* Compact view – classic bar, smaller & rounded */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-full max-w-5xl px-3 sm:px-6 z-[60]">
+        <div className={`dark relative bg-[#0a0a0a]/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl overflow-hidden ${showDetails ? "" : "p-4 sm:p-6 md:p-8"}`}>
+          {/* Subtle gold decorative line at the top */}
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
+
+          {/* Compact view – elegant dark luxury */}
           {!showDetails && (
-            <div className="flex flex-col gap-2 px-3 py-2 sm:px-4 sm:py-2.5 md:flex-row md:items-center md:justify-between md:gap-4">
-              <p className="flex-1 text-[11px] sm:text-xs text-foreground leading-snug">
-                Táto stránka používa cookies pre základné fungovanie a analýzu návštevnosti.
-                Viac informácií v{" "}
-                <Link to="/gdpr" className="text-gold underline underline-offset-2 hover:text-gold-light">
-                  zásadách ochrany osobných údajov
-                </Link>
-                .
-              </p>
-              <div className="flex flex-wrap items-center gap-1 md:flex-nowrap">
-                <Button
-                  variant="ghost"
-                  size="sm"
+            <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8">
+              <div className="flex-1 text-center md:text-left">
+                <h4 className="text-white font-serif text-base sm:text-lg mb-1.5">
+                  Súkromie a súbory cookies
+                </h4>
+                <p className="text-white/60 text-xs sm:text-sm leading-relaxed max-w-2xl">
+                  Táto stránka používa cookies pre základné fungovanie a analýzu návštevnosti. Vaše údaje sú u nás v bezpečí.{" "}
+                  <Link to="/gdpr" className="text-gold hover:text-gold-light underline underline-offset-4 transition-colors">
+                    Viac informácií v zásadách ochrany osobných údajov
+                  </Link>
+                  .
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3 shrink-0">
+                <button
                   onClick={() => setShowDetails(true)}
-                  className="h-7 px-2.5 text-[11px] text-muted-foreground hover:text-foreground"
+                  className="text-white/70 hover:text-white text-xs sm:text-sm font-medium transition-colors px-3 py-2"
                 >
                   Nastavenia
-                </Button>
-                <Button variant="outline" size="sm" onClick={rejectAll} className="h-7 px-2.5 text-[11px]">
+                </button>
+                <button
+                  onClick={rejectAll}
+                  className="text-white/70 hover:text-white text-xs sm:text-sm font-medium transition-colors border border-white/20 hover:border-white/40 px-5 py-2 rounded-full"
+                >
                   Odmietnuť
-                </Button>
-                <Button
-                  size="sm"
+                </button>
+                <button
                   onClick={acceptAll}
-                  className="h-7 px-3 text-[11px] bg-gold text-primary hover:bg-gold-light font-semibold"
+                  className="bg-gradient-to-tr from-[#b8860b] via-[#e3b341] to-[#d4af37] text-black font-semibold text-xs sm:text-sm px-6 sm:px-8 py-2.5 rounded-full shadow-lg shadow-gold/20 hover:scale-[1.02] active:scale-95 transition-all"
                 >
                   Súhlasím
-                </Button>
+                </button>
               </div>
             </div>
           )}
