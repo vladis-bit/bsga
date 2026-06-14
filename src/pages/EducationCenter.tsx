@@ -2,7 +2,7 @@ import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ClipboardCheck, Newspaper, ChevronRight } from "lucide-react";
+import { ClipboardCheck, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -29,12 +29,6 @@ const EducationCenter = () => {
       title: "Testy",
       description: "Záverečné otázky na zelenú kartu"
     },
-    {
-      to: "/edukacne-centrum/blog",
-      icon: Newspaper,
-      title: "BSGA Blog",
-      description: "Novinky a články zo sveta golfu"
-    }
   ];
 
   return (
