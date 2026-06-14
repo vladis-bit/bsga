@@ -23,10 +23,10 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           Populárne
         </div>
       )}
-      <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/50 shadow-lg shadow-gold/5' : 'border-border hover:border-gold/30'}`}>
+      <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border-2 !bg-[#0a0a0a] transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/60 shadow-lg shadow-gold/10' : 'border-gold/50 hover:border-gold/70'}`}>
         <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Názov */}
-        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6 text-center">
+        <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 text-center">
           {title}
         </h3>
         
@@ -35,7 +35,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-2.5 sm:gap-3">
               <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
-              <span className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{feature}</span>
+              <span className="text-white/60 text-xs sm:text-sm leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
@@ -43,7 +43,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         {/* Cena */}
         <div className="mb-3 sm:mb-4 text-center">
           {originalPrice && (
-            <span className="text-muted-foreground line-through text-base sm:text-lg mr-2">
+            <span className="text-white/50 line-through text-base sm:text-lg mr-2">
               {originalPrice.toLocaleString('sk-SK', { minimumFractionDigits: 2 })} €
             </span>
           )}
@@ -71,7 +71,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           </Button>
         )}
         {note && (
-          <p className="mt-3 text-center text-xs text-muted-foreground italic">
+          <p className="mt-3 text-center text-xs text-white/50 italic">
             {note}
           </p>
         )}
