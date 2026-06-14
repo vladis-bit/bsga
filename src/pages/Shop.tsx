@@ -16,6 +16,9 @@ import merchWineGlass from "@/assets/merch/wine-glass.png";
 import merchLuggageTag from "@/assets/merch/luggage-tag.png";
 import merchCap from "@/assets/merch/cap.png";
 import merchShoeBag from "@/assets/merch/shoe-bag.png";
+import merchTowel from "@/assets/merch/towel.png.asset.json";
+import merchRznSpeed from "@/assets/merch/rzn-speed.png.asset.json";
+import merchSportsBag from "@/assets/merch/sports-bag.png.asset.json";
 
 const Shop = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -107,6 +110,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_5kQfZh0Le4qY21V3vWbV609",
       description:
         "Priestranná športová taška vhodná do posilňovne aj na golf. Dostatok miesta na oblečenie, topánky a doplnky.",
+      image: merchSportsBag.url,
     },
     {
       title: "Vínový pohár",
@@ -130,6 +134,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_bJe7sL9hKaPm4a39UkbV604",
       description:
         "Balenie 12 golfových loptičiek RZN Speed. Vysoký výkon za skvelú cenu – ideálne na každodenný tréning aj hru.",
+      image: merchRznSpeed.url,
     },
     {
       title: "Taška na topánky",
@@ -145,6 +150,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_28E5kD79C7Da7mf3vWbV606",
       description:
         "Kvalitný golfový uterák v modrej farbe. Nepostrádateľný doplnok pri golfe – na čistenie palíc, loptičiek a rúk.",
+      image: merchTowel.url,
     },
     {
       title: "Visačka s logom",
