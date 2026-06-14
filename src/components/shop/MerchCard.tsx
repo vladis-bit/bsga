@@ -11,11 +11,11 @@ interface MerchCardProps {
 
 const MerchCard = ({ title, price, description, purchaseUrl, image }: MerchCardProps) => {
   return (
-    <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-gold/40 hover:shadow-gold/10">
+    <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl transition-all duration-500 hover:border-gold/40 hover:shadow-gold/10">
       <div className="relative h-full flex flex-col">
         {/* Image frame with white outline */}
         <div className="p-5 sm:p-6 pb-2">
-          <div className="relative aspect-square overflow-hidden rounded-2xl border-2 border-white/60 bg-white/5 p-4 flex items-center justify-center transition-all duration-500 group-hover:border-white/90">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-white/60 bg-white/5 p-4 flex items-center justify-center transition-all duration-500 group-hover:border-white/90">
             {image ? (
               <img
                 loading="lazy"
