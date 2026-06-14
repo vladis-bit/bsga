@@ -71,7 +71,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           </Button>
         )}
         {note && (
-          <p className="mt-3 text-center text-xs text-muted-foreground italic">
+          <p className="mt-3 text-center text-xs text-white/50 italic">
             {note}
           </p>
         )}
