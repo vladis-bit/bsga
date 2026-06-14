@@ -50,7 +50,7 @@ const CookieBanner = () => {
       )}
 
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-full max-w-5xl px-3 sm:px-6 z-[60]">
-        <div className={`relative bg-[#0a0a0a]/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl overflow-hidden ${showDetails ? "" : "p-4 sm:p-6 md:p-8"}`}>
+        <div className={`dark relative bg-[#0a0a0a]/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl overflow-hidden ${showDetails ? "" : "p-4 sm:p-6 md:p-8"}`}>
           {/* Subtle gold decorative line at the top */}
           <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
 
