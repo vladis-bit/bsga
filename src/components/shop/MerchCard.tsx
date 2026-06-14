@@ -11,7 +11,7 @@ interface MerchCardProps {
 
 const MerchCard = ({ title, price, description, purchaseUrl, image }: MerchCardProps) => {
   return (
-    <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border border-white/[0.08] bg-[#0a0a0a] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-gold/30">
+    <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border-2 border-gold/50 !bg-[#0a0a0a] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-gold/70">
       <div className="relative h-full flex flex-col">
         {/* Image — edge to edge, no frame padding */}
         <div className="relative aspect-[4/5] overflow-hidden bg-[#0e0e0e]">
