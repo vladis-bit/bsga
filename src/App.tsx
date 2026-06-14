@@ -17,7 +17,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import EducationCenter from "./pages/EducationCenter";
 import EducationTests from "./pages/EducationTests";
 import EducationCalculators from "./pages/EducationCalculators";
-import EducationBlog from "./pages/EducationBlog";
+
 import Shop from "./pages/Shop";
 import Fitting from "./pages/Fitting";
 import StartGolf from "./pages/StartGolf";
@@ -43,7 +43,7 @@ const App = () => (
             <Route path="/edukacne-centrum" element={<EducationCenter />} />
             <Route path="/edukacne-centrum/testy" element={<EducationTests />} />
             <Route path="/edukacne-centrum/kalkulacky" element={<EducationCalculators />} />
-            <Route path="/edukacne-centrum/blog" element={<EducationBlog />} />
+            
             <Route path="/obchod" element={<Shop />} />
             <Route path="/fitting" element={<Fitting />} />
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
