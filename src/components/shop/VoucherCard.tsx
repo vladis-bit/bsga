@@ -26,10 +26,10 @@ const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
 
         {/* Content */}
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold text-foreground mb-2">
+          <h3 className="text-xl font-bold text-white mb-2">
             Darčeková poukážka
           </h3>
-          <p className="text-muted-foreground text-sm mb-4 flex-grow">
+          <p className="text-white/60 text-sm mb-4 flex-grow">
             Darujte zážitok z golfu. Poukážka je platná 12 mesiacov od zakúpenia.
           </p>
           <div className="flex items-center justify-between">
