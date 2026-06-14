@@ -34,6 +34,15 @@ import galleryKidsCampLine from "@/assets/gallery/photo-30.png";
 import gallerySwingStatue from "@/assets/gallery/photo-31.png";
 import galleryDuoRange from "@/assets/gallery/photo-32.png";
 import galleryTeamClubhouseBig from "@/assets/gallery/photo-33.png";
+import upload8 from "@/assets/gallery/upload-8.png.asset.json";
+import upload9 from "@/assets/gallery/upload-9.png.asset.json";
+import upload10 from "@/assets/gallery/upload-10.png.asset.json";
+import upload11 from "@/assets/gallery/upload-11.png.asset.json";
+import upload12 from "@/assets/gallery/upload-12.png.asset.json";
+import upload13 from "@/assets/gallery/upload-13.png.asset.json";
+import upload14 from "@/assets/gallery/upload-14.png.asset.json";
+import upload15 from "@/assets/gallery/upload-15.png.asset.json";
+import upload16 from "@/assets/gallery/upload-16.png.asset.json";
 
 const images = [
   {
@@ -157,6 +166,24 @@ const images = [
     alt: "Dvaja golfisti na ihrisku počas tréningu"
   }
 ];
+
+const extraImages = [
+  { src: upload8.url, alt: "Pár v záhrade pri západe slnka" },
+  { src: upload9.url, alt: "Skupinová selfie BSGA na ihrisku v Španielsku" },
+  { src: upload10.url, alt: "Selfie štvorice golfistov na fairwayi" },
+  { src: upload11.url, alt: "Mladý tím BSGA v bielych pološkách" },
+  { src: upload12.url, alt: "Juniorský tím BSGA s trofejami" },
+  { src: upload13.url, alt: "Moderovanie BSGA Tour s mikrofónom" },
+  { src: upload14.url, alt: "Veľká skupina študentov na golfovom kempe" },
+  { src: upload15.url, alt: "Tím BSGA pri Ryder Cup Camiral 2031" },
+  { src: upload16.url, alt: "Skupinová fotografia golfistov na odpalisku" },
+];
+
+// Insert extra images at scattered positions for a random feel
+const insertPositions = [1, 4, 7, 10, 13, 17, 21, 25, 28];
+insertPositions.forEach((pos, i) => {
+  images.splice(pos + i, 0, extraImages[i]);
+});
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
