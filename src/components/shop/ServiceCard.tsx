@@ -43,7 +43,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         {/* Cena */}
         <div className="mb-3 sm:mb-4 text-center">
           {originalPrice && (
-            <span className="text-muted-foreground line-through text-base sm:text-lg mr-2">
+            <span className="text-white/50 line-through text-base sm:text-lg mr-2">
               {originalPrice.toLocaleString('sk-SK', { minimumFractionDigits: 2 })} €
             </span>
           )}
