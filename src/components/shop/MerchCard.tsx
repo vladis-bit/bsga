@@ -11,45 +11,66 @@ interface MerchCardProps {
 
 const MerchCard = ({ title, price, description, purchaseUrl, image }: MerchCardProps) => {
   return (
-    <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
-      <div className="h-full flex flex-col rounded-xl sm:rounded-2xl overflow-hidden">
-        {image && (
-          <div className="aspect-square bg-white overflow-hidden">
-            <img
-              loading="lazy"
-              decoding="async"
-              src={image}
-              alt={title}
-              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-            />
+    <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-gold/40 hover:shadow-gold/10">
+      <div className="relative h-full flex flex-col">
+        {/* Image frame with white outline */}
+        <div className="p-5 sm:p-6 pb-2">
+          <div className="relative aspect-square overflow-hidden rounded-2xl border-2 border-white/60 bg-white/5 p-4 flex items-center justify-center transition-all duration-500 group-hover:border-white/90">
+            {image ? (
+              <img
+                loading="lazy"
+                decoding="async"
+                src={image}
+                alt={title}
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white/30 text-xs uppercase tracking-widest">
+                BSGA
+              </div>
+            )}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/5" />
           </div>
-        )}
-        <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-grow">
-        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 text-center">
-          {title}
-        </h3>
-
-        <div className="mb-3 sm:mb-4 text-center">
-          <span className="text-2xl sm:text-3xl font-bold text-gold">
-            {price.toLocaleString("sk-SK", { minimumFractionDigits: 2 })}
-          </span>
-          <span className="text-lg sm:text-xl text-gold ml-1">€</span>
         </div>
 
-        <p className="text-muted-foreground text-xs sm:text-sm text-center mb-6 sm:mb-8 flex-grow leading-relaxed">
-          {description}
-        </p>
+        {/* Content */}
+        <div className="px-6 sm:px-8 pb-7 sm:pb-8 pt-4 flex flex-col items-center text-center flex-grow">
+          <h3 className="font-['Playfair_Display'] text-xl sm:text-2xl text-white font-semibold tracking-wide mb-2">
+            {title}
+          </h3>
 
-        {purchaseUrl ? (
-          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
-            <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">Kúpiť</a>
-          </Button>
-        ) : (
-          <Button disabled className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
-            Kúpiť
-          </Button>
-        )}
+          <div className="mb-3 sm:mb-4">
+            <span className="text-2xl sm:text-3xl font-bold text-gold">
+              {price.toLocaleString("sk-SK", { minimumFractionDigits: 2 })}
+            </span>
+            <span className="text-lg sm:text-xl text-gold ml-1">€</span>
+          </div>
+
+          <p className="text-white/55 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
+            {description}
+          </p>
+
+          {purchaseUrl ? (
+            <Button
+              asChild
+              className="relative w-full overflow-hidden bg-gold hover:bg-gold/90 text-[#0a0a0a] font-bold uppercase tracking-[0.2em] text-[11px] sm:text-xs py-5 sm:py-6 rounded-xl shadow-[0_10px_25px_-10px_rgba(197,160,89,0.6)] transition-all duration-300 active:scale-[0.97]"
+            >
+              <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
+                <span className="relative z-10">Kúpiť</span>
+              </a>
+            </Button>
+          ) : (
+            <Button
+              disabled
+              className="w-full bg-gold text-[#0a0a0a] font-bold uppercase tracking-[0.2em] text-[11px] sm:text-xs py-5 sm:py-6 rounded-xl"
+            >
+              Kúpiť
+            </Button>
+          )}
         </div>
+
+        {/* Decorative gold glow */}
+        <div className="pointer-events-none absolute -bottom-12 -right-12 w-32 h-32 bg-gold/10 rounded-full blur-[60px] transition-colors duration-700 group-hover:bg-gold/20" />
       </div>
     </CursorGlowCard>
   );
