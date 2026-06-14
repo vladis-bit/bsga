@@ -77,7 +77,7 @@ const FounderCard = ({
   member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
-      {member.image ? <img src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
+      {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
             {member.name.charAt(0)}
           </span>
@@ -106,7 +106,7 @@ const TeamCard = ({
   member: typeof team[0];
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
-      {member.image ? <img src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
+      {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
             {member.name.charAt(0)}
           </span>

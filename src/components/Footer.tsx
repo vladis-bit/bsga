@@ -16,7 +16,7 @@ const Footer = () => {
         {/* Top — Brand statement */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pb-12 sm:pb-16 border-b border-background/10">
           <div className="lg:col-span-5">
-            <img src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-14 sm:h-16 w-auto mb-6" />
+            <img loading="lazy" decoding="async" src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-14 sm:h-16 w-auto mb-6" />
             <p className="font-serif text-2xl sm:text-3xl leading-snug text-background mb-4">
               Najväčšia golfová akadémia na Slovensku.
             </p>

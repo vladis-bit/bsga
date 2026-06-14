@@ -135,7 +135,7 @@ const TimelineCard = ({
       </div>
       <div className="flex items-center gap-3 mb-4 pt-4 border-t border-border">
         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-          <img src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
+          <img loading="lazy" decoding="async" src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
         </div>
         <span className="text-foreground font-medium">{stage.coach}</span>
       </div>
