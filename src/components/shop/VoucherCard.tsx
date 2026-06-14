@@ -15,7 +15,7 @@ const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
         {/* Image placeholder */}
         <div className="aspect-[16/9] bg-muted flex items-center justify-center relative overflow-hidden">
           {image ? (
-            <img src={image} alt={`Darčeková poukážka ${value}€`} className="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src={image} alt={`Darčeková poukážka ${value}€`} className="w-full h-full object-cover" />
           ) : (
             <div className="flex flex-col items-center gap-3 text-muted-foreground">
               <Gift className="w-16 h-16 text-gold/50" />
