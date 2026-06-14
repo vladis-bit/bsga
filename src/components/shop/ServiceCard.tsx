@@ -23,7 +23,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           Populárne
         </div>
       )}
-      <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/50 shadow-lg shadow-gold/5' : 'border-border hover:border-gold/30'}`}>
+      <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border-2 !bg-[#0a0a0a] transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/60 shadow-lg shadow-gold/10' : 'border-gold/50 hover:border-gold/70'}`}>
         <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
         {/* Názov */}
         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6 text-center">
