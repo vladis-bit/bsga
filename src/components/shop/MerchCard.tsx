@@ -6,12 +6,25 @@ interface MerchCardProps {
   price: number;
   description: string;
   purchaseUrl?: string;
+  image?: string;
 }
 
-const MerchCard = ({ title, price, description, purchaseUrl }: MerchCardProps) => {
+const MerchCard = ({ title, price, description, purchaseUrl, image }: MerchCardProps) => {
   return (
     <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
-      <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
+      <div className="h-full flex flex-col rounded-xl sm:rounded-2xl overflow-hidden">
+        {image && (
+          <div className="aspect-square bg-white overflow-hidden">
+            <img
+              loading="lazy"
+              decoding="async"
+              src={image}
+              alt={title}
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        )}
+        <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-grow">
         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 text-center">
           {title}
         </h3>
@@ -36,6 +49,7 @@ const MerchCard = ({ title, price, description, purchaseUrl }: MerchCardProps) =
             Kúpiť
           </Button>
         )}
+        </div>
       </div>
     </CursorGlowCard>
   );

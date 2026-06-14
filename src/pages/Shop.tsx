@@ -12,6 +12,10 @@ import MerchCard from "@/components/shop/MerchCard";
 import voucher50 from "@/assets/voucher-50.png";
 import voucher100 from "@/assets/voucher-100.png";
 import voucher200 from "@/assets/voucher-200.png";
+import merchWineGlass from "@/assets/merch/wine-glass.png";
+import merchLuggageTag from "@/assets/merch/luggage-tag.png";
+import merchCap from "@/assets/merch/cap.png";
+import merchShoeBag from "@/assets/merch/shoe-bag.png";
 
 const Shop = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -110,6 +114,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_5kQdR9fG88He9un8QgbV602",
       description:
         "Ekologický skladací pohár z nehrdzavejúcej ocele. Kompaktný, odolný a ľahko prenosný – perfektný na cesty za golfom.",
+      image: merchWineGlass,
     },
     {
       title: "Šiltovka",
@@ -117,6 +122,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_fZu7sLbpSe1yayr9UkbV603",
       description:
         "Štýlová šiltovka s logom BSGA dostupná v bielej a šedej farbe. Ochrana pred slnkom so štýlom.",
+      image: merchCap,
     },
     {
       title: "RZN Speed - 12 ks",
@@ -131,6 +137,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_4gMcN52TmaPmayrd6wbV605",
       description:
         "Praktická čierna taška na golfové topánky. Chráni obuv aj ostatné veci v golfovom vaku pred znečistením.",
+      image: merchShoeBag,
     },
     {
       title: "Uterák",
@@ -145,6 +152,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_5kQ3cv9hKg9GeOHgiIbV607",
       description:
         "Štýlová identifikačná visačka na cestovnú tašku alebo golfový bag s logom BSGA. Už si budeš poznať svoj bag!",
+      image: merchLuggageTag,
     },
     {
       title: "Tréningové sticks",
@@ -286,6 +294,7 @@ const Shop = () => {
                   price={item.price}
                   description={item.description}
                   purchaseUrl={item.purchaseUrl}
+                  image={(item as any).image}
                 />
               ))}
             </div>
