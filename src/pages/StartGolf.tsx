@@ -150,8 +150,8 @@ const StartGolf = () => {
               <h1 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                 Začni s golfom
               </h1>
-              <p className="max-w-2xl text-sm sm:text-base md:text-lg text-primary-foreground/70 px-2">
-                Štyri jednoduché kroky od prvého švihu k samostatnej hre na ihrisku.
+              <p className="max-w-2xl text-sm sm:text-base md:text-lg text-primary-foreground/70 px-2 whitespace-pre-line">
+                Tri jasné kroky od prvého švihu k výkonostnej hre na ihrisku.&nbsp;{"\n"}
                 Budeme ťa sprevádzať celou tvojou kariérou.&nbsp;
               </p>
             </div>
