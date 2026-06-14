@@ -38,9 +38,9 @@ const Shop = () => {
   }, [titleNumber, titles]);
 
   const vouchers = [
-    { value: 50, image: voucher50 },
-    { value: 100, image: voucher100 },
-    { value: 200, image: voucher200 },
+    { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/test_aFa9AT51u9Li21V3vWbV601" },
+    { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/test_00waEX2Tm6z68qjgiIbV60e" },
+    { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/test_cNi00j0Le9Li8qj7McbV60d" },
   ];
 
   const services = [
@@ -48,6 +48,7 @@ const Shop = () => {
       title: "Individuálna lekcia",
       price: 59.99,
       icon: User,
+      purchaseUrl: "https://buy.stripe.com/test_aFaeVdbpS7Da0XR0jKbV60c",
       features: [
         "55-minútová súkromná lekcia",
         "Profesionálny tréner",
@@ -63,6 +64,7 @@ const Shop = () => {
       discount: 72,
       icon: Flag,
       popular: true,
+      purchaseUrl: "https://buy.stripe.com/test_eVq5kD65y8He6ibfeEbV60b",
       features: [
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
@@ -76,6 +78,7 @@ const Shop = () => {
       title: "Kurz zelenej karty",
       price: 549.99,
       icon: Award,
+      purchaseUrl: "https://buy.stripe.com/test_fZu6oHctW0aI0XR2rSbV60a",
       features: [
         "Kompletný kurz pre získanie karty",
         "Teória a pravidlá golfu",
@@ -90,54 +93,63 @@ const Shop = () => {
     {
       title: "Športová mikina",
       price: 59.99,
+      purchaseUrl: "https://buy.stripe.com/test_aFaaEX0Le6z621VfeEbV600",
       description:
         "Mikina – 3 farby (čierna, žltá a zelená). Športová mikina s logom BSGA dostupná v 3 farebných variantách. Pohodlná, štýlová a vhodná na tréning aj šport.",
     },
     {
       title: "Športová taška",
       price: 29.99,
+      purchaseUrl: "https://buy.stripe.com/test_5kQfZh0Le4qY21V3vWbV609",
       description:
         "Priestranná športová taška vhodná do posilňovne aj na golf. Dostatok miesta na oblečenie, topánky a doplnky.",
     },
     {
       title: "Vínový pohár",
       price: 29.99,
+      purchaseUrl: "https://buy.stripe.com/test_5kQdR9fG88He9un8QgbV602",
       description:
         "Ekologický skladací pohár z nehrdzavejúcej ocele. Kompaktný, odolný a ľahko prenosný – perfektný na cesty za golfom.",
     },
     {
       title: "Šiltovka",
       price: 24.99,
+      purchaseUrl: "https://buy.stripe.com/test_fZu7sLbpSe1yayr9UkbV603",
       description:
         "Štýlová šiltovka s logom BSGA dostupná v bielej a šedej farbe. Ochrana pred slnkom so štýlom.",
     },
     {
       title: "RZN Speed - 12 ks",
       price: 19.99,
+      purchaseUrl: "https://buy.stripe.com/test_bJe7sL9hKaPm4a39UkbV604",
       description:
         "Balenie 12 golfových loptičiek RZN Speed. Vysoký výkon za skvelú cenu – ideálne na každodenný tréning aj hru.",
     },
     {
       title: "Taška na topánky",
       price: 14.99,
+      purchaseUrl: "https://buy.stripe.com/test_4gMcN52TmaPmayrd6wbV605",
       description:
         "Praktická čierna taška na golfové topánky. Chráni obuv aj ostatné veci v golfovom vaku pred znečistením.",
     },
     {
       title: "Uterák",
       price: 9.99,
+      purchaseUrl: "https://buy.stripe.com/test_28E5kD79C7Da7mf3vWbV606",
       description:
         "Kvalitný golfový uterák v modrej farbe. Nepostrádateľný doplnok pri golfe – na čistenie palíc, loptičiek a rúk.",
     },
     {
       title: "Visačka s logom",
       price: 4.99,
+      purchaseUrl: "https://buy.stripe.com/test_5kQ3cv9hKg9GeOHgiIbV607",
       description:
         "Štýlová identifikačná visačka na cestovnú tašku alebo golfový bag s logom BSGA. Už si budeš poznať svoj bag!",
     },
     {
       title: "Tréningové sticks",
       price: 4.99,
+      purchaseUrl: "https://buy.stripe.com/test_28E7sL2TmcXufSLfeEbV608",
       description:
         "Practice Sticks v tube na zlepšenie švihu a postoja. Praktické balenie, ideálne na tréning vonku aj na domu.",
     },
@@ -219,7 +231,7 @@ const Shop = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
               {vouchers.map((voucher) => (
-                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} />
+                <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} purchaseUrl={voucher.purchaseUrl} />
               ))}
             </div>
           </div>
@@ -248,6 +260,7 @@ const Shop = () => {
                   features={service.features}
                   note={service.note}
                   popular={service.popular}
+                  purchaseUrl={service.purchaseUrl}
                 />
               ))}
             </div>
@@ -272,6 +285,7 @@ const Shop = () => {
                   title={item.title}
                   price={item.price}
                   description={item.description}
+                  purchaseUrl={item.purchaseUrl}
                 />
               ))}
             </div>

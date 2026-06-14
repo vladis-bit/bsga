@@ -34,9 +34,13 @@ const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
           </p>
           <div className="flex items-center justify-between">
             <span className="text-2xl font-bold text-gold">{value} €</span>
-            <Button disabled className="bg-gold hover:bg-gold/90 text-foreground">
-              Kúpiť
-            </Button>
+            {purchaseUrl ? (
+              <Button asChild className="bg-gold hover:bg-gold/90 text-foreground">
+                <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">Kúpiť</a>
+              </Button>
+            ) : (
+              <Button disabled className="bg-gold hover:bg-gold/90 text-foreground">Kúpiť</Button>
+            )}
           </div>
         </div>
       </div>

@@ -61,9 +61,15 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         </div>
         
         {/* Button */}
-        <Button disabled className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
-          {ctaLabel}
-        </Button>
+        {purchaseUrl ? (
+          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
+            <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
+          </Button>
+        ) : (
+          <Button disabled className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
+            {ctaLabel}
+          </Button>
+        )}
         {note && (
           <p className="mt-3 text-center text-xs text-muted-foreground italic">
             {note}
