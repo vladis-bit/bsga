@@ -78,7 +78,7 @@ const JuniorLevelSystem = () => {
                       className="rounded-2xl border bg-card/60 backdrop-blur-sm p-5 shadow-md transition-all duration-300 hover:shadow-xl sm:p-6"
                       style={{ borderColor: `${level.hex}66` }}
                     >
-                      <div className="flex items-center gap-3 mb-3">
+                      <div className="flex items-center gap-3">
                         <span
                           className="inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold text-white"
                           style={{
@@ -97,7 +97,6 @@ const JuniorLevelSystem = () => {
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-foreground/75 sm:text-base">{level.description}</p>
                     </div>
                   </div>
 
