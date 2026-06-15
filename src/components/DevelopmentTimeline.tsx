@@ -154,11 +154,19 @@ const TimelineCard = ({
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-3 mb-4 pt-4 border-t border-border">
+      <div className="flex items-center gap-3 mb-3 pt-4 border-t border-border">
         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
           <img loading="lazy" decoding="async" src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
         </div>
         <span className="text-foreground font-medium">{stage.coach}</span>
+      </div>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {coachLevels[stage.coach]?.map((level) => (
+          <div key={level.color} className="flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium" style={{ borderColor: `${level.hex}66`, backgroundColor: `${level.hex}14` }}>
+            <span className="h-3 w-3 rounded-full inline-block" style={{ backgroundColor: level.hex, border: level.color === "White" ? "1px solid #D1D5DB" : "none" }} />
+            <span className="text-foreground/90">{level.label}</span>
+          </div>
+        ))}
       </div>
       <div className="flex gap-2">
         <Button
