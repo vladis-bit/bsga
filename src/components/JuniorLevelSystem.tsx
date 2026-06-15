@@ -1,42 +1,12 @@
 import { motion } from "framer-motion";
 
 const levels = [
-  {
-    color: "Orange",
-    hex: "#F97316",
-    label: "Štart",
-    description: "Každý hráč začína s oranžovým bag tagom. Prvé kroky v golfe, objavovanie hry a budovanie základov.",
-  },
-  {
-    color: "Red",
-    hex: "#DC2626",
-    label: "Základy",
-    description: "Hráč zvláda základné údery, pozná pravidlá a etiketu hry. Začína vnímať golf ako šport, ktorý ho baví.",
-  },
-  {
-    color: "Blue",
-    hex: "#2563EB",
-    label: "Rozvoj",
-    description: "Stabilná technika, prvé skúsenosti z ihriska. Hráč rozvíja krátku hru, putting a začína chápať stratégiu.",
-  },
-  {
-    color: "Yellow",
-    hex: "#EAB308",
-    label: "Pokročilý",
-    description: "Hráč zvláda všetky herné situácie, pracuje na fyzickej pripravenosti a mentálnych návykoch športovca.",
-  },
-  {
-    color: "White",
-    hex: "#F3F4F6",
-    label: "Výkonnostná úroveň",
-    description: "Vyspelá hra, samostatnosť na turnajoch, disciplína v tréningu. Pripravenosť na vrcholové výkony.",
-  },
-  {
-    color: "Black",
-    hex: "#111827",
-    label: "Majstrovstvo",
-    description: "Čierny bag tag — výnimočná úroveň zručností, charakteru a pracovných návykov. Základ pre reprezentáciu a športové štipendium.",
-  },
+  { color: "Orange", hex: "#F97316", label: "Štart" },
+  { color: "Red", hex: "#DC2626", label: "Základy" },
+  { color: "Blue", hex: "#2563EB", label: "Rozvoj" },
+  { color: "Yellow", hex: "#EAB308", label: "Pokročilý" },
+  { color: "White", hex: "#F3F4F6", label: "Výkonnostná úroveň" },
+  { color: "Black", hex: "#111827", label: "Majstrovstvo" },
 ];
 
 const criteria = [
