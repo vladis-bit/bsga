@@ -120,6 +120,7 @@ const TimelineCard = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = stage.icon;
+  const [openLevel, setOpenLevel] = useState<string | null>(null);
 
   return (
     <motion.div
