@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { AnimatePresence, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import { Baby, Bike, Target, Trophy, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import vanessaImg from "@/assets/team/vanessa-fajkusova.jpg";
@@ -120,6 +120,7 @@ const TimelineCard = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = stage.icon;
+  const [openLevel, setOpenLevel] = useState<string | null>(null);
 
   return (
     <motion.div
@@ -148,15 +149,46 @@ const TimelineCard = ({
           <img loading="lazy" decoding="async" src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
         </div>
         <span className="text-foreground font-medium">{stage.coach}</span>
+        <div className="flex items-center gap-1.5 ml-auto">
+          {coachLevels[stage.coach]?.map((level) => (
+            <button
+              key={level.color}
+              type="button"
+              onClick={() => setOpenLevel(openLevel === level.color ? null : level.color)}
+              aria-label={level.label}
+              className="h-4 w-4 rounded-full transition-transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-gold/50"
+              style={{
+                backgroundColor: level.hex,
+                border: level.color === "White" ? "1px solid #D1D5DB" : "none",
+                boxShadow: openLevel === level.color ? `0 0 0 2px ${level.hex}` : "none",
+              }}
+            />
+          ))}
+        </div>
       </div>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {coachLevels[stage.coach]?.map((level) => (
-          <div key={level.color} className="flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium" style={{ borderColor: `${level.hex}66`, backgroundColor: `${level.hex}14` }}>
-            <span className="h-3 w-3 rounded-full inline-block" style={{ backgroundColor: level.hex, border: level.color === "White" ? "1px solid #D1D5DB" : "none" }} />
-            <span className="text-foreground/90">{level.label}</span>
-          </div>
-        ))}
-      </div>
+      <AnimatePresence initial={false}>
+        {openLevel && (
+          <motion.div
+            key={openLevel}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="mb-4 mt-1 rounded-2xl border px-3 py-2 text-sm text-foreground/90"
+              style={{
+                borderColor: `${coachLevels[stage.coach]?.find(l => l.color === openLevel)?.hex}66`,
+                backgroundColor: `${coachLevels[stage.coach]?.find(l => l.color === openLevel)?.hex}14`,
+              }}
+            >
+              <span className="font-medium">
+                {coachLevels[stage.coach]?.find(l => l.color === openLevel)?.label}
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="flex gap-2">
         <Button
           asChild
