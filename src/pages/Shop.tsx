@@ -167,6 +167,7 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_28E7sL2TmcXufSLfeEbV608",
       description:
         "Practice Sticks v tube na zlepšenie švihu a postoja. Praktické balenie, ideálne na tréning vonku aj na domu.",
+      image: merchPracticeSticks.url,
     },
   ];
 
