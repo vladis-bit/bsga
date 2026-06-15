@@ -14,6 +14,7 @@ import voucher100 from "@/assets/voucher-100.png";
 import voucher200 from "@/assets/voucher-200.png";
 import merchWineGlass from "@/assets/merch/wine-glass.png";
 import merchLuggageTag from "@/assets/merch/luggage-tag.png";
+import merchPracticeSticks from "@/assets/practice-sticks.png.asset.json";
 import merchCap from "@/assets/merch/cap.png";
 import merchShoeBag from "@/assets/merch/shoe-bag.png";
 import merchTowel from "@/assets/merch/towel.png.asset.json";
