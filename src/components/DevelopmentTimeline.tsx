@@ -15,6 +15,27 @@ const coachImages: Record<string, string> = {
   "Jakub Hrbáň": jakubImg,
 };
 
+const coachLevels: Record<string, { color: string; label: string; hex: string }[]> = {
+  "Vanessa Fajkusová": [
+    { color: "Orange", label: "Foundation", hex: "#F97316" },
+    { color: "Red", label: "Development", hex: "#DC2626" },
+  ],
+  "Vladimír Leško": [
+    { color: "Red", label: "Development", hex: "#DC2626" },
+    { color: "Blue", label: "Performance", hex: "#2563EB" },
+    { color: "Yellow", label: "Competitive", hex: "#EAB308" },
+    { color: "White", label: "Excellence", hex: "#F3F4F6" },
+  ],
+  "Maroš Gajan": [
+    { color: "Blue", label: "Performance", hex: "#2563EB" },
+    { color: "Yellow", label: "Competitive", hex: "#EAB308" },
+    { color: "White", label: "Excellence", hex: "#F3F4F6" },
+  ],
+  "Jakub Hrbáň": [
+    { color: "Black", label: "Elite", hex: "#111827" },
+  ],
+};
+
 interface TimelineStage {
   icon: React.ElementType;
   title: string;
