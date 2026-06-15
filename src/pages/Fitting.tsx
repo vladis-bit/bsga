@@ -7,7 +7,7 @@ import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fittingImg from "@/assets/service-fitting.webp";
-import fittingHeroImg from "@/assets/fitting-hero.png";
+import fittingHeroImg from "@/assets/fitting-hero.png.asset.json";
 import jakubImg from "@/assets/team/jakub-hrban-fitting.jpg";
 
 const benefits = [
@@ -102,7 +102,7 @@ const Fitting = () => {
           <section className="relative w-full bg-transparent">
             <div className="relative w-full overflow-hidden min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
               <img
-                src={fittingHeroImg}
+                src={fittingHeroImg.url}
                 alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="eager"
