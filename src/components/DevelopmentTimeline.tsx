@@ -148,7 +148,22 @@ const TimelineCard = ({
         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
           <img loading="lazy" decoding="async" src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
         </div>
-        <span className="text-foreground font-medium">{stage.coach}</span>
+        <span className="text-chart text-foreground font-medium">{stage.coach}</span>
+        <AnimatePresence initial={false} mode="wait">
+          {openLevel && (
+            <motion.span
+              key={openLevel}
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: "auto", opacity: 1 }}
+              exit={{ width: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-sm font-medium"
+              style={{ color: coachLevels[stage.coach]?.find(l => l.color === openLevel)?.hex }}
+            >
+              {coachLevels[stage.coach]?.find(l => l.color === openLevel)?.label}
+            </motion.span>
+          )}
+        </AnimatePresence>
         <div className="flex items-center gap-1.5 ml-auto">
           {coachLevels[stage.coach]?.map((level) => (
             <button
@@ -166,29 +181,6 @@ const TimelineCard = ({
           ))}
         </div>
       </div>
-      <AnimatePresence initial={false}>
-        {openLevel && (
-          <motion.div
-            key={openLevel}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="mb-4 mt-1 rounded-2xl border px-3 py-2 text-sm text-foreground/90"
-              style={{
-                borderColor: `${coachLevels[stage.coach]?.find(l => l.color === openLevel)?.hex}66`,
-                backgroundColor: `${coachLevels[stage.coach]?.find(l => l.color === openLevel)?.hex}14`,
-              }}
-            >
-              <span className="font-medium">
-                {coachLevels[stage.coach]?.find(l => l.color === openLevel)?.label}
-              </span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
       <div className="flex gap-2">
         <Button
           asChild
