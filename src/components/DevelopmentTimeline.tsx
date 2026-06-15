@@ -143,28 +143,24 @@ const TimelineCard = ({
       <p className="text-muted-foreground text-sm sm:text-base mb-4">
         {stage.description}
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-        {stage.features.map((feature, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-2 text-sm text-muted-foreground"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
-            {feature}
-          </div>
-        ))}
-      </div>
-      <div className="flex items-center gap-3 mb-3 pt-4 border-t border-border">
+      <div className="flex items-center gap-3 mb-4 pt-4 border-t border-border">
         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
           <img loading="lazy" decoding="async" src={coachImages[stage.coach]} alt={stage.coach} className="w-full h-full object-cover" />
         </div>
         <span className="text-foreground font-medium">{stage.coach}</span>
       </div>
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex gap-2 mb-4 w-full">
         {coachLevels[stage.coach]?.map((level) => (
-          <div key={level.color} className="flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium" style={{ borderColor: `${level.hex}66`, backgroundColor: `${level.hex}14` }}>
-            <span className="h-3 w-3 rounded-full inline-block" style={{ backgroundColor: level.hex, border: level.color === "White" ? "1px solid #D1D5DB" : "none" }} />
-            <span className="text-foreground/90">{level.label}</span>
+          <div
+            key={level.color}
+            className="flex-1 flex items-center justify-center gap-2 rounded-full border px-3 py-2 text-sm font-medium"
+            style={{ borderColor: `${level.hex}66`, backgroundColor: `${level.hex}14` }}
+          >
+            <span
+              className="h-4 w-4 rounded-full inline-block flex-shrink-0"
+              style={{ backgroundColor: level.hex, border: level.color === "White" ? "1px solid #D1D5DB" : "none" }}
+            />
+            <span className="text-foreground/90 truncate">{level.label}</span>
           </div>
         ))}
       </div>
