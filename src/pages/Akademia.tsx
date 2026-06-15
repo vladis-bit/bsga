@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
+import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
 
@@ -41,6 +42,9 @@ const Akademia = () => {
               </button>
             </div>
           </section>
+
+          {/* Junior Level System */}
+          <JuniorLevelSystem />
 
           {/* Development Timeline Section */}
           <section id="timeline" className="scroll-mt-24 bg-transparent py-12 sm:py-16 md:py-20">
