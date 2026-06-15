@@ -129,17 +129,6 @@ const TimelineCard = ({
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="bg-card border border-border hover:border-gold/30 rounded-3xl p-4 sm:p-6 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10"
     >
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-          <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-gold" />
-        </div>
-        <div>
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
-            {stage.title}
-          </h3>
-          <span className="text-gold text-sm font-medium">{stage.ageRange}</span>
-        </div>
-      </div>
       <p className="text-muted-foreground text-sm sm:text-base mb-4">
         {stage.description}
       </p>
