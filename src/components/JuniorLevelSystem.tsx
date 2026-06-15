@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 
 const levels = [
-  { color: "Orange", hex: "#F97316", label: "Štart" },
-  { color: "Red", hex: "#DC2626", label: "Základy" },
-  { color: "Blue", hex: "#2563EB", label: "Rozvoj" },
-  { color: "Yellow", hex: "#EAB308", label: "Pokročilý" },
-  { color: "White", hex: "#F3F4F6", label: "Výkonnostná úroveň" },
-  { color: "Black", hex: "#111827", label: "Majstrovstvo" },
+  { color: "Orange", hex: "#F97316", label: "Foundation" },
+  { color: "Red", hex: "#DC2626", label: "Development" },
+  { color: "Blue", hex: "#2563EB", label: "Performance" },
+  { color: "Yellow", hex: "#EAB308", label: "Competitive" },
+  { color: "White", hex: "#F3F4F6", label: "Excellence" },
+  { color: "Black", hex: "#111827", label: "Elite" },
 ];
 
 const criteria = [
