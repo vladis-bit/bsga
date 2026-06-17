@@ -38,7 +38,7 @@ const team = [{
   image: marosGajanImg
 }, {
   name: "Vanessa Fajkusová",
-  role: "Tréner BSGA · Licencia D",
+  role: "Tréner BSGA · Tréner golfu",
   phone: "+421 911 183 429",
   email: "vanessa@bsga.sk",
   image: vanessaFajkusovaImg
