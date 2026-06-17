@@ -32,7 +32,7 @@ const founders = [{
 
 const team = [{
   name: "Maroš Gajan",
-  role: "Tréner BSGA · Licencia B",
+  role: "Tréner BSGA · Profesionálny tréner golfu",
   phone: "+421 903 243 999",
   email: "maros@bsga.sk",
   image: marosGajanImg
