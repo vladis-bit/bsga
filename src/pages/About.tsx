@@ -44,13 +44,13 @@ const team = [{
   image: vanessaFajkusovaImg
 }, {
   name: "Milan Neštický",
-  role: "Tréner BSGA · Licencia D",
+  role: "Tréner BSGA · Tréner golfu",
   phone: "+421 911 193 429",
   email: "milan@bsga.sk",
   image: milanNestickyImg
 }, {
   name: "Vladimír Leško",
-  role: "Tréner BSGA · Licencia D",
+  role: "Tréner BSGA · Tréner golfu",
   phone: "+421 949 116 889",
   email: "vlado@bsga.sk",
   image: vladimirLeskoImg
