@@ -16,11 +16,11 @@ import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.png";
 
 const founders = [{
   name: "Peter Švajlen",
-  role: "Tréner BSGA · Licencia B",
+  role: "Tréner BSGA · Profesionálny tréner golfu",
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
   image: peterSvajlenImg,
-  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
+  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
   role: "Tréner BSGA · Licencia B",
