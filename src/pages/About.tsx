@@ -23,11 +23,11 @@ const founders = [{
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"]
 }, {
   name: "Jakub Hrbáň",
-  role: "Tréner BSGA · Licencia B",
+  role: "Tréner BSGA · Profesionálny tréner golfu",
   phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
   image: jakubHrbanImg,
-  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ Licencie \"B\" Five Star Golf Academy"]
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"]
 }];
 
 const team = [{
