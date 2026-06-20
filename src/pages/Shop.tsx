@@ -20,6 +20,9 @@ import merchShoeBag from "@/assets/merch/shoe-bag.png";
 import merchTowel from "@/assets/merch/towel.png.asset.json";
 import merchRznSpeed from "@/assets/merch/rzn-speed.png.asset.json";
 import merchSportsBag from "@/assets/merch/sports-bag.png.asset.json";
+import hoodieBlack from "@/assets/merch/hoodie-black.png.asset.json";
+import hoodieYellow from "@/assets/merch/hoodie-yellow.png.asset.json";
+import hoodieGreen from "@/assets/merch/hoodie-green.png.asset.json";
 
 const Shop = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -104,6 +107,12 @@ const Shop = () => {
       purchaseUrl: "https://buy.stripe.com/test_aFaaEX0Le6z621VfeEbV600",
       description:
         "Mikina – 3 farby (čierna, žltá a zelená). Športová mikina s logom BSGA dostupná v 3 farebných variantách. Pohodlná, štýlová a vhodná na tréning aj šport.",
+      image: hoodieBlack.url,
+      colorVariants: [
+        { name: "Čierna", hex: "#0a0a0a", image: hoodieBlack.url },
+        { name: "Žltá", hex: "#EAB308", image: hoodieYellow.url },
+        { name: "Zelená", hex: "#84CC16", image: hoodieGreen.url },
+      ],
     },
     {
       title: "Športová taška",
@@ -303,6 +312,7 @@ const Shop = () => {
                   description={item.description}
                   purchaseUrl={item.purchaseUrl}
                   image={(item as any).image}
+                  colorVariants={(item as any).colorVariants}
                 />
               ))}
             </div>

@@ -1,5 +1,14 @@
 import { Button } from "@/components/ui/button";
 import CursorGlowCard from "@/components/CursorGlowCard";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+interface ColorVariant {
+  name: string;
+  hex: string;
+  image: string;
+}
 
 interface MerchCardProps {
   title: string;
@@ -7,28 +16,64 @@ interface MerchCardProps {
   description: string;
   purchaseUrl?: string;
   image?: string;
+  colorVariants?: ColorVariant[];
 }
 
-const MerchCard = ({ title, price, description, purchaseUrl, image }: MerchCardProps) => {
+const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariants }: MerchCardProps) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const hasVariants = !!colorVariants && colorVariants.length > 1;
+  const activeImage = hasVariants ? colorVariants![activeIndex].image : image;
+  const activeKey = hasVariants ? colorVariants![activeIndex].name : "static";
+
+  const next = () => setActiveIndex((i) => (i + 1) % colorVariants!.length);
+  const prev = () => setActiveIndex((i) => (i - 1 + colorVariants!.length) % colorVariants!.length);
+
   return (
     <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border-2 border-gold/50 !bg-[#0a0a0a] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-gold/70">
       <div className="relative h-full flex flex-col">
         {/* Image — edge to edge, no frame padding */}
         <div className="relative aspect-[4/5] overflow-hidden bg-[#0e0e0e]">
-          {image ? (
-            <img
-              loading="lazy"
-              decoding="async"
-              src={image}
-              alt={title}
-              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-            />
+          {activeImage ? (
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.img
+                key={activeKey}
+                loading="lazy"
+                decoding="async"
+                src={activeImage}
+                alt={title}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-full h-full object-contain"
+              />
+            </AnimatePresence>
           ) : (
             <div className="w-full h-full flex items-center justify-center text-white/30 text-xs uppercase tracking-widest">
               BSGA
             </div>
           )}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]/80" />
+          {hasVariants && (
+            <>
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Predchádzajúca farba"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/40 hover:bg-gold text-white hover:text-[#0a0a0a] backdrop-blur-sm flex items-center justify-center transition-all"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Nasledujúca farba"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/40 hover:bg-gold text-white hover:text-[#0a0a0a] backdrop-blur-sm flex items-center justify-center transition-all"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
         </div>
 
         {/* Content */}
@@ -43,6 +88,24 @@ const MerchCard = ({ title, price, description, purchaseUrl, image }: MerchCardP
             </span>
             <span className="text-lg sm:text-xl text-gold ml-1">€</span>
           </div>
+
+          {hasVariants && (
+            <div className="flex items-center gap-2 mb-4">
+              {colorVariants!.map((v, i) => (
+                <button
+                  key={v.name}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={v.name}
+                  title={v.name}
+                  className={`w-4 h-4 rounded-full border border-white/30 transition-all ${
+                    i === activeIndex ? "ring-2 ring-gold ring-offset-2 ring-offset-[#0a0a0a] scale-110" : "opacity-80 hover:opacity-100"
+                  }`}
+                  style={{ backgroundColor: v.hex }}
+                />
+              ))}
+            </div>
+          )}
 
           <p className="text-white/55 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
             {description}

@@ -1,21 +1,22 @@
 ## Cieľ
-Prerobiť `MerchCard` v štýle "Sophisticated Aurora Glass" — sklenený glassmorphism card s bielym outline okolo obrázku, elegantnou typografiou a prémiovým CTA tlačidlom.
+Karta "Športová mikina" v Obchode bude zobrazovať všetky 3 farebné varianty (čierna, žltá, zelená) s prepínaním šípkami a tromi farebnými bodkami pod cenou.
 
-## Zmeny
+## Kroky
 
-### `src/components/shop/MerchCard.tsx`
-- Karta: zaoblené rohy `rounded-[2rem]`, jemný biely border (`border-white/10`), glass pozadie `bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-2xl`, shadow-2xl, hover zlatý border.
-- Obrázok: `aspect-square` v ráme s `border-2 border-white/60` (hover `white/90`), bielym priehľadným pozadím `bg-white/5`, padding `p-4`, jemný gradient overlay.
-- Ak chýba obrázok: ponechať placeholder s rovnakým rámom, aby boli karty konzistentné.
-- Titulok: serifový font (Playfair Display) — `font-serif` (už dostupný v projekte) alebo inline `Playfair Display`.
-- Cena: zlatá, `text-2xl font-bold text-gold`.
-- Popis: `text-white/50 text-sm`.
-- CTA: `bg-gold` plné tlačidlo, uppercase tracking, jemný hover sweep efekt, gold shadow.
-- Decoratívny gold glow v rohu karty.
+1. **Upload 3 fotiek mikiny ako Lovable Assets**
+   - `user-uploads://5-4.png` → `src/assets/merch/hoodie-black.png.asset.json`
+   - `user-uploads://6-3.png` → `src/assets/merch/hoodie-yellow.png.asset.json`
+   - `user-uploads://4-4.png` → `src/assets/merch/hoodie-green.png.asset.json`
 
-### Bez zmien
-- `Shop.tsx` — žiadne úpravy; ostáva ten istý prop kontrakt (`title`, `price`, `description`, `purchaseUrl`, `image`).
+2. **Rozšíriť `MerchCard.tsx`** o voliteľnú prop `colorVariants?: { name: string; hex: string; image: string }[]`:
+   - Ak je prop zadaná, namiesto statického `image` zobrazí aktívny variant.
+   - Šípky `‹` `›` vľavo/vpravo cez obrázok (gold/transparent, hover stav) na prepínanie.
+   - Pod cenou riadok s 3 farebnými bodkami (`w-3 h-3 rounded-full`, ring-gold pri aktívnej, hex farba pozadia) — klik prepne variant.
+   - Plynulý fade prechod obrázka (`AnimatePresence` alebo CSS opacity).
+
+3. **Shop.tsx** — pre položku "Športová mikina" odovzdať `colorVariants` (čierna `#000000`, žltá `#EAB308`, zelená `#84CC16`) a ako default `image` použiť čiernu.
 
 ## Technické detaily
-- Použiť existujúce semantic tokens `text-gold`, `bg-gold` (definované v projektovom design system) namiesto hardkódovaných hex hodnôt všade kde to ide.
-- Playfair Display: pridať cez Google Fonts link v `index.html` (ak ešte nie je) a v Tailwind class použiť `font-['Playfair_Display']`.
+- Stav `activeIndex` cez `useState(0)` v `MerchCard`.
+- Šípky vykreslené iba ak `colorVariants?.length > 1`.
+- Existujúce karty bez `colorVariants` ostanú nezmenené (žiadne šípky, žiadne bodky).
