@@ -138,6 +138,10 @@ const Shop = () => {
       description:
         "Štýlová šiltovka s logom BSGA dostupná v bielej a šedej farbe. Ochrana pred slnkom so štýlom.",
       image: merchCap,
+      colorVariants: [
+        { name: "Biela", hex: "#ffffff", image: merchCap },
+        { name: "Sivá", hex: "#9CA3AF", image: capGray.url },
+      ],
     },
     {
       title: "RZN Speed - 12 ks",
