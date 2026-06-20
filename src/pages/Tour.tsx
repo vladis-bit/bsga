@@ -191,6 +191,10 @@ const Tour = () => {
                   <FileText size={16} className="text-gold" />
                   Prezentácia BSGA Tour
                 </a>
+                <a href="/__l5e/assets-v1/bf6d98c9-ccd7-408a-a5ab-c32b7a9c1e9a/bsga_priebezne.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                  <Trophy size={16} className="text-gold" />
+                  Priebežné hodnotenie
+                </a>
               </div>
 
               <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -214,13 +218,6 @@ const Tour = () => {
                     links={tournament.links}
                   />
                 ))}
-              </div>
-
-              <div className="flex justify-center mt-8 sm:mt-12">
-                <a href="/__l5e/assets-v1/bf6d98c9-ccd7-408a-a5ab-c32b7a9c1e9a/bsga_priebezne.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
-                  <Trophy size={16} className="text-gold" />
-                  Priebežné hodnotenie
-                </a>
               </div>
             </div>
           </section>
