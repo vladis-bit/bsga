@@ -16,6 +16,7 @@ import merchWineGlass from "@/assets/merch/wine-glass.png";
 import merchLuggageTag from "@/assets/merch/luggage-tag.png";
 import merchPracticeSticks from "@/assets/practice-sticks.png.asset.json";
 import merchCap from "@/assets/merch/cap.png";
+import capGray from "@/assets/merch/cap-gray.png.asset.json";
 import merchShoeBag from "@/assets/merch/shoe-bag.png";
 import merchTowel from "@/assets/merch/towel.png.asset.json";
 import merchRznSpeed from "@/assets/merch/rzn-speed.png.asset.json";
@@ -137,6 +138,10 @@ const Shop = () => {
       description:
         "Štýlová šiltovka s logom BSGA dostupná v bielej a šedej farbe. Ochrana pred slnkom so štýlom.",
       image: merchCap,
+      colorVariants: [
+        { name: "Biela", hex: "#ffffff", image: merchCap },
+        { name: "Sivá", hex: "#9CA3AF", image: capGray.url },
+      ],
     },
     {
       title: "RZN Speed - 12 ks",
