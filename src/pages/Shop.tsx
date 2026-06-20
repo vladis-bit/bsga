@@ -312,6 +312,7 @@ const Shop = () => {
                   description={item.description}
                   purchaseUrl={item.purchaseUrl}
                   image={(item as any).image}
+                  colorVariants={(item as any).colorVariants}
                 />
               ))}
             </div>
