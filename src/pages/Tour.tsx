@@ -272,15 +272,19 @@ const Tour = () => {
                       presenter={tournament.presenter}
                       links={tournament.links}
                     />
-                    <a
-                      href={tournament.promoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-gold/10 border border-gold/40 text-gold text-sm font-medium rounded-full hover:bg-gold/20 hover:border-gold transition-all"
-                    >
-                      <FileText size={16} />
-                      Promo {tournament.number} - leták
-                    </a>
+                    <div className="relative group">
+                      <a
+                        href={tournament.promoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-10 flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full gold-gradient-button text-primary font-bold text-xs uppercase tracking-[0.15em] shadow-lg shadow-gold/20 border border-gold/50 transition-all duration-300 ease-out transform hover:-translate-y-0.5 active:scale-[0.98] overflow-hidden"
+                      >
+                        <FileText size={20} className="opacity-90 transition-transform duration-300 group-hover:scale-110" />
+                        <span>Promo {tournament.number} - leták</span>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                      </a>
+                      <div className="absolute -inset-px bg-gold/30 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                    </div>
                   </div>
                 ))}
               </div>
