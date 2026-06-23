@@ -1,17 +1,15 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const TermsAndConditions = () => {
   return (
     <>
-      <Helmet>
-        <title>Obchodné podmienky | BSGA</title>
-        <meta
-          name="description"
-          content="Obchodné podmienky BSGA - Best Swing Golf Academy. Všeobecné obchodné podmienky poskytovania služieb platné od 9. marca 2026."
-        />
-      </Helmet>
+      <SEO
+        title="Obchodné podmienky | BSGA"
+        description="Obchodné podmienky BSGA - Best Swing Golf Academy. Všeobecné obchodné podmienky poskytovania služieb platné od 9. marca 2026."
+        path="/obchodne-podmienky"
+      />
       <Navbar />
       <main>
         <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 text-center">
