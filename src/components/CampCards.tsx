@@ -97,7 +97,12 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
             )}
           </div>
           
-          {camp.description && (
+          {camp.soldOut && (
+            <p className="text-muted-foreground/80 text-sm mt-2 font-medium">
+              Kemp je plný. Už nie je možné sa prihlásiť.
+            </p>
+          )}
+          {camp.description && !camp.soldOut && (
             <p className="text-muted-foreground text-sm mt-2">{camp.description}</p>
           )}
         </div>
@@ -116,17 +121,24 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
               Plagát
             </a>
           )}
-          <a
-            href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
-              camp.isHighlight
-                ? "bg-gold text-primary hover:bg-gold-light"
-                : "bg-gold/10 text-gold hover:bg-gold/20"
-            }`}
-          >
-            <Mail className="w-4 h-4" />
-            <span>Prihlásiť sa</span>
-          </a>
+          {camp.soldOut ? (
+            <span className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/50 text-muted-foreground cursor-not-allowed">
+              <Mail className="w-4 h-4" />
+              <span>Už nie je možné sa prihlásiť</span>
+            </span>
+          ) : (
+            <a
+              href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                camp.isHighlight
+                  ? "bg-gold text-primary hover:bg-gold-light"
+                  : "bg-gold/10 text-gold hover:bg-gold/20"
+              }`}
+            >
+              <Mail className="w-4 h-4" />
+              <span>Prihlásiť sa</span>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
