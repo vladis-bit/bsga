@@ -3,25 +3,26 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
+import MobileCTABar from "./components/MobileCTABar";
 import Index from "./pages/Index";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Tour from "./pages/Tour";
-import Akademia from "./pages/Akademia";
-import Gallery from "./pages/Gallery";
-import GDPR from "./pages/GDPR";
-import TermsAndConditions from "./pages/TermsAndConditions";
-import EducationCenter from "./pages/EducationCenter";
-import EducationTests from "./pages/EducationTests";
-import EducationCalculators from "./pages/EducationCalculators";
-
-import Shop from "./pages/Shop";
-import Fitting from "./pages/Fitting";
-import StartGolf from "./pages/StartGolf";
-import NotFound from "./pages/NotFound";
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Tour = lazy(() => import("./pages/Tour"));
+const Akademia = lazy(() => import("./pages/Akademia"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const GDPR = lazy(() => import("./pages/GDPR"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const EducationCenter = lazy(() => import("./pages/EducationCenter"));
+const EducationTests = lazy(() => import("./pages/EducationTests"));
+const EducationCalculators = lazy(() => import("./pages/EducationCalculators"));
+const Shop = lazy(() => import("./pages/Shop"));
+const Fitting = lazy(() => import("./pages/Fitting"));
+const StartGolf = lazy(() => import("./pages/StartGolf"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <Suspense fallback={<div className="min-h-screen bg-primary" />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/o-nas" element={<About />} />
@@ -51,7 +53,9 @@ const App = () => (
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
           <CookieBanner />
+          <MobileCTABar />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
