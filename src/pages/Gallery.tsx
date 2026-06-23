@@ -213,10 +213,10 @@ const Gallery = () => {
       <Navbar />
       <AuroraBackground variant="silver">
         <main className="bg-transparent pt-24 sm:pt-28 md:pt-32">
-          <section className="bg-transparent pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">
+          <section aria-labelledby="galeria-heading" className="bg-transparent pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-8 text-center sm:mb-10 md:mb-12">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground">
+                <h1 id="galeria-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground">
                   Galéria
                 </h1>
                 <p className="mt-3 text-base text-foreground/75 sm:text-lg max-w-2xl mx-auto px-2">
@@ -224,6 +224,7 @@ const Gallery = () => {
                 </p>
               </div>
 
+              <h2 className="sr-only">Fotogaléria BSGA</h2>
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                 {images.map((image, index) => <button key={index} onClick={() => setSelectedImage(index)} className="group relative aspect-[4/3] overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-xl shadow-black/10">
                     <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
