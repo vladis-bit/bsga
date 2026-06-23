@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://bsga.lovable.app/sitemap.xml
+Sitemap: https://bsga.sk/sitemap.xml
