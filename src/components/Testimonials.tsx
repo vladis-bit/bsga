@@ -32,6 +32,21 @@ const testimonials = [
     name: "Miroslav Blaha",
     role: "BSGA Tour a eventy",
     text: "BSGA Tour je séria, na ktorú sa teším každý rok. Päť turnajov, päť prémiových ihrísk, profesionálna organizácia. Catering, networking, vyhlasovanie výsledkov – detail, na ktorý myslí málokto."
+  },
+  {
+    name: "Katarina O.",
+    role: "Google recenzia",
+    text: "Skvelý prístup ku klientom, úžasní tréneri a veľmi príjemná atmosféra. Určite odporúčam!"
+  },
+  {
+    name: "Tibor Kuták",
+    role: "Google recenzia",
+    text: "Best Swing Golf Academy mi sadla hlavne tým, že ku mne pristupovali osobne a nie ako k ďalšiemu klientovi v poradí."
+  },
+  {
+    name: "Oliver Kardoš",
+    role: "Google recenzia",
+    text: "Super miesto na zlepšenie pre golfistov každej úrovne. Určite odporúčam."
   }
 ];
 
@@ -77,8 +92,8 @@ const Testimonials = () => {
           <div className="relative">
             <Quote className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-gold/15 w-16 h-16 sm:w-24 sm:h-24 z-0" />
 
-            <div className="bg-card rounded-2xl p-5 sm:p-10 md:p-14 border border-border/50 shadow-xl relative overflow-hidden">
-              <div className="relative min-h-[360px] sm:min-h-[260px] md:min-h-[240px]">
+            <div className="bg-card rounded-2xl p-5 sm:p-8 md:p-10 border border-border/50 shadow-xl relative overflow-hidden">
+              <div className="relative min-h-[300px] sm:min-h-[220px] md:min-h-[200px]">
                 {testimonials.map((testimonial, index) => (
                   <div
                     key={index}
