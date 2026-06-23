@@ -187,10 +187,62 @@ const Shop = () => {
 
   return (
     <>
+      {(() => null)()}
       <SEO
         title="Obchod | BSGA - Best Swing Golf Academy"
         description="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
         path="/obchod"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
+              { "@type": "ListItem", position: 2, name: "Obchod", item: "https://bsga.sk/obchod" },
+            ],
+          },
+          ...vouchers.map((v) => ({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `Darčeková poukážka ${v.value} €`,
+            category: "Gift Card",
+            brand: { "@type": "Brand", name: "BSGA" },
+            offers: {
+              "@type": "Offer",
+              price: v.value,
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: v.purchaseUrl,
+            },
+          })),
+          ...services.map((s) => ({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: s.title,
+            brand: { "@type": "Brand", name: "BSGA" },
+            offers: {
+              "@type": "Offer",
+              price: s.price,
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: s.purchaseUrl,
+            },
+          })),
+          ...merch.map((m) => ({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: m.title,
+            description: m.description,
+            brand: { "@type": "Brand", name: "BSGA" },
+            offers: {
+              "@type": "Offer",
+              price: m.price,
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: m.purchaseUrl,
+            },
+          })),
+        ]}
       />
 
       <Navbar />
