@@ -22,6 +22,7 @@ const TournamentCard = ({
   date,
   location,
   image,
+  presenter,
   links,
   tourLabel = "BSGA Tour",
   hideResults = false,
