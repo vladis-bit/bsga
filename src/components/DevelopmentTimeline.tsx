@@ -3,10 +3,10 @@ import { AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Baby, Bike, Target, Trophy, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import vanessaImg from "@/assets/team/vanessa-fajkusova.jpg";
-import vladimirImg from "@/assets/team/vladimir-lesko.jpg";
-import marosImg from "@/assets/team/maros-gajan.jpg";
-import jakubImg from "@/assets/team/jakub-hrban.jpg";
+import vanessaImg from "@/assets/team/vanessa-fajkusova.webp";
+import vladimirImg from "@/assets/team/vladimir-lesko.webp";
+import marosImg from "@/assets/team/maros-gajan.webp";
+import jakubImg from "@/assets/team/jakub-hrban.webp";
 
 const coachImages: Record<string, string> = {
   "Vanessa Fajkusová": vanessaImg,

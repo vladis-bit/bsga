@@ -5,15 +5,15 @@ import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import peterSvajlenImg from "@/assets/team/peter-svajlen.jpg";
-import jakubHrbanImg from "@/assets/team/jakub-hrban.jpg";
-import marosGajanImg from "@/assets/team/maros-gajan.jpg";
-import milanNestickyImg from "@/assets/team/milan-nesticky.jpg";
-import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.jpg";
-import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.jpg";
-import vladimirLeskoImg from "@/assets/team/vladimir-lesko.jpg";
-import aboutHeroTeamMobileImg from "@/assets/team/about-hero-team.png";
-import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.png";
+import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
+import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
+import marosGajanImg from "@/assets/team/maros-gajan.webp";
+import milanNestickyImg from "@/assets/team/milan-nesticky.webp";
+import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.webp";
+import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.webp";
+import vladimirLeskoImg from "@/assets/team/vladimir-lesko.webp";
+import aboutHeroTeamMobileImg from "@/assets/team/about-hero-team.webp";
+import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.webp";
 
 const founders = [{
   name: "Peter Švajlen",

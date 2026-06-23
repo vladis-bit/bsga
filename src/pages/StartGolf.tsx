@@ -9,10 +9,10 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
-import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
+import serviceGreenCardsImg from "@/assets/service-green-cards.webp";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
-import serviceGroupImg from "@/assets/service-group.jpg";
-import serviceCourseImg from "@/assets/service-course-management.png";
+import serviceGroupImg from "@/assets/service-group.webp";
+import serviceCourseImg from "@/assets/service-course-management.webp";
 
 // Reveal-on-scroll wrapper (same pattern as DevelopmentTimeline)
 const Reveal = ({

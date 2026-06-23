@@ -2,20 +2,20 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, FileText, Trophy } from "lucide-react";
-import asbisLogo from "@/assets/partner-asbis-tour.png";
-import tourHeroImage from "@/assets/tour-hero-2026.jpg";
+import asbisLogo from "@/assets/partner-asbis-tour.webp";
+import tourHeroImage from "@/assets/tour-hero-2026.webp";
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-import hrubaBorsaImg from "@/assets/courses/hruba-borsa.png";
-import taleImg from "@/assets/courses/tale.jpg";
+import hrubaBorsaImg from "@/assets/courses/hruba-borsa.webp";
+import taleImg from "@/assets/courses/tale.webp";
 import heritageImg from "@/assets/courses/heritage.jpg";
-import legendImg from "@/assets/courses/legend.jpg";
-import ostraviceImg from "@/assets/courses/ostravice.jpg";
-import sedinImg from "@/assets/courses/sedin.jpg";
+import legendImg from "@/assets/courses/legend.webp";
+import ostraviceImg from "@/assets/courses/ostravice.webp";
+import sedinImg from "@/assets/courses/sedin.webp";
 import kaskadaImg from "@/assets/courses/kaskada.webp";
 
 const tournaments = [

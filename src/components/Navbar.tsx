@@ -95,7 +95,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img
+            <img loading="lazy" decoding="async"
               alt="BSGA - Best Swing Golf Academy"
               className={`w-auto transition-all duration-300 ${
                 isScrolled ? "h-8 sm:h-10 md:h-11 lg:h-12" : "h-10 sm:h-12 md:h-14 lg:h-16"
@@ -115,7 +115,7 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[340px] pt-8 px-6">
                 <div className="flex items-center mb-8">
-                  <img
+                  <img loading="lazy" decoding="async"
                     alt="BSGA"
                     className="h-10 w-auto"
                     src={bsgaLogo}
