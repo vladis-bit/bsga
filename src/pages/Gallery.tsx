@@ -224,7 +224,7 @@ const Gallery = () => {
               <button className="absolute top-4 right-4 sm:top-6 sm:right-6 text-primary-foreground hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}>
                 <X size={28} className="sm:w-8 sm:h-8" />
               </button>
-              <img src={images[selectedImage].src} alt={images[selectedImage].alt} decoding="async" className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-md sm:rounded-lg" onClick={e => e.stopPropagation()} />
+              <img loading="lazy" decoding="async" src={images[selectedImage].src} alt={images[selectedImage].alt} decoding="async" className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-md sm:rounded-lg" onClick={e => e.stopPropagation()} />
             </div>}
         </main>
       </AuroraBackground>
