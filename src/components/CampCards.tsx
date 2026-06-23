@@ -8,6 +8,7 @@ interface Camp {
   date: string;
   location?: string;
   isHighlight?: boolean;
+  soldOut?: boolean;
   description?: string;
   posterUrl?: string;
 }
@@ -18,6 +19,7 @@ const camps: Camp[] = [
     date: "6. – 10. 7. 2026",
     location: "Hrubá Borša",
     posterUrl: "/documents/kemp_6-10_jul.pdf",
+    soldOut: true,
   },
   {
     title: "Denný tábor - Turnus 2",
@@ -44,29 +46,38 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className={`relative rounded-3xl border p-4 sm:p-6 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10 ${
-        camp.isHighlight
-          ? "bg-gradient-to-br from-gold/20 to-gold/5 border-gold/50"
-          : "bg-card border-border hover:border-gold/30"
+      className={`relative rounded-3xl border p-4 sm:p-6 transition-all duration-300 ${
+        camp.soldOut
+          ? "bg-muted/30 border-border/40 opacity-80"
+          : camp.isHighlight
+            ? "bg-gradient-to-br from-gold/20 to-gold/5 border-gold/50 hover:shadow-lg hover:shadow-gold/10"
+            : "bg-card border-border hover:border-gold/30 hover:shadow-lg hover:shadow-gold/10"
       }`}
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         {/* Left - Number/Icon */}
         <div className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg ${
-          camp.isHighlight 
-            ? "bg-gold text-primary" 
-            : "bg-gold/10 text-gold"
+          camp.soldOut
+            ? "bg-muted text-muted-foreground"
+            : camp.isHighlight
+              ? "bg-gold text-primary"
+              : "bg-gold/10 text-gold"
         }`}>
-          {camp.isHighlight ? <Sparkles className="w-5 h-5" /> : index + 1}
+          {camp.soldOut ? <span className="text-sm sm:text-base">Plný</span> : camp.isHighlight ? <Sparkles className="w-5 h-5" /> : index + 1}
         </div>
 
         {/* Center - Content */}
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-1">
-            <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
+            <h3 className={`text-lg sm:text-xl font-serif font-bold ${camp.soldOut ? "text-muted-foreground" : "text-foreground"}`}>
               {camp.title}
             </h3>
-            {camp.isHighlight && (
+            {camp.soldOut && (
+              <span className="bg-muted-foreground/20 text-muted-foreground text-xs font-semibold px-2 py-0.5 rounded-full">
+                Obsadené
+              </span>
+            )}
+            {camp.isHighlight && !camp.soldOut && (
               <span className="bg-gold text-primary text-xs font-medium px-2 py-0.5 rounded-full">
                 Novinky
               </span>
@@ -86,7 +97,12 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
             )}
           </div>
           
-          {camp.description && (
+          {camp.soldOut && (
+            <p className="text-muted-foreground/80 text-sm mt-2 font-medium">
+              Kemp je plný. Už nie je možné sa prihlásiť.
+            </p>
+          )}
+          {camp.description && !camp.soldOut && (
             <p className="text-muted-foreground text-sm mt-2">{camp.description}</p>
           )}
         </div>
@@ -105,17 +121,24 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
               Plagát
             </a>
           )}
-          <a
-            href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
-              camp.isHighlight
-                ? "bg-gold text-primary hover:bg-gold-light"
-                : "bg-gold/10 text-gold hover:bg-gold/20"
-            }`}
-          >
-            <Mail className="w-4 h-4" />
-            <span>Prihlásiť sa</span>
-          </a>
+          {camp.soldOut ? (
+            <span className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/50 text-muted-foreground cursor-not-allowed">
+              <Mail className="w-4 h-4" />
+              <span>Už nie je možné sa prihlásiť</span>
+            </span>
+          ) : (
+            <a
+              href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                camp.isHighlight
+                  ? "bg-gold text-primary hover:bg-gold-light"
+                  : "bg-gold/10 text-gold hover:bg-gold/20"
+              }`}
+            >
+              <Mail className="w-4 h-4" />
+              <span>Prihlásiť sa</span>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
