@@ -8,7 +8,7 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fittingImg from "@/assets/service-fitting.webp";
 import fittingHeroImg from "@/assets/fitting-hero.png.asset.json";
-import jakubImg from "@/assets/team/jakub-hrban-fitting.jpg";
+import jakubImg from "@/assets/team/jakub-hrban-fitting.webp";
 
 const benefits = [
   {

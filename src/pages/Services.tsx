@@ -8,18 +8,18 @@ import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
-import serviceTourImg from "@/assets/service-tour.jpg";
+import serviceTourImg from "@/assets/service-tour.webp";
 import serviceFittingImg from "@/assets/service-fitting.webp";
-import serviceCourseImg from "@/assets/service-course-management.png";
+import serviceCourseImg from "@/assets/service-course-management.webp";
 import serviceIndividualImg from "@/assets/service-individual.jpg";
 import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
 import serviceKidsAcademyImg from "@/assets/service-kids-academy.jpg";
 import serviceKidsCampsImg from "@/assets/service-kids-camps-new.jpg";
-import serviceCorporateImg from "@/assets/service-corporate.jpg";
+import serviceCorporateImg from "@/assets/service-corporate.webp";
 import servicePerformanceImg from "@/assets/service-performance.webp";
-import serviceGreenCardsImg from "@/assets/service-green-cards.jpg";
+import serviceGreenCardsImg from "@/assets/service-green-cards.webp";
 import serviceEventsImg from "@/assets/service-events.jpg";
-import serviceGroupImg from "@/assets/service-group.jpg";
+import serviceGroupImg from "@/assets/service-group.webp";
 import {
   User,
   Users,

@@ -1,4 +1,4 @@
-import asbisLogo from "@/assets/partner-asbis.png";
+import asbisLogo from "@/assets/partner-asbis.webp";
 import checkpointLogo from "@/assets/partner-checkpoint.png";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import borsaLogo from "@/assets/partner-borsa.png";
