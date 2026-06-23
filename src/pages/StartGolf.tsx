@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import CourseReviews from "@/components/CourseReviews";
 import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
 const serviceStartCardsImg = serviceStartCardsImgAsset.url;
 import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
@@ -433,6 +434,8 @@ const StartGolf = () => {
                 </CursorGlowCard>
               </div>
             </Reveal>
+
+            <CourseReviews />
 
           </div>
         </section>
