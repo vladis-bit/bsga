@@ -11,6 +11,7 @@ interface TournamentCardProps {
   date: string;
   location: string;
   image?: string;
+  presenter?: string;
   links?: TournamentLinks;
   tourLabel?: string;
   hideResults?: boolean;
@@ -21,6 +22,7 @@ const TournamentCard = ({
   date,
   location,
   image,
+  presenter,
   links,
   tourLabel = "BSGA Tour",
   hideResults = false,
@@ -54,6 +56,11 @@ const TournamentCard = ({
             <span className="text-primary-foreground/70 font-serif text-[11px] tracking-wide uppercase">
               {tourLabel} {number}
             </span>
+            {presenter && (
+              <span className="text-gold/90 text-[10px] uppercase tracking-wider">
+                presented by {presenter}
+              </span>
+            )}
             <span className="text-gold text-base font-sans font-medium leading-tight">{date}</span>
             <span className="text-primary-foreground font-medium text-xs uppercase tracking-wide truncate">
               {location}
@@ -62,9 +69,16 @@ const TournamentCard = ({
           {/* Desktop: single row */}
           <div className="hidden sm:flex items-center justify-between gap-4">
             <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
-            <span className="text-primary-foreground font-serif font-bold text-base tracking-wide whitespace-nowrap text-center flex-1">
-              {tourLabel} {number}
-            </span>
+            <div className="flex flex-col items-center flex-1 min-w-0">
+              <span className="text-primary-foreground font-serif font-bold text-base tracking-wide whitespace-nowrap">
+                {tourLabel} {number}
+              </span>
+              {presenter && (
+                <span className="text-gold/90 text-xs uppercase tracking-wider truncate max-w-full">
+                  presented by {presenter}
+                </span>
+              )}
+            </div>
             <span className="text-primary-foreground font-medium text-base uppercase tracking-wide truncate text-right">
               {location}
             </span>

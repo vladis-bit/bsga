@@ -28,6 +28,7 @@ const tournaments = [
     date: "15.5.2026",
     location: "Hrubá Borša",
     image: hrubaBorsaImg,
+    presenter: "NN",
     links: { locationUrl: "https://maps.app.goo.gl/4RYGX7fM6i6JNign6", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028130", galleryUrl: "https://drive.google.com/drive/folders/1TLphxWdQEHPAuaNvflVUHiIw8qfApUiC?usp=sharing" }
   },
   {
@@ -35,6 +36,7 @@ const tournaments = [
     date: "5.6.2026",
     location: "Tále",
     image: taleImg,
+    presenter: "Soitron",
     links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028133", galleryUrl: "https://drive.google.com/drive/folders/1WsLb9zka0RqK7mYmQU-koTFq_0IgcpOP?usp=sharing" }
   },
   {
@@ -42,6 +44,7 @@ const tournaments = [
     date: "17.7.2026",
     location: "Penati Heritage",
     image: heritageImg,
+    presenter: "ELV produkt a.s.",
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "https://www.golfgenius.com/pages/12463043224119850432", galleryUrl: "https://drive.google.com/drive/folders/1D6lcI6d3Ojp6wXup8qxJmXqqY88ed_LX?usp=drive_link" }
   },
   {
@@ -49,6 +52,7 @@ const tournaments = [
     date: "14.8.2026",
     location: "Penati Legend",
     image: legendImg,
+    presenter: "ELcomp s.r.o.",
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "https://www.golfgenius.com/pages/12463049917557945799", galleryUrl: "https://drive.google.com/drive/folders/12TcsW8fck2_i5miq28QNIDxl_tdyDmpu?usp=drive_link" }
   },
   {
@@ -56,6 +60,7 @@ const tournaments = [
     date: "4.9.2026",
     location: "Ostravice",
     image: ostraviceImg,
+    presenter: "Altron",
     links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
   }
 ];
@@ -253,6 +258,7 @@ const Tour = () => {
                     date={tournament.date}
                     location={tournament.location}
                     image={tournament.image}
+                    presenter={tournament.presenter}
                     links={tournament.links}
                   />
                 ))}
