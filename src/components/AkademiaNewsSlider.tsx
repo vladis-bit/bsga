@@ -6,6 +6,12 @@ import heroSlide2Asset from "@/assets/akademia/hero-slide-2-new.webp.asset.json"
 const heroSlide2 = heroSlide2Asset.url;
 import heroSlide3Asset from "@/assets/akademia/hero-slide-3-new.webp.asset.json";
 const heroSlide3 = heroSlide3Asset.url;
+import heroSlide1AvifAsset from "@/assets/akademia/hero-slide-1.avif.asset.json";
+const heroSlide1Avif = heroSlide1AvifAsset.url;
+import heroSlide2AvifAsset from "@/assets/akademia/hero-slide-2-new.avif.asset.json";
+const heroSlide2Avif = heroSlide2AvifAsset.url;
+import heroSlide3AvifAsset from "@/assets/akademia/hero-slide-3-new.avif.asset.json";
+const heroSlide3Avif = heroSlide3AvifAsset.url;
 
 interface NewsSlide {
   title: string;
@@ -13,6 +19,7 @@ interface NewsSlide {
   cta: string;
   anchor: string;
   image: string;
+  imageAvif?: string;
 }
 
 const slides: NewsSlide[] = [
@@ -22,6 +29,7 @@ const slides: NewsSlide[] = [
     cta: "Prihlásiť sa",
     anchor: "#tabory",
     image: heroSlide1,
+    imageAvif: heroSlide1Avif,
   },
   {
     title: "Pobytový tábor na Táloch",
@@ -29,6 +37,7 @@ const slides: NewsSlide[] = [
     cta: "Zistiť viac",
     anchor: "#tabory",
     image: heroSlide2,
+    imageAvif: heroSlide2Avif,
   },
   {
     title: "Tour Kids",
@@ -36,6 +45,7 @@ const slides: NewsSlide[] = [
     cta: "Zistiť viac",
     anchor: "#timeline",
     image: heroSlide3,
+    imageAvif: heroSlide3Avif,
   },
 ];
 
@@ -69,12 +79,16 @@ const AkademiaNewsSlider = () => {
             key={slide.title}
             className={`absolute inset-0 transition-opacity duration-700 ${index === currentSlide ? "opacity-100" : "pointer-events-none opacity-0"}`}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="h-full w-full object-cover"
-              loading={index === 0 ? "eager" : "lazy"}
-            />
+            <picture>
+              {slide.imageAvif && <source srcSet={slide.imageAvif} type="image/avif" />}
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="h-full w-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </picture>
           </div>
         ))}
       </div>

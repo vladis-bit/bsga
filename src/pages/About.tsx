@@ -14,6 +14,8 @@ import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.webp";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.webp";
 import aboutHeroTeamMobileImgAsset from "@/assets/team/about-hero-team.webp.asset.json";
 const aboutHeroTeamMobileImg = aboutHeroTeamMobileImgAsset.url;
+import aboutHeroTeamMobileAvifAsset from "@/assets/team/about-hero-team.avif.asset.json";
+const aboutHeroTeamMobileAvif = aboutHeroTeamMobileAvifAsset.url;
 import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.webp";
 
 const founders = [{
@@ -159,11 +161,13 @@ const About = () => {
               <div className="relative z-10 flex w-full items-start justify-center sm:min-h-[520px] sm:items-end sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
                 <picture className="block w-full">
                   <source media="(min-width: 640px)" srcSet={aboutHeroTeamImg} />
+                  <source type="image/avif" srcSet={aboutHeroTeamMobileAvif} />
                   <img
                     src={aboutHeroTeamMobileImg}
                     alt="Tím BSGA"
                     className="block h-auto w-full object-cover object-top"
                     loading="eager"
+                    decoding="async"
                   />
                 </picture>
               </div>

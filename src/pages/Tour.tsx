@@ -5,6 +5,8 @@ import { Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.webp";
 import tourHeroImageAsset from "@/assets/tour-hero-2026.webp.asset.json";
 const tourHeroImage = tourHeroImageAsset.url;
+import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
+const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -132,12 +134,16 @@ const Tour = () => {
           {/* Hero */}
           <section className="relative w-full bg-transparent">
             <div className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
-                <img
-                  src={tourHeroImage}
-                  alt="BSGA Tour 2026 na golfovom ihrisku"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="eager"
-                />
+                <picture>
+                  <source srcSet={tourHeroImageAvif} type="image/avif" />
+                  <img
+                    src={tourHeroImage}
+                    alt="BSGA Tour 2026 na golfovom ihrisku"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
 
                 <div className="relative z-10 flex h-full min-h-[460px] items-end sm:min-h-[560px] md:min-h-[680px]">
