@@ -196,12 +196,29 @@ const services = [
 ];
 
 const Services = () => {
+  const serviceSchemas = services.map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.title,
+    provider: { "@id": "https://bsga.sk/#organization" },
+    areaServed: "SK",
+    serviceType: "Golf",
+  }));
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
+      { "@type": "ListItem", position: 2, name: "Služby", item: "https://bsga.sk/sluzby" },
+    ],
+  };
   return (
     <>
       <SEO
         title="Služby | BSGA - Best Swing Golf Academy"
         description="Kompletné golfové služby - individuálne a skupinové lekcie, zelené karty, detská akadémia, firemné akcie, turnaje BSGA Tour a fitting na mieru."
         path="/sluzby"
+        jsonLd={[breadcrumb, ...serviceSchemas]}
       />
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
