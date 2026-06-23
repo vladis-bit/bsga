@@ -13,6 +13,12 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+import promo1Asset from "@/assets/tour-promos/promo-tour-1.pdf.asset.json";
+import promo2Asset from "@/assets/tour-promos/promo-tour-2.pdf.asset.json";
+import promo3Asset from "@/assets/tour-promos/promo-tour-3.pdf.asset.json";
+import promo4Asset from "@/assets/tour-promos/promo-tour-4.pdf.asset.json";
+import promo5Asset from "@/assets/tour-promos/promo-tour-5.pdf.asset.json";
+
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.webp";
 import taleImg from "@/assets/courses/tale.webp";
 import heritageImgAsset from "@/assets/courses/heritage.jpg.asset.json";
@@ -29,6 +35,7 @@ const tournaments = [
     location: "Hrubá Borša",
     image: hrubaBorsaImg,
     presenter: "NN",
+    promoUrl: promo1Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/4RYGX7fM6i6JNign6", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028130", galleryUrl: "https://drive.google.com/drive/folders/1TLphxWdQEHPAuaNvflVUHiIw8qfApUiC?usp=sharing" }
   },
   {
@@ -37,6 +44,7 @@ const tournaments = [
     location: "Tále",
     image: taleImg,
     presenter: "Soitron",
+    promoUrl: promo2Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028133", galleryUrl: "https://drive.google.com/drive/folders/1WsLb9zka0RqK7mYmQU-koTFq_0IgcpOP?usp=sharing" }
   },
   {
@@ -45,6 +53,7 @@ const tournaments = [
     location: "Penati Heritage",
     image: heritageImg,
     presenter: "ELV produkt a.s.",
+    promoUrl: promo3Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "https://www.golfgenius.com/pages/12463043224119850432", galleryUrl: "https://drive.google.com/drive/folders/1D6lcI6d3Ojp6wXup8qxJmXqqY88ed_LX?usp=drive_link" }
   },
   {
@@ -53,6 +62,7 @@ const tournaments = [
     location: "Penati Legend",
     image: legendImg,
     presenter: "ELcomp s.r.o.",
+    promoUrl: promo4Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "https://www.golfgenius.com/pages/12463049917557945799", galleryUrl: "https://drive.google.com/drive/folders/12TcsW8fck2_i5miq28QNIDxl_tdyDmpu?usp=drive_link" }
   },
   {
@@ -61,6 +71,7 @@ const tournaments = [
     location: "Ostravice",
     image: ostraviceImg,
     presenter: "Altron",
+    promoUrl: promo5Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
   }
 ];
@@ -252,15 +263,25 @@ const Tour = () => {
 
               <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
                 {tournaments.map((tournament) => (
-                  <TournamentCard
-                    key={tournament.number}
-                    number={tournament.number}
-                    date={tournament.date}
-                    location={tournament.location}
-                    image={tournament.image}
-                    presenter={tournament.presenter}
-                    links={tournament.links}
-                  />
+                  <div key={tournament.number} className="space-y-3">
+                    <TournamentCard
+                      number={tournament.number}
+                      date={tournament.date}
+                      location={tournament.location}
+                      image={tournament.image}
+                      presenter={tournament.presenter}
+                      links={tournament.links}
+                    />
+                    <a
+                      href={tournament.promoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-gold/10 border border-gold/40 text-gold text-sm font-medium rounded-full hover:bg-gold/20 hover:border-gold transition-all"
+                    >
+                      <FileText size={16} />
+                      Promo {tournament.number} - leták
+                    </a>
+                  </div>
                 ))}
               </div>
             </div>
