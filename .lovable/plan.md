@@ -1,22 +1,38 @@
-## Cieľ
-Karta "Športová mikina" v Obchode bude zobrazovať všetky 3 farebné varianty (čierna, žltá, zelená) s prepínaním šípkami a tromi farebnými bodkami pod cenou.
+Vykonám všetky tri optimalizácie pre maximálne zrýchlenie načítania webu.
 
-## Kroky
+## 1. Presun veľkých obrázkov na Lovable CDN
+Všetky obrázky >100 KB v `src/assets/` presuniem na Lovable CDN cez `lovable-assets`. Tým sa:
+- zmenší bundle aplikácie (rýchlejší prvý load JS)
+- obrázky servujú z globálnej CDN s agresívnym cache
+- `.asset.json` pointery zostanú v repe, originály sa vymažú
 
-1. **Upload 3 fotiek mikiny ako Lovable Assets**
-   - `user-uploads://5-4.png` → `src/assets/merch/hoodie-black.png.asset.json`
-   - `user-uploads://6-3.png` → `src/assets/merch/hoodie-yellow.png.asset.json`
-   - `user-uploads://4-4.png` → `src/assets/merch/hoodie-green.png.asset.json`
+Týka sa hlavne: hero obrázky, galéria, team portréty, services, courses, merch.
 
-2. **Rozšíriť `MerchCard.tsx`** o voliteľnú prop `colorVariants?: { name: string; hex: string; image: string }[]`:
-   - Ak je prop zadaná, namiesto statického `image` zobrazí aktívny variant.
-   - Šípky `‹` `›` vľavo/vpravo cez obrázok (gold/transparent, hover stav) na prepínanie.
-   - Pod cenou riadok s 3 farebnými bodkami (`w-3 h-3 rounded-full`, ring-gold pri aktívnej, hex farba pozadia) — klik prepne variant.
-   - Plynulý fade prechod obrázka (`AnimatePresence` alebo CSS opacity).
+## 2. AVIF varianty cez `vite-imagetools`
+Pridám `vite-imagetools` plugin a pre hero/LCP obrázky vygenerujem AVIF + WebP varianty s `<picture>` tagom:
+```tsx
+<picture>
+  <source srcSet={heroAvif} type="image/avif" />
+  <source srcSet={heroWebp} type="image/webp" />
+  <img src={heroWebp} alt="..." />
+</picture>
+```
+AVIF je ~30 % menší než WebP. Aplikujem na: hero na Domov, About hero, Akadémia hero, Tour hero.
 
-3. **Shop.tsx** — pre položku "Športová mikina" odovzdať `colorVariants` (čierna `#000000`, žltá `#EAB308`, zelená `#84CC16`) a ako default `image` použiť čiernu.
+## 3. Preload LCP obrázka
+Do `index.html` pridám:
+```html
+<link rel="preload" as="image" href="<hero-url>" fetchpriority="high" />
+```
+Pre hlavný hero na úvodnej stránke (najviditeľnejší obrázok pri otvorení).
 
 ## Technické detaily
-- Stav `activeIndex` cez `useState(0)` v `MerchCard`.
-- Šípky vykreslené iba ak `colorVariants?.length > 1`.
-- Existujúce karty bez `colorVariants` ostanú nezmenené (žiadne šípky, žiadne bodky).
+- Krok 1: spustím skill `migrate-to-assets` — preflight scan, upload, prepis importov, `bun run build` na overenie.
+- Krok 2: `bun add -D vite-imagetools`, úprava `vite.config.ts`, refactor hero komponentov.
+- Krok 3: úprava `index.html` s preload tagom pre hero z Domov stránky.
+- Po každom kroku overím buildom, že nič nepadlo.
+
+## Očakávaný výsledok
+- Bundle size: ďalšie zníženie o ~5–8 MB (presun na CDN)
+- LCP: rýchlejší o 200–500 ms (preload + AVIF)
+- Celkový dojem: web sa otvorí citeľne rýchlejšie, hlavne na mobile a pomalšom pripojení.
