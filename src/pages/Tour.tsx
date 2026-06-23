@@ -123,11 +123,40 @@ const tournaments2022 = [
 ];
 
 const Tour = () => {
+  const toIso = (d: string) => {
+    const [day, month, year] = d.split(".");
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  };
+  const eventSchemas = tournaments.map((t) => ({
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: `BSGA Tour 2026 #${t.number} – ${t.location}`,
+    startDate: toIso(t.date),
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    sport: "Golf",
+    location: {
+      "@type": "Place",
+      name: t.location,
+      address: { "@type": "PostalAddress", addressCountry: "SK" },
+    },
+    organizer: { "@id": "https://bsga.sk/#organization" },
+    url: "https://bsga.sk/tour",
+  }));
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
+      { "@type": "ListItem", position: 2, name: "Tour 2026", item: "https://bsga.sk/tour" },
+    ],
+  };
   return <>
       <SEO
         title="BSGA Tour 2026 | Séria golfových turnajov"
         description="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice."
         path="/tour"
+        jsonLd={[breadcrumb, ...eventSchemas]}
       />
       <Navbar />
       <AuroraBackground variant="silver">
