@@ -1,0 +1,25 @@
+# Best Swing Golf Academy (BSGA)
+
+> Najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, zelené karty, juniorský program, fitting, BSGA Tour a firemné akcie.
+
+BSGA pôsobí primárne v Bratislave (Hrubá Borša) a Nitre (Red Oak Golf Club). Tréningy vedú PGA tréneri pre dospelých aj deti.
+
+## Pages
+
+- [Domov](/): Prehľad služieb, partneri, časté otázky.
+- [O nás](/o-nas): Príbeh, tím a misia BSGA.
+- [Služby](/sluzby): Kompletný zoznam tréningov, kurzov a programov.
+- [BSGA Tour 2026](/tour): Séria turnajov s partnermi NN, Soitron, ELV produkt, ELcomp a Altron.
+- [Juniorský golf](/akademia): Detské tábory, junior level system a development program.
+- [Galéria](/galeria): Fotografie z tréningov, turnajov a eventov.
+- [Obchod](/obchod): Darčekové poukážky a víkendové kurzy.
+- [Fitting](/fitting): Vybavenie a palice na mieru.
+- [Začni s golfom](/zacni-s-golfom): Sprievodca pre začiatočníkov a zelené karty.
+- [Edukačné centrum](/edukacne-centrum): Testy a kalkulačky pre golfistov.
+- [Testy](/edukacne-centrum/testy): Testy znalostí pravidiel a etikety.
+- [Kalkulačky](/edukacne-centrum/kalkulacky): Výpočty handicapu a ďalšie nástroje.
+
+## Optional
+
+- [GDPR](/gdpr): Spracovanie osobných údajov.
+- [Obchodné podmienky](/obchodne-podmienky): Obchodné podmienky BSGA.
