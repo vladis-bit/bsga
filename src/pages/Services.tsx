@@ -107,9 +107,9 @@ const services = [
   },
   {
     icon: Baby,
-    title: "Detská akadémia",
+    title: "BSGA Junior Level System",
     image: serviceKidsAcademyImg,
-    link: "/akademia#timeline",
+    link: "/akademia#junior-level-system",
     description: (
       <>
         Tréningy pre deti, ktoré spájajú <strong>pohyb, hravosť</strong> a systematický <strong>rozvoj techniky</strong>. Super prostredie, nové kamarátstva a tréningy, na ktoré sa <strong>deti tešia</strong>.
