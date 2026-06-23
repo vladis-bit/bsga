@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Mail, FileText, Trophy } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.webp";
@@ -124,10 +124,11 @@ const tournaments2022 = [
 
 const Tour = () => {
   return <>
-      <Helmet>
-        <title>BSGA Tour 2026 | Séria golfových turnajov</title>
-        <meta name="description" content="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice." />
-      </Helmet>
+      <SEO
+        title="BSGA Tour 2026 | Séria golfových turnajov"
+        description="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice."
+        path="/tour"
+      />
       <Navbar />
       <AuroraBackground variant="silver">
         <main className="bg-transparent">

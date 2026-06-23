@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { X } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -205,10 +205,11 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   return <>
-      <Helmet>
-        <title>Galéria | BSGA - Best Swing Golf Academy</title>
-        <meta name="description" content="Fotogaléria BSGA - nahliadnite do našich tréningov, turnajov a podujatí. Profesionálne golfové momenty z najkrajších slovenských ihrísk." />
-      </Helmet>
+      <SEO
+        title="Galéria | BSGA - Best Swing Golf Academy"
+        description="Fotogaléria BSGA - nahliadnite do našich tréningov, turnajov a podujatí. Profesionálne golfové momenty z najkrajších slovenských ihrísk."
+        path="/galeria"
+      />
       <Navbar />
       <AuroraBackground variant="silver">
         <main className="bg-transparent pt-24 sm:pt-28 md:pt-32">

@@ -1,9 +1,9 @@
 import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ClipboardCheck, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
@@ -33,10 +33,11 @@ const EducationCenter = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Edukačné centrum | BSGA</title>
-        <meta name="description" content="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how." />
-      </Helmet>
+      <SEO
+        title="Edukačné centrum | BSGA"
+        description="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how."
+        path="/edukacne-centrum"
+      />
 
       <Navbar />
 

@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import HeroSlider from "@/components/HeroSlider";
 import ServicesSlider from "@/components/ServicesSlider";
 import PartnersLoop from "@/components/PartnersLoop";
@@ -11,13 +11,11 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <>
-      <Helmet>
-        <title>BSGA - Best Swing Golf Academy | Najväčšia golfová akadémia na Slovensku</title>
-        <meta
-          name="description"
-          content="Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, zelené karty, detská akadémia a firemné akcie."
-        />
-      </Helmet>
+      <SEO
+        title="BSGA - Best Swing Golf Academy | Najväčšia golfová akadémia na Slovensku"
+        description="Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, zelené karty, detská akadémia a firemné akcie."
+        path="/"
+      />
       <Navbar />
       <main>
         <HeroSlider />

@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,6 +13,12 @@ const NotFound = () => {
 
   return (
     <>
+      <SEO
+        title="Stránka nenájdená (404) | BSGA"
+        description="Stránka, ktorú hľadáte, neexistuje."
+        path="/404"
+        noindex
+      />
       <Navbar />
       <main className="min-h-screen flex items-center justify-center bg-background pt-20">
         <div className="text-center px-6">
