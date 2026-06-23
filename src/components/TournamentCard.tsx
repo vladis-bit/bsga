@@ -53,7 +53,7 @@ const TournamentCard = ({
         <div className="flex-1 min-w-0">
           {/* Mobile: stacked layout */}
           <div className="flex flex-col sm:hidden gap-1">
-            <span className="text-primary-foreground font-serif text-xs font-bold tracking-wide uppercase">
+            <span className="text-primary-foreground font-serif text-sm font-bold tracking-wide uppercase">
               {tourLabel} {number}
             </span>
             {presenter && (
@@ -70,7 +70,7 @@ const TournamentCard = ({
           <div className="hidden sm:flex items-center justify-between gap-4">
             <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
             <div className="flex flex-col items-center flex-1 min-w-0 gap-0.5">
-              <span className="text-primary-foreground font-serif font-bold text-base tracking-wide whitespace-nowrap">
+              <span className="text-primary-foreground font-serif font-bold text-lg tracking-wide whitespace-nowrap">
                 {tourLabel} {number}
               </span>
               {presenter && (
