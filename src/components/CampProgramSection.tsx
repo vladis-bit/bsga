@@ -68,10 +68,10 @@ const CampProgramSection = () => {
         </div>
         <div className="space-y-3 text-sm sm:text-base text-foreground/80 leading-relaxed">
           <p>
-            Pre Vaše deti je zabezpečený komplet celodenný servis čo sa týka starostlivosti, stravovania / pitného režimu a golfu. Deti budú celý deň pod dohľadom našich trénerov.
+            Pre Vaše deti je zabezpečený <strong>komplet celodenný servis</strong> čo sa týka <strong>starostlivosti</strong>, <strong>stravovania</strong> / <strong>pitného režimu</strong> a <strong>golfu</strong>. Deti budú celý deň pod dohľadom <strong>našich trénerov</strong>.
           </p>
           <p>
-            Deti si môžu so sebou priniesť ruksačik, kde im prosím nachystajte šiltovku alebo letný klobúčik, opaľovací krém (ak máte nejakú konkrétnu značku, ale budú ich mať aj naši tréneri) a v prípade horšieho počasia mikinu / nohavice. Malá sladkosť prípadne džúsik bude na Vašom rozhodnutí. Ak majú deti vlastné palice, nech si ich samozrejme prinesú.
+            Deti si môžu so sebou priniesť <strong>ruksačik</strong>, kde im prosím nachystajte <strong>šiltovku</strong> alebo <strong>letný klobúčik</strong>, <strong>opaľovací krém</strong> (ak máte nejakú konkrétnu značku, ale budú ich mať aj naši tréneri) a v prípade horšieho počasia <strong>mikinu</strong> / <strong>nohavice</strong>. <strong>Malá sladkosť</strong> prípadne <strong>džúsik</strong> bude na Vašom rozhodnutí. Ak majú deti <strong>vlastné palice</strong>, nech si ich samozrejme prinesú.
           </p>
         </div>
       </div>
