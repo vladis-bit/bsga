@@ -2,8 +2,6 @@ import asbisLogo from "@/assets/partner-asbis.webp";
 import checkpointLogo from "@/assets/partner-checkpoint.png";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import borsaLogo from "@/assets/partner-borsa.png";
-import jucadLogoAsset from "@/assets/partner-jucad.jpg.asset.json";
-const jucadLogo = jucadLogoAsset.url;
 interface Partner {
   name: string;
   logo: string;
@@ -20,9 +18,6 @@ const partners: Partner[] = [{
 }, {
   name: "Borša Golf Club",
   logo: borsaLogo
-}, {
-  name: "JuCad",
-  logo: jucadLogo
 }];
 const PartnersLoop = () => {
   return <section className="py-12 bg-secondary overflow-hidden">
