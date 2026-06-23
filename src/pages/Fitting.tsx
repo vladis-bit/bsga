@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import { Wrench, Ruler, Target, Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -86,15 +86,23 @@ const faqs = [
 ];
 
 const Fitting = () => {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <>
-      <Helmet>
-        <title>Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy</title>
-        <meta
-          name="description"
-          content="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré ti skutočne sedí."
-        />
-      </Helmet>
+      <SEO
+        title="Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy"
+        description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré ti skutočne sedí."
+        path="/fitting"
+        jsonLd={faqJsonLd}
+      />
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>

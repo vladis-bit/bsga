@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
@@ -135,10 +135,11 @@ const TeamCard = ({
 
 const About = () => {
   return <>
-      <Helmet>
-        <title>O nás | BSGA - Best Swing Golf Academy</title>
-        <meta name="description" content="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností." />
-      </Helmet>
+      <SEO
+        title="O nás | BSGA - Best Swing Golf Academy"
+        description="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností."
+        path="/o-nas"
+      />
       <Navbar />
       <AuroraBackground variant="silver">
         <main className="bg-transparent">

@@ -1,17 +1,15 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const GDPR = () => {
   return (
     <>
-      <Helmet>
-        <title>Zásady ochrany osobných údajov | BSGA</title>
-        <meta
-          name="description"
-          content="Zásady ochrany osobných údajov BSGA - Best Swing Golf Academy. Informácie o spracovaní a ochrane vašich osobných údajov platné od 8. marca 2026."
-        />
-      </Helmet>
+      <SEO
+        title="Zásady ochrany osobných údajov | BSGA"
+        description="Zásady ochrany osobných údajov BSGA - Best Swing Golf Academy. Informácie o spracovaní a ochrane vašich osobných údajov platné od 8. marca 2026."
+        path="/gdpr"
+      />
       <Navbar />
       <main>
         <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 text-center">

@@ -1,17 +1,19 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
 const EducationCalculators = () => {
   return (
     <>
-      <Helmet>
-        <title>Golfové kalkulačky | Edukačné centrum | BSGA</title>
-        <meta name="description" content="Golfové kalkulačky - výpočty pre váš golf." />
-      </Helmet>
+      <SEO
+        title="Golfové kalkulačky | Edukačné centrum | BSGA"
+        description="Golfové kalkulačky - výpočty pre váš golf."
+        path="/edukacne-centrum/kalkulacky"
+        noindex
+      />
 
       <Navbar />
 

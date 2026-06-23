@@ -1,18 +1,19 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import GreenCardQuiz from "@/components/GreenCardQuiz";
 
 const EducationTests = () => {
   return (
     <>
-      <Helmet>
-        <title>Testy | Edukačné centrum | BSGA</title>
-        <meta name="description" content="Záverečné otázky na zelenú kartu - otestujte svoje znalosti golfovej etikety a pravidiel." />
-      </Helmet>
+      <SEO
+        title="Testy | Edukačné centrum | BSGA"
+        description="Záverečné otázky na zelenú kartu - otestujte svoje znalosti golfovej etikety a pravidiel."
+        path="/edukacne-centrum/testy"
+      />
 
       <Navbar />
 

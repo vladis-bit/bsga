@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, MapPin, Crown, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -99,6 +99,26 @@ const StepFAQ = ({
 );
 
 const StartGolf = () => {
+  const allFaqs = [
+    { q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?", a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou. Všetko vybavenie – palice aj loptičky – ti zapožičiame priamo na mieste." },
+    { q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?", a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získaš základy a pripravíš sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test." },
+    { q: "Čo zelená karta znamená v praxi a čo ak neprejdem testom?", a: "Zelená karta je medzinárodne uznávané potvrdenie tvojej spôsobilosti hrať golf samostatne. Ak by si testom neprešiel, môžeš ho opakovať. Náš tréner ťa pred ním dôkladne pripraví." },
+    { q: "Aký je rozdiel medzi individuálnou a skupinovou lekciou?", a: "Pri individuálnej lekcii sa tréner venuje výlučne tebe. Skupinový tréning je dynamickejší, lacnejší a ideálny ak ťa baví učiť sa v komunite." },
+    { q: "Ako často by som mal trénovať, aby som sa zlepšoval?", a: "Pre viditeľný progres odporúčame aspoň 1 lekciu týždenne v kombinácii so samostatným tréningom na drivingu. Konzistencia je dôležitejšia než dĺžka jedného tréningu." },
+    { q: "Môžem si kúpiť balík viacerých lekcií so zľavou?", a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíš nám na kontaktný formulár a pripravíme ti ponuku na mieru." },
+    { q: "Pre koho je Course Management vhodný?", a: "Pre hráčov so zelenou kartou, ktorí už ovládajú základy a chcú sa posunúť ďalej – znížiť skóre, lepšie čítať ihrisko a strategicky vyberať údery." },
+    { q: "Kde tréning Course Management prebieha?", a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra) so svojím PGA trénerom." },
+    { q: "Sú v cene Course Management zahrnuté green fee a ďalšie poplatky?", a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne." },
+  ];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
   const milestones = [
     {
       number: "01",
@@ -133,13 +153,12 @@ const StartGolf = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Začni s golfom | BSGA - Best Swing Golf Academy</title>
-        <meta
-          name="description"
-          content="Začni s golfom - Víkendový kurz zelenej karty, kurz zelenej karty a individuálne lekcie. Vyber si program a kúp si kurz online."
-        />
-      </Helmet>
+      <SEO
+        title="Začni s golfom | BSGA - Best Swing Golf Academy"
+        description="Začni s golfom - Víkendový kurz zelenej karty, kurz zelenej karty a individuálne lekcie. Vyber si program a kúp si kurz online."
+        path="/zacni-s-golfom"
+        jsonLd={faqJsonLd}
+      />
 
       <Navbar />
 

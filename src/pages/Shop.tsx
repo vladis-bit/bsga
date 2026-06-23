@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
@@ -187,13 +187,11 @@ const Shop = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Obchod | BSGA - Best Swing Golf Academy</title>
-        <meta
-          name="description"
-          content="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
-        />
-      </Helmet>
+      <SEO
+        title="Obchod | BSGA - Best Swing Golf Academy"
+        description="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
+        path="/obchod"
+      />
 
       <Navbar />
 

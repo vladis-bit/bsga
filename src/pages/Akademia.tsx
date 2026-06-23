@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
@@ -14,10 +14,11 @@ const Akademia = () => {
   };
 
   return <>
-      <Helmet>
-        <title>Akadémia | BSGA - Best Swing Golf Academy</title>
-        <meta name="description" content="BSGA Akadémia - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku." />
-      </Helmet>
+      <SEO
+        title="Akadémia | BSGA - Best Swing Golf Academy"
+        description="BSGA Akadémia - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku."
+        path="/akademia"
+      />
       <Navbar />
       <AuroraBackground variant="silver">
         <main className="bg-transparent">
