@@ -49,25 +49,25 @@ const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="flex flex-col rounded-xl border border-border/60 bg-background/75 p-5 sm:p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-lg"
+      className="flex flex-col rounded-xl border border-gold/25 bg-card/95 p-5 sm:p-6 shadow-sm shadow-black/20 transition-all duration-300 hover:border-gold/70 hover:shadow-gold/10 hover:shadow-lg"
     >
       <header className="flex items-center gap-3 mb-3">
-        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold/25 to-gold/5 border border-gold/20 flex items-center justify-center flex-shrink-0">
-          <span className="text-gold font-bold text-base">{review.name.charAt(0)}</span>
+        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold/40 to-gold/10 border border-gold/40 flex items-center justify-center flex-shrink-0">
+          <span className="text-gold font-bold text-base drop-shadow-sm">{review.name.charAt(0)}</span>
         </div>
         <div className="min-w-0">
-          <h4 className="font-bold text-foreground text-sm sm:text-base truncate">{review.name}</h4>
-          <p className="text-gold/80 text-xs font-medium">Google recenzia · víkendový kurz ZK</p>
+          <h4 className="font-bold text-card-foreground text-sm sm:text-base truncate">{review.name}</h4>
+          <p className="text-gold text-xs font-medium">Google recenzia · víkendový kurz ZK</p>
         </div>
       </header>
 
       <div className="flex gap-0.5 mb-3" aria-label="5 z 5 hviezdičiek">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+          <Star key={i} className="w-4 h-4 text-gold fill-gold drop-shadow-sm" />
         ))}
       </div>
 
-      <p className="text-sm leading-relaxed text-foreground/80 italic">
+      <p className="text-sm leading-relaxed text-card-foreground italic">
         „{displayed}"
       </p>
 
