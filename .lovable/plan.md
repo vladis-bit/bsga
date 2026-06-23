@@ -1,70 +1,33 @@
-## Plán vylepšení – Phase 2
+## Cieľ
+Pridať sekciu s 6 Google recenziami z víkendového kurzu zelenej karty na stránku `/zacni-s-golfom` pod Krok 1.
 
-Tri paralelné okruhy: **SEO schémy**, **rýchlosť** a **konverzie**.
+## Umiestnenie
+V `src/pages/StartGolf.tsx` v sekcii `#vikendovy-kurz` — pod kartu "Čo je víkendový kurz?" (medzi koniec `Reveal` karty na riadku ~435 a uzatváracím `</section>` na ~438). Takto bude blok recenzií logicky pri víkendovom kurze, nad sekciou Zelená karta.
 
----
+## Nový komponent
+Vytvorím `src/components/CourseReviews.tsx` — samostatný komponent (znovupoužiteľný, čistý kód v StartGolf):
 
-### 1) SEO – Rich snippets (JSON-LD)
+- Nadpis sekcie: malý gold eyebrow „Referencie" + h3 „Čo hovoria absolventi víkendového kurzu" + zlatý divider (rovnaký pattern ako `Testimonials.tsx`).
+- Mriežka kariet: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6`, `max-w-6xl mx-auto`.
+- Karta:
+  - `bg-background/75 border border-border/60 rounded-xl p-5 sm:p-6 hover:border-gold/40 transition`
+  - Header: kruhový avatar s iniciálou (gold gradient — rovnako ako v `Testimonials`), meno (bold), pod ním „Google recenzia · víkendový kurz ZK".
+  - 5 zlatých hviezdičiek (SVG ako v Testimonials).
+  - Text recenzie (`text-sm leading-relaxed text-foreground/80 italic`), s `line-clamp-6` + tlačidlo „Čítať viac" ktoré rozbalí plný text (`useState` per karta). Dlhšie recenzie (Andrea, Matej) sa tým upracú.
+- Reveal-on-scroll wrapper (rovnaký framer-motion pattern ako zvyšok stránky), stagger delay 0.05 × index.
+- Pod mriežkou diskrétny riadok: „Recenzie pochádzajú z Google profilu BSGA" s ikonou/link na Google profil (zatiaľ bez URL — len text, ak používateľ neposkytne odkaz).
 
-Cieľ: získať bohatšie zobrazenia v Google (hviezdičky, ceny, eventy, mapa).
+## Dáta recenzií (presne podľa screenshotov)
+1. **Matúš Kráľovič** — „úžasní ľudia, prostredie, všetko. veľmi odporúčam a neviem čo iné by som zmenil. kurz prebiehal v peknej postupnosti zakončený hrou na ihrisku. tréner všetko vysvetlil a mal trpezlivosť aj s týmí, ktorým to možno až tak nešlo. vrelo odporúčam všetkým, ktorí si nevedia vybrať u koho urobiť zelenú kartu, určite neoľutujete:)"
+2. **Peter Hrban** — „Veľmi pekne ďakujeme, že sme sa mohli zúčastniť kurzu ZK vo vašej akadémii. Všetko Tip Top na vysokej úrovni vrátane inštruktora Milana, ale celkovo Vašej BSGA 😉👍 krásny rezort a s ním vaše služby TOP 👏😉👍"
+3. **Andrea Beno** — „Absolvovala som víkendový golfový kurz v Best Swing Golf Academy a nemohlo to byť lepšie! Bol to skvelý, pozitívnou energiou nabitý víkend, počas ktorého sme sa veľa naučili o etike a pravidlách hry. Na záver víkendu sme už boli schopní úspešne zahrať zopár jamiek. Stretla sa tu super partia ľudí, s ktorými sme si výborne sadli. Obrovská vďaka patrí Milanovi – viedol kurz absolútne perfektne, s obrovskou profesionalitou, no zároveň sme sa veľa nasmiali a od prvého momentu sme sa cítili nesmierne vítaní. Kurz odporúčam všetkými desiatimi!"
+4. **Ivan Lomnický** — „Pán tréner Milan Neštický, ďakujem veľmi pekne za Váš perfektný profesionálny a priateľský prístup. Ísť práve k Vám na kurz zelenej karty bolo výborné rozhodnutie! Odporúčam každému, neoľutujete. 10/10 👍"
+5. **Matej Babinec** — „Kurzom nás sprevádzal Milan Neštický a naozaj môžem len odporučiť. Celý kurz prebiehal vo veľmi príjemnej atmosfére, Milan všetko zrozumiteľne vysvetlil a venoval sa nám aj individuálne. Ako začiatočník som sa cítil veľmi dobre, dostal som veľa praktických rád a celý priebeh bol profesionálny, no zároveň uvoľnený. Ak niekto rozmýšľa nad zelenou kartou na golf, určite odporúčam."
+6. **Štefan Baláž** — „Za dva dni sme prešli všetkým, čo sa týka golfu, a urobili sme 15 kilometrov v peknom prostredí v príjemnom kolektíve. Mali sme šťastie s erudovaným trénerom Milanom. U každého účastníka bol očividný pokrok."
 
-- **LocalBusiness / SportsActivityLocation** v `index.html` rozšíriť o:
-  - `address` (ulica, mesto, PSČ, krajina)
-  - `telephone`, `email`
-  - `openingHoursSpecification` (po dňoch)
-  - `geo` (latitude/longitude)
-  - `priceRange`, `image`, `sameAs` (FB/IG)
-- **Service schema** pre každú službu na `/sluzby` (Fitting, Lekcie, Start with Golf, Performance Center, …) – cez `SEO` komponent.
-- **Event schema** pre každý turnaj v `/tour-2026` (názov, dátum, miesto, link na PDF).
-- **Product schema** pre darčekové poukazy a kurzy na `/obchod` (cena, mena, dostupnosť).
-- **BreadcrumbList** schema na všetkých podstránkach (Domov › Sekcia › Stránka).
-- **Course schema** (typ Schema.org) pre akademické kurzy na `/akademia`.
+## Súbory
+- **Vytvoriť**: `src/components/CourseReviews.tsx`
+- **Upraviť**: `src/pages/StartGolf.tsx` — import + vloženie `<CourseReviews />` v sekcii `#vikendovy-kurz` pod kartou víkendového kurzu.
 
-### 2) Rýchlosť & Core Web Vitals
-
-Cieľ: LCP < 2.5s, CLS < 0.1, lepší Google ranking + UX.
-
-- **Obrázky**: pridať `vite-imagetools`, konvertovať veľké JPG/PNG do **WebP/AVIF**, pridať `width`/`height` atribúty (zabraňuje CLS).
-- **LCP preload**: hero obrázok na `/` cez `<link rel="preload" as="image" fetchpriority="high">`.
-- **Lazy loading**: `loading="lazy"` na všetky obrázky pod foldom (galéria, partneri, testimonials).
-- **Code splitting**: `React.lazy()` pre ťažké stránky (Gallery, Tour, Education).
-- **Font optimalizácia**: `font-display: swap` + preload kritických fontov.
-- **Bundle audit**: odstrániť nepoužité shadcn komponenty a knižnice.
-- **Cache headers** dokument (návod pre používateľa, lebo bsga.sk hostuje Lovable).
-
-### 3) Konverzie & CTA
-
-Cieľ: viac dopytov z existujúcej návštevnosti.
-
-- **Sticky mobile CTA bar**: spodný bar „Rezervovať lekciu" + „Zavolať" (viditeľný iba na mobile, skryje sa pri scrolle hore).
-- **Sekundárne CTA v každej service karte** na `/sluzby` – tlačidlo „Mám záujem" priamo otvorí formulár s predvyplnenou službou.
-- **WhatsApp / Messenger float button** vpravo dole (rýchly kontakt).
-- **Exit-intent modal** na `/sluzby` a `/obchod` – „Stiahnite si bezplatný PDF sprievodca golfom pre začiatočníkov" výmenou za email (lead magnet).
-- **Trust signály** nad formulármi: počet spokojných klientov, hviezdičky z Google recenzií, logá partnerov.
-- **Form improvements**:
-  - Microcopy pod tlačidlom („Odpovieme do 24 h, žiadny spam")
-  - Inline validácia + úspešná hláška s ďalším krokom (CTA na Instagram / Tour)
-  - Auto-fokus prvého poľa
-
----
-
-### Poradie realizácie
-
-1. **SEO schémy** (najrýchlejší win, ovplyvní výsledky vyhľadávania o 2-4 týždne)
-2. **Konverzné CTA** (sticky bar + WhatsApp + service CTA) – okamžitý dopad
-3. **Rýchlosť** (vite-imagetools + lazy loading + preload)
-4. **Exit-intent + lead magnet** – až po dohode aký PDF chcete ponúknuť
-
-### Čo potrebujem od vás predtým, než začnem
-
-- **Adresa / telefón / otváracie hodiny** akadémie (pre LocalBusiness schema)
-- **GPS súradnice** (môžem dohľadať podľa adresy)
-- **WhatsApp číslo** alebo Messenger link (ak chcete float button)
-- **Lead magnet PDF** – máte alebo ho mám navrhnúť?
-
-### Technické detaily
-
-- Schémy pôjdu cez existujúci `SEO` komponent (`jsonLd` prop už podporuje array).
-- Sticky CTA & WhatsApp = nový komponent `MobileCTABar.tsx` + `FloatingContact.tsx`.
-- Exit-intent = `useExitIntent` hook + `Dialog` z shadcn.
-- Image optimalizácia neovplyvní existujúce importy (vite-imagetools pridá query params).
+## Out of scope
+Existujúci karusel `Testimonials` na home page sa nemení.
