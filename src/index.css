@@ -218,3 +218,20 @@ a font,
 [role="button"] font {
   pointer-events: none;
 }
+
+/* Gold gradient button used for promo PDF downloads */
+.gold-gradient-button {
+  background-image: linear-gradient(
+    180deg,
+    hsl(var(--gold-gradient-start)),
+    hsl(var(--gold-gradient-end))
+  );
+}
+
+.gold-gradient-button:hover {
+  background-image: linear-gradient(
+    180deg,
+    hsl(var(--gold-gradient-start-hover)),
+    hsl(var(--gold-gradient-end-hover))
+  );
+}
