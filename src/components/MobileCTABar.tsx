@@ -8,7 +8,10 @@ const MobileCTABar = () => {
   if (HIDE_ON.some((p) => pathname.startsWith(p))) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 md:hidden border-t border-gold/30 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/80">
+    <>
+    {/* spacer so fixed bar doesn't overlap footer content on mobile */}
+    <div aria-hidden className="h-14 md:hidden" />
+    <div className="fixed bottom-0 inset-x-0 z-40 md:hidden border-t border-gold/30 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/80 pb-[env(safe-area-inset-bottom)]">
       <div className="grid grid-cols-2">
         <a
           href="tel:+421917225276"
@@ -28,6 +31,7 @@ const MobileCTABar = () => {
         </a>
       </div>
     </div>
+    </>
   );
 };
 
