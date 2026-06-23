@@ -1,42 +1,71 @@
-## Stav
 
-- `bsga.sk` je živá (HTTP 200) ✅
-- `public/sitemap.xml` a `public/robots.txt` existujú, ale ukazujú na `bsga.lovable.app`
-- Google Search Console konektor **nie je pripojený** v workspace — bez neho neviem zavolať Google API
+# Plán: SEO vylepšenia BSGA
 
-## Čo spravím
+Cieľ: aby Google chápal čo robíte, kde pôsobíte a aby vás Slováci hľadajúci golf našli vyššie vo výsledkoch.
 
-### 1. Prepnúť URL na bsga.sk
-- `public/sitemap.xml` — všetkých 14 `<loc>` z `https://bsga.lovable.app` → `https://bsga.sk`
-- `public/robots.txt` — `Sitemap:` direktívu na `https://bsga.sk/sitemap.xml`
+## 1) Per-page meta tagy (kanonické URL + Open Graph)
 
-### 2. Pripojiť Google Search Console konektor
-Vyžaduje tvoj súhlas — otvorím dialóg `Connect`, prihlásiš sa Googlom účtom, ktorý chceš mať ako vlastníka property v Search Console.
+Aktuálne má každá stránka len `<title>` a `<description>`. Pridať na všetky stránky cez `react-helmet-async`:
+- `<link rel="canonical" href="https://bsga.sk/...">` — vlastná URL každej stránky (nie homepage)
+- `<meta property="og:title">`, `og:description`, `og:url`, `og:type`
+- `<meta name="twitter:title">`, `twitter:description`
 
-### 3. Overiť doménu bsga.sk (META metóda)
-- Vyžiadam verifikačný token cez Site Verification API
-- Pridám `<meta name="google-site-verification" content="...">` do `index.html`
-- **Publikuješ web** (klik na Publish) — bez deployu Google tag nenájde
-- Zavolám verify endpoint → property je overená
+Z `index.html` odstrániť `<link rel="canonical" href="https://bsga.sk/">` (nech ho riadi Helmet per route — inak všetky podstránky kanonicky ukazujú na homepage, čo je SEO chyba).
 
-### 4. Pridať property a odoslať sitemap
-- `PUT /webmasters/v3/sites/https%3A%2F%2Fbsga.sk%2F` — pridá property do Search Console
-- `PUT /webmasters/v3/sites/.../sitemaps/https%3A%2F%2Fbsga.sk%2Fsitemap.xml` — odošle sitemap
+Stránky na úpravu: Index, About, Services, Tour, Akademia, Gallery, Shop, Fitting, StartGolf, EducationCenter, EducationTests, EducationCalculators, GDPR, TermsAndConditions.
 
-### 5. Sledovanie indexovania
-Google Search Console API neumožňuje „nastaviť sledovanie" — indexovanie všetkých 14 URL si spustí Google sám po prečítaní sitemapy (zvyčajne hodiny až dni). Môžem ale:
-- vypísať aktuálny stav sitemapy (`GET .../sitemaps/...`) — počet odoslaných/indexovaných URL
-- vypísať pokrytie indexom (`POST .../urlInspection/index:inspect` pre jednotlivé URL)
+## 2) Štruktúrované dáta (JSON-LD)
 
-Ak chceš pravidelný monitoring, najlepšie je otvoriť priamo Search Console v prehliadači — Lovable nemá cron na opakované volania.
+Pomáha Google zobrazovať rich snippets (hviezdičky, FAQ rozbalenia, mapa, kontakt):
 
-## Čo potrebuješ spraviť ty
+- **Sitewide v `index.html`**: `Organization` + `LocalBusiness` (SportsActivityLocation) — názov BSGA, logo, adresa Bratislava, telefón +421 917 225 276, email info@bsga.sk, sociálne siete, otváracie hodiny, geo súradnice
+- **Index**: `WebSite` so SearchAction
+- **About**: rozšíriť `Organization` o `founder` (Peter Švajlen, Jakub Hrbáň) a `employee`
+- **Services + StartGolf + Fitting**: `Service` resp. `Course` JSON-LD pre každú službu (názov, popis, poskytovateľ, cena ak je)
+- **Shop**: `Product` JSON-LD pre poukážky a merch (cena, mena EUR, dostupnosť)
+- **Tour**: `Event` JSON-LD pre každý turnaj BSGA Tour 2026 (dátum, miesto, organizátor)
+- **Fitting + StartGolf**: `FAQPage` JSON-LD vygenerovaný z existujúcich FAQ accordionov
+- **EducationTests**: `Quiz` alebo `LearningResource`
 
-1. Po pripojení konektora **publikovať web** (Publish button) aby sa META tag dostal na bsga.sk
-2. Skontrolovať, že bsga.sk skutočne servíruje aktuálny build (nie cached starý HTML bez tagu)
+## 3) Sémantický obsah a interné odkazy
 
-## Technické poznámky
+- Pridať popisné `alt` texty kde chýbajú (kontrola všetkých `<img>`)
+- 404 (`NotFound.tsx`): pridať `<Helmet>` s `noindex, follow` a `<title>`
+- EducationCalculators: stránka "Už čoskoro" — pridať `noindex` aby neoslabovala doménu prázdnym obsahom
+- Footer už dobre prepája — pridať jedno-dve interné odkazy v texte sekcií (napr. v Services odkazy na `/zacni-s-golfom`, `/fitting` z popisov)
 
-- META verifikačný tag pridám do `index.html` v `<head>` — Lovable to tam udrží.
-- Sitemap zostane statická (`public/sitemap.xml`) — žiadne dynamické routes (žiadny blog, žiadne produkty z DB).
-- `robots.txt` ponechá existujúce per-bot bloky, mení sa len `Sitemap:` URL.
+## 4) Lokálne SEO (najdôležitejšie pre Slovensko)
+
+- **Google Business Profile**: vytvoriť/nárokovať profil "Best Swing Golf Academy" v Bratislave a v Performance Centre Petržalka — toto sa rieši mimo kódu, len vám pripravím checklist
+- Adresa, telefón, otváracie hodiny konzistentne v Footer + Schema + GBP (NAP konzistencia)
+- Pridať na Kontakt/About explicitnú adresu (teraz je len "Bratislava, Slovensko") — Google potrebuje presnú ulicu
+
+## 5) Technické SEO drobnosti
+
+- `sitemap.xml`: pridať `<lastmod>` k entries (aktuálny dátum) — pomáha Google plánovať re-crawl
+- `robots.txt`: zjednodušiť (duplicitné `User-agent` bloky s rovnakým pravidlom nepomáhajú, stačí `User-agent: *` + `Allow: /` + `Sitemap:`)
+- Hreflang: pridať `<link rel="alternate" hreflang="sk" href="...">` a `hreflang="x-default"` — explicitne deklarovať slovenský jazyk
+- Open Graph image: aktuálny obrázok ide cez `storage.googleapis.com/gpt-engineer-file-uploads` — premigrovať do `/public` aby URL bola stabilná a brandovaná (`https://bsga.sk/og-image.jpg`)
+- Preload only critical font weights, zbytočne nepreload-ovať obrázok ktorý nemusí byť LCP
+
+## 6) Po nasadení
+
+- Submit sitemap v Google Search Console (už máme nastavené)
+- Spustiť **SEO scan** v Lovable po dokončení zmien — overí všetky položky a označí, čo ešte chýba
+- Po 2-4 týždňoch skontrolovať pozície cez Semrush (`bsga.sk` v databáze `sk`) a navrhnúť cielené keyword stránky (napr. samostatná landing page "zelená karta Bratislava", "golfové lekcie pre deti")
+
+---
+
+## Čo navrhujem urobiť hneď (Fáza 1)
+
+Najväčší impact za rozumný čas:
+1. **Per-page meta + canonical na všetkých 14 stránkach** (#1)
+2. **JSON-LD Organization + LocalBusiness + WebSite v `index.html`** (#2)
+3. **FAQ schema na Fitting a StartGolf** (#2) — najľahšie rich snippety
+4. **`lastmod` v sitemape + vyčistiť robots.txt** (#5)
+5. **`noindex` na 404 a EducationCalculators** (#3)
+6. **Hreflang sk + x-default** (#5)
+
+Fázu 2 (Product/Event/Service schema, lokálne SEO, GBP checklist, OG image migrácia) by sme riešili v druhom kroku, keď uvidíme efekt z Fázy 1.
+
+**Pokračujem s Fázou 1, alebo chceš inú kombináciu?**
