@@ -154,7 +154,7 @@ const About = () => {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)/0.98))] sm:h-48 md:h-56" />
               <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-3xl sm:h-52 md:h-60" />
 
-              <div className="relative z-10 flex min-h-[320px] w-full items-end justify-center pt-4 sm:min-h-[500px] sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
+              <div className="relative z-10 flex min-h-[440px] w-full items-end justify-center pt-4 sm:min-h-[520px] sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
                 <img
                   src={aboutHeroTeamImg}
                   alt="Tím BSGA"
@@ -171,7 +171,7 @@ const About = () => {
                 <span className="mb-5 font-serif text-5xl leading-none text-muted-foreground/40 sm:mb-6 sm:text-6xl">
                   “
                 </span>
-                <p className="max-w-4xl text-balance font-sans text-2xl font-black leading-[0.98] tracking-[-0.05em] text-foreground sm:text-4xl md:text-5xl lg:text-[4rem]">
+                <p className="max-w-4xl text-balance font-sans text-[1.4rem] font-black leading-[1.05] tracking-[-0.02em] text-foreground sm:text-4xl sm:leading-[1] sm:tracking-[-0.04em] md:text-5xl md:tracking-[-0.05em] lg:text-[4rem]">
                   Best Swing Golf Academy vznikla koncom roku 2016 s jasnou <span className="font-serif text-muted-foreground italic">misiou</span> – propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám.
                 </p>
               </div>
