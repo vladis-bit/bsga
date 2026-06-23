@@ -12,7 +12,8 @@ import milanNestickyImg from "@/assets/team/milan-nesticky.webp";
 import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.webp";
 import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.webp";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.webp";
-import aboutHeroTeamMobileImg from "@/assets/team/about-hero-team.webp";
+import aboutHeroTeamMobileImgAsset from "@/assets/team/about-hero-team.webp.asset.json";
+const aboutHeroTeamMobileImg = aboutHeroTeamMobileImgAsset.url;
 import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.webp";
 
 const founders = [{

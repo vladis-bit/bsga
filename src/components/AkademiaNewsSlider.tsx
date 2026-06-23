@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 
-import heroSlide1 from "@/assets/akademia/hero-slide-1.webp";
-import heroSlide2 from "@/assets/akademia/hero-slide-2-new.webp";
-import heroSlide3 from "@/assets/akademia/hero-slide-3-new.webp";
+import heroSlide1Asset from "@/assets/akademia/hero-slide-1.webp.asset.json";
+const heroSlide1 = heroSlide1Asset.url;
+import heroSlide2Asset from "@/assets/akademia/hero-slide-2-new.webp.asset.json";
+const heroSlide2 = heroSlide2Asset.url;
+import heroSlide3Asset from "@/assets/akademia/hero-slide-3-new.webp.asset.json";
+const heroSlide3 = heroSlide3Asset.url;
 
 interface NewsSlide {
   title: string;

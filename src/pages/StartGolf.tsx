@@ -8,10 +8,14 @@ import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
-import serviceGreenCardsImg from "@/assets/service-green-cards.webp";
-import serviceIndividualImg from "@/assets/service-individual.jpg";
-import serviceGroupImg from "@/assets/service-group.webp";
+import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
+const serviceStartCardsImg = serviceStartCardsImgAsset.url;
+import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
+const serviceGreenCardsImg = serviceGreenCardsImgAsset.url;
+import serviceIndividualImgAsset from "@/assets/service-individual.jpg.asset.json";
+const serviceIndividualImg = serviceIndividualImgAsset.url;
+import serviceGroupImgAsset from "@/assets/service-group.webp.asset.json";
+const serviceGroupImg = serviceGroupImgAsset.url;
 import serviceCourseImg from "@/assets/service-course-management.webp";
 
 // Reveal-on-scroll wrapper (same pattern as DevelopmentTimeline)

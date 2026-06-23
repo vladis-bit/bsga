@@ -8,18 +8,27 @@ import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
-import serviceTourImg from "@/assets/service-tour.webp";
+import serviceTourImgAsset from "@/assets/service-tour.webp.asset.json";
+const serviceTourImg = serviceTourImgAsset.url;
 import serviceFittingImg from "@/assets/service-fitting.webp";
 import serviceCourseImg from "@/assets/service-course-management.webp";
-import serviceIndividualImg from "@/assets/service-individual.jpg";
-import serviceStartCardsImg from "@/assets/service-start-cards.jpg";
-import serviceKidsAcademyImg from "@/assets/service-kids-academy.jpg";
-import serviceKidsCampsImg from "@/assets/service-kids-camps-new.jpg";
-import serviceCorporateImg from "@/assets/service-corporate.webp";
+import serviceIndividualImgAsset from "@/assets/service-individual.jpg.asset.json";
+const serviceIndividualImg = serviceIndividualImgAsset.url;
+import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
+const serviceStartCardsImg = serviceStartCardsImgAsset.url;
+import serviceKidsAcademyImgAsset from "@/assets/service-kids-academy.jpg.asset.json";
+const serviceKidsAcademyImg = serviceKidsAcademyImgAsset.url;
+import serviceKidsCampsImgAsset from "@/assets/service-kids-camps-new.jpg.asset.json";
+const serviceKidsCampsImg = serviceKidsCampsImgAsset.url;
+import serviceCorporateImgAsset from "@/assets/service-corporate.webp.asset.json";
+const serviceCorporateImg = serviceCorporateImgAsset.url;
 import servicePerformanceImg from "@/assets/service-performance.webp";
-import serviceGreenCardsImg from "@/assets/service-green-cards.webp";
-import serviceEventsImg from "@/assets/service-events.jpg";
-import serviceGroupImg from "@/assets/service-group.webp";
+import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
+const serviceGreenCardsImg = serviceGreenCardsImgAsset.url;
+import serviceEventsImgAsset from "@/assets/service-events.jpg.asset.json";
+const serviceEventsImg = serviceEventsImgAsset.url;
+import serviceGroupImgAsset from "@/assets/service-group.webp.asset.json";
+const serviceGroupImg = serviceGroupImgAsset.url;
 import {
   User,
   Users,
