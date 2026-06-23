@@ -72,6 +72,10 @@ All colors MUST be HSL.
     --gold: 45 93% 58%;
     --gold-light: 45 93% 68%;
     --gold-dark: 45 93% 45%;
+    --gold-gradient-start: 42 50% 72%;
+    --gold-gradient-end: 45 93% 58%;
+    --gold-gradient-start-hover: 42 52% 78%;
+    --gold-gradient-end-hover: 43 78% 64%;
     --silver: 210 8% 78%;
     --silver-light: 210 12% 94%;
     --silver-dark: 215 8% 58%;
