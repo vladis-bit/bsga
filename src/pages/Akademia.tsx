@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
+import CampProgramSection from "@/components/CampProgramSection";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
 
@@ -74,6 +75,7 @@ const Akademia = () => {
                 </p>
               </div>
               <CampCards />
+              <CampProgramSection />
             </div>
           </section>
 
