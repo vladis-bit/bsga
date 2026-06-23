@@ -11,6 +11,7 @@ interface TournamentCardProps {
   date: string;
   location: string;
   image?: string;
+  presenter?: string;
   links?: TournamentLinks;
   tourLabel?: string;
   hideResults?: boolean;
