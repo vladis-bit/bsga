@@ -8,6 +8,7 @@ interface Camp {
   date: string;
   location?: string;
   isHighlight?: boolean;
+  soldOut?: boolean;
   description?: string;
   posterUrl?: string;
 }
