@@ -332,12 +332,12 @@ const HeroSlider = () => {
 
   return (
     <AuroraBackground className="bg-primary text-primary-foreground" showRadialGradient={false}>
-      <section className="relative min-h-screen overflow-hidden pt-16 text-primary-foreground sm:pt-20">
+      <section className="relative min-h-[88vh] overflow-hidden pt-16 text-primary-foreground sm:min-h-screen sm:pt-20">
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" aria-hidden="true" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--foreground)/0.06),transparent_30%),linear-gradient(to_bottom,hsl(var(--primary)/0.08),transparent_38%,hsl(var(--background)/0.24)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,hsl(var(--gold)/0.24),transparent_58%)]" />
 
-        <div className="relative z-10 flex min-h-[calc(100vh-4rem)] items-center py-10 sm:min-h-[calc(100vh-5rem)] sm:py-14">
+        <div className="relative z-10 flex min-h-[calc(88vh-4rem)] items-start py-8 sm:min-h-[calc(100vh-5rem)] sm:items-center sm:py-14">
           <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               className="mx-auto flex max-w-6xl flex-col items-center text-center"
@@ -347,7 +347,7 @@ const HeroSlider = () => {
             >
               <motion.h1
                 variants={itemVariants}
-                className="max-w-5xl text-balance font-sans text-4xl font-bold leading-[0.92] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
+                className="max-w-5xl text-balance font-sans text-[2.05rem] font-bold leading-[0.95] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
               >
                 Golf, ktorý mení
                 <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
@@ -355,17 +355,17 @@ const HeroSlider = () => {
 
               <motion.p
                 variants={itemVariants}
-                className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-primary-foreground/78 sm:text-lg md:text-xl"
+                className="mt-5 max-w-3xl text-balance text-[0.95rem] leading-relaxed text-primary-foreground/78 sm:mt-6 sm:text-lg md:text-xl"
               >
                 Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
                 detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
               </motion.p>
 
-              <motion.div variants={itemVariants} className="mt-10 flex w-full max-w-xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+              <motion.div variants={itemVariants} className="mt-7 flex w-full max-w-xl flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
                 <Button
                   size="lg"
                   onClick={() => handleButtonClick("#sluzby")}
-                  className="h-14 rounded-full border border-gold/30 bg-gold px-8 text-sm font-bold uppercase tracking-[0.24em] text-primary shadow-[0_18px_48px_hsl(var(--gold)/0.34)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-[0_24px_60px_hsl(var(--gold)/0.42)]"
+                  className="h-12 rounded-full border border-gold/30 bg-gold px-7 text-[0.78rem] font-bold uppercase tracking-[0.2em] text-primary shadow-[0_18px_48px_hsl(var(--gold)/0.34)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-[0_24px_60px_hsl(var(--gold)/0.42)] sm:h-14 sm:px-8 sm:text-sm sm:tracking-[0.24em]"
                 >
                   Naše služby
                   <ArrowRight className="h-4 w-4" />
@@ -374,7 +374,7 @@ const HeroSlider = () => {
                   size="lg"
                   variant="outline"
                   onClick={() => handleButtonClick("/o-nas")}
-                  className="h-14 rounded-full border border-primary-foreground/45 bg-background/15 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground"
+                  className="h-12 rounded-full border border-primary-foreground/45 bg-background/15 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground sm:h-14 sm:px-8 sm:text-sm sm:tracking-[0.18em]"
                 >
                   O nás
                 </Button>
@@ -382,7 +382,7 @@ const HeroSlider = () => {
 
               <motion.div
                 variants={statsVariants}
-                className="mt-14 grid w-full max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4"
+                className="mt-10 grid w-full max-w-5xl grid-cols-2 gap-3 sm:mt-14 sm:gap-4 lg:grid-cols-4"
               >
                 {heroStats.map((stat, index) => (
                   <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
