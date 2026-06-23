@@ -163,13 +163,13 @@ const Tour = () => {
           {/* Partners */}
           <section className="py-4 sm:py-6 bg-transparent">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="flex flex-col justify-center items-center gap-4 sm:gap-6 rounded-3xl border border-border/50 bg-background/60 px-6 py-6 backdrop-blur-sm">
-                <span className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider">
+              <div className="flex flex-col justify-center items-center gap-4 sm:gap-6 rounded-2xl border border-border/50 bg-background/60 px-4 py-5 backdrop-blur-sm sm:rounded-3xl sm:px-6 sm:py-6">
+                <span className="text-muted-foreground text-[11px] sm:text-sm uppercase tracking-wider">
                   Generální partneri
                 </span>
-                <div className="flex items-center justify-center gap-8 sm:gap-16">
-                  <img loading="lazy" decoding="async" src={asbisLogo} alt="ASBIS" className="h-32 sm:h-56 md:h-[320px] w-auto object-contain" />
-                  <img loading="lazy" decoding="async" src={checkpointLogo} alt="Check Point" className="h-32 sm:h-56 md:h-[320px] w-auto object-contain" />
+                <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
+                  <img loading="lazy" decoding="async" src={asbisLogo} alt="ASBIS" className="h-16 sm:h-28 md:h-44 lg:h-[280px] w-auto object-contain" />
+                  <img loading="lazy" decoding="async" src={checkpointLogo} alt="Check Point" className="h-16 sm:h-28 md:h-44 lg:h-[280px] w-auto object-contain" />
                 </div>
               </div>
             </div>
