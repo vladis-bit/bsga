@@ -258,6 +258,7 @@ const Tour = () => {
                     date={tournament.date}
                     location={tournament.location}
                     image={tournament.image}
+                    presenter={tournament.presenter}
                     links={tournament.links}
                   />
                 ))}
