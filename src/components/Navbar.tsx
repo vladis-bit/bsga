@@ -25,7 +25,7 @@ const navLinks: NavItem[] = [
   { name: "Služby", href: "/sluzby" },
   { type: "separator" },
   { name: "Začni s golfom", href: "/zacni-s-golfom" },
-  { name: "Akadémia", href: "/akademia" },
+  { name: "Juniorský golf", href: "/akademia" },
   { name: "BSGA Tour", href: "/tour" },
   { name: "Fitting", href: "/fitting" },
   { name: "Obchod", href: "/obchod" },
