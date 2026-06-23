@@ -154,7 +154,7 @@ const About = () => {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)/0.98))] sm:h-48 md:h-56" />
               <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-3xl sm:h-52 md:h-60" />
 
-              <div className="relative z-10 flex min-h-[440px] w-full items-end justify-center pt-4 sm:min-h-[520px] sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
+              <div className="relative z-10 flex w-full items-end justify-center pt-0 sm:min-h-[520px] sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
                 <img
                   src={aboutHeroTeamImg}
                   alt="Tím BSGA"
