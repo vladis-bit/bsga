@@ -20,6 +20,9 @@ const partners: Partner[] = [{
 }, {
   name: "Borša Golf Club",
   logo: borsaLogo
+}, {
+  name: "JuCad",
+  logo: jucadLogo
 }];
 const PartnersLoop = () => {
   return <section className="py-12 bg-secondary overflow-hidden">
