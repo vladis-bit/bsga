@@ -435,6 +435,8 @@ const StartGolf = () => {
               </div>
             </Reveal>
 
+            <CourseReviews />
+
           </div>
         </section>
 
