@@ -1,31 +1,42 @@
-Overím funkčnosť stránky cez Playwright proti live preview.
+## Stav
 
-## Čo skontrolujem
+- `bsga.sk` je živá (HTTP 200) ✅
+- `public/sitemap.xml` a `public/robots.txt` existujú, ale ukazujú na `bsga.lovable.app`
+- Google Search Console konektor **nie je pripojený** v workspace — bez neho neviem zavolať Google API
 
-1. **Hlavné stránky sa načítajú bez chýb**
-   - Domov, O nás, Služby, Akadémia, Tour, Obchod, Začni s golfom, Fitting, Galéria
-   - Pre každú: status načítania, console errory, screenshot
+## Čo spravím
 
-2. **Navigačné buttony**
-   - Otvorenie mobilného/desktop menu
-   - Klik na každý navigačný link → overenie navigácie
-   - Buttony v hero sekciách (CTA na Domov, Akadémia hero slider, Tour)
+### 1. Prepnúť URL na bsga.sk
+- `public/sitemap.xml` — všetkých 14 `<loc>` z `https://bsga.lovable.app` → `https://bsga.sk`
+- `public/robots.txt` — `Sitemap:` direktívu na `https://bsga.sk/sitemap.xml`
 
-3. **Obchod (`/obchod`)**
-   - Načítanie stránky a všetkých produktov (vouchery 50/100/200, merch)
-   - Klik na "Kúpiť" buttony → overenie že Stripe Payment Link sa otvára správne
-   - Skontrolovať že obrázky produktov sa zobrazujú (po CDN migrácii)
+### 2. Pripojiť Google Search Console konektor
+Vyžaduje tvoj súhlas — otvorím dialóg `Connect`, prihlásiš sa Googlom účtom, ktorý chceš mať ako vlastníka property v Search Console.
 
-4. **Obrázky po CDN migrácii**
-   - Skontrolovať network requesty: `/__l5e/assets-v1/...` vracajú 200
-   - AVIF varianty sa servujú na Akadémia hero, About hero, Tour hero
-   - Preload service-tour.webp v `<head>`
+### 3. Overiť doménu bsga.sk (META metóda)
+- Vyžiadam verifikačný token cez Site Verification API
+- Pridám `<meta name="google-site-verification" content="...">` do `index.html`
+- **Publikuješ web** (klik na Publish) — bez deployu Google tag nenájde
+- Zavolám verify endpoint → property je overená
 
-5. **Console & Network**
-   - Zachytím všetky errory a 4xx/5xx requesty
-   - Reportujem aké chyby sú a kde
+### 4. Pridať property a odoslať sitemap
+- `PUT /webmasters/v3/sites/https%3A%2F%2Fbsga.sk%2F` — pridá property do Search Console
+- `PUT /webmasters/v3/sites/.../sitemaps/https%3A%2F%2Fbsga.sk%2Fsitemap.xml` — odošle sitemap
 
-## Výstup
-Krátky report: čo funguje ✓, čo má problém ✗, screenshoty kritických miest, a navrhnem fix ak nájdem chybu.
+### 5. Sledovanie indexovania
+Google Search Console API neumožňuje „nastaviť sledovanie" — indexovanie všetkých 14 URL si spustí Google sám po prečítaní sitemapy (zvyčajne hodiny až dni). Môžem ale:
+- vypísať aktuálny stav sitemapy (`GET .../sitemaps/...`) — počet odoslaných/indexovaných URL
+- vypísať pokrytie indexom (`POST .../urlInspection/index:inspect` pre jednotlivé URL)
 
-Nevykonám žiadne zmeny v kóde — len overenie.
+Ak chceš pravidelný monitoring, najlepšie je otvoriť priamo Search Console v prehliadači — Lovable nemá cron na opakované volania.
+
+## Čo potrebuješ spraviť ty
+
+1. Po pripojení konektora **publikovať web** (Publish button) aby sa META tag dostal na bsga.sk
+2. Skontrolovať, že bsga.sk skutočne servíruje aktuálny build (nie cached starý HTML bez tagu)
+
+## Technické poznámky
+
+- META verifikačný tag pridám do `index.html` v `<head>` — Lovable to tam udrží.
+- Sitemap zostane statická (`public/sitemap.xml`) — žiadne dynamické routes (žiadny blog, žiadne produkty z DB).
+- `robots.txt` ponechá existujúce per-bot bloky, mení sa len `Sitemap:` URL.

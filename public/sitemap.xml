@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://bsga.lovable.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://bsga.lovable.app/o-nas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bsga.lovable.app/sluzby</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bsga.lovable.app/tour</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bsga.lovable.app/akademia</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bsga.lovable.app/galeria</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://bsga.lovable.app/edukacne-centrum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://bsga.lovable.app/edukacne-centrum/testy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://bsga.lovable.app/edukacne-centrum/kalkulacky</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://bsga.lovable.app/obchod</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bsga.lovable.app/fitting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://bsga.lovable.app/zacni-s-golfom</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bsga.lovable.app/gdpr</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://bsga.lovable.app/obchodne-podmienky</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://bsga.sk/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://bsga.sk/o-nas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bsga.sk/sluzby</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bsga.sk/tour</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bsga.sk/akademia</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bsga.sk/galeria</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bsga.sk/edukacne-centrum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bsga.sk/edukacne-centrum/testy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bsga.sk/edukacne-centrum/kalkulacky</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bsga.sk/obchod</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bsga.sk/fitting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bsga.sk/zacni-s-golfom</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bsga.sk/gdpr</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://bsga.sk/obchodne-podmienky</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
