@@ -46,29 +46,38 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className={`relative rounded-3xl border p-4 sm:p-6 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10 ${
-        camp.isHighlight
-          ? "bg-gradient-to-br from-gold/20 to-gold/5 border-gold/50"
-          : "bg-card border-border hover:border-gold/30"
+      className={`relative rounded-3xl border p-4 sm:p-6 transition-all duration-300 ${
+        camp.soldOut
+          ? "bg-muted/30 border-border/40 opacity-80"
+          : camp.isHighlight
+            ? "bg-gradient-to-br from-gold/20 to-gold/5 border-gold/50 hover:shadow-lg hover:shadow-gold/10"
+            : "bg-card border-border hover:border-gold/30 hover:shadow-lg hover:shadow-gold/10"
       }`}
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         {/* Left - Number/Icon */}
         <div className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg ${
-          camp.isHighlight 
-            ? "bg-gold text-primary" 
-            : "bg-gold/10 text-gold"
+          camp.soldOut
+            ? "bg-muted text-muted-foreground"
+            : camp.isHighlight
+              ? "bg-gold text-primary"
+              : "bg-gold/10 text-gold"
         }`}>
-          {camp.isHighlight ? <Sparkles className="w-5 h-5" /> : index + 1}
+          {camp.soldOut ? <span className="text-sm sm:text-base">Plný</span> : camp.isHighlight ? <Sparkles className="w-5 h-5" /> : index + 1}
         </div>
 
         {/* Center - Content */}
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-1">
-            <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
+            <h3 className={`text-lg sm:text-xl font-serif font-bold ${camp.soldOut ? "text-muted-foreground" : "text-foreground"}`}>
               {camp.title}
             </h3>
-            {camp.isHighlight && (
+            {camp.soldOut && (
+              <span className="bg-muted-foreground/20 text-muted-foreground text-xs font-semibold px-2 py-0.5 rounded-full">
+                Obsadené
+              </span>
+            )}
+            {camp.isHighlight && !camp.soldOut && (
               <span className="bg-gold text-primary text-xs font-medium px-2 py-0.5 rounded-full">
                 Novinky
               </span>
