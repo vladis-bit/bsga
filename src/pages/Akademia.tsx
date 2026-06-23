@@ -38,6 +38,7 @@ const Akademia = () => {
               </p>
               <button
                 onClick={handleScrollToCamps}
+                aria-label="Prihlásiť sa na detský tábor BSGA 2026"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
               >
                 <span>Prihlásiť sa</span>
