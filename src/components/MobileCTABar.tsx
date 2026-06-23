@@ -23,11 +23,11 @@ const MobileCTABar = () => {
         </a>
         <a
           href="mailto:info@bsga.sk?subject=Mám záujem o lekciu"
-          aria-label="Napísať email BSGA"
+          aria-label="Kontaktovať BSGA emailom"
           className="flex items-center justify-center gap-2 py-3 text-sm font-semibold text-primary bg-gold active:bg-gold-light"
         >
           <Mail className="h-4 w-4" />
-          Rezervovať lekciu
+          Kontaktuj nás
         </a>
       </div>
     </div>
