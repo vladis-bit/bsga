@@ -10,7 +10,7 @@ const MobileCTABar = () => {
   return (
     <>
       {/* spacer so fixed bar doesn't overlap footer content on mobile */}
-      <div aria-hidden className="h-18 md:hidden" />
+      <div aria-hidden className="h-20 md:hidden" />
       <div className="fixed bottom-0 inset-x-0 z-40 md:hidden border-t border-gold/30 bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/80 pb-[env(safe-area-inset-bottom)]">
         <div className="flex items-center gap-3 p-3">
           <a
