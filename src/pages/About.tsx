@@ -136,7 +136,7 @@ const TeamCard = ({
 const About = () => {
   return <>
       <SEO
-        title="O nás | BSGA - Best Swing Golf Academy"
+        title="O nás - tréneri"
         description="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností."
         path="/o-nas"
       />
