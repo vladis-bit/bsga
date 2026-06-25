@@ -1,4 +1,4 @@
-import { Clock, Backpack } from "lucide-react";
+import { Clock, Backpack, Wallet } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
