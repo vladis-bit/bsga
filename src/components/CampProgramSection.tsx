@@ -1,4 +1,7 @@
-import { Clock, Backpack, Wallet } from "lucide-react";
+import { Clock, Backpack, Wallet, Users } from "lucide-react";
+import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
+import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.webp";
+import vladimirLeskoImg from "@/assets/team/vladimir-lesko.webp";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -20,6 +23,11 @@ const schedule = [
 const CampProgramSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const people = [
+    { name: "Jakub Hrbáň", image: jakubHrbanImg },
+    { name: "Vanessa Fajkusová", image: vanessaFajkusovaImg },
+    { name: "Vladimír Leško", image: vladimirLeskoImg },
+  ];
 
   return (
     <motion.div
@@ -99,6 +107,36 @@ const CampProgramSection = () => {
         <p className="mt-4 text-xs sm:text-sm text-muted-foreground">
           Poistenie dieťaťa je už zahrnuté v cene golfového tábora.
         </p>
+      </div>
+
+      {/* Responsible persons */}
+      <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-7 md:p-8">
+        <div className="flex items-center gap-3 mb-4 sm:mb-5">
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+            <Users className="w-5 h-5 text-gold" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
+            Zodpovedné osoby
+          </h3>
+        </div>
+        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+          {people.map((person) => (
+            <div key={person.name} className="flex flex-col items-center text-center">
+              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-muted">
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <p className="mt-2 text-xs sm:text-sm font-bold text-foreground leading-tight">
+                {person.name}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
