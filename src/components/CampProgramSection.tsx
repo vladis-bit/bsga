@@ -1,4 +1,4 @@
-import { Clock, Backpack } from "lucide-react";
+import { Clock, Backpack, Wallet } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -74,6 +74,31 @@ const CampProgramSection = () => {
             Deti si môžu so sebou priniesť <strong>ruksačik</strong>, kde im prosím nachystajte <strong>šiltovku</strong> alebo <strong>letný klobúčik</strong>, <strong>opaľovací krém</strong> (ak máte nejakú konkrétnu značku, ale budú ich mať aj naši tréneri) a v prípade horšieho počasia <strong>mikinu</strong> / <strong>nohavice</strong>. <strong>Malá sladkosť</strong> prípadne <strong>džúsik</strong> bude na Vašom rozhodnutí. Ak majú deti <strong>vlastné palice</strong>, nech si ich samozrejme prinesú.
           </p>
         </div>
+      </div>
+
+      {/* Pricing */}
+      <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-7 md:p-8">
+        <div className="flex items-center gap-3 mb-4 sm:mb-5">
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+            <Wallet className="w-5 h-5 text-gold" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground">
+            Cena tábora
+          </h3>
+        </div>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between gap-4 rounded-2xl bg-secondary/40 px-4 py-3 sm:px-5 sm:py-4">
+            <span className="text-sm sm:text-base text-foreground/80">Cena pre nečlenov GKHB</span>
+            <span className="text-base sm:text-lg font-bold text-foreground">340 €</span>
+          </div>
+          <div className="flex items-center justify-between gap-4 rounded-2xl bg-gold/10 px-4 py-3 sm:px-5 sm:py-4">
+            <span className="text-sm sm:text-base text-foreground/80">Cena pre členov GKHB</span>
+            <span className="text-base sm:text-lg font-bold text-gold">310 €</span>
+          </div>
+        </div>
+        <p className="mt-4 text-xs sm:text-sm text-muted-foreground">
+          Poistenie dieťaťa je už zahrnuté v cene golfového tábora.
+        </p>
       </div>
     </motion.div>
   );
