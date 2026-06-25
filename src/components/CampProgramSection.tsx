@@ -1,4 +1,7 @@
-import { Clock, Backpack, Wallet } from "lucide-react";
+import { Clock, Backpack, Wallet, Users } from "lucide-react";
+import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
+import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.webp";
+import vladimirLeskoImg from "@/assets/team/vladimir-lesko.webp";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
