@@ -23,6 +23,11 @@ const schedule = [
 const CampProgramSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const people = [
+    { name: "Jakub Hrbáň", image: jakubHrbanImg },
+    { name: "Vanessa Fajkusová", image: vanessaFajkusovaImg },
+    { name: "Vladimír Leško", image: vladimirLeskoImg },
+  ];
 
   return (
     <motion.div
