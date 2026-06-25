@@ -226,6 +226,7 @@ a font,
     hsl(var(--gold-gradient-start)),
     hsl(var(--gold-gradient-end))
   );
+  transition: transform 150ms ease, box-shadow 150ms ease, background-image 300ms ease;
 }
 
 .gold-gradient-button:hover {
@@ -234,4 +235,9 @@ a font,
     hsl(var(--gold-gradient-start-hover)),
     hsl(var(--gold-gradient-end-hover))
   );
+}
+
+.gold-gradient-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 hsl(var(--gold-dark) / 0.8), 0 3px 6px rgba(0, 0, 0, 0.2);
 }
