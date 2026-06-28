@@ -236,7 +236,7 @@ const CorporateEvents = () => {
             </div>
           </section>
 
-          <ContactForm />
+          <CorporateContactForm />
         </main>
       </AuroraBackground>
       <Footer />
