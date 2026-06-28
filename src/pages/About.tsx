@@ -103,7 +103,7 @@ const FounderCard = ({
     <p className="text-base text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
-    <div className="flex justify-center gap-3">
+    <div className="flex justify-center gap-3 mb-4">
       <a href={`tel:${member.phone}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
         <Phone size={20} />
       </a>
@@ -111,6 +111,27 @@ const FounderCard = ({
         <Mail size={20} />
       </a>
     </div>
+
+    {member.bio && member.bio.length > 0 && (
+      <Collapsible className="w-full">
+        <CollapsibleTrigger asChild>
+          <button className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all hover:bg-gold/20 hover:border-gold/60 active:scale-[0.98] data-[state=open]:bg-gold/20 data-[state=open]:border-gold/60">
+            Viac o mne
+            <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+          <ul className="mt-4 space-y-2 rounded-xl border border-border/60 bg-muted/30 p-4 text-sm text-muted-foreground">
+            {member.bio.map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </CollapsibleContent>
+      </Collapsible>
+    )}
   </Tilt3DCard>;
 
 const TeamCard = ({
