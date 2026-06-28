@@ -1,0 +1,198 @@
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Calendar, Mail, MapPin, FileText, Phone, Sparkles } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
+import Footer from "@/components/Footer";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import WavesCanvas from "@/components/WavesCanvas";
+
+interface EventItem {
+  title: string;
+  date: string;
+  location?: string;
+  posterUrl?: string;
+}
+
+const events: EventItem[] = [
+  {
+    title: "PGA Czechia – Po stopách Czech PGA Tour",
+    date: "20. – 23. 8. 2026",
+    location: "Česká republika",
+  },
+  {
+    title: "Doni-Travel Turnaj 4 tímov",
+    date: "13. – 15. 9. 2026",
+  },
+  {
+    title: "Švajlen Invitational",
+    date: "25. 9. 2026",
+  },
+  {
+    title: "BSGA Ryder Cup – Švajlen vs Hrbáň",
+    date: "10. – 17. 10. 2026",
+  },
+];
+
+const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="relative overflow-hidden rounded-2xl border bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10 p-5 sm:p-6 transition-all duration-300"
+    >
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr_auto] md:items-center">
+        <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
+          {index + 1}
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
+            {event.title}
+          </h3>
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1.5">
+              <Calendar className="w-4 h-4 text-gold" />
+              <span>{event.date}</span>
+            </div>
+            {event.location && (
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-gold" />
+                <span>{event.location}</span>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2 md:min-w-[180px]">
+          {event.posterUrl ? (
+            <a
+              href={event.posterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+            >
+              <FileText className="w-4 h-4" />
+              Plagát
+            </a>
+          ) : (
+            <span
+              aria-disabled="true"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+            >
+              <FileText className="w-4 h-4" />
+              Plagát čoskoro
+            </span>
+          )}
+          <a
+            href={`mailto:peter@doni-travel.sk?subject=${mailSubject}`}
+            className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20"
+          >
+            <Mail className="w-4 h-4" />
+            <span>Prihlásiť sa</span>
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const Events = () => {
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
+      { "@type": "ListItem", position: 2, name: "Eventy, teambuildingy a golfové pobyty", item: "https://bsga.sk/eventy" },
+    ],
+  };
+
+  return (
+    <>
+      <SEO
+        title="Eventy, teambuildingy a golfové pobyty | BSGA"
+        description="Golfové eventy, teambuildingy a pobyty s BSGA a cestovnou agentúrou Doni-Travel. Pozrite si nasledujúce akcie a prihláste sa."
+        path="/eventy"
+        jsonLd={breadcrumb}
+      />
+      <Navbar />
+      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+        <main>
+          <section className="relative overflow-hidden bg-transparent pb-8 pt-28 md:pt-32">
+            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
+            <div className="container relative z-10 mx-auto px-4">
+              <div className="flex flex-col items-center gap-4 text-center">
+                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+                  Doni-Travel × BSGA
+                </span>
+                <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                  Eventy, teambuildingy a golfové pobyty
+                </h1>
+                <p className="max-w-2xl text-primary-foreground/80 sm:text-lg">
+                  Pripravujeme golfové akcie, firemné turnaje a kompletné pobyty na mieru.
+                  Pobyty organizujeme spolu s cestovnou agentúrou{" "}
+                  <strong className="text-gold">Doni-Travel</strong>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-8 text-center">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+                  <Sparkles className="w-4 h-4" /> Nasledujúce akcie
+                </span>
+                <h2 className="mt-2 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl">
+                  Pridajte sa k nám
+                </h2>
+              </div>
+
+              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+                {events.map((event, index) => (
+                  <EventCard key={index} event={event} index={index} />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-transparent pb-20 md:pb-28">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto rounded-2xl border border-gold/30 bg-card/80 p-6 sm:p-10 text-center backdrop-blur">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
+                  Máte nezodpovedané otázky?
+                </h2>
+                <p className="mt-3 text-muted-foreground sm:text-lg">
+                  Kontaktná osoba: <strong className="text-foreground">Peter Švajlen</strong> – napíšte nám alebo zavolajte.
+                </p>
+                <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href="tel:+421905335501"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-gold text-primary hover:bg-gold-light transition-all"
+                  >
+                    <Phone className="w-4 h-4" />
+                    +421 905 335 501
+                  </a>
+                  <a
+                    href="mailto:peter@doni-travel.sk"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-gold/10 text-gold hover:bg-gold/20 transition-all"
+                  >
+                    <Mail className="w-4 h-4" />
+                    peter@doni-travel.sk
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </AuroraBackground>
+      <Footer />
+    </>
+  );
+};
+
+export default Events;
