@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Users, Calendar, MessageSquare, PartyPopper, Camera } from "lucide-react";
+import { Users, Calendar, MessageSquare, PartyPopper, Camera, Quote } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
