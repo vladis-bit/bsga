@@ -108,7 +108,7 @@ const CorporateContactForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="text-center sm:text-left">
                 <h2 className="font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
-                  Nezáväzná dopyt na firemnú akciu
+                  Nezáväzný formulár na firemnú akciu
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground sm:text-base">
                   Vyplňte formulár a ozveme sa vám do 24 hodín s konkrétnym návrhom a cenovou ponukou.
