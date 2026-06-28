@@ -151,12 +151,37 @@ const Events = () => {
                 <h2 className="mt-2 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl">
                   Pridajte sa k nám
                 </h2>
+                <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/75 text-sm sm:text-base leading-relaxed">
+                  Pripravili sme pre vás výber tých najlepších golfových zážitkov sezóny – od medzinárodných výjazdov,
+                  cez tímové turnaje, až po prestížne pozvánkové eventy. Vyberte si akciu, ktorá vás osloví,
+                  a rezervujte si miesto včas – kapacita je <strong className="text-gold">limitovaná</strong>.
+                </p>
               </div>
 
               <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
                 {events.map((event, index) => (
                   <EventCard key={index} event={event} index={index} />
                 ))}
+              </div>
+
+              <div className="max-w-3xl mx-auto mt-8 sm:mt-10">
+                <div className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/20 via-gold/10 to-transparent p-5 sm:p-7 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur">
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-primary-foreground">
+                      Zaujala vás niektorá z akcií?
+                    </h3>
+                    <p className="mt-1 text-sm text-primary-foreground/80">
+                      Pošlite nám email a rezervujeme vám miesto. Odpovedáme do 24 hodín.
+                    </p>
+                  </div>
+                  <a
+                    href="mailto:peter@doni-travel.sk?subject=Prihlásenie na akciu BSGA × Doni-Travel"
+                    className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 text-sm sm:text-base font-semibold rounded-full bg-gold text-primary hover:bg-gold-light transition-all shadow-md shadow-gold/30"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Prihlásiť sa na akciu
+                  </a>
+                </div>
               </div>
             </div>
           </section>
