@@ -25,6 +25,7 @@ const courseOptions = [
   "Hrubá Borša",
   "Red Oak Nitra",
   "Nemám preferenciu",
+  "Iné",
 ];
 
 const CorporateContactForm = () => {
