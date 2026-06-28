@@ -176,7 +176,7 @@ const Events = () => {
               </div>
 
               <div className="max-w-3xl mx-auto mt-10 sm:mt-12">
-                <div className="relative group overflow-hidden rounded-[40px] border-2 border-gold/40 bg-primary p-8 sm:p-10 md:p-12 shadow-2xl shadow-gold/10 text-center transition-all duration-300 hover:border-gold/60 hover:shadow-gold/20">
+                <div className="relative group overflow-hidden rounded-[40px] border-2 border-gold/40 bg-background p-8 sm:p-10 md:p-12 shadow-2xl shadow-gold/10 text-center transition-all duration-300 hover:border-gold/60 hover:shadow-gold/20">
                   {/* Decorative corner accents */}
                   <div className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2 border-gold/60 rounded-tl-lg" />
                   <div className="absolute top-5 right-5 w-6 h-6 border-t-2 border-r-2 border-gold/60 rounded-tr-lg" />
@@ -191,7 +191,7 @@ const Events = () => {
                   {/* Logo with gold frame */}
                   <div className="relative mx-auto mb-6 sm:mb-8 inline-flex items-center justify-center">
                     <div className="absolute inset-0 rounded-2xl bg-gold/30 blur-xl" aria-hidden="true" />
-                    <div className="relative border-2 border-gold/50 rounded-2xl p-3 sm:p-4 bg-primary-foreground/5">
+                    <div className="relative border-2 border-gold/50 rounded-2xl p-3 sm:p-4 bg-muted">
                       <img
                         src={doniTravelLogo}
                         alt="Doni-Travel logo"
@@ -203,7 +203,7 @@ const Events = () => {
                   </div>
 
                   {/* Tagline with high contrast */}
-                  <p className="text-base sm:text-lg md:text-xl text-primary-foreground max-w-lg mx-auto leading-relaxed font-medium">
+                  <p className="text-base sm:text-lg md:text-xl text-foreground max-w-lg mx-auto leading-relaxed font-medium">
                     Golfové pobyty a eventy organizujeme v spolupráci s cestovnou agentúrou{" "}
                     <strong className="text-gold">Doni-Travel</strong>.
                   </p>
