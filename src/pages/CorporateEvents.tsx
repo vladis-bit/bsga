@@ -159,7 +159,7 @@ const CorporateEvents = () => {
               <div className="mx-auto max-w-4xl">
                 <div className="text-center mb-8 sm:mb-10">
                   <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
-                    Hovoria o nás
+                    KLIENTSKE REFERENCIE
                   </span>
                 </div>
                 <motion.div
