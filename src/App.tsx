@@ -21,6 +21,7 @@ const EducationTests = lazy(() => import("./pages/EducationTests"));
 const EducationCalculators = lazy(() => import("./pages/EducationCalculators"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Fitting = lazy(() => import("./pages/Fitting"));
+const CorporateEvents = lazy(() => import("./pages/CorporateEvents"));
 const StartGolf = lazy(() => import("./pages/StartGolf"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -48,6 +49,7 @@ const App = () => (
             
             <Route path="/obchod" element={<Shop />} />
             <Route path="/fitting" element={<Fitting />} />
+            <Route path="/firemne-akcie" element={<CorporateEvents />} />
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />

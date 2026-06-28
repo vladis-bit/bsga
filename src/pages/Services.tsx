@@ -132,6 +132,7 @@ const services = [
     icon: Building2,
     title: "Firemné akcie a teambuildingy",
     image: serviceCorporateImg,
+    link: "/firemne-akcie",
     description: (
       <>
         Príjemná kombinácia <strong>golfu, zábavy a spolupráce</strong>. Vhodné pre firmy, ktoré chcú zažiť niečo nové a podporiť <strong>tímového ducha</strong> v uvoľnenej atmosfére.
