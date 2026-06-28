@@ -222,8 +222,8 @@ const Tour = () => {
                   Generální partneri
                 </span>
                 <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
-                  <img loading="lazy" decoding="async" src={asbisLogo} alt="ASBIS" className="h-16 sm:h-28 md:h-44 lg:h-[280px] w-auto object-contain" />
-                  <img loading="lazy" decoding="async" src={checkpointLogo} alt="Check Point" className="h-16 sm:h-28 md:h-44 lg:h-[280px] w-auto object-contain" />
+                  <img loading="lazy" decoding="async" src={asbisLogo} alt="ASBIS" className="h-28 sm:h-28 md:h-44 lg:h-[280px] w-auto object-contain" />
+                  <img loading="lazy" decoding="async" src={checkpointLogo} alt="Check Point" className="h-28 sm:h-28 md:h-44 lg:h-[280px] w-auto object-contain" />
                 </div>
               </div>
             </div>
