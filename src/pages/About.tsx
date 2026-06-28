@@ -32,7 +32,8 @@ const founders = [{
     "6-násobný majster Slovenska",
     "Golf Professional of the Year 2015",
     "Hráčske skúsenosti z European a Challenge Tour",
-    "Cestovná agentúra Doni-Travel"
+    "Cestovná agentúra Doni-Travel",
+    "Je JuCad ambassador"
   ]
 }, {
   name: "Jakub Hrbáň",
@@ -54,25 +55,29 @@ const team: TeamMember[] = [{
   role: "Tréner BSGA · Profesionálny tréner golfu",
   phone: "+421 903 243 999",
   email: "maros@bsga.sk",
-  image: marosGajanImg
+  image: marosGajanImg,
+  bio: ["Informácie o trénerovi pridáme čoskoro."]
 }, {
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Tréner golfu",
   phone: "+421 911 183 429",
   email: "vanessa@bsga.sk",
-  image: vanessaFajkusovaImg
+  image: vanessaFajkusovaImg,
+  bio: ["Informácie o trénerovi pridáme čoskoro."]
 }, {
   name: "Milan Neštický",
   role: "Tréner BSGA · Tréner golfu",
   phone: "+421 911 193 429",
   email: "milan@bsga.sk",
-  image: milanNestickyImg
+  image: milanNestickyImg,
+  bio: ["Informácie o trénerovi pridáme čoskoro."]
 }, {
   name: "Vladimír Leško",
   role: "Tréner BSGA · Tréner golfu",
   phone: "+421 949 116 889",
   email: "vlado@bsga.sk",
-  image: vladimirLeskoImg
+  image: vladimirLeskoImg,
+  bio: ["Informácie o trénerovi pridáme čoskoro."]
 }, {
   name: "Donka Švajlenová",
   role: "Event & Operations Manager",
