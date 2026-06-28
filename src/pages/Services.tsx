@@ -166,6 +166,7 @@ const services = [
     title: "Eventy, teambuildingy a golfové pobyty",
     image: serviceEventsImg,
     objectPosition: "center 50%",
+    link: "/eventy",
     description: (
       <>
         Golfové akcie a <strong>eventy na mieru</strong>. Ponúkame jednodňové akcie až po kompletné <strong>sústredenia s PGA trénermi</strong>. Záruka spokojnosti. Všetko zabezpečené tak, aby ste si to <strong>naplno užili</strong>.
