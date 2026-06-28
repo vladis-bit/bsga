@@ -21,6 +21,7 @@ const EducationTests = lazy(() => import("./pages/EducationTests"));
 const EducationCalculators = lazy(() => import("./pages/EducationCalculators"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Fitting = lazy(() => import("./pages/Fitting"));
+const CorporateEvents = lazy(() => import("./pages/CorporateEvents"));
 const StartGolf = lazy(() => import("./pages/StartGolf"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
