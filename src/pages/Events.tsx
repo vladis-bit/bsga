@@ -183,10 +183,7 @@ const Events = () => {
                   <div className="absolute bottom-5 left-5 w-6 h-6 border-b-2 border-l-2 border-gold/60 rounded-bl-lg" />
                   <div className="absolute bottom-5 right-5 w-6 h-6 border-b-2 border-r-2 border-gold/60 rounded-br-lg" />
 
-                  {/* Partner label */}
-                  <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-gold border border-gold/40 rounded-full bg-gold/10 mb-6 sm:mb-8">
-                    Hlavný partner
-                  </span>
+                  {/* Centered partner logo */}
 
                   {/* Logo with gold frame */}
                   <div className="relative mx-auto mb-6 sm:mb-8 inline-flex items-center justify-center">
