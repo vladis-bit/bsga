@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
+import peterPhoto from "@/assets/team/peter-svajlen.webp";
 
 interface EventItem {
   title: string;
@@ -162,28 +163,44 @@ const Events = () => {
 
           <section className="bg-transparent pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto rounded-2xl border border-gold/30 bg-card/80 p-6 sm:p-10 text-center backdrop-blur">
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
-                  Máte nezodpovedané otázky?
-                </h2>
-                <p className="mt-3 text-muted-foreground sm:text-lg">
-                  Kontaktná osoba: <strong className="text-foreground">Peter Švajlen</strong> – napíšte nám alebo zavolajte.
-                </p>
-                <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <a
-                    href="tel:+421905335501"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-gold text-primary hover:bg-gold-light transition-all"
-                  >
-                    <Phone className="w-4 h-4" />
-                    +421 905 335 501
-                  </a>
-                  <a
-                    href="mailto:peter@doni-travel.sk"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-gold/10 text-gold hover:bg-gold/20 transition-all"
-                  >
-                    <Mail className="w-4 h-4" />
-                    peter@doni-travel.sk
-                  </a>
+              <div className="max-w-3xl mx-auto rounded-2xl sm:rounded-3xl border border-gold/40 bg-background/95 p-5 sm:p-8 md:p-10 backdrop-blur shadow-xl shadow-gold/10">
+                <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 md:gap-8 text-center sm:text-left">
+                  <div className="relative shrink-0">
+                    <div className="absolute inset-0 rounded-full bg-gold/30 blur-xl" aria-hidden="true" />
+                    <img
+                      src={peterPhoto}
+                      alt="Peter Švajlen – kontaktná osoba"
+                      loading="lazy"
+                      decoding="async"
+                      className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full object-cover ring-4 ring-gold/60 shadow-lg"
+                      style={{ objectPosition: "center 20%" }}
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+                      Máte nezodpovedané otázky?
+                    </h2>
+                    <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-foreground/90">
+                      Kontaktná osoba: <strong className="text-gold">Peter Švajlen</strong>
+                      <span className="text-foreground/70"> – napíšte nám alebo zavolajte.</span>
+                    </p>
+                    <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-start gap-3">
+                      <a
+                        href="tel:+421905335501"
+                        className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold rounded-full bg-gold text-primary hover:bg-gold-light transition-all shadow-md shadow-gold/30"
+                      >
+                        <Phone className="w-4 h-4" />
+                        +421 905 335 501
+                      </a>
+                      <a
+                        href="mailto:peter@doni-travel.sk"
+                        className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 text-sm sm:text-base font-semibold rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all break-all sm:break-normal"
+                      >
+                        <Mail className="w-4 h-4 shrink-0" />
+                        peter@doni-travel.sk
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
