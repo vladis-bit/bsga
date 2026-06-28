@@ -81,6 +81,7 @@ type TeamMember = {
   email: string;
   image?: string;
   achievements?: string[];
+  bio?: string[];
 };
 
 const FounderCard = ({
