@@ -55,7 +55,10 @@ const CorporateContactForm = () => {
       company_name: companyName,
       participant_count: participantCount,
       preferred_date: preferredDate ? format(preferredDate, "yyyy-MM-dd") : null,
-      preferred_course: preferredCourse,
+      preferred_course:
+        preferredCourse === "Iné" && otherCourse.trim()
+          ? `Iné: ${otherCourse.trim()}`
+          : preferredCourse,
       message,
       source: "corporate-events",
     };
