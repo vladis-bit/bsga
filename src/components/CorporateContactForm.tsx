@@ -83,6 +83,7 @@ const CorporateContactForm = () => {
     setParticipantCount("");
     setPreferredDate(undefined);
     setPreferredCourse("");
+    setOtherCourse("");
     setMessage("");
     toast({
       title: "Dopyt odoslaný!",
