@@ -120,7 +120,7 @@ const FounderCard = ({
             <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
           </button>
         </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
           <ul className="mt-4 space-y-2 rounded-xl border border-border/60 bg-muted/30 p-4 text-sm text-muted-foreground">
             {member.bio.map((item, i) => (
               <li key={i} className="flex items-start gap-2">
