@@ -166,39 +166,49 @@ const CorporateEvents = () => {
                 <div className="mx-auto mt-4 h-1 w-16 bg-gold sm:mt-6 sm:w-24" />
               </div>
 
-              <div className="relative grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-                {/* Connecting line on desktop */}
-                <div className="pointer-events-none absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent lg:block" />
-                {steps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <RevealCard key={index} index={index}>
-                      <CursorGlowCard className="group relative h-full overflow-hidden rounded-2xl border border-border/60 bg-background/75 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 sm:p-7">
-                        {/* Big watermark step number */}
-                        <span
-                          aria-hidden
-                          className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-7xl font-bold leading-none text-gold/10 sm:text-8xl"
-                        >
+              <div className="relative mx-auto max-w-3xl">
+                {/* Vertical connecting line */}
+                <div className="pointer-events-none absolute left-8 top-8 bottom-8 hidden w-px bg-gradient-to-b from-gold via-gold/40 to-transparent md:left-12 lg:block" />
+
+                <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+                  {steps.map((step, index) => {
+                    const Icon = step.icon;
+                    return (
+                      <div key={index} className="relative pl-0 lg:pl-24">
+                        {/* Timeline node (desktop) */}
+                        <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-light text-primary font-bold text-xl shadow-lg shadow-gold/30 ring-4 ring-primary/50">
                           {step.number}
-                        </span>
-                        <div className="relative flex items-center gap-3 mb-4 sm:mb-5">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-light text-primary font-bold shadow-md shadow-gold/30 sm:h-12 sm:w-12">
-                            {step.number}
-                          </div>
-                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/20 sm:h-11 sm:w-11">
-                            <Icon className="text-gold" size={20} />
-                          </div>
                         </div>
-                        <h3 className="relative mb-2 font-serif text-base font-bold text-foreground sm:text-lg md:text-xl">
-                          {step.title}
-                        </h3>
-                        <p className="relative text-[13px] leading-relaxed text-foreground/75 sm:text-sm md:text-base">
-                          {step.description}
-                        </p>
-                      </CursorGlowCard>
-                    </RevealCard>
-                  );
-                })}
+
+                        <RevealCard index={index}>
+                          <CursorGlowCard className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/75 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 sm:p-8">
+                            {/* Big watermark step number */}
+                            <span
+                              aria-hidden
+                              className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-8xl font-bold leading-none text-gold/10 sm:text-9xl"
+                            >
+                              {step.number}
+                            </span>
+                            <div className="relative mb-5 flex items-center gap-4">
+                              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-light text-primary font-bold shadow-md shadow-gold/30 lg:hidden">
+                                {step.number}
+                              </div>
+                              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/20 sm:h-12 sm:w-12">
+                                <Icon className="text-gold" size={22} />
+                              </div>
+                              <h3 className="relative font-serif text-lg font-bold text-foreground sm:text-xl md:text-2xl">
+                                {step.title}
+                              </h3>
+                            </div>
+                            <p className="relative text-sm leading-relaxed text-foreground/80 sm:text-base md:text-lg">
+                              {step.description}
+                            </p>
+                          </CursorGlowCard>
+                        </RevealCard>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </section>
