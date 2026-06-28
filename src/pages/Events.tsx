@@ -17,6 +17,16 @@ interface EventItem {
 
 const events: EventItem[] = [
   {
+    title: "Camiral Trip",
+    date: "1. – 6. 6. 2026",
+    location: "Camiral, Španielsko",
+  },
+  {
+    title: "Liv Golf Andalucia",
+    date: "6. – 10. 7. 2026",
+    location: "Andalúzia, Španielsko",
+  },
+  {
     title: "PGA Czechia – Po stopách Czech PGA Tour",
     date: "20. – 23. 8. 2026",
     location: "Česká republika",
