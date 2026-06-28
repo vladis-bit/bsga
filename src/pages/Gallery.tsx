@@ -239,8 +239,9 @@ const Gallery = () => {
           </section>
 
           {selectedImage !== null && <div className="fixed inset-0 z-50 bg-primary/95 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelectedImage(null)}>
-              <button className="absolute top-4 right-4 sm:top-6 sm:right-6 text-primary-foreground hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}>
-                <X size={28} className="sm:w-8 sm:h-8" />
+              <button aria-label="Zatvoriť" className="absolute top-4 right-4 sm:top-6 sm:right-6 text-primary-foreground hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}>
+                <X size={28} className="sm:w-8 sm:h-8" aria-hidden="true" />
+                <span className="sr-only">Zatvoriť</span>
               </button>
               <img loading="lazy" decoding="async" src={images[selectedImage].src} alt={images[selectedImage].alt} className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-md sm:rounded-lg" onClick={e => e.stopPropagation()} />
             </div>}
