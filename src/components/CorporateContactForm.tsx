@@ -25,6 +25,7 @@ const courseOptions = [
   "Hrubá Borša",
   "Red Oak Nitra",
   "Nemám preferenciu",
+  "Iné",
 ];
 
 const CorporateContactForm = () => {
@@ -38,6 +39,7 @@ const CorporateContactForm = () => {
   const [participantCount, setParticipantCount] = useState("");
   const [preferredDate, setPreferredDate] = useState<Date | undefined>(undefined);
   const [preferredCourse, setPreferredCourse] = useState("");
+  const [otherCourse, setOtherCourse] = useState("");
   const [message, setMessage] = useState("");
   const { toast } = useToast();
 
@@ -53,7 +55,10 @@ const CorporateContactForm = () => {
       company_name: companyName,
       participant_count: participantCount,
       preferred_date: preferredDate ? format(preferredDate, "yyyy-MM-dd") : null,
-      preferred_course: preferredCourse,
+      preferred_course:
+        preferredCourse === "Iné" && otherCourse.trim()
+          ? `Iné: ${otherCourse.trim()}`
+          : preferredCourse,
       message,
       source: "corporate-events",
     };
@@ -78,6 +83,7 @@ const CorporateContactForm = () => {
     setParticipantCount("");
     setPreferredDate(undefined);
     setPreferredCourse("");
+    setOtherCourse("");
     setMessage("");
     toast({
       title: "Dopyt odoslaný!",
@@ -225,6 +231,16 @@ const CorporateContactForm = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {preferredCourse === "Iné" && (
+                    <div className="mt-3">
+                      <Input
+                        value={otherCourse}
+                        onChange={(e) => setOtherCourse(e.target.value)}
+                        placeholder="Napíšte názov preferovaného ihriska..."
+                        className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
