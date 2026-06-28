@@ -193,7 +193,7 @@ const TeamCard = ({
         </CollapsibleTrigger>
         <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
           <div className="mt-4 rounded-xl border-l-4 border-l-gold border border-border/60 bg-card/95 p-5 shadow-sm">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Oblasť pôsobenia</h4>
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">{member.role.includes("Tréner") ? "O trénerovi" : "Oblasť pôsobenia"}</h4>
             <ul className="space-y-2.5 text-sm text-foreground/90">
               {member.bio.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
