@@ -91,7 +91,8 @@ const team: TeamMember[] = [{
     "Aktívny hráč GKHB",
     "Bývalý reprezentant SR",
     "Trackman certifikácia",
-    "Advisor na tímových turnajoch"
+    "Advisor na tímových turnajoch",
+    "Štúdium na PGA CZ"
   ]
 }, {
   name: "Donka Švajlenová",
