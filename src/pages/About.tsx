@@ -39,7 +39,13 @@ const founders = [{
   phone: "+421 911 994 888",
   email: "jakub@bsga.sk",
   image: jakubHrbanImg,
-  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"]
+  achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"],
+  bio: [
+    "Člen PGA Slovakia",
+    "Juniorský majster Slovenska",
+    "Hlavný tréner CTM v Hrubej Borši",
+    "Špecialista na fitting golfových palíc"
+  ]
 }];
 
 const team = [{
