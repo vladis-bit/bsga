@@ -1,15 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, Users, Calendar, MessageSquare, PartyPopper, Camera, ClipboardList } from "lucide-react";
+import { Users, Calendar, MessageSquare, PartyPopper, Camera } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import CorporateContactForm from "@/components/CorporateContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import serviceCorporateImgAsset from "@/assets/service-corporate.webp.asset.json";
-
-const corporateHeroImg = serviceCorporateImgAsset.url;
 
 const stats = [
   { value: "10+", label: "rokov skúseností" },
@@ -96,47 +93,36 @@ const CorporateEvents = () => {
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
-          {/* Hero */}
-          <section className="relative w-full overflow-hidden bg-transparent">
-            <div className="relative w-full min-h-[520px] sm:min-h-[620px] md:min-h-[720px] max-h-[calc(100vh-4rem)]">
-              <img
-                src={corporateHeroImg}
-                alt="Firemné akcie a teambuildingy v BSGA"
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="eager"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/25" />
+          {/* Hero – no image */}
+          <section className="relative w-full bg-transparent pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mx-auto max-w-5xl text-center">
+                <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-semibold text-gold backdrop-blur-sm sm:text-sm">
+                  <Users className="h-4 w-4" />
+                  Firemné akcie a teambuildingy
+                </span>
+                <h1 className="mt-5 font-serif text-3xl font-bold leading-[1.1] text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                  Golf, ktorý stmeľuje tímy a vytvára zážitky
+                </h1>
+                <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-primary-foreground/85 sm:text-lg md:text-xl">
+                  Zorganizujeme pre vašu firmu nezabudnuteľný deň na ihrisku – od prvého švihu až po slávnostné vyhlásenie výsledkov. Všetko na kľúč, pre začiatočníkov aj skúsených hráčov.
+                </p>
 
-              <div className="relative z-10 flex h-full min-h-[520px] items-end sm:min-h-[620px] md:min-h-[720px]">
-                <div className="container mx-auto px-4 pb-10 pt-20 sm:px-6 sm:pb-14 sm:pt-24 md:pb-16 md:pt-28">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-semibold text-gold backdrop-blur-sm sm:text-sm">
-                    <Users className="h-4 w-4" />
-                    Firemné akcie a teambuildingy
-                  </span>
-                  <h1 className="mt-4 max-w-4xl font-serif text-4xl font-bold leading-[1.1] text-primary-foreground sm:mt-5 sm:text-5xl md:text-6xl lg:text-7xl">
-                    Golf, ktorý stmeľuje tímy a vytvára zážitky
-                  </h1>
-                  <p className="mt-4 max-w-3xl text-base leading-relaxed text-primary-foreground/90 sm:mt-5 sm:text-lg md:text-xl">
-                    Zorganizujeme pre vašu firmu nezabudnuteľný deň na ihrisku – od prvého švihu až po slávnostné vyhlásenie výsledkov. Všetko na kľúč, pre začiatočníkov aj skúsených hráčov.
-                  </p>
-
-                  {/* Stats */}
-                  <div className="mt-8 grid gap-3 sm:grid-cols-3 sm:gap-4 md:mt-10 lg:max-w-4xl">
-                    {stats.map((stat, i) => (
-                      <div
-                        key={i}
-                        className="rounded-2xl border border-white/10 bg-white/5 px-5 py-5 text-center backdrop-blur-sm sm:px-6 sm:py-6"
-                      >
-                        <div className="font-serif text-3xl font-bold text-gold sm:text-4xl md:text-5xl">
-                          {stat.value}
-                        </div>
-                        <div className="mt-1 text-sm text-primary-foreground/80 sm:text-base">
-                          {stat.label}
-                        </div>
+                {/* Stats */}
+                <div className="mx-auto mt-8 grid max-w-4xl gap-3 grid-cols-3 sm:gap-4 md:mt-10">
+                  {stats.map((stat, i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl border border-white/10 bg-white/5 px-3 py-4 text-center backdrop-blur-sm sm:px-6 sm:py-6"
+                    >
+                      <div className="font-serif text-2xl font-bold text-gold sm:text-4xl md:text-5xl">
+                        {stat.value}
                       </div>
-                    ))}
-                  </div>
+                      <div className="mt-1 text-[11px] leading-tight text-primary-foreground/80 sm:text-base">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -179,59 +165,39 @@ const CorporateEvents = () => {
                 <div className="mx-auto mt-4 h-1 w-16 bg-gold sm:mt-6 sm:w-24" />
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="relative grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+                {/* Connecting line on desktop */}
+                <div className="pointer-events-none absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent lg:block" />
                 {steps.map((step, index) => {
                   const Icon = step.icon;
                   return (
                     <RevealCard key={index} index={index}>
-                      <CursorGlowCard className="group h-full rounded-xl border border-border/60 bg-background/75 p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl sm:p-8">
-                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold text-primary font-bold text-lg sm:mb-6 sm:h-14 sm:w-14">
+                      <CursorGlowCard className="group relative h-full overflow-hidden rounded-2xl border border-border/60 bg-background/75 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-2xl hover:shadow-gold/10 sm:p-7">
+                        {/* Big watermark step number */}
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-7xl font-bold leading-none text-gold/10 sm:text-8xl"
+                        >
                           {step.number}
+                        </span>
+                        <div className="relative flex items-center gap-3 mb-4 sm:mb-5">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-light text-primary font-bold shadow-md shadow-gold/30 sm:h-12 sm:w-12">
+                            {step.number}
+                          </div>
+                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/10 ring-1 ring-gold/20 sm:h-11 sm:w-11">
+                            <Icon className="text-gold" size={20} />
+                          </div>
                         </div>
-                        <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 sm:mb-5">
-                          <Icon className="text-gold" size={22} />
-                        </div>
-                        <h3 className="mb-2 font-serif text-lg font-bold text-foreground sm:text-xl">
+                        <h3 className="relative mb-2 font-serif text-base font-bold text-foreground sm:text-lg md:text-xl">
                           {step.title}
                         </h3>
-                        <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
+                        <p className="relative text-[13px] leading-relaxed text-foreground/75 sm:text-sm md:text-base">
                           {step.description}
                         </p>
                       </CursorGlowCard>
                     </RevealCard>
                   );
                 })}
-              </div>
-            </div>
-          </section>
-
-          {/* Contact CTA */}
-          <section className="bg-transparent pb-6 sm:pb-8">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="mx-auto max-w-4xl rounded-2xl border border-gold/30 bg-gold/10 px-6 py-8 text-center sm:rounded-3xl sm:px-8 sm:py-10 md:px-12">
-                <ClipboardList className="mx-auto mb-4 h-10 w-10 text-gold sm:h-12 sm:w-12" />
-                <h2 className="font-serif text-2xl font-bold text-primary-foreground sm:text-3xl md:text-4xl">
-                  Chcete pripraviť teambuilding na mieru?
-                </h2>
-                <p className="mt-3 text-sm text-primary-foreground/80 sm:text-base">
-                  Napíšte nám a do 48 hodín vám pošleme konkrétny návrh programu, rozpočet a dostupné termíny.
-                </p>
-                <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                  <a
-                    href="mailto:info@bsga.sk?subject=Firemný teambuilding – záujem"
-                    className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
-                  >
-                    <Mail className="h-4 w-4" />
-                    Napísať email
-                  </a>
-                  <a
-                    href="tel:+421917225276"
-                    className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-6 py-3 text-sm font-medium text-gold transition-all duration-300 hover:bg-gold/20 sm:text-base"
-                  >
-                    <Phone className="h-4 w-4" />
-                    +421 917 225 276
-                  </a>
-                </div>
               </div>
             </div>
           </section>
