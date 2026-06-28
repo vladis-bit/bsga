@@ -153,6 +153,45 @@ const CorporateEvents = () => {
             </div>
           </section>
 
+          {/* HC Slovan reference */}
+          <section className="bg-transparent py-12 sm:py-16 md:py-20">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mx-auto max-w-4xl">
+                <div className="text-center mb-8 sm:mb-10">
+                  <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
+                    Hovoria o nás
+                  </span>
+                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <CursorGlowCard className="group relative overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-background/80 to-background/60 p-6 sm:p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-2xl hover:shadow-gold/10">
+                    <Quote className="absolute right-6 top-6 h-12 w-12 text-gold/15 sm:h-16 sm:w-16" aria-hidden />
+                    <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-light text-primary font-bold text-lg shadow-md shadow-gold/30 sm:h-16 sm:w-16 sm:text-xl">
+                        HC
+                      </div>
+                      <div>
+                        <h3 className="font-serif text-lg font-bold text-foreground sm:text-xl md:text-2xl">
+                          HC Slovan Bratislava
+                        </h3>
+                        <p className="text-sm text-gold sm:text-base">Firemný teambuilding</p>
+                      </div>
+                    </div>
+                    <blockquote className="relative mt-5 sm:mt-6">
+                      <p className="text-base leading-relaxed text-foreground/90 sm:text-lg md:text-xl">
+                        „Teambuilding na ihrisku v Hrubej Borši prekonal naše očakávania. Organizácia bezchybná, trénerský tím profesionálny, atmosféra uvoľnená. Odporúčame každej firme, ktorá hľadá niečo iné ako šablónový event."
+                      </p>
+                    </blockquote>
+                  </CursorGlowCard>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
           {/* How it works */}
           <section className="bg-transparent pb-16 sm:pb-20 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
