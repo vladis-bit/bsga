@@ -39,6 +39,7 @@ const CorporateContactForm = () => {
   const [participantCount, setParticipantCount] = useState("");
   const [preferredDate, setPreferredDate] = useState<Date | undefined>(undefined);
   const [preferredCourse, setPreferredCourse] = useState("");
+  const [otherCourse, setOtherCourse] = useState("");
   const [message, setMessage] = useState("");
   const { toast } = useToast();
 
