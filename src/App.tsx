@@ -49,6 +49,7 @@ const App = () => (
             
             <Route path="/obchod" element={<Shop />} />
             <Route path="/fitting" element={<Fitting />} />
+            <Route path="/firemne-akcie" element={<CorporateEvents />} />
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
