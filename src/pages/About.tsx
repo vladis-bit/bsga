@@ -77,7 +77,12 @@ const team: TeamMember[] = [{
   phone: "+421 949 116 889",
   email: "vlado@bsga.sk",
   image: vladimirLeskoImg,
-  bio: ["Informácie o trénerovi pridáme čoskoro."]
+  bio: [
+    "Aktívny hráč GKHB",
+    "Bývalý reprezentant SR",
+    "Trackman certifikácia",
+    "Advisor na tímových turnajoch"
+  ]
 }, {
   name: "Donka Švajlenová",
   role: "Event & Operations Manager",
