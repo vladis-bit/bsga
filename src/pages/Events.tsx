@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
 import peterPhoto from "@/assets/team/peter-svajlen.webp";
+import doniTravelLogo from "@/assets/partner-doni-travel.png";
 
 interface EventItem {
   title: string;
@@ -174,23 +175,21 @@ const Events = () => {
                 ))}
               </div>
 
-              <div className="max-w-3xl mx-auto mt-8 sm:mt-10">
-                <div className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/20 via-gold/10 to-transparent p-5 sm:p-7 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur">
-                  <div className="min-w-0">
-                    <h3 className="font-serif text-lg sm:text-xl font-bold text-primary-foreground">
-                      Zaujala vás niektorá z akcií?
-                    </h3>
-                    <p className="mt-1 text-sm text-primary-foreground/80">
-                      Pošlite nám email a rezervujeme vám miesto. Odpovedáme do 24 hodín.
-                    </p>
-                  </div>
-                  <a
-                    href="mailto:peter@doni-travel.sk?subject=Prihlásenie na akciu BSGA × Doni-Travel"
-                    className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 text-sm sm:text-base font-semibold rounded-full bg-gold text-primary hover:bg-gold-light transition-all shadow-md shadow-gold/30"
-                  >
-                    <Mail className="w-4 h-4" />
-                    Prihlásiť sa na akciu
-                  </a>
+              <div className="max-w-3xl mx-auto mt-10 sm:mt-12">
+                <div className="rounded-2xl sm:rounded-3xl border border-gold/40 bg-background/95 p-6 sm:p-8 md:p-10 backdrop-blur shadow-xl shadow-gold/10 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-gold mb-4">
+                    Hlavný partner
+                  </p>
+                  <img
+                    src={doniTravelLogo}
+                    alt="Doni-Travel logo"
+                    loading="lazy"
+                    decoding="async"
+                    className="mx-auto max-h-24 sm:max-h-28 md:max-h-32 w-auto object-contain"
+                  />
+                  <p className="mt-4 text-sm text-primary-foreground/80 max-w-md mx-auto">
+                    Golfové pobyty a eventy organizujeme v spolupráci s cestovnou agentúrou Doni-Travel.
+                  </p>
                 </div>
               </div>
             </div>
