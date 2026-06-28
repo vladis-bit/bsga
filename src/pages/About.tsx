@@ -153,7 +153,7 @@ const FounderCard = ({
 const TeamCard = ({
   member
 }: {
-  member: typeof team[0];
+  member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
     <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
       {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
@@ -169,7 +169,7 @@ const TeamCard = ({
     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
-    <div className="flex justify-center gap-3">
+    <div className="flex justify-center gap-3 mb-4">
       <a href={`tel:${member.phone}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
         <Phone size={18} />
       </a>
@@ -177,6 +177,30 @@ const TeamCard = ({
         <Mail size={18} />
       </a>
     </div>
+
+    {member.bio && member.bio.length > 0 && (
+      <Collapsible className="w-full">
+        <CollapsibleTrigger asChild>
+          <button className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gradient-to-b from-gold/15 to-gold/5 px-5 py-2.5 text-sm font-bold text-gold shadow-sm transition-all hover:from-gold/25 hover:to-gold/10 hover:border-gold/70 hover:shadow-md active:scale-[0.98] data-[state=open]:from-gold/25 data-[state=open]:to-gold/10 data-[state=open]:border-gold/70">
+            Viac o mne
+            <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+          <div className="mt-4 rounded-xl border-l-4 border-l-gold border border-border/60 bg-card/95 p-5 shadow-sm">
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Oblasť pôsobenia</h4>
+            <ul className="space-y-2.5 text-sm text-foreground/90">
+              {member.bio.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold shadow-[0_0_6px_hsl(var(--gold)/0.6)]" />
+                  <span className="font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+    )}
   </Tilt3DCard>;
 
 const About = () => {
