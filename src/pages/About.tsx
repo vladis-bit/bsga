@@ -1,10 +1,11 @@
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { Mail, Phone, CheckCircle } from "lucide-react";
+import { Mail, Phone, CheckCircle, ChevronDown } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
 import marosGajanImg from "@/assets/team/maros-gajan.webp";
@@ -24,7 +25,14 @@ const founders = [{
   phone: "+421 905 335 501",
   email: "peter@bsga.sk",
   image: peterSvajlenImg,
-  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"]
+  achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"],
+  bio: [
+    "Člen PGA Slovakia",
+    "5-násobný víťaz PGA SK Order of Merit",
+    "6-násobný majster Slovenska",
+    "Golf Professional of the Year 2015",
+    "Hráčske skúsenosti z European a Challenge Tour"
+  ]
 }, {
   name: "Jakub Hrbáň",
   role: "Tréner BSGA · Profesionálny tréner golfu",
@@ -73,6 +81,7 @@ type TeamMember = {
   email: string;
   image?: string;
   achievements?: string[];
+  bio?: string[];
 };
 
 const FounderCard = ({
@@ -94,7 +103,7 @@ const FounderCard = ({
     <p className="text-base text-muted-foreground uppercase tracking-wider mb-3">
       {member.role}
     </p>
-    <div className="flex justify-center gap-3">
+    <div className="flex justify-center gap-3 mb-4">
       <a href={`tel:${member.phone}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
         <Phone size={20} />
       </a>
@@ -102,6 +111,30 @@ const FounderCard = ({
         <Mail size={20} />
       </a>
     </div>
+
+    {member.bio && member.bio.length > 0 && (
+      <Collapsible className="w-full">
+        <CollapsibleTrigger asChild>
+          <button className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gradient-to-b from-gold/15 to-gold/5 px-5 py-2.5 text-sm font-bold text-gold shadow-sm transition-all hover:from-gold/25 hover:to-gold/10 hover:border-gold/70 hover:shadow-md active:scale-[0.98] data-[state=open]:from-gold/25 data-[state=open]:to-gold/10 data-[state=open]:border-gold/70">
+            Viac o mne
+            <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+          <div className="mt-4 rounded-xl border-l-4 border-l-gold border border-border/60 bg-card/95 p-5 shadow-sm">
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Profesionálna kariéra</h4>
+            <ul className="space-y-2.5 text-sm text-foreground/90">
+              {member.bio.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold shadow-[0_0_6px_hsl(var(--gold)/0.6)]" />
+                  <span className="font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+    )}
   </Tilt3DCard>;
 
 const TeamCard = ({
