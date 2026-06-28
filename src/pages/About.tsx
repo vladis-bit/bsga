@@ -49,7 +49,7 @@ const founders = [{
   ]
 }];
 
-const team = [{
+const team: TeamMember[] = [{
   name: "Maroš Gajan",
   role: "Tréner BSGA · Profesionálny tréner golfu",
   phone: "+421 903 243 999",
@@ -78,7 +78,13 @@ const team = [{
   role: "Event & Operations Manager",
   phone: "+421 917 225 276",
   email: "touroffice@bsga.sk",
-  image: donkaSvajlenovaImg
+  image: donkaSvajlenovaImg,
+  bio: [
+    "Organizácia golfových turnajov a podujatí",
+    "Administratívna a projektová koordinácia",
+    "Komunikácia s klientmi",
+    "Cestovná agentúra Doni-Travel"
+  ]
 }];
 
 type TeamMember = {
