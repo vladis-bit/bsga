@@ -68,7 +68,13 @@ const team: TeamMember[] = [{
   phone: "+421 911 183 429",
   email: "vanessa@bsga.sk",
   image: vanessaFajkusovaImg,
-  bio: ["Informácie o trénerovi pridáme čoskoro."]
+  bio: [
+    "Bývalá hráčka GKHB",
+    "Práca a rozvoj detského potenciálu",
+    "Štúdium psychológie (Mgr.)",
+    "Skúsenosti z psychosociálneho poradenského centra",
+    "Kariérne poradenstvo"
+  ]
 }, {
   name: "Milan Neštický",
   role: "Tréner BSGA · Tréner golfu",
