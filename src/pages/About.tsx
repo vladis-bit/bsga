@@ -56,7 +56,12 @@ const team: TeamMember[] = [{
   phone: "+421 903 243 999",
   email: "maros@bsga.sk",
   image: marosGajanImg,
-  bio: ["Informácie o trénerovi pridáme čoskoro."]
+  bio: [
+    "Člen PGA Slovakia",
+    "Majster Slovenska U21",
+    "PGA Professional od roku 2010",
+    "Efektívny tréning pre lepšiu hru a zdravý pohyb (TPI Certified)"
+  ]
 }, {
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Tréner golfu",
