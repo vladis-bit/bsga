@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       contact_messages: {
         Row: {
+          company_name: string | null
           created_at: string
           email: string
           first_name: string
@@ -23,12 +24,15 @@ export type Database = {
           is_read: boolean
           last_name: string | null
           message: string
+          participant_count: string | null
           phone: string | null
+          preferred_course: string | null
           preferred_date: string | null
           service: string | null
           source: string
         }
         Insert: {
+          company_name?: string | null
           created_at?: string
           email: string
           first_name: string
@@ -36,12 +40,15 @@ export type Database = {
           is_read?: boolean
           last_name?: string | null
           message: string
+          participant_count?: string | null
           phone?: string | null
+          preferred_course?: string | null
           preferred_date?: string | null
           service?: string | null
           source?: string
         }
         Update: {
+          company_name?: string | null
           created_at?: string
           email?: string
           first_name?: string
@@ -49,7 +56,9 @@ export type Database = {
           is_read?: boolean
           last_name?: string | null
           message?: string
+          participant_count?: string | null
           phone?: string | null
+          preferred_course?: string | null
           preferred_date?: string | null
           service?: string | null
           source?: string

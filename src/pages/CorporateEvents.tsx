@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, Users, Calendar, MessageSquare, ClipboardList, Camera, PartyPopper } from "lucide-react";
+import { Mail, Phone, Users, Calendar, MessageSquare, PartyPopper, Camera, ClipboardList } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+import CorporateContactForm from "@/components/CorporateContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import serviceCorporateImgAsset from "@/assets/service-corporate.webp.asset.json";
@@ -236,7 +236,7 @@ const CorporateEvents = () => {
             </div>
           </section>
 
-          <ContactForm />
+          <CorporateContactForm />
         </main>
       </AuroraBackground>
       <Footer />
