@@ -231,6 +231,16 @@ const CorporateContactForm = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {preferredCourse === "Iné" && (
+                    <div className="mt-3">
+                      <Input
+                        value={otherCourse}
+                        onChange={(e) => setOtherCourse(e.target.value)}
+                        placeholder="Napíšte názov preferovaného ihriska..."
+                        className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
