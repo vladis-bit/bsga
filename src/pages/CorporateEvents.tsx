@@ -47,13 +47,14 @@ const steps = [
 
 const RevealCard = ({ children, index }: { children: React.ReactNode; index: number }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const direction = index % 2 === 0 ? -60 : 60;
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.4, delay: (index % 6) * 0.1 }}
+      initial={{ opacity: 0, x: direction, y: 40, scale: 0.96 }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, x: direction, y: 40, scale: 0.96 }}
+      transition={{ duration: 0.6, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="h-full"
     >
       {children}
