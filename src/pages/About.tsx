@@ -115,20 +115,23 @@ const FounderCard = ({
     {member.bio && member.bio.length > 0 && (
       <Collapsible className="w-full">
         <CollapsibleTrigger asChild>
-          <button className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all hover:bg-gold/20 hover:border-gold/60 active:scale-[0.98] data-[state=open]:bg-gold/20 data-[state=open]:border-gold/60">
+          <button className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gradient-to-b from-gold/15 to-gold/5 px-5 py-2.5 text-sm font-bold text-gold shadow-sm transition-all hover:from-gold/25 hover:to-gold/10 hover:border-gold/70 hover:shadow-md active:scale-[0.98] data-[state=open]:from-gold/25 data-[state=open]:to-gold/10 data-[state=open]:border-gold/70">
             Viac o mne
             <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
           </button>
         </CollapsibleTrigger>
         <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <ul className="mt-4 space-y-2 rounded-xl border border-border/60 bg-muted/30 p-4 text-sm text-muted-foreground">
-            {member.bio.map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-4 rounded-xl border-l-4 border-l-gold border border-border/60 bg-card/95 p-5 shadow-sm">
+            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Profesionálna kariéra</h4>
+            <ul className="space-y-2.5 text-sm text-foreground/90">
+              {member.bio.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold shadow-[0_0_6px_hsl(var(--gold)/0.6)]" />
+                  <span className="font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </CollapsibleContent>
       </Collapsible>
     )}
