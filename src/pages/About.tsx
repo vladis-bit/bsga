@@ -31,7 +31,8 @@ const founders = [{
     "5-násobný víťaz PGA SK Order of Merit",
     "6-násobný majster Slovenska",
     "Golf Professional of the Year 2015",
-    "Hráčske skúsenosti z European a Challenge Tour"
+    "Hráčske skúsenosti z European a Challenge Tour",
+    "Cestovná agentúra Doni-Travel"
   ]
 }, {
   name: "Jakub Hrbáň",
