@@ -70,7 +70,12 @@ const team: TeamMember[] = [{
   phone: "+421 911 193 429",
   email: "milan@bsga.sk",
   image: milanNestickyImg,
-  bio: ["Informácie o trénerovi pridáme čoskoro."]
+  bio: [
+    "Hral som golf na pitch kontinentoch",
+    "Pohybová terapia",
+    "Fyziológia zdravého pohybu",
+    "Terapeutické masáže"
+  ]
 }, {
   name: "Vladimír Leško",
   role: "Tréner BSGA · Tréner golfu",
