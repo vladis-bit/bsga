@@ -31,9 +31,28 @@ interface EventItem {
 const events: EventItem[] = [
   {
     title: "Camiral Trip",
-    date: "1. – 6. 6. 2026",
+    date: "1. – 6. 5. 2026",
     location: "Camiral, Španielsko",
     posterUrl: camiralPoster.url,
+    details: {
+      subtitle: "Hosťujúce ihrisko Ryder Cup 2031 – Camiral & Quinta do Lago Resort",
+      intro: "Doni Travel pripravil exkluzívny golfový zájazd do Španielska na prestížne Camiral Resort, ktoré bude hostiť Ryder Cup 2031. Súčasťou pobytu je aj výlet do Barcelony so sprievodcom.",
+      price: "€1 535 / golfista · €415 / negolfista",
+      priceNote: "Priamy let z Bratislavy do Barcelony · Ubytovanie Hotel Lavida 4* na 5 nocí · Letenka nie je zahrnutá v cene",
+      schedule: [
+        { day: "Piatok 1. 5.", title: "Prílet & Stadium Course", items: ["Priamy let Bratislava – Barcelona", "Camiral Resort – Stadium Course (autíčko v cene)"] },
+        { day: "Sobota 2. 5.", title: "Camiral Resort – Tour Course", items: ["Hra na Tour Course (autíčko v cene)"] },
+        { day: "Nedeľa 3. 5.", title: "Výlet do Barcelony", items: ["Celodenný výlet so zabezpečeným sprievodcom a vstupmi"] },
+        { day: "Pondelok 4. 5.", title: "Camiral Resort – Tour Course", items: ["Hra na Tour Course (autíčko v cene)"] },
+        { day: "Utorok 5. 5.", title: "Camiral Resort – Stadium Course", items: ["Hra na Stadium Course (autíčko v cene)"] },
+        { day: "Streda 6. 5.", title: "Odlet domov", items: ["Let Barcelona – Bratislava"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: "peter@doni-travel.sk",
+        phone: "+421 905 335 501",
+      },
+    },
   },
   {
     title: "Liv Golf Andalucia",
