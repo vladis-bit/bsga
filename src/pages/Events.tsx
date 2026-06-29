@@ -141,6 +141,8 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [infoOpen, setInfoOpen] = useState(false);
+  const contactEmail = event.details?.contact.email;
+  const signupEmail = Array.isArray(contactEmail) ? contactEmail.join(",") : contactEmail ?? "peter@doni-travel.sk";
   const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
   const infoSubject = encodeURIComponent(`Informácie – ${event.title}`);
 
