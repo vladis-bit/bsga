@@ -10,6 +10,8 @@ import WavesCanvas from "@/components/WavesCanvas";
 import peterPhoto from "@/assets/team/peter-svajlen.webp";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import czechPgaPoster from "@/assets/event-posters/doni-travel-czech-pga-tour.pdf.asset.json";
+import camiralPoster from "@/assets/event-posters/doni-travel-camiral.pdf.asset.json";
+import livPoster from "@/assets/event-posters/doni-travel-liv.pdf.asset.json";
 
 interface EventItem {
   title: string;
@@ -31,11 +33,13 @@ const events: EventItem[] = [
     title: "Camiral Trip",
     date: "1. – 6. 6. 2026",
     location: "Camiral, Španielsko",
+    posterUrl: camiralPoster.url,
   },
   {
     title: "Liv Golf Andalucia",
     date: "6. – 10. 7. 2026",
     location: "Andalúzia, Španielsko",
+    posterUrl: livPoster.url,
   },
   {
     title: "PGA Czechia – Po stopách Czech PGA Tour",
