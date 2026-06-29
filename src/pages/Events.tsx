@@ -117,7 +117,7 @@ const events: EventItem[] = [
       subtitle: "DONI-TRAVEL × BSGA — Ryder Cup 2026",
       intro: "Spoločný zájazd v BSGA Ryder Cup formáte – Team Švajlen vs. Team Hrbáň. Čaká na vás týždeň plný kvalitného golfu, tímovej súťaže a oddychu v luxusnom rezorte Voyage Belek Golf & Spa 5★.",
       price: "€2 900 / golfista (double room + letenka) · €1 750 / negolfista (double room + letenka)",
-      priceNote: "Príplatok za single room: €550",
+      priceNote: "Príplatok za single room: €550. Cena zahŕňa: 7 nocí v dvojlôžkovej izbe, 5x green fee (2x Montgomerie, 2x Kaya, 1x Faldo), letenka a golfový vak.",
       schedule: [
         { day: "Sobota 10. 10.", title: "Prílet do Antalye", items: ["Let do Antalye", "Transfer a ubytovanie v Voyage Belek Golf & Spa 5★"] },
         { day: "Nedeľa 11. 10.", title: "The Montgomerie Maxx Royal", items: ["Hra na The Montgomerie Maxx Royal (1. deň BSGA Ryder Cup)"] },
