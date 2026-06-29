@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import WavesCanvas from "@/components/WavesCanvas";
 import peterPhoto from "@/assets/team/peter-svajlen.webp";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
