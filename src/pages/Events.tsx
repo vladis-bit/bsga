@@ -24,7 +24,7 @@ interface EventItem {
     price: string;
     priceNote: string;
     schedule: { day: string; title: string; items: string[]; tour?: string }[];
-    contact: { name: string; email: string; phone: string };
+    contact: { name: string; email: string | string[]; phone: string };
   };
 }
 
