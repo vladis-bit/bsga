@@ -526,6 +526,23 @@ const Events = () => {
               </div>
             </div>
           </section>
+
+          <section className="bg-transparent pb-20 md:pb-28">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto text-center">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+                  <Sparkles className="w-4 h-4" /> Plánované akcie
+                </span>
+                <h2 className="mt-3 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl">
+                  Akcie a pobyty v roku 2027
+                </h2>
+                <p className="mt-4 text-lg sm:text-xl md:text-2xl text-primary-foreground/80 font-medium">
+                  Zverejníme už čoskoro
+                </p>
+                <div className="mt-6 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-gold to-transparent" />
+              </div>
+            </div>
+          </section>
         </main>
       </AuroraBackground>
       <Footer />
