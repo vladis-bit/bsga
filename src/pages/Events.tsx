@@ -102,9 +102,27 @@ const events: EventItem[] = [
     },
   },
   {
-    title: "Doni-Travel Turnaj 4 tímov",
+    title: "DONI-TRAVEL × BSGA — Turnaj Pro-Am Tímov",
     date: "13. – 15. 9. 2026",
+    location: "Golf Resort Kaskáda",
+    details: {
+      subtitle: "Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi",
+      intro: "Destinácia: Golf Resort Kaskáda. Formát: Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi. Tímy: Team Švajlen | Team Hrbáň | Team Fajkusová | Team Gajan.",
+      price: "€650 / golfista (double room) · €350 / negolfista (double room)",
+      priceNote: "Príplatok za single room: €90. Možnosť doobjednať extra noc 12. 9. – double room €65 | single room €100. Cena zahŕňa: 2 noci s raňajkami, 3x turnajové kolá, 2x obed po hre, pitný režim počas hry, 3x štartovací balíček do bagu, 1x večerný raut s ochutnávkou vína a unlimited vstup do saunového sveta.",
+      schedule: [
+        { day: "Nedeľa 13. 9.", title: "Príjazd a uvítací program", items: ["Príjazd a ubytovanie v Golf Resort Kaskáda", "Welcome drink a prezentácia tímov", "Voľná hra / príprava na ihrisku"] },
+        { day: "Pondelok 14. 9.", title: "1. deň súťaže", items: ["Turnajové kolá pre všetky tímy", "Obed po hre", "Pitný režim počas hry", "Štartovací balíček do bagu"] },
+        { day: "Utorok 15. 9.", title: "Finále a vyhlásenie", items: ["Záverečné turnajové kolá", "Obed po hre", "Večerný raut s ochutnávkou vína", "Vyhlásenie víťazov a odovzdávanie cien"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: ["peter@doni-travel.com", "doni@doni-travel.com"],
+        phone: "+421 905 335 501",
+      },
+    },
   },
+
   {
     title: "Švajlen Invitational",
     date: "25. 9. 2026",
