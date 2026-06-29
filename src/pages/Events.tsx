@@ -183,7 +183,8 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
                   <Calendar className="w-5 h-5" />
                   <span className="font-semibold text-sm uppercase tracking-wide">Termín a cena</span>
                 </div>
-                <p className="text-lg sm:text-xl font-bold text-foreground">{event.details.price}</p>
+                <p className="text-base sm:text-lg font-semibold text-foreground">{event.date}</p>
+                <p className="text-lg sm:text-xl font-bold text-foreground mt-1">{event.details.price}</p>
                 <p className="text-sm text-muted-foreground mt-1">{event.details.priceNote}</p>
               </div>
 
