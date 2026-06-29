@@ -50,6 +50,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
+  const infoSubject = encodeURIComponent(`Informácie – ${event.title}`);
 
   return (
     <motion.div
@@ -59,7 +60,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="relative overflow-hidden rounded-2xl border bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10 p-5 sm:p-6 transition-all duration-300"
     >
-      <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr_auto] md:items-center">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr] md:items-start">
         <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
           {index + 1}
         </div>
@@ -79,34 +80,42 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
               </div>
             )}
           </div>
-        </div>
-        <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2 md:min-w-[180px]">
-          {event.posterUrl ? (
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+            {event.posterUrl ? (
+              <a
+                href={event.posterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+              >
+                <FileText className="w-4 h-4" />
+                Plagát
+              </a>
+            ) : (
+              <span
+                aria-disabled="true"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+              >
+                <FileText className="w-4 h-4" />
+                Plagát čoskoro
+              </span>
+            )}
             <a
-              href={event.posterUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+              href={`mailto:peter@doni-travel.sk?subject=${infoSubject}`}
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
             >
-              <FileText className="w-4 h-4" />
-              Plagát
+              <Sparkles className="w-4 h-4" />
+              Informácie
             </a>
-          ) : (
-            <span
-              aria-disabled="true"
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+            <a
+              href={`mailto:peter@doni-travel.sk?subject=${mailSubject}`}
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
             >
-              <FileText className="w-4 h-4" />
-              Plagát čoskoro
-            </span>
-          )}
-          <a
-            href={`mailto:peter@doni-travel.sk?subject=${mailSubject}`}
-            className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20"
-          >
-            <Mail className="w-4 h-4" />
-            <span>Prihlásiť sa</span>
-          </a>
+              <Mail className="w-4 h-4" />
+              <span>Prihlásiť sa</span>
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>
