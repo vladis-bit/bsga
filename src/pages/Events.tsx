@@ -77,76 +77,196 @@ const events: EventItem[] = [
 const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [infoOpen, setInfoOpen] = useState(false);
   const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
   const infoSubject = encodeURIComponent(`Informácie – ${event.title}`);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="relative overflow-hidden rounded-2xl border bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10 p-5 sm:p-6 transition-all duration-300"
-    >
-      <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr] md:items-start">
-        <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
-          {index + 1}
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
-            {event.title}
-          </h3>
-          <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-gold" />
-              <span>{event.date}</span>
-            </div>
-            {event.location && (
+    <>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.4, delay: index * 0.1 }}
+        className="relative overflow-hidden rounded-2xl border bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10 p-5 sm:p-6 transition-all duration-300"
+      >
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr] md:items-start">
+          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
+            {index + 1}
+          </div>
+          <div className="min-w-0">
+            <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
+              {event.title}
+            </h3>
+            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
               <div className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-gold" />
-                <span>{event.location}</span>
+                <Calendar className="w-4 h-4 text-gold" />
+                <span>{event.date}</span>
               </div>
-            )}
-          </div>
+              {event.location && (
+                <div className="flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-gold" />
+                  <span>{event.location}</span>
+                </div>
+              )}
+            </div>
 
-          <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-            {event.posterUrl ? (
+            <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+              {event.posterUrl ? (
+                <a
+                  href={event.posterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+                >
+                  <FileText className="w-4 h-4" />
+                  Plagát
+                </a>
+              ) : (
+                <span
+                  aria-disabled="true"
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                >
+                  <FileText className="w-4 h-4" />
+                  Plagát čoskoro
+                </span>
+              )}
+              {event.details ? (
+                <button
+                  type="button"
+                  onClick={() => setInfoOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
+                >
+                  <Info className="w-4 h-4" />
+                  Informácie
+                </button>
+              ) : (
+                <a
+                  href={`mailto:peter@doni-travel.sk?subject=${infoSubject}`}
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
+                >
+                  <Info className="w-4 h-4" />
+                  Informácie
+                </a>
+              )}
               <a
-                href={event.posterUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+                href={`mailto:peter@doni-travel.sk?subject=${mailSubject}`}
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
               >
-                <FileText className="w-4 h-4" />
-                Plagát
+                <Mail className="w-4 h-4" />
+                <span>Prihlásiť sa</span>
               </a>
-            ) : (
-              <span
-                aria-disabled="true"
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
-              >
-                <FileText className="w-4 h-4" />
-                Plagát čoskoro
-              </span>
-            )}
-            <a
-              href={`mailto:peter@doni-travel.sk?subject=${infoSubject}`}
-              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
-            >
-              <Sparkles className="w-4 h-4" />
-              Informácie
-            </a>
-            <a
-              href={`mailto:peter@doni-travel.sk?subject=${mailSubject}`}
-              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Prihlásiť sa</span>
-            </a>
+            </div>
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+
+      {event.details && (
+        <Dialog open={infoOpen} onOpenChange={setInfoOpen}>
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background text-foreground">
+            <DialogHeader>
+              <DialogTitle className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
+                {event.title}
+              </DialogTitle>
+              <DialogDescription className="text-gold font-medium text-base">
+                {event.details.subtitle}
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="mt-4 space-y-6">
+              <p className="text-sm sm:text-base leading-relaxed text-foreground/90">
+                {event.details.intro}
+              </p>
+
+              <div className="rounded-xl bg-muted/70 p-4 sm:p-5 border border-gold/20">
+                <div className="flex items-center gap-2 mb-2 text-gold">
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-semibold text-sm uppercase tracking-wide">Termín a cena</span>
+                </div>
+                <p className="text-lg sm:text-xl font-bold text-foreground">{event.details.price}</p>
+                <p className="text-sm text-muted-foreground mt-1">{event.details.priceNote}</p>
+              </div>
+
+              <div>
+                <h4 className="flex items-center gap-2 text-gold font-semibold text-sm uppercase tracking-wide mb-3">
+                  <MapPin className="w-5 h-5" /> Program zájazdu
+                </h4>
+                <div className="space-y-3">
+                  {event.details.schedule.map((day, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-gold/30"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
+                        <span className="text-sm font-semibold text-gold">{day.day}</span>
+                        {day.tour && (
+                          <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">
+                            {day.tour}
+                          </span>
+                        )}
+                      </div>
+                      <h5 className="font-serif text-lg font-bold text-foreground mb-1">{day.title}</h5>
+                      <ul className="space-y-1">
+                        {day.items.map((item, j) => (
+                          <li key={j} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5">
+                <h4 className="font-semibold text-foreground mb-3">Kontakt</h4>
+                <div className="space-y-2 text-sm">
+                  <p className="flex items-center gap-2 text-foreground/90">
+                    <span className="font-medium">{event.details.contact.name}</span>
+                  </p>
+                  <a
+                    href={`mailto:${event.details.contact.email}`}
+                    className="flex items-center gap-2 text-gold hover:underline"
+                  >
+                    <Mail className="w-4 h-4" />
+                    {event.details.contact.email}
+                  </a>
+                  <a
+                    href={`tel:${event.details.contact.phone.replace(/\s/g, "")}`}
+                    className="flex items-center gap-2 text-gold hover:underline"
+                  >
+                    <Phone className="w-4 h-4" />
+                    {event.details.contact.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                {event.posterUrl && (
+                  <a
+                    href={event.posterUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Stiahnuť plagát
+                  </a>
+                )}
+                <a
+                  href={`mailto:${event.details.contact.email}?subject=${mailSubject}`}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+                >
+                  <Mail className="w-4 h-4" />
+                  Prihlásiť sa
+                </a>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
+    </>
   );
 };
 
