@@ -56,9 +56,27 @@ const events: EventItem[] = [
   },
   {
     title: "Liv Golf Andalucia",
-    date: "6. – 10. 7. 2026",
+    date: "6. – 10. 6. 2026",
     location: "Andalúzia, Španielsko",
     posterUrl: livPoster.url,
+    details: {
+      subtitle: "3x golf v Andalúzii + finálový deň LIV GOLF Spain",
+      intro: "Doni Travel pripravil zájazd do slnečnej Andalúzie spojený s návštevou finálového kola LIV GOLF Spain a hrou na troch špičkových ihriskách.",
+      price: "€1 290 / golfista · €750 / negolfista",
+      priceNote: "Príplatok za single room: €375 · Letenka nie je zahrnutá v cene",
+      schedule: [
+        { day: "Piatok 6. 6.", title: "Prílet do Malagy", items: ["Let Viedeň – Malaga"] },
+        { day: "Sobota 7. 6.", title: "LIV GOLF Spain", items: ["Návšteva finálového kola LIV GOLF Spain"] },
+        { day: "Nedeľa 8. 6.", title: "Atalaya New Course", items: ["Hra na Atalaya New Course"] },
+        { day: "Pondelok 9. 6.", title: "Estepona Course", items: ["Hra na Estepona Course"] },
+        { day: "Utorok 10. 6.", title: "Los Arqueros & odlet", items: ["Hra na Los Arqueros Course", "Let Malaga – Viedeň"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: "peter@doni-travel.sk",
+        phone: "+421 905 335 501",
+      },
+    },
   },
   {
     title: "PGA Czechia – Po stopách Czech PGA Tour",
