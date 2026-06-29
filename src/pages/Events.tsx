@@ -540,6 +540,29 @@ const Events = () => {
                   Zverejníme už čoskoro
                 </p>
                 <div className="mt-6 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-gold to-transparent" />
+
+                <div className="mt-10 sm:mt-12 rounded-2xl border border-border bg-card/80 backdrop-blur p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
+                      2027
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
+                        Jarný tréningový deň s Peťom a Jakubom
+                      </h3>
+                      <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4 text-gold" />
+                          <span>TBD</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4 text-gold" />
+                          <span>Belek, Turecko</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
