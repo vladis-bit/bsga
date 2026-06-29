@@ -291,13 +291,26 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
                   <p className="flex items-center gap-2 text-foreground/90">
                     <span className="font-medium">{event.details.contact.name}</span>
                   </p>
-                  <a
-                    href={`mailto:${event.details.contact.email}`}
-                    className="flex items-center gap-2 text-gold hover:underline"
-                  >
-                    <Mail className="w-4 h-4" />
-                    {event.details.contact.email}
-                  </a>
+                  {Array.isArray(event.details.contact.email) ? (
+                    event.details.contact.email.map((email) => (
+                      <a
+                        key={email}
+                        href={`mailto:${email}`}
+                        className="flex items-center gap-2 text-gold hover:underline"
+                      >
+                        <Mail className="w-4 h-4" />
+                        {email}
+                      </a>
+                    ))
+                  ) : (
+                    <a
+                      href={`mailto:${event.details.contact.email}`}
+                      className="flex items-center gap-2 text-gold hover:underline"
+                    >
+                      <Mail className="w-4 h-4" />
+                      {event.details.contact.email}
+                    </a>
+                  )}
                   <a
                     href={`tel:${event.details.contact.phone.replace(/\s/g, "")}`}
                     className="flex items-center gap-2 text-gold hover:underline"
