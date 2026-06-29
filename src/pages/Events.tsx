@@ -334,7 +334,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
                   </a>
                 )}
                 <a
-                  href={`mailto:${event.details.contact.email}?subject=${mailSubject}`}
+                  href={`mailto:${signupEmail}?subject=${mailSubject}`}
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
                 >
                   <Mail className="w-4 h-4" />
