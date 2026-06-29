@@ -24,7 +24,7 @@ interface EventItem {
     price: string;
     priceNote: string;
     schedule: { day: string; title: string; items: string[]; tour?: string }[];
-    contact: { name: string; email: string; phone: string };
+    contact: { name: string; email: string | string[]; phone: string };
   };
 }
 
@@ -112,6 +112,28 @@ const events: EventItem[] = [
   {
     title: "BSGA Ryder Cup – Švajlen vs Hrbáň",
     date: "10. – 17. 10. 2026",
+    location: "Voyage Belek Golf & Spa 5★, Turecko",
+    details: {
+      subtitle: "DONI-TRAVEL × BSGA — Ryder Cup 2026",
+      intro: "Spoločný zájazd v BSGA Ryder Cup formáte – Team Švajlen vs. Team Hrbáň. Čaká na vás týždeň plný kvalitného golfu, tímovej súťaže a oddychu v luxusnom rezorte Voyage Belek Golf & Spa 5★.",
+      price: "€2 900 / golfista (double room + letenka) · €1 750 / negolfista (double room + letenka)",
+      priceNote: "Príplatok za single room: €550. Cena zahŕňa: 7 nocí v dvojlôžkovej izbe, 5x green fee (2x Montgomerie, 2x Kaya, 1x Faldo), letenka a golfový vak.",
+      schedule: [
+        { day: "Sobota 10. 10.", title: "Prílet do Antalye", items: ["Let do Antalye", "Transfer a ubytovanie v Voyage Belek Golf & Spa 5★"] },
+        { day: "Nedeľa 11. 10.", title: "The Montgomerie Maxx Royal", items: ["Hra na The Montgomerie Maxx Royal (1. deň BSGA Ryder Cup)"] },
+        { day: "Pondelok 12. 10.", title: "Kaya Palazzo Golf Club", items: ["Hra na Kaya Palazzo Golf Club (2. deň BSGA Ryder Cup)"] },
+        { day: "Utorok 13. 10.", title: "Faldo Course", items: ["Hra na Faldo Course (3. deň BSGA Ryder Cup)"] },
+        { day: "Streda 14. 10.", title: "The Montgomerie Maxx Royal", items: ["Hra na The Montgomerie Maxx Royal (4. deň BSGA Ryder Cup)"] },
+        { day: "Štvrtok 15. 10.", title: "Kaya Palazzo Golf Club", items: ["Hra na Kaya Palazzo Golf Club (5. deň BSGA Ryder Cup)"] },
+        { day: "Piatok 16. 10.", title: "Voľný deň / tímové aktivity", items: ["Voľný program v rezorte", "Tímové aktivity a príprava finále"] },
+        { day: "Sobota 17. 10.", title: "Odlet domov", items: ["Transfer na letisko", "Let do Bratislavy"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: ["peter@doni-travel.com", "doni@doni-travel.com"],
+        phone: "+421 905 335 501",
+      },
+    },
   },
 ];
 
@@ -119,6 +141,8 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [infoOpen, setInfoOpen] = useState(false);
+  const contactEmail = event.details?.contact.email;
+  const signupEmail = Array.isArray(contactEmail) ? contactEmail.join(",") : contactEmail ?? "peter@doni-travel.sk";
   const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
   const infoSubject = encodeURIComponent(`Informácie – ${event.title}`);
 
@@ -191,7 +215,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
                 </a>
               )}
               <a
-                href={`mailto:peter@doni-travel.sk?subject=${mailSubject}`}
+                href={`mailto:${signupEmail}?subject=${mailSubject}`}
                 className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
               >
                 <Mail className="w-4 h-4" />
@@ -267,13 +291,26 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
                   <p className="flex items-center gap-2 text-foreground/90">
                     <span className="font-medium">{event.details.contact.name}</span>
                   </p>
-                  <a
-                    href={`mailto:${event.details.contact.email}`}
-                    className="flex items-center gap-2 text-gold hover:underline"
-                  >
-                    <Mail className="w-4 h-4" />
-                    {event.details.contact.email}
-                  </a>
+                  {Array.isArray(event.details.contact.email) ? (
+                    event.details.contact.email.map((email) => (
+                      <a
+                        key={email}
+                        href={`mailto:${email}`}
+                        className="flex items-center gap-2 text-gold hover:underline"
+                      >
+                        <Mail className="w-4 h-4" />
+                        {email}
+                      </a>
+                    ))
+                  ) : (
+                    <a
+                      href={`mailto:${event.details.contact.email}`}
+                      className="flex items-center gap-2 text-gold hover:underline"
+                    >
+                      <Mail className="w-4 h-4" />
+                      {event.details.contact.email}
+                    </a>
+                  )}
                   <a
                     href={`tel:${event.details.contact.phone.replace(/\s/g, "")}`}
                     className="flex items-center gap-2 text-gold hover:underline"
@@ -297,7 +334,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
                   </a>
                 )}
                 <a
-                  href={`mailto:${event.details.contact.email}?subject=${mailSubject}`}
+                  href={`mailto:${signupEmail}?subject=${mailSubject}`}
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
                 >
                   <Mail className="w-4 h-4" />
