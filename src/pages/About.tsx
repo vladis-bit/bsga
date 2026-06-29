@@ -249,7 +249,8 @@ const About = () => {
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-35 blur-2xl"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-background/12 via-background/14 to-background/72 sm:to-background/64" />
               <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,hsl(var(--background)/0.16),transparent)] sm:h-24 md:h-28" />
@@ -266,6 +267,7 @@ const About = () => {
                     className="block h-auto w-full object-cover object-top"
                     loading="eager"
                     decoding="async"
+                    fetchPriority="high"
                   />
                 </picture>
               </div>
