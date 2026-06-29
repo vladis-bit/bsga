@@ -546,7 +546,7 @@ const Events = () => {
                     <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
                       2027
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
                         Jarný tréningový deň s Peťom a Jakubom
                       </h3>
@@ -559,6 +559,30 @@ const Events = () => {
                           <MapPin className="w-4 h-4 text-gold" />
                           <span>Belek, Turecko</span>
                         </div>
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+                        <span
+                          aria-disabled="true"
+                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                        >
+                          <FileText className="w-4 h-4" />
+                          Plagát čoskoro
+                        </span>
+                        <a
+                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Informácie – Jarný tréningový deň s Peťom a Jakubom")}`}
+                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
+                        >
+                          <Info className="w-4 h-4" />
+                          Informácie
+                        </a>
+                        <a
+                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Jarný tréningový deň s Peťom a Jakubom")}`}
+                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+                        >
+                          <Mail className="w-4 h-4" />
+                          <span>Prihlásiť sa</span>
+                        </a>
                       </div>
                     </div>
                   </div>
