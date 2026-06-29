@@ -1,19 +1,29 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Calendar, Mail, MapPin, FileText, Phone, Sparkles } from "lucide-react";
+import { Calendar, Mail, MapPin, FileText, Phone, Sparkles, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
 import WavesCanvas from "@/components/WavesCanvas";
 import peterPhoto from "@/assets/team/peter-svajlen.webp";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
+import czechPgaPoster from "@/assets/event-posters/doni-travel-czech-pga-tour.pdf.asset.json";
 
 interface EventItem {
   title: string;
   date: string;
   location?: string;
   posterUrl?: string;
+  details?: {
+    subtitle: string;
+    intro: string;
+    price: string;
+    priceNote: string;
+    schedule: { day: string; title: string; items: string[]; tour?: string }[];
+    contact: { name: string; email: string; phone: string };
+  };
 }
 
 const events: EventItem[] = [
