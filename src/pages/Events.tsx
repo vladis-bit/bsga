@@ -108,7 +108,23 @@ const events: EventItem[] = [
   {
     title: "Švajlen Invitational",
     date: "25. 9. 2026",
+    location: "Golfový klub Hrubá Borša, Slovensko",
+    details: {
+      subtitle: "Jednokolový pozvánkový turnaj",
+      intro: "Jednokolový pozvánkový turnaj konajúci sa na golfovom ihrisku v Hrubej Borši (GKHB). Môžete sa tešiť na welcome drink, občerstvenie, obed po hre a vyhlásenie aj s cenami.",
+      price: "Cena a prihláška na vyžiadanie",
+      priceNote: "Turnaj je prístupný na pozvánku – bližšie informácie o štartovnom, kapacite a registrácii získate na kontakte nižšie.",
+      schedule: [
+        { day: "Piatok 25. 9.", title: "Švajlen Invitational", items: ["Welcome drink a registrácia hráčov", "Občerstvenie počas hry", "Obed po hre", "Vyhlásenie výsledkov a odovzdávanie cien"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: "peter@doni-travel.sk",
+        phone: "+421 905 335 501",
+      },
+    },
   },
+
   {
     title: "BSGA Ryder Cup – Švajlen vs Hrbáň",
     date: "10. – 17. 10. 2026",
