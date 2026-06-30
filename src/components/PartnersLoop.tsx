@@ -5,6 +5,7 @@ import borsaLogo from "@/assets/partner-borsa.png";
 interface Partner {
   name: string;
   logo: string;
+  logoClass?: string;
 }
 const partners: Partner[] = [{
   name: "ASBIS",
@@ -14,7 +15,8 @@ const partners: Partner[] = [{
   logo: checkpointLogo
 }, {
   name: "Doni Travel",
-  logo: doniTravelLogo
+  logo: doniTravelLogo,
+  logoClass: "max-w-[8.5rem] max-h-24 sm:max-w-[9.5rem] sm:max-h-28 md:max-w-[10.5rem] md:max-h-32"
 }, {
   name: "Borša Golf Club",
   logo: borsaLogo
@@ -47,7 +49,7 @@ const PartnersLoop = () => {
                   loading="lazy"
                   decoding="async"
                   draggable={false}
-                  className="max-w-full max-h-full w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none"
+                  className={`${partner.logoClass ?? "max-w-full max-h-full"} w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none`}
                 />
               </div>
             </div>
