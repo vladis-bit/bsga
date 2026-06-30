@@ -70,6 +70,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li><Link to="/edukacne-centrum" className={linkClass}>Edukačné centrum</Link></li>
+                <li><Link to="/eventy" className={linkClass}>Eventy</Link></li>
                 <li><Link to="/fitting" className={linkClass}>Fitting</Link></li>
                 <li><Link to="/galeria" className={linkClass}>Galéria</Link></li>
                 <li><Link to="/o-nas#kariera" className={linkClass}>Kariéra</Link></li>
