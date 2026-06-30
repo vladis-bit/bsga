@@ -38,16 +38,18 @@ const PartnersLoop = () => {
           {[...partners, ...partners].map((partner, index) => (
             <div
               key={`${partner.name}-${index}`}
-              className="flex-shrink-0 px-10 sm:px-12 py-4 flex items-center"
+              className="flex-shrink-0 px-6 sm:px-8 md:px-10 py-4 flex items-center justify-center"
             >
-              <img
-                src={partner.logo}
-                alt={`${partner.name} logo`}
-                loading="lazy"
-                decoding="async"
-                draggable={false}
-                className="h-36 sm:h-44 md:h-56 w-auto hover:scale-105 transition-transform cursor-pointer object-contain select-none"
-              />
+              <div className="w-44 h-36 sm:w-52 sm:h-44 md:w-60 md:h-56 flex items-center justify-center">
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                  className="max-w-full max-h-full w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none"
+                />
+              </div>
             </div>
           ))}
         </div>
