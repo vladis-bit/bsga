@@ -384,6 +384,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
 };
 
 const Events = () => {
+  const [floridaOpen, setFloridaOpen] = useState(false);
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -617,12 +618,14 @@ const Events = () => {
                           Plagát čoskoro
                         </span>
                         <a
-                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Informácie – Florida PGA Swing")}`}
+                        <button
+                          type="button"
+                          onClick={() => setFloridaOpen(true)}
                           className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
                         >
                           <Info className="w-4 h-4" />
                           Informácie
-                        </a>
+                        </button>
                         <a
                           href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
                           className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
@@ -639,6 +642,170 @@ const Events = () => {
           </section>
         </main>
       </AuroraBackground>
+      <Dialog open={floridaOpen} onOpenChange={setFloridaOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background text-foreground">
+          <DialogHeader>
+            <DialogTitle className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
+              Florida PGA Swing by DONI-Travel
+            </DialogTitle>
+            <DialogDescription className="text-gold font-medium text-base">
+              27. 3. – 7. 4. 2027 · Florida, USA
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="mt-4 space-y-6">
+            <p className="text-sm sm:text-base leading-relaxed text-foreground/90">
+              Exkluzívny 12-dňový golfový zájazd naprieč Floridou – ihriská svetových turnajov PGA Tour,
+              LPGA Tour a The Players Championship, prémiové rezorty a slovenský delegát počas celého pobytu.
+            </p>
+
+            <div className="rounded-xl bg-muted/70 p-4 sm:p-5 border border-gold/20">
+              <div className="flex items-center gap-2 mb-2 text-gold">
+                <Calendar className="w-5 h-5" />
+                <span className="font-semibold text-sm uppercase tracking-wide">Termín a cena</span>
+              </div>
+              <p className="text-base sm:text-lg font-semibold text-foreground">27. 3. – 7. 4. 2027</p>
+              <p className="text-lg sm:text-xl font-bold text-foreground mt-1">€6 550 / golfista (double room)</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Letenka nie je zahrnutá: Economy €1 150 / osoba · Economy Premium €2 950 / osoba (Lufthansa / Austrian Airlines,
+                Viedeň – Frankfurt – Orlando / Orlando – Mníchov – Viedeň). Kalkulácia zohľadňuje aktuálny kurz EUR/USD.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="flex items-center gap-2 text-gold font-semibold text-sm uppercase tracking-wide mb-3">
+                <MapPin className="w-5 h-5" /> Ubytovanie
+              </h4>
+              <div className="space-y-3">
+                <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                  <h5 className="font-serif text-lg font-bold text-foreground mb-1">27. 3. – 29. 3. · West Palm Beach</h5>
+                  <p className="text-sm text-foreground/80">PGA National Resort – 2 noci Resort Room, denný kredit 25 USD na raňajky.</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                  <h5 className="font-serif text-lg font-bold text-foreground mb-1">29. 3. – 31. 3. · Daytona Beach</h5>
+                  <p className="text-sm text-foreground/80">Hotel (TBA) – 2 noci s raňajkami.</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                  <h5 className="font-serif text-lg font-bold text-foreground mb-1">31. 3. – 1. 4. · Sawgrass</h5>
+                  <p className="text-sm text-foreground/80">Marriott Golf Resort & Spa – 1 noc, raňajky v TPC Sawgrass clubhouse.</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                  <h5 className="font-serif text-lg font-bold text-foreground mb-1">1. 4. – 2. 4. · Orlando</h5>
+                  <p className="text-sm text-foreground/80">Arnold Palmer’s Bay Hill Club & Lodge – 1 noc, raňajky v clubhouse.</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                  <h5 className="font-serif text-lg font-bold text-foreground mb-1">2. 4. – 6. 4. · Orlando</h5>
+                  <p className="text-sm text-foreground/80">Prémiová 4–6 spálňová vila s bazénom – 4 noci, bez stravy.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="flex items-center gap-2 text-gold font-semibold text-sm uppercase tracking-wide mb-3">
+                <MapPin className="w-5 h-5" /> Program & Golf
+              </h4>
+              <div className="space-y-3">
+                {[
+                  { day: "27. 3.", title: "Prílet do Orlanda", items: ["Prílet 18:55, voľný večer"] },
+                  { day: "28. 3.", title: "PGA National – Palmer", items: ["18 jamiek", "PGA Tour Qualifying School"], tour: "PGA Tour" },
+                  { day: "29. 3.", title: "PGA National – Champion", items: ["18 jamiek", "Ryder Cup, PGA Tour Cognizant Classic"], tour: "PGA Tour" },
+                  { day: "30. 3.", title: "Voľný deň · Daytona Beach", items: ["Daytona Beach International Speedway, pláž alebo iné"] },
+                  { day: "31. 3.", title: "LPGA International – Rees Jones", items: ["18 jamiek"], tour: "LPGA Tour" },
+                  { day: "1. 4.", title: "TPC Sawgrass – Stadium Course", items: ["18 jamiek"], tour: "The Players Championship" },
+                  { day: "2. 4.", title: "Arnold Palmer’s Bay Hill Club & Lodge", items: ["18 jamiek"], tour: "Arnold Palmer Invitational" },
+                  { day: "3. 4.", title: "Voľný deň · Orlando", items: ["Outlety alebo zábavné parky"] },
+                  { day: "4. 4.", title: "The Ritz-Carlton Golf Club", items: ["18 jamiek"], tour: "PGA Tour PNC Championship" },
+                  { day: "5. 4.", title: "Grand Cypress Golf", items: ["18 jamiek"], tour: "World Cup of Golf & LPGA Tour Championship" },
+                  { day: "6. 4.", title: "Voľný deň a odlet", items: ["Voľný program a transfer na letisko"] },
+                ].map((day, i) => (
+                  <div key={i} className="rounded-xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-gold/30">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
+                      <span className="text-sm font-semibold text-gold">{day.day}</span>
+                      {day.tour && (
+                        <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">
+                          {day.tour}
+                        </span>
+                      )}
+                    </div>
+                    <h5 className="font-serif text-lg font-bold text-foreground mb-1">{day.title}</h5>
+                    <ul className="space-y-1">
+                      {day.items.map((item, j) => (
+                        <li key={j} className="text-sm text-foreground/80 flex items-start gap-2">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h4 className="font-semibold text-foreground mb-2">Cena zahŕňa</h4>
+                <ul className="space-y-1 text-sm text-foreground/80">
+                  <li>• Zapožičanie vozidiel (Chevrolet Suburban a pod.) s neobmedzenými km a plným poistením</li>
+                  <li>• Ubytovanie v DBL room podľa rozpisu</li>
+                  <li>• 7× green fee 18 jamiek podľa programu</li>
+                  <li>• Vstupenka na 60 min. prehliadku Daytona Beach Speedway</li>
+                  <li>• Služby slovenského delegáta počas celého pobytu</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                <h4 className="font-semibold text-foreground mb-2">Cena nezahŕňa</h4>
+                <ul className="space-y-1 text-sm text-foreground/80">
+                  <li>• Cestovné poistenie</li>
+                  <li>• Tankovanie vozidiel a parkovné</li>
+                  <li>• Stravu počas pobytu</li>
+                  <li>• Sprepitné pre caddies (povinné na niektorých ihriskách)</li>
+                  <li>• Administračný poplatok ESTA (povolenie na vstup do USA)</li>
+                  <li>• Atrakcie a vstupenky mimo programu (NBA, NHL, výlety a iné)</li>
+                  <li>• Letenku (Economy €1 150 / Economy Premium €2 950)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-muted/50 border border-border p-4 sm:p-5">
+              <h4 className="font-semibold text-foreground mb-2">Voliteľný program za príplatok</h4>
+              <ul className="space-y-1 text-sm text-foreground/80">
+                <li>• Vstupenky na zápasy NBA a NHL</li>
+                <li>• Vstupy do zábavných parkov Orlando</li>
+                <li>• Prenájom vznášadla / člnov</li>
+                <li>• Vstup do Daytona International Speedway</li>
+                <li>• Ďalšie výlety a atrakcie</li>
+              </ul>
+            </div>
+
+            <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5">
+              <h4 className="font-semibold text-foreground mb-3">Kontakt</h4>
+              <div className="space-y-2 text-sm">
+                <p className="flex items-center gap-2 text-foreground/90">
+                  <span className="font-medium">Peter Švajlen, MBA</span>
+                </p>
+                <a href="mailto:peter@doni-travel.sk" className="flex items-center gap-2 text-gold hover:underline">
+                  <Mail className="w-4 h-4" />
+                  peter@doni-travel.sk
+                </a>
+                <a href="tel:+421905335501" className="flex items-center gap-2 text-gold hover:underline">
+                  <Phone className="w-4 h-4" />
+                  +421 905 335 501
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <a
+                href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+              >
+                <Mail className="w-4 h-4" />
+                Prihlásiť sa
+              </a>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
       <Footer />
     </>
   );
