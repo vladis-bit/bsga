@@ -635,6 +635,7 @@ const Events = () => {
                   </div>
                 </div>
               </div>
+            </div>
           </section>
         </main>
       </AuroraBackground>
