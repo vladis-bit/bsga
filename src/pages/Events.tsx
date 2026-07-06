@@ -617,7 +617,6 @@ const Events = () => {
                           <FileText className="w-4 h-4" />
                           Plagát čoskoro
                         </span>
-                        <a
                         <button
                           type="button"
                           onClick={() => setFloridaOpen(true)}
