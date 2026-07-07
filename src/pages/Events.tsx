@@ -666,9 +666,28 @@ const Events = () => {
               <p className="text-base sm:text-lg font-semibold text-foreground">27. 3. – 7. 4. 2027</p>
               <p className="text-lg sm:text-xl font-bold text-foreground mt-1">€6 550 / golfista (double room)</p>
               <p className="text-sm text-muted-foreground mt-1">
-                Letenka nie je zahrnutá: Economy €1 150 / osoba · Economy Premium €2 950 / osoba (Lufthansa / Austrian Airlines,
-                Viedeň – Frankfurt – Orlando / Orlando – Mníchov – Viedeň). Kalkulácia zohľadňuje aktuálny kurz EUR/USD.
+                Letenka nie je zahrnutá: Economy €1 875 / osoba · Economy Premium €2 100 / osoba (Lufthansa / Austrian Airlines,
+                Viedeň – Newark – West Palm Beach / Orlando – Mníchov – Viedeň). Kalkulácia zohľadňuje aktuálny kurz EUR/USD.
               </p>
+            </div>
+
+            <div>
+              <h4 className="flex items-center gap-2 text-gold font-semibold text-sm uppercase tracking-wide mb-3">
+                <Calendar className="w-5 h-5" /> Letenka Lufthansa / Austrian Airlines
+              </h4>
+              <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-2 text-sm text-foreground/85">
+                <p><span className="font-semibold text-foreground">27. 3. 2027</span> · OS 037 · Viedeň – Newark · 10:30 – 14:55</p>
+                <p><span className="font-semibold text-foreground">27. 3. 2027</span> · UA 2659 · Newark – West Palm Beach · 16:35 – 19:37</p>
+                <p><span className="font-semibold text-foreground">6. 4. 2027</span> · LH 4389 · Orlando – Mníchov · 21:45 – 13:20 (7. 4. 2027)</p>
+                <p><span className="font-semibold text-foreground">7. 4. 2027</span> · OS 186 · Mníchov – Viedeň · 15:30 – 16:35</p>
+                <ul className="mt-3 space-y-1 text-foreground/80">
+                  <li>• Economy alebo Economy Plus</li>
+                  <li>• 1× malá príručná batožina 40×30×15 cm</li>
+                  <li>• 1× väčšia príručná batožina 55×40×23 cm</li>
+                  <li>• 1× 23 kg batožina do podpalubia (Economy)</li>
+                  <li>• 2× 23 kg batožina do podpalubia, môže byť aj golfový vak (Economy Premium)</li>
+                </ul>
+              </div>
             </div>
 
             <div>
@@ -705,7 +724,7 @@ const Events = () => {
               </h4>
               <div className="space-y-3">
                 {[
-                  { day: "27. 3.", title: "Prílet do Orlanda", items: ["Prílet 18:55, voľný večer"] },
+                  { day: "27. 3.", title: "Prílet do West Palm Beach", items: ["Prílet 19:37, voľný večer"] },
                   { day: "28. 3.", title: "PGA National – Palmer", items: ["18 jamiek", "PGA Tour Qualifying School"], tour: "PGA Tour" },
                   { day: "29. 3.", title: "PGA National – Champion", items: ["18 jamiek", "Ryder Cup, PGA Tour Cognizant Classic"], tour: "PGA Tour" },
                   { day: "30. 3.", title: "Voľný deň · Daytona Beach", items: ["Daytona Beach International Speedway, pláž alebo iné"] },
@@ -715,7 +734,8 @@ const Events = () => {
                   { day: "3. 4.", title: "Voľný deň · Orlando", items: ["Outlety alebo zábavné parky"] },
                   { day: "4. 4.", title: "The Ritz-Carlton Golf Club", items: ["18 jamiek"], tour: "PGA Tour PNC Championship" },
                   { day: "5. 4.", title: "Grand Cypress Golf", items: ["18 jamiek"], tour: "World Cup of Golf & LPGA Tour Championship" },
-                  { day: "6. 4.", title: "Voľný deň a odlet", items: ["Voľný program a transfer na letisko"] },
+                  { day: "6. 4.", title: "Voľný deň a odlet", items: ["Voľný program a odlet z Orlanda 21:45"] },
+                  { day: "7. 4.", title: "Prílet do Viedne", items: ["Prílet Viedeň 16:35"] },
                 ].map((day, i) => (
                   <div key={i} className="rounded-xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-gold/30">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
@@ -760,7 +780,7 @@ const Events = () => {
                   <li>• Sprepitné pre caddies (povinné na niektorých ihriskách)</li>
                   <li>• Administračný poplatok ESTA (povolenie na vstup do USA)</li>
                   <li>• Atrakcie a vstupenky mimo programu (NBA, NHL, výlety a iné)</li>
-                  <li>• Letenku (Economy €1 150 / Economy Premium €2 950)</li>
+                  <li>• Letenku (Economy €1 875 / Economy Premium €2 100)</li>
                 </ul>
               </div>
             </div>
