@@ -542,7 +542,64 @@ const Events = () => {
                 </p>
                 <div className="mt-6 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-                <div className="mt-10 sm:mt-12 rounded-2xl border border-border bg-card/80 backdrop-blur p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
+                {/* Featured: Florida PGA Swing */}
+                <div className="relative mt-10 sm:mt-12 rounded-3xl p-[2px] bg-gradient-to-br from-gold via-gold-light to-gold shadow-2xl shadow-gold/30 hover:shadow-gold/50 transition-all">
+                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold text-primary text-xs font-bold uppercase tracking-wider shadow-lg">
+                    <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
+                  </div>
+                  <div className="rounded-[calc(1.5rem-2px)] bg-card/95 backdrop-blur p-6 sm:p-8 text-left">
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
+                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gradient-to-br from-gold to-gold-light text-primary shadow-lg shadow-gold/40">
+                        2027
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold leading-tight text-foreground">
+                          Florida PGA Swing
+                        </h3>
+                        <p className="mt-2 text-base sm:text-lg text-muted-foreground">
+                          Exkluzívny 12-dňový golfový zájazd s BSGA & DONI-Travel
+                        </p>
+                        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base text-foreground/90">
+                          <div className="flex items-center gap-1.5">
+                            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                            <span className="font-medium">27. 3. – 7. 4. 2027</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                            <span className="font-medium">Florida, USA</span>
+                          </div>
+                        </div>
+
+                        <div className="mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
+                          <span
+                            aria-disabled="true"
+                            className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                          >
+                            <FileText className="w-4 h-4" />
+                            Plagát čoskoro
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => setFloridaOpen(true)}
+                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 bg-gold/15 text-gold hover:bg-gold/25 border border-gold/40"
+                          >
+                            <Info className="w-4 h-4" />
+                            Informácie
+                          </button>
+                          <a
+                            href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
+                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 bg-gradient-to-r from-gold to-gold-light text-primary hover:shadow-lg hover:shadow-gold/50 hover:-translate-y-0.5"
+                          >
+                            <Mail className="w-4 h-4" />
+                            <span>Prihlásiť sa</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 sm:mt-8 rounded-2xl border border-border bg-card/80 backdrop-blur p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                     <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
                       2027
@@ -579,54 +636,6 @@ const Events = () => {
                         </a>
                         <a
                           href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Jarný tréningový deň s Peťom a Jakubom")}`}
-                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
-                        >
-                          <Mail className="w-4 h-4" />
-                          <span>Prihlásiť sa</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 sm:mt-8 rounded-2xl border border-border bg-card/80 backdrop-blur p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
-                      2027
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
-                        Florida PGA Swing
-                      </h3>
-                      <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar className="w-4 h-4 text-gold" />
-                          <span>27. 3. – 7. 4. 2027</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <MapPin className="w-4 h-4 text-gold" />
-                          <span>Florida, USA</span>
-                        </div>
-                      </div>
-
-                      <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-                        <span
-                          aria-disabled="true"
-                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
-                        >
-                          <FileText className="w-4 h-4" />
-                          Plagát čoskoro
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => setFloridaOpen(true)}
-                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
-                        >
-                          <Info className="w-4 h-4" />
-                          Informácie
-                        </button>
-                        <a
-                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
                           className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
                         >
                           <Mail className="w-4 h-4" />
