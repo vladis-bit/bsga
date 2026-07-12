@@ -50,9 +50,9 @@ const Shop = () => {
   }, [titleNumber, titles]);
 
   const vouchers = [
-    { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/test_aFa9AT51u9Li21V3vWbV601" },
-    { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/test_00waEX2Tm6z68qjgiIbV60e" },
-    { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/test_cNi00j0Le9Li8qj7McbV60d" },
+    { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/9B6bJ13QH94K1NaaFu8so0r" },
+    { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/3cIeVd86Xft877u28Y8so0q" },
+    { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/dRmcN53QH4Ou3Vi00Q8so08" },
   ];
 
   const services = [
@@ -60,7 +60,7 @@ const Shop = () => {
       title: "Individuálna lekcia",
       price: 59.99,
       icon: User,
-      purchaseUrl: "https://buy.stripe.com/test_aFaeVdbpS7Da0XR0jKbV60c",
+      purchaseUrl: "https://buy.stripe.com/dRm00j9b194KdvS00Q8so09",
       features: [
         "55-minútová súkromná lekcia",
         "Profesionálny tréner",
@@ -76,7 +76,7 @@ const Shop = () => {
       discount: 72,
       icon: Flag,
       popular: true,
-      purchaseUrl: "https://buy.stripe.com/test_eVq5kD65y8He6ibfeEbV60b",
+      purchaseUrl: "https://buy.stripe.com/4gMaEXevl1CibnKfZO8so0a",
       features: [
         "Úvodný kurz pre začiatočníkov",
         "Základy golfu",
@@ -90,7 +90,7 @@ const Shop = () => {
       title: "Kurz zelenej karty",
       price: 549.99,
       icon: Award,
-      purchaseUrl: "https://buy.stripe.com/test_fZu6oHctW0aI0XR2rSbV60a",
+      purchaseUrl: "https://buy.stripe.com/fZu5kDaf580G3Vi8xm8so0b",
       features: [
         "Kompletný kurz pre získanie karty",
         "Teória a pravidlá golfu",
@@ -105,7 +105,7 @@ const Shop = () => {
     {
       title: "Športová mikina",
       price: 59.99,
-      purchaseUrl: "https://buy.stripe.com/test_aFaaEX0Le6z621VfeEbV600",
+      purchaseUrl: "https://buy.stripe.com/14AbJ1af50yeajG4h68so0i",
       description:
         "Mikina – 3 farby (čierna, žltá a zelená). Športová mikina s logom BSGA dostupná v 3 farebných variantách. Pohodlná, štýlová a vhodná na tréning aj šport.",
       image: hoodieBlack.url,
@@ -118,7 +118,7 @@ const Shop = () => {
     {
       title: "Športová taška",
       price: 29.99,
-      purchaseUrl: "https://buy.stripe.com/test_5kQfZh0Le4qY21V3vWbV609",
+      purchaseUrl: "https://buy.stripe.com/28E00j1Izep4crOdRG8so0c",
       description:
         "Priestranná športová taška vhodná do posilňovne aj na golf. Dostatok miesta na oblečenie, topánky a doplnky.",
       image: merchSportsBag.url,
@@ -126,7 +126,7 @@ const Shop = () => {
     {
       title: "Vínový pohár",
       price: 29.99,
-      purchaseUrl: "https://buy.stripe.com/test_5kQdR9fG88He9un8QgbV602",
+      purchaseUrl: "https://buy.stripe.com/5kQbJ1drh80G0J68xm8so0k",
       description:
         "Ekologický skladací pohár z nehrdzavejúcej ocele. Kompaktný, odolný a ľahko prenosný – perfektný na cesty za golfom.",
       image: merchWineGlass,
@@ -134,7 +134,7 @@ const Shop = () => {
     {
       title: "Šiltovka",
       price: 24.99,
-      purchaseUrl: "https://buy.stripe.com/test_fZu7sLbpSe1yayr9UkbV603",
+      purchaseUrl: "https://buy.stripe.com/6oUfZhgDtdl0ajGbJy8so0m",
       description:
         "Štýlová šiltovka s logom BSGA dostupná v bielej a šedej farbe. Ochrana pred slnkom so štýlom.",
       image: merchCap,
@@ -146,7 +146,7 @@ const Shop = () => {
     {
       title: "RZN Speed - 12 ks",
       price: 19.99,
-      purchaseUrl: "https://buy.stripe.com/test_bJe7sL9hKaPm4a39UkbV604",
+      purchaseUrl: "https://buy.stripe.com/5kQ28r72TcgW8bybJy8so0n",
       description:
         "Balenie 12 golfových loptičiek RZN Speed. Vysoký výkon za skvelú cenu – ideálne na každodenný tréning aj hru.",
       image: merchRznSpeed.url,
@@ -154,7 +154,7 @@ const Shop = () => {
     {
       title: "Taška na topánky",
       price: 14.99,
-      purchaseUrl: "https://buy.stripe.com/test_4gMcN52TmaPmayrd6wbV605",
+      purchaseUrl: "https://buy.stripe.com/bJebJ11Iz6WC63q00Q8so0o",
       description:
         "Praktická čierna taška na golfové topánky. Chráni obuv aj ostatné veci v golfovom vaku pred znečistením.",
       image: merchShoeBag,
@@ -162,7 +162,7 @@ const Shop = () => {
     {
       title: "Uterák",
       price: 9.99,
-      purchaseUrl: "https://buy.stripe.com/test_28E5kD79C7Da7mf3vWbV606",
+      purchaseUrl: "https://buy.stripe.com/dRm9AT1Iz2GmgI44h68so0p",
       description:
         "Kvalitný golfový uterák v modrej farbe. Nepostrádateľný doplnok pri golfe – na čistenie palíc, loptičiek a rúk.",
       image: merchTowel.url,
@@ -170,7 +170,7 @@ const Shop = () => {
     {
       title: "Visačka s logom",
       price: 4.99,
-      purchaseUrl: "https://buy.stripe.com/test_5kQ3cv9hKg9GeOHgiIbV607",
+      purchaseUrl: "https://buy.stripe.com/5kQdR9evl2Gm1NadRG8so0e",
       description:
         "Štýlová identifikačná visačka na cestovnú tašku alebo golfový bag s logom BSGA. Už si budeš poznať svoj bag!",
       image: merchLuggageTag,
@@ -178,7 +178,7 @@ const Shop = () => {
     {
       title: "Tréningové sticks",
       price: 4.99,
-      purchaseUrl: "https://buy.stripe.com/test_28E7sL2TmcXufSLfeEbV608",
+      purchaseUrl: "https://buy.stripe.com/dRm3cvdrh94K9fCcNC8so0d",
       description:
         "Practice Sticks v tube na zlepšenie švihu a postoja. Praktické balenie, ideálne na tréning vonku aj na domu.",
       image: merchPracticeSticks.url,
