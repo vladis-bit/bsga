@@ -12,6 +12,7 @@ type SEOProps = {
   image?: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
 };
 
 const SEO = ({
@@ -22,9 +23,22 @@ const SEO = ({
   image = DEFAULT_OG_IMAGE,
   noindex = false,
   jsonLd,
+  breadcrumbs,
 }: SEOProps) => {
   const url = `${SITE_URL}${path === "/" ? "/" : path}`;
-  const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const schemas = jsonLd ? (Array.isArray(jsonLd) ? [...jsonLd] : [jsonLd]) : [];
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    schemas.unshift({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbs.map((b, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: b.name,
+        item: b.url,
+      })),
+    });
+  }
 
   return (
     <Helmet>
