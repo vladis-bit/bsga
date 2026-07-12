@@ -158,6 +158,10 @@ const StartGolf = () => {
         title="Začni s golfom | BSGA - Best Swing Golf Academy"
         description="Začni s golfom - Víkendový kurz zelenej karty, kurz zelenej karty a individuálne lekcie. Vyber si program a kúp si kurz online."
         path="/zacni-s-golfom"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Začni s golfom", url: "https://bsga.sk/zacni-s-golfom" },
+        ]}
         jsonLd={faqJsonLd}
       />
 

@@ -237,6 +237,10 @@ const About = () => {
         title="O nás - tréneri"
         description="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností."
         path="/o-nas"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "O nás — tréneri", url: "https://bsga.sk/o-nas" },
+        ]}
       />
       <Navbar />
       <AuroraBackground variant="silver">

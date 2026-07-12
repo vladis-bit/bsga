@@ -209,6 +209,10 @@ const Gallery = () => {
         title="Galéria | BSGA - Best Swing Golf Academy"
         description="Fotogaléria BSGA - nahliadnite do našich tréningov, turnajov a podujatí. Profesionálne golfové momenty z najkrajších slovenských ihrísk."
         path="/galeria"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Galéria", url: "https://bsga.sk/galeria" },
+        ]}
       />
       <Navbar />
       <AuroraBackground variant="silver">

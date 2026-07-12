@@ -74,10 +74,46 @@
           ],
           "areaServed": "SK",
           "sport": "Golf",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Golfové služby BSGA",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Individuálna lekcia golfu" }, "price": "59.99", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kurz zelenej karty" }, "price": "549.99", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Víkendový kurz zelenej karty" }, "price": "139.99", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Juniorský golf – detské tábory" }, "price": "310", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Golfový fitting" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Firemné akcie a teambuildingy" } }
+            ]
+          },
           "sameAs": [
             "https://www.instagram.com/bsga.sk/",
             "https://www.facebook.com/p/Best-Swing-Golf-Academy-100057246887696/"
           ]
+        },
+        {
+          "@type": "SportsActivityLocation",
+          "@id": "https://bsga.sk/#location-nitra",
+          "name": "Best Swing Golf Academy — Nitra",
+          "url": "https://bsga.sk/",
+          "telephone": "+421917225276",
+          "email": "info@bsga.sk",
+          "priceRange": "€€",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nitra",
+            "addressCountry": "SK"
+          },
+          "areaServed": "SK",
+          "sport": "Golf",
+          "parentOrganization": { "@id": "https://bsga.sk/#organization" }
         },
         {
           "@type": "WebSite",

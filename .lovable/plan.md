@@ -1,68 +1,45 @@
-# Plan: Migrate Shop to Lovable Built-in Stripe Payments
+# KROK 3 — Structured Data (Rich Results)
 
-Replace the current 15 hard-coded Stripe Payment Links in the shop with a fully integrated, Lovable-managed Stripe checkout. No external Stripe account or API key required — Lovable mints a test environment immediately and handles tax/compliance.
+Cieľ: aktivovať bohaté výsledky v Google (hviezdy, dátumy, ceny, breadcrumbs) pridaním Schema.org JSON-LD značkovania na kľúčové stránky.
 
-## Why migrate
-- One unified checkout under your domain (better UX, branding, trust)
-- Test mode out of the box, live mode after account claim
-- Tax calculation/compliance handled automatically (eligible products)
-- Webhooks + order tracking in Lovable Cloud (you can see who bought what)
-- Easier to add new products / variants without editing code links
+## Čo pridám
 
-## Scope
-- **Shop page (`src/pages/Shop.tsx`)** — 15 products incl. merch (hoodies, caps, t-shirts) + gift cards + weekend course
-- **MerchCard / variant handling** — pass selected color/size to checkout
-- Keep all current product images, prices, descriptions, design
+### 1. BreadcrumbList — na každú podstránku
+Do komponentu `src/components/SEO.tsx` pridám voliteľný prop `breadcrumbs`, ktorý vygeneruje `BreadcrumbList` JSON-LD. Zapojím ho do všetkých podstránok: Služby, O nás – tréneri, Juniorský golf, Obchod, Tour, Fitting, Firemné akcie, Eventy, Galéria, Začni s golfom, Edukačné centrum.
 
-## Phases
+Príklad: `Domov › Juniorský golf`.
 
-### Phase 1 — Eligibility & enable (no code yet)
-1. Run `recommend_payment_provider` to confirm Stripe fit for the catalogue (merch + gift cards).
-2. Enable Lovable Stripe Payments (`enable_stripe_payments`) — you fill the short form (email, business name). Test environment goes live instantly.
-3. Set tax handling default. Since merch = physical goods → **tax calculation & collection only** (`automatic_tax`, +0.5%). You handle filing/registration.
+### 2. Event schema — pre turnaje a kempy
+- **Tour** (`src/pages/Tour.tsx`): 5 x `Event` (BSGA Tour 1–5) s dátumom, miestom (golf resort), organizátorom BSGA a titulárnym partnerom (NN, Soitron, ELV, ELcomp, Altron).
+- **Juniorský golf** (`src/components/CampCards.tsx`): 3 x `Event` pre detské kempy (Turnus 1 – označený ako `SoldOut`, Turnus 2, Turnus 3) s cenou 340 €/310 €, dátumami a lokalitou GKHB.
+- **Eventy** (`src/pages/Events.tsx`): `Event` pre Czech PGA Tour, Camiral Trip, LIV Golf Andalucia, BSGA Ryder Cup, Švajlen Invitational, Pro-Am, Florida PGA Swing, Jarný tréningový deň — každý s dátumom, lokáciou, cenou a organizátorom.
 
-### Phase 2 — Product catalogue
-4. Create all products in Stripe via `batch_create_product` with:
-   - Name, description, price (EUR)
-   - Tax code per product (physical goods vs. gift card vs. service)
-   - Variants where relevant (hoodie colors, cap colors, t-shirt sizes)
-5. Store product IDs in a typed catalogue file (e.g. `src/data/products.ts`) so the UI is data-driven.
+### 3. Product + Offer schema — pre shop
+Do `src/pages/Shop.tsx` pridám `Product` + `Offer` JSON-LD pre všetkých 15 položiek (merch aj služby): názov, obrázok, cena v EUR, dostupnosť (`InStock`), URL Stripe Payment Linku ako `offers.url`, značka „BSGA".
 
-### Phase 3 — Checkout flow
-6. Add a Supabase Edge Function `create-checkout` that:
-   - Receives `priceId` + quantity + selected variant
-   - Creates a Stripe Checkout Session with `automatic_tax`, shipping address collection, success/cancel URLs
-   - Returns the session URL
-7. Wire shop "Kúpiť" buttons → call edge function → redirect to Stripe hosted checkout.
-8. Build `/payment-success` and `/payment-cancelled` pages with order summary.
+### 4. LocalBusiness / SportsActivityLocation — homepage
+Sitewide `SportsActivityLocation` už existuje v `index.html` (Bratislava, Zuzany Chalupovej 12). Rozšírim ho o:
+- Druhá lokácia: **Nitra – Red Oak Golf Club** (samostatný `SportsActivityLocation` v `@graph`).
+- `aggregateRating` (na základe Google recenzií zobrazených na webe — hviezdy vo výsledkoch vyhľadávania).
+- `hasOfferCatalog` s prehľadom hlavných služieb (individuálne lekcie, zelená karta, juniorský golf, fitting, firemné akcie).
 
-### Phase 4 — Order persistence (optional but recommended)
-9. Create `orders` table in Lovable Cloud (id, user/email, items JSONB, total, status, stripe_session_id) with RLS.
-10. Add `stripe-webhook` edge function (verify signature, insert row on `checkout.session.completed`).
-11. Admin dashboard gets a new "Objednávky" tab to view orders.
+## Technická časť
 
-### Phase 5 — Cleanup & go live
-12. Remove all 15 hard-coded Payment Link URLs.
-13. Test full flow in **test mode** (Stripe test card `4242 4242 4242 4242`).
-14. Claim Stripe account → switch to **live mode** when ready.
+**Súbory na úpravu:**
+- `src/components/SEO.tsx` — pridať `breadcrumbs?: Array<{name, url}>` prop generujúci `BreadcrumbList`.
+- `index.html` — rozšírený `@graph` (druhá lokácia + aggregateRating + hasOfferCatalog).
+- `src/pages/Tour.tsx` — pole eventov + JSON-LD injektovaný cez `SEO` prop `jsonLd`.
+- `src/pages/Events.tsx` — Event schema pre všetkých ~8 eventov.
+- `src/pages/Akademia.tsx` + `src/components/CampCards.tsx` — Event schema pre 3 kempy.
+- `src/pages/Shop.tsx` — Product/Offer schema pre všetky produkty.
+- Všetky ostatné podstránky — pridať `breadcrumbs` prop do `<SEO>`.
 
-## Technical notes
-- Edge functions use the seamless Stripe integration (no `STRIPE_SECRET_KEY` to manage).
-- Variants (hoodie color, cap color, size) → either separate Stripe products **or** one product with `metadata` passed at session creation. I'll use separate products for clean inventory/reporting.
-- Shipping: Stripe Checkout collects address; you handle fulfilment manually (no shipping label automation in this plan).
-- Gift cards stay as products (no balance system) — same as today.
+**Bez vplyvu na UI** — všetko sú `<script type="application/ld+json">` tagy v `<head>` cez `react-helmet-async`.
 
-## Out of scope (ask separately if needed)
-- Inventory tracking / stock counts
-- Discount codes / promotions
-- Subscriptions
-- Automated shipping labels
-- Email receipts customization (Stripe sends default ones)
+## Overenie po nasadení
+1. Cez Google Rich Results Test (`search.google.com/test/rich-results`) skontrolujem Home, Tour, Eventy, Obchod, Juniorský golf.
+2. V Google Search Console → Enhancements sa do 1–2 týždňov objavia sekcie Breadcrumbs, Events, Products, Merchant listings s počtami > 0.
+3. `sitemap.xml` netreba meniť — obsah je rovnaký, len obohatený o schémy.
 
-## Deliverables
-- Working integrated checkout in test mode for all 15 products
-- Orders table + admin view
-- Old Payment Links removed
-- Step-by-step instructions to claim your Stripe account and switch to live
-
-After approval I'll start with Phase 1 (eligibility check + enable form).
+## Očakávaný výsledok
+- Vo výsledkoch vyhľadávania sa začnú zobrazovať: **breadcrumbs pod titulkom**, **event karty s dátumom a lokalitou**, **produktové ceny a dostupnosť**, **hviezdičky s hodnotením** (po zbere aggregateRating), **rozšírené info o firme** (adresa, otváracie hodiny). To výrazne zvýši CTR z organického vyhľadávania.

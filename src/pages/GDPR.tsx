@@ -9,6 +9,10 @@ const GDPR = () => {
         title="Zásady ochrany osobných údajov | BSGA"
         description="Zásady ochrany osobných údajov BSGA - Best Swing Golf Academy. Informácie o spracovaní a ochrane vašich osobných údajov platné od 8. marca 2026."
         path="/gdpr"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "GDPR", url: "https://bsga.sk/gdpr" },
+        ]}
       />
       <Navbar />
       <main>

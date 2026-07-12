@@ -385,14 +385,59 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
 
 const Events = () => {
   const [floridaOpen, setFloridaOpen] = useState(false);
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
-      { "@type": "ListItem", position: 2, name: "Eventy, teambuildingy a golfové pobyty", item: "https://bsga.sk/eventy" },
-    ],
+
+  const parseEventDates = (dateStr: string): { startDate?: string; endDate?: string } => {
+    // Handles: "1. – 6. 5. 2026" | "20. – 23. 8. 2026" | "25. 9. 2026" | "10. – 17. 10. 2026"
+    const months: Record<string, string> = {};
+    const clean = dateStr.replace(/\s+/g, " ").trim();
+    const rangeMatch = clean.match(/^(\d+)\.\s*(?:–|-)\s*(\d+)\.\s*(\d+)\.\s*(\d{4})$/);
+    if (rangeMatch) {
+      const [, d1, d2, m, y] = rangeMatch;
+      return {
+        startDate: `${y}-${m.padStart(2, "0")}-${d1.padStart(2, "0")}`,
+        endDate: `${y}-${m.padStart(2, "0")}-${d2.padStart(2, "0")}`,
+      };
+    }
+    const single = clean.match(/^(\d+)\.\s*(\d+)\.\s*(\d{4})$/);
+    if (single) {
+      const [, d, m, y] = single;
+      return { startDate: `${y}-${m.padStart(2, "0")}-${d.padStart(2, "0")}` };
+    }
+    return {};
   };
+
+  const eventSchemas = events
+    .map((e) => {
+      const { startDate, endDate } = parseEventDates(e.date);
+      if (!startDate) return null;
+      return {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name: e.title,
+        description: e.details?.intro,
+        startDate,
+        ...(endDate ? { endDate } : {}),
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        location: e.location
+          ? { "@type": "Place", name: e.location, address: { "@type": "PostalAddress", addressCountry: "SK" } }
+          : undefined,
+        organizer: { "@id": "https://bsga.sk/#organization" },
+        url: "https://bsga.sk/eventy",
+        ...(e.details?.price
+          ? {
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "EUR",
+                availability: "https://schema.org/InStock",
+                url: "https://bsga.sk/eventy",
+                description: e.details.price,
+              },
+            }
+          : {}),
+      };
+    })
+    .filter(Boolean) as Record<string, unknown>[];
 
   return (
     <>
@@ -400,7 +445,11 @@ const Events = () => {
         title="Eventy, teambuildingy a golfové pobyty | BSGA"
         description="Golfové eventy, teambuildingy a pobyty s BSGA a cestovnou agentúrou Doni-Travel. Pozrite si nasledujúce akcie a prihláste sa."
         path="/eventy"
-        jsonLd={breadcrumb}
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Eventy, teambuildingy a golfové pobyty", url: "https://bsga.sk/eventy" },
+        ]}
+        jsonLd={eventSchemas}
       />
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>

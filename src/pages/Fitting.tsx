@@ -101,6 +101,10 @@ const Fitting = () => {
         title="Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy"
         description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré ti skutočne sedí."
         path="/fitting"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Fitting", url: "https://bsga.sk/fitting" },
+        ]}
         jsonLd={faqJsonLd}
       />
       <Navbar />
