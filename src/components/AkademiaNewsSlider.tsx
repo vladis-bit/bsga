@@ -84,7 +84,6 @@ const AkademiaNewsSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                loading="lazy"
                 decoding="async"
                 className="h-full w-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
