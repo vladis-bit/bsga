@@ -14,11 +14,43 @@ const Akademia = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
+  const campEvents = [
+    { name: "Denný golfový tábor – Turnus 1", startDate: "2026-07-06", endDate: "2026-07-10", soldOut: true },
+    { name: "Denný golfový tábor – Turnus 2", startDate: "2026-08-03", endDate: "2026-08-07", soldOut: false },
+    { name: "Denný golfový tábor – Turnus 3", startDate: "2026-08-24", endDate: "2026-08-28", soldOut: false },
+  ].map((c) => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: c.name,
+    startDate: c.startDate,
+    endDate: c.endDate,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": "Place",
+      name: "Golfový klub Hrubá Borša",
+      address: { "@type": "PostalAddress", addressLocality: "Hrubá Borša", addressCountry: "SK" },
+    },
+    organizer: { "@id": "https://bsga.sk/#organization" },
+    offers: {
+      "@type": "Offer",
+      price: "310",
+      priceCurrency: "EUR",
+      availability: c.soldOut ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+      url: "https://bsga.sk/akademia",
+    },
+  }));
+
   return <>
       <SEO
         title="Juniorský golf | BSGA - Best Swing Golf Academy"
         description="BSGA Juniorský golf - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku."
         path="/akademia"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Juniorský golf", url: "https://bsga.sk/akademia" },
+        ]}
+        jsonLd={campEvents}
       />
       <Navbar />
       <AuroraBackground variant="silver">
