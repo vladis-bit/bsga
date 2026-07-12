@@ -88,7 +88,6 @@ const AkademiaNewsSlider = () => {
                 decoding="async"
                 className="h-full w-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
-                decoding="async"
               />
             </picture>
           </div>

@@ -313,7 +313,6 @@ const StartGolf = () => {
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
-                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -458,7 +457,6 @@ const StartGolf = () => {
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
-                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -545,7 +543,6 @@ const StartGolf = () => {
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
-                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -589,7 +586,6 @@ const StartGolf = () => {
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
-                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -677,7 +673,6 @@ const StartGolf = () => {
                           decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
-                          loading="lazy"
                         />
                       </div>
                     </div>
