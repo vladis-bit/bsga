@@ -309,6 +309,8 @@ const StartGolf = () => {
                         <img
                           src={serviceStartCardsImg}
                           alt="Víkendový kurz zelenej karty"
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
                           loading="lazy"
@@ -452,6 +454,8 @@ const StartGolf = () => {
                         <img
                           src={serviceGreenCardsImg}
                           alt="Zelená karta - kurz pre samostatnú hru"
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
                           loading="lazy"
@@ -537,6 +541,8 @@ const StartGolf = () => {
                         <img
                           src={serviceIndividualImg}
                           alt="Individuálne lekcie - zlepšuj sa v golfe"
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
                           loading="lazy"
@@ -579,6 +585,8 @@ const StartGolf = () => {
                         <img
                           src={serviceGroupImg}
                           alt="Skupinové tréningy"
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
                           loading="lazy"
@@ -665,6 +673,8 @@ const StartGolf = () => {
                         <img
                           src={serviceCourseImg}
                           alt="Course Management - tréning na ihrisku s PGA trénerom"
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           style={{ objectPosition: "center 25%" }}
                           loading="lazy"
