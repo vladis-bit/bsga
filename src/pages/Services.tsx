@@ -206,14 +206,6 @@ const Services = () => {
     areaServed: "SK",
     serviceType: "Golf",
   }));
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
-      { "@type": "ListItem", position: 2, name: "Služby", item: "https://bsga.sk/sluzby" },
-    ],
-  };
   return (
     <>
       <SEO
@@ -224,7 +216,7 @@ const Services = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Služby", url: "https://bsga.sk/sluzby" },
         ]}
-        jsonLd={[breadcrumb, ...serviceSchemas]}
+        jsonLd={serviceSchemas}
       />
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
