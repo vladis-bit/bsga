@@ -268,7 +268,7 @@ const About = () => {
                     className="block h-auto w-full object-cover object-top"
                     loading="eager"
                     decoding="async"
-                    fetchPriority="high"
+                    {...({ fetchpriority: "high" } as any)}
                   />
                 </picture>
               </div>
