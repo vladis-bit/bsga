@@ -126,9 +126,9 @@ const CampProgramSection = () => {
                 <img
                   src={person.image}
                   alt={person.name}
-                  className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                   decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
               <p className="mt-2 text-xs sm:text-sm font-bold text-foreground leading-tight">
