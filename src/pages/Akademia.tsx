@@ -31,10 +31,10 @@ const Akademia = () => {
                 Juniorský golf
               </span>
               <h1 className="mt-3 text-3xl font-serif font-bold text-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
-                Spustenie prihlasovania na detské tábory 2026
+                Golfová akadémia pre deti a juniorov
               </h1>
               <p className="mt-4 mx-auto max-w-3xl text-base text-foreground/80 sm:text-lg md:text-xl">
-                Rezervujte miesto pre vaše dieťa už teraz
+                Spustenie prihlasovania na detské tábory 2026 — rezervujte miesto pre vaše dieťa už teraz
               </p>
               <button
                 onClick={handleScrollToCamps}

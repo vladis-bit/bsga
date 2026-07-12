@@ -188,6 +188,7 @@ const ServicesSlider = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevSlideMobile}
+              aria-label="Predchádzajúca služba"
               className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronLeft size={24} />
@@ -197,6 +198,7 @@ const ServicesSlider = () => {
             </span>
             <button
               onClick={nextSlideMobile}
+              aria-label="Ďalšia služba"
               className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronRight size={24} />
@@ -222,6 +224,7 @@ const ServicesSlider = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevSlide}
+              aria-label="Predchádzajúce služby"
               className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronLeft size={24} />
@@ -231,6 +234,7 @@ const ServicesSlider = () => {
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Prejsť na stránku ${idx + 1}`}
                   className={`w-2 h-2 rounded-full transition-colors ${
                     idx === currentIndex ? "bg-gold" : "bg-border hover:bg-gold/50"
                   }`}
@@ -239,6 +243,7 @@ const ServicesSlider = () => {
             </div>
             <button
               onClick={nextSlide}
+              aria-label="Ďalšie služby"
               className="p-3 border border-border rounded-full hover:border-gold hover:text-gold transition-colors"
             >
               <ChevronRight size={24} />
@@ -298,7 +303,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </p>
         <div className="mt-4 flex flex-grow items-end justify-center pt-2">
           <span className="inline-flex items-center justify-center rounded-full border border-border bg-background px-5 py-2 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary">
-            Zisti viac
+            Zobraziť detaily služby
           </span>
         </div>
       </div>
@@ -307,13 +312,13 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
   if (isExternal) {
     return (
-      <a href={target} target="_blank" rel="noopener noreferrer" className="block h-full">
+      <a href={target} target="_blank" rel="noopener noreferrer" aria-label={`Zobraziť detaily služby: ${service.title}`} className="block h-full">
         {cardInner}
       </a>
     );
   }
   return (
-    <Link to={target} className="block h-full">
+    <Link to={target} aria-label={`Zobraziť detaily služby: ${service.title}`} className="block h-full">
       {cardInner}
     </Link>
   );
