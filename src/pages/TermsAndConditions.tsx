@@ -9,6 +9,10 @@ const TermsAndConditions = () => {
         title="Obchodné podmienky | BSGA"
         description="Obchodné podmienky BSGA - Best Swing Golf Academy. Všeobecné obchodné podmienky poskytovania služieb platné od 9. marca 2026."
         path="/obchodne-podmienky"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Obchodné podmienky", url: "https://bsga.sk/obchodne-podmienky" },
+        ]}
       />
       <Navbar />
       <main>

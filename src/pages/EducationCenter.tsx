@@ -37,6 +37,10 @@ const EducationCenter = () => {
         title="Edukačné centrum | BSGA"
         description="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how."
         path="/edukacne-centrum"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
+        ]}
       />
 
       <Navbar />

@@ -220,6 +220,10 @@ const Services = () => {
         title="Služby | BSGA - Best Swing Golf Academy"
         description="Kompletné golfové služby - individuálne a skupinové lekcie, zelené karty, detská akadémia, firemné akcie, turnaje BSGA Tour a fitting na mieru."
         path="/sluzby"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Služby", url: "https://bsga.sk/sluzby" },
+        ]}
         jsonLd={[breadcrumb, ...serviceSchemas]}
       />
       <Navbar />

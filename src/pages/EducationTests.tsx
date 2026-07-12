@@ -13,6 +13,11 @@ const EducationTests = () => {
         title="Testy | Edukačné centrum | BSGA"
         description="Záverečné otázky na zelenú kartu - otestujte svoje znalosti golfovej etikety a pravidiel."
         path="/edukacne-centrum/testy"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
+          { name: "Testy", url: "https://bsga.sk/edukacne-centrum/testy" },
+        ]}
       />
 
       <Navbar />

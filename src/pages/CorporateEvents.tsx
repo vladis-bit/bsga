@@ -89,6 +89,10 @@ const CorporateEvents = () => {
         title="Firemné akcie a teambuildingy | BSGA - Best Swing Golf Academy"
         description="Zorganizujte golfový teambuilding alebo firemnú akciu na kľúč. PGA tréneri, ihrisko, catering, vybavenie aj ceny – BSGA sa postará o všetko."
         path="/firemne-akcie"
+        breadcrumbs={[
+          { name: "Domov", url: "https://bsga.sk/" },
+          { name: "Firemné akcie a teambuildingy", url: "https://bsga.sk/firemne-akcie" },
+        ]}
         jsonLd={[breadcrumb, eventSchema]}
       />
       <Navbar />
