@@ -188,7 +188,7 @@ const Tour = () => {
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="eager"
                     decoding="async"
-                    fetchPriority="high"
+                    {...({ fetchpriority: "high" } as any)}
                   />
                 </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
