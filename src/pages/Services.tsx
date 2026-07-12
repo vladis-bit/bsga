@@ -272,7 +272,7 @@ const Services = () => {
                           </p>
                           <div className="mt-6 flex flex-grow items-end justify-center pt-2">
                             <span className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary">
-                              Zisti viac
+                              Zobraziť detaily služby
                             </span>
                           </div>
                         </div>
@@ -287,6 +287,7 @@ const Services = () => {
                         href={externalLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Zobraziť detaily služby: ${service.title}`}
                         className="block h-full"
                       >
                         {card}
@@ -294,7 +295,7 @@ const Services = () => {
                     );
                   } else if (internalLink) {
                     inner = (
-                      <Link to={internalLink} className="block h-full">
+                      <Link to={internalLink} aria-label={`Zobraziť detaily služby: ${service.title}`} className="block h-full">
                         {card}
                       </Link>
                     );
