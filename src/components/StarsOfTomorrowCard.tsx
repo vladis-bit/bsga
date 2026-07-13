@@ -45,7 +45,7 @@ const StarsOfTomorrowCard = () => {
                   <div className="min-w-0 flex-1">
                     <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-gold uppercase mb-1.5">
                       <Sparkles className="w-3 h-3" />
-                      Výkonnostný kemp
+                      Junior CTM kemp
                     </div>
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold leading-tight text-foreground">
                       Stars of Tomorrow
