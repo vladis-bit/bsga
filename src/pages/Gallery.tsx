@@ -50,7 +50,6 @@ const gallerySwingStatue = gallerySwingStatueAsset.url;
 import galleryDuoRange from "@/assets/gallery/photo-32.webp";
 import galleryTeamClubhouseBigAsset from "@/assets/gallery/photo-33.webp.asset.json";
 const galleryTeamClubhouseBig = galleryTeamClubhouseBigAsset.url;
-import upload8 from "@/assets/gallery/upload-8.png.asset.json";
 import upload9 from "@/assets/gallery/upload-9.png.asset.json";
 import upload10 from "@/assets/gallery/upload-10.png.asset.json";
 import upload11 from "@/assets/gallery/upload-11.png.asset.json";
@@ -59,6 +58,10 @@ import upload13 from "@/assets/gallery/upload-13.png.asset.json";
 import upload14 from "@/assets/gallery/upload-14.png.asset.json";
 import upload15 from "@/assets/gallery/upload-15.png.asset.json";
 import upload16 from "@/assets/gallery/upload-16.png.asset.json";
+import newKidsUmbrella from "@/assets/gallery/gallery-new-11-2.png.asset.json";
+import newKidsPutting from "@/assets/gallery/gallery-new-10-3.png.asset.json";
+import newKidsGreen from "@/assets/gallery/gallery-new-9-3.png.asset.json";
+import newKidsDiplomas from "@/assets/gallery/gallery-new-8-7.png.asset.json";
 
 const images = [
   {
@@ -184,11 +187,14 @@ const images = [
 ];
 
 const extraImages = [
-  { src: upload8.url, alt: "Pár v záhrade pri západe slnka" },
+  { src: newKidsDiplomas.url, alt: "Účastníci detského golfového kempu s diplomami" },
   { src: upload9.url, alt: "Skupinová selfie BSGA na ihrisku v Španielsku" },
+  { src: newKidsGreen.url, alt: "Deti z golfového kempu pózujú na greene" },
   { src: upload10.url, alt: "Selfie štvorice golfistov na fairwayi" },
+  { src: newKidsPutting.url, alt: "Trénerka BSGA vysvetľuje deťom putting na greene" },
   { src: upload11.url, alt: "Mladý tím BSGA v bielych pološkách" },
   { src: upload12.url, alt: "Juniorský tím BSGA s trofejami" },
+  { src: newKidsUmbrella.url, alt: "Tréner s deťmi pod BSGA dáždnikom počas kempu" },
   { src: upload13.url, alt: "Moderovanie BSGA Tour s mikrofónom" },
   { src: upload14.url, alt: "Veľká skupina študentov na golfovom kempe" },
   { src: upload15.url, alt: "Tím BSGA pri Ryder Cup Camiral 2031" },
@@ -196,9 +202,9 @@ const extraImages = [
 ];
 
 // Insert extra images at scattered positions for a random feel
-const insertPositions = [1, 4, 7, 10, 13, 17, 21, 25, 28];
+const insertPositions = [1, 3, 5, 7, 10, 13, 17, 21, 25, 28, 30, 32, 34];
 insertPositions.forEach((pos, i) => {
-  images.splice(pos + i, 0, extraImages[i]);
+  if (extraImages[i]) images.splice(pos + i, 0, extraImages[i]);
 });
 
 const Gallery = () => {
