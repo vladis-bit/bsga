@@ -26,8 +26,8 @@ const EducationCenter = () => {
     {
       to: "/edukacne-centrum/testy",
       icon: ClipboardCheck,
-      title: "Testy",
-      description: "Záverečné otázky na zelenú kartu"
+      title: "Záverečný test ZK",
+      description: "Otestujte svoje znalosti a získajte zelenú kartu"
     },
   ];
 
