@@ -5,6 +5,7 @@ import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
+import StarsOfTomorrowCard from "@/components/StarsOfTomorrowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
 
@@ -77,6 +78,9 @@ const Akademia = () => {
               </button>
             </div>
           </section>
+
+          {/* Stars of Tomorrow */}
+          <StarsOfTomorrowCard />
 
           {/* Junior Level System */}
           <JuniorLevelSystem />
