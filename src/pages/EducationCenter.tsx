@@ -1,10 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ClipboardCheck, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import GreenCardQuiz from "@/components/GreenCardQuiz";
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -64,7 +64,31 @@ const EducationCenter = () => {
 
           <section className="bg-transparent py-6 md:py-8">
             <div className="container mx-auto px-4 sm:px-6">
-              <GreenCardQuiz />
+              <div className="mx-auto max-w-2xl">
+                <a
+                  href="/edukacne-centrum/testy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-border bg-background p-6 shadow-lg transition-all hover:border-gold hover:shadow-xl sm:gap-6 md:p-8"
+                  >
+                    <div className="rounded-xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
+                      <ClipboardCheck className="h-8 w-8 text-gold md:h-10 md:w-10" />
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-lg font-semibold text-foreground md:text-xl">Záverečný test ZK</h2>
+                      <p className="text-sm text-muted-foreground md:text-base">Otestujte svoje znalosti — otvorí sa v novej záložke</p>
+                    </div>
+                    <ExternalLink className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-gold md:h-6 md:w-6" />
+                  </motion.div>
+                </a>
+              </div>
             </div>
           </section>
         </main>
