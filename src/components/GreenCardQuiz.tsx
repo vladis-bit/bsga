@@ -57,10 +57,10 @@ const PRAVIDLA_QUESTIONS = [
   { id: 'b50', q: '50. BONUS – Rovnaká situácia: Spoluhráčova lopta sa vráti na pôvodné miesto.', options: ['ÁNO', 'NIE'], correct: 0 },
 ];
 
-type Section = 'welcome' | 'quiz' | 'results';
+type Section = 'quiz' | 'results';
 
 const GreenCardQuiz = () => {
-  const [section, setSection] = useState<Section>('welcome');
+  const [section, setSection] = useState<Section>('quiz');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -68,7 +68,7 @@ const GreenCardQuiz = () => {
   const questions = [...ETIKA_QUESTIONS, ...PRAVIDLA_QUESTIONS];
   const currentQuestion = questions[currentQuestionIndex];
 
-  const handleStart = () => {
+  const handleRestart = () => {
     setSection('quiz');
     setCurrentQuestionIndex(0);
     setAnswers({});
@@ -106,44 +106,10 @@ const GreenCardQuiz = () => {
   const score = calculateScore();
   const percentage = Math.round((score / questions.length) * 100);
 
-  if (section === 'welcome') {
-    return (
-      <div className="flex flex-col items-center justify-center px-4">
-        <div className="max-w-2xl w-full bg-card rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gold/20 text-center">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gold rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-xl shadow-gold/20 rotate-3 transform transition-transform hover:rotate-0">
-            <Trophy className="text-primary-foreground w-10 h-10 sm:w-12 sm:h-12" />
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-3 sm:mb-4 tracking-tight">
-            Záverečný test
-          </h2>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gold mb-8 sm:mb-10">
-            Testové otázky pre účastníkov ZK
-          </h3>
-          <div className="flex flex-col items-center">
-            <button 
-              onClick={handleStart}
-              className="group w-full p-5 sm:p-6 md:p-8 bg-card hover:bg-gold/5 border-2 border-gold/20 hover:border-gold rounded-2xl sm:rounded-3xl transition-all duration-300 shadow-sm hover:shadow-md"
-            >
-              <div className="flex items-center gap-4 sm:gap-5">
-                <div className="bg-gold/10 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors">
-                  <Trophy className="w-7 h-7 sm:w-8 sm:h-8 text-gold group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <div className="text-left">
-                  <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-1">Kompletný test</h4>
-                  <p className="text-muted-foreground text-sm">50 otázok z golfového ihriska a etiky</p>
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   if (section === 'results') {
     return (
       <div className="flex flex-col items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-card rounded-3xl shadow-xl p-8 border border-border text-center">
+        <div className="max-w-3xl w-full bg-card rounded-3xl shadow-xl p-6 sm:p-8 border border-border text-center">
           <div className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 ${percentage >= 80 ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30'}`}>
             {percentage >= 80 ? (
               <CheckCircle className="text-green-600 dark:text-green-400 w-12 h-12" />
@@ -154,28 +120,53 @@ const GreenCardQuiz = () => {
           <h2 className="text-3xl font-bold text-foreground mb-2">Výsledok Testu</h2>
           <div className="text-5xl font-black text-gold mb-2">{score} / {questions.length}</div>
           <p className="text-xl text-muted-foreground mb-8 font-medium">Úspešnosť: {percentage}%</p>
-          <div className="p-6 bg-muted/50 rounded-2xl mb-8 text-left border border-border">
+          <div className="p-4 sm:p-6 bg-muted/50 rounded-2xl mb-8 text-left border border-border">
             <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
-              <BookOpen className="w-5 h-5" /> Analýza výsledkov
+              <BookOpen className="w-5 h-5" /> Analýza odpovedí
             </h4>
-            <div className="space-y-2 max-h-60 overflow-y-auto pr-2">
-              {questions.map((q, idx) => (
-                <div key={q.id} className="flex items-start gap-3 text-sm p-2 rounded-lg bg-card border border-border">
-                  {answers[idx] === q.correct ? (
-                    <CheckCircle className="text-green-500 w-4 h-4 mt-0.5 flex-shrink-0" />
-                  ) : (
-                    <XCircle className="text-red-500 w-4 h-4 mt-0.5 flex-shrink-0" />
-                  )}
-                  <div>
-                    <span className="text-muted-foreground font-semibold">Otázka {idx + 1}:</span>{' '}
-                    <span className="text-foreground">{q.q}</span>
+            <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-2">
+              {questions.map((q, idx) => {
+                const userAnswer = answers[idx];
+                const isCorrect = userAnswer === q.correct;
+                const answered = userAnswer !== undefined;
+                return (
+                  <div
+                    key={q.id}
+                    className={`text-sm p-3 sm:p-4 rounded-xl border ${
+                      isCorrect
+                        ? 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900'
+                        : 'bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-900'
+                    }`}
+                  >
+                    <div className="flex items-start gap-2 mb-2">
+                      {isCorrect ? (
+                        <CheckCircle className="text-green-600 w-4 h-4 mt-0.5 flex-shrink-0" />
+                      ) : (
+                        <XCircle className="text-red-600 w-4 h-4 mt-0.5 flex-shrink-0" />
+                      )}
+                      <span className="text-foreground font-semibold">{q.q}</span>
+                    </div>
+                    <div className="ml-6 space-y-1">
+                      <div className="flex gap-2">
+                        <span className="text-muted-foreground min-w-[110px]">Vaša odpoveď:</span>
+                        <span className={isCorrect ? 'text-green-700 dark:text-green-400 font-medium' : 'text-red-700 dark:text-red-400 font-medium'}>
+                          {answered ? q.options[userAnswer] : 'Bez odpovede'}
+                        </span>
+                      </div>
+                      {!isCorrect && (
+                        <div className="flex gap-2">
+                          <span className="text-muted-foreground min-w-[110px]">Správna odpoveď:</span>
+                          <span className="text-green-700 dark:text-green-400 font-semibold">{q.options[q.correct]}</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
           <button 
-            onClick={() => setSection('welcome')}
+            onClick={handleRestart}
             className="flex items-center justify-center gap-2 w-full bg-gold hover:bg-gold-dark text-primary-foreground font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-gold/20"
           >
             <RefreshCw className="w-5 h-5" /> Skúsiť znova
