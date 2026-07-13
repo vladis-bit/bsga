@@ -1,11 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ClipboardCheck, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import GreenCardQuiz from "@/components/GreenCardQuiz";
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -21,15 +20,6 @@ const EducationCenter = () => {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
-
-  const navigationCards = [
-    {
-      to: "/edukacne-centrum/testy",
-      icon: ClipboardCheck,
-      title: "Záverečný test ZK",
-      description: "Otestujte svoje znalosti a získajte zelenú kartu"
-    },
-  ];
 
   return (
     <>
@@ -74,29 +64,7 @@ const EducationCenter = () => {
 
           <section className="bg-transparent py-6 md:py-8">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="mx-auto flex max-w-2xl flex-col gap-4">
-                {navigationCards.map((card, index) => (
-                  <Link key={card.to} to={card.to}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-border bg-background p-6 shadow-lg transition-all hover:border-gold hover:shadow-xl sm:gap-6 md:p-8"
-                    >
-                      <div className="rounded-xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
-                        <card.icon className="h-8 w-8 text-gold md:h-10 md:w-10" />
-                      </div>
-                      <div className="flex-1">
-                        <h2 className="text-lg font-semibold text-foreground md:text-xl">{card.title}</h2>
-                        <p className="text-sm text-muted-foreground md:text-base">{card.description}</p>
-                      </div>
-                      <ChevronRight className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-gold md:h-6 md:w-6" />
-                    </motion.div>
-                  </Link>
-                ))}
-              </div>
+              <GreenCardQuiz />
             </div>
           </section>
         </main>
