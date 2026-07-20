@@ -1,7 +1,7 @@
 import { Phone, Mail } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
-const HIDE_ON = ["/auth", "/admin"];
+const HIDE_ON = ["/auth", "/admin", "/edukacne-centrum/testy"];
 
 const MobileCTABar = () => {
   const { pathname } = useLocation();
