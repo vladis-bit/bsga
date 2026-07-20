@@ -12,6 +12,7 @@ import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import czechPgaPoster from "@/assets/event-posters/doni-travel-czech-pga-tour.pdf.asset.json";
 import camiralPoster from "@/assets/event-posters/doni-travel-camiral.pdf.asset.json";
 import livPoster from "@/assets/event-posters/doni-travel-liv.pdf.asset.json";
+import proamPoster from "@/assets/event-posters/doni-turnaj-4teams.pdf.asset.json";
 
 interface EventItem {
   title: string;
@@ -105,6 +106,7 @@ const events: EventItem[] = [
     title: "DONI-TRAVEL × BSGA — Turnaj Pro-Am Tímov",
     date: "13. – 15. 9. 2026",
     location: "Golf Resort Kaskáda",
+    posterUrl: proamPoster.url,
     details: {
       subtitle: "Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi",
       intro: "Destinácia: Golf Resort Kaskáda. Formát: Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi. Tímy: Team Švajlen | Team Hrbáň | Team Fajkusová | Team Gajan.",
