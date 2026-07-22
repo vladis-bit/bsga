@@ -6,7 +6,8 @@ import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import fittingImg from "@/assets/service-fitting.webp";
+import fittingImgAsset from "@/assets/service-fitting.webp.asset.json";
+const fittingImg = fittingImgAsset.url;
 import fittingHeroImg from "@/assets/fitting-hero.png.asset.json";
 import jakubImg from "@/assets/team/jakub-hrban-fitting.webp";
 
