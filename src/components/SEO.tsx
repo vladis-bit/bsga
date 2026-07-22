@@ -26,6 +26,13 @@ const SEO = ({
   breadcrumbs,
 }: SEOProps) => {
   const url = `${SITE_URL}${path === "/" ? "/" : path}`;
+  // Ensure non-production hosts (Lovable preview, custom staging) are never
+  // indexed with production canonical — avoids duplicate content risk.
+  const isProdHost =
+    typeof window === "undefined" ||
+    window.location.hostname === "bsga.sk" ||
+    window.location.hostname === "www.bsga.sk";
+  const shouldNoindex = noindex || !isProdHost;
   const schemas = jsonLd ? (Array.isArray(jsonLd) ? [...jsonLd] : [jsonLd]) : [];
   if (breadcrumbs && breadcrumbs.length > 0) {
     schemas.unshift({
@@ -45,7 +52,7 @@ const SEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
-      {noindex ? (
+      {shouldNoindex ? (
         <meta name="robots" content="noindex, follow" />
       ) : (
         <meta name="robots" content="index, follow" />
