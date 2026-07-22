@@ -17,7 +17,8 @@ import serviceIndividualImgAsset from "@/assets/service-individual.jpg.asset.jso
 const serviceIndividualImg = serviceIndividualImgAsset.url;
 import serviceGroupImgAsset from "@/assets/service-group.webp.asset.json";
 const serviceGroupImg = serviceGroupImgAsset.url;
-import serviceCourseImg from "@/assets/service-course-management.webp";
+import serviceCourseImgAsset from "@/assets/service-course-management.webp.asset.json";
+const serviceCourseImg = serviceCourseImgAsset.url;
 
 // Reveal-on-scroll wrapper (same pattern as DevelopmentTimeline)
 const Reveal = ({
