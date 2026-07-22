@@ -1,4 +1,7 @@
-import { Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 type Review = {
   name: string;
@@ -64,8 +67,24 @@ const ReviewCard = ({ review }: { review: Review }) => {
 };
 
 const CourseReviews = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]
+  );
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    onSelect();
+  }, [emblaApi]);
+
   return (
-    <section className="mt-12 sm:mt-16 overflow-hidden">
+    <section className="mt-12 sm:mt-16">
       <div className="text-center mb-8 sm:mb-10">
         <span className="text-gold text-xs sm:text-sm tracking-[0.3em] uppercase font-semibold">
           Referencie
@@ -76,38 +95,73 @@ const CourseReviews = () => {
         <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4" />
       </div>
 
-      <div className="relative">
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-background to-transparent z-10" />
+      <div className="relative max-w-6xl mx-auto px-2 sm:px-12">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-4 sm:gap-6 py-2">
+            {reviews.map((r, i) => (
+              <div key={`${r.name}-${i}`} className="flex-shrink-0">
+                <ReviewCard review={r} />
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <div className="flex w-max animate-reviews-scroll motion-reduce:animate-none gap-4 sm:gap-6 py-2">
-          {[...reviews, ...reviews].map((r, i) => (
-            <ReviewCard key={`${r.name}-${i}`} review={r} />
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollPrev()}
+          aria-label="Predchádzajúca recenzia"
+          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-colors shadow-lg"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollNext()}
+          aria-label="Ďalšia recenzia"
+          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-colors shadow-lg"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      <div className="flex items-center justify-center gap-4 mt-6">
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollPrev()}
+          aria-label="Predchádzajúca recenzia"
+          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold active:scale-95 transition"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <div className="flex items-center gap-2" role="tablist" aria-label="Prepínač recenzií">
+          {scrollSnaps.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => emblaApi?.scrollTo(i)}
+              aria-label={`Recenzia ${i + 1}`}
+              aria-current={i === selectedIndex}
+              className={`h-2 rounded-full transition-all ${
+                i === selectedIndex ? "w-6 bg-gold" : "w-2 bg-gold/30 hover:bg-gold/50"
+              }`}
+            />
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollNext()}
+          aria-label="Ďalšia recenzia"
+          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold active:scale-95 transition"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
 
       <p className="text-center text-xs text-primary-foreground/50 mt-6">
         Recenzie pochádzajú z Google profilu BSGA
       </p>
-
-      <style>{`
-        @keyframes reviews-scroll {
-          0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); }
-        }
-        .animate-reviews-scroll {
-          will-change: transform;
-          backface-visibility: hidden;
-          animation: reviews-scroll 60s linear infinite;
-        }
-        @media (max-width: 640px) {
-          .animate-reviews-scroll { animation-duration: 45s; }
-        }
-        @media (hover: hover) {
-          .animate-reviews-scroll:hover { animation-play-state: paused; }
-        }
-      `}</style>
     </section>
   );
 };
