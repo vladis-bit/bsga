@@ -1,5 +1,3 @@
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
 import { Star } from "lucide-react";
 
 type Review = {
@@ -36,21 +34,12 @@ const reviews: Review[] = [
 
 const CHAR_LIMIT = 220;
 
-const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [expanded, setExpanded] = useState(false);
+const ReviewCard = ({ review }: { review: Review }) => {
   const isLong = review.text.length > CHAR_LIMIT;
-  const displayed = expanded || !isLong ? review.text : review.text.slice(0, CHAR_LIMIT).trimEnd() + "…";
+  const displayed = isLong ? review.text.slice(0, CHAR_LIMIT).trimEnd() + "…" : review.text;
 
   return (
-    <motion.article
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
-      className="flex flex-col rounded-xl border border-gold/25 bg-card/95 p-5 sm:p-6 shadow-sm shadow-black/20 transition-all duration-300 hover:border-gold/70 hover:shadow-gold/10 hover:shadow-lg"
-    >
+    <article className="flex flex-col rounded-xl border border-gold/25 bg-card/95 p-5 sm:p-6 shadow-sm shadow-black/20 w-[18rem] sm:w-[22rem] flex-shrink-0 h-full">
       <header className="flex items-center gap-3 mb-3">
         <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold/40 to-gold/10 border border-gold/40 flex items-center justify-center flex-shrink-0">
           <span className="text-gold font-bold text-base drop-shadow-sm">{review.name.charAt(0)}</span>
@@ -70,23 +59,13 @@ const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
       <p className="text-sm leading-relaxed text-card-foreground italic">
         „{displayed}"
       </p>
-
-      {isLong && (
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          className="mt-3 self-start text-xs font-semibold uppercase tracking-wider text-gold hover:text-gold/80 transition-colors"
-        >
-          {expanded ? "Zobraziť menej" : "Čítať viac"}
-        </button>
-      )}
-    </motion.article>
+    </article>
   );
 };
 
 const CourseReviews = () => {
   return (
-    <section className="mt-12 sm:mt-16">
+    <section className="mt-12 sm:mt-16 overflow-hidden">
       <div className="text-center mb-8 sm:mb-10">
         <span className="text-gold text-xs sm:text-sm tracking-[0.3em] uppercase font-semibold">
           Referencie
@@ -97,15 +76,38 @@ const CourseReviews = () => {
         <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4" />
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {reviews.map((r, i) => (
-          <ReviewCard key={r.name} review={r} index={i} />
-        ))}
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+        <div className="flex w-max animate-reviews-scroll motion-reduce:animate-none gap-4 sm:gap-6 py-2">
+          {[...reviews, ...reviews].map((r, i) => (
+            <ReviewCard key={`${r.name}-${i}`} review={r} />
+          ))}
+        </div>
       </div>
 
       <p className="text-center text-xs text-primary-foreground/50 mt-6">
         Recenzie pochádzajú z Google profilu BSGA
       </p>
+
+      <style>{`
+        @keyframes reviews-scroll {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        .animate-reviews-scroll {
+          will-change: transform;
+          backface-visibility: hidden;
+          animation: reviews-scroll 60s linear infinite;
+        }
+        @media (max-width: 640px) {
+          .animate-reviews-scroll { animation-duration: 45s; }
+        }
+        @media (hover: hover) {
+          .animate-reviews-scroll:hover { animation-play-state: paused; }
+        }
+      `}</style>
     </section>
   );
 };
