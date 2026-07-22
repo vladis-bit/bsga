@@ -42,7 +42,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
   const displayed = isLong ? review.text.slice(0, CHAR_LIMIT).trimEnd() + "…" : review.text;
 
   return (
-    <article className="flex flex-col rounded-xl border border-gold/25 bg-card/95 p-5 sm:p-6 shadow-sm shadow-black/20 w-[18rem] sm:w-[22rem] flex-shrink-0 h-full">
+    <article className="flex flex-col rounded-xl border border-gold/25 bg-card/95 p-5 sm:p-6 shadow-sm shadow-black/20 w-[85vw] max-w-[20rem] sm:w-[22rem] sm:max-w-none flex-shrink-0 h-full">
       <header className="flex items-center gap-3 mb-3">
         <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold/40 to-gold/10 border border-gold/40 flex items-center justify-center flex-shrink-0">
           <span className="text-gold font-bold text-base drop-shadow-sm">{review.name.charAt(0)}</span>
@@ -68,7 +68,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
 
 const CourseReviews = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start" },
+    { loop: true, align: "center", containScroll: false },
     [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
