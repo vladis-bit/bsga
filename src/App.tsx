@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
-import CookieBanner from "./components/CookieBanner";
-import MobileCTABar from "./components/MobileCTABar";
 import Index from "./pages/Index";
+const CookieBanner = lazy(() => import("./components/CookieBanner"));
+const MobileCTABar = lazy(() => import("./components/MobileCTABar"));
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
 const Tour = lazy(() => import("./pages/Tour"));
@@ -58,8 +58,10 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
-          <CookieBanner />
-          <MobileCTABar />
+          <Suspense fallback={null}>
+            <CookieBanner />
+            <MobileCTABar />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
