@@ -79,8 +79,8 @@ const team: TeamMember[] = [{
 }, {
   name: "Milan Neštický",
   role: "Tréner BSGA · Tréner golfu",
-  phone: "+421 911 193 429",
   email: "milan@bsga.sk",
+  phone: "+421 905 413 487",
   image: milanNestickyImg,
   bio: [
     "Hral som golf na pitch kontinentoch",
