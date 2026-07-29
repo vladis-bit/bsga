@@ -526,42 +526,46 @@ const Events = () => {
             </div>
           </section>
 
-          <section id="akcie" className="scroll-mt-24 bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+          <section id="akcie" className="scroll-mt-24 bg-background pb-16 pt-8 md:pb-24 md:pt-10">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="mb-8 text-center">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
-                  <Sparkles className="w-4 h-4" /> Nasledujúce akcie
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Nasledujúce akcie
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <Sparkles className="h-4 w-4" /> Pridajte sa k nám
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Sezóna 2026 / 2027
                 </span>
-                <h2 className="mt-2 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl">
-                  Pridajte sa k nám
-                </h2>
-                <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/75 text-sm sm:text-base leading-relaxed">
+              </div>
+
+              <div className="mb-10 max-w-3xl">
+                <p className="text-sm leading-relaxed text-foreground/70 sm:text-base">
                   Pripravili sme pre vás výber tých najlepších golfových zážitkov sezóny – od medzinárodných výjazdov,
                   cez tímové turnaje, až po prestížne pozvánkové eventy. Vyberte si akciu, ktorá vás osloví,
                   a rezervujte si miesto včas – kapacita je <strong className="text-gold">limitovaná</strong>.
                 </p>
               </div>
 
-              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
                 {events.map((event, index) => (
-                  <EventCard key={index} event={event} index={index} />
+                  <EventCard
+                    key={index}
+                    event={event}
+                    index={index}
+                    variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
+                  />
                 ))}
               </div>
 
-              <div className="max-w-3xl mx-auto mt-10 sm:mt-12">
-                <div className="relative group overflow-hidden rounded-[40px] border-2 border-gold/40 bg-background p-8 sm:p-10 md:p-12 shadow-2xl shadow-gold/10 text-center transition-all duration-300 hover:border-gold/60 hover:shadow-gold/20">
-                  {/* Decorative corner accents */}
-                  <div className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2 border-gold/60 rounded-tl-lg" />
-                  <div className="absolute top-5 right-5 w-6 h-6 border-t-2 border-r-2 border-gold/60 rounded-tr-lg" />
-                  <div className="absolute bottom-5 left-5 w-6 h-6 border-b-2 border-l-2 border-gold/60 rounded-bl-lg" />
-                  <div className="absolute bottom-5 right-5 w-6 h-6 border-b-2 border-r-2 border-gold/60 rounded-br-lg" />
-
-                  {/* Centered partner logo */}
-
+              <div className="mt-12 sm:mt-16">
+                <div className="group relative overflow-hidden border border-border bg-card p-8 text-center transition-colors duration-300 hover:border-gold/50 sm:p-10 md:p-12">
                   {/* Logo with gold frame */}
                   <div className="relative mx-auto mb-6 sm:mb-8 inline-flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-2xl bg-gold/30 blur-xl" aria-hidden="true" />
-                    <div className="relative border-2 border-gold/50 rounded-2xl p-3 sm:p-4 bg-muted">
+                    <div className="relative border border-border p-3 sm:p-4 bg-muted">
                       <img
                         src={doniTravelLogo}
                         alt="Doni-Travel logo"
