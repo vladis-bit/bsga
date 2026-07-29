@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { X } from "lucide-react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import galleryTeamMenAsset from "@/assets/gallery-team-men.webp.asset.json";
 const galleryTeamMen = galleryTeamMenAsset.url;
 import galleryTrainingAsset from "@/assets/gallery-training.webp.asset.json";
