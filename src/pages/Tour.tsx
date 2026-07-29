@@ -206,10 +206,44 @@ const Tour = () => {
                     </p>
                     <a
                       href="mailto:touroffice@bsga.sk?subject=Prihlásenie na BSGA Tour 2026"
-                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
+                      className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:mt-8 sm:text-base"
                     >
                       <span>Prihlásiť sa</span>
                     </a>
+
+                    {/* Upcoming tournament */}
+                    <div className="mx-auto mt-7 w-full max-w-2xl rounded-2xl border border-gold/40 bg-black/55 p-3 text-left backdrop-blur-md sm:mt-9 sm:rounded-3xl sm:p-4">
+                      <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+                        <img
+                          src={legendImg}
+                          alt="Penati Legend – dejisko BSGA Tour 4"
+                          loading="lazy"
+                          decoding="async"
+                          className="h-24 w-full rounded-xl object-cover sm:h-20 sm:w-28 md:h-24 md:w-36"
+                        />
+                        <div className="flex-1 text-center sm:text-left">
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-gold/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold sm:text-[11px]">
+                            <Trophy size={12} /> Najbližší turnaj
+                          </span>
+                          <p className="mt-1.5 text-lg font-bold text-primary-foreground sm:text-xl md:text-2xl">
+                            BSGA Tour 4
+                          </p>
+                          <p className="text-xs text-primary-foreground/90 sm:text-sm">
+                            14.8.2026 · Penati Legend ·{" "}
+                            <span className="text-gold">presented by ELcomp s.r.o.</span>
+                          </p>
+                        </div>
+                        <a
+                          href={promo4Asset.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/60 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all duration-300 hover:bg-gold hover:text-primary sm:w-auto"
+                        >
+                          <FileText size={16} />
+                          Promo 4 - leták
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
