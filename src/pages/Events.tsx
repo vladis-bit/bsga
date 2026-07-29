@@ -189,17 +189,35 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.4, delay: index * 0.1 }}
-        className="relative overflow-hidden rounded-2xl border bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10 p-5 sm:p-6 transition-all duration-300"
+        className={
+          variant === "featured"
+            ? "md:col-span-8 relative overflow-hidden border-l-4 border-gold bg-card p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-lg"
+            : variant === "side"
+              ? "md:col-span-4 relative overflow-hidden bg-muted p-6 sm:p-8 transition-all duration-300 hover:bg-muted/70"
+              : "md:col-span-6 relative overflow-hidden border border-border bg-card p-6 sm:p-8 transition-all duration-300 hover:border-gold/50"
+        }
       >
-        <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr] md:items-start">
-          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
-            {index + 1}
+        <div className={variant === "featured" ? "grid gap-5 md:grid-cols-[auto_1fr] md:items-start" : "grid gap-4"}>
+          <div
+            className={
+              variant === "featured"
+                ? "flex h-16 w-16 flex-shrink-0 items-center justify-center bg-gold font-serif text-2xl font-bold text-primary-foreground"
+                : "text-xs font-bold uppercase tracking-[0.2em] text-gold"
+            }
+          >
+            {variant === "featured" ? String(index + 1).padStart(2, "0") : `0${index + 1} — Akcia`}
           </div>
           <div className="min-w-0">
-            <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
+            <h3
+              className={
+                variant === "featured"
+                  ? "font-serif text-2xl sm:text-4xl font-bold leading-tight text-foreground"
+                  : "font-serif text-xl sm:text-2xl font-bold leading-tight text-foreground"
+              }
+            >
               {event.title}
             </h3>
-            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4 text-gold" />
                 <span>{event.date}</span>
@@ -212,7 +230,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
               )}
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
               {event.posterUrl ? (
                 <a
                   href={event.posterUrl}
