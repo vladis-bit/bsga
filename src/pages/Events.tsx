@@ -456,26 +456,73 @@ const Events = () => {
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
-          <section className="relative overflow-hidden bg-transparent pb-8 pt-28 md:pt-32">
+          <section className="relative overflow-hidden bg-transparent pb-10 pt-24 sm:pb-14 md:pt-32">
             <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
+            <div
+              className="pointer-events-none absolute left-1/2 top-16 h-[420px] w-[min(900px,90vw)] -translate-x-1/2 rounded-full bg-gold/10 blur-[120px]"
+              aria-hidden="true"
+            />
             <div className="container relative z-10 mx-auto px-4">
-              <div className="flex flex-col items-center gap-4 text-center">
-                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="mx-auto flex max-w-4xl flex-col items-center text-center"
+              >
+                <span className="inline-flex items-center gap-3 rounded-full border border-gold/30 bg-background/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold backdrop-blur-sm sm:text-xs">
+                  <span className="h-px w-5 bg-gold/50" aria-hidden="true" />
                   Doni-Travel × BSGA
+                  <span className="h-px w-5 bg-gold/50" aria-hidden="true" />
                 </span>
-                <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                  Eventy, teambuildingy a golfové pobyty
+
+                <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.1] tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+                  Eventy, teambuildingy a{" "}
+                  <span className="text-gold">golfové pobyty</span>
                 </h1>
-                <p className="max-w-2xl text-primary-foreground/80 sm:text-lg">
-                  Pripravujeme golfové akcie, firemné turnaje a kompletné pobyty na mieru.
-                  Pobyty organizujeme spolu s cestovnou agentúrou{" "}
-                  <strong className="text-gold">Doni-Travel</strong>.
+
+                <p className="mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/75 sm:text-lg">
+                  Golfové akcie, firemné turnaje a kompletné pobyty na mieru — od prvého odpalu
+                  po posledný detail. Pobyty organizujeme spolu s cestovnou agentúrou{" "}
+                  <strong className="font-semibold text-gold">Doni-Travel</strong>.
                 </p>
-              </div>
+
+                <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+                  <a
+                    href="#akcie"
+                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-background shadow-lg shadow-gold/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/35 active:translate-y-0 sm:w-auto"
+                  >
+                    <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+                    Pozrieť akcie 2026
+                  </a>
+                  <a
+                    href="#kontakt-eventy"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/40 bg-background/30 px-8 py-3.5 text-sm font-semibold text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/70 hover:bg-gold/10 sm:w-auto"
+                  >
+                    <Mail className="h-4 w-4 text-gold" />
+                    Nezáväzný dopyt
+                  </a>
+                </div>
+
+                <dl className="mt-10 grid w-full max-w-2xl grid-cols-3 divide-x divide-gold/20 rounded-2xl border border-gold/20 bg-background/30 py-4 backdrop-blur-sm">
+                  {[
+                    { value: `${events.length}`, label: "Akcií v sezóne" },
+                    { value: "3", label: "Krajiny" },
+                    { value: "2026", label: "Sezóna" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="px-2 text-center">
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd className="font-serif text-2xl font-bold text-gold sm:text-3xl">{stat.value}</dd>
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 sm:text-xs">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </dl>
+              </motion.div>
             </div>
           </section>
 
-          <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+          <section id="akcie" className="scroll-mt-24 bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-8 text-center">
                 <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
@@ -534,7 +581,7 @@ const Events = () => {
             </div>
           </section>
 
-          <section className="bg-transparent pb-20 md:pb-28">
+          <section id="kontakt-eventy" className="scroll-mt-24 bg-transparent pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="max-w-3xl mx-auto rounded-2xl sm:rounded-3xl border border-gold/40 bg-background/95 p-5 sm:p-8 md:p-10 backdrop-blur shadow-xl shadow-gold/10">
                 <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 md:gap-8 text-center sm:text-left">
