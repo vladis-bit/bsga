@@ -38,7 +38,7 @@ const CampProgramSection = () => {
       className="max-w-3xl mx-auto mt-10 sm:mt-14 md:mt-16 space-y-8 sm:space-y-10"
     >
       {/* Program schedule */}
-      <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-7 md:p-8">
+      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 md:p-8">
         <div className="flex items-center gap-3 mb-5 sm:mb-6">
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <Clock className="w-5 h-5 text-gold" />
@@ -65,7 +65,7 @@ const CampProgramSection = () => {
       </div>
 
       {/* What to bring */}
-      <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-7 md:p-8">
+      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 md:p-8">
         <div className="flex items-center gap-3 mb-4 sm:mb-5">
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <Backpack className="w-5 h-5 text-gold" />
@@ -85,7 +85,7 @@ const CampProgramSection = () => {
       </div>
 
       {/* Pricing */}
-      <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-7 md:p-8">
+      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 md:p-8">
         <div className="flex items-center gap-3 mb-4 sm:mb-5">
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <Wallet className="w-5 h-5 text-gold" />
@@ -110,7 +110,7 @@ const CampProgramSection = () => {
       </div>
 
       {/* Responsible persons */}
-      <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-7 md:p-8">
+      <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 md:p-8">
         <div className="flex items-center gap-3 mb-4 sm:mb-5">
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
             <Users className="w-5 h-5 text-gold" />

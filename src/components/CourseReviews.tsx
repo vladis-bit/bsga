@@ -37,12 +37,20 @@ const reviews: Review[] = [
 
 const CHAR_LIMIT = 220;
 
-const ReviewCard = ({ review }: { review: Review }) => {
+type Theme = "dark" | "ivory";
+
+const ReviewCard = ({ review, theme }: { review: Review; theme: Theme }) => {
   const isLong = review.text.length > CHAR_LIMIT;
   const displayed = isLong ? review.text.slice(0, CHAR_LIMIT).trimEnd() + "…" : review.text;
 
   return (
-    <article className="flex flex-col rounded-xl border border-gold/25 bg-card/95 p-5 sm:p-6 shadow-sm shadow-black/20 w-[85vw] max-w-[20rem] sm:w-[22rem] sm:max-w-none flex-shrink-0 h-full">
+    <article
+      className={`flex flex-col rounded-xl border p-5 sm:p-6 shadow-sm w-[85vw] max-w-[20rem] sm:w-[22rem] sm:max-w-none flex-shrink-0 h-full ${
+        theme === "ivory"
+          ? "border-gold/30 bg-card shadow-black/5"
+          : "border-gold/25 bg-card/95 shadow-black/20"
+      }`}
+    >
       <header className="flex items-center gap-3 mb-3">
         <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold/40 to-gold/10 border border-gold/40 flex items-center justify-center flex-shrink-0">
           <span className="text-gold font-bold text-base drop-shadow-sm">{review.name.charAt(0)}</span>
@@ -59,14 +67,14 @@ const ReviewCard = ({ review }: { review: Review }) => {
         ))}
       </div>
 
-      <p className="text-sm leading-relaxed text-card-foreground italic">
+      <p className="text-sm leading-relaxed text-card-foreground/90 italic">
         „{displayed}"
       </p>
     </article>
   );
 };
 
-const CourseReviews = () => {
+const CourseReviews = ({ theme = "dark" }: { theme?: Theme }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center", containScroll: false },
     [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]
@@ -83,13 +91,20 @@ const CourseReviews = () => {
     onSelect();
   }, [emblaApi]);
 
+  const headingClass = theme === "ivory" ? "text-foreground" : "text-primary-foreground";
+  const footerClass = theme === "ivory" ? "text-foreground/50" : "text-primary-foreground/50";
+  const navBtnClass =
+    theme === "ivory"
+      ? "bg-card border border-gold/40 text-gold hover:bg-gold hover:text-primary-foreground shadow-lg"
+      : "bg-card/95 border border-gold/40 text-gold hover:bg-gold hover:text-background shadow-lg";
+
   return (
     <section className="mt-12 sm:mt-16">
       <div className="text-center mb-8 sm:mb-10">
         <span className="text-gold text-xs sm:text-sm tracking-[0.3em] uppercase font-semibold">
           Referencie
         </span>
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-primary-foreground mt-3">
+        <h3 className={`text-xl sm:text-2xl md:text-3xl font-serif font-bold mt-3 ${headingClass}`}>
           Čo hovoria absolventi víkendového kurzu
         </h3>
         <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4" />
@@ -100,7 +115,7 @@ const CourseReviews = () => {
           <div className="flex gap-4 sm:gap-6 py-2">
             {reviews.map((r, i) => (
               <div key={`${r.name}-${i}`} className="flex-shrink-0">
-                <ReviewCard review={r} />
+                <ReviewCard review={r} theme={theme} />
               </div>
             ))}
           </div>
@@ -110,7 +125,7 @@ const CourseReviews = () => {
           type="button"
           onClick={() => emblaApi?.scrollPrev()}
           aria-label="Predchádzajúca recenzia"
-          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-colors shadow-lg"
+          className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full transition-colors ${navBtnClass}`}
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -118,7 +133,7 @@ const CourseReviews = () => {
           type="button"
           onClick={() => emblaApi?.scrollNext()}
           aria-label="Ďalšia recenzia"
-          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold hover:bg-gold hover:text-background transition-colors shadow-lg"
+          className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full transition-colors ${navBtnClass}`}
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -129,7 +144,7 @@ const CourseReviews = () => {
           type="button"
           onClick={() => emblaApi?.scrollPrev()}
           aria-label="Predchádzajúca recenzia"
-          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold active:scale-95 transition"
+          className={`sm:hidden w-9 h-9 flex items-center justify-center rounded-full active:scale-95 transition ${navBtnClass}`}
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
@@ -153,13 +168,13 @@ const CourseReviews = () => {
           type="button"
           onClick={() => emblaApi?.scrollNext()}
           aria-label="Ďalšia recenzia"
-          className="sm:hidden w-9 h-9 flex items-center justify-center rounded-full bg-card/95 border border-gold/40 text-gold active:scale-95 transition"
+          className={`sm:hidden w-9 h-9 flex items-center justify-center rounded-full active:scale-95 transition ${navBtnClass}`}
         >
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
 
-      <p className="text-center text-xs text-primary-foreground/50 mt-6">
+      <p className={`text-center text-xs mt-6 ${footerClass}`}>
         Recenzie pochádzajú z Google profilu BSGA
       </p>
     </section>
