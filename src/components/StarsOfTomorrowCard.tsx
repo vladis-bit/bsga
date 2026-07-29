@@ -99,19 +99,18 @@ const StarsOfTomorrowCard = () => {
                     <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                     Plagát (PDF)
                   </a>
-                  <a
-                    href="mailto:jakub@bsga.sk?subject=Prihlásenie – Stars of Tomorrow"
-                    className="group/btn flex-[1.5] inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-bold rounded-2xl bg-gradient-to-r from-gold to-gold-light text-primary shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:-translate-y-0.5 transition-all duration-300"
+                  <span
+                    aria-disabled="true"
+                    className="flex-[1.5] inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-bold rounded-2xl bg-muted/70 text-muted-foreground cursor-not-allowed"
                   >
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                    Prihlásiť sa
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover/btn:translate-x-1" />
-                  </a>
+                    Kapacita naplnená
+                  </span>
                 </div>
 
                 {/* Contact hint */}
                 <p className="mt-3 text-center text-xs text-muted-foreground">
-                  Prihlášky posielajte na <span className="text-gold font-medium">jakub@bsga.sk</span>
+                  Prihlasovanie na Stars of Tomorrow je <strong className="text-foreground">uzavreté</strong> — kapacita je naplnená.
                 </p>
               </div>
             </div>

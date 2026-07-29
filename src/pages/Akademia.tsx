@@ -63,7 +63,7 @@ const Akademia = () => {
                 Golfová akadémia pre deti a juniorov
               </h1>
               <p className="mt-4 mx-auto max-w-3xl text-base text-foreground/80 sm:text-lg md:text-xl">
-                Všetky turnusy detského tábora 2026 sú už <strong>obsadené</strong> — prihlasovanie je uzavreté. Ďakujeme za váš záujem.
+                Turnus 1 a Turnus 2 sú už <strong>obsadené</strong>. Posledné voľné miesta na <strong>3. turnus detského tábora</strong> (24. – 28. 8. 2026, Hrubá Borša) — prihláste sa na <strong>kids@bsga.sk</strong>.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
@@ -76,14 +76,18 @@ const Akademia = () => {
                   <FileText className="h-4 w-4" />
                   <span>Plagát</span>
                 </a>
-                <span
-                  aria-disabled="true"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-muted/70 px-7 py-3 text-sm font-medium text-muted-foreground sm:w-auto sm:text-base"
+                <a
+                  href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
+                  aria-label="Prihlásiť sa na 3. turnus detského tábora BSGA 2026 e-mailom na kids@bsga.sk"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-semibold text-primary shadow-lg shadow-gold/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light sm:w-auto sm:text-base"
                 >
                   <Mail className="h-4 w-4" />
-                  <span>Prihlasovanie uzavreté</span>
-                </span>
+                  <span>Prihlásiť sa na 3. turnus</span>
+                </a>
               </div>
+              <p className="mt-3 text-xs text-foreground/60 sm:text-sm">
+                Prihlášky posielajte na <span className="font-medium text-gold">kids@bsga.sk</span>
+              </p>
             </div>
           </section>
 
