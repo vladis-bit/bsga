@@ -84,9 +84,6 @@ const Akademia = () => {
                   <span>Prihlásiť sa na 3. turnus</span>
                 </a>
               </div>
-              <p className="mt-3 text-xs text-foreground/60 sm:text-sm">
-                Prihlášky posielajte na <span className="font-medium text-gold">kids@bsga.sk</span>
-              </p>
             </div>
           </section>
 
