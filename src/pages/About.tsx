@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle, ChevronDown } from "lucide-react";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
@@ -242,43 +241,46 @@ const About = () => {
         ]}
       />
       <Navbar />
-      <AuroraBackground variant="silver">
-        <main className="bg-transparent">
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <main>
           {/* Hero */}
-          <section className="relative overflow-hidden bg-transparent">
-            <div className="relative isolate w-full overflow-hidden">
-              <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
-              <img
-                src={aboutHeroTeamImg}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-35 blur-2xl"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/12 via-background/14 to-background/72 sm:to-background/64" />
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[linear-gradient(to_bottom,hsl(var(--background)/0.16),transparent)] sm:h-24 md:h-28" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[linear-gradient(to_bottom,transparent,hsl(var(--background)/0.98))] sm:h-48 md:h-56" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-40 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--background)/0.96),transparent_72%)] blur-3xl sm:h-52 md:h-60" />
+          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+            <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
+            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-none min-h-[420px] sm:min-h-[520px] sm:rounded-3xl md:min-h-[620px] max-h-[calc(100vh-4rem)]">
+              <picture className="absolute inset-0 h-full w-full">
+                <source media="(min-width: 640px)" srcSet={aboutHeroTeamImg} />
+                <source type="image/avif" srcSet={aboutHeroTeamMobileAvif} />
+                <img
+                  src={aboutHeroTeamMobileImg}
+                  alt="Tím BSGA"
+                  className="h-full w-full object-cover object-top"
+                  loading="eager"
+                  decoding="async"
+                  {...({ fetchpriority: "high" } as any)}
+                />
+              </picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10" />
 
-              <div className="relative z-10 flex w-full items-start justify-center sm:min-h-[520px] sm:items-end sm:pt-6 md:min-h-[620px] lg:min-h-[720px]">
-                <picture className="block w-full">
-                  <source media="(min-width: 640px)" srcSet={aboutHeroTeamImg} />
-                  <source type="image/avif" srcSet={aboutHeroTeamMobileAvif} />
-                  <img
-                    src={aboutHeroTeamMobileImg}
-                    alt="Tím BSGA"
-                    className="block h-auto w-full object-cover object-top"
-                    loading="eager"
-                    decoding="async"
-                    {...({ fetchpriority: "high" } as any)}
-                  />
-                </picture>
+              <div className="relative z-10 flex h-full min-h-[420px] items-end sm:min-h-[520px] md:min-h-[620px]">
+                <div className="container mx-auto px-4 pb-10 sm:px-6 sm:pb-14 md:pb-16">
+                  <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                    <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                    O nás
+                    <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                  </span>
+                  <h2 className="mt-5 max-w-3xl text-balance font-serif text-3xl font-bold leading-[1.08] text-primary-foreground sm:mt-6 sm:text-5xl md:text-6xl">
+                    Tréneri &amp; tím BSGA
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg">
+                    Spoznajte ľudí, ktorí stoja za najväčšou golfovou akadémiou na Slovensku.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
 
-          <section className="bg-transparent pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
+          {/* Mission quote */}
+          <section className="bg-background pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
                 <span className="mb-5 font-serif text-5xl leading-none text-muted-foreground/40 sm:mb-6 sm:text-6xl">
@@ -291,18 +293,16 @@ const About = () => {
             </div>
           </section>
 
-          {/* Team - Trainers */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
-            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-              {/* Founders Section */}
-              <div className="text-center mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+          {/* Team - Founders */}
+          <section className="bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+              <div className="mb-10 flex flex-col gap-2 border-b border-border pb-6 sm:mb-14">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
                   O nás
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl">
                   Zakladatelia
                 </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto">
@@ -312,16 +312,15 @@ const About = () => {
           </section>
 
           {/* Team */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
-            <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-              <div className="text-center mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+          <section className="bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+              <div className="mb-10 flex flex-col gap-2 border-b border-border pb-6 sm:mb-14">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
                   O nás
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl">
                   Náš tím
                 </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
@@ -331,16 +330,19 @@ const About = () => {
           </section>
 
           {/* Career CTA */}
-          <section id="kariera" className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section id="kariera" className="bg-background py-12 sm:py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto bg-background rounded-3xl p-8 sm:p-12 text-center shadow-lg">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-3">
+              <div className="max-w-3xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-12 text-center shadow-sm">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+                  Pridaj sa k nám
+                </span>
+                <h2 className="mt-3 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
                   Kariéra v BSGA?
                 </h2>
                 <p className="text-muted-foreground text-sm sm:text-base mb-8">
                   Pridaj sa do najväčšej golfovej akadémie na Slovensku – staň sa súčasťou niečoho väčšieho.
                 </p>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-lg mx-auto">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="text-gold h-6 w-6 flex-shrink-0" />
@@ -359,15 +361,15 @@ const About = () => {
                     <span className="text-foreground">Tímová podpora</span>
                   </div>
                 </div>
-                
-                <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="max-w-xs mx-auto block">
-                  <InteractiveHoverButton text="Dohodnúť si stretnutie" />
+
+                <a href="mailto:info@bsga.sk?subject=Záujem o kariéru v BSGA" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-gold-light active:scale-[0.98]">
+                  Dohodnúť si stretnutie
                 </a>
               </div>
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>;
 };
