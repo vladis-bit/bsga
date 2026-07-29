@@ -633,26 +633,25 @@ const Events = () => {
             </div>
           </section>
 
-          <section className="bg-transparent pb-20 md:pb-28">
+          <section className="bg-foreground py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto text-center">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+              <div className="max-w-5xl mx-auto text-left">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-gold">
                   <Sparkles className="w-4 h-4" /> Plánované akcie
                 </span>
-                <h2 className="mt-3 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl">
+                <h2 className="mt-4 font-serif text-3xl font-bold text-background sm:text-4xl md:text-5xl">
                   Akcie a pobyty v roku 2027
                 </h2>
-                <p className="mt-4 text-lg sm:text-xl md:text-2xl text-primary-foreground/80 font-medium">
+                <p className="mt-4 text-lg sm:text-xl text-background/60">
                   Zverejníme už čoskoro
                 </p>
-                <div className="mt-6 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-gold to-transparent" />
 
                 {/* Featured: Florida PGA Swing */}
-                <div className="relative mt-10 sm:mt-12 rounded-3xl p-[2px] bg-gradient-to-br from-gold via-gold-light to-gold shadow-2xl shadow-gold/30 hover:shadow-gold/50 transition-all">
-                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold text-primary text-xs font-bold uppercase tracking-wider shadow-lg">
+                <div className="relative mt-10 sm:mt-12 border-l-4 border-gold bg-card shadow-2xl transition-all">
+                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
                   </div>
-                  <div className="rounded-[calc(1.5rem-2px)] bg-card/95 backdrop-blur p-6 sm:p-8 text-left">
+                  <div className="p-6 sm:p-10 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
                       <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gradient-to-br from-gold to-gold-light text-primary shadow-lg shadow-gold/40">
                         2027
