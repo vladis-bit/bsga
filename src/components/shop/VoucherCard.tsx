@@ -10,14 +10,14 @@ interface VoucherCardProps {
 
 const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
   return (
-    <CursorGlowCard className="h-full group rounded-xl sm:rounded-2xl border-2 border-gold/50 !bg-[#0a0a0a] hover:border-gold/70 transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
-      <div className="overflow-hidden h-full flex flex-col rounded-xl sm:rounded-2xl">
+    <CursorGlowCard className="h-full group rounded-2xl border border-border !bg-card transition-colors duration-300 hover:border-gold/60">
+      <div className="overflow-hidden h-full flex flex-col rounded-2xl">
         {/* Image placeholder */}
-        <div className="aspect-[16/9] bg-[#0e0e0e] flex items-center justify-center relative overflow-hidden">
+        <div className="aspect-[16/9] bg-muted flex items-center justify-center relative overflow-hidden">
           {image ? (
             <img loading="lazy" decoding="async" src={image} alt={`Darčeková poukážka ${value}€`} className="w-full h-full object-cover" />
           ) : (
-            <div className="flex flex-col items-center gap-3 text-white/50">
+            <div className="flex flex-col items-center gap-3 text-foreground/50">
               <Gift className="w-16 h-16 text-gold/50" />
               <span className="text-sm">Obrázok poukážky</span>
             </div>
@@ -26,20 +26,20 @@ const VoucherCard = ({ value, image, purchaseUrl }: VoucherCardProps) => {
 
         {/* Content */}
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold text-white mb-2">
+          <h3 className="font-serif text-xl font-bold text-foreground mb-2">
             Darčeková poukážka
           </h3>
-          <p className="text-white/60 text-sm mb-4 flex-grow">
+          <p className="text-sm text-foreground/70 mb-4 flex-grow leading-relaxed">
             Darujte zážitok z golfu. Poukážka je platná 12 mesiacov od zakúpenia.
           </p>
           <div className="flex items-center justify-between">
             <span className="text-2xl font-bold text-gold">{value} €</span>
             {purchaseUrl ? (
-              <Button asChild className="bg-gold hover:bg-gold/90 text-foreground">
+              <Button asChild className="rounded-full bg-gold px-6 font-bold text-primary hover:bg-foreground hover:text-primary-foreground">
                 <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">Kúpiť</a>
               </Button>
             ) : (
-              <Button disabled className="bg-gold hover:bg-gold/90 text-foreground">Kúpiť</Button>
+              <Button disabled className="rounded-full bg-gold px-6 font-bold text-primary hover:bg-foreground hover:text-primary-foreground">Kúpiť</Button>
             )}
           </div>
         </div>

@@ -19,14 +19,14 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
   return (
     <div className="relative">
       {popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 bg-gold text-primary font-bold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg">
+        <div className="absolute -top-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-gold px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary">
           Populárne
         </div>
       )}
-      <CursorGlowCard className={`h-full group rounded-xl sm:rounded-2xl border-2 !bg-[#0a0a0a] transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 ${popular ? 'border-gold/60 shadow-lg shadow-gold/10' : 'border-gold/50 hover:border-gold/70'}`}>
-        <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col rounded-xl sm:rounded-2xl">
+      <CursorGlowCard className={`h-full group rounded-2xl border !bg-card transition-colors duration-300 ${popular ? 'border-gold' : 'border-border hover:border-gold/60'}`}>
+        <div className="p-6 md:p-8 h-full flex flex-col rounded-2xl">
         {/* Názov */}
-        <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6 text-center">
+        <h3 className="font-serif text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6 text-center">
           {title}
         </h3>
         
@@ -35,7 +35,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-2.5 sm:gap-3">
               <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
-              <span className="text-white/60 text-xs sm:text-sm leading-relaxed">{feature}</span>
+              <span className="text-xs sm:text-sm leading-relaxed text-foreground/70">{feature}</span>
             </li>
           ))}
         </ul>
@@ -43,7 +43,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         {/* Cena */}
         <div className="mb-3 sm:mb-4 text-center">
           {originalPrice && (
-            <span className="text-white/50 line-through text-base sm:text-lg mr-2">
+            <span className="mr-2 text-base text-foreground/40 line-through sm:text-lg">
               {originalPrice.toLocaleString('sk-SK', { minimumFractionDigits: 2 })} €
             </span>
           )}
@@ -53,7 +53,7 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
           <span className="text-lg sm:text-xl text-gold ml-1">€</span>
           {discount && (
             <div className="mt-2">
-              <span className="bg-green-500/20 text-green-400 text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1 rounded-full">
+              <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-gold sm:text-sm">
                 Ušetri {discount}%
               </span>
             </div>
@@ -62,16 +62,16 @@ const ServiceCard = ({ title, price, originalPrice, discount, features, popular,
         
         {/* Button */}
         {purchaseUrl ? (
-          <Button asChild className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
+          <Button asChild className="w-full rounded-full bg-gold py-3 text-sm font-bold text-primary transition-colors hover:bg-foreground hover:text-primary-foreground sm:text-base">
             <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
           </Button>
         ) : (
-          <Button disabled className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 sm:py-3 text-sm sm:text-base">
+          <Button disabled className="w-full rounded-full bg-gold py-3 text-sm font-bold text-primary transition-colors hover:bg-foreground hover:text-primary-foreground sm:text-base">
             {ctaLabel}
           </Button>
         )}
         {note && (
-          <p className="mt-3 text-center text-xs text-white/50 italic">
+          <p className="mt-3 text-center text-xs italic text-foreground/50">
             {note}
           </p>
         )}

@@ -29,10 +29,10 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
   const prev = () => setActiveIndex((i) => (i - 1 + colorVariants!.length) % colorVariants!.length);
 
   return (
-    <CursorGlowCard className="h-full group relative rounded-[2rem] overflow-hidden border-2 border-gold/50 !bg-[#0a0a0a] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-gold/70">
+    <CursorGlowCard className="h-full group relative rounded-3xl overflow-hidden border border-border !bg-card transition-colors duration-300 hover:border-gold/60">
       <div className="relative h-full flex flex-col">
         {/* Image — edge to edge, no frame padding */}
-        <div className="relative aspect-[4/5] overflow-hidden bg-[#0e0e0e]">
+        <div className="relative aspect-[4/5] overflow-hidden bg-muted">
           {activeImage ? (
             <AnimatePresence mode="wait" initial={false}>
               <motion.img
@@ -49,18 +49,18 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
               />
             </AnimatePresence>
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-white/30 text-xs uppercase tracking-widest">
+            <div className="w-full h-full flex items-center justify-center text-foreground/30 text-xs uppercase tracking-widest">
               BSGA
             </div>
           )}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]/80" />
+          
           {hasVariants && (
             <>
               <button
                 type="button"
                 onClick={prev}
                 aria-label="Predchádzajúca farba"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/40 hover:bg-gold text-white hover:text-[#0a0a0a] backdrop-blur-sm flex items-center justify-center transition-all"
+                className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card/90 text-foreground backdrop-blur-sm transition-all hover:bg-gold hover:text-primary"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -68,7 +68,7 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
                 type="button"
                 onClick={next}
                 aria-label="Nasledujúca farba"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/40 hover:bg-gold text-white hover:text-[#0a0a0a] backdrop-blur-sm flex items-center justify-center transition-all"
+                className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card/90 text-foreground backdrop-blur-sm transition-all hover:bg-gold hover:text-primary"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -78,7 +78,7 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
 
         {/* Content */}
         <div className="px-6 sm:px-8 pb-7 sm:pb-8 pt-5 flex flex-col items-center text-center flex-grow">
-          <h3 className="font-['Playfair_Display'] text-xl sm:text-2xl text-white font-semibold tracking-wide mb-2">
+          <h3 className="mb-2 font-serif text-xl font-bold tracking-tight text-foreground sm:text-2xl">
             {title}
           </h3>
 
@@ -98,8 +98,8 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
                   onClick={() => setActiveIndex(i)}
                   aria-label={v.name}
                   title={v.name}
-                  className={`w-4 h-4 rounded-full border border-white/30 transition-all ${
-                    i === activeIndex ? "ring-2 ring-gold ring-offset-2 ring-offset-[#0a0a0a] scale-110" : "opacity-80 hover:opacity-100"
+                  className={`w-4 h-4 rounded-full border border-border transition-all ${
+                    i === activeIndex ? "ring-2 ring-gold ring-offset-2 ring-offset-card scale-110" : "opacity-80 hover:opacity-100"
                   }`}
                   style={{ backgroundColor: v.hex }}
                 />
@@ -107,14 +107,14 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
             </div>
           )}
 
-          <p className="text-white/55 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
+          <p className="mb-6 flex-grow text-xs leading-relaxed text-foreground/70 sm:mb-8 sm:text-sm">
             {description}
           </p>
 
           {purchaseUrl ? (
             <Button
               asChild
-              className="relative w-full overflow-hidden bg-gold hover:bg-gold/90 text-[#0a0a0a] font-bold uppercase tracking-[0.15em] text-sm sm:text-base py-5 sm:py-6 rounded-xl shadow-[0_10px_25px_-10px_rgba(197,160,89,0.6)] transition-all duration-300 active:scale-[0.97]"
+              className="relative w-full overflow-hidden rounded-full bg-gold py-5 text-sm font-bold uppercase tracking-[0.2em] text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98] sm:py-6 sm:text-base"
             >
               <a href={purchaseUrl} target="_blank" rel="noopener noreferrer">
                 <span className="relative z-10">Kúpiť</span>
@@ -123,7 +123,7 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
           ) : (
             <Button
               disabled
-              className="w-full bg-gold text-[#0a0a0a] font-bold uppercase tracking-[0.15em] text-sm sm:text-base py-5 sm:py-6 rounded-xl"
+              className="w-full rounded-full bg-gold py-5 text-sm font-bold uppercase tracking-[0.2em] text-primary sm:py-6 sm:text-base"
             >
               Kúpiť
             </Button>
@@ -131,7 +131,7 @@ const MerchCard = ({ title, price, description, purchaseUrl, image, colorVariant
         </div>
 
         {/* Decorative gold glow */}
-        <div className="pointer-events-none absolute -bottom-12 -right-12 w-32 h-32 bg-gold/10 rounded-full blur-[60px] transition-colors duration-700 group-hover:bg-gold/20" />
+        
       </div>
     </CursorGlowCard>
   );
