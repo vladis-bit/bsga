@@ -653,7 +653,7 @@ const Events = () => {
                   </div>
                   <div className="p-6 sm:p-10 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
-                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gradient-to-br from-gold to-gold-light text-primary shadow-lg shadow-gold/40">
+                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gold text-primary-foreground">
                         2027
                       </div>
                       <div className="min-w-0 flex-1">
