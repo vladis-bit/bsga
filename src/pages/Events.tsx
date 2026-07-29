@@ -519,7 +519,7 @@ const Events = () => {
                     className="inline-flex w-full items-center justify-center gap-2 border border-foreground px-10 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto"
                   >
                     <Mail className="h-4 w-4 text-gold" />
-                    Nezáväzný dopyt
+                    Kontaktujte nás
                   </a>
                 </div>
               </motion.div>
