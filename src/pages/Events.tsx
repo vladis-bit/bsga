@@ -173,7 +173,15 @@ const events: EventItem[] = [
   },
 ];
 
-const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
+const EventCard = ({
+  event,
+  index,
+  variant = "small",
+}: {
+  event: EventItem;
+  index: number;
+  variant?: "featured" | "side" | "small";
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [infoOpen, setInfoOpen] = useState(false);
@@ -189,17 +197,35 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.4, delay: index * 0.1 }}
-        className="relative overflow-hidden rounded-2xl border bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10 p-5 sm:p-6 transition-all duration-300"
+        className={
+          variant === "featured"
+            ? "md:col-span-8 relative overflow-hidden border-l-4 border-gold bg-card p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-lg"
+            : variant === "side"
+              ? "md:col-span-4 relative overflow-hidden bg-muted p-6 sm:p-8 transition-all duration-300 hover:bg-muted/70"
+              : "md:col-span-6 relative overflow-hidden border border-border bg-card p-6 sm:p-8 transition-all duration-300 hover:border-gold/50"
+        }
       >
-        <div className="grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr] md:items-start">
-          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
-            {index + 1}
+        <div className={variant === "featured" ? "grid gap-5 md:grid-cols-[auto_1fr] md:items-start" : "grid gap-4"}>
+          <div
+            className={
+              variant === "featured"
+                ? "flex h-16 w-16 flex-shrink-0 items-center justify-center bg-gold font-serif text-2xl font-bold text-primary-foreground"
+                : "text-xs font-bold uppercase tracking-[0.2em] text-gold"
+            }
+          >
+            {variant === "featured" ? String(index + 1).padStart(2, "0") : `0${index + 1} — Akcia`}
           </div>
           <div className="min-w-0">
-            <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
+            <h3
+              className={
+                variant === "featured"
+                  ? "font-serif text-2xl sm:text-4xl font-bold leading-tight text-foreground"
+                  : "font-serif text-xl sm:text-2xl font-bold leading-tight text-foreground"
+              }
+            >
               {event.title}
             </h3>
-            <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4 text-gold" />
                 <span>{event.date}</span>
@@ -212,7 +238,7 @@ const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
               )}
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
               {event.posterUrl ? (
                 <a
                   href={event.posterUrl}
@@ -454,14 +480,9 @@ const Events = () => {
         jsonLd={eventSchemas}
       />
       <Navbar />
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <section className="relative overflow-hidden bg-transparent pb-10 pt-24 sm:pb-14 md:pt-32">
-            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
-            <div
-              className="pointer-events-none absolute left-1/2 top-16 h-[420px] w-[min(900px,90vw)] -translate-x-1/2 rounded-full bg-gold/10 blur-[120px]"
-              aria-hidden="true"
-            />
+          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 md:pt-32">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -469,95 +490,82 @@ const Events = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="mx-auto flex max-w-4xl flex-col items-center text-center"
               >
-                <span className="inline-flex items-center gap-3 rounded-full border border-gold/30 bg-background/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold backdrop-blur-sm sm:text-xs">
-                  <span className="h-px w-5 bg-gold/50" aria-hidden="true" />
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                   Doni-Travel × BSGA
-                  <span className="h-px w-5 bg-gold/50" aria-hidden="true" />
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                 </span>
 
-                <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.1] tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-                  Eventy, teambuildingy a{" "}
-                  <span className="text-gold">golfové pobyty</span>
+                <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                  Eventy, teambuildingy a golfové pobyty
                 </h1>
 
-                <p className="mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/75 sm:text-lg">
+                <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
                   Golfové akcie, firemné turnaje a kompletné pobyty na mieru — od prvého odpalu
                   po posledný detail. Pobyty organizujeme spolu s cestovnou agentúrou{" "}
                   <strong className="font-semibold text-gold">Doni-Travel</strong>.
                 </p>
 
-                <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+                <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
                   <a
                     href="#akcie"
-                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-background shadow-lg shadow-gold/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/35 active:translate-y-0 sm:w-auto"
+                    className="group inline-flex w-full items-center justify-center gap-2 bg-gold px-10 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-foreground sm:w-auto"
                   >
                     <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                     Pozrieť akcie 2026
                   </a>
                   <a
                     href="#kontakt-eventy"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/40 bg-background/30 px-8 py-3.5 text-sm font-semibold text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/70 hover:bg-gold/10 sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 border border-foreground px-10 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto"
                   >
                     <Mail className="h-4 w-4 text-gold" />
                     Nezáväzný dopyt
                   </a>
                 </div>
-
-                <dl className="mt-10 grid w-full max-w-2xl grid-cols-3 divide-x divide-gold/20 rounded-2xl border border-gold/20 bg-background/30 py-4 backdrop-blur-sm">
-                  {[
-                    { value: `${events.length}`, label: "Akcií v sezóne" },
-                    { value: "3", label: "Krajiny" },
-                    { value: "2026", label: "Sezóna" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="px-2 text-center">
-                      <dt className="sr-only">{stat.label}</dt>
-                      <dd className="font-serif text-2xl font-bold text-gold sm:text-3xl">{stat.value}</dd>
-                      <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 sm:text-xs">
-                        {stat.label}
-                      </p>
-                    </div>
-                  ))}
-                </dl>
               </motion.div>
             </div>
           </section>
 
-          <section id="akcie" className="scroll-mt-24 bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+          <section id="akcie" className="scroll-mt-24 bg-background pb-16 pt-8 md:pb-24 md:pt-10">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="mb-8 text-center">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
-                  <Sparkles className="w-4 h-4" /> Nasledujúce akcie
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Nasledujúce akcie
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <Sparkles className="h-4 w-4" /> Pridajte sa k nám
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Sezóna 2026 / 2027
                 </span>
-                <h2 className="mt-2 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl">
-                  Pridajte sa k nám
-                </h2>
-                <p className="mt-4 max-w-2xl mx-auto text-primary-foreground/75 text-sm sm:text-base leading-relaxed">
+              </div>
+
+              <div className="mb-10 max-w-3xl">
+                <p className="text-sm leading-relaxed text-foreground/70 sm:text-base">
                   Pripravili sme pre vás výber tých najlepších golfových zážitkov sezóny – od medzinárodných výjazdov,
                   cez tímové turnaje, až po prestížne pozvánkové eventy. Vyberte si akciu, ktorá vás osloví,
                   a rezervujte si miesto včas – kapacita je <strong className="text-gold">limitovaná</strong>.
                 </p>
               </div>
 
-              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
                 {events.map((event, index) => (
-                  <EventCard key={index} event={event} index={index} />
+                  <EventCard
+                    key={index}
+                    event={event}
+                    index={index}
+                    variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
+                  />
                 ))}
               </div>
 
-              <div className="max-w-3xl mx-auto mt-10 sm:mt-12">
-                <div className="relative group overflow-hidden rounded-[40px] border-2 border-gold/40 bg-background p-8 sm:p-10 md:p-12 shadow-2xl shadow-gold/10 text-center transition-all duration-300 hover:border-gold/60 hover:shadow-gold/20">
-                  {/* Decorative corner accents */}
-                  <div className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2 border-gold/60 rounded-tl-lg" />
-                  <div className="absolute top-5 right-5 w-6 h-6 border-t-2 border-r-2 border-gold/60 rounded-tr-lg" />
-                  <div className="absolute bottom-5 left-5 w-6 h-6 border-b-2 border-l-2 border-gold/60 rounded-bl-lg" />
-                  <div className="absolute bottom-5 right-5 w-6 h-6 border-b-2 border-r-2 border-gold/60 rounded-br-lg" />
-
-                  {/* Centered partner logo */}
-
+              <div className="mt-12 sm:mt-16">
+                <div className="group relative overflow-hidden border border-border bg-card p-8 text-center transition-colors duration-300 hover:border-gold/50 sm:p-10 md:p-12">
                   {/* Logo with gold frame */}
                   <div className="relative mx-auto mb-6 sm:mb-8 inline-flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-2xl bg-gold/30 blur-xl" aria-hidden="true" />
-                    <div className="relative border-2 border-gold/50 rounded-2xl p-3 sm:p-4 bg-muted">
+                    <div className="relative border border-border p-3 sm:p-4 bg-muted">
                       <img
                         src={doniTravelLogo}
                         alt="Doni-Travel logo"
@@ -581,12 +589,11 @@ const Events = () => {
             </div>
           </section>
 
-          <section id="kontakt-eventy" className="scroll-mt-24 bg-transparent pb-20 md:pb-28">
+          <section id="kontakt-eventy" className="scroll-mt-24 bg-background pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto rounded-2xl sm:rounded-3xl border border-gold/40 bg-background/95 p-5 sm:p-8 md:p-10 backdrop-blur shadow-xl shadow-gold/10">
+              <div className="max-w-5xl mx-auto border-t border-border bg-muted p-6 sm:p-10 md:p-12">
                 <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 md:gap-8 text-center sm:text-left">
                   <div className="relative shrink-0">
-                    <div className="absolute inset-0 rounded-full bg-gold/30 blur-xl" aria-hidden="true" />
                     <img
                       src={peterPhoto}
                       alt="Peter Švajlen – kontaktná osoba"
@@ -626,28 +633,27 @@ const Events = () => {
             </div>
           </section>
 
-          <section className="bg-transparent pb-20 md:pb-28">
+          <section className="bg-foreground py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto text-center">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+              <div className="max-w-5xl mx-auto text-left">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-gold">
                   <Sparkles className="w-4 h-4" /> Plánované akcie
                 </span>
-                <h2 className="mt-3 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl">
+                <h2 className="mt-4 font-serif text-3xl font-bold text-background sm:text-4xl md:text-5xl">
                   Akcie a pobyty v roku 2027
                 </h2>
-                <p className="mt-4 text-lg sm:text-xl md:text-2xl text-primary-foreground/80 font-medium">
+                <p className="mt-4 text-lg sm:text-xl text-background/60">
                   Zverejníme už čoskoro
                 </p>
-                <div className="mt-6 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-gold to-transparent" />
 
                 {/* Featured: Florida PGA Swing */}
-                <div className="relative mt-10 sm:mt-12 rounded-3xl p-[2px] bg-gradient-to-br from-gold via-gold-light to-gold shadow-2xl shadow-gold/30 hover:shadow-gold/50 transition-all">
-                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold text-primary text-xs font-bold uppercase tracking-wider shadow-lg">
+                <div className="relative mt-10 sm:mt-12 border-l-4 border-gold bg-card shadow-2xl transition-all">
+                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
                   </div>
-                  <div className="rounded-[calc(1.5rem-2px)] bg-card/95 backdrop-blur p-6 sm:p-8 text-left">
+                  <div className="p-6 sm:p-10 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
-                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gradient-to-br from-gold to-gold-light text-primary shadow-lg shadow-gold/40">
+                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gold text-primary-foreground">
                         2027
                       </div>
                       <div className="min-w-0 flex-1">
@@ -747,7 +753,7 @@ const Events = () => {
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
       <Dialog open={floridaOpen} onOpenChange={setFloridaOpen}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background text-foreground">
           <DialogHeader>
