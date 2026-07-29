@@ -589,12 +589,11 @@ const Events = () => {
             </div>
           </section>
 
-          <section id="kontakt-eventy" className="scroll-mt-24 bg-transparent pb-20 md:pb-28">
+          <section id="kontakt-eventy" className="scroll-mt-24 bg-background pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-3xl mx-auto rounded-2xl sm:rounded-3xl border border-gold/40 bg-background/95 p-5 sm:p-8 md:p-10 backdrop-blur shadow-xl shadow-gold/10">
+              <div className="max-w-5xl mx-auto border-t border-border bg-muted p-6 sm:p-10 md:p-12">
                 <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 md:gap-8 text-center sm:text-left">
                   <div className="relative shrink-0">
-                    <div className="absolute inset-0 rounded-full bg-gold/30 blur-xl" aria-hidden="true" />
                     <img
                       src={peterPhoto}
                       alt="Peter Švajlen – kontaktná osoba"
