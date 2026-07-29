@@ -161,7 +161,7 @@ const SimpleContactForm = () => {
                   className="mt-0.5 border-border/70 data-[state=checked]:bg-gold data-[state=checked]:border-gold" />
                 <label htmlFor="gdpr-consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
                   Súhlasím so spracovaním osobných údajov v súlade so{" "}
-                  <a href="/ochrana-osobnych-udajov" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href="/gdpr" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">
                     zásadami ochrany osobných údajov
                   </a>.
                 </label>
