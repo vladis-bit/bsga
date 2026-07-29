@@ -9,7 +9,6 @@ import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
 const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -175,11 +174,11 @@ const Tour = () => {
         jsonLd={[breadcrumb, ...eventSchemas]}
       />
       <Navbar />
-      <AuroraBackground variant="silver">
-        <main className="bg-transparent">
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <main>
           {/* Hero */}
-          <section className="relative w-full bg-transparent">
-            <div className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
+          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-none min-h-[460px] sm:min-h-[560px] sm:rounded-3xl md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={legendImg}
                   alt="Penati Legend – dejisko turnaja BSGA Tour 4"
@@ -188,37 +187,39 @@ const Tour = () => {
                   decoding="async"
                   {...({ fetchpriority: "high" } as any)}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/35" />
 
                 <div className="relative z-10 flex h-full min-h-[460px] items-center sm:min-h-[560px] md:min-h-[680px]">
                   <div className="container mx-auto px-4 py-14 text-center sm:px-6 sm:py-16 md:py-20">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/15 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-gold backdrop-blur-sm sm:text-xs">
+                    <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                      <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                       <Trophy size={13} /> Najbližší turnaj
+                      <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                     </span>
-                    <h1 className="mt-4 text-4xl font-serif font-bold leading-tight text-primary-foreground sm:mt-5 sm:text-6xl md:text-7xl lg:text-8xl">
+                    <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
                       BSGA Tour 4
                     </h1>
-                    <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-gold sm:mt-3 sm:text-base md:text-lg">
+                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm md:text-base">
                       presented by ELcomp s.r.o.
                     </p>
 
                     <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:mt-8 sm:gap-3">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
                         <CalendarDays size={15} className="text-gold" /> 14. august 2026
                       </span>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
                         <MapPin size={15} className="text-gold" /> Penati Golf Resort – Legend
                       </span>
                     </div>
 
-                    <p className="mx-auto mt-5 max-w-2xl text-sm text-primary-foreground/90 sm:mt-6 sm:text-base md:text-lg">
+                    <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg">
                       Štvrtý turnaj série BSGA Tour 2026 na jednom z najprestížnejších ihrísk na Slovensku. Kapacita je obmedzená – zabezpeč si svoje miesto včas.
                     </p>
 
-                    <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+                    <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                       <a
                         href="mailto:touroffice@bsga.sk?subject=Prihlásenie na BSGA Tour 4 – Penati Legend"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold text-primary shadow-lg transition-all duration-300 hover:bg-gold-light active:scale-[0.98] sm:w-auto sm:text-base"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
                       >
                         Prihlásiť sa
                       </a>
@@ -226,9 +227,9 @@ const Tour = () => {
                         href={promo4Asset.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/70 bg-black/50 px-7 py-3.5 text-sm font-bold text-gold backdrop-blur-sm transition-all duration-300 hover:bg-gold hover:text-primary active:scale-[0.98] sm:w-auto sm:text-base"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-foreground px-10 py-4 text-sm font-bold text-primary-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
                       >
-                        <FileText size={16} />
+                        <FileText size={16} className="text-gold" />
                         Promo leták
                       </a>
                     </div>
@@ -238,10 +239,10 @@ const Tour = () => {
           </section>
 
           {/* Partners */}
-          <section className="py-4 sm:py-6 bg-transparent">
+          <section className="bg-background py-8 sm:py-12">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="flex flex-col justify-center items-center gap-4 sm:gap-6 rounded-2xl border border-border/50 bg-background/60 px-4 py-5 backdrop-blur-sm sm:rounded-3xl sm:px-6 sm:py-6">
-                <span className="text-muted-foreground text-[11px] sm:text-sm uppercase tracking-wider">
+              <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-border bg-card px-4 py-6 sm:gap-6 sm:px-6 sm:py-8">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
                   Generální partneri
                 </span>
                 <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
