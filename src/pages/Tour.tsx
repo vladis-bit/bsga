@@ -254,41 +254,46 @@ const Tour = () => {
           </section>
 
           {/* Tournament Schedule */}
-          <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 md:pb-24 bg-transparent">
+          <section className="bg-background pt-6 pb-16 sm:pt-8 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
-                <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+              <div className="mb-10 flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-4 sm:mb-14">
+                <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
                   Propozície
                 </a>
-                <a href="/documents/BSGA_Tour_2026_program.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <a href="/documents/BSGA_Tour_2026_program.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
                   Program turnaja
                 </a>
-                <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
                   Prezentácia BSGA Tour
                 </a>
-                <a href="/__l5e/assets-v1/e20c1f8b-3690-41f0-a639-96ec929acea2/BSGA_Tour_after_3rd_Round.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <a href="/__l5e/assets-v1/e20c1f8b-3690-41f0-a639-96ec929acea2/BSGA_Tour_after_3rd_Round.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
                   <Trophy size={16} className="text-gold" />
                   Priebežné hodnotenie
                 </a>
               </div>
 
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Kalendár
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Termíny turnajov
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <CalendarDays className="h-4 w-4" /> Kalendár
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Sezóna 2026
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                  Termíny turnajov
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
               </div>
 
-              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+              <div className="mx-auto max-w-3xl space-y-4 sm:space-y-5">
                 {tournaments.map((tournament) => (
                   <div key={tournament.number} className="space-y-3">
                     <TournamentCard
+                      theme="ivory"
                       number={tournament.number}
                       date={tournament.date}
                       location={tournament.location}
@@ -301,13 +306,11 @@ const Tour = () => {
                         href={tournament.promoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative z-10 flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full gold-gradient-button text-primary font-bold text-xs uppercase tracking-[0.15em] shadow-lg shadow-gold/20 border border-gold/50 transition-all duration-300 ease-out transform hover:-translate-y-0.5 active:scale-[0.98] overflow-hidden"
+                        className="relative z-10 flex w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-gold/60 bg-gold px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98]"
                       >
                         <FileText size={20} className="opacity-90 transition-transform duration-300 group-hover:scale-110" />
                         <span>Promo {tournament.number} - leták</span>
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                       </a>
-                      <div className="absolute -inset-px bg-gold/30 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
                   </div>
                 ))}
@@ -316,14 +319,16 @@ const Tour = () => {
           </section>
 
           {/* Registration */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
-            <div className="container mx-auto px-4 sm:px-6 text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 sm:mb-6">Oslovila vás BSGA Tour ?</h2>
-              <p className="text-muted-foreground text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto px-2">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
-              <a href="mailto:touroffice@bsga.sk" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300">
-                <Mail size={18} />
-                touroffice@bsga.sk
-              </a>
+          <section className="bg-background pb-16 md:pb-24">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-muted p-8 text-center sm:p-10 md:p-12">
+                <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">Oslovila vás BSGA Tour ?</h2>
+                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-foreground/70 sm:text-lg">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
+                <a href="mailto:touroffice@bsga.sk" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
+                  <Mail size={18} />
+                  touroffice@bsga.sk
+                </a>
+              </div>
             </div>
           </section>
 
