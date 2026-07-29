@@ -5,6 +5,7 @@ import { sk } from "date-fns/locale";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ const FittingContactForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [gdprConsent, setGdprConsent] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,6 +50,7 @@ const FittingContactForm = () => {
     setIsSubmitted(true);
     setFirstName(""); setLastName(""); setEmail(""); setPhone("");
     setMessage(""); setSelectedDate(undefined);
+    setGdprConsent(false);
     toast({
       title: "Žiadosť odoslaná!",
       description: "Ďakujeme za záujem o fitting. Jakub vás bude čoskoro kontaktovať.",
@@ -155,10 +158,25 @@ const FittingContactForm = () => {
 
               <InteractiveHoverButton
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !gdprConsent}
                 text={isSubmitting ? "Odosielam..." : "Odoslať žiadosť o fitting"}
                 className="py-6 disabled:opacity-50 disabled:cursor-not-allowed"
               />
+
+              <div className="flex items-start gap-2.5 pt-1">
+                <Checkbox
+                  id="gdpr-fitting"
+                  checked={gdprConsent}
+                  onCheckedChange={(checked) => setGdprConsent(checked === true)}
+                  className="mt-0.5 border-border/70 data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                />
+                <label htmlFor="gdpr-fitting" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                  Súhlasím so spracovaním osobných údajov v súlade so{" "}
+                  <a href="/gdpr" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">
+                    zásadami ochrany osobných údajov
+                  </a>.
+                </label>
+              </div>
             </form>
           )}
         </div>
