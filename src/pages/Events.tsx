@@ -173,7 +173,15 @@ const events: EventItem[] = [
   },
 ];
 
-const EventCard = ({ event, index }: { event: EventItem; index: number }) => {
+const EventCard = ({
+  event,
+  index,
+  variant = "small",
+}: {
+  event: EventItem;
+  index: number;
+  variant?: "featured" | "side" | "small";
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [infoOpen, setInfoOpen] = useState(false);
