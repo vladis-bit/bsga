@@ -6,18 +6,16 @@ const Footer = () => {
   const linkClass = "group inline-flex items-center gap-1.5 text-background/60 hover:text-gold transition-colors text-sm";
 
   return (
-    <footer className="relative bg-foreground text-background overflow-hidden">
+    <footer className="theme-ivory relative overflow-hidden bg-foreground text-background">
       {/* Decorative gradient */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-      <div className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-gold/[0.04] blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-gold/[0.03] blur-3xl" />
 
       <div className="relative container mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-10">
         {/* Top — Brand statement */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pb-12 sm:pb-16 border-b border-background/10">
           <div className="lg:col-span-5">
             <img loading="lazy" decoding="async" src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-14 sm:h-16 w-auto mb-6" />
-            <p className="font-serif text-2xl sm:text-3xl leading-snug text-background mb-4">
+            <p className="mb-4 text-balance font-serif text-2xl leading-snug text-background sm:text-3xl">
               Najväčšia golfová akadémia na Slovensku.
             </p>
             <p className="text-background/60 text-sm leading-relaxed max-w-md">
@@ -38,7 +36,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-full border border-background/15 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-foreground transition-all"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 transition-all hover:border-gold hover:bg-gold hover:text-foreground"
                 >
                   <Icon className="w-[16px] h-[16px]" />
                 </a>
@@ -49,20 +47,20 @@ const Footer = () => {
           {/* Link columns */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-5">Navigácia</h4>
+              <h4 className="mb-5 text-[10px] font-bold uppercase tracking-[0.3em] text-gold">Navigácia</h4>
               <ul className="space-y-3">
                 <li><Link to="/" className={linkClass}>Domov</Link></li>
-                <li><Link to="/o-nas" className={linkClass}>O nás</Link></li>
+                <li><Link to="/o-nas" className={linkClass}>Tréneri</Link></li>
                 <li><Link to="/sluzby" className={linkClass}>Služby</Link></li>
                 <li><Link to="/zacni-s-golfom" className={linkClass}>Začni s golfom</Link></li>
                 <li><Link to="/tour" className={linkClass}>BSGA Tour</Link></li>
-                <li><Link to="/akademia" className={linkClass}>Akadémia</Link></li>
+                <li><Link to="/akademia" className={linkClass}>Juniorský golf</Link></li>
                 <li><Link to="/obchod" className={linkClass}>Obchod</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-5">Objavte</h4>
+              <h4 className="mb-5 text-[10px] font-bold uppercase tracking-[0.3em] text-gold">Objavte</h4>
               <ul className="space-y-3">
                 <li>
                   <a href="https://bsga-performance-center.reenio.sk/sk/terms/" target="_blank" rel="noopener noreferrer" className={linkClass}>
@@ -79,7 +77,7 @@ const Footer = () => {
             </div>
 
             <div className="col-span-2 sm:col-span-1">
-              <h4 className="text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-5">Kontakt</h4>
+              <h4 className="mb-5 text-[10px] font-bold uppercase tracking-[0.3em] text-gold">Kontakt</h4>
               <ul className="space-y-3">
                 <li>
                   <a href="tel:+421917225276" className="group flex items-start gap-2.5 text-background/60 hover:text-gold transition-colors text-sm">
@@ -109,15 +107,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-background/40 text-xs">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row">
+          <p className="text-xs uppercase tracking-[0.14em] text-background/40">
             © {new Date().getFullYear()} Best Swing Golf Academy. Všetky práva vyhradené.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/obchodne-podmienky" className="text-background/40 text-xs hover:text-gold transition-colors">
+            <Link to="/obchodne-podmienky" className="text-xs uppercase tracking-[0.14em] text-background/40 transition-colors hover:text-gold">
               Obchodné podmienky
             </Link>
-            <Link to="/gdpr" className="text-background/40 text-xs hover:text-gold transition-colors">
+            <Link to="/gdpr" className="text-xs uppercase tracking-[0.14em] text-background/40 transition-colors hover:text-gold">
               Ochrana údajov
             </Link>
           </div>

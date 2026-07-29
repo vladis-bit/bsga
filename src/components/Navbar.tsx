@@ -85,12 +85,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+      className={`theme-ivory fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-border/50 py-1 sm:py-1.5"
-          : "bg-background/95 backdrop-blur-md border-transparent py-2 sm:py-3"
+          ? "bg-background/90 backdrop-blur-xl border-border py-1 sm:py-1.5"
+          : "bg-background backdrop-blur-md border-border/60 py-2 sm:py-3"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -111,10 +111,10 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${
+                className={`relative px-2.5 xl:px-3 py-2 text-[11px] xl:text-xs font-bold uppercase tracking-[0.14em] transition-colors whitespace-nowrap after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-px after:origin-left after:bg-gold after:transition-transform after:duration-300 ${
                   isActive(item.href)
-                    ? "text-gold bg-gold/10"
-                    : "text-foreground/80 hover:text-gold hover:bg-gold/5"
+                    ? "text-gold after:scale-x-100"
+                    : "text-foreground/70 hover:text-foreground after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
                 {item.name}
@@ -126,12 +126,12 @@ const Navbar = () => {
           <div className="flex items-center gap-2 lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10">
+                <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full border border-border text-foreground">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Otvoriť menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[340px] pt-8 px-6">
+              <SheetContent side="right" className="theme-ivory w-[300px] sm:w-[340px] border-l border-border bg-background pt-8 px-6 text-foreground">
                 <div className="flex items-center mb-8">
                   <img loading="lazy" decoding="async"
                     alt="BSGA"
@@ -148,10 +148,10 @@ const Navbar = () => {
                       <SheetClose asChild key={item.href}>
                         <button
                           onClick={() => handleNavigate(item.href)}
-                          className={`px-5 py-3.5 text-left text-base font-medium rounded-xl transition-all duration-200 ${
+                          className={`rounded-2xl px-5 py-3.5 text-left text-xs font-bold uppercase tracking-[0.16em] transition-all duration-200 ${
                             isActive(item.href)
-                              ? "text-gold bg-gold/15 border border-gold/30"
-                              : "text-foreground border border-transparent hover:bg-gold/10 hover:text-gold hover:border-gold/20"
+                              ? "border border-gold/40 bg-gold/10 text-gold"
+                              : "border border-transparent text-foreground/80 hover:border-border hover:bg-muted hover:text-foreground"
                           }`}
                         >
                           {item.name}
