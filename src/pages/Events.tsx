@@ -480,14 +480,9 @@ const Events = () => {
         jsonLd={eventSchemas}
       />
       <Navbar />
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <section className="relative overflow-hidden bg-transparent pb-10 pt-24 sm:pb-14 md:pt-32">
-            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
-            <div
-              className="pointer-events-none absolute left-1/2 top-16 h-[420px] w-[min(900px,90vw)] -translate-x-1/2 rounded-full bg-gold/10 blur-[120px]"
-              aria-hidden="true"
-            />
+          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 md:pt-32">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -495,55 +490,38 @@ const Events = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="mx-auto flex max-w-4xl flex-col items-center text-center"
               >
-                <span className="inline-flex items-center gap-3 rounded-full border border-gold/30 bg-background/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-gold backdrop-blur-sm sm:text-xs">
-                  <span className="h-px w-5 bg-gold/50" aria-hidden="true" />
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                   Doni-Travel × BSGA
-                  <span className="h-px w-5 bg-gold/50" aria-hidden="true" />
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                 </span>
 
-                <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.1] tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-                  Eventy, teambuildingy a{" "}
-                  <span className="text-gold">golfové pobyty</span>
+                <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                  Eventy, teambuildingy a golfové pobyty
                 </h1>
 
-                <p className="mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/75 sm:text-lg">
+                <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
                   Golfové akcie, firemné turnaje a kompletné pobyty na mieru — od prvého odpalu
                   po posledný detail. Pobyty organizujeme spolu s cestovnou agentúrou{" "}
                   <strong className="font-semibold text-gold">Doni-Travel</strong>.
                 </p>
 
-                <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+                <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
                   <a
                     href="#akcie"
-                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-background shadow-lg shadow-gold/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/35 active:translate-y-0 sm:w-auto"
+                    className="group inline-flex w-full items-center justify-center gap-2 bg-gold px-10 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-foreground sm:w-auto"
                   >
                     <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                     Pozrieť akcie 2026
                   </a>
                   <a
                     href="#kontakt-eventy"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/40 bg-background/30 px-8 py-3.5 text-sm font-semibold text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/70 hover:bg-gold/10 sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 border border-foreground px-10 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto"
                   >
                     <Mail className="h-4 w-4 text-gold" />
                     Nezáväzný dopyt
                   </a>
                 </div>
-
-                <dl className="mt-10 grid w-full max-w-2xl grid-cols-3 divide-x divide-gold/20 rounded-2xl border border-gold/20 bg-background/30 py-4 backdrop-blur-sm">
-                  {[
-                    { value: `${events.length}`, label: "Akcií v sezóne" },
-                    { value: "3", label: "Krajiny" },
-                    { value: "2026", label: "Sezóna" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="px-2 text-center">
-                      <dt className="sr-only">{stat.label}</dt>
-                      <dd className="font-serif text-2xl font-bold text-gold sm:text-3xl">{stat.value}</dd>
-                      <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 sm:text-xs">
-                        {stat.label}
-                      </p>
-                    </div>
-                  ))}
-                </dl>
               </motion.div>
             </div>
           </section>
