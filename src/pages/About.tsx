@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle, ChevronDown } from "lucide-react";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import Tilt3DCard from "@/components/Tilt3DCard";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
@@ -130,13 +129,13 @@ const FounderCard = ({
 }: {
   member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
-    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
+    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border bg-muted mb-4">
       {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
             {member.name.charAt(0)}
           </span>
         </div>}
-      <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
+      <div className="absolute inset-0 bg-foreground/5 group-hover:bg-foreground/0 transition-all duration-300" />
     </div>
     <h3 className="text-xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
       {member.name}
@@ -183,13 +182,13 @@ const TeamCard = ({
 }: {
   member: TeamMember;
 }) => <Tilt3DCard className="group text-center">
-    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/40 mb-4">
+    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border bg-muted mb-4">
       {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
             {member.name.charAt(0)}
           </span>
         </div>}
-      <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-all duration-300" />
+      <div className="absolute inset-0 bg-foreground/5 group-hover:bg-foreground/0 transition-all duration-300" />
     </div>
     <h3 className="text-lg font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
       {member.name}
