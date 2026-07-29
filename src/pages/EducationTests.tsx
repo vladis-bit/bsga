@@ -3,6 +3,21 @@ import SEO from "@/components/SEO";
 import GreenCardQuiz from "@/components/GreenCardQuiz";
 
 const EducationTests = () => {
+  const quizJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    name: "Záverečný test zelenej karty",
+    url: "https://bsga.sk/edukacne-centrum/testy",
+    inLanguage: "sk",
+    educationalLevel: "Beginner",
+    about: { "@type": "Thing", name: "Pravidlá golfu a golfová etiketa" },
+    educationalAlignment: {
+      "@type": "AlignmentObject",
+      alignmentType: "educationalSubject",
+      targetName: "Golf – pravidlá a etiketa",
+    },
+    provider: { "@id": "https://bsga.sk/#organization" },
+  };
   return (
     <>
       <SEO
@@ -14,6 +29,7 @@ const EducationTests = () => {
           { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
           { name: "Záverečný test ZK", url: "https://bsga.sk/edukacne-centrum/testy" },
         ]}
+        jsonLd={quizJsonLd}
       />
 
       <main className="min-h-screen bg-white text-slate-900">
