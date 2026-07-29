@@ -11,11 +11,6 @@ import WavesCanvas from "@/components/WavesCanvas";
 import { FileText, Mail } from "lucide-react";
 
 const Akademia = () => {
-  const handleScrollToCamps = () => {
-    const element = document.querySelector("#tabory");
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
-
   const campEvents = [
     { name: "Denný golfový tábor – Turnus 1", startDate: "2026-07-06", endDate: "2026-07-10", soldOut: true },
     { name: "Denný golfový tábor – Turnus 2", startDate: "2026-08-03", endDate: "2026-08-07", soldOut: true },
