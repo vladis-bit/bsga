@@ -34,6 +34,35 @@ const Akademia = () => {
     },
   }));
 
+  const juniorCourse = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "BSGA Junior Level System™",
+    description:
+      "Dlhodobý rozvojový program pre deti a juniorov – od prvých krokov s golfovou palicou až po výkonnostný golf, univerzitu v USA alebo profesionálnu kariéru.",
+    url: "https://bsga.sk/akademia",
+    inLanguage: "sk",
+    provider: { "@id": "https://bsga.sk/#organization" },
+    audience: { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Deti a juniori od 5 rokov" },
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "onsite",
+      courseWorkload: "PT2H",
+      location: {
+        "@type": "Place",
+        name: "Golfový klub Hrubá Borša",
+        address: { "@type": "PostalAddress", addressLocality: "Hrubá Borša", addressCountry: "SK" },
+      },
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "EUR",
+      category: "Paid",
+      url: "https://bsga.sk/akademia",
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return <>
       <SEO
         title="Juniorský golf | BSGA - Best Swing Golf Academy"
@@ -43,7 +72,7 @@ const Akademia = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Juniorský golf", url: "https://bsga.sk/akademia" },
         ]}
-        jsonLd={campEvents}
+        jsonLd={[juniorCourse, ...campEvents]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">

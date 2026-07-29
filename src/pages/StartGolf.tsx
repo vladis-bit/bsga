@@ -120,6 +120,59 @@ const StartGolf = () => {
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
+  const courseSchemas = [
+    {
+      name: "Víkendový kurz zelenej karty",
+      description:
+        "Intenzívny dvojdňový víkendový kurz pre úplných začiatočníkov, ktorý ťa pripraví na získanie zelenej karty.",
+      price: "139.99",
+      repeatCount: 2,
+    },
+    {
+      name: "Kurz zelenej karty",
+      description:
+        "Kompletný kurz zelenej karty rozložený na 1–2 týždne: technika, pravidlá, etiketa a záverečný test.",
+      price: "549.99",
+      repeatCount: 6,
+    },
+    {
+      name: "Individuálna lekcia golfu",
+      description:
+        "Individuálna lekcia s PGA trénerom vrátane analýzy švihu na TrackMane.",
+      price: "59.99",
+      repeatCount: 1,
+    },
+  ].map((c) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: c.name,
+    description: c.description,
+    url: "https://bsga.sk/zacni-s-golfom",
+    inLanguage: "sk",
+    provider: { "@id": "https://bsga.sk/#organization" },
+    offers: {
+      "@type": "Offer",
+      price: c.price,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: "https://bsga.sk/obchod",
+      category: "Paid",
+    },
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "onsite",
+      courseWorkload: `PT${c.repeatCount * 2}H`,
+      location: {
+        "@type": "Place",
+        name: "Golfový klub Hrubá Borša",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Hrubá Borša",
+          addressCountry: "SK",
+        },
+      },
+    },
+  }));
   const milestones = [
     {
       number: "01",
@@ -162,7 +215,7 @@ const StartGolf = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Začni s golfom", url: "https://bsga.sk/zacni-s-golfom" },
         ]}
-        jsonLd={faqJsonLd}
+        jsonLd={[...courseSchemas, faqJsonLd]}
       />
 
       <Navbar />

@@ -6,6 +6,38 @@ import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
 const EducationCenter = () => {
+  const eduJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Edukačné centrum BSGA",
+      url: "https://bsga.sk/edukacne-centrum",
+      inLanguage: "sk-SK",
+      description:
+        "Golfové vzdelávacie centrum BSGA – testy pravidiel a etikety, kalkulačky handicapu a praktické know-how pre golfistov.",
+      isPartOf: { "@id": "https://bsga.sk/#website" },
+      publisher: { "@id": "https://bsga.sk/#organization" },
+      hasPart: [
+        {
+          "@type": "LearningResource",
+          name: "Záverečný test zelenej karty",
+          url: "https://bsga.sk/edukacne-centrum/testy",
+          learningResourceType: "Quiz",
+          educationalLevel: "Beginner",
+          inLanguage: "sk",
+          teaches: "Pravidlá golfu a golfová etiketa",
+        },
+        {
+          "@type": "LearningResource",
+          name: "Golfové kalkulačky",
+          url: "https://bsga.sk/edukacne-centrum/kalkulacky",
+          learningResourceType: "Interactive tool",
+          inLanguage: "sk",
+          teaches: "Výpočet handicapu a skóre",
+        },
+      ],
+    },
+  ];
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(() => ["rady", "otázky", "analýzy", "know-how"], []);
 
@@ -30,6 +62,7 @@ const EducationCenter = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
         ]}
+        jsonLd={eduJsonLd}
       />
 
       <Navbar />
