@@ -95,6 +95,23 @@ const Fitting = () => {
       acceptedAnswer: { "@type": "Answer", text: f.answer },
     })),
   };
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Golfový fitting na mieru",
+    serviceType: "Golf club fitting",
+    url: "https://bsga.sk/fitting",
+    description:
+      "Profesionálny golfový fitting s TrackManom – meranie švihu, výber shaftu, hlavy, dĺžky a lie uhla palíc na mieru.",
+    provider: { "@id": "https://bsga.sk/#organization" },
+    areaServed: { "@type": "Country", name: "Slovensko" },
+    audience: { "@type": "Audience", audienceType: "Golfisti všetkých úrovní" },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: "https://bsga.sk/fitting",
+      servicePhone: "+421911994888",
+    },
+  };
   return (
     <>
       <SEO
@@ -105,7 +122,7 @@ const Fitting = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Fitting", url: "https://bsga.sk/fitting" },
         ]}
-        jsonLd={faqJsonLd}
+        jsonLd={[serviceJsonLd, faqJsonLd]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
