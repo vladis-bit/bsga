@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import heroImage1Asset from "@/assets/hero-golf-1.webp.asset.json";
-import heroImage2Asset from "@/assets/hero-golf-2.webp.asset.json";
-import heroImage3Asset from "@/assets/hero-golf-3.webp.asset.json";
-
-const heroImages = [heroImage1Asset.url, heroImage2Asset.url, heroImage3Asset.url];
 
 type HeroStat = {
   label: string;
@@ -77,12 +72,12 @@ const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) =>
   }, [index, stat.value]);
 
   return (
-    <div className="rounded-2xl border border-primary-foreground/20 bg-black/30 px-4 py-4 backdrop-blur-md sm:px-6 sm:py-5">
+    <div className="rounded-2xl border border-border bg-card px-4 py-4 shadow-sm sm:px-6 sm:py-5">
       <div className="text-xl font-bold text-gold sm:text-2xl lg:text-3xl">
         {count.toLocaleString("sk-SK")}
         {stat.suffix}
       </div>
-      <div className="mt-1.5 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-primary-foreground/75 sm:text-xs">
+      <div className="mt-1.5 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-foreground/60 sm:text-xs">
         {stat.label}
       </div>
     </div>
@@ -91,14 +86,6 @@ const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) =>
 
 const HeroSlider = () => {
   const navigate = useNavigate();
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setCurrent((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
-    return () => window.clearInterval(interval);
-  }, []);
 
   const handleButtonClick = (href: string) => {
     if (href.startsWith("#")) {
@@ -111,121 +98,70 @@ const HeroSlider = () => {
   };
 
   return (
-    <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
-      <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-none min-h-[560px] sm:min-h-[640px] sm:rounded-3xl md:min-h-[760px] max-h-[calc(100vh-4rem)]">
-        {heroImages.map((image, index) => (
-          <img
-            key={image}
-            src={image}
-            alt="Golfová akadémia BSGA"
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
-            loading={index === 0 ? "eager" : "lazy"}
-            decoding="async"
-            {...(index === 0 ? ({ fetchpriority: "high" } as any) : {})}
-          />
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
+    <section className="relative w-full overflow-hidden bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6 md:pt-32">
+      <div className="container mx-auto px-4 pb-14 text-center sm:px-6 sm:pb-16 md:pb-20">
+        <motion.div
+          className="mx-auto flex max-w-5xl flex-col items-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs"
+          >
+            <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+            Best Swing Golf Academy
+            <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+          </motion.span>
 
-        <div className="relative z-10 flex h-full min-h-[560px] items-center sm:min-h-[640px] md:min-h-[760px]">
-          <div className="container mx-auto px-4 py-14 text-center sm:px-6 sm:py-16 md:py-20">
-            <motion.div
-              className="mx-auto flex max-w-5xl flex-col items-center"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
+          <motion.h1
+            variants={itemVariants}
+            className="mt-5 max-w-4xl text-balance font-serif text-4xl font-bold leading-[1.05] text-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+          >
+            Golf, ktorý mení
+            <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-foreground/70 sm:text-base md:text-lg"
+          >
+            Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
+            detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
+          </motion.p>
+
+          <motion.div
+            variants={itemVariants}
+            className="mt-8 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4"
+          >
+            <Button
+              size="lg"
+              onClick={() => handleButtonClick("#sluzby")}
+              className="h-12 w-full rounded-full bg-gold px-8 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-foreground active:scale-[0.98] sm:h-14 sm:w-auto"
             >
-              <motion.span
-                variants={itemVariants}
-                className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs"
-              >
-                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-                Best Swing Golf Academy
-                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-              </motion.span>
+              Naše služby
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => handleButtonClick("/o-nas")}
+              className="h-12 w-full rounded-full border border-foreground bg-transparent px-8 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted active:scale-[0.98] sm:h-14 sm:w-auto"
+            >
+              O nás
+            </Button>
+          </motion.div>
 
-              <motion.h1
-                variants={itemVariants}
-                className="mt-5 max-w-4xl text-balance font-serif text-4xl font-bold leading-[1.05] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-[5.5rem]"
-              >
-                Golf, ktorý mení
-                <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
-              </motion.h1>
-
-              <motion.p
-                variants={itemVariants}
-                className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg"
-              >
-                Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
-                detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
-              </motion.p>
-
-              <motion.div
-                variants={itemVariants}
-                className="mt-8 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4"
-              >
-                <Button
-                  size="lg"
-                  onClick={() => handleButtonClick("#sluzby")}
-                  className="h-12 w-full rounded-full bg-gold px-8 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:h-14 sm:w-auto"
-                >
-                  Naše služby
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => handleButtonClick("/o-nas")}
-                  className="h-12 w-full rounded-full border border-primary-foreground bg-transparent px-8 text-sm font-bold text-primary-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:h-14 sm:w-auto"
-                >
-                  O nás
-                </Button>
-              </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                className="mt-10 grid w-full max-w-3xl grid-cols-2 gap-3 sm:mt-12 lg:grid-cols-4"
-              >
-                {heroStats.map((stat, index) => (
-                  <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 sm:bottom-8">
-          <button
-            type="button"
-            onClick={() => setCurrent((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
-            aria-label="Predchádzajúci obrázok"
-            className="rounded-full border border-primary-foreground/40 bg-black/30 p-2 text-primary-foreground backdrop-blur-sm transition-colors hover:bg-black/50"
+          <motion.div
+            variants={itemVariants}
+            className="mt-10 grid w-full max-w-3xl grid-cols-2 gap-3 sm:mt-12 lg:grid-cols-4"
           >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <div className="flex items-center gap-2">
-            {heroImages.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setCurrent(index)}
-                aria-label={`Prejsť na obrázok ${index + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  index === current ? "w-6 bg-gold" : "w-1.5 bg-primary-foreground/50"
-                }`}
-              />
+            {heroStats.map((stat, index) => (
+              <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
             ))}
-          </div>
-          <button
-            type="button"
-            onClick={() => setCurrent((prev) => (prev + 1) % heroImages.length)}
-            aria-label="Ďalší obrázok"
-            className="rounded-full border border-primary-foreground/40 bg-black/30 p-2 text-primary-foreground backdrop-blur-sm transition-colors hover:bg-black/50"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
