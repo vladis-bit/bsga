@@ -87,17 +87,6 @@ const Akademia = () => {
                   </a>
                 </div>
               </div>
-
-              <div className="relative mx-auto mt-10 w-full max-w-[1400px] overflow-hidden rounded-3xl sm:mt-14">
-                <img
-                  src={heroImage}
-                  alt="Detský golfový tábor BSGA"
-                  className="h-[280px] w-full object-cover sm:h-[420px] md:h-[520px]"
-                  loading="eager"
-                  decoding="async"
-                  {...({ fetchpriority: "high" } as any)}
-                />
-              </div>
             </div>
           </section>
 
