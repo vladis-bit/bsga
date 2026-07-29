@@ -1,9 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Scoped "Ivory editorial" theme — light magazine palette used on the Events page. */
+@layer base {
+  .theme-ivory {
+    --background: 38 35% 96%;
+    --foreground: 240 6% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 4%;
+
+    --primary: 240 6% 4%;
+    --primary-foreground: 38 35% 96%;
+
+    --secondary: 39 33% 91%;
+    --secondary-foreground: 240 6% 4%;
+
+    --muted: 39 33% 87%;
+    --muted-foreground: 240 4% 38%;
+
+    --accent: 39 33% 91%;
+    --accent-foreground: 240 6% 4%;
+
+    --border: 39 27% 84%;
+    --input: 39 27% 84%;
+    --ring: 38 45% 56%;
+
+    --radius: 0.25rem;
+
+    --gold: 38 45% 56%;
+    --gold-light: 38 45% 66%;
+    --gold-dark: 38 45% 44%;
+
+    --font-sans: Manrope, ui-sans-serif, system-ui, sans-serif;
+    --font-serif: Sora, ui-sans-serif, system-ui, sans-serif;
+
+    font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+  }
+}
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
