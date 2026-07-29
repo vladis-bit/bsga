@@ -751,7 +751,7 @@ const Events = () => {
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
       <Dialog open={floridaOpen} onOpenChange={setFloridaOpen}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-background text-foreground">
           <DialogHeader>
