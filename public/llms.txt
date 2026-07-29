@@ -1,25 +1,49 @@
 # Best Swing Golf Academy (BSGA)
 
-> Najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, zelené karty, juniorský program, fitting, BSGA Tour a firemné akcie.
+> Najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, kurzy zelenej karty, juniorský golf, fitting palíc na mieru, séria turnajov BSGA Tour, firemné akcie a golfové pobyty.
 
-BSGA pôsobí primárne v Bratislave (Hrubá Borša) a Nitre (Red Oak Golf Club). Tréningy vedú PGA tréneri pre dospelých aj deti.
+Web: https://bsga.sk · Jazyk: slovenčina (sk-SK) · Založené: 2016
+
+BSGA pôsobí primárne v Bratislave a okolí (Golfový klub Hrubá Borša) a v Nitre (Red Oak Golf Club).
+Tréningy vedú PGA tréneri pre dospelých aj deti — Peter Švajlen, Jakub Hrbáň, Maroš Gajan,
+Vanessa Fajkusová, Milan Neštický a Vladimír Leško.
+
+Kontakt: info@bsga.sk · +421 917 225 276 · Zuzany Chalupovej 12, 851 07 Bratislava
+Juniorský golf a tábory: kids@bsga.sk · Turnaje a eventy: touroffice@bsga.sk
+
+## Služby a orientačné ceny
+
+- Individuálna lekcia golfu s PGA trénerom (analýza švihu na TrackMane) — od 59,99 €
+- Víkendový kurz zelenej karty (2 dni, pre úplných začiatočníkov) — od 139,99 €
+- Kompletný kurz zelenej karty (1–2 týždne, technika, pravidlá, etiketa, test) — od 549,99 €
+- Skupinové lekcie, štart karty a balíky 5 alebo 10 lekcií
+- Course management — tréning stratégie priamo na ihrisku
+- Golfový fitting palíc na mieru (TrackMan)
+- Denné detské golfové tábory 2026 v Hrubej Borši — 310 € členovia GKHB / 340 € nečlenovia
+- BSGA Junior Level System™ — dlhodobý rozvojový program pre deti a juniorov
+- Firemné akcie, teambuildingy a turnaje na kľúč
+- Golfové pobyty a zájazdy v spolupráci s Doni-Travel
+- Darčekové poukážky použiteľné na všetky služby bez obmedzenia
 
 ## Pages
 
-- [Domov](/): Prehľad služieb, partneri, časté otázky.
-- [O nás](/o-nas): Príbeh, tím a misia BSGA.
-- [Služby](/sluzby): Kompletný zoznam tréningov, kurzov a programov.
-- [BSGA Tour 2026](/tour): Séria turnajov s partnermi NN, Soitron, ELV produkt, ELcomp a Altron.
-- [Juniorský golf](/akademia): Detské tábory, junior level system a development program.
-- [Galéria](/galeria): Fotografie z tréningov, turnajov a eventov.
-- [Obchod](/obchod): Darčekové poukážky a víkendové kurzy.
-- [Fitting](/fitting): Vybavenie a palice na mieru.
-- [Začni s golfom](/zacni-s-golfom): Sprievodca pre začiatočníkov a zelené karty.
-- [Edukačné centrum](/edukacne-centrum): Testy a kalkulačky pre golfistov.
-- [Testy](/edukacne-centrum/testy): Testy znalostí pravidiel a etikety.
-- [Kalkulačky](/edukacne-centrum/kalkulacky): Výpočty handicapu a ďalšie nástroje.
+- [Domov](https://bsga.sk/): Prehľad služieb, referencie klientov, partneri, časté otázky.
+- [Tréneri](https://bsga.sk/o-nas): Tím BSGA, kvalifikácie PGA trénerov a kontakty.
+- [Služby](https://bsga.sk/sluzby): Kompletný zoznam tréningov, kurzov a programov vrátane cien.
+- [Začni s golfom](https://bsga.sk/zacni-s-golfom): Sprievodca pre začiatočníkov, kurzy zelenej karty, FAQ.
+- [Juniorský golf](https://bsga.sk/akademia): Detské tábory 2026, BSGA Junior Level System™, development program.
+- [BSGA Tour 2026](https://bsga.sk/tour): Séria piatich turnajov s partnermi NN, Soitron, ELV produkt, ELcomp a Altron.
+- [Eventy a golfové pobyty](https://bsga.sk/eventy): Zájazdy, turnaje a pobyty pre rok 2026 a 2027.
+- [Firemné akcie](https://bsga.sk/firemne-akcie): Teambuildingy a firemné golfové podujatia na kľúč.
+- [Fitting](https://bsga.sk/fitting): Meranie a palice na mieru s TrackManom.
+- [Obchod](https://bsga.sk/obchod): Darčekové poukážky, kurzy a merch — nákup online cez Stripe.
+- [Galéria](https://bsga.sk/galeria): Fotografie z tréningov, turnajov a eventov.
+- [Edukačné centrum](https://bsga.sk/edukacne-centrum): Testy a kalkulačky pre golfistov.
+- [Testy](https://bsga.sk/edukacne-centrum/testy): Test znalostí pravidiel a etikety pred zelenou kartou.
+- [Kalkulačky](https://bsga.sk/edukacne-centrum/kalkulacky): Výpočty handicapu a ďalšie nástroje.
 
 ## Optional
 
-- [GDPR](/gdpr): Spracovanie osobných údajov.
-- [Obchodné podmienky](/obchodne-podmienky): Obchodné podmienky BSGA.
+- [GDPR](https://bsga.sk/gdpr): Spracovanie a ochrana osobných údajov.
+- [Obchodné podmienky](https://bsga.sk/obchodne-podmienky): Všeobecné obchodné podmienky BSGA.
+- [Sitemap](https://bsga.sk/sitemap.xml): Zoznam všetkých verejných URL.
