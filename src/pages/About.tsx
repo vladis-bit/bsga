@@ -230,6 +230,34 @@ const TeamCard = ({
   </Tilt3DCard>;
 
 const About = () => {
+  const people = [...founders, ...team].map((m) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: m.name,
+    jobTitle: m.role,
+    email: `mailto:${m.email}`,
+    telephone: m.phone,
+    knowsAbout: m.bio ?? [],
+    worksFor: { "@id": "https://bsga.sk/#organization" },
+    url: "https://bsga.sk/o-nas",
+  }));
+  const aboutPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Tréneri BSGA",
+    url: "https://bsga.sk/o-nas",
+    inLanguage: "sk-SK",
+    about: { "@id": "https://bsga.sk/#organization" },
+    mainEntity: {
+      "@type": "ItemList",
+      name: "Trénerský tím BSGA",
+      itemListElement: [...founders, ...team].map((m, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: m.name,
+      })),
+    },
+  };
   return <>
       <SEO
         title="Tréneri - BSGA"
@@ -239,6 +267,7 @@ const About = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Tréneri", url: "https://bsga.sk/o-nas" },
         ]}
+        jsonLd={[aboutPageSchema, ...people]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
