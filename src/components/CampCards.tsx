@@ -26,6 +26,7 @@ const camps: Camp[] = [
     date: "3. – 7. 8. 2026",
     location: "Hrubá Borša",
     posterUrl: "/documents/kemp_3-7_august.pdf",
+    soldOut: true,
   },
   {
     title: "Denný tábor - Turnus 3",
