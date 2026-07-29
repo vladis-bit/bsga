@@ -221,6 +221,23 @@ insertPositions.forEach((pos, i) => {
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const gallerySchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: "Galéria BSGA",
+    url: "https://bsga.sk/galeria",
+    inLanguage: "sk-SK",
+    description:
+      "Fotogaléria Best Swing Golf Academy – tréningy, detské kempy, turnaje BSGA Tour a golfové pobyty.",
+    isPartOf: { "@id": "https://bsga.sk/#website" },
+    author: { "@id": "https://bsga.sk/#organization" },
+    associatedMedia: images.slice(0, 20).map((img) => ({
+      "@type": "ImageObject",
+      contentUrl: img.src,
+      caption: img.alt,
+      representativeOfPage: false,
+    })),
+  };
 
   return <>
       <SEO
@@ -231,6 +248,7 @@ const Gallery = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Galéria", url: "https://bsga.sk/galeria" },
         ]}
+        jsonLd={gallerySchema}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
