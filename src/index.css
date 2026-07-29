@@ -45,6 +45,16 @@
 
     font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
   }
+
+  .theme-ivory .font-serif,
+  .theme-ivory h1,
+  .theme-ivory h2,
+  .theme-ivory h3,
+  .theme-ivory h4,
+  .theme-ivory h5 {
+    font-family: Sora, ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
