@@ -5,9 +5,9 @@ import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
-import { AuroraBackground } from "@/components/ui/aurora-background";
-import WavesCanvas from "@/components/WavesCanvas";
 import { FileText, Mail } from "lucide-react";
+import heroImageAsset from "@/assets/gallery-kids-camp.webp.asset.json";
+const heroImage = heroImageAsset.url;
 
 const Akademia = () => {
   const campEvents = [
@@ -49,40 +49,54 @@ const Akademia = () => {
         jsonLd={campEvents}
       />
       <Navbar />
-      <AuroraBackground variant="silver">
-        <main className="bg-transparent">
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <main>
           {/* Hero Section */}
-          <section className="relative w-full overflow-hidden bg-transparent pt-24 sm:pt-28 md:pt-32">
-            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
-            <div className="container relative z-10 mx-auto px-4 pb-10 text-center sm:px-6 sm:pb-12 md:pb-14">
-              <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                Juniorský golf
-              </span>
-              <h1 className="mt-3 text-[1.75rem] leading-tight font-serif font-bold text-foreground sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-                Golfová akadémia pre deti a juniorov
-              </h1>
-              <p className="mt-4 mx-auto max-w-2xl text-sm text-foreground/80 sm:max-w-3xl sm:text-base md:text-lg">
-                Turnus 1 a Turnus 2 sú už <strong>obsadené</strong>. Posledné voľné miesta na <strong>3. turnus detského tábora</strong> (24. – 28. 8. 2026, Hrubá Borša) — prihláste sa na <strong>kids@bsga.sk</strong>.
-              </p>
-              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-                <a
-                  href="/documents/kemp_24-28_august.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Plagát detského tábora – 3. turnus"
-                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full border border-foreground/20 bg-background/70 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-background active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
-                >
-                  <FileText className="h-4 w-4" />
-                  <span>Plagát</span>
-                </a>
-                <a
-                  href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
-                  aria-label="Prihlásiť sa na 3. turnus detského tábora BSGA 2026 e-mailom na kids@bsga.sk"
-                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-primary shadow-lg shadow-gold/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
-                >
-                  <Mail className="h-4 w-4" />
-                  <span>Prihlásiť sa na 3. turnus</span>
-                </a>
+          <section className="relative w-full overflow-hidden bg-background pt-24 sm:pt-28 md:pt-32">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="text-center">
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                  Juniorský golf
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                </span>
+                <h1 className="mt-5 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">
+                  Golfová akadémia pre deti a juniorov
+                </h1>
+                <p className="mx-auto mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-foreground/70 sm:max-w-3xl sm:text-base md:text-lg">
+                  Turnus 1 a Turnus 2 sú už <strong>obsadené</strong>. Posledné voľné miesta na <strong>3. turnus detského tábora</strong> (24. – 28. 8. 2026, Hrubá Borša) — prihláste sa na <strong>kids@bsga.sk</strong>.
+                </p>
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
+                  <a
+                    href="/documents/kemp_24-28_august.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Plagát detského tábora – 3. turnus"
+                    className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-gold/60 hover:bg-muted active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
+                  >
+                    <FileText className="h-4 w-4 text-gold" />
+                    <span>Plagát</span>
+                  </a>
+                  <a
+                    href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
+                    aria-label="Prihlásiť sa na 3. turnus detského tábora BSGA 2026 e-mailom na kids@bsga.sk"
+                    className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-all duration-300 hover:bg-gold-light active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>Prihlásiť sa na 3. turnus</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="relative mx-auto mt-10 w-full max-w-[1400px] overflow-hidden rounded-3xl sm:mt-14">
+                <img
+                  src={heroImage}
+                  alt="Detský golfový tábor BSGA"
+                  className="h-[280px] w-full object-cover sm:h-[420px] md:h-[520px]"
+                  loading="eager"
+                  decoding="async"
+                  {...({ fetchpriority: "high" } as any)}
+                />
               </div>
             </div>
           </section>
@@ -91,28 +105,28 @@ const Akademia = () => {
           <JuniorLevelSystem />
 
           {/* Development Timeline Section */}
-          <section id="timeline" className="scroll-mt-24 bg-transparent py-12 sm:py-16 md:py-20">
+          <section id="timeline" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-10 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase">JUNIORSKÝ GOLF</span>
-                <h2 className="mt-2 mb-4 text-2xl font-serif font-bold text-foreground sm:text-3xl md:text-4xl">Rozvoj detí od skorého veku</h2>
-                <p className="mx-auto max-w-2xl text-sm text-foreground/70 sm:text-base">Náš program sprevádza mladých golfistov od prvých krokov až po prijatie na americkú univerzitu alebo profesionálnu kariéru</p>
+              <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14">
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">Rozvoj detí od skorého veku</h2>
+                <p className="mt-2 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">Juniorský golf</p>
+                <p className="mx-auto mt-4 max-w-2xl text-sm text-foreground/70 sm:text-base">Náš program sprevádza mladých golfistov od prvých krokov až po prijatie na americkú univerzitu alebo profesionálnu kariéru</p>
               </div>
               <DevelopmentTimeline />
             </div>
           </section>
 
           {/* Summer Camps Section */}
-          <section id="tabory" className="scroll-mt-24 bg-transparent py-12 sm:py-16 md:py-20">
+          <section id="tabory" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-10 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] uppercase">
-                  Juniorský golf
-                </span>
-                <h2 className="mt-2 mb-4 text-2xl font-serif font-bold text-foreground sm:text-3xl md:text-4xl">
+              <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14">
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
                   Detské tábory 2026
                 </h2>
-                <p className="mx-auto max-w-2xl text-sm text-foreground/70 sm:text-base">
+                <p className="mt-2 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+                  Juniorský golf
+                </p>
+                <p className="mx-auto mt-4 max-w-2xl text-sm text-foreground/70 sm:text-base">
                   Golfové leto pod vedením skúsených trénerov <strong>Vanessy Fajkusovej</strong> a <strong>Vladimíra Leška</strong>. Deti získajú základy golfovej techniky, naučia sa pravidlá a etiketu hry v príjemnom prostredí <strong>Golfového Klubu Hrubá Borša</strong>.
                 </p>
               </div>
@@ -122,17 +136,17 @@ const Akademia = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="bg-transparent py-12 sm:py-16 md:py-20">
+          <section className="bg-background py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 text-center sm:rounded-3xl sm:p-12">
-                <h2 className="mb-4 text-2xl font-serif font-bold text-foreground sm:text-3xl">Máte nezodpovedané otázky?</h2>
+              <div className="rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
+                <h2 className="mb-4 font-serif text-2xl font-bold text-foreground sm:text-3xl">Máte nezodpovedané otázky?</h2>
                 <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">Kontaktujte nás a dozvie sa viac o našich programoch pre mladých golfistov</p>
-                <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Juniorskému golfu" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 font-semibold text-primary transition-colors hover:bg-gold-light">Napíšte nám</a>
+                <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Juniorskému golfu" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 font-bold text-primary transition-colors hover:bg-gold-light">Napíšte nám</a>
               </div>
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>;
 };

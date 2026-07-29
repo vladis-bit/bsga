@@ -6,8 +6,6 @@ import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
-import { AuroraBackground } from "@/components/ui/aurora-background";
-import WavesCanvas from "@/components/WavesCanvas";
 import serviceTourImgAsset from "@/assets/service-tour.webp.asset.json";
 const serviceTourImg = serviceTourImgAsset.url;
 import serviceFittingImgAsset from "@/assets/service-fitting.webp.asset.json";
@@ -45,6 +43,7 @@ import {
   Calendar,
   MapPin,
   Target,
+  Sparkles,
 } from "lucide-react";
 
 const RevealCard = ({ children, index }: { children: React.ReactNode; index: number }) => {
@@ -222,33 +221,48 @@ const Services = () => {
         jsonLd={serviceSchemas}
       />
       <Navbar />
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <section className="relative overflow-hidden bg-transparent pb-8 pt-28 md:pt-32">
-            <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
+          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 md:pt-32">
             <div className="container relative z-10 mx-auto px-4">
-              <div className="flex flex-col items-center gap-4 text-center">
-                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gold">
+              <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                   Služby
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                 </span>
-                <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1 className="mt-2 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                   Čo ponúkame
                 </h1>
-                <p className="max-w-2xl text-primary-foreground/70 sm:text-lg">
+                <p className="mt-2 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
                   12 profesionálnych služieb pre každého golfistu
                 </p>
               </div>
             </div>
           </section>
 
-          <section className="bg-transparent pb-16 pt-8 md:pb-24 md:pt-10">
+          <section className="bg-background pb-16 pt-8 md:pb-24 md:pt-10">
             <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Naše služby
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <Sparkles className="h-4 w-4" /> Vyberte si to pravé
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  12 služieb
+                </span>
+              </div>
+
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:grid-cols-3">
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   const card = (
                       <CursorGlowCard
-                        className={`group h-full overflow-hidden rounded-xl border border-border/60 bg-background/75 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl ${
+                        className={`group h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-gold/40 hover:shadow-xl ${
                           (service as any).link ? "cursor-pointer hover:-translate-y-1" : ""
                         }`}
                       >
@@ -313,7 +327,7 @@ const Services = () => {
 
           <ContactForm />
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>
   );

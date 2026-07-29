@@ -51,20 +51,20 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className={`relative overflow-hidden rounded-2xl border p-5 sm:p-6 transition-all duration-300 ${
         camp.soldOut
-          ? "bg-card/60 border-border/60"
+          ? "bg-card/60 border-border"
           : camp.isHighlight
-            ? "bg-gradient-to-br from-gold/20 to-gold/5 border-gold/50 hover:shadow-lg hover:shadow-gold/10"
+            ? "bg-gold/10 border-gold/40 hover:shadow-lg hover:shadow-gold/10"
             : "bg-card border-border hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10"
       }`}
     >
       {/* Sold-out diagonal ribbon */}
       {camp.soldOut && (
-        <div className="pointer-events-none absolute -right-12 top-5 rotate-45 bg-destructive/90 text-destructive-foreground text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
+        <div className="pointer-events-none absolute -right-12 top-5 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
           OBSADENÉ
         </div>
       )}
 
-      <div className={`grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr_auto] md:items-center ${camp.soldOut ? "opacity-60" : ""}`}>
+      <div className={`grid gap-4 sm:gap-5 md:grid-cols-[auto_1fr_auto] md:items-center ${camp.soldOut ? "opacity-70" : ""}`}>
         {/* Left - Number */}
         <div className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg ${
           camp.soldOut
@@ -106,7 +106,7 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={e => e.stopPropagation()}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-foreground/20 text-foreground hover:bg-muted/80 hover:border-foreground/40"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-muted border border-border text-foreground hover:bg-muted/70 hover:border-gold/40"
             >
               <FileText className="w-4 h-4" />
               Plagát
