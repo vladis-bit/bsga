@@ -33,7 +33,8 @@ const camps: Camp[] = [
     date: "24. – 28. 8. 2026",
     location: "Hrubá Borša",
     posterUrl: "/documents/kemp_24-28_august.pdf",
-    soldOut: true,
+    isHighlight: true,
+    description: "Posledný voľný turnus — prihlášky posielajte na kids@bsga.sk",
   },
 ];
 
@@ -120,7 +121,7 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
             </span>
           ) : (
             <a
-              href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026"
+              href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
               className={`w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
                 camp.isHighlight
                   ? "bg-gold text-primary hover:bg-gold-light"
