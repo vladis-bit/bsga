@@ -12,7 +12,9 @@ const SimpleContactForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [gdprConsent, setGdprConsent] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,6 +24,7 @@ const SimpleContactForm = () => {
       first_name: firstName,
       last_name: lastName,
       email,
+      phone: phone || null,
       message,
       source: "home",
     });
@@ -35,7 +38,7 @@ const SimpleContactForm = () => {
       return;
     }
     setIsSubmitted(true);
-    setFirstName(""); setLastName(""); setEmail(""); setMessage("");
+    setFirstName(""); setLastName(""); setEmail(""); setPhone(""); setMessage(""); setGdprConsent(false);
     toast({
       title: "Správa odoslaná!",
       description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať."
@@ -116,6 +119,21 @@ const SimpleContactForm = () => {
               </div>
 
               <div>
+                <label htmlFor="contact-phone" className="text-sm font-medium text-foreground mb-2 block">
+                  Telefón <span className="text-muted-foreground font-normal">(voliteľné)</span>
+                </label>
+                <Input
+                  id="contact-phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="+421 900 000 000"
+                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+              </div>
+
+              <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
                   Správa *
                 </label>
@@ -130,10 +148,24 @@ const SimpleContactForm = () => {
 
               <InteractiveHoverButton
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !gdprConsent}
               text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
               className="py-6 disabled:opacity-50 disabled:cursor-not-allowed" />
-            
+
+              <div className="flex items-start gap-2.5 pt-1">
+                <Checkbox
+                  id="gdpr-consent"
+                  checked={gdprConsent}
+                  onCheckedChange={(checked) => setGdprConsent(checked === true)}
+                  className="mt-0.5 border-border/70 data-[state=checked]:bg-gold data-[state=checked]:border-gold" />
+                <label htmlFor="gdpr-consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                  Súhlasím so spracovaním osobných údajov v súlade so{" "}
+                  <a href="/ochrana-osobnych-udajov" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">
+                    zásadami ochrany osobných údajov
+                  </a>.
+                </label>
+              </div>
+
             </form>
           }
         </div>
