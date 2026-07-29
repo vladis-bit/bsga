@@ -37,14 +37,16 @@ const Index = () => {
         jsonLd={faqJsonLd}
       />
       <Navbar />
-      <main>
-        <HeroSlider />
-        <ServicesSlider />
-        <PartnersLoop />
-        <Testimonials />
-        <FAQ />
-        <SimpleContactForm />
-      </main>
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <main>
+          <HeroSlider />
+          <ServicesSlider />
+          <PartnersLoop />
+          <Testimonials />
+          <FAQ />
+          <SimpleContactForm />
+        </main>
+      </div>
       <Footer />
     </>
   );

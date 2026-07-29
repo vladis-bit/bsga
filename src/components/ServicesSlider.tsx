@@ -163,14 +163,13 @@ const ServicesSlider = () => {
   return (
     <section id="sluzby" className="py-12 sm:py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
-            Naše služby
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4">
+        <div className="mb-8 flex flex-col gap-3 border-b border-border pb-6 text-center sm:mb-12 md:mb-16">
+          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
             Čo ponúkame
           </h2>
-          <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+          <p className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+            Naše služby
+          </p>
         </div>
 
         {/* Mobile Slider */}
@@ -286,7 +285,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const isExternal = !!service.externalLink;
 
   const cardInner = (
-    <div className="group overflow-hidden bg-card rounded-xl sm:rounded-2xl border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-xl h-full flex flex-col hover:-translate-y-1">
+    <div className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-gold/40 hover:shadow-lg h-full flex flex-col hover:-translate-y-1">
       {service.image && (
         <div className="p-3 sm:p-4 pb-0 sm:pb-0">
           <div className="aspect-[16/10] w-full overflow-hidden rounded-xl">

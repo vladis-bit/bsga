@@ -50,14 +50,14 @@ const SimpleContactForm = () => {
   return (
     <section id="kontakt" className="py-12 sm:py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12">
-          <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
-            Kontakt
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+        <div className="mb-8 border-b border-border pb-6 text-center sm:mb-12">
+          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground mt-3 sm:mt-4 mb-4 sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
             Kontaktujte nás
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+            Kontakt
+          </p>
+          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed mt-4">
             Vyplňte formulár a my sa vám ozveme. Radi vám poradíme a pomôžeme.  
           </p>
           <div className="flex justify-center mt-4">
@@ -65,10 +65,9 @@ const SimpleContactForm = () => {
               <span className="text-gold">📧</span> info@bsga.sk
             </a>
           </div>
-          <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-5 sm:mt-7" />
         </div>
 
-        <div className="max-w-3xl mx-auto bg-card rounded-xl sm:rounded-2xl p-5 sm:p-8 border border-border shadow-lg">
+        <div className="max-w-3xl mx-auto bg-card rounded-2xl p-5 sm:p-8 border border-border shadow-sm">
           {isSubmitted ?
           <div className="flex flex-col items-center justify-center h-full py-8 sm:py-12 text-center">
               <CheckCircle className="text-gold w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4" />
@@ -91,7 +90,7 @@ const SimpleContactForm = () => {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Vaše meno"
-                    className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+                    className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
@@ -102,7 +101,7 @@ const SimpleContactForm = () => {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Vaše priezvisko"
-                    className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+                    className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
                 </div>
               </div>
 
@@ -116,7 +115,7 @@ const SimpleContactForm = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="vas@email.sk"
-                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+                  className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
               </div>
 
               <div>
@@ -131,7 +130,7 @@ const SimpleContactForm = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+421 900 000 000"
-                  className="bg-muted border-border/60 focus:border-gold shadow-sm" />
+                  className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
               </div>
 
               <div>
@@ -144,7 +143,7 @@ const SimpleContactForm = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Napíšte nám vašu správu..."
                   rows={4}
-                  className="bg-muted border-border/60 focus:border-gold shadow-sm resize-none" />
+                  className="bg-background border-border text-foreground focus:border-gold shadow-sm resize-none" />
               </div>
 
               <InteractiveHoverButton

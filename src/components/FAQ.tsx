@@ -19,17 +19,16 @@ const faqs = [{
   answer: "Darčekové poukážky BSGA môžete využiť na všetky naše služby bez akéhokoľvek obmedzenia. Nie sú žiadne výnimky — poukážka platí na individuálne lekcie, kurzy zelenej karty, štart kartu, kempy aj všetky ostatné služby v našej ponuke."
 }];
 const FAQ = () => {
-  return <section className="py-12 sm:py-16 md:py-24 bg-secondary">
+  return <section className="py-12 sm:py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4">Časté otázky</h2>
-          <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+        <div className="mb-8 border-b border-border pb-6 text-center sm:mb-12 md:mb-16">
+          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">Časté otázky</h2>
+          <p className="mt-2 inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">FAQ</p>
         </div>
 
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-            {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-lg sm:rounded-xl border border-border px-4 sm:px-6 data-[state=open]:border-gold/30">
+            {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="rounded-2xl border border-border bg-card px-4 sm:px-6 data-[state=open]:border-gold/40">
                 <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-4 sm:py-6 hover:no-underline text-sm sm:text-base">
                   {faq.question}
                 </AccordionTrigger>

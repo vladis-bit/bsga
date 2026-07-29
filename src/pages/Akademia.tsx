@@ -6,9 +6,6 @@ import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
 import { FileText, Mail } from "lucide-react";
-import heroImageAsset from "@/assets/gallery-kids-camp.webp.asset.json";
-const heroImage = heroImageAsset.url;
-
 const Akademia = () => {
   const campEvents = [
     { name: "Denný golfový tábor – Turnus 1", startDate: "2026-07-06", endDate: "2026-07-10", soldOut: true },
@@ -86,17 +83,6 @@ const Akademia = () => {
                     <span>Prihlásiť sa na 3. turnus</span>
                   </a>
                 </div>
-              </div>
-
-              <div className="relative mx-auto mt-10 w-full max-w-[1400px] overflow-hidden rounded-3xl sm:mt-14">
-                <img
-                  src={heroImage}
-                  alt="Detský golfový tábor BSGA"
-                  className="h-[280px] w-full object-cover sm:h-[420px] md:h-[520px]"
-                  loading="eager"
-                  decoding="async"
-                  {...({ fetchpriority: "high" } as any)}
-                />
               </div>
             </div>
           </section>
