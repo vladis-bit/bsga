@@ -6,9 +6,6 @@ import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
 import { FileText, Mail } from "lucide-react";
-import heroImageAsset from "@/assets/gallery-kids-camp.webp.asset.json";
-const heroImage = heroImageAsset.url;
-
 const Akademia = () => {
   const campEvents = [
     { name: "Denný golfový tábor – Turnus 1", startDate: "2026-07-06", endDate: "2026-07-10", soldOut: true },
