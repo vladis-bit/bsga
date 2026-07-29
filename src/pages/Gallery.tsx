@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { X } from "lucide-react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import galleryTeamMenAsset from "@/assets/gallery-team-men.webp.asset.json";
 const galleryTeamMen = galleryTeamMenAsset.url;
 import galleryTrainingAsset from "@/assets/gallery-training.webp.asset.json";
@@ -234,25 +233,30 @@ const Gallery = () => {
         ]}
       />
       <Navbar />
-      <AuroraBackground variant="silver">
-        <main className="bg-transparent pt-24 sm:pt-28 md:pt-32">
-          <section aria-labelledby="galeria-heading" className="bg-transparent pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <main className="bg-background pt-24 sm:pt-28 md:pt-32">
+          <section aria-labelledby="galeria-heading" className="bg-background pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="mb-8 text-center sm:mb-10 md:mb-12">
-                <h1 id="galeria-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground">
+              <div className="mb-10 flex flex-col items-center text-center sm:mb-14">
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                  Momenty BSGA
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                </span>
+                <h1 id="galeria-heading" className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                   Galéria
                 </h1>
-                <p className="mt-3 text-base text-foreground/75 sm:text-lg max-w-2xl mx-auto px-2">
+                <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
                   Zábery z tréningov, turnajov a eventov
                 </p>
               </div>
 
               <h2 className="sr-only">Fotogaléria BSGA</h2>
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-                {images.map((image, index) => <button key={index} onClick={() => setSelectedImage(index)} className="group relative aspect-[4/3] overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-xl shadow-black/10">
+                {images.map((image, index) => <button key={index} onClick={() => setSelectedImage(index)} className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-xl sm:rounded-2xl md:rounded-3xl">
                     <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center">
-                      <span className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm sm:text-base">
+                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/45 transition-all duration-300 flex items-center justify-center">
+                      <span className="rounded-full bg-gold px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-sm">
                         Zobraziť
                       </span>
                     </div>
@@ -261,15 +265,15 @@ const Gallery = () => {
             </div>
           </section>
 
-          {selectedImage !== null && <div className="fixed inset-0 z-50 bg-primary/95 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelectedImage(null)}>
-              <button aria-label="Zatvoriť" className="absolute top-4 right-4 sm:top-6 sm:right-6 text-primary-foreground hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}>
+          {selectedImage !== null && <div className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelectedImage(null)}>
+              <button aria-label="Zatvoriť" className="absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full border border-background/30 p-2 text-background hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}>
                 <X size={28} className="sm:w-8 sm:h-8" aria-hidden="true" />
                 <span className="sr-only">Zatvoriť</span>
               </button>
-              <img loading="lazy" decoding="async" src={images[selectedImage].src} alt={images[selectedImage].alt} className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-md sm:rounded-lg" onClick={e => e.stopPropagation()} />
+              <img loading="lazy" decoding="async" src={images[selectedImage].src} alt={images[selectedImage].alt} className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-2xl" onClick={e => e.stopPropagation()} />
             </div>}
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>;
 };

@@ -4,7 +4,6 @@ import { ClipboardCheck, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const EducationCenter = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -35,12 +34,17 @@ const EducationCenter = () => {
 
       <Navbar />
 
-      <AuroraBackground className="min-h-[50vh] bg-primary text-primary-foreground" showRadialGradient={false}>
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <section className="bg-transparent pb-10 pt-28 md:pt-32">
+          <section className="bg-background pb-10 pt-28 md:pt-32">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="flex flex-col items-center gap-4 text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+              <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                  Vzdelávanie BSGA
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                </span>
+                <h1 className="mt-4 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                   Edukačné centrum
                 </h1>
 
@@ -62,9 +66,14 @@ const EducationCenter = () => {
             </div>
           </section>
 
-          <section className="bg-transparent py-6 md:py-8">
+          <section className="bg-background pb-16 pt-6 md:pb-24 md:pt-8">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-2xl">
+                <div className="mb-8 border-b border-border pb-6">
+                  <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
+                    Testy a materiály
+                  </h2>
+                </div>
                 <a
                   href="/edukacne-centrum/testy"
                   target="_blank"
@@ -76,13 +85,13 @@ const EducationCenter = () => {
                     transition={{ duration: 0.4 }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-border bg-background p-6 shadow-lg transition-all hover:border-gold hover:shadow-xl sm:gap-6 md:p-8"
+                    className="group flex cursor-pointer items-center gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:border-gold hover:shadow-xl sm:gap-6 md:p-8"
                   >
-                    <div className="rounded-xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
+                    <div className="rounded-2xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
                       <ClipboardCheck className="h-8 w-8 text-gold md:h-10 md:w-10" />
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-lg font-semibold text-foreground md:text-xl">Záverečný test ZK</h2>
+                      <h3 className="font-serif text-lg font-bold text-foreground md:text-xl">Záverečný test ZK</h3>
                       <p className="text-sm text-muted-foreground md:text-base">Otestujte svoje znalosti — otvorí sa v novej záložke</p>
                     </div>
                     <ExternalLink className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-gold md:h-6 md:w-6" />
@@ -92,7 +101,7 @@ const EducationCenter = () => {
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
 
       <Footer />
     </>
