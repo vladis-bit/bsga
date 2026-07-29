@@ -5,7 +5,6 @@ import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
-import StarsOfTomorrowCard from "@/components/StarsOfTomorrowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
 import { FileText, Mail } from "lucide-react";
@@ -124,9 +123,6 @@ const Akademia = () => {
               <CampProgramSection />
             </div>
           </section>
-
-          {/* Stars of Tomorrow */}
-          <StarsOfTomorrowCard />
 
           {/* CTA Section */}
           <section className="bg-transparent py-12 sm:py-16 md:py-20">
