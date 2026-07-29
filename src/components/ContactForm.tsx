@@ -5,6 +5,7 @@ import { sk } from "date-fns/locale";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
@@ -23,6 +24,7 @@ const ContactForm = () => {
   const [phone, setPhone] = useState("");
   const [service, setService] = useState<string>("");
   const [message, setMessage] = useState("");
+  const [gdprConsent, setGdprConsent] = useState(false);
   const { toast } = useToast();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,6 +51,7 @@ const ContactForm = () => {
     setIsSubmitted(true);
     setFirstName(""); setLastName(""); setEmail(""); setPhone("");
     setService(""); setMessage(""); setSelectedDate(undefined);
+    setGdprConsent(false);
     toast({
       title: "Správa odoslaná!",
       description: "Ďakujeme za váš záujem. Čoskoro vás budeme kontaktovať."
@@ -167,10 +170,24 @@ const ContactForm = () => {
 
                 <InteractiveHoverButton
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !gdprConsent}
             text={isSubmitting ? "Odosielam..." : "Odoslať správu"}
             className="py-6 disabled:opacity-50 disabled:cursor-not-allowed" />
-          
+
+                <div className="flex items-start gap-2.5 pt-1">
+                  <Checkbox
+                    id="gdpr-services"
+                    checked={gdprConsent}
+                    onCheckedChange={(checked) => setGdprConsent(checked === true)}
+                    className="mt-0.5 border-border/70 data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                  />
+                  <label htmlFor="gdpr-services" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                    Súhlasím so spracovaním osobných údajov v súlade so{" "}
+                    <a href="/gdpr" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">
+                      zásadami ochrany osobných údajov
+                    </a>.
+                  </label>
+                </div>
               </form>}
         </div>
       </div>
