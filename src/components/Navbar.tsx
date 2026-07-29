@@ -21,7 +21,7 @@ function isNavLink(item: NavItem): item is NavLink {
 
 const navLinks: NavItem[] = [
   { name: "Domov", href: "/" },
-  { name: "O nás - tréneri", href: "/o-nas" },
+  { name: "Tréneri", href: "/o-nas" },
   { name: "Služby", href: "/sluzby" },
   { type: "separator" },
   { name: "Začni s golfom", href: "/zacni-s-golfom" },
