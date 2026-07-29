@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { sk } from "date-fns/locale";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
@@ -41,6 +42,7 @@ const CorporateContactForm = () => {
   const [preferredCourse, setPreferredCourse] = useState("");
   const [otherCourse, setOtherCourse] = useState("");
   const [message, setMessage] = useState("");
+  const [gdprConsent, setGdprConsent] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -257,7 +259,7 @@ const CorporateContactForm = () => {
 
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !gdprConsent}
                 className="w-full rounded-full bg-gold py-6 text-base font-bold text-primary transition-all duration-300 hover:bg-gold-light disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Odosielam..." : (
@@ -267,13 +269,21 @@ const CorporateContactForm = () => {
                 )}
               </Button>
 
-              <p className="text-center text-xs text-muted-foreground sm:text-sm">
-                Odoslaním formulára súhlasíte so spracovaním osobných údajov v súlade s BSGA{" "}
-                <Link to="/gdpr" className="text-gold underline hover:text-gold-light">
-                  Zásadami ochrany osobných údajov
-                </Link>
-                . Odpovieme do 24 hodín.
-              </p>
+              <div className="flex items-start justify-center gap-2.5 pt-1">
+                <Checkbox
+                  id="gdpr-corporate"
+                  checked={gdprConsent}
+                  onCheckedChange={(checked) => setGdprConsent(checked === true)}
+                  className="mt-0.5 border-border/70 data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                />
+                <label htmlFor="gdpr-corporate" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                  Súhlasím so spracovaním osobných údajov v súlade s BSGA{" "}
+                  <Link to="/gdpr" className="text-gold underline hover:text-gold-light">
+                    Zásadami ochrany osobných údajov
+                  </Link>
+                  . Odpovieme do 24 hodín.
+                </label>
+              </div>
             </form>
           )}
         </div>
