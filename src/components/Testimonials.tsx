@@ -72,16 +72,15 @@ const Testimonials = () => {
     setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-16 sm:py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10 sm:mb-14 md:mb-16">
-          <span className="text-gold text-xs sm:text-sm tracking-[0.3em] uppercase font-medium">
-            Referencie
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-4 sm:mt-5">
+        <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14 md:mb-16">
+          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
             Čo o nás povedali klienti
           </h2>
-          <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-5 sm:mt-7" />
+          <p className="mt-2 inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+            Referencie
+          </p>
         </div>
 
         <div 
@@ -92,7 +91,7 @@ const Testimonials = () => {
           <div className="relative">
             <Quote className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-gold/15 w-16 h-16 sm:w-24 sm:h-24 z-0" />
 
-            <div className="bg-card rounded-2xl p-5 sm:p-8 md:p-10 border border-border/50 shadow-xl relative overflow-hidden">
+            <div className="bg-card rounded-2xl p-5 sm:p-8 md:p-10 border border-border shadow-sm relative overflow-hidden">
               <div className="relative min-h-[300px] sm:min-h-[220px] md:min-h-[200px]">
                 {testimonials.map((testimonial, index) => (
                   <div
@@ -162,7 +161,7 @@ const Testimonials = () => {
               onClick={prevSlide}
               className="p-3 bg-card border border-border rounded-full hover:border-gold hover:text-gold transition-all hover:scale-105"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={20} className="text-foreground" />
             </button>
             
             <div className="flex items-center gap-2">
@@ -182,7 +181,7 @@ const Testimonials = () => {
               onClick={nextSlide}
               className="p-3 bg-card border border-border rounded-full hover:border-gold hover:text-gold transition-all hover:scale-105"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={20} className="text-foreground" />
             </button>
           </div>
         </div>

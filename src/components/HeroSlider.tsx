@@ -1,17 +1,13 @@
+import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import heroImage1Asset from "@/assets/hero-golf-1.webp.asset.json";
+import heroImage2Asset from "@/assets/hero-golf-2.webp.asset.json";
+import heroImage3Asset from "@/assets/hero-golf-3.webp.asset.json";
 
-type WaveConfig = {
-  offset: number;
-  amplitude: number;
-  frequency: number;
-  color: string;
-  opacity: number;
-};
+const heroImages = [heroImage1Asset.url, heroImage2Asset.url, heroImage3Asset.url];
 
 type HeroStat = {
   label: string;
@@ -41,25 +37,6 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const statsVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.1 },
-  },
-};
-
-const statCardVariants: Variants = {
-  hidden: { opacity: 0, y: 34, scale: 0.94 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -100,224 +77,27 @@ const AnimatedHeroStat = ({ stat, index }: { stat: HeroStat; index: number }) =>
   }, [index, stat.value]);
 
   return (
-    <motion.div
-      variants={statCardVariants}
-      whileHover={{ y: -8, scale: 1.03 }}
-      className="group rounded-[1.5rem] border border-primary-foreground/14 bg-background/8 px-4 py-5 backdrop-blur-md transition-all duration-300 hover:border-gold/35 hover:bg-background/14 hover:shadow-[0_20px_60px_hsl(var(--gold)/0.16)] sm:rounded-[2rem] sm:px-6 sm:py-6"
-    >
-      <div className="text-[1.35rem] font-bold text-gold transition-transform duration-300 group-hover:translate-x-0.5 sm:text-3xl lg:text-4xl">
+    <div className="rounded-2xl border border-primary-foreground/20 bg-black/30 px-4 py-4 backdrop-blur-md sm:px-6 sm:py-5">
+      <div className="text-xl font-bold text-gold sm:text-2xl lg:text-3xl">
         {count.toLocaleString("sk-SK")}
         {stat.suffix}
       </div>
-      <div className="mt-2 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-primary-foreground/68 transition-colors duration-300 group-hover:text-primary-foreground/82 sm:mt-3 sm:text-xs">
+      <div className="mt-1.5 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-primary-foreground/75 sm:text-xs">
         {stat.label}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 const HeroSlider = () => {
   const navigate = useNavigate();
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const targetMouseRef = useRef({ x: 0, y: 0 });
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return undefined;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return undefined;
-
-    let animationId = 0;
-    let time = 0;
-
-    const computeThemeColors = () => {
-      const rootStyles = getComputedStyle(document.documentElement);
-
-      const resolveColor = (variables: string[], alpha = 1) => {
-        const tempEl = document.createElement("div");
-        tempEl.style.position = "absolute";
-        tempEl.style.visibility = "hidden";
-        tempEl.style.width = "1px";
-        tempEl.style.height = "1px";
-        document.body.appendChild(tempEl);
-
-        let color = `rgba(255, 255, 255, ${alpha})`;
-
-        for (const variable of variables) {
-          const value = rootStyles.getPropertyValue(variable).trim();
-          if (!value) continue;
-
-          tempEl.style.backgroundColor = `var(${variable})`;
-          const computedColor = getComputedStyle(tempEl).backgroundColor;
-
-          if (computedColor && computedColor !== "rgba(0, 0, 0, 0)") {
-            if (alpha < 1) {
-              const rgbMatch = computedColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/);
-              color = rgbMatch
-                ? `rgba(${rgbMatch[1]}, ${rgbMatch[2]}, ${rgbMatch[3]}, ${alpha})`
-                : computedColor;
-            } else {
-              color = computedColor;
-            }
-            break;
-          }
-        }
-
-        document.body.removeChild(tempEl);
-        return color;
-      };
-
-      return {
-        backgroundTop: resolveColor(["--primary"], 0.18),
-        backgroundBottom: resolveColor(["--background", "--muted"], 0.1),
-        wavePalette: [
-          {
-            offset: 0,
-            amplitude: 60,
-            frequency: 0.003,
-            color: resolveColor(["--primary-foreground"], 0.58),
-            opacity: 0.46,
-          },
-          {
-            offset: Math.PI / 2,
-            amplitude: 78,
-            frequency: 0.0025,
-            color: resolveColor(["--gold", "--primary-foreground"], 0.5),
-            opacity: 0.42,
-          },
-          {
-            offset: Math.PI,
-            amplitude: 52,
-            frequency: 0.0034,
-            color: resolveColor(["--gold-light", "--foreground"], 0.34),
-            opacity: 0.3,
-          },
-          {
-            offset: Math.PI * 1.5,
-            amplitude: 70,
-            frequency: 0.0021,
-            color: resolveColor(["--muted-foreground", "--primary-foreground"], 0.26),
-            opacity: 0.24,
-          },
-        ] satisfies WaveConfig[],
-      };
-    };
-
-    let themeColors = computeThemeColors();
-
-    const observer = new MutationObserver(() => {
-      themeColors = computeThemeColors();
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class", "data-theme"],
-    });
-
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mouseInfluence = prefersReducedMotion ? 10 : 52;
-    const influenceRadius = prefersReducedMotion ? 140 : 280;
-    const smoothing = prefersReducedMotion ? 0.04 : 0.085;
-
-    const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const width = window.innerWidth;
-      const height = Math.max(window.innerHeight * 0.92, 720);
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-
-    const recenterMouse = () => {
-      const centerPoint = { x: window.innerWidth / 2, y: Math.max(window.innerHeight * 0.55, 360) };
-      mouseRef.current = centerPoint;
-      targetMouseRef.current = centerPoint;
-    };
-
-    const handleResize = () => {
-      resizeCanvas();
-      recenterMouse();
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      targetMouseRef.current = { x: event.clientX, y: event.clientY };
-    };
-
-    resizeCanvas();
-    recenterMouse();
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", recenterMouse);
-
-    const drawWave = (wave: WaveConfig) => {
-      const width = canvas.width / (window.devicePixelRatio || 1);
-      const height = canvas.height / (window.devicePixelRatio || 1);
-
-      ctx.save();
-      ctx.beginPath();
-
-      for (let x = 0; x <= width; x += 4) {
-        const dx = x - mouseRef.current.x;
-        const dy = height * 0.68 - mouseRef.current.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const influence = Math.max(0, 1 - distance / influenceRadius);
-        const mouseEffect = influence * mouseInfluence * Math.sin(time * 0.001 + x * 0.01 + wave.offset);
-
-        const y =
-          height * 0.72 +
-          Math.sin(x * wave.frequency + time * 0.002 + wave.offset) * wave.amplitude +
-          Math.sin(x * wave.frequency * 0.45 + time * 0.0026) * (wave.amplitude * 0.42) +
-          mouseEffect;
-
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-
-      ctx.lineWidth = 2.2;
-      ctx.strokeStyle = wave.color;
-      ctx.globalAlpha = wave.opacity;
-      ctx.shadowBlur = 32;
-      ctx.shadowColor = wave.color;
-      ctx.stroke();
-      ctx.restore();
-    };
-
-    const animate = () => {
-      time += 1;
-
-      mouseRef.current.x += (targetMouseRef.current.x - mouseRef.current.x) * smoothing;
-      mouseRef.current.y += (targetMouseRef.current.y - mouseRef.current.y) * smoothing;
-
-      const width = canvas.width / (window.devicePixelRatio || 1);
-      const height = canvas.height / (window.devicePixelRatio || 1);
-      const gradient = ctx.createLinearGradient(0, 0, 0, height);
-      gradient.addColorStop(0, themeColors.backgroundTop);
-      gradient.addColorStop(1, themeColors.backgroundBottom);
-
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-      ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-
-      themeColors.wavePalette.forEach(drawWave);
-      animationId = window.requestAnimationFrame(animate);
-    };
-
-    animationId = window.requestAnimationFrame(animate);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", recenterMouse);
-      cancelAnimationFrame(animationId);
-      observer.disconnect();
-    };
+    const interval = window.setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroImages.length);
+    }, 6000);
+    return () => window.clearInterval(interval);
   }, []);
 
   const handleButtonClick = (href: string) => {
@@ -331,23 +111,43 @@ const HeroSlider = () => {
   };
 
   return (
-    <AuroraBackground className="bg-primary text-primary-foreground" showRadialGradient={false}>
-      <section className="relative min-h-[88vh] overflow-hidden pt-16 text-primary-foreground sm:min-h-screen sm:pt-20">
-        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--foreground)/0.06),transparent_30%),linear-gradient(to_bottom,hsl(var(--primary)/0.08),transparent_38%,hsl(var(--background)/0.24)_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,hsl(var(--gold)/0.24),transparent_58%)]" />
+    <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+      <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-none min-h-[560px] sm:min-h-[640px] sm:rounded-3xl md:min-h-[760px] max-h-[calc(100vh-4rem)]">
+        {heroImages.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt="Golfová akadémia BSGA"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+              index === current ? "opacity-100" : "opacity-0"
+            }`}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
+            {...(index === 0 ? ({ fetchpriority: "high" } as any) : {})}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
 
-        <div className="relative z-10 flex min-h-[calc(88vh-4rem)] items-start py-8 sm:min-h-[calc(100vh-5rem)] sm:items-center sm:py-14">
-          <div className="container mx-auto px-4 sm:px-6">
+        <div className="relative z-10 flex h-full min-h-[560px] items-center sm:min-h-[640px] md:min-h-[760px]">
+          <div className="container mx-auto px-4 py-14 text-center sm:px-6 sm:py-16 md:py-20">
             <motion.div
-              className="mx-auto flex max-w-6xl flex-col items-center text-center"
+              className="mx-auto flex max-w-5xl flex-col items-center"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
+              <motion.span
+                variants={itemVariants}
+                className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs"
+              >
+                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                Best Swing Golf Academy
+                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+              </motion.span>
+
               <motion.h1
                 variants={itemVariants}
-                className="max-w-5xl text-balance font-sans text-[2.05rem] font-bold leading-[0.95] tracking-tight text-primary-foreground sm:text-6xl md:text-7xl lg:text-[6.35rem]"
+                className="mt-5 max-w-4xl text-balance font-serif text-4xl font-bold leading-[1.05] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-[5.5rem]"
               >
                 Golf, ktorý mení
                 <span className="mt-2 block text-gold">začiatočníkov na hráčov</span>
@@ -355,17 +155,20 @@ const HeroSlider = () => {
 
               <motion.p
                 variants={itemVariants}
-                className="mt-5 max-w-3xl text-balance text-[0.95rem] leading-relaxed text-primary-foreground/78 sm:mt-6 sm:text-lg md:text-xl"
+                className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg"
               >
                 Najväčšia golfová akadémia na Slovensku s profesionálnymi trénermi, kurzami zelenej karty,
                 detskou akadémiou a eventmi, ktoré dostanú ľudí na ihrisko.
               </motion.p>
 
-              <motion.div variants={itemVariants} className="mt-7 flex w-full max-w-xl flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+              <motion.div
+                variants={itemVariants}
+                className="mt-8 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4"
+              >
                 <Button
                   size="lg"
                   onClick={() => handleButtonClick("#sluzby")}
-                  className="h-12 rounded-full border border-gold/30 bg-gold px-7 text-[0.78rem] font-bold uppercase tracking-[0.2em] text-primary shadow-[0_18px_48px_hsl(var(--gold)/0.34)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light hover:shadow-[0_24px_60px_hsl(var(--gold)/0.42)] sm:h-14 sm:px-8 sm:text-sm sm:tracking-[0.24em]"
+                  className="h-12 w-full rounded-full bg-gold px-8 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:h-14 sm:w-auto"
                 >
                   Naše služby
                   <ArrowRight className="h-4 w-4" />
@@ -374,15 +177,15 @@ const HeroSlider = () => {
                   size="lg"
                   variant="outline"
                   onClick={() => handleButtonClick("/o-nas")}
-                  className="h-12 rounded-full border border-primary-foreground/45 bg-background/15 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-primary-foreground shadow-[0_10px_30px_hsl(var(--background)/0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-background/22 hover:text-primary-foreground sm:h-14 sm:px-8 sm:text-sm sm:tracking-[0.18em]"
+                  className="h-12 w-full rounded-full border border-primary-foreground bg-transparent px-8 text-sm font-bold text-primary-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:h-14 sm:w-auto"
                 >
                   O nás
                 </Button>
               </motion.div>
 
               <motion.div
-                variants={statsVariants}
-                className="mt-10 grid w-full max-w-5xl grid-cols-2 gap-3 sm:mt-14 sm:gap-4 lg:grid-cols-4"
+                variants={itemVariants}
+                className="mt-10 grid w-full max-w-3xl grid-cols-2 gap-3 sm:mt-12 lg:grid-cols-4"
               >
                 {heroStats.map((stat, index) => (
                   <AnimatedHeroStat key={stat.label} stat={stat} index={index} />
@@ -391,8 +194,40 @@ const HeroSlider = () => {
             </motion.div>
           </div>
         </div>
-      </section>
-    </AuroraBackground>
+
+        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 sm:bottom-8">
+          <button
+            type="button"
+            onClick={() => setCurrent((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
+            aria-label="Predchádzajúci obrázok"
+            className="rounded-full border border-primary-foreground/40 bg-black/30 p-2 text-primary-foreground backdrop-blur-sm transition-colors hover:bg-black/50"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <div className="flex items-center gap-2">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setCurrent(index)}
+                aria-label={`Prejsť na obrázok ${index + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  index === current ? "w-6 bg-gold" : "w-1.5 bg-primary-foreground/50"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setCurrent((prev) => (prev + 1) % heroImages.length)}
+            aria-label="Ďalší obrázok"
+            className="rounded-full border border-primary-foreground/40 bg-black/30 p-2 text-primary-foreground backdrop-blur-sm transition-colors hover:bg-black/50"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
