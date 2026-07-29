@@ -8,6 +8,7 @@ import CampProgramSection from "@/components/CampProgramSection";
 import StarsOfTomorrowCard from "@/components/StarsOfTomorrowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
+import { FileText, Mail } from "lucide-react";
 
 const Akademia = () => {
   const handleScrollToCamps = () => {
