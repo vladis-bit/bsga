@@ -333,16 +333,15 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2025 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Archív
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                  BSGA Tour 2025
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2025
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -351,6 +350,7 @@ const Tour = () => {
                     {tournaments2025.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -362,21 +362,23 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
             </div>
           </section>
           {/* BSGA Tour 2024 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
-                  BSGA Tour 2024
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2024
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -385,6 +387,7 @@ const Tour = () => {
                     {tournaments2024.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -396,8 +399,8 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
@@ -405,13 +408,15 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2023 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
-                  BSGA Tour 2023
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2023
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -420,6 +425,7 @@ const Tour = () => {
                     {tournaments2023.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -431,8 +437,8 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
@@ -440,13 +446,15 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2022 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
-                  BSGA Tour 2022
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2022
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -455,6 +463,7 @@ const Tour = () => {
                     {tournaments2022.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -466,15 +475,15 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>;
 };
