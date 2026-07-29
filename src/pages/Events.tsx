@@ -199,17 +199,17 @@ const EventCard = ({
         transition={{ duration: 0.4, delay: index * 0.1 }}
         className={
           variant === "featured"
-            ? "md:col-span-8 relative overflow-hidden border-l-4 border-gold bg-card p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-lg"
+            ? "md:col-span-8 relative overflow-hidden rounded-2xl border-l-4 border-gold bg-card p-6 sm:p-10 shadow-sm transition-all duration-300 hover:shadow-lg"
             : variant === "side"
-              ? "md:col-span-4 relative overflow-hidden bg-muted p-6 sm:p-8 transition-all duration-300 hover:bg-muted/70"
-              : "md:col-span-6 relative overflow-hidden border border-border bg-card p-6 sm:p-8 transition-all duration-300 hover:border-gold/50"
+              ? "md:col-span-4 relative overflow-hidden rounded-2xl bg-muted p-6 sm:p-8 transition-all duration-300 hover:bg-muted/70"
+              : "md:col-span-6 relative overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8 transition-all duration-300 hover:border-gold/50"
         }
       >
         <div className={variant === "featured" ? "grid gap-5 md:grid-cols-[auto_1fr] md:items-start" : "grid gap-4"}>
           <div
             className={
               variant === "featured"
-                ? "flex h-16 w-16 flex-shrink-0 items-center justify-center bg-gold font-serif text-2xl font-bold text-primary-foreground"
+                ? "flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-gold font-serif text-2xl font-bold text-primary-foreground"
                 : "text-xs font-bold uppercase tracking-[0.2em] text-gold"
             }
           >
@@ -509,14 +509,14 @@ const Events = () => {
                 <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
                   <a
                     href="#akcie"
-                    className="group inline-flex w-full items-center justify-center gap-2 bg-gold px-10 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-foreground sm:w-auto"
+                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-foreground sm:w-auto"
                   >
                     <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                     Pozrieť akcie 2026
                   </a>
                   <a
                     href="#kontakt-eventy"
-                    className="inline-flex w-full items-center justify-center gap-2 border border-foreground px-10 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground px-10 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto"
                   >
                     <Mail className="h-4 w-4 text-gold" />
                     Kontaktujte nás
@@ -562,10 +562,10 @@ const Events = () => {
               </div>
 
               <div className="mt-12 sm:mt-16">
-                <div className="group relative overflow-hidden border border-border bg-card p-8 text-center transition-colors duration-300 hover:border-gold/50 sm:p-10 md:p-12">
+                <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 text-center transition-colors duration-300 hover:border-gold/50 sm:p-10 md:p-12">
                   {/* Logo with gold frame */}
                   <div className="relative mx-auto mb-6 sm:mb-8 inline-flex items-center justify-center">
-                    <div className="relative border border-border p-3 sm:p-4 bg-muted">
+                    <div className="relative rounded-xl border border-border p-3 sm:p-4 bg-muted">
                       <img
                         src={doniTravelLogo}
                         alt="Doni-Travel logo"
@@ -591,7 +591,7 @@ const Events = () => {
 
           <section id="kontakt-eventy" className="scroll-mt-24 bg-background pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="max-w-5xl mx-auto border-t border-border bg-muted p-6 sm:p-10 md:p-12">
+              <div className="max-w-5xl mx-auto rounded-3xl border border-border bg-muted p-6 sm:p-10 md:p-12">
                 <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 md:gap-8 text-center sm:text-left">
                   <div className="relative shrink-0">
                     <img
@@ -647,13 +647,13 @@ const Events = () => {
                 </p>
 
                 {/* Featured: Florida PGA Swing */}
-                <div className="relative mt-10 sm:mt-12 border-l-4 border-gold bg-card shadow-2xl transition-all">
-                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
+                <div className="relative mt-10 sm:mt-12 rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
+                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
                   </div>
                   <div className="p-6 sm:p-10 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
-                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center font-serif font-bold text-xl sm:text-2xl bg-gold text-primary-foreground">
+                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-serif font-bold text-xl sm:text-2xl bg-gold text-primary-foreground">
                         2027
                       </div>
                       <div className="min-w-0 flex-1">
