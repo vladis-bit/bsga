@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import fittingImgAsset from "@/assets/service-fitting.webp.asset.json";
 const fittingImg = fittingImgAsset.url;
@@ -109,11 +108,11 @@ const Fitting = () => {
         jsonLd={faqJsonLd}
       />
       <Navbar />
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-transparent">
-            <div className="relative w-full overflow-hidden min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
+          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden min-h-[480px] sm:min-h-[580px] sm:rounded-3xl md:min-h-[680px]">
               <img
                 src={fittingHeroImg.url}
                 alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
@@ -122,17 +121,23 @@ const Fitting = () => {
                 decoding="async"
                 {...({ fetchpriority: "high" } as any)}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
               <div className="relative z-10 flex h-full min-h-[480px] items-end sm:min-h-[580px] md:min-h-[680px]">
                 <div className="container mx-auto px-4 pb-10 pt-16 text-center sm:px-6 sm:pb-14 sm:pt-20 md:pb-16 md:pt-24">
-                  <h1 className="text-4xl font-serif font-bold text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                  <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                    <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                    Trackman fitting
+                    <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                  </span>
+                  <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                     Fitting – vybavenie na mieru
                   </h1>
-                  <p className="mt-4 mx-auto max-w-3xl text-base text-primary-foreground/90 sm:text-lg md:text-xl">
+                  <p className="mt-6 mx-auto max-w-3xl text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg md:text-xl">
                     Nájdi palice, ktoré ti skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
                   </p>
                   <a
                     href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary"
                   >
                     <Mail className="w-4 h-4" />
                     <span>Prihlásiť sa</span>
@@ -143,14 +148,16 @@ const Fitting = () => {
           </section>
 
           {/* Benefits */}
-          <section className="bg-transparent py-12 sm:py-16 md:py-20">
+          <section className="bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-10 sm:mb-14">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">Prečo fitting</span>
-                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary-foreground">
-                  Výhody profesionálneho fittingu
-                </h2>
-                <p className="mt-4 mx-auto max-w-2xl text-primary-foreground/70 sm:text-lg">
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Výhody profesionálneho fittingu
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Prečo fitting</p>
+                </div>
+                <p className="max-w-md text-sm leading-relaxed text-foreground/70 sm:text-base">
                   Správne vybavenie môže urobiť rozdiel medzi frustráciou a radosťou z hry
                 </p>
               </div>
@@ -160,9 +167,9 @@ const Fitting = () => {
                   return (
                     <CursorGlowCard
                       key={i}
-                      className="group rounded-xl border border-border/60 bg-background/75 p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-xl sm:rounded-2xl sm:p-8"
+                      className="group rounded-2xl border border-border bg-card p-6 transition-colors duration-300 hover:border-gold/50 sm:p-8"
                     >
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14">
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14">
                         <Icon className="text-gold" size={22} />
                       </div>
                       <h3 className="mb-2 font-serif text-lg font-bold text-foreground sm:mb-3 sm:text-xl">
@@ -179,15 +186,15 @@ const Fitting = () => {
           </section>
 
           {/* Process */}
-          <section className="bg-transparent py-12 sm:py-16 md:py-20">
+          <section className="bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
                 <div>
-                  <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">Ako to prebieha</span>
-                  <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary-foreground">
+                  <span className="text-sm font-bold uppercase tracking-[0.2em] text-gold">Ako to prebieha</span>
+                  <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
                     Proces fittingu krok za krokom
                   </h2>
-                  <p className="mt-4 text-primary-foreground/70 sm:text-lg">
+                  <p className="mt-4 text-base leading-relaxed text-foreground/70 sm:text-lg">
                     Celý proces trvá <strong className="text-gold">120 minút</strong> a prebieha v našom Performance Centre v Petržalke.
                   </p>
                   <ul className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
@@ -196,21 +203,21 @@ const Fitting = () => {
                         <div className="flex-shrink-0 mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-gold text-primary font-bold text-sm">
                           {i + 1}
                         </div>
-                        <span className="text-primary-foreground/85 text-sm sm:text-base pt-0.5">{step}</span>
+                        <span className="pt-0.5 text-sm text-foreground/80 sm:text-base">{step}</span>
                       </li>
                     ))}
                   </ul>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
                       href="mailto:jakub@bsga.sk?subject=Rezervácia fittingu"
-                      className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
+                      className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground"
                     >
                       <Mail className="w-4 h-4" />
                       Rezervovať fitting
                     </a>
                     <a
                       href="tel:+421911994888"
-                      className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-6 py-3 text-sm font-medium text-gold transition-all duration-300 hover:bg-gold/20 sm:text-base"
+                      className="inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted"
                     >
                       <Phone className="w-4 h-4" />
                       +421 911 994 888
@@ -218,15 +225,8 @@ const Fitting = () => {
                   </div>
                 </div>
                 <div className="relative group">
-                  {/* Decorative gold glow */}
-                  <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold/30 via-gold/10 to-transparent blur-2xl opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
-
-                  {/* Decorative gold corner frames */}
-                  <div className="pointer-events-none absolute -top-3 -left-3 h-16 w-16 border-t-2 border-l-2 border-gold rounded-tl-3xl" />
-                  <div className="pointer-events-none absolute -bottom-3 -right-3 h-16 w-16 border-b-2 border-r-2 border-gold rounded-br-3xl" />
-
                   {/* Image card */}
-                  <div className="relative overflow-hidden rounded-2xl border border-gold/30 shadow-2xl sm:rounded-3xl ring-1 ring-gold/10">
+                  <div className="relative overflow-hidden rounded-3xl border border-border bg-card">
                     <img
                       src={fittingImg}
                       alt="Proces golfového fittingu"
@@ -237,14 +237,14 @@ const Fitting = () => {
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/40 to-transparent" />
 
                     {/* Trackman tag */}
-                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/80 backdrop-blur px-3 py-1.5 text-xs font-medium text-foreground border border-gold/30">
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-foreground backdrop-blur">
                       <Sparkles className="h-3.5 w-3.5 text-gold" />
                       Trackman technológia
                     </div>
                   </div>
 
                   {/* Floating badge */}
-                  <div className="absolute -bottom-5 -right-5 sm:-bottom-6 sm:-right-6 bg-gold text-primary rounded-2xl px-5 py-3 sm:px-6 sm:py-4 shadow-2xl ring-4 ring-background/40 transition-transform duration-300 group-hover:scale-105">
+                  <div className="absolute -bottom-5 -right-2 sm:-bottom-6 sm:-right-4 rounded-2xl bg-gold px-5 py-3 text-primary ring-4 ring-background transition-transform duration-300 group-hover:scale-105 sm:px-6 sm:py-4">
                     <div className="text-2xl sm:text-3xl font-serif font-bold leading-none">120 min</div>
                     <div className="text-xs sm:text-sm font-medium mt-1">jeden fitting</div>
                   </div>
@@ -254,12 +254,12 @@ const Fitting = () => {
           </section>
 
           {/* Trust block */}
-          <section className="bg-transparent pb-16 sm:pb-20">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="overflow-hidden rounded-2xl border border-border/60 bg-white sm:rounded-3xl shadow-2xl">
+              <div className="overflow-hidden rounded-3xl border border-border bg-card">
                 <div className="grid gap-0 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
                   {/* Foto */}
-                  <div className="relative h-80 sm:h-[28rem] md:h-auto md:min-h-[460px] bg-white">
+                  <div className="relative h-80 bg-muted sm:h-[28rem] md:h-auto md:min-h-[460px]">
                     <img
                       src={jakubImg}
                       alt="Jakub Hrbáň – špecialista na fitting v BSGA"
@@ -275,18 +275,18 @@ const Fitting = () => {
                   </div>
 
                   {/* Obsah */}
-                  <div className="flex flex-col justify-center bg-white p-6 sm:p-10 md:p-12">
-                    <span className="hidden md:inline-flex items-center gap-2 self-start rounded-full bg-gold/15 px-3 py-1 text-xs font-medium text-gold">
+                  <div className="flex flex-col justify-center bg-card p-6 sm:p-10 md:p-12">
+                    <span className="hidden md:inline-flex items-center gap-2 self-start rounded-full bg-gold/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-gold">
                       <Award className="h-3.5 w-3.5" />
                       Špecialista na fitting v BSGA
                     </span>
-                    <h3 className="mt-3 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900">
+                    <h3 className="mt-3 font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
                       Jakub Hrbáň
                     </h3>
                     <p className="mt-1 text-sm text-gold sm:text-base">
                       Hlavný tréner CTM Hrubá Borša
                     </p>
-                    <p className="mt-4 text-neutral-700 sm:text-lg leading-relaxed">
+                    <p className="mt-4 leading-relaxed text-foreground/70 sm:text-lg">
                       Držiteľ licencie <strong>„B" Five Star Golf Academy</strong>, sa špecializuje na fitting golfových palíc. Pomôže ti nájsť vybavenie, ktoré perfektne sedí tvojej hre.
                     </p>
 
@@ -294,14 +294,14 @@ const Fitting = () => {
                     <div className="mt-6 flex flex-wrap gap-3">
                       <a
                         href="mailto:jakub@bsga.sk?subject=Fitting – konzultácia"
-                        className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light"
+                        className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground"
                       >
                         <Mail className="h-4 w-4" />
                         jakub@bsga.sk
                       </a>
                       <a
                         href="tel:+421911994888"
-                        className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-medium text-gold transition-all duration-300 hover:bg-gold/20"
+                        className="inline-flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted"
                       >
                         <Phone className="h-4 w-4" />
                         +421 911 994 888
@@ -314,13 +314,12 @@ const Fitting = () => {
           </section>
 
           {/* FAQ */}
-          <section className="bg-transparent pb-16 sm:pb-20">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary-foreground">
+              <div className="mb-10 border-b border-border pb-6">
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
                   Časté otázky
                 </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
               </div>
 
               <div className="max-w-3xl mx-auto">
@@ -329,12 +328,12 @@ const Fitting = () => {
                     <AccordionItem
                       key={index}
                       value={`fitting-faq-${index}`}
-                      className="bg-white rounded-lg sm:rounded-xl border border-border/60 px-4 sm:px-6 data-[state=open]:border-gold/40 shadow-sm"
+                      className="rounded-2xl border border-border bg-card px-4 data-[state=open]:border-gold/50 sm:px-6"
                     >
-                      <AccordionTrigger className="text-left font-medium text-neutral-900 hover:text-gold py-4 sm:py-6 hover:no-underline text-sm sm:text-base">
+                      <AccordionTrigger className="py-4 text-left text-sm font-semibold text-foreground hover:text-gold hover:no-underline sm:py-6 sm:text-base">
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-neutral-700 pb-4 sm:pb-6 leading-relaxed text-sm sm:text-base">
+                      <AccordionContent className="pb-4 text-sm leading-relaxed text-foreground/70 sm:pb-6 sm:text-base">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -346,7 +345,7 @@ const Fitting = () => {
 
           <FittingContactForm />
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>
   );

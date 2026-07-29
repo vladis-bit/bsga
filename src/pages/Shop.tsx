@@ -4,8 +4,6 @@ import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { AuroraBackground } from "@/components/ui/aurora-background";
-import WavesCanvas from "@/components/WavesCanvas";
 import VoucherCard from "@/components/shop/VoucherCard";
 import ServiceCard from "@/components/shop/ServiceCard";
 import MerchCard from "@/components/shop/MerchCard";
@@ -246,12 +244,16 @@ const Shop = () => {
 
       <Navbar />
 
-      <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
-        <section className="relative overflow-hidden bg-transparent pb-8 pt-24 sm:pt-28 md:pt-32 md:pb-10">
-          <WavesCanvas className="pointer-events-none absolute inset-0 h-full w-full opacity-80" />
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <section className="relative overflow-hidden bg-background pb-10 pt-24 md:pt-32 md:pb-14">
           <div className="container relative z-10 mx-auto px-4">
             <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
-              <h1 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+              <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                BSGA
+                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+              </span>
+              <h1 className="text-balance font-serif text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                 Obchod
               </h1>
 
@@ -259,7 +261,7 @@ const Shop = () => {
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={titleNumber}
-                    className="block whitespace-nowrap text-xl font-serif font-semibold capitalize text-gold sm:text-3xl md:text-4xl lg:text-5xl"
+                    className="block whitespace-nowrap font-serif text-xl font-bold capitalize text-gold sm:text-3xl md:text-4xl lg:text-5xl"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -50 }}
@@ -273,21 +275,21 @@ const Shop = () => {
               <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-4">
                 <button
                   onClick={() => scrollToSection("poukazky")}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/40 bg-white/10 px-3.5 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-xs font-bold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:text-sm"
                 >
                   <Gift className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   Poukážky
                 </button>
                 <button
                   onClick={() => scrollToSection("sluzby")}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/40 bg-white/10 px-3.5 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-xs font-bold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:text-sm"
                 >
                   <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   Služby
                 </button>
                 <button
                   onClick={() => scrollToSection("merch")}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/40 bg-white/10 px-3.5 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white transition-all hover:bg-white hover:text-primary hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-xs font-bold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:text-sm"
                 >
                   <ShoppingBag className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   Merch
@@ -297,13 +299,16 @@ const Shop = () => {
           </div>
         </section>
 
-        <section id="poukazky" className="scroll-mt-24 bg-transparent pb-12 pt-6 sm:pb-16 sm:pt-8 md:pb-24 md:pt-10">
+        <section id="poukazky" className="scroll-mt-24 bg-background pb-16 pt-6 md:pb-24 md:pt-10">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4">
-                Darčekové poukážky
-              </h2>
-              <p className="text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
+            <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                  Darčekové poukážky
+                </h2>
+                <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Poukážky</p>
+              </div>
+              <p className="max-w-md text-sm leading-relaxed text-foreground/70 sm:text-base">
                 Darujte zážitok z golfu svojim blízkym. Poukážky sú platné 12 mesiacov od zakúpenia.
               </p>
             </div>
@@ -316,13 +321,16 @@ const Shop = () => {
           </div>
         </section>
 
-        <section id="sluzby" className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-transparent">
+        <section id="sluzby" className="scroll-mt-24 bg-background py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4">
-                Služby
-              </h2>
-              <p className="text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
+            <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                  Služby
+                </h2>
+                <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Kurzy a lekcie</p>
+              </div>
+              <p className="max-w-md text-sm leading-relaxed text-foreground/70 sm:text-base">
                 Vyberte si z našej ponuky golfových kurzov a lekcií
               </p>
             </div>
@@ -346,13 +354,16 @@ const Shop = () => {
           </div>
         </section>
 
-        <section id="merch" className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-transparent">
+        <section id="merch" className="scroll-mt-24 bg-background py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4">
-                BSGA Merch
-              </h2>
-              <p className="text-sm sm:text-base text-primary-foreground/70 max-w-2xl mx-auto px-2">
+            <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                  BSGA Merch
+                </h2>
+                <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Merch</p>
+              </div>
+              <p className="max-w-md text-sm leading-relaxed text-foreground/70 sm:text-base">
                 Štýlové produkty s logom BSGA pre každého golfistu
               </p>
             </div>
@@ -372,7 +383,7 @@ const Shop = () => {
             </div>
           </div>
         </section>
-      </AuroraBackground>
+      </div>
 
       <Footer />
     </>
