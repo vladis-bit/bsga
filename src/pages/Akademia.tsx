@@ -63,7 +63,7 @@ const Akademia = () => {
                 Golfová akadémia pre deti a juniorov
               </h1>
               <p className="mt-4 mx-auto max-w-3xl text-base text-foreground/80 sm:text-lg md:text-xl">
-                Turnus 1 a Turnus 2 sú už <strong>obsadené</strong>. Prihlasovanie na <strong>3. turnus detského tábora</strong> (24. – 28. 8. 2026, Hrubá Borša) je stále otvorené.
+                Všetky turnusy detského tábora 2026 sú už <strong>obsadené</strong> — prihlasovanie je uzavreté. Ďakujeme za váš záujem.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
@@ -76,20 +76,16 @@ const Akademia = () => {
                   <FileText className="h-4 w-4" />
                   <span>Plagát</span>
                 </a>
-                <a
-                  href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
-                  aria-label="Prihlásiť sa na 3. turnus detského tábora BSGA 2026"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:w-auto sm:text-base"
+                <span
+                  aria-disabled="true"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-muted/70 px-7 py-3 text-sm font-medium text-muted-foreground sm:w-auto sm:text-base"
                 >
                   <Mail className="h-4 w-4" />
-                  <span>Prihlásiť sa</span>
-                </a>
+                  <span>Prihlasovanie uzavreté</span>
+                </span>
               </div>
             </div>
           </section>
-
-          {/* Stars of Tomorrow */}
-          <StarsOfTomorrowCard />
 
           {/* Junior Level System */}
           <JuniorLevelSystem />
@@ -124,6 +120,9 @@ const Akademia = () => {
               <CampProgramSection />
             </div>
           </section>
+
+          {/* Stars of Tomorrow */}
+          <StarsOfTomorrowCard />
 
           {/* CTA Section */}
           <section className="bg-transparent py-12 sm:py-16 md:py-20">
