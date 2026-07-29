@@ -105,8 +105,25 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Hamburger Menu (all viewports) */}
-          <div className="flex items-center gap-2">
+          {/* Desktop horizontal navigation */}
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+            {navLinks.filter(isNavLink).map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${
+                  isActive(item.href)
+                    ? "text-gold bg-gold/10"
+                    : "text-foreground/80 hover:text-gold hover:bg-gold/5"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Hamburger Menu (mobile / tablet) */}
+          <div className="flex items-center gap-2 lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-10 w-10">
