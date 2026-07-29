@@ -27,6 +27,39 @@ const faqJsonLd = {
   })),
 };
 
+const siteNavJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Hlavné sekcie BSGA",
+  itemListElement: [
+    { name: "Služby", url: "https://bsga.sk/sluzby" },
+    { name: "Začni s golfom", url: "https://bsga.sk/zacni-s-golfom" },
+    { name: "Juniorský golf", url: "https://bsga.sk/akademia" },
+    { name: "BSGA Tour 2026", url: "https://bsga.sk/tour" },
+    { name: "Eventy a pobyty", url: "https://bsga.sk/eventy" },
+    { name: "Firemné akcie", url: "https://bsga.sk/firemne-akcie" },
+    { name: "Fitting", url: "https://bsga.sk/fitting" },
+    { name: "Obchod", url: "https://bsga.sk/obchod" },
+  ].map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.name,
+    url: item.url,
+  })),
+};
+
+const homeWebPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://bsga.sk/#webpage",
+  url: "https://bsga.sk/",
+  name: "BSGA – Best Swing Golf Academy",
+  inLanguage: "sk-SK",
+  isPartOf: { "@id": "https://bsga.sk/#website" },
+  about: { "@id": "https://bsga.sk/#organization" },
+  primaryImageOfPage: { "@type": "ImageObject", url: "https://bsga.sk/favicon.png" },
+};
+
 const Index = () => {
   return (
     <>
@@ -34,7 +67,7 @@ const Index = () => {
         title="BSGA – Best Swing Golf Academy"
         description="Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, zelené karty, detská akadémia a firemné akcie."
         path="/"
-        jsonLd={faqJsonLd}
+        jsonLd={[homeWebPageJsonLd, faqJsonLd, siteNavJsonLd]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
