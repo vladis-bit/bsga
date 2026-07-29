@@ -9,7 +9,6 @@ import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
 const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -175,11 +174,11 @@ const Tour = () => {
         jsonLd={[breadcrumb, ...eventSchemas]}
       />
       <Navbar />
-      <AuroraBackground variant="silver">
-        <main className="bg-transparent">
+      <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <main>
           {/* Hero */}
-          <section className="relative w-full bg-transparent">
-            <div className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
+          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-none min-h-[460px] sm:min-h-[560px] sm:rounded-3xl md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={legendImg}
                   alt="Penati Legend – dejisko turnaja BSGA Tour 4"
@@ -188,37 +187,39 @@ const Tour = () => {
                   decoding="async"
                   {...({ fetchpriority: "high" } as any)}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/35" />
 
                 <div className="relative z-10 flex h-full min-h-[460px] items-center sm:min-h-[560px] md:min-h-[680px]">
                   <div className="container mx-auto px-4 py-14 text-center sm:px-6 sm:py-16 md:py-20">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-gold/15 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-gold backdrop-blur-sm sm:text-xs">
+                    <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                      <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                       <Trophy size={13} /> Najbližší turnaj
+                      <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                     </span>
-                    <h1 className="mt-4 text-4xl font-serif font-bold leading-tight text-primary-foreground sm:mt-5 sm:text-6xl md:text-7xl lg:text-8xl">
+                    <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
                       BSGA Tour 4
                     </h1>
-                    <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-gold sm:mt-3 sm:text-base md:text-lg">
+                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm md:text-base">
                       presented by ELcomp s.r.o.
                     </p>
 
                     <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:mt-8 sm:gap-3">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
                         <CalendarDays size={15} className="text-gold" /> 14. august 2026
                       </span>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/45 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
                         <MapPin size={15} className="text-gold" /> Penati Golf Resort – Legend
                       </span>
                     </div>
 
-                    <p className="mx-auto mt-5 max-w-2xl text-sm text-primary-foreground/90 sm:mt-6 sm:text-base md:text-lg">
+                    <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg">
                       Štvrtý turnaj série BSGA Tour 2026 na jednom z najprestížnejších ihrísk na Slovensku. Kapacita je obmedzená – zabezpeč si svoje miesto včas.
                     </p>
 
-                    <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+                    <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                       <a
                         href="mailto:touroffice@bsga.sk?subject=Prihlásenie na BSGA Tour 4 – Penati Legend"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold text-primary shadow-lg transition-all duration-300 hover:bg-gold-light active:scale-[0.98] sm:w-auto sm:text-base"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
                       >
                         Prihlásiť sa
                       </a>
@@ -226,9 +227,9 @@ const Tour = () => {
                         href={promo4Asset.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/70 bg-black/50 px-7 py-3.5 text-sm font-bold text-gold backdrop-blur-sm transition-all duration-300 hover:bg-gold hover:text-primary active:scale-[0.98] sm:w-auto sm:text-base"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-foreground px-10 py-4 text-sm font-bold text-primary-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
                       >
-                        <FileText size={16} />
+                        <FileText size={16} className="text-gold" />
                         Promo leták
                       </a>
                     </div>
@@ -238,10 +239,10 @@ const Tour = () => {
           </section>
 
           {/* Partners */}
-          <section className="py-4 sm:py-6 bg-transparent">
+          <section className="bg-background py-8 sm:py-12">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="flex flex-col justify-center items-center gap-4 sm:gap-6 rounded-2xl border border-border/50 bg-background/60 px-4 py-5 backdrop-blur-sm sm:rounded-3xl sm:px-6 sm:py-6">
-                <span className="text-muted-foreground text-[11px] sm:text-sm uppercase tracking-wider">
+              <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-border bg-card px-4 py-6 sm:gap-6 sm:px-6 sm:py-8">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
                   Generální partneri
                 </span>
                 <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
@@ -253,41 +254,46 @@ const Tour = () => {
           </section>
 
           {/* Tournament Schedule */}
-          <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 md:pb-24 bg-transparent">
+          <section className="bg-background pt-6 pb-16 sm:pt-8 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
-                <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+              <div className="mb-10 flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-4 sm:mb-14">
+                <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
                   Propozície
                 </a>
-                <a href="/documents/BSGA_Tour_2026_program.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <a href="/documents/BSGA_Tour_2026_program.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
                   Program turnaja
                 </a>
-                <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
+                <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
                   Prezentácia BSGA Tour
                 </a>
-                <a href="/__l5e/assets-v1/e20c1f8b-3690-41f0-a639-96ec929acea2/BSGA_Tour_after_3rd_Round.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-card border border-border text-foreground text-sm sm:text-base rounded-full hover:border-gold/30 hover:shadow-md transition-all">
-                  <Trophy size={16} className="text-gold" />
+                <a href="/__l5e/assets-v1/e20c1f8b-3690-41f0-a639-96ec929acea2/BSGA_Tour_after_3rd_Round.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
+                  <Trophy size={16} />
                   Priebežné hodnotenie
                 </a>
               </div>
 
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Kalendár
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Termíny turnajov
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <CalendarDays className="h-4 w-4" /> Kalendár
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Sezóna 2026
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                  Termíny turnajov
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
               </div>
 
-              <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+              <div className="mx-auto max-w-3xl space-y-4 sm:space-y-5">
                 {tournaments.map((tournament) => (
                   <div key={tournament.number} className="space-y-3">
                     <TournamentCard
+                      theme="ivory"
                       number={tournament.number}
                       date={tournament.date}
                       location={tournament.location}
@@ -300,13 +306,11 @@ const Tour = () => {
                         href={tournament.promoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative z-10 flex items-center justify-center gap-3 w-full px-8 py-4 rounded-full gold-gradient-button text-primary font-bold text-xs uppercase tracking-[0.15em] shadow-lg shadow-gold/20 border border-gold/50 transition-all duration-300 ease-out transform hover:-translate-y-0.5 active:scale-[0.98] overflow-hidden"
+                        className="relative z-10 flex w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-gold/60 bg-gold px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98]"
                       >
                         <FileText size={20} className="opacity-90 transition-transform duration-300 group-hover:scale-110" />
                         <span>Promo {tournament.number} - leták</span>
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                       </a>
-                      <div className="absolute -inset-px bg-gold/30 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
                   </div>
                 ))}
@@ -315,28 +319,29 @@ const Tour = () => {
           </section>
 
           {/* Registration */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
-            <div className="container mx-auto px-4 sm:px-6 text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 sm:mb-6">Oslovila vás BSGA Tour ?</h2>
-              <p className="text-muted-foreground text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto px-2">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
-              <a href="mailto:touroffice@bsga.sk" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-primary text-sm sm:text-base font-medium rounded-full hover:bg-gold-light transition-all duration-300">
-                <Mail size={18} />
-                touroffice@bsga.sk
-              </a>
+          <section className="bg-background pb-16 md:pb-24">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-muted p-8 text-center sm:p-10 md:p-12">
+                <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">Oslovila vás BSGA Tour ?</h2>
+                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-foreground/70 sm:text-lg">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
+                <a href="mailto:touroffice@bsga.sk" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
+                  <Mail size={18} />
+                  touroffice@bsga.sk
+                </a>
+              </div>
             </div>
           </section>
 
           {/* BSGA Tour 2025 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-                  Archív
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mt-3 sm:mt-4">
-                  BSGA Tour 2025
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2025
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -345,6 +350,7 @@ const Tour = () => {
                     {tournaments2025.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -356,21 +362,23 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
             </div>
           </section>
           {/* BSGA Tour 2024 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
-                  BSGA Tour 2024
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2024
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -379,6 +387,7 @@ const Tour = () => {
                     {tournaments2024.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -390,8 +399,8 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
@@ -399,13 +408,15 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2023 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
-                  BSGA Tour 2023
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2023
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -414,6 +425,7 @@ const Tour = () => {
                     {tournaments2023.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -425,8 +437,8 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
@@ -434,13 +446,15 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2022 */}
-          <section className="py-12 sm:py-16 md:py-24 bg-transparent">
+          <section className="bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground">
-                  BSGA Tour 2022
-                </h2>
-                <div className="w-16 sm:w-24 h-1 bg-gold mx-auto mt-4 sm:mt-6" />
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2022
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                </div>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
@@ -449,6 +463,7 @@ const Tour = () => {
                     {tournaments2022.map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
+                          theme="ivory"
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
@@ -460,15 +475,15 @@ const Tour = () => {
                     ))}
                   </CarouselContent>
                   <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
-                    <CarouselNext className="static translate-y-0 bg-card border-border text-foreground hover:border-gold/30 hover:bg-gold/10" />
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
                   </div>
                 </Carousel>
               </div>
             </div>
           </section>
         </main>
-      </AuroraBackground>
+      </div>
       <Footer />
     </>;
 };
