@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { Mail, FileText, Trophy } from "lucide-react";
+import { Mail, FileText, Trophy, CalendarDays, MapPin } from "lucide-react";
 import asbisLogo from "@/assets/partner-asbis-tour.webp";
 import tourHeroImageAsset from "@/assets/tour-hero-2026.webp.asset.json";
 const tourHeroImage = tourHeroImageAsset.url;
