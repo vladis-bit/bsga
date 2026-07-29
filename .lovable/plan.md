@@ -1,45 +1,47 @@
-# KROK 3 — Structured Data (Rich Results)
+## Cieľ
 
-Cieľ: aktivovať bohaté výsledky v Google (hviezdy, dátumy, ceny, breadcrumbs) pridaním Schema.org JSON-LD značkovania na kľúčové stránky.
+Nahradiť 15 samostatných Stripe Payment Linkov jedným nákupným košíkom: zákazník si pridá mikinu + poukážku + lekciu, uvidí zhrnutie objednávky a zaplatí naraz v jednej platbe — vrátane dopravy a kontroly skladu.
 
-## Čo pridám
+## Prečo je to zmena na pozadí
 
-### 1. BreadcrumbList — na každú podstránku
-Do komponentu `src/components/SEO.tsx` pridám voliteľný prop `breadcrumbs`, ktorý vygeneruje `BreadcrumbList` JSON-LD. Zapojím ho do všetkých podstránok: Služby, O nás – tréneri, Juniorský golf, Obchod, Tour, Fitting, Firemné akcie, Eventy, Galéria, Začni s golfom, Edukačné centrum.
+Payment Link je vždy len jedna pevná položka, takže viacpoložkovú objednávku technicky neumožňuje. Potrebná je platobná session vytvorená serverom z obsahu košíka — to zabezpečí vstavaná Stripe integrácia v Lovable (netreba vlastný Stripe účet ani kľúč, test prostredie vznikne hneď). Vyžaduje Pro plán.
 
-Príklad: `Domov › Juniorský golf`.
+Dôležité: produkty sa musia vytvoriť nanovo v novej integrácii — existujúce Payment Linky sa neprenesú. Kým nebude nový tok overený, staré linky nechám funkčné.
 
-### 2. Event schema — pre turnaje a kempy
-- **Tour** (`src/pages/Tour.tsx`): 5 x `Event` (BSGA Tour 1–5) s dátumom, miestom (golf resort), organizátorom BSGA a titulárnym partnerom (NN, Soitron, ELV, ELcomp, Altron).
-- **Juniorský golf** (`src/components/CampCards.tsx`): 3 x `Event` pre detské kempy (Turnus 1 – označený ako `SoldOut`, Turnus 2, Turnus 3) s cenou 340 €/310 €, dátumami a lokalitou GKHB.
-- **Eventy** (`src/pages/Events.tsx`): `Event` pre Czech PGA Tour, Camiral Trip, LIV Golf Andalucia, BSGA Ryder Cup, Švajlen Invitational, Pro-Am, Florida PGA Swing, Jarný tréningový deň — každý s dátumom, lokáciou, cenou a organizátorom.
+Pri fyzickom tovare (mikiny, šiltovky, tašky, uteráky) nastavím Stripe na výpočet a výber DPH (+0,5 % za transakciu); registráciu a odvod DPH rieši BSGA. Plná compliance správa sa na fyzický tovar nevzťahuje.
 
-### 3. Product + Offer schema — pre shop
-Do `src/pages/Shop.tsx` pridám `Product` + `Offer` JSON-LD pre všetkých 15 položiek (merch aj služby): názov, obrázok, cena v EUR, dostupnosť (`InStock`), URL Stripe Payment Linku ako `offers.url`, značka „BSGA".
+## Postup
 
-### 4. LocalBusiness / SportsActivityLocation — homepage
-Sitewide `SportsActivityLocation` už existuje v `index.html` (Bratislava, Zuzany Chalupovej 12). Rozšírim ho o:
-- Druhá lokácia: **Nitra – Red Oak Golf Club** (samostatný `SportsActivityLocation` v `@graph`).
-- `aggregateRating` (na základe Google recenzií zobrazených na webe — hviezdy vo výsledkoch vyhľadávania).
-- `hasOfferCatalog` s prehľadom hlavných služieb (individuálne lekcie, zelená karta, juniorský golf, fitting, firemné akcie).
+**1. Zapnutie platieb**
+Zapnem vstavanú Stripe integráciu a v Lovable Cloud pripravím backend (serverová funkcia + webhook).
 
-## Technická časť
+**2. Katalóg v databáze**
+Tabuľky `products` (názov, popis, cena, typ: merch/služba/poukážka, obrázok, či sa posiela), `product_variants` (farba, veľkosť, počet kusov na sklade), `orders` a `order_items`. Verejné čítanie katalógu, zápis objednávok len cez server. Naplním ich súčasnými 15 položkami vrátane variantov (mikina čierna/zelená/žltá, šiltovka biela/sivá).
 
-**Súbory na úpravu:**
-- `src/components/SEO.tsx` — pridať `breadcrumbs?: Array<{name, url}>` prop generujúci `BreadcrumbList`.
-- `index.html` — rozšírený `@graph` (druhá lokácia + aggregateRating + hasOfferCatalog).
-- `src/pages/Tour.tsx` — pole eventov + JSON-LD injektovaný cez `SEO` prop `jsonLd`.
-- `src/pages/Events.tsx` — Event schema pre všetkých ~8 eventov.
-- `src/pages/Akademia.tsx` + `src/components/CampCards.tsx` — Event schema pre 3 kempy.
-- `src/pages/Shop.tsx` — Product/Offer schema pre všetky produkty.
-- Všetky ostatné podstránky — pridať `breadcrumbs` prop do `<SEO>`.
+**3. Košík vo frontende**
+- Stav košíka v `localStorage` (prežije obnovenie stránky)
+- Tlačidlo „Pridať do košíka" na kartách namiesto priameho „Kúpiť"
+- Ikona košíka s počtom položiek v navigácii
+- Bočný panel: položky, varianty, množstvo, medzisúčet, doprava, celkom
+- Dizajn v zlatej téme, plne optimalizovaný pre mobil a tablet
 
-**Bez vplyvu na UI** — všetko sú `<script type="application/ld+json">` tagy v `<head>` cez `react-helmet-async`.
+**4. Objednávka a platba**
+Serverová funkcia overí ceny a dostupnosť skladu z databázy (nikdy nedôveruje cenám z prehliadača), vytvorí jednu Stripe session so všetkými položkami, vyžiada doručovaciu adresu, ponúkne dopravu (kuriér na Slovensko / osobný odber na akadémii zdarma) a zapne výpočet DPH.
 
-## Overenie po nasadení
-1. Cez Google Rich Results Test (`search.google.com/test/rich-results`) skontrolujem Home, Tour, Eventy, Obchod, Juniorský golf.
-2. V Google Search Console → Enhancements sa do 1–2 týždňov objavia sekcie Breadcrumbs, Events, Products, Merchant listings s počtami > 0.
-3. `sitemap.xml` netreba meniť — obsah je rovnaký, len obohatený o schémy.
+**5. Po platbe**
+Webhook uloží objednávku, zníži stav skladu a označí platbu. Stránka „Ďakujeme za objednávku" so zhrnutím a číslom objednávky.
 
-## Očakávaný výsledok
-- Vo výsledkoch vyhľadávania sa začnú zobrazovať: **breadcrumbs pod titulkom**, **event karty s dátumom a lokalitou**, **produktové ceny a dostupnosť**, **hviezdičky s hodnotením** (po zbere aggregateRating), **rozšírené info o firme** (adresa, otváracie hodiny). To výrazne zvýši CTR z organického vyhľadávania.
+**6. Kontrola skladu**
+Vypredaný variant sa nedá pridať do košíka a na karte je označený ako nedostupný. Poukážky a služby sklad neriešia.
+
+## Technické detaily
+
+- Ceny a sklad sa validujú výhradne na serveri pri vytváraní session
+- Webhook je idempotentný — dvojité doručenie neznižuje sklad dvakrát
+- Sklad sa odpisuje až po potvrdenej platbe
+- Product/Offer JSON-LD schéma sa prepojí na nový katalóg, aby SEO rich results zostali funkčné
+- Staré Payment Linky odstránim až po overení nového toku v testovacom režime
+
+## Čo nie je zahrnuté
+
+Administrácia objednávok a skladu (rozhranie pre správu) — dá sa doplniť ako ďalší krok. Zatiaľ sa objednávky pozerajú v databáze a notifikáciou na e-mail.
