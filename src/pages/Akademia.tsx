@@ -8,16 +8,12 @@ import CampProgramSection from "@/components/CampProgramSection";
 import StarsOfTomorrowCard from "@/components/StarsOfTomorrowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
+import { FileText, Mail } from "lucide-react";
 
 const Akademia = () => {
-  const handleScrollToCamps = () => {
-    const element = document.querySelector("#tabory");
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
-
   const campEvents = [
     { name: "Denný golfový tábor – Turnus 1", startDate: "2026-07-06", endDate: "2026-07-10", soldOut: true },
-    { name: "Denný golfový tábor – Turnus 2", startDate: "2026-08-03", endDate: "2026-08-07", soldOut: false },
+    { name: "Denný golfový tábor – Turnus 2", startDate: "2026-08-03", endDate: "2026-08-07", soldOut: true },
     { name: "Denný golfový tábor – Turnus 3", startDate: "2026-08-24", endDate: "2026-08-28", soldOut: false },
   ].map((c) => ({
     "@context": "https://schema.org",
@@ -67,15 +63,28 @@ const Akademia = () => {
                 Golfová akadémia pre deti a juniorov
               </h1>
               <p className="mt-4 mx-auto max-w-3xl text-base text-foreground/80 sm:text-lg md:text-xl">
-                Spustenie prihlasovania na detské tábory 2026 — rezervujte miesto pre vaše dieťa už teraz
+                Turnus 1 a Turnus 2 sú už <strong>obsadené</strong>. Prihlasovanie na <strong>3. turnus detského tábora</strong> (24. – 28. 8. 2026, Hrubá Borša) je stále otvorené.
               </p>
-              <button
-                onClick={handleScrollToCamps}
-                aria-label="Prihlásiť sa na detský tábor BSGA 2026"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:text-base"
-              >
-                <span>Prihlásiť sa</span>
-              </button>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <a
+                  href="/documents/kemp_24-28_august.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Plagát detského tábora – 3. turnus"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground/20 bg-background/70 px-7 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-background sm:w-auto sm:text-base"
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>Plagát</span>
+                </a>
+                <a
+                  href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
+                  aria-label="Prihlásiť sa na 3. turnus detského tábora BSGA 2026"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-gold-light sm:w-auto sm:text-base"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>Prihlásiť sa</span>
+                </a>
+              </div>
             </div>
           </section>
 
