@@ -5,7 +5,6 @@ import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
-import StarsOfTomorrowCard from "@/components/StarsOfTomorrowCard";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import WavesCanvas from "@/components/WavesCanvas";
 import { FileText, Mail } from "lucide-react";
@@ -59,19 +58,19 @@ const Akademia = () => {
               <span className="text-gold text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
                 Juniorský golf
               </span>
-              <h1 className="mt-3 text-3xl font-serif font-bold text-foreground sm:mt-4 sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="mt-3 text-[1.75rem] leading-tight font-serif font-bold text-foreground sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                 Golfová akadémia pre deti a juniorov
               </h1>
-              <p className="mt-4 mx-auto max-w-3xl text-base text-foreground/80 sm:text-lg md:text-xl">
+              <p className="mt-4 mx-auto max-w-2xl text-sm text-foreground/80 sm:max-w-3xl sm:text-base md:text-lg">
                 Turnus 1 a Turnus 2 sú už <strong>obsadené</strong>. Posledné voľné miesta na <strong>3. turnus detského tábora</strong> (24. – 28. 8. 2026, Hrubá Borša) — prihláste sa na <strong>kids@bsga.sk</strong>.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
                 <a
                   href="/documents/kemp_24-28_august.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Plagát detského tábora – 3. turnus"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground/20 bg-background/70 px-7 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-background sm:w-auto sm:text-base"
+                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full border border-foreground/20 bg-background/70 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-background active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
                 >
                   <FileText className="h-4 w-4" />
                   <span>Plagát</span>
@@ -79,7 +78,7 @@ const Akademia = () => {
                 <a
                   href="mailto:kids@bsga.sk?subject=Prihlásenie na detský tábor 2026 – 3. turnus"
                   aria-label="Prihlásiť sa na 3. turnus detského tábora BSGA 2026 e-mailom na kids@bsga.sk"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-semibold text-primary shadow-lg shadow-gold/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light sm:w-auto sm:text-base"
+                  className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-primary shadow-lg shadow-gold/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-light active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
                 >
                   <Mail className="h-4 w-4" />
                   <span>Prihlásiť sa na 3. turnus</span>
@@ -124,9 +123,6 @@ const Akademia = () => {
               <CampProgramSection />
             </div>
           </section>
-
-          {/* Stars of Tomorrow */}
-          <StarsOfTomorrowCard />
 
           {/* CTA Section */}
           <section className="bg-transparent py-12 sm:py-16 md:py-20">
