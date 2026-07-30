@@ -31,6 +31,7 @@ const AdminBookings = lazy(() => import("./pages/admin/Bookings"));
 const AdminCalendar = lazy(() => import("./pages/admin/CalendarView"));
 const AdminMessages = lazy(() => import("./pages/admin/Messages"));
 const AdminAdmins = lazy(() => import("./pages/admin/Admins"));
+const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const AdminBlackouts = lazy(() => import("./pages/admin/Blackouts"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 
@@ -69,6 +70,7 @@ const App = () => (
               <Route path="kalendar" element={<AdminCalendar />} />
               <Route path="spravy" element={<AdminMessages />} />
               <Route path="admini" element={<AdminAdmins />} />
+              <Route path="nastavenia" element={<AdminSettings />} />
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
             </Route>
             <Route path="/reset-password" element={<ResetPassword />} />
