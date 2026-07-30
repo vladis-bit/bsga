@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import {
   Booking,
@@ -19,6 +21,8 @@ import {
   PC_OPEN_HOUR,
   PC_CLOSE_HOUR,
   PC_LAST_START_HOUR,
+  PC_TIME_SLOTS,
+  validateOpeningHours,
 } from "./shared";
 
 const DAY_NAMES = ["Po", "Ut", "St", "Št", "Pi", "So", "Ne"];
@@ -40,6 +44,11 @@ const CalendarView = () => {
   const [selected, setSelected] = useState<Booking | null>(null);
   const [view, setView] = useState<"week" | "day">("day");
   const [day, setDay] = useState(() => startOfDay(new Date()));
+  const [simFilter, setSimFilter] = useState<string>("all");
+  const [edit, setEdit] = useState<{ simulator_id: string; date: string; time: string; duration_hours: string } | null>(
+    null,
+  );
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -67,6 +76,64 @@ const CalendarView = () => {
     () => Object.fromEntries(simulators.map((s) => [s.id, s.name])) as Record<string, string>,
     [simulators],
   );
+
+  const shownSims = useMemo(
+    () => (simFilter === "all" ? simulators : simulators.filter((s) => s.id === simFilter)),
+    [simulators, simFilter],
+  );
+
+  const openDetail = (b: Booking) => {
+    setSelected(b);
+    setEdit(null);
+  };
+
+  const startEdit = (b: Booking) => {
+    const d = new Date(b.starts_at);
+    const pad = (n: number) => String(n).padStart(2, "0");
+    setEdit({
+      simulator_id: b.simulator_id,
+      date: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`,
+      time: `${pad(d.getHours())}:${pad(d.getMinutes())}`,
+      duration_hours: String(b.duration_hours),
+    });
+  };
+
+  const patch = async (id: string, values: Partial<Booking>) => {
+    const { error } = await supabase.from("pc_bookings").update(values).eq("id", id);
+    if (error) {
+      toast({ title: "Chyba", description: translateDbError(error.message), variant: "destructive" });
+      return false;
+    }
+    setBookings((list) => list.map((b) => (b.id === id ? { ...b, ...values } : b)));
+    setSelected((s) => (s && s.id === id ? { ...s, ...values } : s));
+    return true;
+  };
+
+  const saveEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selected || !edit) return;
+    const hours = Number(edit.duration_hours) || 1;
+    const hoursError = validateOpeningHours(edit.time, hours);
+    if (hoursError) {
+      toast({ title: "Mimo otváracích hodín", description: hoursError, variant: "destructive" });
+      return;
+    }
+    const sim = simulators.find((s) => s.id === edit.simulator_id);
+    setSaving(true);
+    const starts = new Date(`${edit.date}T${edit.time}`);
+    const ok = await patch(selected.id, {
+      simulator_id: edit.simulator_id,
+      starts_at: starts.toISOString(),
+      ends_at: new Date(starts.getTime() + hours * 3600000).toISOString(),
+      duration_hours: hours,
+      price_eur: hours * Number(sim?.hourly_rate_eur ?? 0),
+    });
+    setSaving(false);
+    if (ok) {
+      toast({ title: "Rezervácia upravená" });
+      setEdit(null);
+    }
+  };
 
   const forCell = (simId: string, day: Date) =>
     bookings
@@ -121,6 +188,27 @@ const CalendarView = () => {
           {PC_LAST_START_HOUR}:00 (Trackman 4 aj Trackman iO).
         </p>
         <div className="flex flex-wrap items-center gap-2">
+          <div className="mr-2 flex flex-wrap rounded-full border border-border p-1">
+            <button
+              onClick={() => setSimFilter("all")}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                simFilter === "all" ? "bg-foreground text-background" : "text-muted-foreground"
+              }`}
+            >
+              Všetky
+            </button>
+            {simulators.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => setSimFilter(s.id)}
+                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                  simFilter === s.id ? "bg-foreground text-background" : "text-muted-foreground"
+                }`}
+              >
+                {s.name}
+              </button>
+            ))}
+          </div>
           <div className="mr-2 flex rounded-full border border-border p-1">
             <button
               onClick={() => setView("day")}
@@ -191,7 +279,7 @@ const CalendarView = () => {
                   <th className="w-20 border-b border-border p-3 text-left text-xs font-bold uppercase tracking-wider text-muted-foreground">
                     Čas
                   </th>
-                  {simulators.map((s) => (
+                  {shownSims.map((s) => (
                     <th
                       key={s.id}
                       className="border-b border-l border-border p-3 text-left text-xs font-bold uppercase tracking-wider text-muted-foreground"
@@ -207,13 +295,13 @@ const CalendarView = () => {
                     <td className="border-b border-border p-3 align-top text-xs font-semibold text-muted-foreground">
                       {String(h).padStart(2, "0")}:00
                     </td>
-                    {simulators.map((s) => {
+                    {shownSims.map((s) => {
                       const st = slotState(s.id, h);
                       if (st.kind === "booked") {
                         return (
                           <td key={s.id} className="border-b border-l border-border p-1.5 align-top">
                             <button
-                              onClick={() => setSelected(st.booking)}
+                              onClick={() => openDetail(st.booking)}
                               className="w-full rounded-2xl bg-foreground px-3 py-2 text-left text-background transition-opacity hover:opacity-80"
                             >
                               <span className="block text-xs font-bold">
@@ -254,7 +342,7 @@ const CalendarView = () => {
                     })}
                   </tr>
                 ))}
-                {simulators.length === 0 && (
+                {shownSims.length === 0 && (
                   <tr>
                     <td className="p-6 text-muted-foreground" colSpan={3}>
                       Žiadne simulátory.
@@ -283,7 +371,7 @@ const CalendarView = () => {
             </tr>
           </thead>
           <tbody>
-            {simulators.map((s) => (
+            {shownSims.map((s) => (
               <tr key={s.id}>
                 <td className="border-b border-border p-3 align-top font-semibold text-foreground">
                   {s.name}
@@ -309,7 +397,7 @@ const CalendarView = () => {
                         {items.map((b) => (
                           <button
                             key={b.id}
-                            onClick={() => setSelected(b)}
+                            onClick={() => openDetail(b)}
                             className="w-full rounded-xl bg-foreground px-2 py-1 text-left text-xs text-background transition-opacity hover:opacity-80"
                           >
                             {fmtTime(b.starts_at)} · {b.first_name} {b.last_name ?? ""}
@@ -324,7 +412,7 @@ const CalendarView = () => {
                 })}
               </tr>
             ))}
-            {simulators.length === 0 && (
+            {shownSims.length === 0 && (
               <tr>
                 <td className="p-6 text-muted-foreground" colSpan={8}>
                   Žiadne simulátory.
@@ -344,6 +432,7 @@ const CalendarView = () => {
                 {selected.first_name} {selected.last_name ?? ""}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
+                {new Date(selected.starts_at).toLocaleDateString("sk-SK")} ·{" "}
                 {fmtTime(selected.starts_at)} · {simName[selected.simulator_id] ?? "—"} ·{" "}
                 {selected.duration_hours} h · {selected.price_eur} €
               </p>
@@ -363,6 +452,100 @@ const CalendarView = () => {
               Zavrieť
             </Button>
           </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {selected.status !== "confirmed" && (
+              <Button
+                size="sm"
+                className="rounded-full"
+                onClick={() => patch(selected.id, { status: "confirmed" })}
+              >
+                Potvrdiť
+              </Button>
+            )}
+            {selected.status !== "cancelled" && (
+              <Button
+                size="sm"
+                variant="destructive"
+                className="rounded-full"
+                onClick={async () => {
+                  if (!window.confirm("Naozaj zrušiť túto rezerváciu?")) return;
+                  if (await patch(selected.id, { status: "cancelled" }))
+                    toast({ title: "Rezervácia zrušená" });
+                }}
+              >
+                Zrušiť rezerváciu
+              </Button>
+            )}
+            <Button
+              size="sm"
+              variant="outline"
+              className="rounded-full"
+              onClick={() =>
+                patch(selected.id, {
+                  payment_status: selected.payment_status === "paid" ? "unpaid" : "paid",
+                })
+              }
+            >
+              {selected.payment_status === "paid" ? "Označiť ako nezaplatené" : "Označiť ako zaplatené"}
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              className="rounded-full"
+              onClick={() => (edit ? setEdit(null) : startEdit(selected))}
+            >
+              {edit ? "Zrušiť úpravu" : "Upraviť termín"}
+            </Button>
+          </div>
+
+          {edit && (
+            <form onSubmit={saveEdit} className="mt-5 grid gap-3 rounded-2xl border border-border p-4 sm:grid-cols-4">
+              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground sm:col-span-4">
+                Úprava rezervácie
+              </label>
+              <select
+                className="h-10 rounded-xl border border-border bg-background px-3 text-sm text-foreground"
+                value={edit.simulator_id}
+                onChange={(e) => setEdit({ ...edit, simulator_id: e.target.value })}
+              >
+                {simulators.map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+              <Input
+                type="date"
+                value={edit.date}
+                onChange={(e) => setEdit({ ...edit, date: e.target.value })}
+                required
+              />
+              <select
+                className="h-10 rounded-xl border border-border bg-background px-3 text-sm text-foreground"
+                value={edit.time}
+                onChange={(e) => setEdit({ ...edit, time: e.target.value })}
+              >
+                {PC_TIME_SLOTS.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+              <Input
+                type="number"
+                min="0.5"
+                max="8"
+                step="0.5"
+                value={edit.duration_hours}
+                onChange={(e) => setEdit({ ...edit, duration_hours: e.target.value })}
+                required
+              />
+              <Button type="submit" className="rounded-full sm:col-span-4" disabled={saving}>
+                {saving ? "Ukladám…" : "Uložiť zmeny"}
+              </Button>
+            </form>
+          )}
         </div>
       )}
     </div>
