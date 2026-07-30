@@ -20,6 +20,7 @@ const AdminLayout = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState<"signin" | "reset">("signin");
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -39,9 +40,60 @@ const AdminLayout = () => {
       toast({ title: "Prihlásenie zlyhalo", description: error.message, variant: "destructive" });
   };
 
+  const sendReset = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Odoslanie zlyhalo", description: error.message, variant: "destructive" });
+      return;
+    }
+    toast({
+      title: "E-mail odoslaný",
+      description: "Ak účet existuje, poslali sme naň odkaz na obnovu hesla.",
+    });
+    setMode("signin");
+  };
+
   if (!ready) return <main className="min-h-screen bg-background" />;
 
   if (!session) {
+    if (mode === "reset") {
+      return (
+        <main className="flex min-h-screen items-center justify-center bg-background px-4">
+          <form
+            onSubmit={sendReset}
+            className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-8"
+          >
+            <h1 className="font-serif text-2xl text-foreground">Zabudnuté heslo</h1>
+            <p className="text-sm text-muted-foreground">
+              Zadaj e-mail a pošleme ti odkaz na nastavenie nového hesla.
+            </p>
+            <Input
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? "Odosielam…" : "Poslať odkaz"}
+            </Button>
+            <button
+              type="button"
+              onClick={() => setMode("signin")}
+              className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            >
+              Späť na prihlásenie
+            </button>
+          </form>
+        </main>
+      );
+    }
+
     return (
       <main className="flex min-h-screen items-center justify-center bg-background px-4">
         <form
@@ -67,6 +119,13 @@ const AdminLayout = () => {
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? "Prihlasujem…" : "Prihlásiť sa"}
           </Button>
+          <button
+            type="button"
+            onClick={() => setMode("reset")}
+            className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+          >
+            Zabudnuté heslo?
+          </button>
         </form>
       </main>
     );
