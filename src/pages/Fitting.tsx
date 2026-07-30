@@ -16,7 +16,7 @@ const benefits = [
     title: "Presné meranie",
     description: (
       <>
-        Detailná analýza tvojho švihu s <strong>profesionálnym Trackmanom</strong>. Získaš presné dáta o rýchlosti, uhle a trajektórii.
+        Detailná analýza vášho švihu s <strong>profesionálnym Trackmanom</strong>. Získate presné dáta o rýchlosti, uhle a trajektórii.
       </>
     ),
   },
@@ -25,7 +25,7 @@ const benefits = [
     title: "Vybavenie šité na mieru",
     description: (
       <>
-        Vyberieme palice s <strong>optimálnou dĺžkou, lie uhlom, shaftom a hlavou</strong>, ktoré ti skutočne sedia a zlepšia tvoju hru.
+        Vyberieme palice s <strong>optimálnou dĺžkou, lie uhlom, shaftom a hlavou</strong>, ktoré vám skutočne sedia a zlepšia vašu hru.
       </>
     ),
   },
@@ -34,7 +34,7 @@ const benefits = [
     title: "Citeľný rozdiel",
     description: (
       <>
-        Správne nafitované palice vedia <strong>dramaticky zmeniť tvoju hru</strong> – väčšia presnosť, dlhší dolet a stabilnejší kontakt s loptičkou.
+        Správne nafitované palice vedia <strong>dramaticky zmeniť vašu hru</strong> – väčšia presnosť, dlhší dolet a stabilnejší kontakt s loptičkou.
       </>
     ),
   },
@@ -50,8 +50,8 @@ const benefits = [
 ];
 
 const process = [
-  "Úvodný rozhovor – tvoj level, ciele a očakávania",
-  "Analýza aktuálneho švihu s tvojimi palicami",
+  "Úvodný rozhovor – váš level, ciele a očakávania",
+  "Analýza aktuálneho švihu s vašimi palicami",
   "Testovanie rôznych konfigurácií (hlavy, shafty, gripy)",
   "Vyhodnotenie dát a odporúčanie ideálneho setupu",
   "Objednávka palíc na mieru alebo úprava existujúcich",
@@ -61,22 +61,22 @@ const faqs = [
   {
     question: "Aké značky fittujete?",
     answer:
-      "Fittujeme palice popredných svetových značiek, konkrétne TaylorMade, PXG, PING, Titleist, Callaway a Srixon. Vďaka tejto širokej ponuke vieme zostaviť setup presne podľa tvojich preferencií, štýlu hry a individuálnych potrieb.",
+      "Fittujeme palice popredných svetových značiek, konkrétne TaylorMade, PXG, PING, Titleist, Callaway a Srixon. Vďaka tejto širokej ponuke vieme zostaviť setup presne podľa vašich preferencií, štýlu hry a individuálnych potrieb.",
   },
   {
     question: "Kde prebieha fitting golfového vybavenia?",
     answer:
-      "Fitting prebieha v našom BSGA Performance Center a tiež v priestoroch obchodu Golf Universe. Obe lokality sú vybavené najmodernejšou technológiou, ktorá zabezpečí presnú analýzu tvojho švihu a optimálne nastavenie palíc.",
+      "Fitting prebieha v našom BSGA Performance Center a tiež v priestoroch obchodu Golf Universe. Obe lokality sú vybavené najmodernejšou technológiou, ktorá zabezpečí presnú analýzu vášho švihu a optimálne nastavenie palíc.",
   },
   {
     question: "Ako dlho trvá a koľko stojí fitting?",
     answer:
-      "Štandardný fitting trvá 120 minút a jeho cena sa pohybuje od 80 € do 150 € v závislosti od rozsahu fittingu a typu palíc, ktoré chceš testovať. V cene je zahrnutá detailná analýza švihu, testovanie rôznych konfigurácií a odborné odporúčanie ideálneho setupu.",
+      "Štandardný fitting trvá 120 minút a jeho cena sa pohybuje od 80 € do 150 € v závislosti od rozsahu fittingu a typu palíc, ktoré chcete testovať. V cene je zahrnutá detailná analýza švihu, testovanie rôznych konfigurácií a odborné odporúčanie ideálneho setupu.",
   },
   {
     question: "Čo si mám priniesť na fitting?",
     answer:
-      "Na fitting si prines svoje vlastné golfové palice, aby sme ich mohli porovnať s testovanými konfiguráciami. Odporúčame tiež pohodlné športové oblečenie, v akom bežne trénuješ v indoor centre, aby si sa mohol prirodzene a uvoľnene švihať.",
+      "Na fitting si prineste svoje vlastné golfové palice, aby sme ich mohli porovnať s testovanými konfiguráciami. Odporúčame tiež pohodlné športové oblečenie, v akom bežne trénujete v indoor centre, aby ste sa mohli prirodzene a uvoľnene švihať.",
   },
   {
     question: "Ako dlho trvá, kým mi príde nová výbava?",
@@ -116,7 +116,7 @@ const Fitting = () => {
     <>
       <SEO
         title="Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy"
-        description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré ti skutočne sedí."
+        description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré vám skutočne sedí."
         path="/fitting"
         breadcrumbs={[
           { name: "Domov", url: "https://bsga.sk/" },
@@ -150,7 +150,7 @@ const Fitting = () => {
                     Fitting – vybavenie na mieru
                   </h1>
                   <p className="mt-6 mx-auto max-w-3xl text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg md:text-xl">
-                    Nájdi palice, ktoré ti skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
+                    Nájdite palice, ktoré vám skutočne sedia. Profesionálne meranie a testovanie s najmodernejšou technológiou.
                   </p>
                   <a
                     href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
@@ -304,7 +304,7 @@ const Fitting = () => {
                       Hlavný tréner CTM Hrubá Borša
                     </p>
                     <p className="mt-4 leading-relaxed text-foreground/70 sm:text-lg">
-                      Držiteľ licencie <strong>„B" Five Star Golf Academy</strong>, sa špecializuje na fitting golfových palíc. Pomôže ti nájsť vybavenie, ktoré perfektne sedí tvojej hre.
+                      Držiteľ licencie <strong>„B" Five Star Golf Academy</strong>, sa špecializuje na fitting golfových palíc. Pomôže vám nájsť vybavenie, ktoré perfektne sedí vašej hre.
                     </p>
 
                     {/* Kontaktné buttony */}
