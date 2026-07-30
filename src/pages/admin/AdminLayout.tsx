@@ -12,7 +12,7 @@ const links = [
   { to: "/admin/kalendar", label: "Kalendár" },
   { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
   { to: "/admin/spravy", label: "Správy" },
-  { to: "/admin/admini", label: "Admini" },
+  { to: "/admin/nastavenia", label: "Nastavenia" },
 ];
 
 const AdminLayout = () => {
