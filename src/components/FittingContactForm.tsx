@@ -65,16 +65,19 @@ const FittingContactForm = () => {
           <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
             Rezervácia fittingu
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-foreground mt-3 sm:mt-4 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-2 sm:mb-3">
             Objednaj sa na fitting
           </h2>
-          <p className="text-primary-foreground/80 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gold text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-4 sm:mb-6">
+            Kontaktný formulár
+          </p>
+          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Vyplň formulár a Jakub Hrbáň – náš špecialista na fitting – sa ti ozve s návrhom termínu a detailmi celého procesu. Fitting trvá 120 minút a prebieha v Performance Centre v Petržalke.
           </p>
           <div className="flex justify-center mt-4">
             <a
               href="mailto:jakub@bsga.sk?subject=Záujem o fitting"
-              className="inline-flex items-center gap-2 text-primary-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base"
+              className="inline-flex items-center gap-2 text-foreground font-medium hover:text-gold transition-colors text-sm sm:text-base"
             >
               <Mail className="w-4 h-4 text-gold" />
               jakub@bsga.sk
