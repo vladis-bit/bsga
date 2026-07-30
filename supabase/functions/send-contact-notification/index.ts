@@ -52,6 +52,12 @@ Deno.serve(async (req) => {
       });
     }
 
+    if (msg.email_status === "sent") {
+      return new Response(JSON.stringify({ ok: true, skipped: "already sent" }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const to = pickRecipient(msg.source ?? "", msg.service ?? null);
     const fullName = `${msg.first_name ?? ""} ${msg.last_name ?? ""}`.trim();
     const subject = `Nová správa: ${msg.service || "Kontaktný formulár"} – ${fullName}`;
