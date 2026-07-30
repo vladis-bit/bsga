@@ -15,7 +15,7 @@ const QUESTIONS = [
   { id: 'k10', q: 'Čo je „eagle"?', options: ['O jeden úder menej ako par', 'O dva údery menej ako par', 'O dva údery viac ako par', 'Presný úder z bunkra'], correct: 1 },
   // ČASŤ 2: ETIKETA
   { id: 'k11', q: 'Čo musíte urobiť, keď vaša loptička letí smerom k iným hráčom?', options: ['Nič, je to ich problém', 'Zavolať rozhodcu', 'Hlasno zakričať „Fore!"', 'Zastaviť hru'], correct: 2 },
-  { id: 'k12', q: 'Kedy smieš rozprávať nahlas alebo robiť hluk?', options: ['Kedykoľvek chceš', 'Len keď ty sám hráš úder', 'Nikdy počas toho, keď niekto iný hrá úder', 'Len na greeni'], correct: 2 },
+  { id: 'k12', q: 'Kedy smiete rozprávať nahlas alebo robiť hluk?', options: ['Kedykoľvek chcete', 'Len keď vy sami hráte úder', 'Nikdy počas toho, keď niekto iný hrá úder', 'Len na greeni'], correct: 2 },
   { id: 'k13', q: 'Čo treba urobiť s jamou (divotom) v trávniku, ktorú vytvorí váš úder?', options: ['Nechať ju tak, uprace to obsluha', 'Vrátiť vytrhanú trávu späť a pritlačiť ju', 'Zakryť ju pieskom', 'Označiť ju vlajočkou'], correct: 1 },
   { id: 'k14', q: 'Kto hrá ako prvý na tee boxe na začiatku kola?', options: ['Najmladší hráč', 'Najvyšší hráč', 'Hráč s najnižším handicapom alebo určený losovaním', 'Vždy hostiteľ ihriska'], correct: 2 },
   { id: 'k15', q: 'Čo treba urobiť na greeni po tom, ako vaša loptička urobí jamku (pitch mark)?', options: ['Nechať to tak', 'Zavolať greenkeepera', 'Opraviť poškodenie trávy špeciálnym nástrojom', 'Označiť miesto vlajočkou'], correct: 2 },
