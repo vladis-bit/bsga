@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
 import { Link } from "react-router-dom";
 
 const participantOptions = [
@@ -50,6 +51,7 @@ const CorporateContactForm = () => {
     setIsSubmitting(true);
 
     const payload = {
+      id: newMessageId(),
       first_name: firstName,
       last_name: lastName,
       email,
@@ -76,6 +78,7 @@ const CorporateContactForm = () => {
       });
       return;
     }
+    void notifyContactMessage(payload.id);
     setIsSubmitted(true);
     setFirstName("");
     setLastName("");

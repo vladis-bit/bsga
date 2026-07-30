@@ -25,6 +25,7 @@ const CorporateEvents = lazy(() => import("./pages/CorporateEvents"));
 const Events = lazy(() => import("./pages/Events"));
 const StartGolf = lazy(() => import("./pages/StartGolf"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>

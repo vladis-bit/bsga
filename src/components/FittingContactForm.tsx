@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
 
 const FittingContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,7 +29,9 @@ const FittingContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const messageId = newMessageId();
     const { error } = await supabase.from("contact_messages").insert({
+      id: messageId,
       first_name: firstName,
       last_name: lastName,
       email,
@@ -47,6 +50,7 @@ const FittingContactForm = () => {
       });
       return;
     }
+    void notifyContactMessage(messageId);
     setIsSubmitted(true);
     setFirstName(""); setLastName(""); setEmail(""); setPhone("");
     setMessage(""); setSelectedDate(undefined);
