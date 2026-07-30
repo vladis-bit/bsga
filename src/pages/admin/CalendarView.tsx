@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import {
   Booking,
@@ -19,6 +21,8 @@ import {
   PC_OPEN_HOUR,
   PC_CLOSE_HOUR,
   PC_LAST_START_HOUR,
+  PC_TIME_SLOTS,
+  validateOpeningHours,
 } from "./shared";
 
 const DAY_NAMES = ["Po", "Ut", "St", "Št", "Pi", "So", "Ne"];
@@ -40,6 +44,11 @@ const CalendarView = () => {
   const [selected, setSelected] = useState<Booking | null>(null);
   const [view, setView] = useState<"week" | "day">("day");
   const [day, setDay] = useState(() => startOfDay(new Date()));
+  const [simFilter, setSimFilter] = useState<string>("all");
+  const [edit, setEdit] = useState<{ simulator_id: string; date: string; time: string; duration_hours: string } | null>(
+    null,
+  );
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -67,6 +76,64 @@ const CalendarView = () => {
     () => Object.fromEntries(simulators.map((s) => [s.id, s.name])) as Record<string, string>,
     [simulators],
   );
+
+  const shownSims = useMemo(
+    () => (simFilter === "all" ? simulators : simulators.filter((s) => s.id === simFilter)),
+    [simulators, simFilter],
+  );
+
+  const openDetail = (b: Booking) => {
+    setSelected(b);
+    setEdit(null);
+  };
+
+  const startEdit = (b: Booking) => {
+    const d = new Date(b.starts_at);
+    const pad = (n: number) => String(n).padStart(2, "0");
+    setEdit({
+      simulator_id: b.simulator_id,
+      date: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`,
+      time: `${pad(d.getHours())}:${pad(d.getMinutes())}`,
+      duration_hours: String(b.duration_hours),
+    });
+  };
+
+  const patch = async (id: string, values: Partial<Booking>) => {
+    const { error } = await supabase.from("pc_bookings").update(values).eq("id", id);
+    if (error) {
+      toast({ title: "Chyba", description: translateDbError(error.message), variant: "destructive" });
+      return false;
+    }
+    setBookings((list) => list.map((b) => (b.id === id ? { ...b, ...values } : b)));
+    setSelected((s) => (s && s.id === id ? { ...s, ...values } : s));
+    return true;
+  };
+
+  const saveEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selected || !edit) return;
+    const hours = Number(edit.duration_hours) || 1;
+    const hoursError = validateOpeningHours(edit.time, hours);
+    if (hoursError) {
+      toast({ title: "Mimo otváracích hodín", description: hoursError, variant: "destructive" });
+      return;
+    }
+    const sim = simulators.find((s) => s.id === edit.simulator_id);
+    setSaving(true);
+    const starts = new Date(`${edit.date}T${edit.time}`);
+    const ok = await patch(selected.id, {
+      simulator_id: edit.simulator_id,
+      starts_at: starts.toISOString(),
+      ends_at: new Date(starts.getTime() + hours * 3600000).toISOString(),
+      duration_hours: hours,
+      price_eur: hours * Number(sim?.hourly_rate_eur ?? 0),
+    });
+    setSaving(false);
+    if (ok) {
+      toast({ title: "Rezervácia upravená" });
+      setEdit(null);
+    }
+  };
 
   const forCell = (simId: string, day: Date) =>
     bookings
