@@ -670,7 +670,7 @@ const Events = () => {
                         <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base text-foreground/90">
                           <div className="flex items-center gap-1.5">
                             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-                            <span className="font-medium">27. 3. – 3. 4. 2027</span>
+                            <span className="font-medium">26. 3. – 2. 4. 2027</span>
                           </div>
                           <div className="flex items-center gap-1.5">
                             <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
@@ -789,7 +789,7 @@ const Events = () => {
               Florida PGA Swing by DONI-Travel
             </DialogTitle>
             <DialogDescription className="text-gold font-medium text-base">
-              27. 3. – 3. 4. 2027 · Florida, USA
+              26. 3. – 2. 4. 2027 · Florida, USA
             </DialogDescription>
           </DialogHeader>
 
@@ -804,11 +804,11 @@ const Events = () => {
                 <Calendar className="w-5 h-5" />
                 <span className="font-semibold text-sm uppercase tracking-wide">Termín a cena</span>
               </div>
-              <p className="text-base sm:text-lg font-semibold text-foreground">27. 3. – 3. 4. 2027</p>
+              <p className="text-base sm:text-lg font-semibold text-foreground">26. 3. – 2. 4. 2027</p>
               <p className="text-lg sm:text-xl font-bold text-foreground mt-1">€4 950 / golfista (DBL room)</p>
               <p className="text-sm text-foreground/80 mt-1">Príplatok za SNG room: €1 200</p>
               <p className="text-sm text-muted-foreground mt-2">
-                Letenka nie je zahrnutá: Economy Premium €2 100 / osoba (Lufthansa / Austrian Airlines,
+                Letenka nie je zahrnutá: Premium Economy €2 250 / osoba (Lufthansa / Austrian Airlines,
                 Viedeň – Newark – West Palm Beach / Orlando – Mníchov – Viedeň). Kalkulácia zohľadňuje aktuálny kurz EUR/USD.
               </p>
             </div>
@@ -819,11 +819,11 @@ const Events = () => {
               </h4>
               <div className="rounded-xl border border-border bg-card p-4 sm:p-5 space-y-2 text-sm text-foreground/85">
                 <p><span className="font-semibold text-foreground">26. 3. 2027</span> · OS 037 · Viedeň – Newark · 10:30 – 14:55</p>
-                <p><span className="font-semibold text-foreground">26. 3. 2027</span> · UA 2402 · Newark – West Palm Beach · 18:00 – 20:56</p>
-                <p><span className="font-semibold text-foreground">1. 4. 2027</span> · LH 4389 · Orlando – Mníchov · 21:45 – 13:20 (2. 4. 2027)</p>
+                <p><span className="font-semibold text-foreground">26. 3. 2027</span> · UA 2823 · Newark – West Palm Beach · 18:00 – 20:56</p>
+                <p><span className="font-semibold text-foreground">1. 4. 2027</span> · LH 4389 · Orlando – Mníchov · 22:00 – 13:35 (2. 4. 2027)</p>
                 <p><span className="font-semibold text-foreground">2. 4. 2027</span> · OS 186 · Mníchov – Viedeň · 15:30 – 16:35</p>
                 <ul className="mt-3 space-y-1 text-foreground/80">
-                  <li>• Premium Economy</li>
+                  <li>• Premium Economy · booking code 9AB3VI</li>
                   <li>• 1× malá príručná batožina 40×30×15 cm</li>
                   <li>• 1× väčšia príručná batožina 55×40×23 cm</li>
                   <li>• 2× 23 kg batožina do podpalubia (môže byť aj golfový vak)</li>
@@ -862,13 +862,13 @@ const Events = () => {
               <div className="space-y-3">
                 {[
                   { day: "26. 3.", title: "Prílet do West Palm Beach", items: ["Prílet 20:56, voľný večer"] },
-                  { day: "27. 3.", title: "PGA National – Palmer", items: ["18 jamiek", "PGA Tour Qualifying School", "Tee-time 13:09 & 13:12 & 13:21"], tour: "PGA Tour" },
-                  { day: "28. 3.", title: "PGA National – Champion", items: ["18 jamiek", "Ryder Cup, PGA Tour Cognizant Classic", "Tee-time 9:33 & 9:41 & 9:50"], tour: "PGA Tour" },
+                  { day: "27. 3.", title: "PGA National – Palmer", items: ["18 jamiek", "PGA Tour Qualifying School", "Tee-time 11 hráčov 13:09 & 13:12 & 13:21"], tour: "PGA Tour" },
+                  { day: "28. 3.", title: "PGA National – Champion", items: ["18 jamiek", "Ryder Cup, PGA Tour Cognizant Classic", "Tee-time 11 hráčov 9:33 & 9:41 & 9:50"], tour: "PGA Tour" },
                   { day: "29. 3.", title: "Voľný deň · Daytona Beach", items: ["60-minútová prehliadka Daytona Beach International Speedway", "Voľný program – pláž a iné"] },
-                  { day: "30. 3.", title: "LPGA International – Rees Jones", items: ["18 jamiek"], tour: "LPGA Tour" },
-                  { day: "31. 3.", title: "TPC Sawgrass – Stadium Course", items: ["18 jamiek", "Tee-time 9:30 & 9:40 & 9:50"], tour: "The Players Championship" },
-                  { day: "1. 4.", title: "Arnold Palmer’s Bay Hill Club & Lodge", items: ["18 jamiek", "Tee-time 10:20 & 10:30 & 10:40", "Odlet z Orlanda 21:45"], tour: "Arnold Palmer Invitational" },
-                  { day: "3. 4.", title: "Prílet do Viedne", items: ["Prílet Viedeň 16:35"] },
+                  { day: "30. 3.", title: "LPGA International – Rees Jones", items: ["18 jamiek", "Tee-time 12 hráčov 9:07 & 9:16 & 9:25"], tour: "LPGA Tour" },
+                  { day: "31. 3.", title: "TPC Sawgrass – Stadium Course", items: ["18 jamiek", "Tee-time 11 hráčov 9:30 & 9:40 & 9:50 (3 osoby)"], tour: "The Players Championship" },
+                  { day: "1. 4.", title: "Arnold Palmer’s Bay Hill Club & Lodge", items: ["18 jamiek", "Tee-time 11 hráčov 10:30 & 10:40 & 10:50", "Odlet z Orlanda 22:00"], tour: "Arnold Palmer Invitational" },
+                  { day: "2. 4.", title: "Prílet do Viedne", items: ["Prílet Viedeň 16:35"] },
                 ].map((day, i) => (
                   <div key={i} className="rounded-xl border border-border bg-card p-4 sm:p-5 transition-all hover:border-gold/30">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
@@ -913,7 +913,7 @@ const Events = () => {
                   <li>• Sprepitné pre caddies (povinné na niektorých ihriskách)</li>
                   <li>• Administračný poplatok ESTA (povolenie na vstup do USA)</li>
                   <li>• Atrakcie a vstupenky mimo programu (NBA, NHL, výlety a iné)</li>
-                  <li>• Letenku Economy Premium (aktuálna cena €2 100 / osoba)</li>
+                  <li>• Letenku Premium Economy (aktuálna cena €2 250 / osoba)</li>
                 </ul>
               </div>
             </div>
