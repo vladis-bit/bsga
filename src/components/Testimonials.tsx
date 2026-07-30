@@ -171,7 +171,7 @@ const Testimonials = () => {
                   onClick={() => setCurrentIndex(index)}
                   className={cn(
                     "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                    index === currentIndex ? "bg-gold w-8" : "bg-border hover:bg-gold/50"
+                    index === currentIndex ? "bg-gold w-8" : "bg-background/30 hover:bg-gold/50"
                   )}
                 />
               ))}
