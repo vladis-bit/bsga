@@ -39,6 +39,8 @@
     --gold: 38 45% 56%;
     --gold-light: 38 45% 66%;
     --gold-dark: 38 45% 44%;
+    /* Accessible gold for small text on the ivory background (WCAG AA) */
+    --gold-text: 38 62% 30%;
 
     --font-sans: Manrope, ui-sans-serif, system-ui, sans-serif;
     --font-serif: Sora, ui-sans-serif, system-ui, sans-serif;
@@ -54,6 +56,16 @@
   .theme-ivory h5 {
     font-family: Sora, ui-sans-serif, system-ui, sans-serif;
     letter-spacing: -0.02em;
+  }
+
+  /* Ensure gold text meets contrast requirements on light ivory surfaces */
+  .theme-ivory .text-gold {
+    color: hsl(var(--gold-text));
+  }
+  .theme-ivory .bg-foreground .text-gold,
+  .theme-ivory .bg-black .text-gold,
+  .theme-ivory .dark-section .text-gold {
+    color: hsl(var(--gold));
   }
 }
 

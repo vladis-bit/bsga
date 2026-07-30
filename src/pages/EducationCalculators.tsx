@@ -10,7 +10,7 @@ const EducationCalculators = () => {
     <>
       <SEO
         title="Golfové kalkulačky | Edukačné centrum | BSGA"
-        description="Golfové kalkulačky - výpočty pre váš golf."
+        description="Golfové kalkulačky BSGA: pripravujeme nástroje na výpočet handicapu, vzdialeností úderov, skóre a ďalších metrík, ktoré vám pomôžu sledovať zlepšovanie vašej hry."
         path="/edukacne-centrum/kalkulacky"
         noindex
       />
@@ -41,7 +41,10 @@ const EducationCalculators = () => {
                 Už čoskoro
               </h2>
               <p className="text-muted-foreground max-w-md">
-                Pracujeme na golfových kalkulačkách, ktoré vám pomôžu s výpočtami handicapu, vzdialeností a ďalších užitočných metrík.
+                Pracujeme na sade golfových kalkulačiek, ktoré vám uľahčia prácu s číslami vo vašej hre. Pripravujeme kalkulačku handicapu podľa systému WHS, prepočet hracieho handicapu na konkrétne ihrisko podľa course a slope ratingu, kalkulačku vzdialeností úderov s jednotlivými palicami a nástroj na sledovanie štatistík ako fairways, greeny v regulácii či počet patov na kolo.
+              </p>
+              <p className="mt-4 text-muted-foreground max-w-md">
+                Kým budú kalkulačky hotové, nájdete v Edukačnom centre pravidlá golfu, golfovú etiketu aj záverečný test na zelenú kartu. Ak potrebujete pomôcť s výpočtom handicapu už teraz, ozvite sa našim trénerom.
               </p>
             </div>
           </div>
