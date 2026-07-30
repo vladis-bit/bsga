@@ -101,6 +101,12 @@ const Bookings = () => {
     e.preventDefault();
     const simulator = simById[form.simulator_id];
     if (!simulator || !form.date || !form.time) return;
+    const hoursCheck = Number(form.duration_hours) || 1;
+    const hoursError = validateOpeningHours(form.time, hoursCheck);
+    if (hoursError) {
+      toast({ title: "Mimo otváracích hodín", description: hoursError, variant: "destructive" });
+      return;
+    }
     setSaving(true);
     const starts = new Date(`${form.date}T${form.time}`);
     const hours = Number(form.duration_hours) || 1;
