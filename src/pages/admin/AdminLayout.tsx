@@ -11,6 +11,7 @@ const links = [
   { to: "/admin/rezervacie", label: "Rezervácie" },
   { to: "/admin/kalendar", label: "Kalendár" },
   { to: "/admin/spravy", label: "Správy" },
+  { to: "/admin/admini", label: "Admini" },
 ];
 
 const AdminLayout = () => {
