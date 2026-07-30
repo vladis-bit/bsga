@@ -432,6 +432,7 @@ const CalendarView = () => {
                 {selected.first_name} {selected.last_name ?? ""}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
+                {new Date(selected.starts_at).toLocaleDateString("sk-SK")} ·{" "}
                 {fmtTime(selected.starts_at)} · {simName[selected.simulator_id] ?? "—"} ·{" "}
                 {selected.duration_hours} h · {selected.price_eur} €
               </p>
@@ -451,6 +452,100 @@ const CalendarView = () => {
               Zavrieť
             </Button>
           </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {selected.status !== "confirmed" && (
+              <Button
+                size="sm"
+                className="rounded-full"
+                onClick={() => patch(selected.id, { status: "confirmed" })}
+              >
+                Potvrdiť
+              </Button>
+            )}
+            {selected.status !== "cancelled" && (
+              <Button
+                size="sm"
+                variant="destructive"
+                className="rounded-full"
+                onClick={async () => {
+                  if (!window.confirm("Naozaj zrušiť túto rezerváciu?")) return;
+                  if (await patch(selected.id, { status: "cancelled" }))
+                    toast({ title: "Rezervácia zrušená" });
+                }}
+              >
+                Zrušiť rezerváciu
+              </Button>
+            )}
+            <Button
+              size="sm"
+              variant="outline"
+              className="rounded-full"
+              onClick={() =>
+                patch(selected.id, {
+                  payment_status: selected.payment_status === "paid" ? "unpaid" : "paid",
+                })
+              }
+            >
+              {selected.payment_status === "paid" ? "Označiť ako nezaplatené" : "Označiť ako zaplatené"}
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              className="rounded-full"
+              onClick={() => (edit ? setEdit(null) : startEdit(selected))}
+            >
+              {edit ? "Zrušiť úpravu" : "Upraviť termín"}
+            </Button>
+          </div>
+
+          {edit && (
+            <form onSubmit={saveEdit} className="mt-5 grid gap-3 rounded-2xl border border-border p-4 sm:grid-cols-4">
+              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground sm:col-span-4">
+                Úprava rezervácie
+              </label>
+              <select
+                className="h-10 rounded-xl border border-border bg-background px-3 text-sm text-foreground"
+                value={edit.simulator_id}
+                onChange={(e) => setEdit({ ...edit, simulator_id: e.target.value })}
+              >
+                {simulators.map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+              <Input
+                type="date"
+                value={edit.date}
+                onChange={(e) => setEdit({ ...edit, date: e.target.value })}
+                required
+              />
+              <select
+                className="h-10 rounded-xl border border-border bg-background px-3 text-sm text-foreground"
+                value={edit.time}
+                onChange={(e) => setEdit({ ...edit, time: e.target.value })}
+              >
+                {PC_TIME_SLOTS.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+              <Input
+                type="number"
+                min="0.5"
+                max="8"
+                step="0.5"
+                value={edit.duration_hours}
+                onChange={(e) => setEdit({ ...edit, duration_hours: e.target.value })}
+                required
+              />
+              <Button type="submit" className="rounded-full sm:col-span-4" disabled={saving}>
+                {saving ? "Ukladám…" : "Uložiť zmeny"}
+              </Button>
+            </form>
+          )}
         </div>
       )}
     </div>
