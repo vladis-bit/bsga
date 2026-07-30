@@ -18,6 +18,9 @@ type Message = {
   message: string;
   source: string;
   is_read: boolean;
+  email_status: string | null;
+  email_error: string | null;
+  resend_at: string | null;
 };
 
 const Admin = () => {
@@ -110,6 +113,17 @@ const Admin = () => {
                   {m.first_name} {m.last_name}
                 </h2>
                 {!m.is_read && <Badge className="rounded-full bg-primary text-primary-foreground">Nové</Badge>}
+                {m.email_status === "sent" && (
+                  <Badge variant="outline" className="rounded-full border-primary/40 text-xs">
+                    E-mail odoslaný{m.resend_at ? ` · ${new Date(m.resend_at).toLocaleString("sk-SK")}` : ""}
+                  </Badge>
+                )}
+                {m.email_status === "failed" && (
+                  <Badge variant="destructive" className="rounded-full text-xs">E-mail zlyhal</Badge>
+                )}
+                {m.email_status === "pending" && (
+                  <Badge variant="outline" className="rounded-full text-xs">E-mail čaká</Badge>
+                )}
                 <span className="text-xs text-muted-foreground">
                   {new Date(m.created_at).toLocaleString("sk-SK")} · {m.source}
                 </span>
@@ -121,6 +135,9 @@ const Admin = () => {
                 {m.preferred_date ? ` · ${m.preferred_date}` : ""}
               </p>
               <p className="mt-3 whitespace-pre-wrap text-foreground">{m.message}</p>
+              {m.email_status === "failed" && m.email_error && (
+                <p className="mt-2 break-all text-xs text-destructive">{m.email_error}</p>
+              )}
               {!m.is_read && (
                 <Button variant="outline" size="sm" className="mt-4" onClick={() => markRead(m.id)}>
                   Označiť ako prečítané

@@ -19,6 +19,8 @@ export type Database = {
           company_name: string | null
           created_at: string
           email: string
+          email_error: string | null
+          email_status: string
           first_name: string
           id: string
           is_read: boolean
@@ -28,6 +30,8 @@ export type Database = {
           phone: string | null
           preferred_course: string | null
           preferred_date: string | null
+          resend_at: string | null
+          resend_id: string | null
           service: string | null
           source: string
         }
@@ -35,6 +39,8 @@ export type Database = {
           company_name?: string | null
           created_at?: string
           email: string
+          email_error?: string | null
+          email_status?: string
           first_name: string
           id?: string
           is_read?: boolean
@@ -44,6 +50,8 @@ export type Database = {
           phone?: string | null
           preferred_course?: string | null
           preferred_date?: string | null
+          resend_at?: string | null
+          resend_id?: string | null
           service?: string | null
           source?: string
         }
@@ -51,6 +59,8 @@ export type Database = {
           company_name?: string | null
           created_at?: string
           email?: string
+          email_error?: string | null
+          email_status?: string
           first_name?: string
           id?: string
           is_read?: boolean
@@ -60,6 +70,8 @@ export type Database = {
           phone?: string | null
           preferred_course?: string | null
           preferred_date?: string | null
+          resend_at?: string | null
+          resend_id?: string | null
           service?: string | null
           source?: string
         }
