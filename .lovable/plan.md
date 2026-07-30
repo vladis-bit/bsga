@@ -1,47 +1,36 @@
-## Cieľ
+## Kde to nájdeš dnes
 
-Nahradiť 15 samostatných Stripe Payment Linkov jedným nákupným košíkom: zákazník si pridá mikinu + poukážku + lekciu, uvidí zhrnutie objednávky a zaplatí naraz v jednej platbe — vrátane dopravy a kontroly skladu.
+Rezervácie sa ukladajú do tabuliek `pc_bookings` a `pc_simulators` v backende. Aktuálne existuje len `/admin` so zoznamom správ z formulárov — rezervácie tam nevidno. Cez More → Cloud vieš pozrieť surové riadky tabuľky, ale to nie je použiteľné na denné riadenie. Preto navrhujem vlastný dashboard.
 
-## Prečo je to zmena na pozadí
+## Čo postavím
 
-Payment Link je vždy len jedna pevná položka, takže viacpoložkovú objednávku technicky neumožňuje. Potrebná je platobná session vytvorená serverom z obsahu košíka — to zabezpečí vstavaná Stripe integrácia v Lovable (netreba vlastný Stripe účet ani kľúč, test prostredie vznikne hneď). Vyžaduje Pro plán.
+Prerobím `/admin` na plnohodnotný dashboard s bočnou navigáciou (ivory editorial dizajn, rovnaký ako web) a štyrmi sekciami:
 
-Dôležité: produkty sa musia vytvoriť nanovo v novej integrácii — existujúce Payment Linky sa neprenesú. Kým nebude nový tok overený, staré linky nechám funkčné.
+**1. Prehľad**
+- Karty s číslami: dnešné rezervácie, tento týždeň, obsadenosť Trackman 4 vs iO, tržby za mesiac (počet hodín × cena), neprečítané správy.
+- Zoznam „Najbližšie rezervácie" (dnes + zajtra) s menom, časom, simulátorom, telefónom.
 
-Pri fyzickom tovare (mikiny, šiltovky, tašky, uteráky) nastavím Stripe na výpočet a výber DPH (+0,5 % za transakciu); registráciu a odvod DPH rieši BSGA. Plná compliance správa sa na fyzický tovar nevzťahuje.
+**2. Rezervácie (jadro)**
+- Tabuľka všetkých rezervácií: dátum a čas, simulátor, klient, kontakt, dĺžka, cena, stav rezervácie, stav platby.
+- Filtre: simulátor, stav, časové obdobie (dnes / týždeň / mesiac / všetko), vyhľadávanie podľa mena, e-mailu alebo telefónu.
+- Akcie na riadku: potvrdiť, zrušiť, označiť ako zaplatené, poznámka.
+- Ručné pridanie rezervácie (keď klient zavolá alebo príde osobne).
+- Export do CSV pre účtovníctvo.
 
-## Postup
+**3. Kalendár**
+- Týždenný pohľad, stĺpec pre každý simulátor, bloky s časom a menom klienta. Klik na blok otvorí detail rezervácie. Rýchly vizuál voľných okien.
 
-**1. Zapnutie platieb**
-Zapnem vstavanú Stripe integráciu a v Lovable Cloud pripravím backend (serverová funkcia + webhook).
-
-**2. Katalóg v databáze**
-Tabuľky `products` (názov, popis, cena, typ: merch/služba/poukážka, obrázok, či sa posiela), `product_variants` (farba, veľkosť, počet kusov na sklade), `orders` a `order_items`. Verejné čítanie katalógu, zápis objednávok len cez server. Naplním ich súčasnými 15 položkami vrátane variantov (mikina čierna/zelená/žltá, šiltovka biela/sivá).
-
-**3. Košík vo frontende**
-- Stav košíka v `localStorage` (prežije obnovenie stránky)
-- Tlačidlo „Pridať do košíka" na kartách namiesto priameho „Kúpiť"
-- Ikona košíka s počtom položiek v navigácii
-- Bočný panel: položky, varianty, množstvo, medzisúčet, doprava, celkom
-- Dizajn v zlatej téme, plne optimalizovaný pre mobil a tablet
-
-**4. Objednávka a platba**
-Serverová funkcia overí ceny a dostupnosť skladu z databázy (nikdy nedôveruje cenám z prehliadača), vytvorí jednu Stripe session so všetkými položkami, vyžiada doručovaciu adresu, ponúkne dopravu (kuriér na Slovensko / osobný odber na akadémii zdarma) a zapne výpočet DPH.
-
-**5. Po platbe**
-Webhook uloží objednávku, zníži stav skladu a označí platbu. Stránka „Ďakujeme za objednávku" so zhrnutím a číslom objednávky.
-
-**6. Kontrola skladu**
-Vypredaný variant sa nedá pridať do košíka a na karte je označený ako nedostupný. Poukážky a služby sklad neriešia.
+**4. Správy**
+- Súčasný zoznam z formulárov, len presunutý do novej navigácie a doplnený o filter prečítané/neprečítané.
 
 ## Technické detaily
 
-- Ceny a sklad sa validujú výhradne na serveri pri vytváraní session
-- Webhook je idempotentný — dvojité doručenie neznižuje sklad dvakrát
-- Sklad sa odpisuje až po potvrdenej platbe
-- Product/Offer JSON-LD schéma sa prepojí na nový katalóg, aby SEO rich results zostali funkčné
-- Staré Payment Linky odstránim až po overení nového toku v testovacom režime
+- Nové súbory: `src/pages/admin/AdminLayout.tsx`, `Overview.tsx`, `Bookings.tsx`, `Calendar.tsx`, `Messages.tsx`; zdieľané hooky `useBookings`, `useAdminStats`.
+- Routy: `/admin`, `/admin/rezervacie`, `/admin/kalendar`, `/admin/spravy` (chránené prihlásením, `robots.txt` už `/admin` blokuje).
+- Prístup: dnešné RLS politiky dovoľujú čítať a meniť `pc_bookings` len adminom cez `has_role()` — dashboard sa na to spolieha, žiadne nové výnimky.
+- Ručné vytvorenie rezervácie a zmeny stavov idú cez bežné klientské volania s admin RLS; prekrývanie termínov blokuje existujúce DB obmedzenie a chybu zobrazím zrozumiteľne po slovensky.
+- Zatiaľ nezasahujem do verejného rezervačného formulára — dashboard je pripravený aj na rezervácie zadané ručne.
 
-## Čo nie je zahrnuté
+## Otvorená otázka na neskôr
 
-Administrácia objednávok a skladu (rozhranie pre správu) — dá sa doplniť ako ďalší krok. Zatiaľ sa objednávky pozerajú v databáze a notifikáciou na e-mail.
+Verejný rezervačný formulár s kalendárom voľných termínov na webe zatiaľ neexistuje. Keď povieš, dorobím ho ako ďalší krok a rezervácie budú do dashboardu padať automaticky.
