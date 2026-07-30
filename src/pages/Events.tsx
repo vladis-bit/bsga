@@ -31,55 +31,6 @@ interface EventItem {
 
 const events: EventItem[] = [
   {
-    title: "Camiral Trip",
-    date: "1. – 6. 5. 2026",
-    location: "Camiral, Španielsko",
-    posterUrl: camiralPoster.url,
-    details: {
-      subtitle: "Hosťujúce ihrisko Ryder Cup 2031 – Camiral & Quinta do Lago Resort",
-      intro: "Doni Travel pripravil exkluzívny golfový zájazd do Španielska na prestížne Camiral Resort, ktoré bude hostiť Ryder Cup 2031. Súčasťou pobytu je aj výlet do Barcelony so sprievodcom.",
-      price: "€1 535 / golfista · €415 / negolfista",
-      priceNote: "Priamy let z Bratislavy do Barcelony · Ubytovanie Hotel Lavida 4* na 5 nocí · Letenka nie je zahrnutá v cene",
-      schedule: [
-        { day: "Piatok 1. 5.", title: "Prílet & Stadium Course", items: ["Priamy let Bratislava – Barcelona", "Camiral Resort – Stadium Course (autíčko v cene)"] },
-        { day: "Sobota 2. 5.", title: "Camiral Resort – Tour Course", items: ["Hra na Tour Course (autíčko v cene)"] },
-        { day: "Nedeľa 3. 5.", title: "Výlet do Barcelony", items: ["Celodenný výlet so zabezpečeným sprievodcom a vstupmi"] },
-        { day: "Pondelok 4. 5.", title: "Camiral Resort – Tour Course", items: ["Hra na Tour Course (autíčko v cene)"] },
-        { day: "Utorok 5. 5.", title: "Camiral Resort – Stadium Course", items: ["Hra na Stadium Course (autíčko v cene)"] },
-        { day: "Streda 6. 5.", title: "Odlet domov", items: ["Let Barcelona – Bratislava"] },
-      ],
-      contact: {
-        name: "Peter Švajlen, MBA",
-        email: "peter@doni-travel.sk",
-        phone: "+421 905 335 501",
-      },
-    },
-  },
-  {
-    title: "Liv Golf Andalucia",
-    date: "6. – 10. 6. 2026",
-    location: "Andalúzia, Španielsko",
-    posterUrl: livPoster.url,
-    details: {
-      subtitle: "3x golf v Andalúzii + finálový deň LIV GOLF Spain",
-      intro: "Doni Travel pripravil zájazd do slnečnej Andalúzie spojený s návštevou finálového kola LIV GOLF Spain a hrou na troch špičkových ihriskách.",
-      price: "€1 290 / golfista · €750 / negolfista",
-      priceNote: "Príplatok za single room: €375 · Letenka nie je zahrnutá v cene",
-      schedule: [
-        { day: "Piatok 6. 6.", title: "Prílet do Malagy", items: ["Let Viedeň – Malaga"] },
-        { day: "Sobota 7. 6.", title: "LIV GOLF Spain", items: ["Návšteva finálového kola LIV GOLF Spain"] },
-        { day: "Nedeľa 8. 6.", title: "Atalaya New Course", items: ["Hra na Atalaya New Course"] },
-        { day: "Pondelok 9. 6.", title: "Estepona Course", items: ["Hra na Estepona Course"] },
-        { day: "Utorok 10. 6.", title: "Los Arqueros & odlet", items: ["Hra na Los Arqueros Course", "Let Malaga – Viedeň"] },
-      ],
-      contact: {
-        name: "Peter Švajlen, MBA",
-        email: "peter@doni-travel.sk",
-        phone: "+421 905 335 501",
-      },
-    },
-  },
-  {
     title: "PGA Czechia – Po stopách Czech PGA Tour",
     date: "20. – 23. 8. 2026",
     location: "Česká republika",
@@ -167,6 +118,58 @@ const events: EventItem[] = [
       contact: {
         name: "Peter Švajlen, MBA",
         email: ["peter@doni-travel.com", "doni@doni-travel.com"],
+        phone: "+421 905 335 501",
+      },
+    },
+  },
+];
+
+const archivedEvents: EventItem[] = [
+  {
+    title: "Camiral Trip",
+    date: "1. – 6. 5. 2026",
+    location: "Camiral, Španielsko",
+    posterUrl: camiralPoster.url,
+    details: {
+      subtitle: "Hosťujúce ihrisko Ryder Cup 2031 – Camiral & Quinta do Lago Resort",
+      intro: "Doni Travel pripravil exkluzívny golfový zájazd do Španielska na prestížne Camiral Resort, ktoré bude hostiť Ryder Cup 2031. Súčasťou pobytu je aj výlet do Barcelony so sprievodcom.",
+      price: "€1 535 / golfista · €415 / negolfista",
+      priceNote: "Priamy let z Bratislavy do Barcelony · Ubytovanie Hotel Lavida 4* na 5 nocí · Letenka nie je zahrnutá v cene",
+      schedule: [
+        { day: "Piatok 1. 5.", title: "Prílet & Stadium Course", items: ["Priamy let Bratislava – Barcelona", "Camiral Resort – Stadium Course (autíčko v cene)"] },
+        { day: "Sobota 2. 5.", title: "Camiral Resort – Tour Course", items: ["Hra na Tour Course (autíčko v cene)"] },
+        { day: "Nedeľa 3. 5.", title: "Výlet do Barcelony", items: ["Celodenný výlet so zabezpečeným sprievodcom a vstupmi"] },
+        { day: "Pondelok 4. 5.", title: "Camiral Resort – Tour Course", items: ["Hra na Tour Course (autíčko v cene)"] },
+        { day: "Utorok 5. 5.", title: "Camiral Resort – Stadium Course", items: ["Hra na Stadium Course (autíčko v cene)"] },
+        { day: "Streda 6. 5.", title: "Odlet domov", items: ["Let Barcelona – Bratislava"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: "peter@doni-travel.sk",
+        phone: "+421 905 335 501",
+      },
+    },
+  },
+  {
+    title: "Liv Golf Andalucia",
+    date: "6. – 10. 6. 2026",
+    location: "Andalúzia, Španielsko",
+    posterUrl: livPoster.url,
+    details: {
+      subtitle: "3x golf v Andalúzii + finálový deň LIV GOLF Spain",
+      intro: "Doni Travel pripravil zájazd do slnečnej Andalúzie spojený s návštevou finálového kola LIV GOLF Spain a hrou na troch špičkových ihriskách.",
+      price: "€1 290 / golfista · €750 / negolfista",
+      priceNote: "Príplatok za single room: €375 · Letenka nie je zahrnutá v cene",
+      schedule: [
+        { day: "Piatok 6. 6.", title: "Prílet do Malagy", items: ["Let Viedeň – Malaga"] },
+        { day: "Sobota 7. 6.", title: "LIV GOLF Spain", items: ["Návšteva finálového kola LIV GOLF Spain"] },
+        { day: "Nedeľa 8. 6.", title: "Atalaya New Course", items: ["Hra na Atalaya New Course"] },
+        { day: "Pondelok 9. 6.", title: "Estepona Course", items: ["Hra na Estepona Course"] },
+        { day: "Utorok 10. 6.", title: "Los Arqueros & odlet", items: ["Hra na Los Arqueros Course", "Let Malaga – Viedeň"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: "peter@doni-travel.sk",
         phone: "+421 905 335 501",
       },
     },
@@ -585,6 +588,30 @@ const Events = () => {
                   {/* Subtle bottom glow */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="archiv-eventov" className="scroll-mt-24 bg-muted/50 py-20 md:py-28">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Archív eventov a akcií
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <Calendar className="h-4 w-4" /> Uskutočnené akcie
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Archív
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+                {archivedEvents.map((event, index) => (
+                  <EventCard key={`archiv-${index}`} event={event} index={index} variant="small" />
+                ))}
               </div>
             </div>
           </section>
