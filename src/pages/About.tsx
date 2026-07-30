@@ -307,14 +307,14 @@ const About = () => {
           </section>
 
           {/* Mission quote */}
-          <section className="bg-background pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
+          <section className="bg-foreground pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-                <span className="mb-5 font-serif text-5xl leading-none text-muted-foreground/40 sm:mb-6 sm:text-6xl">
+                <span className="mb-5 font-serif text-5xl leading-none text-gold/60 sm:mb-6 sm:text-6xl">
                   “
                 </span>
-                <p className="max-w-4xl text-balance font-sans text-[1.4rem] font-black leading-[1.05] tracking-[-0.02em] text-foreground sm:text-4xl sm:leading-[1] sm:tracking-[-0.04em] md:text-5xl md:tracking-[-0.05em] lg:text-[4rem]">
-                  Best Swing Golf Academy vznikla koncom roku 2016 s jasnou <span className="font-serif text-muted-foreground italic">misiou</span> – propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám.
+                <p className="max-w-4xl text-balance font-sans text-[1.4rem] font-black leading-[1.05] tracking-[-0.02em] text-background sm:text-4xl sm:leading-[1] sm:tracking-[-0.04em] md:text-5xl md:tracking-[-0.05em] lg:text-[4rem]">
+                  Best Swing Golf Academy vznikla koncom roku 2016 s jasnou <span className="font-serif text-gold italic">misiou</span> – propagovať golf na Slovensku, vytvárať pozitívny obraz o tejto hre a sprístupniť ho všetkým vekovým kategóriám.
                 </p>
               </div>
             </div>
@@ -339,7 +339,7 @@ const About = () => {
           </section>
 
           {/* Team */}
-          <section className="bg-background py-12 sm:py-16 md:py-24">
+          <section className="bg-muted/50 py-12 sm:py-16 md:py-24">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-2 border-b border-border pb-6 sm:mb-14">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
@@ -357,7 +357,7 @@ const About = () => {
           </section>
 
           {/* Career CTA */}
-          <section id="kariera" className="bg-background py-12 sm:py-16 md:py-24">
+          <section id="kariera" className="bg-foreground py-16 sm:py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="max-w-3xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-12 text-center shadow-sm">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
