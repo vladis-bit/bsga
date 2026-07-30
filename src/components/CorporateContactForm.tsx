@@ -51,6 +51,7 @@ const CorporateContactForm = () => {
     setIsSubmitting(true);
 
     const payload = {
+      id: newMessageId(),
       first_name: firstName,
       last_name: lastName,
       email,
@@ -77,6 +78,7 @@ const CorporateContactForm = () => {
       });
       return;
     }
+    void notifyContactMessage(payload.id);
     setIsSubmitted(true);
     setFirstName("");
     setLastName("");
