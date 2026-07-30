@@ -55,6 +55,7 @@ const App = () => (
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
             <Route path="/gdpr" element={<GDPR />} />
             <Route path="/obchodne-podmienky" element={<TermsAndConditions />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
