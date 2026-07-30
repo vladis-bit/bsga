@@ -301,7 +301,7 @@ const CalendarView = () => {
                         return (
                           <td key={s.id} className="border-b border-l border-border p-1.5 align-top">
                             <button
-                              onClick={() => setSelected(st.booking)}
+                              onClick={() => openDetail(st.booking)}
                               className="w-full rounded-2xl bg-foreground px-3 py-2 text-left text-background transition-opacity hover:opacity-80"
                             >
                               <span className="block text-xs font-bold">
@@ -397,7 +397,7 @@ const CalendarView = () => {
                         {items.map((b) => (
                           <button
                             key={b.id}
-                            onClick={() => setSelected(b)}
+                            onClick={() => openDetail(b)}
                             className="w-full rounded-xl bg-foreground px-2 py-1 text-left text-xs text-background transition-opacity hover:opacity-80"
                           >
                             {fmtTime(b.starts_at)} · {b.first_name} {b.last_name ?? ""}
