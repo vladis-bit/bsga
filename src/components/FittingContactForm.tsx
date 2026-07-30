@@ -72,7 +72,7 @@ const FittingContactForm = () => {
             Kontaktný formulár
           </p>
           <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Vyplň formulár a Jakub Hrbáň – náš špecialista na fitting – sa ti ozve s návrhom termínu a detailmi celého procesu. Fitting trvá 120 minút a prebieha v Performance Centre v Petržalke.
+            Vyplň formulár a Jakub Hrbáň – náš špecialista na fitting – sa ti ozve s návrhom termínu a detailmi celého procesu. Fitting trvá 120 minút.
           </p>
           <div className="flex justify-center mt-4">
             <a
