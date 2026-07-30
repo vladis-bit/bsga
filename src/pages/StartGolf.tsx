@@ -359,7 +359,7 @@ const StartGolf = () => {
                     <Compass className="h-4 w-4" /> Krok 01
                   </p>
                   <h2 className="mt-2 font-serif text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-foreground">
-                    Začni s golfom
+                    Programy pre začínajúcich hráčov
                   </h2>
                   <p className="mt-3 text-sm sm:text-base text-foreground/70 max-w-2xl mx-auto px-2">
                     Vaše prvé stretnutie s golfom v intenzívnom formáte. Získate pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko. Vyberte si víkendový kurz alebo kurz ZK, voľba je na vás !

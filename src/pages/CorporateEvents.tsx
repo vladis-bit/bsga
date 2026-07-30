@@ -86,7 +86,7 @@ const CorporateEvents = () => {
   return (
     <>
       <SEO
-        title="Firemné akcie a teambuildingy | BSGA - Best Swing Golf Academy"
+        title="Firemné akcie a teambuildingy | BSGA Golf Academy"
         description="Zorganizujte golfový teambuilding alebo firemnú akciu na kľúč. PGA tréneri, ihrisko, catering, vybavenie aj ceny – BSGA sa postará o všetko."
         path="/firemne-akcie"
         breadcrumbs={[
