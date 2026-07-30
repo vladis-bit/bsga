@@ -150,7 +150,22 @@ const AdminLayout = () => {
     );
   }
 
-  if (isAdmin === null) return <main className="min-h-screen bg-background" />;
+  if (isAdmin === null)
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-background px-4">
+        <div className="space-y-3 text-center">
+          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-border border-t-gold" />
+          <p className="text-sm text-muted-foreground">Overujem oprávnenia…</p>
+          <button
+            type="button"
+            onClick={() => supabase.auth.signOut()}
+            className="text-xs uppercase tracking-[0.2em] text-muted-foreground underline"
+          >
+            Odhlásiť sa
+          </button>
+        </div>
+      </main>
+    );
 
   if (!isAdmin) {
     return (
