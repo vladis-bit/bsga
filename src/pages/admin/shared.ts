@@ -142,3 +142,21 @@ export const validateOpeningHours = (time: string, hours: number): string | null
   }
   return null;
 };
+
+export type Blackout = {
+  id: string;
+  simulator_id: string | null;
+  starts_at: string;
+  ends_at: string;
+  reason: string | null;
+  created_at: string;
+};
+
+export async function fetchBlackouts(): Promise<Blackout[]> {
+  const { data, error } = await supabase
+    .from("pc_blackouts")
+    .select("*")
+    .order("starts_at", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as Blackout[];
+}

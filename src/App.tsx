@@ -31,6 +31,7 @@ const AdminBookings = lazy(() => import("./pages/admin/Bookings"));
 const AdminCalendar = lazy(() => import("./pages/admin/CalendarView"));
 const AdminMessages = lazy(() => import("./pages/admin/Messages"));
 const AdminAdmins = lazy(() => import("./pages/admin/Admins"));
+const AdminBlackouts = lazy(() => import("./pages/admin/Blackouts"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 
 const queryClient = new QueryClient();
@@ -68,6 +69,7 @@ const App = () => (
               <Route path="kalendar" element={<AdminCalendar />} />
               <Route path="spravy" element={<AdminMessages />} />
               <Route path="admini" element={<AdminAdmins />} />
+              <Route path="blokovane-terminy" element={<AdminBlackouts />} />
             </Route>
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />

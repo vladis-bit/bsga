@@ -4,9 +4,11 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Booking,
   Simulator,
+  Blackout,
   addDays,
   fetchBookings,
   fetchSimulators,
+  fetchBlackouts,
   fmtDate,
   fmtTime,
   startOfDay,
@@ -25,15 +27,17 @@ const CalendarView = () => {
   const { toast } = useToast();
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [simulators, setSimulators] = useState<Simulator[]>([]);
+  const [blackouts, setBlackouts] = useState<Blackout[]>([]);
   const [weekStart, setWeekStart] = useState(() => startOfWeek(new Date()));
   const [selected, setSelected] = useState<Booking | null>(null);
 
   useEffect(() => {
     (async () => {
       try {
-        const [b, s] = await Promise.all([fetchBookings(), fetchSimulators()]);
+        const [b, s, bl] = await Promise.all([fetchBookings(), fetchSimulators(), fetchBlackouts()]);
         setBookings(b);
         setSimulators(s);
+        setBlackouts(bl);
       } catch (e) {
         toast({
           title: "Nepodarilo sa načítať kalendár",
@@ -62,6 +66,15 @@ const CalendarView = () => {
         return t === startOfDay(day).getTime();
       })
       .sort((a, b) => a.starts_at.localeCompare(b.starts_at));
+
+  const blackoutsFor = (simId: string, day: Date) => {
+    const dayStart = startOfDay(day).getTime();
+    const dayEnd = dayStart + 24 * 60 * 60 * 1000;
+    return blackouts.filter((bl) => {
+      if (bl.simulator_id && bl.simulator_id !== simId) return false;
+      return new Date(bl.starts_at).getTime() < dayEnd && new Date(bl.ends_at).getTime() > dayStart;
+    });
+  };
 
   return (
     <div className="space-y-6">
@@ -109,9 +122,19 @@ const CalendarView = () => {
                 </td>
                 {days.map((d, i) => {
                   const items = forCell(s.id, d);
+                  const blocks = blackoutsFor(s.id, d);
                   return (
                     <td key={i} className="border-b border-l border-border p-2 align-top">
                       <div className="space-y-1">
+                        {blocks.map((bl) => (
+                          <div
+                            key={bl.id}
+                            className="rounded-xl border border-destructive/40 bg-destructive/10 px-2 py-1 text-xs text-destructive"
+                          >
+                            Blokované {fmtTime(bl.starts_at)}–{fmtTime(bl.ends_at)}
+                            {bl.reason ? ` · ${bl.reason}` : ""}
+                          </div>
+                        ))}
                         {items.map((b) => (
                           <button
                             key={b.id}
@@ -121,7 +144,7 @@ const CalendarView = () => {
                             {fmtTime(b.starts_at)} · {b.first_name} {b.last_name ?? ""}
                           </button>
                         ))}
-                        {items.length === 0 && (
+                        {items.length === 0 && blocks.length === 0 && (
                           <span className="text-xs text-muted-foreground">voľné</span>
                         )}
                       </div>
