@@ -96,7 +96,7 @@ const services = [
     image: serviceTourImg,
     link: "/tour",
     description: (
-      <>Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
+      <>Séria turnajov, kde môžete <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
     ),
   },
   {

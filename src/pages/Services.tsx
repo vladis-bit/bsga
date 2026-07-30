@@ -148,7 +148,7 @@ const services = [
     link: "/tour",
     description: (
       <>
-        Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a <strong>profesionálna organizácia</strong>.
+        Séria turnajov, kde môžete <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a <strong>profesionálna organizácia</strong>.
       </>
     ),
   },

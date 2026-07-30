@@ -45,7 +45,7 @@ const ResetPassword = () => {
       toast({ title: "Zmena zlyhala", description: error.message, variant: "destructive" });
       return;
     }
-    toast({ title: "Heslo zmenené", description: "Môžeš sa prihlásiť novým heslom." });
+    toast({ title: "Heslo zmenené", description: "Môžete sa prihlásiť novým heslom." });
     navigate("/admin");
   };
 

@@ -170,7 +170,7 @@ const Shop = () => {
       price: 4.99,
       purchaseUrl: "https://buy.stripe.com/5kQdR9evl2Gm1NadRG8so0e",
       description:
-        "Štýlová identifikačná visačka na cestovnú tašku alebo golfový bag s logom BSGA. Už si budeš poznať svoj bag!",
+        "Štýlová identifikačná visačka na cestovnú tašku alebo golfový bag s logom BSGA. Už si budete poznať svoj bag!",
       image: merchLuggageTag,
     },
     {
