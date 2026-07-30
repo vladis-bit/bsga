@@ -188,6 +188,27 @@ const CalendarView = () => {
           {PC_LAST_START_HOUR}:00 (Trackman 4 aj Trackman iO).
         </p>
         <div className="flex flex-wrap items-center gap-2">
+          <div className="mr-2 flex flex-wrap rounded-full border border-border p-1">
+            <button
+              onClick={() => setSimFilter("all")}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                simFilter === "all" ? "bg-foreground text-background" : "text-muted-foreground"
+              }`}
+            >
+              Všetky
+            </button>
+            {simulators.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => setSimFilter(s.id)}
+                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                  simFilter === s.id ? "bg-foreground text-background" : "text-muted-foreground"
+                }`}
+              >
+                {s.name}
+              </button>
+            ))}
+          </div>
           <div className="mr-2 flex rounded-full border border-border p-1">
             <button
               onClick={() => setView("day")}
