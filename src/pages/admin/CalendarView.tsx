@@ -14,6 +14,9 @@ import {
   STATUS_LABEL,
   PAYMENT_LABEL,
   translateDbError,
+  PC_OPEN_HOUR,
+  PC_CLOSE_HOUR,
+  PC_LAST_START_HOUR,
 } from "./shared";
 
 const DAY_NAMES = ["Po", "Ut", "St", "Št", "Pi", "So", "Ne"];
@@ -64,6 +67,10 @@ const CalendarView = () => {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <h1 className="font-serif text-3xl text-foreground">Kalendár</h1>
+        <p className="w-full text-xs text-muted-foreground">
+          Otváracie hodiny: {PC_OPEN_HOUR}:00 – {PC_CLOSE_HOUR}:00 · posledná rezervácia začína o{" "}
+          {PC_LAST_START_HOUR}:00 (Trackman 4 aj Trackman iO).
+        </p>
         <div className="flex items-center gap-2">
           <Button variant="outline" className="rounded-full" onClick={() => setWeekStart(addDays(weekStart, -7))}>
             ← Predchádzajúci
