@@ -191,7 +191,7 @@ const CalendarView = () => {
                   <th className="w-20 border-b border-border p-3 text-left text-xs font-bold uppercase tracking-wider text-muted-foreground">
                     Čas
                   </th>
-                  {simulators.map((s) => (
+                  {shownSims.map((s) => (
                     <th
                       key={s.id}
                       className="border-b border-l border-border p-3 text-left text-xs font-bold uppercase tracking-wider text-muted-foreground"
@@ -207,7 +207,7 @@ const CalendarView = () => {
                     <td className="border-b border-border p-3 align-top text-xs font-semibold text-muted-foreground">
                       {String(h).padStart(2, "0")}:00
                     </td>
-                    {simulators.map((s) => {
+                    {shownSims.map((s) => {
                       const st = slotState(s.id, h);
                       if (st.kind === "booked") {
                         return (
@@ -254,7 +254,7 @@ const CalendarView = () => {
                     })}
                   </tr>
                 ))}
-                {simulators.length === 0 && (
+                {shownSims.length === 0 && (
                   <tr>
                     <td className="p-6 text-muted-foreground" colSpan={3}>
                       Žiadne simulátory.
@@ -283,7 +283,7 @@ const CalendarView = () => {
             </tr>
           </thead>
           <tbody>
-            {simulators.map((s) => (
+            {shownSims.map((s) => (
               <tr key={s.id}>
                 <td className="border-b border-border p-3 align-top font-semibold text-foreground">
                   {s.name}
@@ -324,7 +324,7 @@ const CalendarView = () => {
                 })}
               </tr>
             ))}
-            {simulators.length === 0 && (
+            {shownSims.length === 0 && (
               <tr>
                 <td className="p-6 text-muted-foreground" colSpan={8}>
                   Žiadne simulátory.
