@@ -8,13 +8,16 @@ const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const KIDS = ["Detská akadémia", "Detský kemp"];
 const CORP = ["Firemný teambuilding", "Firemné akcie"];
 
-function pickRecipient(source: string, service: string | null): string {
-  if (source === "services" && service) {
-    if (KIDS.includes(service)) return "kids@bsga.sk";
-    if (CORP.includes(service)) return "bsga@bsga.sk";
+function pickRecipients(source: string, service: string | null): string[] {
+  // info@ always gets a copy, plus the department mailbox.
+  const list = ["info@bsga.sk", "kids@bsga.sk"];
+  if ((source === "services" && service && CORP.includes(service)) || source.startsWith("corporate")) {
+    list.push("bsga@bsga.sk");
   }
-  if (source.startsWith("corporate")) return "bsga@bsga.sk";
-  return "info@bsga.sk";
+  if (source === "services" && service && KIDS.includes(service)) {
+    // kids@ already included
+  }
+  return [...new Set(list)];
 }
 
 const esc = (v: unknown) =>
@@ -58,7 +61,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const to = pickRecipient(msg.source ?? "", msg.service ?? null);
+    const to = pickRecipients(msg.source ?? "", msg.service ?? null);
     const fullName = `${msg.first_name ?? ""} ${msg.last_name ?? ""}`.trim();
     const subject = `Nová správa: ${msg.service || "Kontaktný formulár"} – ${fullName}`;
 
@@ -100,7 +103,7 @@ Deno.serve(async (req) => {
       },
       body: JSON.stringify({
         from: "BSGA Web <noreply@bsga.sk>",
-        to: [to],
+        to,
         reply_to: msg.email,
         subject,
         html,
