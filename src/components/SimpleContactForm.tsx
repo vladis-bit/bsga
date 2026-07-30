@@ -22,7 +22,9 @@ const SimpleContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const messageId = newMessageId();
     const { error } = await supabase.from("contact_messages").insert({
+      id: messageId,
       first_name: firstName,
       last_name: lastName,
       email,
@@ -39,6 +41,7 @@ const SimpleContactForm = () => {
       });
       return;
     }
+    void notifyContactMessage(messageId);
     setIsSubmitted(true);
     setFirstName(""); setLastName(""); setEmail(""); setPhone(""); setMessage(""); setGdprConsent(false);
     toast({
