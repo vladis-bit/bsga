@@ -104,6 +104,13 @@ Deno.serve(async (req) => {
     if (!res.ok) {
       const details = await res.text();
       console.error(`Resend failed [${res.status}]: ${details}`);
+      await supabase
+        .from("contact_messages")
+        .update({
+          email_status: "failed",
+          email_error: `[${res.status}] ${details}`.slice(0, 2000),
+        })
+        .eq("id", messageId);
       return new Response(JSON.stringify({ error: "Email send failed", status: res.status, details }), {
         status: res.status,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -111,11 +118,23 @@ Deno.serve(async (req) => {
     }
 
     const result = await res.json();
+    await supabase
+      .from("contact_messages")
+      .update({
+        email_status: "sent",
+        email_error: null,
+        resend_at: new Date().toISOString(),
+        resend_id: result?.id ?? null,
+      })
+      .eq("id", messageId);
     return new Response(JSON.stringify({ ok: true, to, id: result?.id }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
     console.error("send-contact-notification error:", e);
+    try {
+      const body2 = null;
+    } catch { /* noop */ }
     return new Response(JSON.stringify({ error: String((e as Error)?.message ?? e) }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
