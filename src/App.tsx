@@ -25,6 +25,7 @@ const CorporateEvents = lazy(() => import("./pages/CorporateEvents"));
 const Events = lazy(() => import("./pages/Events"));
 const StartGolf = lazy(() => import("./pages/StartGolf"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
 
