@@ -77,6 +77,44 @@ export type Database = {
         }
         Relationships: []
       }
+      pc_blackouts: {
+        Row: {
+          created_at: string
+          ends_at: string
+          id: string
+          reason: string | null
+          simulator_id: string | null
+          starts_at: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          ends_at: string
+          id?: string
+          reason?: string | null
+          simulator_id?: string | null
+          starts_at: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          ends_at?: string
+          id?: string
+          reason?: string | null
+          simulator_id?: string | null
+          starts_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pc_blackouts_simulator_id_fkey"
+            columns: ["simulator_id"]
+            isOneToOne: false
+            referencedRelation: "pc_simulators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pc_bookings: {
         Row: {
           created_at: string
