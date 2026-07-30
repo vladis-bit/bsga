@@ -101,12 +101,12 @@ const StepFAQ = ({
 
 const StartGolf = () => {
   const allFaqs = [
-    { q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?", a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou. Všetko vybavenie – palice aj loptičky – ti zapožičiame priamo na mieste." },
-    { q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?", a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získaš základy a pripravíš sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test." },
-    { q: "Čo zelená karta znamená v praxi a čo ak neprejdem testom?", a: "Zelená karta je medzinárodne uznávané potvrdenie tvojej spôsobilosti hrať golf samostatne. Ak by si testom neprešiel, môžeš ho opakovať. Náš tréner ťa pred ním dôkladne pripraví." },
-    { q: "Aký je rozdiel medzi individuálnou a skupinovou lekciou?", a: "Pri individuálnej lekcii sa tréner venuje výlučne tebe. Skupinový tréning je dynamickejší, lacnejší a ideálny ak ťa baví učiť sa v komunite." },
+    { q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?", a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí vám pohodlné športové oblečenie a obuv s plochou podrážkou. Všetko vybavenie – palice aj loptičky – vám zapožičiame priamo na mieste." },
+    { q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?", a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získate základy a pripravíte sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test." },
+    { q: "Čo zelená karta znamená v praxi a čo ak neprejdem testom?", a: "Zelená karta je medzinárodne uznávané potvrdenie vašej spôsobilosti hrať golf samostatne. Ak by ste testom neprešli, môžete ho opakovať. Náš tréner vás pred ním dôkladne pripraví." },
+    { q: "Aký je rozdiel medzi individuálnou a skupinovou lekciou?", a: "Pri individuálnej lekcii sa tréner venuje výlučne vám. Skupinový tréning je dynamickejší, lacnejší a ideálny ak vás baví učiť sa v komunite." },
     { q: "Ako často by som mal trénovať, aby som sa zlepšoval?", a: "Pre viditeľný progres odporúčame aspoň 1 lekciu týždenne v kombinácii so samostatným tréningom na drivingu. Konzistencia je dôležitejšia než dĺžka jedného tréningu." },
-    { q: "Môžem si kúpiť balík viacerých lekcií so zľavou?", a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíš nám na kontaktný formulár a pripravíme ti ponuku na mieru." },
+    { q: "Môžem si kúpiť balík viacerých lekcií so zľavou?", a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíšte nám na kontaktný formulár a pripravíme vám ponuku na mieru." },
     { q: "Pre koho je Course Management vhodný?", a: "Pre hráčov so zelenou kartou, ktorí už ovládajú základy a chcú sa posunúť ďalej – znížiť skóre, lepšie čítať ihrisko a strategicky vyberať údery." },
     { q: "Kde tréning Course Management prebieha?", a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra) so svojím PGA trénerom." },
     { q: "Sú v cene Course Management zahrnuté green fee a ďalšie poplatky?", a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne." },
@@ -124,7 +124,7 @@ const StartGolf = () => {
     {
       name: "Víkendový kurz zelenej karty",
       description:
-        "Intenzívny dvojdňový víkendový kurz pre úplných začiatočníkov, ktorý ťa pripraví na získanie zelenej karty.",
+        "Intenzívny dvojdňový víkendový kurz pre úplných začiatočníkov, ktorý vás pripraví na získanie zelenej karty.",
       price: "139.99",
       repeatCount: 2,
     },
@@ -233,7 +233,7 @@ const StartGolf = () => {
               >
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
                   <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-                  Tvoja cesta
+                  Vaša cesta
                   <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                 </span>
 
@@ -243,7 +243,7 @@ const StartGolf = () => {
 
                 <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl whitespace-pre-line">
                   Tri jasné kroky od prvého švihu k výkonostnej hre na ihrisku.&nbsp;{"\n"}
-                  Budeme ťa sprevádzať celou tvojou kariérou.&nbsp;
+                  Budeme vás sprevádzať celou vašou kariérou.&nbsp;
                 </p>
               </motion.div>
             </div>
@@ -362,7 +362,7 @@ const StartGolf = () => {
                     Začni s golfom
                   </h2>
                   <p className="mt-3 text-sm sm:text-base text-foreground/70 max-w-2xl mx-auto px-2">
-                    Tvoje prvé stretnutie s golfom v intenzívnom formáte. Získaš pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko. Vyber si víkendový kurz alebo kurz ZK, voľba je na tebe !
+                    Vaše prvé stretnutie s golfom v intenzívnom formáte. Získate pevné základy, oficiálnu spôsobilosť a istotu pred vstupom na ihrisko. Vyberte si víkendový kurz alebo kurz ZK, voľba je na vás !
                   </p>
                 </div>
               </Reveal>
@@ -391,8 +391,8 @@ const StartGolf = () => {
                           Čo je víkendový kurz?
                         </h3>
                         <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                          Ideálny program pre <strong>úplných začiatočníkov</strong>. Počas víkendu získaš <strong>pevné základy</strong>,
-                          pochopíš, ako golf funguje, a pripravíš sa na <strong>získanie zelenej karty</strong>.
+                          Ideálny program pre <strong>úplných začiatočníkov</strong>. Počas víkendu získate <strong>pevné základy</strong>,
+                          pochopíte, ako golf funguje, a pripravíte sa na <strong>získanie zelenej karty</strong>.
                         </p>
 
                         <ul className="mt-5 space-y-3">
@@ -535,8 +535,8 @@ const StartGolf = () => {
                           Čo je zelená karta?
                         </h3>
                         <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                          Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a
-                          <strong> záverečný test</strong> – po absolvovaní máš <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
+                          Kompletný kurz, ktorý vás pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a
+                          <strong> záverečný test</strong> – po absolvovaní máte <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
                         </p>
 
                         <ul className="mt-5 space-y-3">
@@ -563,15 +563,15 @@ const StartGolf = () => {
                 faqs={[
                   {
                     q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?",
-                    a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí ti pohodlné športové oblečenie a obuv s plochou podrážkou (ideálne tenisky alebo turfové topánky). Všetko vybavenie – palice aj loptičky – ti zapožičiame priamo na mieste.",
+                    a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí vám pohodlné športové oblečenie a obuv s plochou podrážkou (ideálne tenisky alebo turfové topánky). Všetko vybavenie – palice aj loptičky – vám zapožičiame priamo na mieste.",
                   },
                   {
                     q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?",
-                    a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získaš základy a pripravíš sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test, po ktorom získaš oficiálnu spôsobilosť hrať na ihriskách.",
+                    a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získate základy a pripravíte sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test, po ktorom získate oficiálnu spôsobilosť hrať na ihriskách.",
                   },
                   {
                     q: "Čo zelená karta znamená v praxi a čo ak neprejdem testom?",
-                    a: "Zelená karta je medzinárodne uznávané potvrdenie tvojej spôsobilosti hrať golf samostatne – bez nej ti väčšina ihrísk neumožní hrať bez sprievodu trénera. Ak by si testom neprešiel, môžeš ho opakovať. Náš tréner ťa pred ním dôkladne pripraví a väčšina účastníkov ho zvláda na prvý pokus.",
+                    a: "Zelená karta je medzinárodne uznávané potvrdenie vašej spôsobilosti hrať golf samostatne – bez nej vám väčšina ihrísk neumožní hrať bez sprievodu trénera. Ak by ste testom neprešli, môžete ho opakovať. Náš tréner vás pred ním dôkladne pripraví a väčšina účastníkov ho zvláda na prvý pokus.",
                   },
                 ]}
               />
@@ -592,7 +592,7 @@ const StartGolf = () => {
                     Zlepšuj sa v golfe
                   </h2>
                   <p className="mt-3 text-sm sm:text-base text-foreground/70 max-w-2xl mx-auto px-2">
-                    Posuň svoju hru na ďalšiu úroveň – vyber si individuálne lekcie alebo skupinové tréningy pod vedením profesionálneho trénera.
+                    Posuňte svoju hru na ďalšiu úroveň – vyberte si individuálne lekcie alebo skupinové tréningy pod vedením profesionálneho trénera.
                   </p>
                 </div>
               </Reveal>
@@ -621,8 +621,8 @@ const StartGolf = () => {
                           Individuálne lekcie
                         </h3>
                         <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
-                          Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia,
-                          <strong> presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.
+                          Osobný tréning, kde sa <strong>tréner venuje len vám</strong>. Jasné vysvetlenia,
+                          <strong> presné rady</strong> a cvičenia, ktoré vás posunú vpred už po <strong>pár lekciách</strong>.
                         </p>
 
                         <ul className="mt-5 space-y-3">
@@ -630,7 +630,7 @@ const StartGolf = () => {
                             "55-minútová súkromná lekcia",
                             "Personalizované cvičenia",
                             "Analýza švihu a okamžitá spätná väzba",
-                            "Tréning prispôsobený tvojej úrovni",
+                            "Tréning prispôsobený vašej úrovni",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-3">
                               <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold mt-0.5 flex-shrink-0" />
@@ -693,7 +693,7 @@ const StartGolf = () => {
                 faqs={[
                   {
                     q: "Aký je rozdiel medzi individuálnou a skupinovou lekciou?",
-                    a: "Pri individuálnej lekcii sa tréner venuje výlučne tebe – tréning je plne prispôsobený tvojej úrovni a cieľom. Skupinový tréning je dynamickejší, lacnejší a ideálny ak ťa baví učiť sa v komunite.",
+                    a: "Pri individuálnej lekcii sa tréner venuje výlučne vám – tréning je plne prispôsobený vašej úrovni a cieľom. Skupinový tréning je dynamickejší, lacnejší a ideálny ak vás baví učiť sa v komunite.",
                   },
                   {
                     q: "Ako často by som mal trénovať, aby som sa zlepšoval?",
@@ -701,7 +701,7 @@ const StartGolf = () => {
                   },
                   {
                     q: "Môžem si kúpiť balík viacerých lekcií so zľavou?",
-                    a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíš nám na kontaktný formulár a pripravíme ti ponuku na mieru podľa tvojich potrieb.",
+                    a: "Áno, ponúkame zvýhodnené balíky 5 a 10 lekcií. Napíšte nám na kontaktný formulár a pripravíme vám ponuku na mieru podľa vašich potrieb.",
                   },
                 ]}
               />
@@ -752,14 +752,14 @@ const StartGolf = () => {
                         </h3>
                         <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">
                           Tréning s <strong>PGA trénerom</strong> priamo na ihrisku. <strong>Analýza hry</strong>,
-                          know-how a odborné poradenstvo s cieľom dosiahnuť tvoje <strong>najnižšie skóre</strong>.
+                          know-how a odborné poradenstvo s cieľom dosiahnuť vaše <strong>najnižšie skóre</strong>.
                         </p>
 
                         <ul className="mt-5 space-y-3">
                           {[
                             "Tréning priamo na golfovom ihrisku",
                             "Strategický výber palíc a úderov",
-                            "Analýza tvojho herného štýlu",
+                            "Analýza vášho herného štýlu",
                             "Mentálna príprava a rozhodovanie",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-3">
@@ -783,11 +783,11 @@ const StartGolf = () => {
                   },
                   {
                     q: "Kde tréning prebieha?",
-                    a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra). Hráš so svojím PGA trénerom, ktorý ťa sprevádza a analyzuje tvoju hru v reálnom čase.",
+                    a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra). Hráte so svojím PGA trénerom, ktorý vás sprevádza a analyzuje vašu hru v reálnom čase.",
                   },
                   {
                     q: "Sú v cene služby zahrnuté green fee a ďalšie poplatky?",
-                    a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne – radi ti pomôžeme s rezerváciou aj výberom najvhodnejšieho ihriska.",
+                    a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne – radi vám pomôžeme s rezerváciou aj výberom najvhodnejšieho ihriska.",
                   },
                 ]}
               />
@@ -800,10 +800,10 @@ const StartGolf = () => {
               <Reveal>
                 <div className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-6 sm:p-10 text-center">
                   <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-                    Nevieš, čo si vybrať?
+                    Neviete, čo si vybrať?
                   </h3>
                   <p className="max-w-xl text-sm sm:text-base text-foreground/70">
-                    Napíš nám a my ti pomôžeme nájsť ideálny program podľa tvojich cieľov a skúseností.
+                    Napíšte nám a my vám pomôžeme nájsť ideálny program podľa vašich cieľov a skúseností.
                   </p>
                   <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
                       <Link

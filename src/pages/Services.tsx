@@ -70,7 +70,7 @@ const services = [
     link: "/zacni-s-golfom#zlepsuj-sa",
     description: (
       <>
-        Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.
+        Osobný tréning, kde sa <strong>tréner venuje len vám</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré vás posunú vpred už po <strong>pár lekciách</strong>.
       </>
     ),
   },
@@ -81,7 +81,7 @@ const services = [
     link: "/zacni-s-golfom#zlepsuj-sa",
     description: (
       <>
-        Tréning v <strong>príjemnej skupine</strong>, kde sa učíš spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia, ktoré robia každú lekciu <strong>zábavnou aj efektívnou</strong>.
+        Tréning v <strong>príjemnej skupine</strong>, kde sa učíte spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia, ktoré robia každú lekciu <strong>zábavnou aj efektívnou</strong>.
       </>
     ),
   },
@@ -92,7 +92,7 @@ const services = [
     link: "/zacni-s-golfom#vikendovy-kurz",
     description: (
       <>
-        Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong>, pochopíš, ako golf funguje, a vytvoríš si istotu ešte pred <strong>vstupom na ihrisko</strong>.
+        Ideálny program pre <strong>úplných začiatočníkov</strong>. Získate <strong>pevné základy</strong>, pochopíte, ako golf funguje, a vytvoríte si istotu ešte pred <strong>vstupom na ihrisko</strong>.
       </>
     ),
   },
@@ -103,7 +103,7 @@ const services = [
     link: "/zacni-s-golfom#zelena-karta",
     description: (
       <>
-        Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong> – po absolvovaní máš <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
+        Kompletný kurz, ktorý vás pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong> – po absolvovaní máte <strong>oficiálnu spôsobilosť</strong> hrať na ihriskách.
       </>
     ),
   },
@@ -148,7 +148,7 @@ const services = [
     link: "/tour",
     description: (
       <>
-        Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a <strong>profesionálna organizácia</strong>.
+        Séria turnajov, kde môžete <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. Príjemná atmosféra a <strong>profesionálna organizácia</strong>.
       </>
     ),
   },
@@ -159,7 +159,7 @@ const services = [
     link: "/fitting",
     description: (
       <>
-        Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.
+        Merania a <strong>testovanie palíc</strong>, aby ste našli vybavenie, ktoré vám skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> vo vašej hre.
       </>
     ),
   },

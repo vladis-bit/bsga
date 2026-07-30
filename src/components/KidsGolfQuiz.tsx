@@ -14,27 +14,27 @@ const QUESTIONS = [
   { id: 'k9', q: 'Ako sa volá dlhá trávnatá časť ihriska medzi tee boxom a greenom?', options: ['Fairway', 'Rough', 'Bunker', 'Fringe'], correct: 0 },
   { id: 'k10', q: 'Čo je „eagle"?', options: ['O jeden úder menej ako par', 'O dva údery menej ako par', 'O dva údery viac ako par', 'Presný úder z bunkra'], correct: 1 },
   // ČASŤ 2: ETIKETA
-  { id: 'k11', q: 'Čo musíš urobiť, keď tvoja loptička letí smerom k iným hráčom?', options: ['Nič, je to ich problém', 'Zavolať rozhodcu', 'Hlasno zakričať „Fore!"', 'Zastaviť hru'], correct: 2 },
-  { id: 'k12', q: 'Kedy smieš rozprávať nahlas alebo robiť hluk?', options: ['Kedykoľvek chceš', 'Len keď ty sám hráš úder', 'Nikdy počas toho, keď niekto iný hrá úder', 'Len na greeni'], correct: 2 },
-  { id: 'k13', q: 'Čo treba urobiť s jamou (divotom) v trávniku, ktorú vytvorí tvoj úder?', options: ['Nechať ju tak, uprace to obsluha', 'Vrátiť vytrhanú trávu späť a pritlačiť ju', 'Zakryť ju pieskom', 'Označiť ju vlajočkou'], correct: 1 },
+  { id: 'k11', q: 'Čo musíte urobiť, keď vaša loptička letí smerom k iným hráčom?', options: ['Nič, je to ich problém', 'Zavolať rozhodcu', 'Hlasno zakričať „Fore!"', 'Zastaviť hru'], correct: 2 },
+  { id: 'k12', q: 'Kedy smiete rozprávať nahlas alebo robiť hluk?', options: ['Kedykoľvek chcete', 'Len keď vy sami hráte úder', 'Nikdy počas toho, keď niekto iný hrá úder', 'Len na greeni'], correct: 2 },
+  { id: 'k13', q: 'Čo treba urobiť s jamou (divotom) v trávniku, ktorú vytvorí váš úder?', options: ['Nechať ju tak, uprace to obsluha', 'Vrátiť vytrhanú trávu späť a pritlačiť ju', 'Zakryť ju pieskom', 'Označiť ju vlajočkou'], correct: 1 },
   { id: 'k14', q: 'Kto hrá ako prvý na tee boxe na začiatku kola?', options: ['Najmladší hráč', 'Najvyšší hráč', 'Hráč s najnižším handicapom alebo určený losovaním', 'Vždy hostiteľ ihriska'], correct: 2 },
-  { id: 'k15', q: 'Čo treba urobiť na greeni po tom, ako tvoja loptička urobí jamku (pitch mark)?', options: ['Nechať to tak', 'Zavolať greenkeepera', 'Opraviť poškodenie trávy špeciálnym nástrojom', 'Označiť miesto vlajočkou'], correct: 2 },
+  { id: 'k15', q: 'Čo treba urobiť na greeni po tom, ako vaša loptička urobí jamku (pitch mark)?', options: ['Nechať to tak', 'Zavolať greenkeepera', 'Opraviť poškodenie trávy špeciálnym nástrojom', 'Označiť miesto vlajočkou'], correct: 2 },
   { id: 'k16', q: 'Ako sa správa slušný golfista, keď prehral alebo vyhral?', options: ['Víťaz sa chváli a porazený sa sťažuje', 'Obaja si podajú ruku a poďakujú si za hru', 'Víťaz odíde bez rozlúčky', 'Porazený zaplatí za nápoje bez slova'], correct: 1 },
   { id: 'k17', q: 'Ako rýchlo by mal golfista hrať, aby nezdržiaval ostatných?', options: ['Hrať čo najpomalšie, aby bol presný', 'Hrať len vtedy, keď je absolútne pripravený aj hodinu', 'Byť pripravený hrať, keď príde jeho rad, a udržiavať tempo hry', 'Rýchlosť hry nie je dôležitá'], correct: 2 },
   { id: 'k18', q: 'Kde na greeni sa NESMIE chodiť?', options: ['Okolo jamky', 'Po čiare putt iného hráča (medzi jeho loptičkou a jamkou)', 'Za vlajočkou', 'Na okraji greenu'], correct: 1 },
-  { id: 'k19', q: 'Čo urobíš, ak tvoja skupinka hrá pomaly a za vami čaká rýchlejšia skupinka?', options: ['Ignorovať ich', 'Hrať ešte pomalšie, aby sa naučili trpezlivosti', 'Pustiť ich dopredu (tzv. „let through")', 'Zavolať na nich, aby počkali'], correct: 2 },
+  { id: 'k19', q: 'Čo urobíte, ak vaša skupinka hrá pomaly a za vami čaká rýchlejšia skupinka?', options: ['Ignorovať ich', 'Hrať ešte pomalšie, aby sa naučili trpezlivosti', 'Pustiť ich dopredu (tzv. „let through")', 'Zavolať na nich, aby počkali'], correct: 2 },
   { id: 'k20', q: 'Aké oblečenie je väčšinou požadované na golfovom ihrisku?', options: ['Plavky a žabky', 'Tepláky a mikina s kapucňou', 'Polo tričko s golierom a vhodné golfové nohavice alebo sukňa', 'Formálny oblek a kravata'], correct: 2 },
   // ČASŤ 3: PRAVIDLÁ
-  { id: 'k21', q: 'Čo sa stane, ak tvoja loptička skončí mimo hraníc ihriska (OB – Out of Bounds)?', options: ['Zahráš ju odkiaľ leží, bez penalizácie', 'Hra sa zastavuje a jamka sa nepočíta', 'Dostaneš trestný úder a hráš znova z pôvodného miesta', 'Iný hráč ti hodí loptičku späť'], correct: 2 },
+  { id: 'k21', q: 'Čo sa stane, ak vaša loptička skončí mimo hraníc ihriska (OB – Out of Bounds)?', options: ['Zahráte ju odkiaľ leží, bez penalizácie', 'Hra sa zastavuje a jamka sa nepočíta', 'Dostanete trestný úder a hráte znova z pôvodného miesta', 'Iný hráč vám hodí loptičku späť'], correct: 2 },
   { id: 'k22', q: 'Čo je „handicap" v golfe?', options: ['Fyzické obmedzenie hráča', 'Počet palíc v taške', 'Číslo vyjadrujúce úroveň hráča, ktoré vyrovnáva šance v hre', 'Maximálny počet úderov na jamku'], correct: 2 },
-  { id: 'k23', q: 'Smieš sa dotknúť piesku v bunkri pred samotným úderom?', options: ['Áno, môžeš si vyrovnať piesok', 'Áno, ak je to len nohami', 'Nie, pred úderom sa nesmieš dotknúť piesku palicou', 'Áno, ale len raz'], correct: 2 },
+  { id: 'k23', q: 'Smiete sa dotknúť piesku v bunkri pred samotným úderom?', options: ['Áno, môžete si vyrovnať piesok', 'Áno, ak je to len nohami', 'Nie, pred úderom sa nesmiete dotknúť piesku palicou', 'Áno, ale len raz'], correct: 2 },
   { id: 'k24', q: 'Čo je „stroke play" (hra na rany)?', options: ['Hráči súťažia o každú jamku zvlášť', 'Víťazí hráč s najmenším celkovým počtom úderov za celé kolo', 'Každý úder má inú bodovú hodnotu', 'Hráči si vymieňajú loptičky po každej jamke'], correct: 1 },
-  { id: 'k25', q: 'Čo musíš urobiť, ak nemôžeš nájsť svoju loptičku na ihrisku?', options: ['Hrať inú loptičku bez penalizácie', 'Čakať neobmedzene, kým ju nájdeš', 'Máš 3 minúty na hľadanie, potom hráš náhradnú loptičku s penalizáciou', 'Požiadať rozhodcu, aby loptičku našiel za teba'], correct: 2 },
+  { id: 'k25', q: 'Čo musíte urobiť, ak nemôžete nájsť svoju loptičku na ihrisku?', options: ['Hrať inú loptičku bez penalizácie', 'Čakať neobmedzene, kým ju nájdete', 'Máte 3 minúty na hľadanie, potom hráte náhradnú loptičku s penalizáciou', 'Požiadať rozhodcu, aby loptičku našiel za vás'], correct: 2 },
   { id: 'k26', q: 'Čo je „match play" (hra na jamky)?', options: ['Hráči počítajú celkový počet úderov', 'Víťazí ten, kto vyhrá viac jamiek, nie kto má menej úderov celkovo', 'Hra, kde každý hráč hrá sám za seba bez súpera', 'Hra, kde sa hrajú len párne jamky'], correct: 1 },
-  { id: 'k27', q: 'Smieš si vybrať loptičku a utrieť ju kdekoľvek na ihrisku?', options: ['Áno, kedykoľvek chceš', 'Nie, nikdy počas hry', 'Áno, ale len na greeni a na niektorých ďalších povolených miestach', 'Len ak je loptička v rough'], correct: 2 },
+  { id: 'k27', q: 'Smiete si vybrať loptičku a utrieť ju kdekoľvek na ihrisku?', options: ['Áno, kedykoľvek chcete', 'Nie, nikdy počas hry', 'Áno, ale len na greeni a na niektorých ďalších povolených miestach', 'Len ak je loptička v rough'], correct: 2 },
   { id: 'k28', q: 'Čo je „provisional ball" (predbežná loptička)?', options: ['Loptička, ktorú používajú začiatočníci', 'Záložná loptička v taške', 'Loptička zahraná pre prípad, že pôvodná je stratená alebo OB', 'Špeciálna loptička na tréning'], correct: 2 },
   { id: 'k29', q: 'Čo je „water hazard" (vodná prekážka)?', options: ['Dážď počas hry', 'Mokrá tráva na fairway', 'Jazero, potok alebo iná vodná plocha označená na ihrisku', 'Rosou pokrytý green ráno'], correct: 2 },
-  { id: 'k30', q: 'Aký trest dostaneš, ak omylom pohneš svojou loptičkou na greeni pred úderom?', options: ['Žiadny trest, stane sa to každému', 'Jeden trestný úder a loptičku vrátiš na pôvodné miesto', 'Vyradiš sa z danej jamky', 'Musíš zahrať loptičku z miesta, kde skončila'], correct: 1 },
+  { id: 'k30', q: 'Aký trest dostanete, ak omylom pohnete svojou loptičkou na greeni pred úderom?', options: ['Žiadny trest, stane sa to každému', 'Jeden trestný úder a loptičku vrátite na pôvodné miesto', 'Vyradíte sa z danej jamky', 'Musíte zahrať loptičku z miesta, kde skončila'], correct: 1 },
 ];
 
 type Section = 'welcome' | 'quiz' | 'review' | 'results';
@@ -130,13 +130,13 @@ const KidsGolfQuiz = () => {
             <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Eye className="w-8 h-8 text-gold" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Skontroluj svoje odpovede</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Skontrolujte svoje odpovede</h2>
             <p className="text-muted-foreground">
               Zodpovedané: <span className="font-bold text-foreground">{answeredCount} / {questions.length}</span>
             </p>
             {answeredCount < questions.length && (
               <p className="text-sm text-red-500 mt-2">
-                Niektoré otázky ešte nemáš zodpovedané. Klikni na ne a doplň odpoveď.
+                Niektoré otázky ešte nemáte zodpovedané. Kliknite na ne a doplňte odpoveď.
               </p>
             )}
           </div>
@@ -164,8 +164,8 @@ const KidsGolfQuiz = () => {
                       <p className="text-sm font-medium text-foreground mb-1">{q.q}</p>
                       <p className="text-xs text-muted-foreground">
                         {answered
-                          ? <>Tvoja odpoveď: <span className="font-semibold text-foreground">{q.options[answers[idx]]}</span></>
-                          : <span className="text-red-500 font-semibold">Bez odpovede — klikni a doplň</span>}
+                          ? <>Vaša odpoveď: <span className="font-semibold text-foreground">{q.options[answers[idx]]}</span></>
+                          : <span className="text-red-500 font-semibold">Bez odpovede — kliknite a doplňte</span>}
                       </p>
                     </div>
                   </div>
@@ -258,7 +258,7 @@ const KidsGolfQuiz = () => {
                         return (
                           <p key={optIdx} className={`text-sm ${cls}`}>
                             {prefix}{opt}
-                            {isUserChoice && <span className="ml-2 text-xs italic">(tvoja odpoveď)</span>}
+                            {isUserChoice && <span className="ml-2 text-xs italic">(vaša odpoveď)</span>}
                           </p>
                         );
                       })}

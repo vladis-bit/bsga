@@ -70,13 +70,13 @@ const FittingContactForm = () => {
             Rezervácia fittingu
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mt-3 sm:mt-4 mb-2 sm:mb-3">
-            Objednaj sa na fitting
+            Objednajte sa na fitting
           </h2>
           <p className="text-gold text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-4 sm:mb-6">
             Kontaktný formulár
           </p>
           <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Vyplň formulár a Jakub Hrbáň – náš špecialista na fitting – sa ti ozve s návrhom termínu a detailmi celého procesu. Fitting trvá 120 minút.
+            Vyplňte formulár a Jakub Hrbáň – náš špecialista na fitting – sa vám ozve s návrhom termínu a detailmi celého procesu. Fitting trvá 120 minút.
           </p>
           <div className="flex justify-center mt-4">
             <a
@@ -97,7 +97,7 @@ const FittingContactForm = () => {
                 Ďakujeme!
               </h3>
               <p className="text-muted-foreground text-sm sm:text-base">
-                Tvoja žiadosť o fitting bola úspešne odoslaná.
+                Vaša žiadosť o fitting bola úspešne odoslaná.
               </p>
             </div>
           ) : (
@@ -157,7 +157,7 @@ const FittingContactForm = () => {
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Napíš nám tvoj level, aké palice momentálne hráš a čo by si chcel od fittingu získať..."
+                  placeholder="Napíšte nám váš level, aké palice momentálne hráte a čo by ste chceli od fittingu získať..."
                   rows={4}
                   className="bg-muted text-foreground placeholder:text-muted-foreground border-border/60 focus:border-gold shadow-sm resize-none"
                 />

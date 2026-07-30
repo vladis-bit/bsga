@@ -33,7 +33,7 @@ const services = [
     image: serviceIndividualImg,
     link: "/zacni-s-golfom#zlepsuj-sa",
     description: (
-      <>Osobný tréning, kde sa <strong>tréner venuje len tebe</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré ťa posunú vpred už po <strong>pár lekciách</strong>.</>
+      <>Osobný tréning, kde sa <strong>tréner venuje len vám</strong>. Jasné vysvetlenia, <strong>presné rady</strong> a cvičenia, ktoré vás posunú vpred už po <strong>pár lekciách</strong>.</>
     ),
   },
   {
@@ -42,7 +42,7 @@ const services = [
     image: serviceGroupImg,
     link: "/zacni-s-golfom#zlepsuj-sa",
     description: (
-      <>Tréning v <strong>príjemnej skupine</strong>, kde sa učíš spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia.</>
+      <>Tréning v <strong>príjemnej skupine</strong>, kde sa učíte spolu s ostatnými. Dynamika, <strong>zdravá motivácia</strong> a praktické cvičenia.</>
     ),
   },
   {
@@ -51,7 +51,7 @@ const services = [
     image: serviceStartCardsImg,
     link: "/zacni-s-golfom#vikendovy-kurz",
     description: (
-      <>Ideálny program pre <strong>úplných začiatočníkov</strong>. Získaš <strong>pevné základy</strong> a pochopíš, ako golf funguje.</>
+      <>Ideálny program pre <strong>úplných začiatočníkov</strong>. Získate <strong>pevné základy</strong> a pochopíte, ako golf funguje.</>
     ),
   },
   {
@@ -60,7 +60,7 @@ const services = [
     image: serviceGreenCardsImg,
     link: "/zacni-s-golfom#zelena-karta",
     description: (
-      <>Kompletný kurz, ktorý ťa pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong>.</>
+      <>Kompletný kurz, ktorý vás pripraví na <strong>samostatnú hru</strong>. Technika, pravidlá, etika a <strong>záverečný test</strong>.</>
     ),
   },
   {
@@ -96,7 +96,7 @@ const services = [
     image: serviceTourImg,
     link: "/tour",
     description: (
-      <>Séria turnajov, kde môžeš <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
+      <>Séria turnajov, kde môžete <strong>otestovať svoju formu</strong>, zbierať body a súťažiť s hráčmi podobnej úrovne. <strong>Profesionálna organizácia</strong>.</>
     ),
   },
   {
@@ -105,7 +105,7 @@ const services = [
     image: serviceFittingImg,
     link: "/fitting",
     description: (
-      <>Merania a <strong>testovanie palíc</strong>, aby si našiel vybavenie, ktoré ti skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> v tvojej hre.</>
+      <>Merania a <strong>testovanie palíc</strong>, aby ste našli vybavenie, ktoré vám skutočne sedí. <strong>Správny výber</strong> dokáže urobiť <strong>citeľný rozdiel</strong> vo vašej hre.</>
     ),
   },
   {
