@@ -120,7 +120,7 @@ const Akademia = () => {
           <JuniorLevelSystem />
 
           {/* Development Timeline Section */}
-          <section id="timeline" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-20">
+          <section id="timeline" className="scroll-mt-24 bg-muted/50 py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14">
                 <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">Rozvoj detí od skorého veku</h2>
@@ -151,7 +151,7 @@ const Akademia = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="bg-background py-12 sm:py-16 md:py-20">
+          <section className="bg-foreground py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
                 <h2 className="mb-4 font-serif text-2xl font-bold text-foreground sm:text-3xl">Máte nezodpovedané otázky?</h2>

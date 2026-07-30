@@ -351,7 +351,7 @@ const StartGolf = () => {
           </section>
 
           {/* KROK 1 - VÍKENDOVÝ KURZ */}
-          <section id="vikendovy-kurz" className="scroll-mt-24 bg-background pb-6 pt-6 sm:pb-8 sm:pt-8">
+          <section id="vikendovy-kurz" className="scroll-mt-24 bg-muted/50 py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal>
                 <div className="mx-auto mb-8 sm:mb-12 max-w-3xl border-b border-border pb-6 text-center">
@@ -509,7 +509,7 @@ const StartGolf = () => {
           </section>
 
           {/* ZELENÁ KARTA - súčasť Kroku 1 */}
-          <section id="zelena-karta" className="scroll-mt-24 bg-background py-6 sm:py-8">
+          <section id="zelena-karta" className="scroll-mt-24 bg-background py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal delay={0.1}>
                 <div className="max-w-5xl mx-auto">
@@ -581,7 +581,7 @@ const StartGolf = () => {
           <MilestoneConnector />
 
           {/* KROK 3 - ZLEPŠUJ SA */}
-          <section id="zlepsuj-sa" className="scroll-mt-24 bg-background py-6 sm:py-8">
+          <section id="zlepsuj-sa" className="scroll-mt-24 bg-muted/50 py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal>
                 <div className="mx-auto mb-8 sm:mb-12 max-w-3xl border-b border-border pb-6 text-center">
@@ -711,7 +711,7 @@ const StartGolf = () => {
           <MilestoneConnector />
 
           {/* KROK 4 - DOMINUJ V HRE */}
-          <section id="dominuj" className="scroll-mt-24 bg-background py-6 sm:py-8">
+          <section id="dominuj" className="scroll-mt-24 bg-background py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal>
                 <div className="mx-auto mb-8 sm:mb-12 max-w-3xl border-b border-border pb-6 text-center">
@@ -795,7 +795,7 @@ const StartGolf = () => {
           </section>
 
           {/* CTA */}
-          <section className="bg-background pt-12 pb-16 md:pt-16 md:pb-24">
+          <section className="bg-foreground py-16 md:py-24">
             <div className="container mx-auto px-4 max-w-4xl">
               <Reveal>
                 <div className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-6 sm:p-10 text-center">
