@@ -116,3 +116,29 @@ export const translateDbError = (message: string) => {
   }
   return message;
 };
+// BSGA Performance Center – otváracie hodiny
+export const PC_OPEN_HOUR = 7; // prvá možná rezervácia 07:00
+export const PC_CLOSE_HOUR = 22; // prevádzka končí 22:00
+export const PC_LAST_START_HOUR = 21; // posledná rezervácia začína 21:00
+
+export const PC_TIME_SLOTS: string[] = (() => {
+  const out: string[] = [];
+  for (let h = PC_OPEN_HOUR; h <= PC_LAST_START_HOUR; h++) {
+    out.push(`${String(h).padStart(2, "0")}:00`);
+    if (h < PC_LAST_START_HOUR) out.push(`${String(h).padStart(2, "0")}:30`);
+  }
+  return out;
+})();
+
+/** Vráti chybovú hlášku, ak termín nespadá do otváracích hodín. */
+export const validateOpeningHours = (time: string, hours: number): string | null => {
+  const [h, m] = time.split(":").map(Number);
+  const start = h + (m || 0) / 60;
+  if (start < PC_OPEN_HOUR || start > PC_LAST_START_HOUR) {
+    return `Rezervácia môže začínať najskôr o ${PC_OPEN_HOUR}:00 a najneskôr o ${PC_LAST_START_HOUR}:00.`;
+  }
+  if (start + hours > PC_CLOSE_HOUR) {
+    return `Rezervácia musí skončiť najneskôr o ${PC_CLOSE_HOUR}:00.`;
+  }
+  return null;
+};

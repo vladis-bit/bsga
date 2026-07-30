@@ -15,6 +15,11 @@ import {
   fmtDateTime,
   startOfDay,
   translateDbError,
+  validateOpeningHours,
+  PC_TIME_SLOTS,
+  PC_OPEN_HOUR,
+  PC_CLOSE_HOUR,
+  PC_LAST_START_HOUR,
 } from "./shared";
 
 type RangeKey = "today" | "week" | "month" | "all";
@@ -101,6 +106,12 @@ const Bookings = () => {
     e.preventDefault();
     const simulator = simById[form.simulator_id];
     if (!simulator || !form.date || !form.time) return;
+    const hoursCheck = Number(form.duration_hours) || 1;
+    const hoursError = validateOpeningHours(form.time, hoursCheck);
+    if (hoursError) {
+      toast({ title: "Mimo otváracích hodín", description: hoursError, variant: "destructive" });
+      return;
+    }
     setSaving(true);
     const starts = new Date(`${form.date}T${form.time}`);
     const hours = Number(form.duration_hours) || 1;
@@ -214,12 +225,19 @@ const Bookings = () => {
             onChange={(e) => setForm({ ...form, date: e.target.value })}
             required
           />
-          <Input
-            type="time"
+          <select
+            className={selectCls}
             value={form.time}
             onChange={(e) => setForm({ ...form, time: e.target.value })}
             required
-          />
+          >
+            <option value="">Začiatok (čas)</option>
+            {PC_TIME_SLOTS.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
           <Input
             type="number"
             min="0.5"
@@ -234,6 +252,10 @@ const Bookings = () => {
             value={form.note}
             onChange={(e) => setForm({ ...form, note: e.target.value })}
           />
+          <p className="text-xs text-muted-foreground sm:col-span-2 lg:col-span-3">
+            Otváracie hodiny BSGA Performance Center: {PC_OPEN_HOUR}:00 – {PC_CLOSE_HOUR}:00 (platí pre
+            Trackman 4 aj Trackman iO). Posledná rezervácia začína o {PC_LAST_START_HOUR}:00.
+          </p>
           <Button type="submit" className="rounded-full" disabled={saving}>
             {saving ? "Ukladám…" : "Uložiť rezerváciu"}
           </Button>
