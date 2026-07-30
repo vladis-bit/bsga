@@ -592,29 +592,6 @@ const Events = () => {
             </div>
           </section>
 
-          <section id="archiv-eventov" className="scroll-mt-24 bg-muted/50 py-20 md:py-28">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
-                    Archív eventov a akcií
-                  </h2>
-                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
-                    <Calendar className="h-4 w-4" /> Uskutočnené akcie
-                  </p>
-                </div>
-                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
-                  Archív
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
-                {archivedEvents.map((event, index) => (
-                  <EventCard key={`archiv-${index}`} event={event} index={index} variant="small" />
-                ))}
-              </div>
-            </div>
-          </section>
 
           <section id="kontakt-eventy" className="scroll-mt-24 bg-background pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
@@ -776,6 +753,30 @@ const Events = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="archiv-eventov" className="scroll-mt-24 bg-muted/50 py-20 md:py-28">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    Archív eventov a akcií
+                  </h2>
+                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
+                    <Calendar className="h-4 w-4" /> Uskutočnené akcie
+                  </p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Archív
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+                {archivedEvents.map((event, index) => (
+                  <EventCard key={`archiv-${index}`} event={event} index={index} variant="small" />
+                ))}
               </div>
             </div>
           </section>
