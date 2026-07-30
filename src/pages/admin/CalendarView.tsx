@@ -4,9 +4,11 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Booking,
   Simulator,
+  Blackout,
   addDays,
   fetchBookings,
   fetchSimulators,
+  fetchBlackouts,
   fmtDate,
   fmtTime,
   startOfDay,
@@ -25,15 +27,17 @@ const CalendarView = () => {
   const { toast } = useToast();
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [simulators, setSimulators] = useState<Simulator[]>([]);
+  const [blackouts, setBlackouts] = useState<Blackout[]>([]);
   const [weekStart, setWeekStart] = useState(() => startOfWeek(new Date()));
   const [selected, setSelected] = useState<Booking | null>(null);
 
   useEffect(() => {
     (async () => {
       try {
-        const [b, s] = await Promise.all([fetchBookings(), fetchSimulators()]);
+        const [b, s, bl] = await Promise.all([fetchBookings(), fetchSimulators(), fetchBlackouts()]);
         setBookings(b);
         setSimulators(s);
+        setBlackouts(bl);
       } catch (e) {
         toast({
           title: "Nepodarilo sa načítať kalendár",
@@ -62,6 +66,15 @@ const CalendarView = () => {
         return t === startOfDay(day).getTime();
       })
       .sort((a, b) => a.starts_at.localeCompare(b.starts_at));
+
+  const blackoutsFor = (simId: string, day: Date) => {
+    const dayStart = startOfDay(day).getTime();
+    const dayEnd = dayStart + 24 * 60 * 60 * 1000;
+    return blackouts.filter((bl) => {
+      if (bl.simulator_id && bl.simulator_id !== simId) return false;
+      return new Date(bl.starts_at).getTime() < dayEnd && new Date(bl.ends_at).getTime() > dayStart;
+    });
+  };
 
   return (
     <div className="space-y-6">
