@@ -20,7 +20,7 @@ const AdminLayout = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [mode, setMode] = useState<"signin" | "reset">("signin");
+  const [mode, setMode] = useState<"signin" | "reset" | "signup">("signin");
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -58,9 +58,77 @@ const AdminLayout = () => {
     setMode("signin");
   };
 
+  const signUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password.length < 8) {
+      toast({ title: "Heslo je krátke", description: "Použi aspoň 8 znakov.", variant: "destructive" });
+      return;
+    }
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}/admin` },
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Registrácia zlyhala", description: error.message, variant: "destructive" });
+      return;
+    }
+    if (data.session) {
+      toast({ title: "Účet vytvorený", description: "Si prihlásený." });
+      return;
+    }
+    toast({
+      title: "Účet vytvorený",
+      description: "Potvrď e-mail cez odkaz v doručenej pošte a potom sa prihlás.",
+    });
+    setMode("signin");
+  };
+
   if (!ready) return <main className="min-h-screen bg-background" />;
 
   if (!session) {
+    if (mode === "signup") {
+      return (
+        <main className="flex min-h-screen items-center justify-center bg-background px-4">
+          <form
+            onSubmit={signUp}
+            className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-8"
+          >
+            <h1 className="font-serif text-2xl text-foreground">Registrácia</h1>
+            <p className="text-sm text-muted-foreground">
+              Vytvor si prístup do administrácie (pracovný e-mail).
+            </p>
+            <Input
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <Input
+              type="password"
+              placeholder="Heslo (min. 8 znakov)"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? "Vytváram…" : "Zaregistrovať sa"}
+            </Button>
+            <button
+              type="button"
+              onClick={() => setMode("signin")}
+              className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            >
+              Späť na prihlásenie
+            </button>
+          </form>
+        </main>
+      );
+    }
+
     if (mode === "reset") {
       return (
         <main className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -125,6 +193,13 @@ const AdminLayout = () => {
             className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
           >
             Zabudnuté heslo?
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode("signup")}
+            className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+          >
+            Vytvoriť účet
           </button>
         </form>
       </main>
