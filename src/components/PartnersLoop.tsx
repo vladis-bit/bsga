@@ -22,7 +22,7 @@ const partners: Partner[] = [{
   logo: borsaLogo
 }];
 const PartnersLoop = () => {
-  return <section className="py-12 bg-background overflow-hidden">
+  return <section className="py-12 bg-muted/50 overflow-hidden">
       <div className="container mx-auto px-6 mb-10">
         <div className="mx-auto max-w-xl border-b border-border pb-6 text-center">
           <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground md:text-4xl">Hlavní partneri</h2>
@@ -33,8 +33,8 @@ const PartnersLoop = () => {
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10" />
 
         <div className="flex w-max animate-scroll motion-reduce:animate-none">
           {[...partners, ...partners].map((partner, index) => (
