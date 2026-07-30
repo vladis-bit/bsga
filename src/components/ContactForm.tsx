@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
 const services = ["Individuálne lekcie", "Skupinové lekcie", "Zelená karta", "Detská akadémia", "Firemný teambuilding", "BSGA Tour", "Fitting", "Iné"];
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
