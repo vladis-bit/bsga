@@ -72,10 +72,10 @@ const Testimonials = () => {
     setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-background">
+    <section className="py-16 sm:py-20 md:py-28 bg-foreground">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14 md:mb-16">
-          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+        <div className="mb-10 border-b border-background/15 pb-6 text-center sm:mb-14 md:mb-16">
+          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-background sm:text-3xl md:text-4xl lg:text-5xl">
             Čo o nás povedali klienti
           </h2>
           <p className="mt-2 inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
@@ -89,9 +89,9 @@ const Testimonials = () => {
           onMouseLeave={() => setIsPaused(false)}
         >
           <div className="relative">
-            <Quote className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-gold/15 w-16 h-16 sm:w-24 sm:h-24 z-0" />
+            <Quote className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 text-gold/25 w-16 h-16 sm:w-24 sm:h-24 z-0" />
 
-            <div className="bg-card rounded-2xl p-5 sm:p-8 md:p-10 border border-border shadow-sm relative overflow-hidden">
+            <div className="bg-card rounded-2xl p-5 sm:p-8 md:p-10 border border-border shadow-2xl relative overflow-hidden">
               <div className="relative min-h-[300px] sm:min-h-[220px] md:min-h-[200px]">
                 {testimonials.map((testimonial, index) => (
                   <div
