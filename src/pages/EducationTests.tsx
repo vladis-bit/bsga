@@ -44,6 +44,9 @@ const EducationTests = () => {
               Zavrieť
             </button>
           </div>
+          <h1 className="mb-6 font-serif text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            Záverečný test golfových pravidiel
+          </h1>
           <GreenCardQuiz />
         </div>
       </main>
