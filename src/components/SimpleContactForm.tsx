@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
 
 const SimpleContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
