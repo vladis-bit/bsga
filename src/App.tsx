@@ -81,6 +81,7 @@ const App = () => (
               <Route path="performance-center/rezervacia" element={<PcReservation />} />
               <Route path="performance-center/indoor-league" element={<PcIndoorLeague />} />
             </Route>
+            <Route path="/__tmp-pc" element={<PcReservation />} />
             <Route path="/rezervacia/detail" element={<BookingDetail />} />
             <Route path="/rezervacia/zrusit" element={<BookingCancel />} />
             <Route path="/reset-password" element={<ResetPassword />} />
