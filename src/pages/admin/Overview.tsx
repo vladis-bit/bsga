@@ -19,10 +19,12 @@ import {
 } from "./shared";
 
 const Stat = ({ label, value, hint }: { label: string; value: string; hint?: string }) => (
-  <div className="rounded-2xl border border-border bg-background/60 p-5">
-    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{label}</p>
-    <p className="mt-2 font-serif text-3xl text-foreground">{value}</p>
-    {hint && <p className="mt-1 text-xs text-muted-foreground">{hint}</p>}
+  <div className="rounded-2xl border border-border bg-background/60 p-4 sm:p-5">
+    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-xs">
+      {label}
+    </p>
+    <p className="mt-2 font-serif text-2xl text-foreground sm:text-3xl">{value}</p>
+    {hint && <p className="mt-1 text-[11px] text-muted-foreground sm:text-xs">{hint}</p>}
   </div>
 );
 
@@ -39,26 +41,26 @@ const Panel = ({
   actions: { to: string; label: string }[];
   children: React.ReactNode;
 }) => (
-  <section className="overflow-hidden rounded-3xl border border-border bg-card">
-    <div className="flex flex-wrap items-end justify-between gap-4 bg-foreground px-6 py-6 sm:px-8">
+  <section className="overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl">
+    <div className="flex flex-wrap items-end justify-between gap-4 bg-foreground px-5 py-5 sm:px-8 sm:py-6">
       <div>
         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-background/60">{eyebrow}</p>
-        <h2 className="mt-1 font-serif text-2xl text-background sm:text-3xl">{title}</h2>
-        <p className="mt-1 max-w-xl text-sm text-background/70">{subtitle}</p>
+        <h2 className="mt-1 font-serif text-xl text-background sm:text-3xl">{title}</h2>
+        <p className="mt-1 max-w-xl text-xs text-background/70 sm:text-sm">{subtitle}</p>
       </div>
       <div className="flex flex-wrap gap-2">
         {actions.map((a) => (
           <Link
             key={a.to + a.label}
             to={a.to}
-            className="rounded-full border border-background/30 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-background transition-colors hover:bg-background hover:text-foreground"
+            className="rounded-full border border-background/30 px-3.5 py-2 text-[10px] font-bold uppercase tracking-wider text-background transition-colors hover:bg-background hover:text-foreground sm:px-4 sm:text-[11px]"
           >
             {a.label}
           </Link>
         ))}
       </div>
     </div>
-    <div className="p-6 sm:p-8">{children}</div>
+    <div className="p-5 sm:p-8">{children}</div>
   </section>
 );
 
@@ -134,8 +136,8 @@ const Overview = () => {
     .sort((a, b) => a.starts_at.localeCompare(b.starts_at));
 
   return (
-    <div className="space-y-8">
-      <h1 className="font-serif text-3xl text-foreground">Prehľad</h1>
+    <div className="space-y-6 sm:space-y-8">
+      <h1 className="font-serif text-2xl text-foreground sm:text-3xl">Prehľad</h1>
 
       <Panel
         eyebrow="01 — Prevádzka"
@@ -147,7 +149,7 @@ const Overview = () => {
           { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
         ]}
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           <Stat label="Dnes" value={String(todayCount)} hint="rezervácií" />
           <Stat label="Najbližších 7 dní" value={String(weekCount)} hint="rezervácií" />
           <Stat
@@ -162,8 +164,8 @@ const Overview = () => {
           />
         </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-border p-5">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 md:gap-6">
+          <div className="rounded-2xl border border-border p-4 sm:p-5">
             <h3 className="font-serif text-lg text-foreground">Obsadenosť (7 dní)</h3>
             <ul className="mt-4 space-y-3">
               {hoursBySim.map((s) => (
@@ -178,14 +180,14 @@ const Overview = () => {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border p-5">
+          <div className="rounded-2xl border border-border p-4 sm:p-5">
             <h3 className="font-serif text-lg text-foreground">Najbližšie rezervácie</h3>
             <ul className="mt-4 space-y-3">
               {upcoming.length === 0 && (
                 <li className="text-sm text-muted-foreground">Dnes ani zajtra nič naplánované.</li>
               )}
               {upcoming.map((b) => (
-                <li key={b.id} className="rounded-2xl border border-border p-4 text-sm">
+                <li key={b.id} className="rounded-2xl border border-border p-3 text-sm sm:p-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="font-semibold text-foreground">
                       {b.first_name} {b.last_name ?? ""}
@@ -194,7 +196,7 @@ const Overview = () => {
                       {STATUS_LABEL[b.status] ?? b.status}
                     </Badge>
                   </div>
-                  <p className="mt-1 text-muted-foreground">
+                  <p className="mt-1 break-words text-muted-foreground">
                     {fmtDateTime(b.starts_at)} · {simName[b.simulator_id] ?? "—"} · {b.duration_hours} h
                     {b.phone ? ` · ${b.phone}` : ""}
                   </p>
@@ -211,7 +213,7 @@ const Overview = () => {
         subtitle="Dopyty z kontaktných formulárov na webe vrátane stavu odoslania e-mailu."
         actions={[{ to: "/admin/spravy", label: "Všetky správy" }]}
       >
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <Stat label="Neprečítané" value={String(unread)} hint="čakajú na spracovanie" />
           <Stat label="Posledné správy" value={String(latestMessages.length)} hint="zobrazené nižšie" />
         </div>
@@ -220,7 +222,7 @@ const Overview = () => {
             <li className="text-sm text-muted-foreground">Zatiaľ žiadne správy.</li>
           )}
           {latestMessages.map((m) => (
-            <li key={m.id} className="rounded-2xl border border-border p-4 text-sm">
+            <li key={m.id} className="rounded-2xl border border-border p-3 text-sm sm:p-4">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-semibold text-foreground">
                   {m.first_name} {m.last_name ?? ""}
@@ -232,7 +234,7 @@ const Overview = () => {
                   {m.source}
                 </Badge>
               </div>
-              <p className="mt-1 text-muted-foreground">
+              <p className="mt-1 break-words text-muted-foreground">
                 {fmtDateTime(m.created_at)} · {m.email}
               </p>
               <p className="mt-2 line-clamp-2 text-foreground">{m.message}</p>
@@ -247,7 +249,7 @@ const Overview = () => {
         subtitle="Správa admin prístupov a ďalšie nastavenia BSGA administrácie."
         actions={[{ to: "/admin/nastavenia", label: "Otvoriť nastavenia" }]}
       >
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
           <Stat
             label="Admin účty"
             value={adminCount === null ? "—" : String(adminCount)}

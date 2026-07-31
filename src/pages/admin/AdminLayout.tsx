@@ -186,21 +186,49 @@ const AdminLayout = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 py-4">
-          <span className="font-serif text-xl tracking-tight text-foreground">
-            BSGA <span className="text-primary">Admin</span>
-          </span>
-          <nav className="flex flex-wrap items-center gap-1">
+        <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-3 lg:gap-6">
+            <span className="font-serif text-lg tracking-tight text-foreground sm:text-xl">
+              BSGA <span className="text-primary">Admin</span>
+            </span>
+            <nav className="hidden flex-1 items-center gap-1 lg:flex">
+              {links.map((l) => (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  end={l.end}
+                  className={({ isActive }) =>
+                    `whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors xl:px-4 xl:text-xs ${
+                      isActive
+                        ? "bg-foreground text-background"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              ))}
+            </nav>
+            <Button
+              variant="outline"
+              size="sm"
+              className="shrink-0 rounded-full"
+              onClick={() => supabase.auth.signOut()}
+            >
+              Odhlásiť
+            </Button>
+          </div>
+          <nav className="-mx-4 mt-3 flex items-center gap-1 overflow-x-auto px-4 pb-1 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {links.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
                 end={l.end}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${
+                  `whitespace-nowrap rounded-full px-3.5 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors ${
                     isActive
                       ? "bg-foreground text-background"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      : "bg-muted/60 text-muted-foreground"
                   }`
                 }
               >
@@ -208,17 +236,9 @@ const AdminLayout = () => {
               </NavLink>
             ))}
           </nav>
-          <Button
-            variant="outline"
-            size="sm"
-            className="ml-auto rounded-full"
-            onClick={() => supabase.auth.signOut()}
-          >
-            Odhlásiť
-          </Button>
         </div>
       </header>
-      <main className="mx-auto max-w-7xl px-4 py-8">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
         <Outlet />
       </main>
     </div>

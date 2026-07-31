@@ -188,7 +188,7 @@ const Blackouts = () => {
         </Button>
       </form>
 
-      <div className="overflow-hidden rounded-3xl border border-border bg-card">
+      <div className="overflow-x-auto rounded-3xl border border-border bg-card">
         <table className="w-full min-w-[700px] text-left text-sm">
           <thead className="bg-muted/50 text-xs uppercase tracking-wide text-muted-foreground">
             <tr>
