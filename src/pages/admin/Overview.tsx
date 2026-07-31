@@ -29,38 +29,61 @@ const Stat = ({ label, value, hint }: { label: string; value: string; hint?: str
 );
 
 const Panel = ({
+  index,
   eyebrow,
   title,
   subtitle,
   actions,
+  tinted,
   children,
 }: {
+  index: string;
   eyebrow: string;
   title: string;
   subtitle: string;
   actions: { to: string; label: string }[];
+  tinted?: boolean;
   children: React.ReactNode;
 }) => (
-  <section className="overflow-hidden rounded-2xl border border-border bg-card sm:rounded-3xl">
-    <div className="flex flex-wrap items-end justify-between gap-4 bg-foreground px-5 py-5 sm:px-8 sm:py-6">
-      <div>
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-background/60">{eyebrow}</p>
-        <h2 className="mt-1 font-serif text-xl text-background sm:text-3xl">{title}</h2>
-        <p className="mt-1 max-w-xl text-xs text-background/70 sm:text-sm">{subtitle}</p>
+  <section
+    className={`overflow-hidden rounded-2xl border sm:rounded-3xl ${
+      tinted ? "border-gold/40 bg-gold/10" : "border-gold/25 bg-card"
+    }`}
+  >
+    <div className="border-l-4 border-gold px-5 py-6 sm:px-8 sm:py-8">
+      <div className="flex flex-wrap items-start gap-4 sm:gap-6">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold font-serif text-lg font-bold text-primary-foreground sm:h-16 sm:w-16 sm:text-2xl">
+          {index}
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold sm:text-xs">
+            {eyebrow}
+          </p>
+          <h2 className="mt-2 text-balance font-serif text-xl font-bold leading-tight text-foreground sm:text-3xl">
+            {title}
+          </h2>
+          <p className="mt-2 max-w-2xl text-xs text-foreground/60 sm:text-sm">{subtitle}</p>
+
+          <div className="mt-5 flex flex-wrap gap-2 sm:gap-3">
+            {actions.map((a, i) => (
+              <Link
+                key={a.to + a.label}
+                to={a.to}
+                className={`inline-flex items-center justify-center rounded-full px-4 py-2.5 text-xs font-semibold transition-colors sm:px-6 sm:py-3 sm:text-sm ${
+                  i === 0
+                    ? "bg-gold text-primary-foreground hover:bg-foreground"
+                    : "border border-gold/40 bg-gold/10 text-foreground hover:bg-gold/20"
+                }`}
+              >
+                {a.label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="flex flex-wrap gap-2">
-        {actions.map((a) => (
-          <Link
-            key={a.to + a.label}
-            to={a.to}
-            className="rounded-full border border-background/30 px-3.5 py-2 text-[10px] font-bold uppercase tracking-wider text-background transition-colors hover:bg-background hover:text-foreground sm:px-4 sm:text-[11px]"
-          >
-            {a.label}
-          </Link>
-        ))}
-      </div>
+
+      <div className="mt-6 sm:mt-8">{children}</div>
     </div>
-    <div className="p-5 sm:p-8">{children}</div>
   </section>
 );
 
@@ -169,6 +192,7 @@ const Overview = () => {
       </section>
 
       <Panel
+        index="01"
         eyebrow="01 — Prevádzka"
         title="BSGA Performance Center"
         subtitle={`Rezervácie a dostupnosť Trackman 4 a Trackman iO · otváracie hodiny ${PC_OPEN_HOUR}:00–${PC_CLOSE_HOUR}:00, posledný štart ${PC_LAST_START_HOUR}:00.`}
@@ -237,10 +261,12 @@ const Overview = () => {
       </Panel>
 
       <Panel
+        index="02"
         eyebrow="02 — Komunikácia"
         title="Správy z formulárov"
         subtitle="Dopyty z kontaktných formulárov na webe vrátane stavu odoslania e-mailu."
         actions={[{ to: "/admin/spravy", label: "Všetky správy" }]}
+        tinted
       >
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <Stat label="Neprečítané" value={String(unread)} hint="čakajú na spracovanie" />
@@ -273,6 +299,7 @@ const Overview = () => {
       </Panel>
 
       <Panel
+        index="03"
         eyebrow="03 — Správa systému"
         title="Nastavenia"
         subtitle="Správa admin prístupov a ďalšie nastavenia BSGA administrácie."
