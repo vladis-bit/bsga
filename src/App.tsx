@@ -33,6 +33,11 @@ const AdminMessages = lazy(() => import("./pages/admin/Messages"));
 const AdminAdmins = lazy(() => import("./pages/admin/Admins"));
 const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const AdminBlackouts = lazy(() => import("./pages/admin/Blackouts"));
+const PerformanceCenterHome = lazy(() => import("./pages/performance-center/PerformanceCenterHome"));
+const PcReservation = lazy(() => import("./pages/performance-center/Reservation"));
+const PcIndoorLeague = lazy(() => import("./pages/performance-center/IndoorLeague"));
+const BookingDetail = lazy(() => import("./pages/booking/BookingDetail"));
+const BookingCancel = lazy(() => import("./pages/booking/BookingCancel"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 
 const queryClient = new QueryClient();
@@ -72,7 +77,12 @@ const App = () => (
               <Route path="admini" element={<AdminAdmins />} />
               <Route path="nastavenia" element={<AdminSettings />} />
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
+              <Route path="performance-center" element={<PerformanceCenterHome />} />
+              <Route path="performance-center/rezervacia" element={<PcReservation />} />
+              <Route path="performance-center/indoor-league" element={<PcIndoorLeague />} />
             </Route>
+            <Route path="/rezervacia/detail" element={<BookingDetail />} />
+            <Route path="/rezervacia/zrusit" element={<BookingCancel />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
