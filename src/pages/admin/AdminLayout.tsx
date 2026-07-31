@@ -11,6 +11,7 @@ const links = [
   { to: "/admin/rezervacie", label: "Rezervácie" },
   { to: "/admin/kalendar", label: "Kalendár" },
   { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
+  { to: "/admin/performance-center", label: "Performance Center" },
   { to: "/admin/spravy", label: "Správy" },
   { to: "/admin/nastavenia", label: "Nastavenia" },
 ];
