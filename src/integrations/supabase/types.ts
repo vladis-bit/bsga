@@ -117,6 +117,7 @@ export type Database = {
       }
       pc_bookings: {
         Row: {
+          cancellation_token: string
           created_at: string
           duration_hours: number
           email: string
@@ -138,6 +139,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          cancellation_token?: string
           created_at?: string
           duration_hours?: number
           email: string
@@ -159,6 +161,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          cancellation_token?: string
           created_at?: string
           duration_hours?: number
           email?: string
@@ -251,6 +254,34 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      cancel_pc_booking: {
+        Args: { _email: string; _first_name: string; _token: string }
+        Returns: Json
+      }
+      get_pc_booking_by_token: {
+        Args: { _token: string }
+        Returns: {
+          duration_hours: number
+          email: string
+          ends_at: string
+          first_name: string
+          last_name: string
+          payment_status: string
+          price_eur: number
+          simulator_name: string
+          starts_at: string
+          status: string
+        }[]
+      }
+      get_pc_day_slots: {
+        Args: { _day: string }
+        Returns: {
+          ends_at: string
+          kind: string
+          simulator_id: string
+          starts_at: string
+        }[]
+      }
       grant_admin_by_email: { Args: { _email: string }; Returns: string }
       has_role: {
         Args: {
