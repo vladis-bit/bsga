@@ -77,19 +77,19 @@ const AdminLayout = () => {
     setMode("signin");
   };
 
-  if (!ready) return <main className="min-h-screen bg-background" />;
+  if (!ready) return <main className="theme-ivory min-h-screen bg-background" />;
 
   if (!session) {
     if (mode === "reset") {
       return (
-        <main className="flex min-h-screen items-center justify-center bg-background px-4">
+        <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-10">
           <form
             onSubmit={sendReset}
-            className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-8"
+            className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8"
           >
             <h1 className="font-serif text-2xl text-foreground">Zabudnuté heslo</h1>
             <p className="text-sm text-muted-foreground">
-              Zadaj e-mail a pošleme ti odkaz na nastavenie nového hesla.
+              Zadajte e-mail a pošleme vám odkaz na nastavenie nového hesla.
             </p>
             <Input
               type="email"
@@ -114,13 +114,13 @@ const AdminLayout = () => {
     }
 
     return (
-      <main className="flex min-h-screen items-center justify-center bg-background px-4">
+      <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-10">
         <form
           onSubmit={signIn}
-          className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-8"
+          className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8"
         >
           <h1 className="font-serif text-2xl text-foreground">BSGA Admin</h1>
-          <p className="text-sm text-muted-foreground">Prihlás sa do administrácie.</p>
+          <p className="text-sm text-muted-foreground">Prihláste sa do administrácie.</p>
           <Input
             type="email"
             placeholder="E-mail"
@@ -152,7 +152,7 @@ const AdminLayout = () => {
 
   if (isAdmin === null)
     return (
-      <main className="flex min-h-screen items-center justify-center bg-background px-4">
+      <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-10">
         <div className="space-y-3 text-center">
           <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-border border-t-gold" />
           <p className="text-sm text-muted-foreground">Overujem oprávnenia…</p>
@@ -169,7 +169,7 @@ const AdminLayout = () => {
 
   if (!isAdmin) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-background px-4">
+      <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-10">
         <div className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-8 text-center">
           <h1 className="font-serif text-2xl text-foreground">Prístup zamietnutý</h1>
           <p className="text-sm text-muted-foreground">
@@ -184,7 +184,7 @@ const AdminLayout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="theme-ivory min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-3 lg:gap-6">
