@@ -193,7 +193,7 @@ const Overview = () => {
 
       <Panel
         index="01"
-        eyebrow="01 — Prevádzka"
+        eyebrow="Prevádzka"
         title="BSGA Performance Center"
         subtitle={`Rezervácie a dostupnosť Trackman 4 a Trackman iO · otváracie hodiny ${PC_OPEN_HOUR}:00–${PC_CLOSE_HOUR}:00, posledný štart ${PC_LAST_START_HOUR}:00.`}
         actions={[
@@ -262,7 +262,7 @@ const Overview = () => {
 
       <Panel
         index="02"
-        eyebrow="02 — Komunikácia"
+        eyebrow="Komunikácia"
         title="Správy z formulárov"
         subtitle="Dopyty z kontaktných formulárov na webe vrátane stavu odoslania e-mailu."
         actions={[{ to: "/admin/spravy", label: "Všetky správy" }]}
@@ -300,7 +300,7 @@ const Overview = () => {
 
       <Panel
         index="03"
-        eyebrow="03 — Správa systému"
+        eyebrow="Správa systému"
         title="Nastavenia"
         subtitle="Správa admin prístupov a ďalšie nastavenia BSGA administrácie."
         actions={[{ to: "/admin/nastavenia", label: "Otvoriť nastavenia" }]}
