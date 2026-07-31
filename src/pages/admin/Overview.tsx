@@ -137,7 +137,36 @@ const Overview = () => {
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      <h1 className="font-serif text-2xl text-foreground sm:text-3xl">Prehľad</h1>
+      <section className="relative overflow-hidden rounded-2xl border border-border bg-background px-5 py-10 sm:rounded-3xl sm:px-8 sm:py-14">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+            <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+            BSGA Administrácia
+            <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+          </span>
+          <h1 className="mt-5 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-5xl md:text-6xl">
+            Prehľad
+          </h1>
+          <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-foreground/70 sm:mt-6 sm:text-lg">
+            Rezervácie Performance Centra, dopyty z formulárov a nastavenia systému —
+            všetko na <strong className="font-semibold text-gold">jednom mieste</strong>.
+          </p>
+          <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+            <Link
+              to="/admin/kalendar"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-8 py-3.5 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-foreground sm:w-auto sm:px-10 sm:py-4"
+            >
+              Otvoriť kalendár
+            </Link>
+            <Link
+              to="/admin/spravy"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-sm font-bold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto sm:px-10 sm:py-4"
+            >
+              Správy{unread > 0 ? ` (${unread})` : ""}
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Panel
         eyebrow="01 — Prevádzka"

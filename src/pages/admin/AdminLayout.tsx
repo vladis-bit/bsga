@@ -184,7 +184,7 @@ const AdminLayout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="theme-ivory min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-3 lg:gap-6">
