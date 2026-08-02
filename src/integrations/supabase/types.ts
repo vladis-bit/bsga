@@ -165,6 +165,7 @@ export type Database = {
       }
       pc_bookings: {
         Row: {
+          cancel_email_at: string | null
           cancel_email_error: string | null
           cancel_email_resend_id: string | null
           cancel_email_sent_at: string | null
@@ -195,6 +196,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          cancel_email_at?: string | null
           cancel_email_error?: string | null
           cancel_email_resend_id?: string | null
           cancel_email_sent_at?: string | null
@@ -225,6 +227,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          cancel_email_at?: string | null
           cancel_email_error?: string | null
           cancel_email_resend_id?: string | null
           cancel_email_sent_at?: string | null

@@ -1,11 +1,11 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { sendEmail } from "../_shared/resend.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const SITE_URL = Deno.env.get("SITE_URL") ?? "https://bsga.sk";
@@ -553,8 +553,6 @@ Deno.serve(async (req) => {
     });
 
   try {
-    if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
-
     const body = await req.json().catch(() => ({}));
     const bookingId = typeof body?.bookingId === "string" ? body.bookingId : null;
     if (!bookingId || !/^[0-9a-f-]{36}$/i.test(bookingId)) {
@@ -591,29 +589,21 @@ Deno.serve(async (req) => {
       reservation_cancel_url: cancelUrl,
     });
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "BSGA Performance Center <noreply@bsga.sk>",
-        to: [b.email],
-        bcc: ["info@bsga.sk"],
-        reply_to: "peter@bsga.sk",
-        subject: `Potvrdenie rezervácie – ${simName}, ${dateStr} o ${fmtTime(b.starts_at)}`,
-        html,
-      }),
+    const res = await sendEmail({
+      from: "BSGA Performance Center <noreply@bsga.sk>",
+      to: [b.email],
+      bcc: ["info@bsga.sk"],
+      reply_to: "peter@bsga.sk",
+      subject: `Potvrdenie rezervácie – ${simName}, ${dateStr} o ${fmtTime(b.starts_at)}`,
+      html,
     });
 
-    const payload = await res.json().catch(() => ({}));
     if (!res.ok) {
       await supabase
         .from("pc_bookings")
-        .update({ email_status: "failed", email_error: JSON.stringify(payload).slice(0, 500) })
+        .update({ email_status: "failed", email_error: `[${res.status}] ${res.details}`.slice(0, 500) })
         .eq("id", bookingId);
-      return json({ error: "Resend failed", details: payload }, 502);
+      return json({ error: "Resend failed", status: res.status, details: res.details }, res.status);
     }
 
     await supabase
@@ -622,11 +612,11 @@ Deno.serve(async (req) => {
         email_status: "sent",
         email_error: null,
         resend_at: new Date().toISOString(),
-        resend_id: payload?.id ?? null,
+        resend_id: res.id,
       })
       .eq("id", bookingId);
 
-    return json({ ok: true, id: payload?.id ?? null });
+    return json({ ok: true, id: res.id });
   } catch (e) {
     return json({ error: (e as Error).message }, 500);
   }

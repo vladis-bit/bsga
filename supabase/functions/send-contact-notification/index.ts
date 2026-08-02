@@ -1,7 +1,7 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { sendEmail } from "../_shared/resend.ts";
 
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
@@ -29,8 +29,6 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
-    if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
-
     const body = await req.json().catch(() => ({}));
     const messageId = typeof body?.messageId === "string" ? body.messageId : null;
     if (!messageId || !/^[0-9a-f-]{36}$/i.test(messageId)) {
@@ -95,24 +93,16 @@ Deno.serve(async (req) => {
   </div>
 </div>`;
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "BSGA Web <noreply@bsga.sk>",
-        to,
-        reply_to: msg.email,
-        subject,
-        html,
-      }),
+    const res = await sendEmail({
+      from: "BSGA Web <noreply@bsga.sk>",
+      to,
+      reply_to: msg.email,
+      subject,
+      html,
     });
 
     if (!res.ok) {
-      const details = await res.text();
-      console.error(`Resend failed [${res.status}]: ${details}`);
+      const details = res.details;
       await supabase
         .from("contact_messages")
         .update({
@@ -126,17 +116,16 @@ Deno.serve(async (req) => {
       });
     }
 
-    const result = await res.json();
     await supabase
       .from("contact_messages")
       .update({
         email_status: "sent",
         email_error: null,
         resend_at: new Date().toISOString(),
-        resend_id: result?.id ?? null,
+        resend_id: res.id,
       })
       .eq("id", messageId);
-    return new Response(JSON.stringify({ ok: true, to, id: result?.id }), {
+    return new Response(JSON.stringify({ ok: true, to, id: res.id }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {

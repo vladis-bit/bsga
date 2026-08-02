@@ -48,6 +48,9 @@ const BookingCancel = () => {
       return;
     }
     setCancelled(true);
+    supabase.functions
+      .invoke("send-booking-cancellation", { body: { token } })
+      .catch((err) => console.error("send-booking-cancellation failed:", err));
   };
 
   return (
