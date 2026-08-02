@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      coaches: {
+        Row: {
+          created_at: string
+          email: string | null
+          foto: string | null
+          id: string
+          licencia: string | null
+          meno: string
+          ocenenia: string | null
+          popis: string | null
+          pozicia: string | null
+          sort_order: number
+          telefon: string | null
+          updated_at: string
+          zakladajuci_clen: boolean
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          foto?: string | null
+          id?: string
+          licencia?: string | null
+          meno: string
+          ocenenia?: string | null
+          popis?: string | null
+          pozicia?: string | null
+          sort_order?: number
+          telefon?: string | null
+          updated_at?: string
+          zakladajuci_clen?: boolean
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          foto?: string | null
+          id?: string
+          licencia?: string | null
+          meno?: string
+          ocenenia?: string | null
+          popis?: string | null
+          pozicia?: string | null
+          sort_order?: number
+          telefon?: string | null
+          updated_at?: string
+          zakladajuci_clen?: boolean
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           company_name: string | null
@@ -117,6 +165,10 @@ export type Database = {
       }
       pc_bookings: {
         Row: {
+          cancel_email_error: string | null
+          cancel_email_resend_id: string | null
+          cancel_email_sent_at: string | null
+          cancel_email_status: string | null
           cancellation_token: string
           created_at: string
           duration_hours: number
@@ -131,6 +183,10 @@ export type Database = {
           payment_status: string
           phone: string | null
           price_eur: number
+          reminder_error: string | null
+          reminder_resend_id: string | null
+          reminder_sent_at: string | null
+          reminder_status: string | null
           resend_at: string | null
           resend_id: string | null
           simulator_id: string
@@ -139,6 +195,10 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          cancel_email_error?: string | null
+          cancel_email_resend_id?: string | null
+          cancel_email_sent_at?: string | null
+          cancel_email_status?: string | null
           cancellation_token?: string
           created_at?: string
           duration_hours?: number
@@ -153,6 +213,10 @@ export type Database = {
           payment_status?: string
           phone?: string | null
           price_eur?: number
+          reminder_error?: string | null
+          reminder_resend_id?: string | null
+          reminder_sent_at?: string | null
+          reminder_status?: string | null
           resend_at?: string | null
           resend_id?: string | null
           simulator_id: string
@@ -161,6 +225,10 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          cancel_email_error?: string | null
+          cancel_email_resend_id?: string | null
+          cancel_email_sent_at?: string | null
+          cancel_email_status?: string | null
           cancellation_token?: string
           created_at?: string
           duration_hours?: number
@@ -175,6 +243,10 @@ export type Database = {
           payment_status?: string
           phone?: string | null
           price_eur?: number
+          reminder_error?: string | null
+          reminder_resend_id?: string | null
+          reminder_sent_at?: string | null
+          reminder_status?: string | null
           resend_at?: string | null
           resend_id?: string | null
           simulator_id?: string
@@ -191,6 +263,45 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      pc_pricing_slots: {
+        Row: {
+          cas_konca: string
+          cas_zaciatku: string
+          cena_eur: number
+          created_at: string
+          id: string
+          kategoria: string
+          popis: string | null
+          slug: string
+          trvanie_hod: number
+          updated_at: string
+        }
+        Insert: {
+          cas_konca: string
+          cas_zaciatku: string
+          cena_eur?: number
+          created_at?: string
+          id?: string
+          kategoria: string
+          popis?: string | null
+          slug: string
+          trvanie_hod?: number
+          updated_at?: string
+        }
+        Update: {
+          cas_konca?: string
+          cas_zaciatku?: string
+          cena_eur?: number
+          created_at?: string
+          id?: string
+          kategoria?: string
+          popis?: string | null
+          slug?: string
+          trvanie_hod?: number
+          updated_at?: string
+        }
+        Relationships: []
       }
       pc_simulators: {
         Row: {
@@ -224,6 +335,141 @@ export type Database = {
           name?: string
           slug?: string
           sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          cena: string | null
+          created_at: string
+          dlzka: string | null
+          foto: string | null
+          id: string
+          ikona: string | null
+          nazov: string
+          odkaz: string | null
+          popis: string | null
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          cena?: string | null
+          created_at?: string
+          dlzka?: string | null
+          foto?: string | null
+          id?: string
+          ikona?: string | null
+          nazov: string
+          odkaz?: string | null
+          popis?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          cena?: string | null
+          created_at?: string
+          dlzka?: string | null
+          foto?: string | null
+          id?: string
+          ikona?: string | null
+          nazov?: string
+          odkaz?: string | null
+          popis?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      shop_products: {
+        Row: {
+          cena: string | null
+          created_at: string
+          farby: string | null
+          id: string
+          nazov: string
+          obrazok: string | null
+          odkaz_na_kupu: string | null
+          popis: string | null
+          poznamka: string | null
+          sort_order: number
+          typ: string
+          updated_at: string
+        }
+        Insert: {
+          cena?: string | null
+          created_at?: string
+          farby?: string | null
+          id?: string
+          nazov: string
+          obrazok?: string | null
+          odkaz_na_kupu?: string | null
+          popis?: string | null
+          poznamka?: string | null
+          sort_order?: number
+          typ: string
+          updated_at?: string
+        }
+        Update: {
+          cena?: string | null
+          created_at?: string
+          farby?: string | null
+          id?: string
+          nazov?: string
+          obrazok?: string | null
+          odkaz_na_kupu?: string | null
+          popis?: string | null
+          poznamka?: string | null
+          sort_order?: number
+          typ?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      tour_events: {
+        Row: {
+          cislo_turnaja: number
+          created_at: string
+          datum: string | null
+          id: string
+          lokalita: string
+          obrazok: string | null
+          odkaz_galeria: string | null
+          odkaz_lokalita: string | null
+          odkaz_vysledky: string | null
+          partner_prezentujuci: string | null
+          promo_letak: string | null
+          rok: number
+          updated_at: string
+        }
+        Insert: {
+          cislo_turnaja: number
+          created_at?: string
+          datum?: string | null
+          id?: string
+          lokalita: string
+          obrazok?: string | null
+          odkaz_galeria?: string | null
+          odkaz_lokalita?: string | null
+          odkaz_vysledky?: string | null
+          partner_prezentujuci?: string | null
+          promo_letak?: string | null
+          rok: number
+          updated_at?: string
+        }
+        Update: {
+          cislo_turnaja?: number
+          created_at?: string
+          datum?: string | null
+          id?: string
+          lokalita?: string
+          obrazok?: string | null
+          odkaz_galeria?: string | null
+          odkaz_lokalita?: string | null
+          odkaz_vysledky?: string | null
+          partner_prezentujuci?: string | null
+          promo_letak?: string | null
+          rok?: number
           updated_at?: string
         }
         Relationships: []
