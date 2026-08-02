@@ -117,6 +117,10 @@ export type Database = {
       }
       pc_bookings: {
         Row: {
+          cancel_email_error: string | null
+          cancel_email_resend_id: string | null
+          cancel_email_sent_at: string | null
+          cancel_email_status: string | null
           cancellation_token: string
           created_at: string
           duration_hours: number
@@ -131,6 +135,10 @@ export type Database = {
           payment_status: string
           phone: string | null
           price_eur: number
+          reminder_error: string | null
+          reminder_resend_id: string | null
+          reminder_sent_at: string | null
+          reminder_status: string | null
           resend_at: string | null
           resend_id: string | null
           simulator_id: string
@@ -139,6 +147,10 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          cancel_email_error?: string | null
+          cancel_email_resend_id?: string | null
+          cancel_email_sent_at?: string | null
+          cancel_email_status?: string | null
           cancellation_token?: string
           created_at?: string
           duration_hours?: number
@@ -153,6 +165,10 @@ export type Database = {
           payment_status?: string
           phone?: string | null
           price_eur?: number
+          reminder_error?: string | null
+          reminder_resend_id?: string | null
+          reminder_sent_at?: string | null
+          reminder_status?: string | null
           resend_at?: string | null
           resend_id?: string | null
           simulator_id: string
@@ -161,6 +177,10 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          cancel_email_error?: string | null
+          cancel_email_resend_id?: string | null
+          cancel_email_sent_at?: string | null
+          cancel_email_status?: string | null
           cancellation_token?: string
           created_at?: string
           duration_hours?: number
@@ -175,6 +195,10 @@ export type Database = {
           payment_status?: string
           phone?: string | null
           price_eur?: number
+          reminder_error?: string | null
+          reminder_resend_id?: string | null
+          reminder_sent_at?: string | null
+          reminder_status?: string | null
           resend_at?: string | null
           resend_id?: string | null
           simulator_id?: string
