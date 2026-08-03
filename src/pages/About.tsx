@@ -25,7 +25,7 @@ const founders = [{
   image: peterSvajlenImg,
   achievements: ["6-násobný majster Slovenska", "5-násobný víťaz PGA SK Order of Merit", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"],
   bio: [
-    "Člen PGA Slovakia",
+    "Člen PGA Czech Republic",
     "5-násobný víťaz PGA SK Order of Merit",
     "6-násobný majster Slovenska",
     "Člen Cameron Athletics Hall of Fame",
@@ -42,7 +42,7 @@ const founders = [{
   image: jakubHrbanImg,
   achievements: ["Hlavný tréner CTM v Hrubej Borši", "Špecialista na fitting golfových palíc", "Držiteľ licencie \"Profesionálny tréner golfu\" Five Star Golf Academy"],
   bio: [
-    "Člen PGA Slovakia",
+    "Člen PGA Czech Republic",
     "Juniorský majster Slovenska",
     "Hlavný tréner CTM v Hrubej Borši",
     "Špecialista na fitting golfových palíc"
@@ -56,7 +56,7 @@ const team: TeamMember[] = [{
   email: "maros@bsga.sk",
   image: marosGajanImg,
   bio: [
-    "Člen PGA Slovakia",
+    "Člen PGA Czech Republic",
     "Majster Slovenska U21",
     "PGA Professional od roku 2010",
     "Efektívny tréning pre lepšiu hru a zdravý pohyb (TPI Certified)"
