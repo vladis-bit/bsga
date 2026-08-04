@@ -1,6 +1,7 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendEmail } from "../_shared/resend.ts";
-import { esc, fmtDate, fmtTime, renderBookingEmail } from "../_shared/bookingEmail.ts";
+import { fmtDate, fmtTime } from "../_shared/bookingEmail.ts";
+import { renderCancellationEmail } from "../_shared/cancellationEmail.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -41,18 +42,15 @@ Deno.serve(async (req) => {
       b.ends_at ??
       new Date(new Date(b.starts_at).getTime() + Number(b.duration_hours) * 3600000).toISOString();
 
-    const html = renderBookingEmail({
-      badge: "Zrušenie rezervácie",
-      heading: "Vaša rezervácia bola zrušená",
-      intro: `Dobrý deň, ${esc(b.first_name)}, potvrdzujeme zrušenie nižšie uvedeného termínu. Termín je opäť voľný pre ostatných klientov.`,
-      rows: [
-        ["Simulátor", simName],
-        ["Dátum", fmtDate(b.starts_at)],
-        ["Čas", `${fmtTime(b.starts_at)} – ${fmtTime(endsAt)}`],
-        ["Dĺžka", `${Number(b.duration_hours)} h`],
-      ],
-      cta: { label: "Rezervovať nový termín", url: `${SITE_URL}/performance-center/rezervacia` },
-      note: "Ak ste zrušenie nevykonali vy, kontaktujte nás na <a href=\"mailto:info@bsga.sk\" style=\"color:#C5A059;\">info@bsga.sk</a>.",
+    const html = renderCancellationEmail({
+      firstName: b.first_name,
+      lastName: b.last_name ?? "",
+      date: fmtDate(b.starts_at),
+      time: `${fmtTime(b.starts_at)} – ${fmtTime(endsAt)}`,
+      email: b.email,
+      phone: b.phone ?? "",
+      simulator: simName,
+      duration: `${Number(b.duration_hours)} h`,
     });
 
     const res = await sendEmail({
