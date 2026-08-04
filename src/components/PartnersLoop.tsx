@@ -2,6 +2,9 @@ import asbisLogo from "@/assets/partner-asbis.webp";
 import checkpointLogo from "@/assets/partner-checkpoint.png";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import borsaLogo from "@/assets/partner-borsa.png";
+import jucadAsset from "@/assets/partner-jucad.webp.asset.json";
+import skgaAsset from "@/assets/partner-skga.svg.asset.json";
+import sklgaAsset from "@/assets/partner-sklga.webp.asset.json";
 interface Partner {
   name: string;
   logo: string;
@@ -20,6 +23,16 @@ const partners: Partner[] = [{
 }, {
   name: "Borša Golf Club",
   logo: borsaLogo
+}, {
+  name: "JuCad",
+  logo: jucadAsset.url
+}, {
+  name: "SKGA",
+  logo: skgaAsset.url,
+  logoClass: "max-w-[8.5rem] max-h-24 sm:max-w-[9.5rem] sm:max-h-28 md:max-w-[10.5rem] md:max-h-32"
+}, {
+  name: "SKLGA",
+  logo: sklgaAsset.url
 }];
 const PartnersLoop = () => {
   return <section className="py-12 bg-muted/50 overflow-hidden">
@@ -70,11 +83,11 @@ const PartnersLoop = () => {
           will-change: transform;
           backface-visibility: hidden;
           transform: translate3d(0, 0, 0);
-          animation: scroll 10s linear infinite;
+          animation: scroll 18s linear infinite;
         }
         @media (max-width: 640px) {
           .animate-scroll {
-            animation-duration: 16s;
+            animation-duration: 26s;
           }
         }
         @media (hover: hover) {
