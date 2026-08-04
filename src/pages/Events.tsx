@@ -180,10 +180,12 @@ const EventCard = ({
   event,
   index,
   variant = "small",
+  hideSignup = false,
 }: {
   event: EventItem;
   index: number;
   variant?: "featured" | "side" | "small";
+  hideSignup?: boolean;
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -279,13 +281,15 @@ const EventCard = ({
                   Informácie
                 </a>
               )}
-              <a
-                href={`mailto:${signupEmail}?subject=${mailSubject}`}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Prihlásiť sa</span>
-              </a>
+              {!hideSignup && (
+                <a
+                  href={`mailto:${signupEmail}?subject=${mailSubject}`}
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Prihlásiť sa</span>
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -775,7 +779,7 @@ const Events = () => {
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
                 {archivedEvents.map((event, index) => (
-                  <EventCard key={`archiv-${index}`} event={event} index={index} variant="small" />
+                  <EventCard key={`archiv-${index}`} event={event} index={index} variant="small" hideSignup />
                 ))}
               </div>
             </div>
