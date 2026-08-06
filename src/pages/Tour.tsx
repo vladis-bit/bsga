@@ -9,6 +9,7 @@ import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
 const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointLogo from "@/assets/partner-checkpoint-tour.png";
 import TournamentCard from "@/components/TournamentCard";
+import { skOrdinal, tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -145,7 +146,7 @@ const Tour = () => {
   const eventSchemas = tournaments.map((t) => ({
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    name: `BSGA Tour 2026 #${t.number} – ${t.location}`,
+    name: `${tournamentTitle(t.number)} 2026 – ${t.location}`,
     startDate: toIso(t.date),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
@@ -181,7 +182,7 @@ const Tour = () => {
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-none min-h-[460px] sm:min-h-[560px] sm:rounded-3xl md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={legendImg}
-                  alt="Penati Legend – dejisko turnaja BSGA Tour 4"
+                  alt="Penati Legend – dejisko štvrtého turnaja BSGA Tour"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="eager"
                   decoding="async"
@@ -197,7 +198,7 @@ const Tour = () => {
                       <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                     </span>
                     <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
-                      BSGA Tour 4
+                      Štvrtý turnaj BSGA Tour
                     </h1>
                     <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm md:text-base">
                       presented by ELcomp s.r.o.
@@ -218,7 +219,7 @@ const Tour = () => {
 
                     <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                       <a
-                        href="mailto:touroffice@bsga.sk?subject=Prihlásenie na BSGA Tour 4 – Penati Legend"
+                        href="mailto:touroffice@bsga.sk?subject=Prihlásenie na Štvrtý turnaj BSGA Tour – Penati Legend"
                         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
                       >
                         Prihlásiť sa
@@ -309,7 +310,7 @@ const Tour = () => {
                         className="relative z-10 flex w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-gold/60 bg-gold px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98]"
                       >
                         <FileText size={20} className="opacity-90 transition-transform duration-300 group-hover:scale-110" />
-                        <span>Promo {tournament.number} - leták</span>
+                        <span>Promo leták – {skOrdinal(tournament.number)} turnaj</span>
                       </a>
                     </div>
                   </div>
