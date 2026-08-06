@@ -45,7 +45,7 @@ const EducationTests = () => {
             </button>
           </div>
           <h1 className="mb-6 font-serif text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-            Záverečný test golfových pravidiel
+            Záverečný test golfových pravidiel a etiky
           </h1>
           <GreenCardQuiz />
         </div>
