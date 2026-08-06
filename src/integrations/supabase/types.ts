@@ -172,6 +172,7 @@ export type Database = {
           cancel_email_status: string | null
           cancellation_token: string
           created_at: string
+          created_by_admin: boolean
           duration_hours: number
           email: string
           email_error: string | null
@@ -203,6 +204,7 @@ export type Database = {
           cancel_email_status?: string | null
           cancellation_token?: string
           created_at?: string
+          created_by_admin?: boolean
           duration_hours?: number
           email: string
           email_error?: string | null
@@ -234,6 +236,7 @@ export type Database = {
           cancel_email_status?: string | null
           cancellation_token?: string
           created_at?: string
+          created_by_admin?: boolean
           duration_hours?: number
           email?: string
           email_error?: string | null
@@ -303,6 +306,80 @@ export type Database = {
           slug?: string
           trvanie_hod?: number
           updated_at?: string
+        }
+        Relationships: []
+      }
+      pc_recurring_blocks: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          end_time: string
+          id: string
+          is_active: boolean
+          reason: string | null
+          simulator_id: string | null
+          start_time: string
+          updated_at: string
+          valid_from: string
+          valid_until: string | null
+          weekday: number
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          end_time: string
+          id?: string
+          is_active?: boolean
+          reason?: string | null
+          simulator_id?: string | null
+          start_time: string
+          updated_at?: string
+          valid_from?: string
+          valid_until?: string | null
+          weekday: number
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          end_time?: string
+          id?: string
+          is_active?: boolean
+          reason?: string | null
+          simulator_id?: string | null
+          start_time?: string
+          updated_at?: string
+          valid_from?: string
+          valid_until?: string | null
+          weekday?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pc_recurring_blocks_simulator_id_fkey"
+            columns: ["simulator_id"]
+            isOneToOne: false
+            referencedRelation: "pc_simulators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pc_settings: {
+        Row: {
+          created_at: string
+          key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          key: string
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          created_at?: string
+          key?: string
+          updated_at?: string
+          value?: string
         }
         Relationships: []
       }
