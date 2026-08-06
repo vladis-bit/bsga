@@ -5,7 +5,7 @@ const cards = [
   {
     n: "01",
     eyebrow: "Rezervácie",
-    title: "Vytvoriť rezerváciu",
+    title: "Kalendár rezervácií",
     text: "Rezervujte si Trackman 4 alebo Trackman iO v BSGA Performance Center.",
     to: "/admin/performance-center/rezervacia",
     cta: "Otvoriť kalendár",
@@ -19,6 +19,15 @@ const cards = [
     to: "/admin/performance-center/indoor-league",
     cta: "Zobraziť",
     tinted: true,
+  },
+  {
+    n: "03",
+    eyebrow: "Admin",
+    title: "Vytvoriť rezerváciu",
+    text: "Zadajte rezerváciu za klienta – telefonicky alebo osobne, bez obmedzenia 14 dní.",
+    to: "/admin/performance-center/vytvorit-rezervaciu",
+    cta: "Otvoriť formulár",
+    tinted: false,
   },
 ];
 
