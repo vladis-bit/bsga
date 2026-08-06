@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Trophy, Camera, ChevronDown } from "lucide-react";
+import { tournamentTitle } from "@/lib/ordinals";
 interface TournamentLinks {
   locationUrl?: string;
   resultsUrl?: string;
@@ -64,7 +65,7 @@ const TournamentCard = ({
           {/* Mobile: stacked layout */}
           <div className="flex flex-col sm:hidden gap-1">
             <span className={`${titleClass} font-serif text-sm font-bold tracking-wide uppercase`}>
-              {tourLabel} {number}
+              {tournamentTitle(number, tourLabel)}
             </span>
             {presenter && (
               <span className="text-gold text-[9px] uppercase tracking-wider">
@@ -81,7 +82,7 @@ const TournamentCard = ({
             <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
             <div className="flex flex-col items-center flex-1 min-w-0 gap-0.5">
               <span className={`${titleClass} font-serif font-bold text-lg tracking-wide whitespace-nowrap`}>
-                {tourLabel} {number}
+                {tournamentTitle(number, tourLabel)}
               </span>
               {presenter && (
                 <span className="text-gold text-[10px] uppercase tracking-wider truncate max-w-full">
