@@ -33,6 +33,7 @@ const AdminMessages = lazy(() => import("./pages/admin/Messages"));
 const AdminAdmins = lazy(() => import("./pages/admin/Admins"));
 const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const AdminBlackouts = lazy(() => import("./pages/admin/Blackouts"));
+const AdminCreateBooking = lazy(() => import("./pages/admin/CreateBooking"));
 const PerformanceCenterHome = lazy(() => import("./pages/performance-center/PerformanceCenterHome"));
 const PcReservation = lazy(() => import("./pages/performance-center/Reservation"));
 const PcIndoorLeague = lazy(() => import("./pages/performance-center/IndoorLeague"));
@@ -79,6 +80,7 @@ const App = () => (
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
               <Route path="performance-center" element={<PerformanceCenterHome />} />
               <Route path="performance-center/rezervacia" element={<PcReservation />} />
+              <Route path="performance-center/vytvorit-rezervaciu" element={<AdminCreateBooking />} />
               <Route path="performance-center/indoor-league" element={<PcIndoorLeague />} />
             </Route>
             <Route path="/rezervacia/detail" element={<BookingDetail />} />
