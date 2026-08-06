@@ -13,6 +13,7 @@ import {
   PC_OPEN_HOUR,
   PC_CLOSE_HOUR,
 } from "./shared";
+import RecurringBlocks from "./RecurringBlocks";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 const OPEN = `${pad(PC_OPEN_HOUR)}:00`;
@@ -225,6 +226,8 @@ const Blackouts = () => {
           </tbody>
         </table>
       </div>
+
+      <RecurringBlocks simulators={simulators} />
     </div>
   );
 };
