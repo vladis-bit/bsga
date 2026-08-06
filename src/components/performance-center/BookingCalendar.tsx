@@ -20,6 +20,8 @@ import {
   validateOpeningHours,
   PC_OPEN_HOUR,
   PC_CLOSE_HOUR,
+  fetchBookingWindowDays,
+  DEFAULT_BOOKING_WINDOW_DAYS,
 } from "@/pages/admin/shared";
 
 type Slot = { simulator_id: string; starts_at: string; ends_at: string; kind: string };
@@ -60,6 +62,15 @@ const BookingCalendar = () => {
   const [done, setDone] = useState<null | { sim: string; time: string; hours: number; price: number }>(
     null,
   );
+  const [windowDays, setWindowDays] = useState(DEFAULT_BOOKING_WINDOW_DAYS);
+
+  useEffect(() => {
+    fetchBookingWindowDays().then(setWindowDays).catch(() => undefined);
+  }, []);
+
+  const today = useMemo(() => startOfDay(new Date()), []);
+  const lastDay = useMemo(() => addDays(today, windowDays), [today, windowDays]);
+  const outOfWindow = day < today || day > lastDay;
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -91,6 +102,7 @@ const BookingCalendar = () => {
       const start = slotDate(day, time).getTime();
       const end = start + 30 * 60 * 1000;
       if (start <= Date.now()) return "past";
+      if (outOfWindow) return "past";
       const hit = slots.find((s) => {
         if (s.simulator_id && s.simulator_id !== simId) return false;
         return new Date(s.starts_at).getTime() < end && new Date(s.ends_at).getTime() > start;
@@ -98,7 +110,7 @@ const BookingCalendar = () => {
       if (!hit) return "free";
       return hit.kind === "blocked" ? "blocked" : "booked";
     };
-  }, [slots, day]);
+  }, [slots, day, outOfWindow]);
 
   const openForm = (sim: Simulator, time: string) => {
     setForm(emptyForm);
@@ -170,6 +182,7 @@ const BookingCalendar = () => {
             variant="outline"
             size="sm"
             className="rounded-full"
+            disabled={day <= today}
             onClick={() => setDay(addDays(day, -1))}
           >
             ←
@@ -178,7 +191,7 @@ const BookingCalendar = () => {
             variant="outline"
             size="sm"
             className="rounded-full"
-            onClick={() => setDay(startOfDay(new Date()))}
+            onClick={() => setDay(today)}
           >
             Dnes
           </Button>
@@ -186,6 +199,7 @@ const BookingCalendar = () => {
             variant="outline"
             size="sm"
             className="rounded-full"
+            disabled={day >= lastDay}
             onClick={() => setDay(addDays(day, 1))}
           >
             →
@@ -207,8 +221,16 @@ const BookingCalendar = () => {
 
       <p className="text-xs text-muted-foreground">
         Otváracie hodiny: {PC_OPEN_HOUR}:00 – {PC_CLOSE_HOUR}:00. Kliknite na voľný termín a vyplňte
-        krátky formulár.
+        krátky formulár. Rezervovať sa dá najviac {windowDays} dní dopredu (do{" "}
+        {lastDay.toLocaleDateString("sk-SK")}).
       </p>
+
+      {outOfWindow && (
+        <p className="rounded-2xl border border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
+          Tento deň je mimo rezervačného okna – termíny sa dajú rezervovať najviac {windowDays} dní
+          dopredu.
+        </p>
+      )}
 
       <div className="overflow-hidden rounded-3xl border border-border bg-card">
         <div className="overflow-x-auto">
