@@ -160,3 +160,55 @@ export async function fetchBlackouts(): Promise<Blackout[]> {
   if (error) throw error;
   return (data ?? []) as Blackout[];
 }
+
+/** Opakovaná (týždenná) blokácia simulátora. */
+export type RecurringBlock = {
+  id: string;
+  simulator_id: string | null;
+  weekday: number; // 0 = nedeľa … 6 = sobota
+  start_time: string;
+  end_time: string;
+  valid_from: string;
+  valid_until: string | null;
+  reason: string | null;
+  is_active: boolean;
+  created_at: string;
+};
+
+/** Dropdown Pondelok–Nedeľa, hodnota zodpovedá Postgres `dow` (0 = nedeľa). */
+export const WEEKDAYS_SK: { value: number; label: string }[] = [
+  { value: 1, label: "Pondelok" },
+  { value: 2, label: "Utorok" },
+  { value: 3, label: "Streda" },
+  { value: 4, label: "Štvrtok" },
+  { value: 5, label: "Piatok" },
+  { value: 6, label: "Sobota" },
+  { value: 0, label: "Nedeľa" },
+];
+
+export const weekdayLabel = (v: number) =>
+  WEEKDAYS_SK.find((d) => d.value === v)?.label ?? String(v);
+
+export async function fetchRecurringBlocks(): Promise<RecurringBlock[]> {
+  const { data, error } = await supabase
+    .from("pc_recurring_blocks")
+    .select("*")
+    .order("weekday", { ascending: true })
+    .order("start_time", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as RecurringBlock[];
+}
+
+export const DEFAULT_BOOKING_WINDOW_DAYS = 14;
+
+/** Koľko dní dopredu môže klient rezervovať (konfigurácia v tabuľke pc_settings). */
+export async function fetchBookingWindowDays(): Promise<number> {
+  const { data, error } = await supabase
+    .from("pc_settings")
+    .select("value")
+    .eq("key", "booking_window_days")
+    .maybeSingle();
+  if (error || !data) return DEFAULT_BOOKING_WINDOW_DAYS;
+  const n = Number(data.value);
+  return Number.isFinite(n) && n > 0 ? n : DEFAULT_BOOKING_WINDOW_DAYS;
+}
