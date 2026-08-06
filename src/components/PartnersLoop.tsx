@@ -1,7 +1,7 @@
-import asbisLogo from "@/assets/partner-asbis.webp";
-import checkpointLogo from "@/assets/partner-checkpoint.png";
+import asbisAsset from "@/assets/partner-asbis.webp.asset.json";
+import checkpointAsset from "@/assets/partner-checkpoint.webp.asset.json";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
-import borsaLogo from "@/assets/partner-borsa.png";
+import borsaAsset from "@/assets/partner-borsa.webp.asset.json";
 import jucadAsset from "@/assets/partner-jucad.webp.asset.json";
 import skgaAsset from "@/assets/partner-skga.svg.asset.json";
 import sklgaAsset from "@/assets/partner-sklga.webp.asset.json";
@@ -12,17 +12,18 @@ interface Partner {
 }
 const partners: Partner[] = [{
   name: "ASBIS",
-  logo: asbisLogo
+  logo: asbisAsset.url
 }, {
   name: "Check Point",
-  logo: checkpointLogo
+  logo: checkpointAsset.url,
+  logoClass: "max-w-[92%] max-h-[80%]"
 }, {
   name: "Doni Travel",
   logo: doniTravelLogo,
   logoClass: "max-w-[8.5rem] max-h-24 sm:max-w-[9.5rem] sm:max-h-28 md:max-w-[10.5rem] md:max-h-32"
 }, {
   name: "Borša Golf Club",
-  logo: borsaLogo
+  logo: borsaAsset.url
 }, {
   name: "JuCad",
   logo: jucadAsset.url
