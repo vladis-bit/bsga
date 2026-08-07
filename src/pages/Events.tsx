@@ -77,11 +77,6 @@ const events: EventItem[] = [
   },
 
   {
-    title: "Švajlen Invitational",
-    date: "25. 9. 2026",
-    location: "Golfový klub Hrubá Borša, Slovensko",
-  },
-  {
     title: "Golfový víkend na Kaskáde",
     date: "18. – 20. 9. 2026",
     location: "Golf Resort Kaskáda",
