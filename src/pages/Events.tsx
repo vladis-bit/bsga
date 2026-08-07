@@ -739,12 +739,15 @@ const Events = () => {
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
-                        Jarný tréningový deň s Peťom a Jakubom
+                        Jarný tréningový kemp v Turecku
                       </h3>
+                      <p className="mt-1.5 text-sm text-muted-foreground">
+                        Rozohranie sa a príprava na novú golfovú sezónu pod vedením 4 BSGA trénerov.
+                      </p>
                       <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1.5">
                           <Calendar className="w-4 h-4 text-gold" />
-                          <span>TBD</span>
+                          <span>13. – 20. 3. 2027</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                           <MapPin className="w-4 h-4 text-gold" />
@@ -761,14 +764,14 @@ const Events = () => {
                           Plagát čoskoro
                         </span>
                         <a
-                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Informácie – Jarný tréningový deň s Peťom a Jakubom")}`}
+                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Informácie – Jarný tréningový kemp v Turecku")}`}
                           className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
                         >
                           <Info className="w-4 h-4" />
                           Informácie
                         </a>
                         <a
-                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Jarný tréningový deň s Peťom a Jakubom")}`}
+                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Jarný tréningový kemp v Turecku")}`}
                           className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
                         >
                           <Mail className="w-4 h-4" />
