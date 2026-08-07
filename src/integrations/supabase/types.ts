@@ -125,6 +125,60 @@ export type Database = {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          category: string
+          created_at: string
+          date_label: string | null
+          details: Json | null
+          hide_signup: boolean
+          id: string
+          is_active: boolean
+          is_featured: boolean
+          location: string | null
+          poster_url: string | null
+          sort_order: number
+          subtitle: string | null
+          title: string
+          updated_at: string
+          year: number | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          date_label?: string | null
+          details?: Json | null
+          hide_signup?: boolean
+          id?: string
+          is_active?: boolean
+          is_featured?: boolean
+          location?: string | null
+          poster_url?: string | null
+          sort_order?: number
+          subtitle?: string | null
+          title: string
+          updated_at?: string
+          year?: number | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          date_label?: string | null
+          details?: Json | null
+          hide_signup?: boolean
+          id?: string
+          is_active?: boolean
+          is_featured?: boolean
+          location?: string | null
+          poster_url?: string | null
+          sort_order?: number
+          subtitle?: string | null
+          title?: string
+          updated_at?: string
+          year?: number | null
+        }
+        Relationships: []
+      }
       pc_blackouts: {
         Row: {
           created_at: string
