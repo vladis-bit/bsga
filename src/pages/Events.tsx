@@ -732,7 +732,7 @@ const Events = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 sm:mt-8 rounded-2xl border border-border bg-card/80 backdrop-blur p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
+                <div className="mt-6 sm:mt-8 rounded-2xl border border-border bg-card shadow-xl p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-2xl hover:shadow-gold/10">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                     <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
                       2027
