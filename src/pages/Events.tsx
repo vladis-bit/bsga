@@ -80,6 +80,32 @@ const events: EventItem[] = [
     title: "Švajlen Invitational",
     date: "25. 9. 2026",
     location: "Golfový klub Hrubá Borša, Slovensko",
+  },
+  {
+    title: "Golfový víkend na Kaskáde",
+    date: "18. – 20. 9. 2026",
+    location: "Golf Resort Kaskáda",
+    details: {
+      subtitle: "Golfový víkend v Golf Resort Kaskáda",
+      intro: "Predĺžený golfový víkend v Golf Resort Kaskáda. Detailný program, cenník a informácie doplníme čoskoro.",
+      price: "Cena na vyžiadanie",
+      priceNote: "Bližšie informácie o programe, ubytovaní a štartovnom pripravujeme – v prípade záujmu nás kontaktujte.",
+      schedule: [
+        { day: "Piatok 18. 9.", title: "Príjazd a prvé kolo", items: ["Program doplníme čoskoro"] },
+        { day: "Sobota 19. 9.", title: "Hlavný hrací deň", items: ["Program doplníme čoskoro"] },
+        { day: "Nedeľa 20. 9.", title: "Záver a vyhlásenie", items: ["Program doplníme čoskoro"] },
+      ],
+      contact: {
+        name: "Peter Švajlen, MBA",
+        email: "peter@doni-travel.sk",
+        phone: "+421 905 335 501",
+      },
+    },
+  },
+  {
+    title: "Švajlen Invitational",
+    date: "25. 9. 2026",
+    location: "Golfový klub Hrubá Borša, Slovensko",
     details: {
       subtitle: "Jednokolový pozvánkový turnaj",
       intro: "Jednokolový pozvánkový turnaj konajúci sa na golfovom ihrisku v Hrubej Borši (GKHB). Môžete sa tešiť na welcome drink, občerstvenie, obed po hre a vyhlásenie aj s cenami.",
