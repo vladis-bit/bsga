@@ -273,9 +273,9 @@ const About = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-0 pt-20 sm:pt-24">
+          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
             <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
-            <div className="relative w-full overflow-hidden rounded-none min-h-[420px] sm:min-h-[600px] md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
+            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden min-h-[420px] sm:min-h-[600px] sm:rounded-3xl md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
               <picture className="absolute inset-0 h-full w-full">
                 <source media="(min-width: 640px)" srcSet={aboutHeroTeamImg} />
                 <source type="image/avif" srcSet={aboutHeroTeamMobileAvif} />
@@ -288,17 +288,18 @@ const About = () => {
                   {...({ fetchpriority: "high" } as any)}
                 />
               </picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
               <div className="relative z-10 flex h-full min-h-[420px] items-end sm:min-h-[600px] md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
-                <div className="container mx-auto px-4 pb-10 sm:px-6 sm:pb-14 md:pb-16">
+                <div className="container mx-auto px-4 pb-10 text-center sm:px-6 sm:pb-14 md:pb-16">
                   <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
                     <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                     O nás
                     <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                   </span>
-                  <h2 className="mt-5 max-w-3xl text-balance font-serif text-3xl font-bold leading-[1.08] text-primary-foreground [text-shadow:0_2px_18px_rgba(0,0,0,0.55)] sm:mt-6 sm:text-5xl md:text-6xl">
+                  <h2 className="mt-5 mx-auto max-w-3xl text-balance font-serif text-3xl font-bold leading-[1.08] text-primary-foreground [text-shadow:0_2px_18px_rgba(0,0,0,0.55)] sm:mt-6 sm:text-5xl md:text-6xl">
                     Tréneri &amp; tím BSGA
                   </h2>
-                  <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/90 [text-shadow:0_2px_12px_rgba(0,0,0,0.6)] sm:text-base md:text-lg">
+                  <p className="mt-4 mx-auto max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/90 [text-shadow:0_2px_12px_rgba(0,0,0,0.6)] sm:text-base md:text-lg">
                     Spoznajte ľudí, ktorí stoja za najväčšou golfovou akadémiou na Slovensku.
                   </p>
                 </div>
