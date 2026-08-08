@@ -282,7 +282,7 @@ const About = () => {
                 <img
                   src={aboutHeroTeamMobileImg}
                   alt="Tím BSGA"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-[50%_8%]"
                   loading="eager"
                   decoding="async"
                   {...({ fetchpriority: "high" } as any)}
