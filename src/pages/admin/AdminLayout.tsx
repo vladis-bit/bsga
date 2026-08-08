@@ -218,14 +218,25 @@ const AdminLayout = () => {
                 </NavLink>
               ))}
             </nav>
-            <Button
-              variant="outline"
-              size="sm"
-              className="shrink-0 rounded-full"
-              onClick={() => supabase.auth.signOut()}
-            >
-              Odhlásiť
-            </Button>
+            <div className="flex shrink-0 items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full"
+                onClick={() => supabase.auth.signOut()}
+              >
+                Odhlásiť
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label="Menu"
+                className="rounded-full lg:hidden"
+                onClick={() => setMenuOpen((o) => !o)}
+              >
+                {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              </Button>
+            </div>
           </div>
           {menuOpen && (
             <nav className="mt-3 grid gap-2 border-t border-border pt-3 sm:grid-cols-2 lg:hidden">
