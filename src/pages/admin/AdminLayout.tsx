@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,6 +27,12 @@ const AdminLayout = () => {
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState<"signin" | "reset">("signin");
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -211,33 +218,46 @@ const AdminLayout = () => {
                 </NavLink>
               ))}
             </nav>
-            <Button
-              variant="outline"
-              size="sm"
-              className="shrink-0 rounded-full"
-              onClick={() => supabase.auth.signOut()}
-            >
-              Odhlásiť
-            </Button>
-          </div>
-          <nav className="-mx-4 mt-3 flex items-center gap-1 overflow-x-auto px-4 pb-1 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.end}
-                className={({ isActive }) =>
-                  `whitespace-nowrap rounded-full px-3.5 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors ${
-                    isActive
-                      ? "bg-foreground text-background"
-                      : "bg-muted/60 text-muted-foreground"
-                  }`
-                }
+            <div className="flex shrink-0 items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full"
+                onClick={() => supabase.auth.signOut()}
               >
-                {l.label}
-              </NavLink>
-            ))}
-          </nav>
+                Odhlásiť
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label="Menu"
+                className="rounded-full lg:hidden"
+                onClick={() => setMenuOpen((o) => !o)}
+              >
+                {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              </Button>
+            </div>
+          </div>
+          {menuOpen && (
+            <nav className="mt-3 grid gap-2 border-t border-border pt-3 sm:grid-cols-2 lg:hidden">
+              {links.map((l) => (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  end={l.end}
+                  className={({ isActive }) =>
+                    `rounded-2xl px-4 py-3 text-xs font-bold uppercase tracking-wider transition-colors ${
+                      isActive
+                        ? "bg-foreground text-background"
+                        : "bg-muted/60 text-muted-foreground"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              ))}
+            </nav>
+          )}
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
