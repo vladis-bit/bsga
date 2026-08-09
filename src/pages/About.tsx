@@ -11,11 +11,10 @@ import milanNestickyImg from "@/assets/team/milan-nesticky.webp";
 import vanessaFajkusovaImg from "@/assets/team/vanessa-fajkusova.webp";
 import donkaSvajlenovaImg from "@/assets/team/donka-svajlenova.webp";
 import vladimirLeskoImg from "@/assets/team/vladimir-lesko.webp";
-import aboutHeroTeamMobileImgAsset from "@/assets/team/about-hero-team.webp.asset.json";
-const aboutHeroTeamMobileImg = aboutHeroTeamMobileImgAsset.url;
-import aboutHeroTeamMobileAvifAsset from "@/assets/team/about-hero-team.avif.asset.json";
-const aboutHeroTeamMobileAvif = aboutHeroTeamMobileAvifAsset.url;
-import aboutHeroTeamImg from "@/assets/team/about-hero-team-portrait.webp";
+import heroSmAvif from "@/assets/team/team-hero-900.avif.asset.json";
+import heroSmWebp from "@/assets/team/team-hero-900.webp.asset.json";
+import heroLgAvif from "@/assets/team/team-hero-1600.avif.asset.json";
+import heroLgWebp from "@/assets/team/team-hero-1600.webp.asset.json";
 
 const founders = [{
   name: "Peter Švajlen",
