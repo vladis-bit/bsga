@@ -15,6 +15,8 @@ import heroSmAvif from "@/assets/team/team-hero-900.avif.asset.json";
 import heroSmWebp from "@/assets/team/team-hero-900.webp.asset.json";
 import heroLgAvif from "@/assets/team/team-hero-1600.avif.asset.json";
 import heroLgWebp from "@/assets/team/team-hero-1600.webp.asset.json";
+import heroOldAvif from "@/assets/team/about-hero-team.avif.asset.json";
+import heroOldWebp from "@/assets/team/about-hero-team.webp.asset.json";
 
 const founders = [{
   name: "Peter Švajlen",
@@ -276,6 +278,8 @@ const About = () => {
             <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden min-h-[420px] sm:min-h-[600px] sm:rounded-3xl md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
               <picture className="absolute inset-0 h-full w-full">
+                <source media="(max-width: 767px)" type="image/avif" srcSet={heroOldAvif.url} />
+                <source media="(max-width: 767px)" type="image/webp" srcSet={heroOldWebp.url} />
                 <source type="image/avif" srcSet={`${heroSmAvif.url} 900w, ${heroLgAvif.url} 1600w`} sizes="100vw" />
                 <source type="image/webp" srcSet={`${heroSmWebp.url} 900w, ${heroLgWebp.url} 1600w`} sizes="100vw" />
                 <img
@@ -283,7 +287,7 @@ const About = () => {
                   width={1600}
                   height={1372}
                   alt="Tím BSGA"
-                  className="h-full w-full object-cover object-[50%_20%]"
+                  className="h-full w-full object-cover object-[50%_8%] md:object-[50%_20%]"
                   loading="eager"
                   decoding="sync"
                   {...({ fetchpriority: "high" } as any)}
