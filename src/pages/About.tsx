@@ -276,14 +276,16 @@ const About = () => {
             <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden min-h-[420px] sm:min-h-[600px] sm:rounded-3xl md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
               <picture className="absolute inset-0 h-full w-full">
-                <source media="(min-width: 640px)" srcSet={aboutHeroTeamImg} />
-                <source type="image/avif" srcSet={aboutHeroTeamMobileAvif} />
+                <source type="image/avif" srcSet={`${heroSmAvif.url} 900w, ${heroLgAvif.url} 1600w`} sizes="100vw" />
+                <source type="image/webp" srcSet={`${heroSmWebp.url} 900w, ${heroLgWebp.url} 1600w`} sizes="100vw" />
                 <img
-                  src={aboutHeroTeamMobileImg}
+                  src={heroLgWebp.url}
+                  width={1600}
+                  height={1372}
                   alt="Tím BSGA"
-                  className="h-full w-full object-cover object-[50%_8%]"
+                  className="h-full w-full object-cover object-[50%_20%]"
                   loading="eager"
-                  decoding="async"
+                  decoding="sync"
                   {...({ fetchpriority: "high" } as any)}
                 />
               </picture>
