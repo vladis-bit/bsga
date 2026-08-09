@@ -274,7 +274,7 @@ const About = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+          <section className="relative w-full bg-background px-0 pb-8 pt-20 sm:px-4 sm:pb-12 sm:pt-24 md:px-6 md:pb-16">
             <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden min-h-[420px] sm:min-h-[600px] sm:rounded-3xl md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
               <picture className="absolute inset-0 h-full w-full">
