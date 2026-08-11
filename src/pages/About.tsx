@@ -1,9 +1,8 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { Mail, Phone, CheckCircle, ChevronDown } from "lucide-react";
-import Tilt3DCard from "@/components/Tilt3DCard";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Mail, Phone, CheckCircle, RotateCw, ArrowLeft } from "lucide-react";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
 import marosGajanImg from "@/assets/team/maros-gajan.webp";
@@ -124,111 +123,110 @@ type TeamMember = {
   bio?: string[];
 };
 
-const FounderCard = ({
-  member
-}: {
-  member: TeamMember;
-}) => <Tilt3DCard className="group text-center">
-    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border bg-muted mb-4">
-      {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
-            {member.name.charAt(0)}
-          </span>
-        </div>}
-      <div className="absolute inset-0 bg-foreground/5 group-hover:bg-foreground/0 transition-all duration-300" />
-    </div>
-    <h3 className="text-xl font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
-      {member.name}
-    </h3>
-    <p className="text-base text-muted-foreground uppercase tracking-wider mb-3">
-      {member.role}
-    </p>
-    <div className="flex justify-center gap-3 mb-4">
-      <a href={`tel:${member.phone}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
-        <Phone size={20} />
-      </a>
-      <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Email">
-        <Mail size={20} />
-      </a>
-    </div>
+const CoachCard = ({ member, variant = "team" }: { member: TeamMember; variant?: "founder" | "team" }) => {
+  const [flipped, setFlipped] = useState(false);
+  const isFounder = variant === "founder";
 
-    {member.bio && member.bio.length > 0 && (
-      <Collapsible className="w-full">
-        <CollapsibleTrigger asChild>
-          <button aria-label={`Zobraziť profesionálnu kariéru — ${member.name}`} className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gradient-to-b from-gold/15 to-gold/5 px-5 py-2.5 text-sm font-bold text-gold shadow-sm transition-all hover:from-gold/25 hover:to-gold/10 hover:border-gold/70 hover:shadow-md active:scale-[0.98] data-[state=open]:from-gold/25 data-[state=open]:to-gold/10 data-[state=open]:border-gold/70">
-            O trénerovi
-            <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
-          </button>
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <div className="mt-4 rounded-xl border-l-4 border-l-gold border border-border/60 bg-card/95 p-5 shadow-sm">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Profesionálna kariéra</h4>
-            <ul className="space-y-2.5 text-sm text-foreground/90">
-              {member.bio.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold shadow-[0_0_6px_hsl(var(--gold)/0.6)]" />
-                  <span className="font-medium">{item}</span>
-                </li>
-              ))}
-            </ul>
+  const toggle = () => setFlipped((v) => !v);
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggle();
+    }
+  };
+  const stop = (e: React.MouseEvent) => e.stopPropagation();
+
+  const faceBase =
+    "[grid-area:1/1] flex flex-col rounded-2xl bg-card shadow-lg transition-shadow duration-300 group-hover:shadow-xl [backface-visibility:hidden] [-webkit-backface-visibility:hidden] overflow-hidden";
+
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      aria-pressed={flipped}
+      aria-label={`Zobraziť informácie o trénerovi ${member.name}`}
+      onClick={toggle}
+      onKeyDown={onKeyDown}
+      className="group h-full cursor-pointer rounded-2xl outline-none [perspective:1000px] focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      <div
+        className="grid h-full min-h-[560px] items-stretch transition-transform duration-[600ms] [transform-style:preserve-3d] [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-opacity motion-reduce:duration-300 motion-reduce:[transform:none]"
+        style={{ transform: flipped ? "rotateY(180deg)" : undefined }}
+      >
+        {/* Front */}
+        <div
+          className={`${faceBase} motion-reduce:[transform:none] ${flipped ? "motion-reduce:opacity-0" : "motion-reduce:opacity-100"}`}
+          aria-hidden={flipped}
+          style={{ pointerEvents: flipped ? "none" : undefined }}
+        >
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-muted">
+            {member.image ? (
+              <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 h-full w-full object-cover" />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="font-serif text-6xl font-bold text-gold/60">{member.name.charAt(0)}</span>
+              </div>
+            )}
           </div>
-        </CollapsibleContent>
-      </Collapsible>
-    )}
-  </Tilt3DCard>;
-
-const TeamCard = ({
-  member
-}: {
-  member: TeamMember;
-}) => <Tilt3DCard className="group text-center">
-    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border bg-muted mb-4">
-      {member.image ? <img loading="lazy" decoding="async" src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover" /> : <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-serif font-bold text-gold/60 group-hover:text-gold transition-colors duration-300">
-            {member.name.charAt(0)}
-          </span>
-        </div>}
-      <div className="absolute inset-0 bg-foreground/5 group-hover:bg-foreground/0 transition-all duration-300" />
-    </div>
-    <h3 className="text-lg font-semibold text-foreground group-hover:text-gold transition-colors duration-300">
-      {member.name}
-    </h3>
-    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-3">
-      {member.role}
-    </p>
-    <div className="flex justify-center gap-3 mb-4">
-      <a href={`tel:${member.phone}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Telefón">
-        <Phone size={18} />
-      </a>
-      <a href={`mailto:${member.email}`} className="text-muted-foreground hover:text-gold transition-colors duration-300" aria-label="Email">
-        <Mail size={18} />
-      </a>
-    </div>
-
-    {member.bio && member.bio.length > 0 && (
-      <Collapsible className="w-full">
-        <CollapsibleTrigger asChild>
-          <button aria-label={`Zobraziť viac informácií — ${member.name}`} className="group/trigger inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gradient-to-b from-gold/15 to-gold/5 px-5 py-2.5 text-sm font-bold text-gold shadow-sm transition-all hover:from-gold/25 hover:to-gold/10 hover:border-gold/70 hover:shadow-md active:scale-[0.98] data-[state=open]:from-gold/25 data-[state=open]:to-gold/10 data-[state=open]:border-gold/70">
-            {member.role.includes("Tréner") ? "O trénerovi" : "Viac informácií"}
-            <ChevronDown className="h-4 w-4 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
-          </button>
-        </CollapsibleTrigger>
-        <CollapsibleContent className="overflow-hidden text-left transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-          <div className="mt-4 rounded-xl border-l-4 border-l-gold border border-border/60 bg-card/95 p-5 shadow-sm">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gold">{member.role.includes("Tréner") ? "O trénerovi" : "Oblasť pôsobenia"}</h4>
-            <ul className="space-y-2.5 text-sm text-foreground/90">
-              {member.bio.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold shadow-[0_0_6px_hsl(var(--gold)/0.6)]" />
-                  <span className="font-medium">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-1 flex-col items-center p-5 text-center">
+            <h3 className={`font-semibold text-foreground ${isFounder ? "text-xl" : "text-lg"}`}>{member.name}</h3>
+            <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground sm:text-sm">{member.role}</p>
+            <div className="mt-auto pt-4">
+              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 px-5 py-2.5 text-sm font-bold text-gold transition-colors hover:bg-gold/10">
+                Viac o mne
+                <RotateCw className="h-4 w-4" />
+              </span>
+            </div>
           </div>
-        </CollapsibleContent>
-      </Collapsible>
-    )}
-  </Tilt3DCard>;
+        </div>
+
+        {/* Back */}
+        <div
+          className={`${faceBase} [transform:rotateY(180deg)] motion-reduce:[transform:none] ${flipped ? "motion-reduce:opacity-100" : "motion-reduce:opacity-0"}`}
+          aria-hidden={!flipped}
+          style={{ pointerEvents: flipped ? undefined : "none" }}
+        >
+          <div className="flex h-full flex-col p-5 text-left">
+            <h3 className="text-base font-semibold text-foreground">{member.name}</h3>
+            <p className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{member.role}</p>
+
+            {member.bio && member.bio.length > 0 && (
+              <div className="mt-4 flex-1 overflow-y-auto pr-1">
+                <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-gold">Profesionálna kariéra</h4>
+                <ul className="space-y-2.5 text-sm text-foreground/90">
+                  {member.bio.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold shadow-[0_0_6px_hsl(var(--gold)/0.6)]" />
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="mt-4 space-y-2 border-t border-border/60 pt-4 text-sm">
+              <a href={`tel:${member.phone}`} onClick={stop} className="flex items-center gap-2 text-foreground transition-colors hover:text-gold">
+                <Phone size={16} className="text-gold" />
+                {member.phone}
+              </a>
+              <a href={`mailto:${member.email}`} onClick={stop} className="flex items-center gap-2 text-foreground transition-colors hover:text-gold">
+                <Mail size={16} className="text-gold" />
+                {member.email}
+              </a>
+            </div>
+
+            <div className="pt-4">
+              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-gold/60 px-5 py-2.5 text-sm font-bold text-gold transition-colors hover:bg-gold/10">
+                <ArrowLeft className="h-4 w-4" />
+                Späť
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const About = () => {
   const people = [...founders, ...team].map((m) => ({
@@ -338,8 +336,8 @@ const About = () => {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 max-w-3xl mx-auto">
-                {founders.map((member, index) => <FounderCard key={index} member={member} />)}
+              <div className="grid grid-cols-1 sm:grid-cols-2 items-stretch gap-8 md:gap-10 max-w-3xl mx-auto">
+                {founders.map((member, index) => <CoachCard key={index} member={member} variant="founder" />)}
               </div>
             </div>
           </section>
@@ -356,8 +354,8 @@ const About = () => {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                {team.map((member, index) => <TeamCard key={index} member={member} />)}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-8 md:gap-10">
+                {team.map((member, index) => <CoachCard key={index} member={member} />)}
               </div>
             </div>
           </section>
