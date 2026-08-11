@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle, RotateCw, ArrowLeft } from "lucide-react";
-import Tilt3DCard from "@/components/Tilt3DCard";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
 import jakubHrbanImg from "@/assets/team/jakub-hrban.webp";
 import marosGajanImg from "@/assets/team/maros-gajan.webp";
