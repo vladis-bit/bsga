@@ -86,31 +86,33 @@ const SimpleContactForm = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
+                  <label htmlFor="contact-first-name" className="text-sm font-medium text-foreground mb-2 block">
                     Meno *
                   </label>
                   <Input
                     required
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    id="contact-first-name"
                     placeholder="Vaše meno"
                     className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
+                  <label htmlFor="contact-last-name" className="text-sm font-medium text-foreground mb-2 block">
                     Priezvisko *
                   </label>
                   <Input
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
+                    id="contact-last-name"
                     placeholder="Vaše priezvisko"
                     className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
                 </div>
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
+                <label htmlFor="contact-email" className="text-sm font-medium text-foreground mb-2 block">
                   Email *
                 </label>
                 <Input
@@ -118,6 +120,7 @@ const SimpleContactForm = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  id="contact-email"
                   placeholder="vas@email.sk"
                   className="bg-background border-border text-foreground focus:border-gold shadow-sm" />
               </div>
@@ -138,13 +141,14 @@ const SimpleContactForm = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
+                <label htmlFor="contact-message" className="text-sm font-medium text-foreground mb-2 block">
                   Správa *
                 </label>
                 <Textarea
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  id="contact-message"
                   placeholder="Napíšte nám vašu správu..."
                   rows={4}
                   className="bg-background border-border text-foreground focus:border-gold shadow-sm resize-none" />

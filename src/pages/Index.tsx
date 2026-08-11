@@ -83,7 +83,7 @@ const Index = () => {
     <>
       <SEO
         title="BSGA – Best Swing Golf Academy"
-        description="Best Swing Golf Academy - najväčšia golfová akadémia na Slovensku od roku 2016. Individuálne a skupinové lekcie, zelené karty, detská akadémia a firemné akcie."
+        description="Najväčšia golfová akadémia na Slovensku od roku 2016. Lekcie golfu, zelené karty, juniorský golf, fitting a firemné akcie."
         path="/"
         jsonLd={[homeWebPageJsonLd, faqJsonLd, siteNavJsonLd]}
       />
