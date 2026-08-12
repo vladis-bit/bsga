@@ -55,7 +55,11 @@ const SEO = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       {shouldNoindex ? (
-        <meta name="robots" content="noindex, follow" />
+        nofollow ? (
+          <meta name="robots" content="noindex, nofollow" />
+        ) : (
+          <meta name="robots" content="noindex, follow" />
+        )
       ) : (
         <meta name="robots" content="index, follow" />
       )}
