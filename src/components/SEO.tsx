@@ -11,6 +11,7 @@ type SEOProps = {
   ogType?: "website" | "article";
   image?: string;
   noindex?: boolean;
+  nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; url: string }>;
 };
@@ -22,6 +23,7 @@ const SEO = ({
   ogType = "website",
   image = DEFAULT_OG_IMAGE,
   noindex = false,
+  nofollow = false,
   jsonLd,
   breadcrumbs,
 }: SEOProps) => {
@@ -53,7 +55,11 @@ const SEO = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       {shouldNoindex ? (
-        <meta name="robots" content="noindex, follow" />
+        nofollow ? (
+          <meta name="robots" content="noindex, nofollow" />
+        ) : (
+          <meta name="robots" content="noindex, follow" />
+        )
       ) : (
         <meta name="robots" content="index, follow" />
       )}
