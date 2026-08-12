@@ -23,6 +23,7 @@ const SEO = ({
   ogType = "website",
   image = DEFAULT_OG_IMAGE,
   noindex = false,
+  nofollow = false,
   jsonLd,
   breadcrumbs,
 }: SEOProps) => {
