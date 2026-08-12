@@ -54,6 +54,13 @@ const ResetPassword = () => {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-4">
+      <SEO
+        title="Obnova hesla | BSGA"
+        description="Obnova hesla pre BSGA administrátorský účet."
+        path="/reset-password"
+        noindex
+        nofollow
+      />
       <div className="w-full max-w-sm rounded-3xl border border-border bg-card p-8">
         <h1 className="font-serif text-2xl text-foreground">Nové heslo</h1>
         {valid ? (
