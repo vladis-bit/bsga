@@ -11,6 +11,7 @@ type SEOProps = {
   ogType?: "website" | "article";
   image?: string;
   noindex?: boolean;
+  nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; url: string }>;
 };
