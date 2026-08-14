@@ -3,15 +3,7 @@ import { Link } from "react-router-dom";
 import { X, Shield, BarChart3, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-
-const COOKIE_KEY = "bsga-cookie-consent";
-
-type Prefs = {
-  necessary: true;
-  analytics: boolean;
-  marketing: boolean;
-  timestamp: string;
-};
+import { initConsent, readConsent, saveConsent } from "@/lib/consent";
 
 const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -20,23 +12,38 @@ const CookieBanner = () => {
   const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_KEY);
+    const consent = readConsent();
+    // Restore previously granted consent (loads scripts) or keep everything off.
+    initConsent();
     if (!consent) {
       const timer = setTimeout(() => setVisible(true), 800);
       return () => clearTimeout(timer);
     }
+    setAnalytics(consent.analytics);
+    setMarketing(consent.marketing);
   }, []);
 
-  const save = (prefs: Omit<Prefs, "timestamp">) => {
-    const payload: Prefs = { ...prefs, timestamp: new Date().toISOString() };
-    localStorage.setItem(COOKIE_KEY, JSON.stringify(payload));
+  useEffect(() => {
+    const open = () => {
+      const consent = readConsent();
+      setAnalytics(consent?.analytics ?? false);
+      setMarketing(consent?.marketing ?? false);
+      setVisible(true);
+      setShowDetails(true);
+    };
+    window.addEventListener("bsga:open-cookie-settings", open);
+    return () => window.removeEventListener("bsga:open-cookie-settings", open);
+  }, []);
+
+  const save = (prefs: { analytics: boolean; marketing: boolean }) => {
+    saveConsent(prefs);
     setVisible(false);
     setShowDetails(false);
   };
 
-  const acceptAll = () => save({ necessary: true, analytics: true, marketing: true });
-  const rejectAll = () => save({ necessary: true, analytics: false, marketing: false });
-  const saveCustom = () => save({ necessary: true, analytics, marketing });
+  const acceptAll = () => save({ analytics: true, marketing: true });
+  const rejectAll = () => save({ analytics: false, marketing: false });
+  const saveCustom = () => save({ analytics, marketing });
 
   if (!visible) return null;
 
