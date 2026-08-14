@@ -246,11 +246,11 @@ const Tour = () => {
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
                   Generální partneri
                 </span>
-                <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
-                  <div className="flex w-44 h-36 items-center justify-center rounded-2xl border border-border bg-card sm:w-52 sm:h-44 md:w-60 md:h-56">
+                <div className="grid w-full grid-cols-2 items-center justify-items-center gap-3 sm:flex sm:w-auto sm:gap-12 md:gap-16">
+                  <div className="flex h-28 w-full max-w-[10rem] items-center justify-center rounded-2xl border border-border bg-card p-3 sm:h-44 sm:w-52 sm:max-w-none md:h-56 md:w-60">
                     <img src={asbisAsset.url} alt="ASBIS logo" loading="lazy" decoding="async" draggable={false} className="max-w-[80%] max-h-[80%] w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none" />
                   </div>
-                  <div className="flex w-44 h-36 items-center justify-center rounded-2xl border border-border bg-card sm:w-52 sm:h-44 md:w-60 md:h-56">
+                  <div className="flex h-28 w-full max-w-[10rem] items-center justify-center rounded-2xl border border-border bg-card p-3 sm:h-44 sm:w-52 sm:max-w-none md:h-56 md:w-60">
                     <img src={checkpointAsset.url} alt="Check Point logo" loading="lazy" decoding="async" draggable={false} className="max-w-[92%] max-h-[80%] w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none" />
                   </div>
                 </div>
