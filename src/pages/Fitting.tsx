@@ -129,7 +129,7 @@ const Fitting = () => {
         <main>
           {/* Hero */}
           <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
-            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden min-h-[480px] sm:min-h-[580px] sm:rounded-3xl md:min-h-[680px]">
+            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
               <img
                 src={fittingHeroImg.url}
                 alt="BSGA Fitting – Jakub Hrbáň s Trackmanom"
