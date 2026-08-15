@@ -259,7 +259,6 @@ const Services = () => {
 
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:grid-cols-3">
                 {services.map((service, index) => {
-                  const Icon = service.icon;
                   const card = (
                       <CursorGlowCard
                         className={`group h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-gold/40 hover:shadow-xl ${
@@ -273,10 +272,7 @@ const Services = () => {
                             </div>
                           </div>
                         )}
-                        <div className="flex h-full flex-col p-5 sm:p-6 md:p-8">
-                          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
-                            <Icon className="text-gold" size={22} />
-                          </div>
+                        <div className="flex h-full flex-col p-5 sm:p-6 md:p-8 pt-4 sm:pt-5 md:pt-6">
                           <h2 className="mb-3 text-center font-serif text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
                             {service.title}
                           </h2>
