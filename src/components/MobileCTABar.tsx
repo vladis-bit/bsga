@@ -27,7 +27,7 @@ const MobileCTABar = () => {
             className="group flex flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-gold to-gold-dark px-3 py-3 text-xs font-bold text-primary shadow-[0_4px_0_0_hsl(var(--gold-dark)/0.8),0_6px_12px_rgba(0,0,0,0.3)] ring-1 ring-inset ring-white/25 transition-all duration-150 hover:-translate-y-1 hover:from-gold-light hover:to-gold hover:shadow-[0_6px_0_0_hsl(var(--gold-dark)/0.8),0_10px_20px_rgba(0,0,0,0.35)] active:translate-y-[2px] active:shadow-[0_2px_0_0_hsl(var(--gold-dark)/0.8),0_3px_6px_rgba(0,0,0,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
           >
             <Mail className="h-4 w-4 transition-transform duration-200 group-hover:scale-110 group-active:scale-95" />
-            <span className="whitespace-nowrap">Kontaktuj nás</span>
+            <span className="whitespace-nowrap">Kontaktujte nás</span>
           </a>
         </div>
       </div>

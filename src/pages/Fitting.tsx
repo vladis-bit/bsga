@@ -184,7 +184,7 @@ const Fitting = () => {
                   return (
                     <CursorGlowCard
                       key={i}
-                      className="group rounded-2xl border border-border bg-card p-6 transition-colors duration-300 hover:border-gold/50 sm:p-8"
+                      className="group flex flex-col items-center text-center rounded-2xl border border-border bg-card p-6 transition-colors duration-300 hover:border-gold/50 sm:p-8"
                     >
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14">
                         <Icon className="text-gold" size={22} />
