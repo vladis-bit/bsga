@@ -1,4 +1,4 @@
-import { Wrench, Ruler, Target, Sparkles, Mail, Phone, Award } from "lucide-react";
+import { Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -12,7 +12,6 @@ import jakubImg from "@/assets/team/jakub-hrban-fitting.webp";
 
 const benefits = [
   {
-    icon: Ruler,
     title: "Presné meranie",
     description: (
       <>
@@ -21,7 +20,6 @@ const benefits = [
     ),
   },
   {
-    icon: Target,
     title: "Vybavenie šité na mieru",
     description: (
       <>
@@ -30,7 +28,6 @@ const benefits = [
     ),
   },
   {
-    icon: Sparkles,
     title: "Citeľný rozdiel",
     description: (
       <>
@@ -39,7 +36,6 @@ const benefits = [
     ),
   },
   {
-    icon: Wrench,
     title: "Profesionálny servis",
     description: (
       <>
@@ -180,15 +176,11 @@ const Fitting = () => {
               </div>
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
                 {benefits.map((b, i) => {
-                  const Icon = b.icon;
                   return (
                     <CursorGlowCard
                       key={i}
                       className="group flex flex-col items-center text-center rounded-2xl border border-border bg-card p-6 transition-colors duration-300 hover:border-gold/50 sm:p-8"
                     >
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 transition-colors group-hover:bg-gold/20 sm:mb-6 sm:h-14 sm:w-14">
-                        <Icon className="text-gold" size={22} />
-                      </div>
                       <h3 className="mb-2 font-serif text-lg font-bold text-foreground sm:mb-3 sm:text-xl">
                         {b.title}
                       </h3>
