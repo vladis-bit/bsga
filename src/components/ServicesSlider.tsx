@@ -280,7 +280,6 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ service }: ServiceCardProps) => {
-  const Icon = service.icon;
   const target = service.externalLink || service.link || "/sluzby";
   const isExternal = !!service.externalLink;
 
@@ -293,10 +292,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           </div>
         </div>
       )}
-      <div className="flex h-full flex-col p-4 sm:p-5">
-        <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
-          <Icon className="text-gold w-4 h-4 sm:w-5 sm:h-5" />
-        </div>
+      <div className="flex h-full flex-col p-4 sm:p-5 pt-3 sm:pt-4">
         <h3 className="text-center text-base sm:text-lg font-serif font-bold text-foreground mb-2">
           {service.title}
         </h3>
