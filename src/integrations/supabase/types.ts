@@ -631,42 +631,7 @@ export type Database = {
       }
     }
     Views: {
-      coaches_public: {
-        Row: {
-          foto: string | null
-          id: string | null
-          licencia: string | null
-          meno: string | null
-          ocenenia: string | null
-          popis: string | null
-          pozicia: string | null
-          sort_order: number | null
-          zakladajuci_clen: boolean | null
-        }
-        Insert: {
-          foto?: string | null
-          id?: string | null
-          licencia?: string | null
-          meno?: string | null
-          ocenenia?: string | null
-          popis?: string | null
-          pozicia?: string | null
-          sort_order?: number | null
-          zakladajuci_clen?: boolean | null
-        }
-        Update: {
-          foto?: string | null
-          id?: string | null
-          licencia?: string | null
-          meno?: string | null
-          ocenenia?: string | null
-          popis?: string | null
-          pozicia?: string | null
-          sort_order?: number | null
-          zakladajuci_clen?: boolean | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       cancel_pc_booking: {
