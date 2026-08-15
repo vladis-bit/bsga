@@ -1,4 +1,4 @@
-import { Wrench, Ruler, Target, Sparkles, Mail, Phone, Award } from "lucide-react";
+import { Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -12,7 +12,6 @@ import jakubImg from "@/assets/team/jakub-hrban-fitting.webp";
 
 const benefits = [
   {
-    icon: Ruler,
     title: "Presné meranie",
     description: (
       <>
@@ -21,7 +20,6 @@ const benefits = [
     ),
   },
   {
-    icon: Target,
     title: "Vybavenie šité na mieru",
     description: (
       <>
@@ -30,7 +28,6 @@ const benefits = [
     ),
   },
   {
-    icon: Sparkles,
     title: "Citeľný rozdiel",
     description: (
       <>
@@ -39,7 +36,6 @@ const benefits = [
     ),
   },
   {
-    icon: Wrench,
     title: "Profesionálny servis",
     description: (
       <>
