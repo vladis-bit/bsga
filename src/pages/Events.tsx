@@ -13,6 +13,7 @@ import czechPgaPoster from "@/assets/event-posters/doni-travel-czech-pga-tour.pd
 import camiralPoster from "@/assets/event-posters/doni-travel-camiral.pdf.asset.json";
 import livPoster from "@/assets/event-posters/doni-travel-liv.pdf.asset.json";
 import proamPoster from "@/assets/event-posters/doni-turnaj-4teams.pdf.asset.json";
+import kaskadaPoster from "@/assets/event-posters/kaskada-golfovy-vikend.pdf.asset.json";
 
 interface EventItem {
   title: string;
@@ -80,6 +81,7 @@ const events: EventItem[] = [
     title: "Golfový víkend na Kaskáde",
     date: "18. – 20. 9. 2026",
     location: "Golf Resort Kaskáda",
+    posterUrl: kaskadaPoster.url,
     details: {
       subtitle: "Golfový víkend s BSGA trénermi v Golf Resort Kaskáda",
       intro: "Trojdňový zájazd do Českej republiky určený primárne pre úspešných absolventov zelenej karty. V cene sú 2 noci ubytovania v 4* hoteli s raňajkami, 6 hodín skupinových tréningov, playing lessons s BSGA trénermi, neobmedzená hra na 6-jamkovej akadémii, green fee na 9 jamiek a vstup do wellness.",
