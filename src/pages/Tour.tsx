@@ -213,8 +213,9 @@ const Tour = () => {
                       </span>
                     </div>
 
-                    <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg">
-                      Piaty turnaj série BSGA Tour 2026 v krásnom prostredí Ostravice. Kapacita je obmedzená – zabezpečte si svoje miesto včas.
+                    <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 whitespace-pre-line sm:text-base md:text-lg">
+                      Piaty turnaj série BSGA Tour 2026 v krásnom prostredí Ostravíc.{"\u00A0"}{"\n"}
+                      Kapacita je obmedzená – zabezpečte si svoje miesto včas.
                     </p>
 
                     <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
