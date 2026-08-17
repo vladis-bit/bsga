@@ -181,8 +181,8 @@ const Tour = () => {
           <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
-                  src={legendImg}
-                  alt="Penati Legend – dejisko štvrtého turnaja BSGA Tour"
+                  src={ostraviceImg}
+                  alt="Ostravice – dejisko piateho turnaja BSGA Tour"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="eager"
                   decoding="async"
@@ -198,34 +198,34 @@ const Tour = () => {
                       <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                     </span>
                     <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
-                      Štvrtý turnaj BSGA Tour
+                      Piaty turnaj BSGA Tour
                     </h1>
                     <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm md:text-base">
-                      presented by ELcomp s.r.o.
+                      presented by Altron
                     </p>
 
                     <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:mt-8 sm:gap-3">
                       <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
-                        <CalendarDays size={15} className="text-gold" /> 14. august 2026
+                        <CalendarDays size={15} className="text-gold" /> 4. september 2026
                       </span>
                       <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
-                        <MapPin size={15} className="text-gold" /> Penati Golf Resort – Legend
+                        <MapPin size={15} className="text-gold" /> Ostravice Golf Resort
                       </span>
                     </div>
 
                     <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base md:text-lg">
-                      Štvrtý turnaj série BSGA Tour 2026 na jednom z najprestížnejších ihrísk na Slovensku. Kapacita je obmedzená – zabezpeč si svoje miesto včas.
+                      Piaty turnaj série BSGA Tour 2026 v krásnom prostredí Ostravice. Kapacita je obmedzená – zabezpečte si svoje miesto včas.
                     </p>
 
                     <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                       <a
-                        href="mailto:touroffice@bsga.sk?subject=Prihlásenie na Štvrtý turnaj BSGA Tour – Penati Legend"
+                        href="mailto:touroffice@bsga.sk?subject=Prihlásenie na Piaty turnaj BSGA Tour – Ostravice"
                         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
                       >
                         Prihlásiť sa
                       </a>
                       <a
-                        href={promo4Asset.url}
+                        href={promo5Asset.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-foreground px-10 py-4 text-sm font-bold text-primary-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
