@@ -8,6 +8,7 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import WavesCanvas from "@/components/WavesCanvas";
 import peterPhoto from "@/assets/team/peter-svajlen.webp";
+import marosPhoto from "@/assets/team/maros-gajan.webp";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import czechPgaPoster from "@/assets/event-posters/doni-travel-czech-pga-tour.pdf.asset.json";
 import camiralPoster from "@/assets/event-posters/doni-travel-camiral.pdf.asset.json";
@@ -377,7 +378,8 @@ const EventCard = ({
                 </div>
               </div>
 
-              <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5">
+              <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5 flex items-start justify-between gap-4">
+                <div className="min-w-0">
                 <h4 className="font-semibold text-foreground mb-3">Kontakt</h4>
                 <div className="space-y-2 text-sm">
                   <p className="flex items-center gap-2 text-foreground/90">
@@ -411,6 +413,13 @@ const EventCard = ({
                     {event.details.contact.phone}
                   </a>
                 </div>
+                </div>
+                <img
+                  src={event.details.contact.name.includes("Maroš") ? marosPhoto : peterPhoto}
+                  alt={`Kontaktná osoba ${event.details.contact.name}`}
+                  loading="lazy"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border border-gold/40 flex-shrink-0"
+                />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -959,7 +968,8 @@ const Events = () => {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5">
+            <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5 flex items-start justify-between gap-4">
+              <div className="min-w-0">
               <h4 className="font-semibold text-foreground mb-3">Kontakt</h4>
               <div className="space-y-2 text-sm">
                 <p className="flex items-center gap-2 text-foreground/90">
@@ -974,6 +984,13 @@ const Events = () => {
                   +421 905 335 501
                 </a>
               </div>
+              </div>
+              <img
+                src={peterPhoto}
+                alt="Kontaktná osoba Peter Švajlen"
+                loading="lazy"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border border-gold/40 flex-shrink-0"
+              />
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
