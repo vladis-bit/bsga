@@ -378,7 +378,7 @@ const EventCard = ({
                 </div>
               </div>
 
-              <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5 flex items-start justify-between gap-4">
+              <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5 flex items-center justify-between gap-4 sm:gap-6">
                 <div className="min-w-0">
                 <h4 className="font-semibold text-foreground mb-3">Kontakt</h4>
                 <div className="space-y-2 text-sm">
@@ -418,7 +418,7 @@ const EventCard = ({
                   src={event.details.contact.name.includes("Maroš") ? marosPhoto : peterPhoto}
                   alt={`Kontaktná osoba ${event.details.contact.name}`}
                   loading="lazy"
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border border-gold/40 flex-shrink-0"
+                  className="w-28 h-32 sm:w-32 sm:h-40 rounded-2xl object-cover object-[center_20%] border border-gold/40 shadow-md shadow-gold/10 flex-shrink-0 self-center"
                 />
               </div>
 
@@ -968,7 +968,7 @@ const Events = () => {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5 flex items-start justify-between gap-4">
+            <div className="rounded-xl bg-gold/10 border border-gold/30 p-4 sm:p-5 flex items-center justify-between gap-4 sm:gap-6">
               <div className="min-w-0">
               <h4 className="font-semibold text-foreground mb-3">Kontakt</h4>
               <div className="space-y-2 text-sm">
@@ -989,7 +989,7 @@ const Events = () => {
                 src={peterPhoto}
                 alt="Kontaktná osoba Peter Švajlen"
                 loading="lazy"
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border border-gold/40 flex-shrink-0"
+                className="w-28 h-32 sm:w-32 sm:h-40 rounded-2xl object-cover object-[center_20%] border border-gold/40 shadow-md shadow-gold/10 flex-shrink-0 self-center"
               />
             </div>
 
