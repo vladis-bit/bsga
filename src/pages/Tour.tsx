@@ -18,6 +18,8 @@ import promo2Asset from "@/assets/tour-promos/promo-tour-2.pdf.asset.json";
 import promo3Asset from "@/assets/tour-promos/promo-tour-3.pdf.asset.json";
 import promo4Asset from "@/assets/tour-promos/promo-tour-4.pdf.asset.json";
 import promo5Asset from "@/assets/tour-promos/promo-tour-5.pdf.asset.json";
+import rd4StandingsAsset from "@/assets/tour-promos/bsga-tour-rd4.pdf.asset.json";
+
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.webp";
 import taleImg from "@/assets/courses/tale.webp";
@@ -275,9 +277,9 @@ const Tour = () => {
                   <FileText size={16} className="text-gold" />
                   Prezentácia BSGA Tour
                 </a>
-                <a href="/__l5e/assets-v1/e20c1f8b-3690-41f0-a639-96ec929acea2/BSGA_Tour_after_3rd_Round.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
+                <a href={rd4StandingsAsset.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
                   <Trophy size={16} />
-                  Priebežné hodnotenie
+                  Priebežné poradie
                 </a>
               </div>
 
