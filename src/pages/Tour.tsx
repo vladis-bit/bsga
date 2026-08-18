@@ -18,6 +18,8 @@ import promo2Asset from "@/assets/tour-promos/promo-tour-2.pdf.asset.json";
 import promo3Asset from "@/assets/tour-promos/promo-tour-3.pdf.asset.json";
 import promo4Asset from "@/assets/tour-promos/promo-tour-4.pdf.asset.json";
 import promo5Asset from "@/assets/tour-promos/promo-tour-5.pdf.asset.json";
+import rd4StandingsAsset from "@/assets/tour-promos/bsga-tour-rd4.pdf.asset.json";
+
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.webp";
 import taleImg from "@/assets/courses/tale.webp";
