@@ -9,7 +9,7 @@ import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
 const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointAsset from "@/assets/partner-checkpoint.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
-import { skOrdinal, tournamentTitle } from "@/lib/ordinals";
+import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
