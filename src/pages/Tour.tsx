@@ -299,28 +299,17 @@ const Tour = () => {
 
               <div className="mx-auto max-w-3xl space-y-4 sm:space-y-5">
                 {tournaments.map((tournament) => (
-                  <div key={tournament.number} className="space-y-3">
-                    <TournamentCard
-                      theme="ivory"
-                      number={tournament.number}
-                      date={tournament.date}
-                      location={tournament.location}
-                      image={tournament.image}
-                      presenter={tournament.presenter}
-                      links={tournament.links}
-                    />
-                    <div className="relative group">
-                      <a
-                        href={tournament.promoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative z-10 flex w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-gold/60 bg-gold px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98]"
-                      >
-                        <FileText size={20} className="opacity-90 transition-transform duration-300 group-hover:scale-110" />
-                        <span>Promo leták – {skOrdinal(tournament.number)} turnaj</span>
-                      </a>
-                    </div>
-                  </div>
+                  <TournamentCard
+                    key={tournament.number}
+                    theme="ivory"
+                    number={tournament.number}
+                    date={tournament.date}
+                    location={tournament.location}
+                    image={tournament.image}
+                    presenter={tournament.presenter}
+                    links={tournament.links}
+                    promoUrl={tournament.promoUrl}
+                  />
                 ))}
               </div>
             </div>
