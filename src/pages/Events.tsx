@@ -606,6 +606,7 @@ const Events = () => {
                     event={event}
                     index={index}
                     variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
+                    signupDisabled={index === 0}
                   />
                 ))}
               </div>
