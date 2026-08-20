@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Trophy, Camera, ChevronDown } from "lucide-react";
-import { tournamentTitle } from "@/lib/ordinals";
+import { MapPin, Trophy, Camera, FileText, ChevronDown } from "lucide-react";
+import { tournamentTitle, skOrdinal } from "@/lib/ordinals";
 interface TournamentLinks {
   locationUrl?: string;
   resultsUrl?: string;
@@ -14,6 +14,7 @@ interface TournamentCardProps {
   image?: string;
   presenter?: string;
   links?: TournamentLinks;
+  promoUrl?: string;
   tourLabel?: string;
   hideResults?: boolean;
   hideLocation?: boolean;
@@ -26,6 +27,7 @@ const TournamentCard = ({
   image,
   presenter,
   links,
+  promoUrl,
   tourLabel = "BSGA Tour",
   hideResults = false,
   hideLocation = false,
@@ -39,8 +41,8 @@ const TournamentCard = ({
   const titleClass = ivory ? "text-foreground" : "text-primary-foreground";
   const imageFrame = ivory ? "border-border" : "border-gold/20";
   const dividerClass = ivory ? "border-border" : "border-gold/20";
-  const actionClass = ivory ? "border-border" : "border-gold/20";
   const actionButtons = [
+    ...(promoUrl ? [{ icon: FileText, label: `PROMO LETÁK – ${skOrdinal(number).toUpperCase()} TURNAJ`, url: promoUrl }] : []),
     ...(!hideLocation ? [{ icon: MapPin, label: "LOKALITA", url: links?.locationUrl }] : []),
     ...(!hideResults ? [{ icon: Trophy, label: "VÝSLEDKY", url: links?.resultsUrl }] : []),
     { icon: Camera, label: "GALÉRIA", url: links?.galleryUrl },
