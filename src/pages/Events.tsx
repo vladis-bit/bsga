@@ -205,11 +205,13 @@ const EventCard = ({
   index,
   variant = "small",
   hideSignup = false,
+  signupDisabled = false,
 }: {
   event: EventItem;
   index: number;
   variant?: "featured" | "side" | "small";
   hideSignup?: boolean;
+  signupDisabled?: boolean;
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
