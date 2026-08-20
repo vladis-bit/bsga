@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Trophy, Camera, ChevronDown } from "lucide-react";
-import { tournamentTitle } from "@/lib/ordinals";
+import { MapPin, Trophy, Camera, FileText, ChevronDown } from "lucide-react";
+import { tournamentTitle, skOrdinal } from "@/lib/ordinals";
 interface TournamentLinks {
   locationUrl?: string;
   resultsUrl?: string;
@@ -14,6 +14,7 @@ interface TournamentCardProps {
   image?: string;
   presenter?: string;
   links?: TournamentLinks;
+  promoUrl?: string;
   tourLabel?: string;
   hideResults?: boolean;
   hideLocation?: boolean;
@@ -26,6 +27,7 @@ const TournamentCard = ({
   image,
   presenter,
   links,
+  promoUrl,
   tourLabel = "BSGA Tour",
   hideResults = false,
   hideLocation = false,
@@ -39,8 +41,8 @@ const TournamentCard = ({
   const titleClass = ivory ? "text-foreground" : "text-primary-foreground";
   const imageFrame = ivory ? "border-border" : "border-gold/20";
   const dividerClass = ivory ? "border-border" : "border-gold/20";
-  const actionClass = ivory ? "border-border" : "border-gold/20";
   const actionButtons = [
+    ...(promoUrl ? [{ icon: FileText, label: `PROMO LETÁK – ${skOrdinal(number).toUpperCase()} TURNAJ`, url: promoUrl }] : []),
     ...(!hideLocation ? [{ icon: MapPin, label: "LOKALITA", url: links?.locationUrl }] : []),
     ...(!hideResults ? [{ icon: Trophy, label: "VÝSLEDKY", url: links?.resultsUrl }] : []),
     { icon: Camera, label: "GALÉRIA", url: links?.galleryUrl },
@@ -122,15 +124,15 @@ const TournamentCard = ({
         ease: "easeOut"
       }}>
             <div className={`px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t ${dividerClass}`}>
-              <div className={`grid ${actionButtons.length === 1 ? 'grid-cols-1 max-w-xs mx-auto' : actionButtons.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-3'} gap-3 sm:gap-4`}>
-{actionButtons.map((button, index) => <a key={index} href={button.url || "#"} target={button.url && button.url !== "#" ? "_blank" : undefined} rel={button.url && button.url !== "#" ? "noopener noreferrer" : undefined} onClick={e => {
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+{actionButtons.map((button, index) => <a key={index} href={button.url || "#"} target={button.url && button.url !== "#" ? "_blank" : undefined} rel={button.url && button.url !== "#" ? "noopener noreferrer" : undefined} aria-label={button.label} onClick={e => {
               e.stopPropagation();
               if (!button.url || button.url === "#") {
                 e.preventDefault();
               }
-            }} className={`flex items-center justify-center gap-2 px-4 py-3 border ${actionClass} rounded-xl transition-all duration-300 ${button.url && button.url !== "#" ? "hover:bg-gold/10 hover:border-gold/40" : "opacity-50 cursor-not-allowed"}`}>
-                    <button.icon className="text-gold" size={18} />
-                    <span className={`${titleClass} text-xs sm:text-sm font-medium uppercase tracking-wider`}>
+            }} className={`flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-primary transition-colors duration-300 ${button.url && button.url !== "#" ? "hover:bg-gold-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2" : "opacity-50 cursor-not-allowed hover:bg-gold"}`}>
+                    <button.icon size={18} />
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">
                       {button.label}
                     </span>
                   </a>)}
