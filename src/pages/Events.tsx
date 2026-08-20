@@ -33,29 +33,6 @@ interface EventItem {
 
 const events: EventItem[] = [
   {
-    title: "PGA Czechia – Po stopách Czech PGA Tour",
-    date: "20. – 23. 8. 2026",
-    location: "Česká republika",
-    posterUrl: czechPgaPoster.url,
-    details: {
-      subtitle: "Golfové potulky po českých ihriskách",
-      intro: "Doni Travel pripravil štvorňový golfový zájazd Czech PGA Tour pod názvom „Golfové potulky po českých ihriskách\". Počas štyroch dní účastníkov čaká hra na prémiových českých ihriskách neďaleko od Prahy.",
-      price: "€675 / golfista (double room)",
-      priceNote: "Príplatok za single room: €160",
-      schedule: [
-        { day: "Piatok 20. 8.", title: "Black Bridge Golf Resort", items: ["Ubytovanie na 1 noc v Black Bridge Golf Resort s raňajkami", "1x green fee Black Bridge Golf Resort"], tour: "Czech PGA Tour" },
-        { day: "Sobota 21. 8.", title: "Royal Beroun Golf Club", items: ["Ubytovanie na 1 noc v Grand Hotel Litava Beroun s raňajkami", "1x green fee Royal Beroun Golf Club"], tour: "Ladies European Tour" },
-        { day: "Nedeľa 22. 8.", title: "Golf Resort Karlštejn", items: ["Ubytovanie na 1 noc v Black Bridge Golf Resort s raňajkami", "1x green fee Golf Resort Karlštejn"], tour: "European Tour" },
-        { day: "Pondelok 23. 8.", title: "Prague City Golf – Zbraslav", items: ["1x green fee Prague City Golf – Zbraslav"], tour: "Challenge Tour" },
-      ],
-      contact: {
-        name: "Peter Švajlen, MBA",
-        email: "peter@doni-travel.sk",
-        phone: "+421 905 335 501",
-      },
-    },
-  },
-  {
     title: "DONI-TRAVEL × BSGA — Turnaj Pro-Am Tímov",
     date: "13. – 15. 9. 2026",
     location: "Golf Resort Kaskáda",
