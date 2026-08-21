@@ -205,13 +205,13 @@ const EventCard = ({
   index,
   variant = "small",
   hideSignup = false,
-  signupDisabled = false,
+  soldOut = false,
 }: {
   event: EventItem;
   index: number;
   variant?: "featured" | "side" | "small";
   hideSignup?: boolean;
-  signupDisabled?: boolean;
+  soldOut?: boolean;
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -236,6 +236,12 @@ const EventCard = ({
               : "md:col-span-6 relative overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8 transition-all duration-300 hover:border-gold/50"
         }
       >
+        {soldOut && (
+          <div className="pointer-events-none absolute -right-12 top-5 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
+            OBSADENÉ
+          </div>
+        )}
+
         <div className={variant === "featured" ? "grid gap-5 md:grid-cols-[auto_1fr] md:items-start" : "grid gap-4"}>
           <div
             className={
@@ -307,15 +313,7 @@ const EventCard = ({
                   Informácie
                 </a>
               )}
-              {!hideSignup && (signupDisabled ? (
-                <span
-                  aria-disabled="true"
-                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 border border-border text-muted-foreground cursor-not-allowed"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Prihlasovanie čoskoro</span>
-                </span>
-              ) : (
+              {!hideSignup && !soldOut && (
                 <a
                   href={`mailto:${signupEmail}?subject=${mailSubject}`}
                   className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
@@ -323,7 +321,7 @@ const EventCard = ({
                   <Mail className="w-4 h-4" />
                   <span>Prihlásiť sa</span>
                 </a>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -606,7 +604,7 @@ const Events = () => {
                     event={event}
                     index={index}
                     variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
-                    signupDisabled={index === 0}
+                    soldOut={index === 0}
                   />
                 ))}
               </div>
