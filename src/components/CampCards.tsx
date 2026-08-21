@@ -33,8 +33,7 @@ const camps: Camp[] = [
     date: "24. – 28. 8. 2026",
     location: "Hrubá Borša",
     posterUrl: "/documents/kemp_24-28_august.pdf",
-    isHighlight: true,
-    description: "Posledný voľný turnus — prihlášky posielajte na kids@bsga.sk",
+    soldOut: true,
   },
 ];
 
