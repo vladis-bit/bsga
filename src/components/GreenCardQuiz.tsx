@@ -59,13 +59,15 @@ const PRAVIDLA_QUESTIONS = [
 
 type Section = 'quiz' | 'results';
 
-const GreenCardQuiz = () => {
+export type QuizQuestion = { id: string; q: string; options: string[]; correct: number };
+
+const GreenCardQuiz = ({ questions: questionsProp }: { questions?: QuizQuestion[] }) => {
   const [section, setSection] = useState<Section>('quiz');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const questions = [...ETIKA_QUESTIONS, ...PRAVIDLA_QUESTIONS];
+  const questions = questionsProp ?? [...ETIKA_QUESTIONS, ...PRAVIDLA_QUESTIONS];
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleRestart = () => {
