@@ -107,6 +107,7 @@ const EducationCenter = () => {
                     Testy a materiály
                   </h2>
                 </div>
+                <div className="space-y-4">
                 <a
                   href="/edukacne-centrum/testy"
                   target="_blank"
@@ -130,6 +131,31 @@ const EducationCenter = () => {
                     <ExternalLink className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-gold md:h-6 md:w-6" />
                   </motion.div>
                 </a>
+
+                <a
+                  href="/edukacne-centrum/testy-deti"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group flex cursor-pointer items-center gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:border-gold hover:shadow-xl sm:gap-6 md:p-8"
+                  >
+                    <div className="rounded-2xl bg-gold/10 p-3 transition-colors group-hover:bg-gold/20 md:p-4">
+                      <ClipboardCheck className="h-8 w-8 text-gold md:h-10 md:w-10" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-serif text-lg font-bold text-foreground md:text-xl">Záverečný test ZK pre deti</h3>
+                      <p className="text-sm text-muted-foreground md:text-base">30 otázok pre juniorov — otvorí sa v novej záložke</p>
+                    </div>
+                    <ExternalLink className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-gold md:h-6 md:w-6" />
+                  </motion.div>
+                </a>
+                </div>
               </div>
             </div>
           </section>
