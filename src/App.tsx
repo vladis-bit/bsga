@@ -18,6 +18,7 @@ const GDPR = lazy(() => import("./pages/GDPR"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const EducationCenter = lazy(() => import("./pages/EducationCenter"));
 const EducationTests = lazy(() => import("./pages/EducationTests"));
+const EducationTestsKids = lazy(() => import("./pages/EducationTestsKids"));
 const EducationCalculators = lazy(() => import("./pages/EducationCalculators"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Fitting = lazy(() => import("./pages/Fitting"));
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/galeria" element={<Gallery />} />
             <Route path="/edukacne-centrum" element={<EducationCenter />} />
             <Route path="/edukacne-centrum/testy" element={<EducationTests />} />
+            <Route path="/edukacne-centrum/testy-deti" element={<EducationTestsKids />} />
             <Route path="/edukacne-centrum/kalkulacky" element={<EducationCalculators />} />
             
             <Route path="/obchod" element={<Shop />} />
