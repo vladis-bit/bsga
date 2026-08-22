@@ -107,7 +107,7 @@ const Akademia = () => {
                     className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-gold/60 hover:bg-muted active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
                   >
                     <Phone className="h-4 w-4 text-gold" />
-                    <span>Zavolať +421 911 994 888</span>
+                    <span>Zavolať</span>
                   </a>
                 </div>
               </div>
