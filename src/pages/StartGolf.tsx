@@ -238,7 +238,7 @@ const StartGolf = () => {
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Začni s golfom", url: "https://bsga.sk/zacni-s-golfom" },
         ]}
-        jsonLd={[...courseSchemas, faqJsonLd]}
+        jsonLd={[...courseSchemas, faqJsonLd, reviewSchema]}
       />
 
       <Navbar />
