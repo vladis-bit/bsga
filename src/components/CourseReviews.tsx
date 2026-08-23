@@ -33,6 +33,18 @@ const reviews: Review[] = [
     name: "Štefan Baláž",
     text: "Za dva dni sme prešli všetkým, čo sa týka golfu, a urobili sme 15 kilometrov v peknom prostredí v príjemnom kolektíve. Mali sme šťastie s erudovaným trénerom Milanom. U každého účastníka bol očividný pokrok.",
   },
+  {
+    name: "Stella Mattova",
+    text: "Skvelá golfová akadémia! Veľká vďaka patrí najmä Vladkovi za výborný prístup a profesionálne vedenie. Počas celého kurzu panovala príjemná atmosféra, všetko bolo vysvetlené zrozumiteľne a s trpezlivosťou. Bola to nielen poučná, ale aj veľmi zábavná akcia, ktorú som si naplno užil. Určite odporúčam každému, kto chce začať s golfom alebo sa zlepšiť. Ďakujem!",
+  },
+  {
+    name: "Roman Láni",
+    text: "Na dvojdňový výcvik golfu na akadémii som nastupoval s rešpektom a obavami. Tie sa rozplynuli hneď po zoznámení s veľmi príjemnou partiou „spolubojovníkov“ ako aj s našou trénerkou Vanessou… tá nás veľmi trpezlivo previedla tak technickou časťou ako aj teóriou a som presvedčený, že u veľkej časti účastníkov naštartovala a umocnila túžbu po pokračovaní v tomto krásnom športe! Vrelo odporúčam tak Best Swing Golf Academy ako aj skvelú a skúsenú trénerku Vanessu… 😉👋",
+  },
+  {
+    name: "Dominik Hegedus",
+    text: "Milan je skvelý tréner, naučil nás veľa nového a venoval sa každému individuálne podľa schopnosti hráča, všetko v príjemnej a kamarátskej spoločnosti. ⛳️",
+  },
 ];
 
 const CHAR_LIMIT = 220;
