@@ -109,7 +109,7 @@ const services = [
   },
   {
     icon: Baby,
-    title: "BSGA Junior Level System",
+    title: "Detská akadémia",
     image: serviceKidsAcademyImg,
     link: "/akademia#junior-level-system",
     description: (
