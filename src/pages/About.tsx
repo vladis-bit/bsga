@@ -64,7 +64,7 @@ const team: TeamMember[] = [{
 }, {
   name: "Vanessa Fajkusová",
   role: "Tréner BSGA · Tréner golfu",
-  phone: "+421 911 183 429",
+  phone: "+421 911 193 429",
   email: "vanessa@bsga.sk",
   image: vanessaFajkusovaImg,
   bio: [
