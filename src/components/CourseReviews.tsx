@@ -6,43 +6,54 @@ import Autoplay from "embla-carousel-autoplay";
 type Review = {
   name: string;
   text: string;
+  /** Približný dátum zverejnenia recenzie (Google) – používa sa v schema.org JSON-LD */
+  date: string;
 };
 
 export const reviews: Review[] = [
   {
     name: "Matúš Kráľovič",
+    date: "2025-05-10",
     text: "Úžasní ľudia, prostredie, všetko. Veľmi odporúčam a neviem čo iné by som zmenil. Kurz prebiehal v peknej postupnosti zakončený hrou na ihrisku. Tréner všetko vysvetlil a mal trpezlivosť aj s tými, ktorým to možno až tak nešlo. Vrelo odporúčam všetkým, ktorí si nevedia vybrať u koho urobiť zelenú kartu, určite neoľutujete :)",
   },
   {
     name: "Peter Hrban",
+    date: "2025-06-01",
     text: "Veľmi pekne ďakujeme, že sme sa mohli zúčastniť kurzu ZK vo vašej akadémii. Všetko Tip Top na vysokej úrovni vrátane inštruktora Milana, ale celkovo Vašej BSGA 😉👍 krásny rezort a s ním vaše služby TOP 👏😉👍",
   },
   {
     name: "Andrea Beno",
+    date: "2025-06-22",
     text: "Absolvovala som víkendový golfový kurz v Best Swing Golf Academy a nemohlo to byť lepšie! Bol to skvelý, pozitívnou energiou nabitý víkend, počas ktorého sme sa veľa naučili o etike a pravidlách hry. Na záver víkendu sme už boli schopní úspešne zahrať zopár jamiek. Stretla sa tu super partia ľudí, s ktorými sme si výborne sadli. Obrovská vďaka patrí Milanovi – viedol kurz absolútne perfektne, s obrovskou profesionalitou, no zároveň sme sa veľa nasmiali a od prvého momentu sme sa cítili nesmierne vítaní. Kurz odporúčam všetkými desiatimi!",
   },
   {
     name: "Ivan Lomnický",
+    date: "2025-07-05",
     text: "Pán tréner Milan Neštický, ďakujem veľmi pekne za Váš perfektný profesionálny a priateľský prístup. Ísť práve k Vám na kurz zelenej karty bolo výborné rozhodnutie! Odporúčam každému, neoľutujete. 10/10 👍",
   },
   {
     name: "Matej Babinec",
+    date: "2025-07-19",
     text: "Kurzom nás sprevádzal Milan Neštický a naozaj môžem len odporučiť. Celý kurz prebiehal vo veľmi príjemnej atmosfére, Milan všetko zrozumiteľne vysvetlil a venoval sa nám aj individuálne. Ako začiatočník som sa cítil veľmi dobre, dostal som veľa praktických rád a celý priebeh bol profesionálny, no zároveň uvoľnený. Ak niekto rozmýšľa nad zelenou kartou na golf, určite odporúčam.",
   },
   {
     name: "Štefan Baláž",
+    date: "2025-08-02",
     text: "Za dva dni sme prešli všetkým, čo sa týka golfu, a urobili sme 15 kilometrov v peknom prostredí v príjemnom kolektíve. Mali sme šťastie s erudovaným trénerom Milanom. U každého účastníka bol očividný pokrok.",
   },
   {
     name: "Stella Mattova",
+    date: "2026-08-10",
     text: "Skvelá golfová akadémia! Veľká vďaka patrí najmä Vladkovi za výborný prístup a profesionálne vedenie. Počas celého kurzu panovala príjemná atmosféra, všetko bolo vysvetlené zrozumiteľne a s trpezlivosťou. Bola to nielen poučná, ale aj veľmi zábavná akcia, ktorú som si naplno užil. Určite odporúčam každému, kto chce začať s golfom alebo sa zlepšiť. Ďakujem!",
   },
   {
     name: "Roman Láni",
+    date: "2026-08-15",
     text: "Na dvojdňový výcvik golfu na akadémii som nastupoval s rešpektom a obavami. Tie sa rozplynuli hneď po zoznámení s veľmi príjemnou partiou „spolubojovníkov“ ako aj s našou trénerkou Vanessou… tá nás veľmi trpezlivo previedla tak technickou časťou ako aj teóriou a som presvedčený, že u veľkej časti účastníkov naštartovala a umocnila túžbu po pokračovaní v tomto krásnom športe! Vrelo odporúčam tak Best Swing Golf Academy ako aj skvelú a skúsenú trénerku Vanessu… 😉👋",
   },
   {
     name: "Dominik Hegedus",
+    date: "2026-08-18",
     text: "Milan je skvelý tréner, naučil nás veľa nového a venoval sa každému individuálne podľa schopnosti hráča, všetko v príjemnej a kamarátskej spoločnosti. ⛳️",
   },
 ];
