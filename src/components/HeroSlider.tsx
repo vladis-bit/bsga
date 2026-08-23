@@ -12,7 +12,7 @@ type HeroStat = {
 
 const heroStats: HeroStat[] = [
   { value: 10, suffix: "+", label: "Rokov skúseností" },
-  { value: 2800, suffix: "+", label: "Spokojných klientov" },
+  { value: 2950, suffix: "+", label: "Spokojných klientov" },
   { value: 12, suffix: "", label: "Rôznych služieb" },
   { value: 6, suffix: "", label: "Trénerov" },
 ];
