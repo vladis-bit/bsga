@@ -8,7 +8,7 @@ type Review = {
   text: string;
 };
 
-const reviews: Review[] = [
+export const reviews: Review[] = [
   {
     name: "Matúš Kráľovič",
     text: "Úžasní ľudia, prostredie, všetko. Veľmi odporúčam a neviem čo iné by som zmenil. Kurz prebiehal v peknej postupnosti zakončený hrou na ihrisku. Tréner všetko vysvetlil a mal trpezlivosť aj s tými, ktorým to možno až tak nešlo. Vrelo odporúčam všetkým, ktorí si nevedia vybrať u koho urobiť zelenú kartu, určite neoľutujete :)",
