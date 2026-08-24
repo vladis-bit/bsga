@@ -123,6 +123,7 @@ const StartGolf = () => {
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": "https://bsga.sk/zacni-s-golfom#product",
     name: "Víkendový kurz zelenej karty – BSGA",
     description:
       "Golfové kurzy a lekcie Best Swing Golf Academy – víkendový kurz zelenej karty, kurz zelenej karty a individuálne lekcie s PGA trénermi.",
@@ -138,7 +139,10 @@ const StartGolf = () => {
     review: courseReviews.map((r) => ({
       "@type": "Review",
       author: { "@type": "Person", name: r.name },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "5" },
+      datePublished: r.date,
+      inLanguage: "sk",
+      itemReviewed: { "@id": "https://bsga.sk/zacni-s-golfom#product" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       reviewBody: r.text,
       publisher: { "@id": "https://bsga.sk/#organization" },
     })),
