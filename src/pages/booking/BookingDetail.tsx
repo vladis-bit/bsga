@@ -110,6 +110,7 @@ const BookingDetail = () => {
         )}
       </div>
     </main>
+    </>
   );
 };
 

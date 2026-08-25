@@ -113,6 +113,7 @@ const BookingCancel = () => {
         )}
       </div>
     </main>
+    </>
   );
 };
 
