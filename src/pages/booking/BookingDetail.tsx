@@ -53,7 +53,15 @@ const BookingDetail = () => {
   }, [token]);
 
   return (
-    <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-12">
+    <>
+      <SEO
+        title="Detail rezervácie | BSGA Performance Center"
+        description="Detail vašej rezervácie simulátora v BSGA Performance Center."
+        path="/rezervacia/detail"
+        noindex
+        nofollow
+      />
+      <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-12">
       <div className="w-full max-w-lg space-y-5 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-9">
         <div className="space-y-2">
           <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary">
