@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { fmtBookingDate, fmtBookingTime } from "./BookingDetail";
+import SEO from "@/components/SEO";
 
 type Detail = {
   starts_at: string;
