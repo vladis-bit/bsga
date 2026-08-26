@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Events from "./Events";
 
 // Prevent canvas/animation side effects in jsdom
@@ -10,9 +11,11 @@ vi.mock("@/components/WavesCanvas", () => ({
 
 const renderEvents = () =>
   render(
-    <MemoryRouter initialEntries={["/eventy"]}>
-      <Events />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter initialEntries={["/eventy"]}>
+        <Events />
+      </MemoryRouter>
+    </HelmetProvider>
   );
 
 describe("Events – Florida PGA Swing 2027 (obsadené)", () => {
