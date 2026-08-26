@@ -218,6 +218,8 @@ const EventCard = ({
   const [infoOpen, setInfoOpen] = useState(false);
   const contactEmail = event.details?.contact.email;
   const signupEmail = Array.isArray(contactEmail) ? contactEmail.join(",") : contactEmail ?? "peter@doni-travel.sk";
+  const contactPhone = event.details?.contact.phone ?? "+421 905 335 501";
+  const displayEmail = Array.isArray(contactEmail) ? contactEmail[0] : contactEmail ?? "peter@doni-travel.sk";
   const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
   const infoSubject = encodeURIComponent(`Informácie – ${event.title}`);
 
