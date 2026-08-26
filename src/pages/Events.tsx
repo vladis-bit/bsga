@@ -890,6 +890,7 @@ const Events = () => {
               </div>
             </div>
           </section>
+          <EventsWaitlistForm />
         </main>
       </div>
       <Dialog open={floridaOpen} onOpenChange={setFloridaOpen}>
