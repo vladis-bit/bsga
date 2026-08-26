@@ -218,6 +218,8 @@ const EventCard = ({
   const [infoOpen, setInfoOpen] = useState(false);
   const contactEmail = event.details?.contact.email;
   const signupEmail = Array.isArray(contactEmail) ? contactEmail.join(",") : contactEmail ?? "peter@doni-travel.sk";
+  const contactPhone = event.details?.contact.phone ?? "+421 905 335 501";
+  const displayEmail = Array.isArray(contactEmail) ? contactEmail[0] : contactEmail ?? "peter@doni-travel.sk";
   const mailSubject = encodeURIComponent(`Prihlásenie – ${event.title}`);
   const infoSubject = encodeURIComponent(`Informácie – ${event.title}`);
 
@@ -321,6 +323,28 @@ const EventCard = ({
                   <Mail className="w-4 h-4" />
                   <span>Prihlásiť sa</span>
                 </a>
+              )}
+              {!hideSignup && soldOut && (
+                <span
+                  aria-disabled="true"
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-semibold rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                >
+                  Vypredané
+                </span>
+              )}
+              {soldOut && (
+                <p className="mt-1 w-full text-xs sm:text-sm text-muted-foreground">
+                  Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                  alebo zápise na waitlist Vás informujeme na{" "}
+                  <a href={`mailto:${displayEmail}`} className="text-gold hover:underline font-medium">
+                    {displayEmail}
+                  </a>{" "}
+                  alebo na{" "}
+                  <a href={`tel:${contactPhone.replace(/\s/g, "")}`} className="text-gold hover:underline font-medium">
+                    {contactPhone}
+                  </a>
+                  .
+                </p>
               )}
             </div>
           </div>
@@ -442,14 +466,37 @@ const EventCard = ({
                     Stiahnuť plagát
                   </a>
                 )}
-                <a
-                  href={`mailto:${signupEmail}?subject=${mailSubject}`}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
-                >
-                  <Mail className="w-4 h-4" />
-                  Prihlásiť sa
-                </a>
+                {!soldOut ? (
+                  <a
+                    href={`mailto:${signupEmail}?subject=${mailSubject}`}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Prihlásiť sa
+                  </a>
+                ) : (
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                  >
+                    Vypredané
+                  </span>
+                )}
               </div>
+              {soldOut && (
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                  alebo zápise na waitlist Vás informujeme na{" "}
+                  <a href={`mailto:${displayEmail}`} className="text-gold hover:underline font-medium">
+                    {displayEmail}
+                  </a>{" "}
+                  alebo na{" "}
+                  <a href={`tel:${contactPhone.replace(/\s/g, "")}`} className="text-gold hover:underline font-medium">
+                    {contactPhone}
+                  </a>
+                  .
+                </p>
+              )}
             </div>
           </DialogContent>
         </Dialog>
@@ -604,7 +651,7 @@ const Events = () => {
                     event={event}
                     index={index}
                     variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
-                    soldOut={index === 0}
+                    soldOut={index === 0 || index === 3}
                   />
                 ))}
               </div>
