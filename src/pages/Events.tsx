@@ -749,6 +749,18 @@ const Events = () => {
                             Vypredané
                           </span>
                         </div>
+                        <p data-testid="florida-soldout-note" className="mt-3 text-xs sm:text-sm text-muted-foreground">
+                          Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                          alebo zápise na waitlist Vás informujeme na{" "}
+                          <a href="mailto:peter@doni-travel.sk" className="text-gold hover:underline font-medium">
+                            peter@doni-travel.sk
+                          </a>{" "}
+                          alebo na{" "}
+                          <a href="tel:+421905335501" className="text-gold hover:underline font-medium">
+                            +421 905 335 501
+                          </a>
+                          .
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1004,13 +1016,25 @@ const Events = () => {
               />
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="flex flex-col gap-3 pt-2">
               <span
                 aria-disabled="true"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed self-start"
               >
                 Vypredané
               </span>
+              <p data-testid="florida-soldout-note-dialog" className="text-xs sm:text-sm text-muted-foreground">
+                Podujatie je momentálne <strong className="text-foreground">obsadené</strong>. Náhradné termíny
+                alebo zápis na waitlist vybavíte cez{" "}
+                <a href="mailto:peter@doni-travel.sk" className="text-gold hover:underline font-medium">
+                  peter@doni-travel.sk
+                </a>{" "}
+                alebo{" "}
+                <a href="tel:+421905335501" className="text-gold hover:underline font-medium">
+                  +421 905 335 501
+                </a>
+                .
+              </p>
             </div>
           </div>
         </DialogContent>
