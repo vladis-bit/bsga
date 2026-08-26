@@ -890,6 +890,7 @@ const Events = () => {
               </div>
             </div>
           </section>
+          <EventsWaitlistForm />
         </main>
       </div>
       <Dialog open={floridaOpen} onOpenChange={setFloridaOpen}>
@@ -1087,7 +1088,6 @@ const Events = () => {
           </div>
         </DialogContent>
       </Dialog>
-      <EventsWaitlistForm />
       <Footer />
     </>
   );
