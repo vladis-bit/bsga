@@ -98,8 +98,9 @@ const EventsWaitlistForm = () => {
             termínu.
           </p>
           <div className="flex justify-center mt-4">
-            <a href="mailto:info@bsga.sk" className="text-background font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
-              <span className="text-gold">📧</span> info@bsga.sk
+            <a href="mailto:peter@doni-travel.sk" className="text-background font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
+              <span className="text-gold">📧</span>
+              <span>peter@doni-travel.sk</span>
             </a>
           </div>
         </div>
