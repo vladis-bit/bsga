@@ -4,6 +4,7 @@ import { Calendar, Mail, MapPin, FileText, Phone, Sparkles, Info } from "lucide-
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import EventsWaitlistForm from "@/components/EventsWaitlistForm";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import WavesCanvas from "@/components/WavesCanvas";
@@ -1086,6 +1087,7 @@ const Events = () => {
           </div>
         </DialogContent>
       </Dialog>
+      <EventsWaitlistForm />
       <Footer />
     </>
   );
