@@ -466,14 +466,37 @@ const EventCard = ({
                     Stiahnuť plagát
                   </a>
                 )}
-                <a
-                  href={`mailto:${signupEmail}?subject=${mailSubject}`}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
-                >
-                  <Mail className="w-4 h-4" />
-                  Prihlásiť sa
-                </a>
+                {!soldOut ? (
+                  <a
+                    href={`mailto:${signupEmail}?subject=${mailSubject}`}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Prihlásiť sa
+                  </a>
+                ) : (
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                  >
+                    Vypredané
+                  </span>
+                )}
               </div>
+              {soldOut && (
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                  alebo zápise na waitlist Vás informujeme na{" "}
+                  <a href={`mailto:${displayEmail}`} className="text-gold hover:underline font-medium">
+                    {displayEmail}
+                  </a>{" "}
+                  alebo na{" "}
+                  <a href={`tel:${contactPhone.replace(/\s/g, "")}`} className="text-gold hover:underline font-medium">
+                    {contactPhone}
+                  </a>
+                  .
+                </p>
+              )}
             </div>
           </DialogContent>
         </Dialog>
