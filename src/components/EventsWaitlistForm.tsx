@@ -86,17 +86,22 @@ const EventsWaitlistForm = () => {
     <section id="waitlist" className="py-12 sm:py-16 md:py-24 bg-foreground">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mb-8 border-b border-background/15 pb-6 text-center sm:mb-12">
+          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-background mt-3 sm:mt-4 mb-4 sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
+            Zápis do poradovníka na akcie
+          </h2>
           <p className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
             Waitlist
           </p>
-          <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-background mt-3 sm:mt-4 sm:text-3xl md:text-4xl lg:text-5xl">
-            Zápis do poradovníka na akcie
-          </h2>
           <p className="text-background/60 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed mt-4">
             Je vami vybraná akcia obsadená? Zapíšte sa do waitlistu a my vás
             budeme kontaktovať pri uvoľnení miesta alebo pri vypísaní náhradného
             termínu.
           </p>
+          <div className="flex justify-center mt-4">
+            <a href="mailto:info@bsga.sk" className="text-background font-medium hover:text-gold transition-colors text-sm sm:text-base flex items-center gap-2">
+              <span className="text-gold">📧</span> info@bsga.sk
+            </a>
+          </div>
         </div>
 
         <div className="max-w-3xl mx-auto bg-card rounded-3xl p-5 sm:p-8 border border-border shadow-2xl">
