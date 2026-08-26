@@ -1088,7 +1088,6 @@ const Events = () => {
           </div>
         </DialogContent>
       </Dialog>
-      <EventsWaitlistForm />
       <Footer />
     </>
   );
