@@ -695,14 +695,17 @@ const Events = () => {
                   Zverejníme už čoskoro
                 </p>
 
-                {/* Featured: Florida PGA Swing */}
+                {/* Featured: Florida PGA Swing — OBSADENÉ */}
                 <div className="relative mt-10 sm:mt-12 rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
+                  <div className="pointer-events-none absolute -right-12 top-5 z-20 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
+                    OBSADENÉ
+                  </div>
                   <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
                   </div>
-                  <div className="p-6 sm:p-10 text-left">
+                  <div className="p-6 sm:p-10 text-left opacity-80">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
-                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-serif font-bold text-xl sm:text-2xl bg-gold text-primary-foreground">
+                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-serif font-bold text-xl sm:text-2xl bg-muted text-muted-foreground">
                         2027
                       </div>
                       <div className="min-w-0 flex-1">
@@ -712,7 +715,7 @@ const Events = () => {
                         <p className="mt-2 text-base sm:text-lg text-muted-foreground">
                           Exkluzívny golfový zájazd s BSGA & DONI-Travel počas Veľkej noci
                         </p>
-                        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base text-foreground/90">
+                        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base text-muted-foreground">
                           <div className="flex items-center gap-1.5">
                             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
                             <span className="font-medium">26. 3. – 2. 4. 2027</span>
@@ -739,13 +742,12 @@ const Events = () => {
                             <Info className="w-4 h-4" />
                             Informácie
                           </button>
-                          <a
-                            href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
-                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 bg-gradient-to-r from-gold to-gold-light text-primary hover:shadow-lg hover:shadow-gold/50 hover:-translate-y-0.5"
+                          <span
+                            aria-disabled="true"
+                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
                           >
-                            <Mail className="w-4 h-4" />
-                            <span>Prihlásiť sa</span>
-                          </a>
+                            Vypredané
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1003,13 +1005,12 @@ const Events = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <a
-                href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+              <span
+                aria-disabled="true"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
               >
-                <Mail className="w-4 h-4" />
-                Prihlásiť sa
-              </a>
+                Vypredané
+              </span>
             </div>
           </div>
         </DialogContent>
