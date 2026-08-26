@@ -1005,13 +1005,12 @@ const Events = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <a
-                href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Florida PGA Swing")}`}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
+              <span
+                aria-disabled="true"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
               >
-                <Mail className="w-4 h-4" />
-                Prihlásiť sa
-              </a>
+                Vypredané
+              </span>
             </div>
           </div>
         </DialogContent>
