@@ -651,7 +651,7 @@ const Events = () => {
                     event={event}
                     index={index}
                     variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
-                    soldOut={index === 0}
+                    soldOut={index === 0 || index === 3}
                   />
                 ))}
               </div>
