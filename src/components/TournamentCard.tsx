@@ -124,13 +124,13 @@ const TournamentCard = ({
         ease: "easeOut"
       }}>
             <div className={`px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t ${dividerClass}`}>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+              <div className={`grid gap-3 sm:gap-4 ${actionButtons.length === 1 ? "grid-cols-1 place-items-center" : "grid-cols-1 sm:grid-cols-2"}`}>
 {actionButtons.map((button, index) => <a key={index} href={button.url || "#"} target={button.url && button.url !== "#" ? "_blank" : undefined} rel={button.url && button.url !== "#" ? "noopener noreferrer" : undefined} aria-label={button.label} onClick={e => {
               e.stopPropagation();
               if (!button.url || button.url === "#") {
                 e.preventDefault();
               }
-            }} className={`flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-primary transition-colors duration-300 ${button.url && button.url !== "#" ? "hover:bg-gold-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2" : "opacity-50 cursor-not-allowed hover:bg-gold"}`}>
+            }} className={`flex items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-primary transition-colors duration-300 ${actionButtons.length === 1 ? "w-full max-w-xs" : "w-full"} ${button.url && button.url !== "#" ? "hover:bg-gold-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2" : "opacity-50 cursor-not-allowed hover:bg-gold"}`}>
                     <button.icon size={18} />
                     <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">
                       {button.label}
