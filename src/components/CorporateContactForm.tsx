@@ -10,6 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { useAntiSpam } from "@/lib/antispam";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
@@ -45,9 +46,17 @@ const CorporateContactForm = () => {
   const [message, setMessage] = useState("");
   const [gdprConsent, setGdprConsent] = useState(false);
   const { toast } = useToast();
+  const { check, markSubmitted, HoneypotField } = useAntiSpam();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const spam = check();
+    if (!spam.ok) {
+      toast({ title: "Nepodarilo sa odoslať", description: spam.reason, variant: "destructive" });
+      return;
+    }
+    markSubmitted();
+
     setIsSubmitting(true);
 
     const payload = {
@@ -111,6 +120,7 @@ const CorporateContactForm = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+                <HoneypotField />
               <div className="text-center sm:text-left">
                 <h2 className="font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
                   Nezáväzný formulár na firemnú akciu

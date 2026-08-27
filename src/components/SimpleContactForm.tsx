@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { useAntiSpam } from "@/lib/antispam";
 import { supabase } from "@/integrations/supabase/client";
 import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
 
@@ -18,9 +19,17 @@ const SimpleContactForm = () => {
   const [message, setMessage] = useState("");
   const [gdprConsent, setGdprConsent] = useState(false);
   const { toast } = useToast();
+  const { check, markSubmitted, HoneypotField } = useAntiSpam();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const spam = check();
+    if (!spam.ok) {
+      toast({ title: "Nepodarilo sa odoslať", description: spam.reason, variant: "destructive" });
+      return;
+    }
+    markSubmitted();
+
     setIsSubmitting(true);
     const messageId = newMessageId();
     const { error } = await supabase.from("contact_messages").insert({
@@ -84,6 +93,7 @@ const SimpleContactForm = () => {
             </div> :
 
           <form onSubmit={handleSubmit} className="space-y-6">
+                <HoneypotField />
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="contact-first-name" className="text-sm font-medium text-foreground mb-2 block">
