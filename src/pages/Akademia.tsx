@@ -149,12 +149,12 @@ const Akademia = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="bg-foreground py-12 sm:py-16 md:py-20">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
-                <h2 className="mb-4 font-serif text-2xl font-bold text-foreground sm:text-3xl">Máte nezodpovedané otázky?</h2>
-                <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">Kontaktujte nás a dozvie sa viac o našich programoch pre mladých golfistov</p>
-                <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Juniorskému golfu" className="inline-flex items-center justify-center rounded-full bg-gold px-8 py-3 font-bold text-primary transition-colors hover:bg-gold-light">Napíšte nám</a>
+          <section className="bg-foreground py-16 md:py-24">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <div className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-6 sm:p-10 text-center">
+                <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Máte nezodpovedané otázky?</h3>
+                <p className="max-w-xl text-sm sm:text-base text-foreground/70">Kontaktujte nás a dozviete sa viac o našich programoch pre mladých golfistov</p>
+                <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Juniorskému golfu" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-gold/90 hover:scale-105">Napíšte nám</a>
               </div>
             </div>
           </section>
