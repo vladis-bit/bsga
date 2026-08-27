@@ -297,20 +297,29 @@ const Tour = () => {
                 </span>
               </div>
 
-              <div className="mx-auto max-w-3xl space-y-4 sm:space-y-5">
-                {tournaments.map((tournament) => (
-                  <TournamentCard
-                    key={tournament.number}
-                    theme="ivory"
-                    number={tournament.number}
-                    date={tournament.date}
-                    location={tournament.location}
-                    image={tournament.image}
-                    presenter={tournament.presenter}
-                    links={tournament.links}
-                    promoUrl={tournament.promoUrl}
-                  />
-                ))}
+              <div className="max-w-3xl mx-auto relative">
+                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
+                  <CarouselContent>
+                    {tournaments.map((tournament) => (
+                      <CarouselItem key={tournament.number}>
+                        <TournamentCard
+                          theme="ivory"
+                          number={tournament.number}
+                          date={tournament.date}
+                          location={tournament.location}
+                          image={tournament.image}
+                          presenter={tournament.presenter}
+                          links={tournament.links}
+                          promoUrl={tournament.promoUrl}
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                  </div>
+                </Carousel>
               </div>
             </div>
           </section>
