@@ -4,7 +4,7 @@ const MIN_FILL_MS = 3000; // formulár vyplnený rýchlejšie = bot
 const MIN_INTERVAL_MS = 30000; // min. odstup medzi odoslaniami z jedného prehliadača
 const STORAGE_KEY = "bsga-last-form-submit";
 
-export type SpamCheck = { ok: true } | { ok: false; reason: string };
+export type SpamCheck = { ok: boolean; reason?: string };
 
 /**
  * Antispam ochrana bez externých služieb:
