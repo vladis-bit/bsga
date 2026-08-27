@@ -33,8 +33,6 @@ import redOakAsset from "@/assets/courses/red-oak-nitra.webp.asset.json";
 const redOakImg = redOakAsset.url;
 import kacovAsset from "@/assets/courses/panorama-kacov.webp.asset.json";
 const kacovImg = kacovAsset.url;
-import weltenAsset from "@/assets/courses/welten.webp.asset.json";
-const weltenImg = weltenAsset.url;
 
 const tournaments = [
   {
@@ -125,7 +123,7 @@ const tournaments2025 = [
 const tournaments2024 = [
   { number: 1, date: "2024", location: "Sedin Golf Resort", image: sedinImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1F9h7_pAYavpg3URVyeIVJvQfUtTTH8kj?usp=drive_link" } },
   { number: 2, date: "2024", location: "Penati Heritage", image: heritageImg, links: { galleryUrl: "https://drive.google.com/drive/folders/18EFhgHFKbfdTqbTdDBIGHccMIi4yKyh7?usp=drive_link" } },
-  { number: 3, date: "2024", location: "Apex Golf Club", image: weltenImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1z8B3nC7V-pMWEg21NVxpcpzTo6-rf5Si?usp=drive_link" } },
+  { number: 3, date: "2024", location: "Apex Golf Club", links: { galleryUrl: "https://drive.google.com/drive/folders/1z8B3nC7V-pMWEg21NVxpcpzTo6-rf5Si?usp=drive_link" } },
   { number: 4, date: "2024", location: "Penati Legend", image: legendImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1hNZhuP4o2eORtY2xIqiDuqaVueGvkV7S?usp=drive_link" } },
   { number: 5, date: "2024", location: "Panoráma Kácov", image: kacovImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1wkWsmRjY9u-xN7hGpYfbj5o44WMSCwHB?usp=drive_link" } },
 ];
@@ -133,7 +131,7 @@ const tournaments2024 = [
 const tournaments2023 = [
   { number: 1, date: "2023", location: "Red Oak Nitra", image: redOakImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1UlBQtMT_06Kc9D054-rLqOrut9MtJKEG?usp=drive_link" } },
   { number: 2, date: "2023", location: "Sedin Golf Resort", image: sedinImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1E5N9RDdO-pMmHxZtZ3AmPXOZ3ct9i4Hk?usp=drive_link" } },
-  { number: 3, date: "2023", location: "Apex Golf Club", image: weltenImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1ARvyCLjz0E0XKMQsPHOtpOCaUL7dtRL9?usp=drive_link" } },
+  { number: 3, date: "2023", location: "Apex Golf Club", links: { galleryUrl: "https://drive.google.com/drive/folders/1ARvyCLjz0E0XKMQsPHOtpOCaUL7dtRL9?usp=drive_link" } },
   { number: 4, date: "2023", location: "Penati Legend", image: legendImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1XeHbJ6TIeOyMBlv8vn8CwyWNlAqSiSBZ?usp=drive_link" } },
   { number: 5, date: "2023", location: "Penati Heritage", image: heritageImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1RGrsDKs-OLBJxxByT73nRcWtNjW93UhL?usp=drive_link" } },
 ];
