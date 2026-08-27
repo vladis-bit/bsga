@@ -5,6 +5,7 @@ import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
+import IvoryContactForm from "@/components/IvoryContactForm";
 import { Mail, Phone } from "lucide-react";
 const Akademia = () => {
   const campEvents = [
@@ -148,16 +149,24 @@ const Akademia = () => {
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="bg-foreground py-16 md:py-24">
-            <div className="container mx-auto px-4 max-w-4xl">
-              <div className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-6 sm:p-10 text-center">
-                <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Máte nezodpovedané otázky?</h3>
-                <p className="max-w-xl text-sm sm:text-base text-foreground/70">Kontaktujte nás a dozviete sa viac o našich programoch pre mladých golfistov</p>
-                <a href="mailto:kids@bsga.sk?subject=Otázka k BSGA Juniorskému golfu" className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-gold/90 hover:scale-105">Napíšte nám</a>
-              </div>
-            </div>
-          </section>
+          {/* CTA + Contact Form */}
+          <IvoryContactForm
+            id="kontakt"
+            goldLabel="Juniorský golf"
+            title="Máte nezodpovedané otázky?"
+            description="Vyplňte formulár a dozviete sa viac o našich programoch pre mladých golfistov – krúžkoch, táboroch aj rozvojových tréningoch."
+            email="kids@bsga.sk"
+            source="juniorsky-golf"
+            idPrefix="akademia"
+            services={[
+              "Detská akadémia",
+              "Detské tábory",
+              "Juniorský golf",
+              "Individuálne tréningy",
+              "Iné",
+            ]}
+            submitText="Odoslať správu"
+          />
         </main>
       </div>
       <Footer />

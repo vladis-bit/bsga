@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseReviews, { reviews as courseReviews } from "@/components/CourseReviews";
+import IvoryContactForm from "@/components/IvoryContactForm";
 import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
 const serviceStartCardsImg = serviceStartCardsImgAsset.url;
 import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
@@ -821,36 +822,25 @@ const StartGolf = () => {
             </div>
           </section>
 
-          {/* CTA */}
-          <section className="bg-foreground py-16 md:py-24">
-            <div className="container mx-auto px-4 max-w-4xl">
-              <Reveal>
-                <div className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-6 sm:p-10 text-center">
-                  <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-                    Neviete, čo si vybrať?
-                  </h3>
-                  <p className="max-w-xl text-sm sm:text-base text-foreground/70">
-                    Napíšte nám a my vám pomôžeme nájsť ideálny program podľa vašich cieľov a skúseností.
-                  </p>
-                  <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
-                      <Link
-                        to="/#kontakt"
-                        className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-gold/90 hover:scale-105"
-                      >
-                        Kontaktujte nás
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                      <Link
-                        to="/sluzby"
-                        className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:border-gold hover:text-gold"
-                      >
-                        Pozri všetky služby
-                      </Link>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </section>
+          {/* CTA + Contact Form */}
+          <IvoryContactForm
+            id="kontakt"
+            goldLabel="Začnite s golfom"
+            title="Napíšte nám a začnite hrať"
+            description="Neviete, čo si vybrať? Vyplňte formulár a my vám pomôžeme nájsť ideálny program podľa vašich cieľov a skúseností."
+            email="info@bsga.sk"
+            source="zacni-s-golfom"
+            idPrefix="startgolf"
+            services={[
+              "Víkendový kurz zelenej karty",
+              "Kurz zelenej karty",
+              "Individuálne lekcie",
+              "Skupinové lekcie",
+              "Course Management",
+              "Iné",
+            ]}
+            submitText="Odoslať správu"
+          />
         </main>
       </div>
 
