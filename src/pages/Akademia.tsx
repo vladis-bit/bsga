@@ -5,6 +5,7 @@ import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
+import IvoryContactForm from "@/components/IvoryContactForm";
 import { Mail, Phone } from "lucide-react";
 const Akademia = () => {
   const campEvents = [
