@@ -633,7 +633,7 @@ const Events = () => {
                   </p>
                 </div>
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
-                  Sezóna 2026 / 2027
+                  SEZÓNA 2026
                 </span>
               </div>
 
