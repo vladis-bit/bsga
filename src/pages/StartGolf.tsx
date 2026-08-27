@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseReviews, { reviews as courseReviews } from "@/components/CourseReviews";
+import IvoryContactForm from "@/components/IvoryContactForm";
 import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
 const serviceStartCardsImg = serviceStartCardsImgAsset.url;
 import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
