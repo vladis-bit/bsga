@@ -49,11 +49,20 @@ const TournamentCard = ({
   ];
   return <motion.div className={shellClass} onClick={() => setIsExpanded(!isExpanded)} layout>
       {/* Course Image */}
-      {image && <div className="p-3 sm:p-4 pb-0">
-          <div className={`relative w-full aspect-[16/9] rounded-2xl overflow-hidden border ${imageFrame}`}>
-            <img src={image} alt={location} className="w-full h-full object-cover" loading="lazy" />
-          </div>
-        </div>}
+      <div className="p-3 sm:p-4 pb-0">
+        <div className={`relative w-full aspect-[16/9] rounded-2xl overflow-hidden border ${imageFrame}`}>
+          {image ? (
+            <img src={image} alt={`Golfové ihrisko ${location}`} className="w-full h-full object-cover" loading="lazy" />
+          ) : (
+            <div className={`flex h-full w-full flex-col items-center justify-center gap-2 text-center ${ivory ? "bg-muted" : "bg-primary-foreground/5"}`}>
+              <Camera className="h-6 w-6 text-gold" aria-hidden="true" />
+              <span className="text-gold text-[10px] font-bold uppercase tracking-[0.2em]">Fotka čoskoro</span>
+              <span className={`${titleClass} text-xs opacity-70`}>{location}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
 
       {/* Header - always visible */}
       <div className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6">

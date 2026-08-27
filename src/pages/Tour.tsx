@@ -29,6 +29,10 @@ import legendImg from "@/assets/courses/legend.webp";
 import ostraviceImg from "@/assets/courses/ostravice.webp";
 import sedinImg from "@/assets/courses/sedin.webp";
 import kaskadaImg from "@/assets/courses/kaskada.webp";
+import redOakAsset from "@/assets/courses/red-oak-nitra.webp.asset.json";
+const redOakImg = redOakAsset.url;
+import kacovAsset from "@/assets/courses/panorama-kacov.webp.asset.json";
+const kacovImg = kacovAsset.url;
 
 const tournaments = [
   {
@@ -117,27 +121,27 @@ const tournaments2025 = [
 ];
 
 const tournaments2024 = [
-  { number: 1, date: "2024", location: "Sedin Golf Resort", links: { galleryUrl: "https://drive.google.com/drive/folders/1F9h7_pAYavpg3URVyeIVJvQfUtTTH8kj?usp=drive_link" } },
-  { number: 2, date: "2024", location: "Penati Heritage", links: { galleryUrl: "https://drive.google.com/drive/folders/18EFhgHFKbfdTqbTdDBIGHccMIi4yKyh7?usp=drive_link" } },
+  { number: 1, date: "2024", location: "Sedin Golf Resort", image: sedinImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1F9h7_pAYavpg3URVyeIVJvQfUtTTH8kj?usp=drive_link" } },
+  { number: 2, date: "2024", location: "Penati Heritage", image: heritageImg, links: { galleryUrl: "https://drive.google.com/drive/folders/18EFhgHFKbfdTqbTdDBIGHccMIi4yKyh7?usp=drive_link" } },
   { number: 3, date: "2024", location: "Apex Golf Club", links: { galleryUrl: "https://drive.google.com/drive/folders/1z8B3nC7V-pMWEg21NVxpcpzTo6-rf5Si?usp=drive_link" } },
-  { number: 4, date: "2024", location: "Penati Legend", links: { galleryUrl: "https://drive.google.com/drive/folders/1hNZhuP4o2eORtY2xIqiDuqaVueGvkV7S?usp=drive_link" } },
-  { number: 5, date: "2024", location: "Panoráma Kácov", links: { galleryUrl: "https://drive.google.com/drive/folders/1wkWsmRjY9u-xN7hGpYfbj5o44WMSCwHB?usp=drive_link" } },
+  { number: 4, date: "2024", location: "Penati Legend", image: legendImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1hNZhuP4o2eORtY2xIqiDuqaVueGvkV7S?usp=drive_link" } },
+  { number: 5, date: "2024", location: "Panoráma Kácov", image: kacovImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1wkWsmRjY9u-xN7hGpYfbj5o44WMSCwHB?usp=drive_link" } },
 ];
 
 const tournaments2023 = [
-  { number: 1, date: "2023", location: "Red Oak Nitra", links: { galleryUrl: "https://drive.google.com/drive/folders/1UlBQtMT_06Kc9D054-rLqOrut9MtJKEG?usp=drive_link" } },
-  { number: 2, date: "2023", location: "Sedin Golf Resort", links: { galleryUrl: "https://drive.google.com/drive/folders/1E5N9RDdO-pMmHxZtZ3AmPXOZ3ct9i4Hk?usp=drive_link" } },
+  { number: 1, date: "2023", location: "Red Oak Nitra", image: redOakImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1UlBQtMT_06Kc9D054-rLqOrut9MtJKEG?usp=drive_link" } },
+  { number: 2, date: "2023", location: "Sedin Golf Resort", image: sedinImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1E5N9RDdO-pMmHxZtZ3AmPXOZ3ct9i4Hk?usp=drive_link" } },
   { number: 3, date: "2023", location: "Apex Golf Club", links: { galleryUrl: "https://drive.google.com/drive/folders/1ARvyCLjz0E0XKMQsPHOtpOCaUL7dtRL9?usp=drive_link" } },
-  { number: 4, date: "2023", location: "Penati Legend", links: { galleryUrl: "https://drive.google.com/drive/folders/1XeHbJ6TIeOyMBlv8vn8CwyWNlAqSiSBZ?usp=drive_link" } },
-  { number: 5, date: "2023", location: "Penati Heritage", links: { galleryUrl: "https://drive.google.com/drive/folders/1RGrsDKs-OLBJxxByT73nRcWtNjW93UhL?usp=drive_link" } },
+  { number: 4, date: "2023", location: "Penati Legend", image: legendImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1XeHbJ6TIeOyMBlv8vn8CwyWNlAqSiSBZ?usp=drive_link" } },
+  { number: 5, date: "2023", location: "Penati Heritage", image: heritageImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1RGrsDKs-OLBJxxByT73nRcWtNjW93UhL?usp=drive_link" } },
 ];
 
 const tournaments2022 = [
-  { number: 1, date: "2022", location: "Red Oak Nitra", links: { galleryUrl: "https://drive.google.com/drive/folders/1LtdBgABivavBaUdljQ1rv-JNmwyo7ibj?usp=drive_link" } },
-  { number: 2, date: "2022", location: "Sedin Golf Resort", links: { galleryUrl: "https://drive.google.com/drive/folders/1GOAvOjffOmL7N3x3kHnc1hQlx3pE4lmE?usp=drive_link" } },
-  { number: 3, date: "2022", location: "Penati Heritage", links: { galleryUrl: "https://drive.google.com/drive/folders/1NEedCiAGgdeDCe6KpE7g-uDouCxw1oX1?usp=drive_link" } },
-  { number: 4, date: "2022", location: "Penati Legend", links: { galleryUrl: "https://drive.google.com/drive/folders/1GL1QRqcc0MKndx5qN3Vux1ceix9OyGjC?usp=drive_link" } },
-  { number: 5, date: "2022", location: "Hrubá Borša", links: { galleryUrl: "https://drive.google.com/drive/folders/1m2WOPzWxIUhmIzHm8XdeLT1cBHMZKUC9?usp=drive_link" } },
+  { number: 1, date: "2022", location: "Red Oak Nitra", image: redOakImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1LtdBgABivavBaUdljQ1rv-JNmwyo7ibj?usp=drive_link" } },
+  { number: 2, date: "2022", location: "Sedin Golf Resort", image: sedinImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1GOAvOjffOmL7N3x3kHnc1hQlx3pE4lmE?usp=drive_link" } },
+  { number: 3, date: "2022", location: "Penati Heritage", image: heritageImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1NEedCiAGgdeDCe6KpE7g-uDouCxw1oX1?usp=drive_link" } },
+  { number: 4, date: "2022", location: "Penati Legend", image: legendImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1GL1QRqcc0MKndx5qN3Vux1ceix9OyGjC?usp=drive_link" } },
+  { number: 5, date: "2022", location: "Hrubá Borša", image: hrubaBorsaImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1m2WOPzWxIUhmIzHm8XdeLT1cBHMZKUC9?usp=drive_link" } },
 ];
 
 const Tour = () => {
@@ -397,6 +401,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          image={tournament.image}
                           links={tournament.links}
                           hideResults
                           hideLocation
@@ -435,6 +440,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          image={tournament.image}
                           links={tournament.links}
                           hideResults
                           hideLocation
@@ -473,6 +479,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          image={tournament.image}
                           links={tournament.links}
                           hideResults
                           hideLocation
