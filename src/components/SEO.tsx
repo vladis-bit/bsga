@@ -87,11 +87,25 @@ const SEO = ({
       ) : (
         <meta name="robots" content="index, follow" />
       )}
+      <link rel="alternate" hrefLang="sk-SK" href={url} />
       <link rel="alternate" hrefLang="sk" href={url} />
       <link rel="alternate" hrefLang="x-default" href={url} />
+
+      {/* Geo targeting */}
+      <meta name="geo.region" content={g.region} />
+      <meta name="geo.placename" content={g.placename} />
+      <meta name="geo.position" content={`${g.latitude};${g.longitude}`} />
+      <meta name="ICBM" content={`${g.latitude}, ${g.longitude}`} />
+      <meta name="language" content="sk" />
+      <meta httpEquiv="content-language" content="sk-SK" />
+      <meta property="place:location:latitude" content={String(g.latitude)} />
+      <meta property="place:location:longitude" content={String(g.longitude)} />
+      <meta property="business:contact_data:locality" content={g.placename} />
+      <meta property="business:contact_data:country_name" content="Slovensko" />
       {preloadImage ? (
         <link rel="preload" as="image" href={preloadImage} {...({ fetchpriority: "high" } as Record<string, string>)} />
       ) : null}
+
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
