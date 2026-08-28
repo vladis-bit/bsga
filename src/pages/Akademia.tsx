@@ -69,6 +69,8 @@ const Akademia = () => {
         title="Juniorský golf | BSGA - Best Swing Golf Academy"
         description="BSGA Juniorský golf - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku."
         path="/akademia"
+        geo={{ region: "SK-TA", placename: "Hrubá Borša", latitude: 48.1667, longitude: 17.4333 }}
+
         breadcrumbs={[
           { name: "Domov", url: "https://bsga.sk/" },
           { name: "Juniorský golf", url: "https://bsga.sk/akademia" },
