@@ -313,6 +313,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2026"
                           image={tournament.image}
                           presenter={tournament.presenter}
                           links={tournament.links}
@@ -366,6 +367,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2025"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
@@ -403,6 +405,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2024"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
@@ -442,6 +445,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2023"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
@@ -481,6 +485,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2022"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
