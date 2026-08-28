@@ -72,7 +72,7 @@ const SEO = ({
       <link rel="alternate" hrefLang="sk" href={url} />
       <link rel="alternate" hrefLang="x-default" href={url} />
       {preloadImage ? (
-        <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+        <link rel="preload" as="image" href={preloadImage} {...({ fetchpriority: "high" } as Record<string, string>)} />
       ) : null}
 
       <meta property="og:title" content={title} />
