@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import bsgaLogo from "@/assets/logo2.png";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +39,15 @@ const AdminLayout = () => {
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -197,9 +212,18 @@ const AdminLayout = () => {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-3 lg:gap-6">
-            <span className="font-serif text-lg tracking-tight text-foreground sm:text-xl">
-              BSGA <span className="text-primary">Admin</span>
-            </span>
+            <Link
+              to="/admin"
+              aria-label="BSGA Admin — prehľad"
+              className="flex shrink-0 items-center"
+            >
+              <img
+                src={bsgaLogo}
+                alt="BSGA Admin"
+                className="h-8 w-auto lg:h-10"
+                decoding="async"
+              />
+            </Link>
             <nav className="hidden flex-1 items-center gap-1 lg:flex">
               {links.map((l) => (
                 <NavLink
@@ -222,42 +246,67 @@ const AdminLayout = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="rounded-full"
+                className="hidden rounded-full lg:inline-flex"
                 onClick={() => supabase.auth.signOut()}
               >
                 Odhlásiť
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Menu"
-                className="rounded-full lg:hidden"
-                onClick={() => setMenuOpen((o) => !o)}
-              >
-                {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-              </Button>
+              <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label={menuOpen ? "Zavrieť menu" : "Otvoriť menu"}
+                    className="rounded-full lg:hidden"
+                  >
+                    {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+                  </Button>
+                </SheetTrigger>
+                <SheetContent
+                  side="right"
+                  className="theme-ivory flex w-[86vw] max-w-sm flex-col bg-background p-0 text-foreground"
+                >
+                  <div className="flex items-center border-b border-border px-5 py-4">
+                    <img src={bsgaLogo} alt="BSGA Admin" className="h-8 w-auto" />
+                  </div>
+                  <nav className="flex-1 overflow-y-auto p-4">
+                    <ul className="space-y-2">
+                      {links.map((l) => (
+                        <li key={l.to}>
+                          <NavLink
+                            to={l.to}
+                            end={l.end}
+                            onClick={() => setMenuOpen(false)}
+                            className={({ isActive }) =>
+                              `flex min-h-[48px] items-center rounded-2xl px-4 text-sm font-bold uppercase tracking-wider transition-colors ${
+                                isActive
+                                  ? "bg-foreground text-background"
+                                  : "bg-muted/60 text-muted-foreground hover:text-foreground"
+                              }`
+                            }
+                          >
+                            {l.label}
+                          </NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                  <div className="border-t border-border p-4">
+                    <Button
+                      variant="outline"
+                      className="min-h-[48px] w-full rounded-2xl"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        supabase.auth.signOut();
+                      }}
+                    >
+                      Odhlásiť
+                    </Button>
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
-          {menuOpen && (
-            <nav className="mt-3 grid gap-2 border-t border-border pt-3 sm:grid-cols-2 lg:hidden">
-              {links.map((l) => (
-                <NavLink
-                  key={l.to}
-                  to={l.to}
-                  end={l.end}
-                  className={({ isActive }) =>
-                    `rounded-2xl px-4 py-3 text-xs font-bold uppercase tracking-wider transition-colors ${
-                      isActive
-                        ? "bg-foreground text-background"
-                        : "bg-muted/60 text-muted-foreground"
-                    }`
-                  }
-                >
-                  {l.label}
-                </NavLink>
-              ))}
-            </nav>
-          )}
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
