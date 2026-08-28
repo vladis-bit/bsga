@@ -142,10 +142,24 @@
           "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Red Oak Golf Club",
             "addressLocality": "Nitra",
+            "addressRegion": "Nitriansky kraj",
+            "postalCode": "949 01",
             "addressCountry": "SK"
           },
-          "areaServed": "SK",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.3069,
+            "longitude": 18.0764
+          },
+          "hasMap": "https://www.google.com/maps?q=Red+Oak+Golf+Club+Nitra",
+          "areaServed": [
+            { "@type": "City", "name": "Nitra" },
+            { "@type": "City", "name": "Zlaté Moravce" },
+            { "@type": "City", "name": "Šaľa" },
+            { "@type": "Country", "name": "Slovensko" }
+          ],
           "sport": "Golf",
           "parentOrganization": { "@id": "https://bsga.sk/#organization" }
         },
@@ -159,7 +173,9 @@
           "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Golf Klub Hrubá Borša",
             "addressLocality": "Hrubá Borša",
+            "addressRegion": "Trnavský kraj",
             "postalCode": "925 32",
             "addressCountry": "SK"
           },
@@ -168,9 +184,16 @@
             "latitude": 48.1667,
             "longitude": 17.4333
           },
-          "areaServed": "SK",
+          "hasMap": "https://www.google.com/maps?q=Golf+Klub+Hrub%C3%A1+Bor%C5%A1a",
+          "areaServed": [
+            { "@type": "City", "name": "Senec" },
+            { "@type": "City", "name": "Bratislava" },
+            { "@type": "City", "name": "Trnava" },
+            { "@type": "Country", "name": "Slovensko" }
+          ],
           "sport": "Golf",
           "parentOrganization": { "@id": "https://bsga.sk/#organization" }
+
         },
         {
           "@type": "WebSite",
