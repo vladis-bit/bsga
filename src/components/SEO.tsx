@@ -17,6 +17,21 @@ type SEOProps = {
   nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Geo targeting override for routes tied to another locality (e.g. Nitra, Hrubá Borša). */
+  geo?: {
+    region?: string;
+    placename?: string;
+    latitude?: number;
+    longitude?: number;
+  };
+};
+
+/** Default geo target — BSGA Performance Center, Bratislava. */
+const DEFAULT_GEO = {
+  region: "SK-BL",
+  placename: "Bratislava",
+  latitude: 48.1108,
+  longitude: 17.1247,
 };
 
 const SEO = ({
@@ -31,7 +46,10 @@ const SEO = ({
   nofollow = false,
   jsonLd,
   breadcrumbs,
+  geo,
 }: SEOProps) => {
+  const g = { ...DEFAULT_GEO, ...geo };
+
 
   const url = `${SITE_URL}${path === "/" ? "/" : path}`;
   // Ensure non-production hosts (Lovable preview, custom staging) are never
@@ -69,11 +87,25 @@ const SEO = ({
       ) : (
         <meta name="robots" content="index, follow" />
       )}
+      <link rel="alternate" hrefLang="sk-SK" href={url} />
       <link rel="alternate" hrefLang="sk" href={url} />
       <link rel="alternate" hrefLang="x-default" href={url} />
+
+      {/* Geo targeting */}
+      <meta name="geo.region" content={g.region} />
+      <meta name="geo.placename" content={g.placename} />
+      <meta name="geo.position" content={`${g.latitude};${g.longitude}`} />
+      <meta name="ICBM" content={`${g.latitude}, ${g.longitude}`} />
+      <meta name="language" content="sk" />
+      <meta httpEquiv="content-language" content="sk-SK" />
+      <meta property="place:location:latitude" content={String(g.latitude)} />
+      <meta property="place:location:longitude" content={String(g.longitude)} />
+      <meta property="business:contact_data:locality" content={g.placename} />
+      <meta property="business:contact_data:country_name" content="Slovensko" />
       {preloadImage ? (
         <link rel="preload" as="image" href={preloadImage} {...({ fetchpriority: "high" } as Record<string, string>)} />
       ) : null}
+
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

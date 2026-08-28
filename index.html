@@ -12,8 +12,27 @@
     <meta name="google-site-verification" content="XAHxCYzQCNMkipT3drOhaeuQ7G4rwfNnaKyCvzh4fMU" />
     <meta name="google-site-verification" content="l28P8v_ko9pC_7-R1nK4uqLtpgRUdubtGpCulwzOdws" />
 
+    <link rel="alternate" hreflang="sk-SK" href="https://bsga.sk/" />
     <link rel="alternate" hreflang="sk" href="https://bsga.sk/" />
     <link rel="alternate" hreflang="x-default" href="https://bsga.sk/" />
+
+    <!-- Geo targeting (Bratislava – BSGA Performance Center) -->
+    <meta name="geo.region" content="SK-BL" />
+    <meta name="geo.placename" content="Bratislava" />
+    <meta name="geo.position" content="48.1108;17.1247" />
+    <meta name="ICBM" content="48.1108, 17.1247" />
+    <meta name="language" content="sk" />
+    <meta http-equiv="content-language" content="sk-SK" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="place:location:latitude" content="48.1108" />
+    <meta property="place:location:longitude" content="17.1247" />
+    <meta property="business:contact_data:street_address" content="Zuzany Chalupovej 12" />
+    <meta property="business:contact_data:locality" content="Bratislava" />
+    <meta property="business:contact_data:postal_code" content="851 07" />
+    <meta property="business:contact_data:country_name" content="Slovensko" />
+    <meta property="business:contact_data:phone_number" content="+421917225276" />
+    <meta property="business:contact_data:email" content="info@bsga.sk" />
+
     <meta property="og:url" content="https://bsga.sk/" />
 
 
@@ -37,6 +56,7 @@
             "streetAddress": "Zuzany Chalupovej 12",
             "postalCode": "851 07",
             "addressLocality": "Bratislava",
+            "addressRegion": "Bratislavský kraj",
             "addressCountry": "SK"
           },
           "contactPoint": [
@@ -78,6 +98,7 @@
             "streetAddress": "Zuzany Chalupovej 12",
             "postalCode": "851 07",
             "addressLocality": "Bratislava",
+            "addressRegion": "Bratislavský kraj",
             "addressCountry": "SK"
           },
           "geo": {
@@ -93,8 +114,20 @@
               "closes": "22:00"
             }
           ],
-          "areaServed": "SK",
+          "hasMap": "https://www.google.com/maps?q=Zuzany+Chalupovej+12,+851+07+Bratislava",
+          "currenciesAccepted": "EUR",
+          "paymentAccepted": "Hotovosť, Platobná karta, Bankový prevod",
+          "publicAccess": true,
+          "areaServed": [
+            { "@type": "City", "name": "Bratislava" },
+            { "@type": "City", "name": "Pezinok" },
+            { "@type": "City", "name": "Senec" },
+            { "@type": "City", "name": "Trnava" },
+            { "@type": "City", "name": "Nitra" },
+            { "@type": "Country", "name": "Slovensko" }
+          ],
           "sport": "Golf",
+
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
@@ -130,10 +163,24 @@
           "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Red Oak Golf Club",
             "addressLocality": "Nitra",
+            "addressRegion": "Nitriansky kraj",
+            "postalCode": "949 01",
             "addressCountry": "SK"
           },
-          "areaServed": "SK",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.3069,
+            "longitude": 18.0764
+          },
+          "hasMap": "https://www.google.com/maps?q=Red+Oak+Golf+Club+Nitra",
+          "areaServed": [
+            { "@type": "City", "name": "Nitra" },
+            { "@type": "City", "name": "Zlaté Moravce" },
+            { "@type": "City", "name": "Šaľa" },
+            { "@type": "Country", "name": "Slovensko" }
+          ],
           "sport": "Golf",
           "parentOrganization": { "@id": "https://bsga.sk/#organization" }
         },
@@ -147,7 +194,9 @@
           "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Golf Klub Hrubá Borša",
             "addressLocality": "Hrubá Borša",
+            "addressRegion": "Trnavský kraj",
             "postalCode": "925 32",
             "addressCountry": "SK"
           },
@@ -156,9 +205,16 @@
             "latitude": 48.1667,
             "longitude": 17.4333
           },
-          "areaServed": "SK",
+          "hasMap": "https://www.google.com/maps?q=Golf+Klub+Hrub%C3%A1+Bor%C5%A1a",
+          "areaServed": [
+            { "@type": "City", "name": "Senec" },
+            { "@type": "City", "name": "Bratislava" },
+            { "@type": "City", "name": "Trnava" },
+            { "@type": "Country", "name": "Slovensko" }
+          ],
           "sport": "Golf",
           "parentOrganization": { "@id": "https://bsga.sk/#organization" }
+
         },
         {
           "@type": "WebSite",
