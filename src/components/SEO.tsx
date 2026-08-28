@@ -71,12 +71,16 @@ const SEO = ({
       )}
       <link rel="alternate" hrefLang="sk" href={url} />
       <link rel="alternate" hrefLang="x-default" href={url} />
+      {preloadImage ? (
+        <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+      ) : null}
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={ogType} />
       <meta property="og:image" content={image} />
+      {imageAlt ? <meta property="og:image:alt" content={imageAlt} /> : null}
       <meta property="og:locale" content="sk_SK" />
       <meta property="og:site_name" content="Best Swing Golf Academy" />
 
@@ -84,6 +88,8 @@ const SEO = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      {imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
+
 
       {schemas.map((schema, i) => (
         <script key={i} type="application/ld+json">
