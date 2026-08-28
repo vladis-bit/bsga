@@ -1,8 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import {
   Booking,
@@ -11,23 +10,10 @@ import {
   addDays,
   fetchBookings,
   fetchSimulators,
-  fmtDateTime,
   startOfDay,
-  STATUS_LABEL,
   PC_OPEN_HOUR,
   PC_CLOSE_HOUR,
-  PC_LAST_START_HOUR,
 } from "./shared";
-
-const Stat = ({ label, value, hint }: { label: string; value: string; hint?: string }) => (
-  <div className="rounded-2xl border border-border bg-background/60 p-4 sm:p-5">
-    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:text-xs">
-      {label}
-    </p>
-    <p className="mt-2 font-serif text-2xl text-foreground sm:text-3xl">{value}</p>
-    {hint && <p className="mt-1 text-[11px] text-muted-foreground sm:text-xs">{hint}</p>}
-  </div>
-);
 
 const Overview = () => {
   const { toast } = useToast();
@@ -68,13 +54,7 @@ const Overview = () => {
     })();
   }, [toast]);
 
-  const simName = useMemo(
-    () => Object.fromEntries(simulators.map((s) => [s.id, s.name])) as Record<string, string>,
-    [simulators],
-  );
-
   const today = startOfDay(new Date());
-  const tomorrowEnd = addDays(today, 2);
   const weekEnd = addDays(today, 7);
   const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
   const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 1);
@@ -89,17 +69,6 @@ const Overview = () => {
   const weekCount = active.filter((b) => inRange(b, today, weekEnd)).length;
   const monthBookings = active.filter((b) => inRange(b, monthStart, monthEnd));
   const monthRevenue = monthBookings.reduce((s, b) => s + Number(b.price_eur || 0), 0);
-  const hoursBySim = simulators.map((s) => ({
-    name: s.name,
-    hours: active
-      .filter((b) => b.simulator_id === s.id && inRange(b, today, weekEnd))
-      .reduce((sum, b) => sum + Number(b.duration_hours || 0), 0),
-  }));
-
-  const upcoming = active
-    .filter((b) => inRange(b, today, tomorrowEnd))
-    .sort((a, b) => a.starts_at.localeCompare(b.starts_at));
-
   return (
     <div className="space-y-6 sm:space-y-8">
       <section className="relative overflow-hidden rounded-2xl border border-border bg-background px-5 py-10 sm:rounded-3xl sm:px-8 sm:py-14">
