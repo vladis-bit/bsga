@@ -10,6 +10,9 @@ type SEOProps = {
   path: string; // e.g. "/o-nas" or "/"
   ogType?: "website" | "article";
   image?: string;
+  imageAlt?: string;
+  /** Path/URL of the LCP image on this route — emitted as <link rel="preload" as="image">. */
+  preloadImage?: string;
   noindex?: boolean;
   nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
@@ -22,11 +25,14 @@ const SEO = ({
   path,
   ogType = "website",
   image = DEFAULT_OG_IMAGE,
+  imageAlt,
+  preloadImage,
   noindex = false,
   nofollow = false,
   jsonLd,
   breadcrumbs,
 }: SEOProps) => {
+
   const url = `${SITE_URL}${path === "/" ? "/" : path}`;
   // Ensure non-production hosts (Lovable preview, custom staging) are never
   // indexed with production canonical — avoids duplicate content risk.
