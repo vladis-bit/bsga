@@ -207,7 +207,7 @@ const Tour = () => {
     image: [abs(t.image)],
     startDate: `${toIso(t.date)}T08:00:00+02:00`,
     endDate: `${toIso(t.date)}T18:00:00+02:00`,
-    eventStatus: isPast ? "https://schema.org/EventScheduled" : "https://schema.org/EventScheduled",
+    eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     sport: "Golf",
     inLanguage: "sk",
