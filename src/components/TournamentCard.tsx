@@ -19,7 +19,12 @@ interface TournamentCardProps {
   hideResults?: boolean;
   hideLocation?: boolean;
   theme?: "dark" | "ivory";
+  /** Season year used for image alt text, e.g. "2026". */
+  season?: string;
+  /** Render the image eagerly (only for above-the-fold cards). */
+  eager?: boolean;
 }
+
 const TournamentCard = ({
   number,
   date,
