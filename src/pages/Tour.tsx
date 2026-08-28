@@ -149,31 +149,94 @@ const tournaments2022 = [
 const SITE_URL = "https://bsga.sk";
 const abs = (p: string) => (p.startsWith("http") ? p : `${SITE_URL}${p}`);
 
+/** Presné adresy ihrísk – Google Rich Results vyžaduje kompletnú PostalAddress. */
+const COURSE_PLACES: Record<string, { name: string; street?: string; locality: string; region?: string; postal?: string; country: string }> = {
+  "Hrubá Borša": { name: "Black Stork Golf Resort Hrubá Borša", street: "Hrubá Borša 384", locality: "Hrubá Borša", region: "Bratislavský kraj", postal: "925 23", country: "SK" },
+  "Grey Bear Tále": { name: "Gray Bear Golf Club Tále", street: "Tále 100", locality: "Bystrá", region: "Banskobystrický kraj", postal: "977 01", country: "SK" },
+  "Penati Heritage": { name: "Penati Golf Resort – Heritage Course", street: "Šenkvická cesta", locality: "Šajdíkove Humence", region: "Trnavský kraj", postal: "906 07", country: "SK" },
+  "Penati - Heritage": { name: "Penati Golf Resort – Heritage Course", locality: "Šajdíkove Humence", region: "Trnavský kraj", postal: "906 07", country: "SK" },
+  "Penati Legend": { name: "Penati Golf Resort – Legend Course", locality: "Šajdíkove Humence", region: "Trnavský kraj", postal: "906 07", country: "SK" },
+  "Penati - Legend": { name: "Penati Golf Resort – Legend Course", locality: "Šajdíkove Humence", region: "Trnavský kraj", postal: "906 07", country: "SK" },
+  "Ostravice": { name: "Golf Resort Ostravice", locality: "Ostravice", region: "Moravskoslezský kraj", postal: "739 14", country: "CZ" },
+  "Sedin Golf Resort": { name: "Sedin Golf Resort", locality: "Sedín", region: "Nitriansky kraj", country: "SK" },
+  "Kaskáda Golf Resort": { name: "Golf Resort Kaskáda", locality: "Jinačovice", region: "Jihomoravský kraj", postal: "664 34", country: "CZ" },
+  "Red Oak Nitra": { name: "Red Oak Golf Resort Nitra", locality: "Nitra", region: "Nitriansky kraj", country: "SK" },
+  "Panoráma Kácov": { name: "Panorama Golf Resort Kácov", locality: "Kácov", region: "Středočeský kraj", country: "CZ" },
+  "Apex Golf Club": { name: "Apex Golf Club", locality: "Bratislava", region: "Bratislavský kraj", country: "SK" },
+};
+
+const placeSchema = (location: string, mapUrl?: string) => {
+  const p = COURSE_PLACES[location];
+  return {
+    "@type": "Place",
+    name: p?.name ?? location,
+    ...(mapUrl && mapUrl !== "#" ? { hasMap: mapUrl } : {}),
+    address: {
+      "@type": "PostalAddress",
+      ...(p?.street ? { streetAddress: p.street } : {}),
+      addressLocality: p?.locality ?? location,
+      ...(p?.region ? { addressRegion: p.region } : {}),
+      ...(p?.postal ? { postalCode: p.postal } : {}),
+      addressCountry: p?.country ?? "SK",
+    },
+  };
+};
+
+/** Organizátor sa uvádza inline (nie len cez @id), aby validátor videl povinné pole name. */
+const ORGANIZER = {
+  "@type": "Organization",
+  "@id": "https://bsga.sk/#organization",
+  name: "Best Swing Golf Academy",
+  url: "https://bsga.sk/",
+};
+
 const Tour = () => {
   const toIso = (d: string) => {
     const [day, month, year] = d.split(".");
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   };
-  const eventSchemas = tournaments.map((t) => ({
-    "@context": "https://schema.org",
+  const buildEvent = (
+    t: { number: number; date: string; location: string; image: string; presenter?: string; links?: { locationUrl?: string } },
+    season: number,
+    isPast: boolean,
+  ) => ({
     "@type": "SportsEvent",
-    name: `${tournamentTitle(t.number)} 2026 – ${t.location}`,
-    description: `${tournamentTitle(t.number)} BSGA Tour 2026 sa hrá ${t.date} na ihrisku ${t.location}${t.presenter ? `, presented by ${t.presenter}` : ""}.`,
+    "@id": `${SITE_URL}/tour#turnaj-${season}-${t.number}`,
+    name: `${tournamentTitle(t.number)} ${season} – ${t.location}`,
+    description: `${tournamentTitle(t.number)} ${season} sa ${isPast ? "hral" : "hrá"} ${t.date} na ihrisku ${t.location}${t.presenter ? `, presented by ${t.presenter}` : ""}.`,
     image: [abs(t.image)],
-    startDate: toIso(t.date),
-    endDate: toIso(t.date),
+    startDate: `${toIso(t.date)}T08:00:00+02:00`,
+    endDate: `${toIso(t.date)}T18:00:00+02:00`,
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     sport: "Golf",
-    location: {
-      "@type": "Place",
-      name: t.location,
-      address: { "@type": "PostalAddress", addressLocality: t.location, addressCountry: "SK" },
-    },
-    organizer: { "@id": "https://bsga.sk/#organization" },
-    performer: { "@id": "https://bsga.sk/#organization" },
-    url: "https://bsga.sk/tour",
-  }));
+    inLanguage: "sk",
+    isAccessibleForFree: false,
+    location: placeSchema(t.location, t.links?.locationUrl),
+    organizer: ORGANIZER,
+    performer: { "@type": "SportsTeam", name: "Hráči BSGA Tour" },
+    superEvent: { "@id": `${SITE_URL}/tour#seria-${season}` },
+    url: `${SITE_URL}/tour`,
+  });
+
+  const seriesSchema = (season: number, list: typeof tournaments, isPast: boolean) => ({
+    "@context": "https://schema.org",
+    "@type": "EventSeries",
+    "@id": `${SITE_URL}/tour#seria-${season}`,
+    name: `BSGA Tour ${season}`,
+    description: `Séria piatich amatérskych golfových turnajov BSGA Tour ${season}.`,
+    url: `${SITE_URL}/tour`,
+    organizer: ORGANIZER,
+    startDate: toIso(list[0].date),
+    endDate: toIso(list[list.length - 1].date),
+    location: placeSchema(list[0].location, list[0].links?.locationUrl),
+    subEvent: list.map((t) => buildEvent(t as never, season, isPast)),
+  });
+
+  const eventSchemas = [
+    seriesSchema(2026, tournaments, false),
+    seriesSchema(2025, tournaments2025 as never, true),
+  ];
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -182,6 +245,7 @@ const Tour = () => {
       { "@type": "ListItem", position: 2, name: "Tour 2026", item: "https://bsga.sk/tour" },
     ],
   };
+
   return <>
       <SEO
         title="BSGA Tour 2026 – termíny a výsledky golfových turnajov"
