@@ -203,7 +203,7 @@ const Tour = () => {
     "@type": "SportsEvent",
     "@id": `${SITE_URL}/tour#turnaj-${season}-${t.number}`,
     name: `${tournamentTitle(t.number)} ${season} – ${t.location}`,
-    description: `${tournamentTitle(t.number)} BSGA Tour ${season} sa hrá ${t.date} na ihrisku ${t.location}${t.presenter ? `, presented by ${t.presenter}` : ""}.`,
+    description: `${tournamentTitle(t.number)} ${season} sa ${isPast ? "hral" : "hrá"} ${t.date} na ihrisku ${t.location}${t.presenter ? `, presented by ${t.presenter}` : ""}.`,
     image: [abs(t.image)],
     startDate: `${toIso(t.date)}T08:00:00+02:00`,
     endDate: `${toIso(t.date)}T18:00:00+02:00`,
