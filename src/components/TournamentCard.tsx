@@ -19,7 +19,12 @@ interface TournamentCardProps {
   hideResults?: boolean;
   hideLocation?: boolean;
   theme?: "dark" | "ivory";
+  /** Season year used for image alt text, e.g. "2026". */
+  season?: string;
+  /** Render the image eagerly (only for above-the-fold cards). */
+  eager?: boolean;
 }
+
 const TournamentCard = ({
   number,
   date,
@@ -31,10 +36,13 @@ const TournamentCard = ({
   tourLabel = "BSGA Tour",
   hideResults = false,
   hideLocation = false,
-  theme = "dark"
+  theme = "dark",
+  season,
+  eager = false
 }: TournamentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const ivory = theme === "ivory";
+  const imageAlt = `${tournamentTitle(number, tourLabel)}${season ? ` ${season}` : ""} – golfové ihrisko ${location}`;
   const shellClass = ivory
     ? "bg-card border border-border rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-xl hover:shadow-gold/10"
     : "bg-primary border border-gold/30 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10";
@@ -52,8 +60,19 @@ const TournamentCard = ({
       <div className="p-3 sm:p-4 pb-0">
         <div className={`relative w-full aspect-[16/9] rounded-2xl overflow-hidden border ${imageFrame}`}>
           {image ? (
-            <img src={image} alt={`Golfové ihrisko ${location}`} className="w-full h-full object-cover" loading="lazy" />
+            <img
+              src={image}
+              alt={imageAlt}
+              className="w-full h-full object-cover"
+              loading={eager ? "eager" : "lazy"}
+              decoding="async"
+              width={768}
+              height={432}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 768px"
+              {...(eager ? ({ fetchpriority: "high" } as Record<string, string>) : {})}
+            />
           ) : (
+
             <div className={`flex h-full w-full flex-col items-center justify-center gap-2 text-center ${ivory ? "bg-muted" : "bg-primary-foreground/5"}`}>
               <Camera className="h-6 w-6 text-gold" aria-hidden="true" />
               <span className="text-gold text-[10px] font-bold uppercase tracking-[0.2em]">Fotka čoskoro</span>

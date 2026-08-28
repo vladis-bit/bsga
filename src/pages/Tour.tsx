@@ -146,6 +146,9 @@ const tournaments2022 = [
   { number: 5, date: "2022", location: "Hrubá Borša", image: hrubaBorsaImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1m2WOPzWxIUhmIzHm8XdeLT1cBHMZKUC9?usp=drive_link" } },
 ];
 
+const SITE_URL = "https://bsga.sk";
+const abs = (p: string) => (p.startsWith("http") ? p : `${SITE_URL}${p}`);
+
 const Tour = () => {
   const toIso = (d: string) => {
     const [day, month, year] = d.split(".");
@@ -155,16 +158,20 @@ const Tour = () => {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${tournamentTitle(t.number)} 2026 – ${t.location}`,
+    description: `${tournamentTitle(t.number)} BSGA Tour 2026 sa hrá ${t.date} na ihrisku ${t.location}${t.presenter ? `, presented by ${t.presenter}` : ""}.`,
+    image: [abs(t.image)],
     startDate: toIso(t.date),
+    endDate: toIso(t.date),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     sport: "Golf",
     location: {
       "@type": "Place",
       name: t.location,
-      address: { "@type": "PostalAddress", addressCountry: "SK" },
+      address: { "@type": "PostalAddress", addressLocality: t.location, addressCountry: "SK" },
     },
     organizer: { "@id": "https://bsga.sk/#organization" },
+    performer: { "@id": "https://bsga.sk/#organization" },
     url: "https://bsga.sk/tour",
   }));
   const breadcrumb = {
@@ -177,11 +184,15 @@ const Tour = () => {
   };
   return <>
       <SEO
-        title="BSGA Tour 2026 | Séria golfových turnajov"
-        description="BSGA Tour 2026 - séria golfových turnajov v najlepších slovenských rezortoch. Hrubá Borša, Tále, Penati Legend, Penati Heritage a Ostravice."
+        title="BSGA Tour 2026 – termíny a výsledky golfových turnajov"
+        description="Kalendár BSGA Tour 2026: Hrubá Borša, Tále, Penati Heritage, Penati Legend a Ostravice. Propozície, priebežné poradie, výsledky a galérie z turnajov."
         path="/tour"
+        image={abs(ostraviceImg)}
+        imageAlt="Golfové ihrisko Ostravice – dejisko piateho turnaja BSGA Tour 2026"
+        preloadImage={ostraviceImg}
         jsonLd={[breadcrumb, ...eventSchemas]}
       />
+
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
@@ -190,7 +201,7 @@ const Tour = () => {
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={ostraviceImg}
-                  alt="Ostravice – dejisko piateho turnaja BSGA Tour"
+                  alt="Golfové ihrisko Ostravice – dejisko piateho turnaja BSGA Tour 2026"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="eager"
                   decoding="async"
@@ -313,6 +324,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2026"
                           image={tournament.image}
                           presenter={tournament.presenter}
                           links={tournament.links}
@@ -366,6 +378,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2025"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
@@ -403,6 +416,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2024"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
@@ -442,6 +456,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2023"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
@@ -481,6 +496,7 @@ const Tour = () => {
                           number={tournament.number}
                           date={tournament.date}
                           location={tournament.location}
+                          season="2022"
                           image={tournament.image}
                           links={tournament.links}
                           hideResults
