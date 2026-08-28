@@ -7,13 +7,23 @@ Disallow: /rezervacia/
 
 User-agent: Googlebot
 Allow: /
+Allow: /tour
+Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
+Disallow: /rezervacia/
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
+Allow: /tour
+Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
+Disallow: /rezervacia/
 
 User-agent: Twitterbot
 Allow: /
