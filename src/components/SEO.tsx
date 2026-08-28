@@ -17,6 +17,21 @@ type SEOProps = {
   nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Geo targeting override for routes tied to another locality (e.g. Nitra, Hrubá Borša). */
+  geo?: {
+    region?: string;
+    placename?: string;
+    latitude?: number;
+    longitude?: number;
+  };
+};
+
+/** Default geo target — BSGA Performance Center, Bratislava. */
+const DEFAULT_GEO = {
+  region: "SK-BL",
+  placename: "Bratislava",
+  latitude: 48.1108,
+  longitude: 17.1247,
 };
 
 const SEO = ({
@@ -31,7 +46,10 @@ const SEO = ({
   nofollow = false,
   jsonLd,
   breadcrumbs,
+  geo,
 }: SEOProps) => {
+  const g = { ...DEFAULT_GEO, ...geo };
+
 
   const url = `${SITE_URL}${path === "/" ? "/" : path}`;
   // Ensure non-production hosts (Lovable preview, custom staging) are never
