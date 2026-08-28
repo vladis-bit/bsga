@@ -201,7 +201,7 @@ const Tour = () => {
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={ostraviceImg}
-                  alt="Ostravice – dejisko piateho turnaja BSGA Tour"
+                  alt="Golfové ihrisko Ostravice – dejisko piateho turnaja BSGA Tour 2026"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="eager"
                   decoding="async"
