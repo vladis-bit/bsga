@@ -5,6 +5,8 @@ import bsgaLogo from "@/assets/logo2.png";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,6 +25,22 @@ const links = [
   { to: "/admin/spravy", label: "Správy" },
   { to: "/admin/nastavenia", label: "Nastavenia" },
 ];
+
+const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
+
+/** Najdlhšia zhoda vyhráva, takže napr. /admin/performance-center/vytvorit-rezervaciu
+ *  nezvýrazní zároveň aj položku Performance Center. */
+const useActivePath = (pathname: string) => {
+  const current = normalize(pathname);
+  let best = "";
+  for (const l of links) {
+    const to = normalize(l.to);
+    const matches = l.end ? current === to : current === to || current.startsWith(`${to}/`);
+    if (matches && to.length > best.length) best = to;
+  }
+  return best;
+};
+
 
 const AdminLayout = () => {
   const { toast } = useToast();
