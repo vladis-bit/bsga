@@ -30,14 +30,7 @@ const cards: {
   },
   {
     n: "03",
-    eyebrow: "Admin",
-    title: "Vytvoriť rezerváciu",
-    text: "Zadajte rezerváciu za klienta – telefonicky alebo osobne, bez obmedzenia 14 dní.",
-    tinted: false,
-    actions: [{ label: "Otvoriť formulár", to: "/admin/performance-center/vytvorit-rezervaciu" }],
-  },
-  {
-    n: "04",
+
     eyebrow: "Členstvo",
     title: "Permanentky a členstvá",
     text: "Zvýhodnené balíky hodín a členstvá v BSGA Performance Center. Detaily pripravujeme.",
