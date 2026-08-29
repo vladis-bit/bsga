@@ -56,7 +56,7 @@ const PerformanceCenterHome = () => {
       <div className="h-px w-24 bg-primary" />
     </header>
 
-    <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+    <div className="flex flex-col gap-4 sm:gap-5">
       {cards.map((c) => (
         <article
           key={c.n}
