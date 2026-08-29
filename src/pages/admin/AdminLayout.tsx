@@ -243,23 +243,24 @@ const AdminLayout = () => {
                 decoding="async"
               />
             </Link>
-            <nav className="hidden flex-1 items-center gap-1 lg:flex">
-              {links.map((l) => (
-                <NavLink
-                  key={l.to}
-                  to={l.to}
-                  end={l.end}
-                  className={({ isActive }) =>
-                    `whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors xl:px-4 xl:text-xs ${
+            <nav aria-label="Hlavná administrácia" className="hidden flex-1 items-center gap-1 lg:flex">
+              {links.map((l) => {
+                const isActive = normalize(l.to) === activePath;
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors xl:px-4 xl:text-xs ${
                       isActive
                         ? "bg-foreground text-background"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                    }`
-                  }
-                >
-                  {l.label}
-                </NavLink>
-              ))}
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                );
+              })}
             </nav>
             <div className="flex shrink-0 items-center gap-2">
               <Button
@@ -276,38 +277,51 @@ const AdminLayout = () => {
                     variant="outline"
                     size="icon"
                     aria-label={menuOpen ? "Zavrieť menu" : "Otvoriť menu"}
-                    className="rounded-full lg:hidden"
+                    aria-expanded={menuOpen}
+                    aria-haspopup="dialog"
+                    aria-controls="admin-mobile-menu"
+                    className="min-h-11 min-w-11 rounded-full lg:hidden"
                   >
                     {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
                   </Button>
                 </SheetTrigger>
                 <SheetContent
                   side="right"
+                  id="admin-mobile-menu"
+                  aria-labelledby="admin-mobile-menu-title"
+                  aria-describedby="admin-mobile-menu-desc"
                   className="theme-ivory flex w-[86vw] max-w-sm flex-col bg-background p-0 text-foreground"
                 >
                   <div className="flex items-center border-b border-border px-5 py-4">
-                    <img src={bsgaLogo} alt="BSGA Admin" className="h-8 w-auto" />
+                    <img src={bsgaLogo} alt="" aria-hidden="true" className="h-8 w-auto" />
+                    <SheetTitle id="admin-mobile-menu-title" className="sr-only">
+                      BSGA Admin — menu
+                    </SheetTitle>
+                    <SheetDescription id="admin-mobile-menu-desc" className="sr-only">
+                      Navigácia v administrácii. Zatvoríte klávesou Escape.
+                    </SheetDescription>
                   </div>
-                  <nav className="flex-1 overflow-y-auto p-4">
+                  <nav aria-label="Administrácia — mobilné menu" className="flex-1 overflow-y-auto p-4">
                     <ul className="space-y-2">
-                      {links.map((l) => (
-                        <li key={l.to}>
-                          <NavLink
-                            to={l.to}
-                            end={l.end}
-                            onClick={() => setMenuOpen(false)}
-                            className={({ isActive }) =>
-                              `flex min-h-[48px] items-center rounded-2xl px-4 text-sm font-bold uppercase tracking-wider transition-colors ${
+                      {links.map((l) => {
+                        const isActive = normalize(l.to) === activePath;
+                        return (
+                          <li key={l.to}>
+                            <Link
+                              to={l.to}
+                              aria-current={isActive ? "page" : undefined}
+                              onClick={() => setMenuOpen(false)}
+                              className={`flex min-h-[48px] items-center rounded-2xl px-4 text-sm font-bold uppercase tracking-wider transition-colors ${
                                 isActive
                                   ? "bg-foreground text-background"
                                   : "bg-muted/60 text-muted-foreground hover:text-foreground"
-                              }`
-                            }
-                          >
-                            {l.label}
-                          </NavLink>
-                        </li>
-                      ))}
+                              }`}
+                            >
+                              {l.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </nav>
                   <div className="border-t border-border p-4">
@@ -325,6 +339,7 @@ const AdminLayout = () => {
                 </SheetContent>
               </Sheet>
             </div>
+
           </div>
         </div>
       </header>
