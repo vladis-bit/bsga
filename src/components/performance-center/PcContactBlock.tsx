@@ -4,7 +4,7 @@
  */
 const PcContactBlock = () => (
   <section className="overflow-hidden rounded-3xl border border-border bg-card">
-    <div className="grid gap-0 lg:grid-cols-2">
+    <div className="grid gap-0">
       <div className="space-y-4 p-6 sm:p-8">
         <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary">Kontakt</p>
         <h2 className="font-serif text-2xl text-foreground sm:text-3xl">BSGA Performance Center</h2>
@@ -27,17 +27,16 @@ const PcContactBlock = () => (
           </p>
         </div>
       </div>
-      <div className="min-h-[300px] w-full border-t border-border lg:border-l lg:border-t-0">
+      <div className="h-[320px] w-full border-t border-border sm:h-[400px] lg:h-[480px]">
         <iframe
           title="Mapa – BSGA Performance Center, Zuzany Chalupovej 12, Petržalka, Bratislava"
           src="https://maps.google.com/maps?q=Zuzany%20Chalupovej%2012%2C%20851%2007%20Bratislava-Petr%C5%BEalka&z=16&hl=sk&output=embed"
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          className="h-full min-h-[300px] w-full"
+          className="h-full w-full"
         />
       </div>
-
     </div>
   </section>
 );
