@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import bsgaLogo from "@/assets/logo2.png";
 import {
