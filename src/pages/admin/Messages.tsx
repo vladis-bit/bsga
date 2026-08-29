@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import { Check, Undo2 } from "lucide-react";
 import { Message, fmtDateTime, translateDbError } from "./shared";
 
 const Messages = () => {
@@ -31,13 +32,16 @@ const Messages = () => {
     load();
   }, [load]);
 
-  const markRead = async (id: string) => {
-    const { error } = await supabase.from("contact_messages").update({ is_read: true }).eq("id", id);
+  const setRead = async (id: string, value: boolean) => {
+    const { error } = await supabase.from("contact_messages").update({ is_read: value }).eq("id", id);
     if (error) {
       toast({ title: "Chyba", description: translateDbError(error.message), variant: "destructive" });
       return;
     }
-    setMessages((m) => m.map((x) => (x.id === id ? { ...x, is_read: true } : x)));
+    setMessages((m) => m.map((x) => (x.id === id ? { ...x, is_read: value } : x)));
+    toast({
+      title: value ? "Označené ako prečítané" : "Označené ako neprečítané",
+    });
   };
 
   const unread = messages.filter((m) => !m.is_read).length;
@@ -80,11 +84,27 @@ const Messages = () => {
         {list.map((m) => (
           <article
             key={m.id}
-            className={`rounded-3xl border p-6 ${
-              m.is_read ? "border-border bg-card" : "border-primary/50 bg-card shadow-md"
+            className={`rounded-3xl border p-6 transition-colors ${
+              m.is_read
+                ? "border-border/60 bg-muted/40 opacity-90"
+                : "border-primary/60 bg-card shadow-md ring-1 ring-primary/20"
             }`}
           >
             <div className="mb-2 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setRead(m.id, !m.is_read)}
+                aria-pressed={m.is_read}
+                aria-label={m.is_read ? "Označiť ako neprečítané" : "Označiť ako prečítané"}
+                title={m.is_read ? "Označiť ako neprečítané" : "Označiť ako prečítané"}
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-colors ${
+                  m.is_read
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-primary hover:text-primary"
+                }`}
+              >
+                <Check className="h-4 w-4" />
+              </button>
               <h2 className="font-semibold text-foreground">
                 {m.first_name} {m.last_name}
               </h2>
@@ -121,11 +141,22 @@ const Messages = () => {
             {m.email_status === "failed" && m.email_error && (
               <p className="mt-2 break-all text-xs text-destructive">{m.email_error}</p>
             )}
-            {!m.is_read && (
-              <Button variant="outline" size="sm" className="mt-4 rounded-full" onClick={() => markRead(m.id)}>
-                Označiť ako prečítané
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="sm"
+              className="mt-4 gap-2 rounded-full"
+              onClick={() => setRead(m.id, !m.is_read)}
+            >
+              {m.is_read ? (
+                <>
+                  <Undo2 className="h-4 w-4" /> Označiť ako neprečítané
+                </>
+              ) : (
+                <>
+                  <Check className="h-4 w-4" /> Označiť ako prečítané
+                </>
+              )}
+            </Button>
           </article>
         ))}
       </div>
