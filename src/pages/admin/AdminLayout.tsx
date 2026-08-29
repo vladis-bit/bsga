@@ -53,6 +53,7 @@ const AdminLayout = () => {
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const activePath = useActivePath(location.pathname);
 
   useEffect(() => {
     setMenuOpen(false);
