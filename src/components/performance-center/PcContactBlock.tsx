@@ -27,15 +27,17 @@ const PcContactBlock = () => (
           </p>
         </div>
       </div>
-      <div className="min-h-[260px] w-full border-t border-border lg:border-l lg:border-t-0">
+      <div className="min-h-[300px] w-full border-t border-border lg:border-l lg:border-t-0">
         <iframe
-          title="Mapa – BSGA Performance Center, Zuzany Chalupovej 12, Bratislava"
-          src="https://www.google.com/maps?q=Zuzany%20Chalupovej%2012%2C%20Bratislava&output=embed"
+          title="Mapa – BSGA Performance Center, Zuzany Chalupovej 12, Petržalka, Bratislava"
+          src="https://maps.google.com/maps?q=Zuzany%20Chalupovej%2012%2C%20851%2007%20Bratislava-Petr%C5%BEalka&z=16&hl=sk&output=embed"
           loading="lazy"
+          allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          className="h-full min-h-[260px] w-full"
+          className="h-full min-h-[300px] w-full"
         />
       </div>
+
     </div>
   </section>
 );
