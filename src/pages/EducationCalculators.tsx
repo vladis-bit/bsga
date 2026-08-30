@@ -27,7 +27,7 @@ const EducationCalculators = () => {
       <Breadcrumbs items={BREADCRUMBS} />
 
       <main className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32">
+        <div className="container mx-auto px-4 sm:px-6">
           <Link to="/edukacne-centrum">
             <Button variant="ghost" className="mb-6 gap-2 text-muted-foreground hover:text-foreground">
               <ArrowLeft className="h-4 w-4" />
