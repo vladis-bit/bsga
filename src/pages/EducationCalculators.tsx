@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
+  { name: "Kalkulačky", url: "https://bsga.sk/edukacne-centrum/kalkulacky" },
+];
 
 const EducationCalculators = () => {
   return (
@@ -12,10 +19,12 @@ const EducationCalculators = () => {
         title="Golfové kalkulačky | Edukačné centrum | BSGA"
         description="Golfové kalkulačky BSGA: pripravujeme nástroje na výpočet handicapu, vzdialeností úderov, skóre a ďalších metrík, ktoré vám pomôžu sledovať zlepšovanie vašej hry."
         path="/edukacne-centrum/kalkulacky"
+        breadcrumbs={BREADCRUMBS}
         noindex
       />
 
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
 
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32">

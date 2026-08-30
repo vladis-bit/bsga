@@ -2,6 +2,7 @@ import { Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -81,6 +82,11 @@ const faqs = [
   },
 ];
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Fitting", url: "https://bsga.sk/fitting" },
+];
+
 const Fitting = () => {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -114,13 +120,13 @@ const Fitting = () => {
         title="Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy"
         description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré vám skutočne sedí."
         path="/fitting"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Fitting", url: "https://bsga.sk/fitting" },
-        ]}
+        image="https://bsga.sk/og/fitting.jpg"
+        imageAlt="Golfový fitting v BSGA Performance Center"
+        breadcrumbs={BREADCRUMBS}
         jsonLd={[serviceJsonLd, faqJsonLd]}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}

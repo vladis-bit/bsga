@@ -1,16 +1,26 @@
 /* Self-hosted fonts (no render-blocking Google Fonts CSS) */
-@import "@fontsource/sora/400.css";
-@import "@fontsource/sora/600.css";
-@import "@fontsource/sora/700.css";
-@import "@fontsource/sora/800.css";
-@import "@fontsource/manrope/300.css";
-@import "@fontsource/manrope/400.css";
-@import "@fontsource/manrope/500.css";
-@import "@fontsource/manrope/600.css";
-@import "@fontsource/manrope/700.css";
-@import "@fontsource/poppins/400.css";
-@import "@fontsource/cormorant-garamond/400.css";
-@import "@fontsource/space-mono/400.css";
+@import "@fontsource/sora/latin-400.css";
+@import "@fontsource/sora/latin-ext-400.css";
+@import "@fontsource/sora/latin-600.css";
+@import "@fontsource/sora/latin-ext-600.css";
+@import "@fontsource/sora/latin-700.css";
+@import "@fontsource/sora/latin-ext-700.css";
+@import "@fontsource/sora/latin-800.css";
+@import "@fontsource/sora/latin-ext-800.css";
+@import "@fontsource/manrope/latin-300.css";
+@import "@fontsource/manrope/latin-ext-300.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-ext-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-ext-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-ext-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/manrope/latin-ext-700.css";
+@import "@fontsource/poppins/latin-400.css";
+@import "@fontsource/poppins/latin-ext-400.css";
+@import "@fontsource/cormorant-garamond/latin-400.css";
+@import "@fontsource/cormorant-garamond/latin-ext-400.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -157,7 +167,7 @@ All colors MUST be HSL.
 
     --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
 
-    --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
 

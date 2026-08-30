@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
@@ -199,6 +200,11 @@ const services = [
   },
 ];
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Služby", url: "https://bsga.sk/sluzby" },
+];
+
 const Services = () => {
   const serviceSchemas = services.map((s) => ({
     "@context": "https://schema.org",
@@ -214,13 +220,11 @@ const Services = () => {
         title="Služby | BSGA - Best Swing Golf Academy"
         description="Kompletné golfové služby - individuálne a skupinové lekcie, zelené karty, detská akadémia, firemné akcie, turnaje BSGA Tour a fitting na mieru."
         path="/sluzby"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Služby", url: "https://bsga.sk/sluzby" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={serviceSchemas}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 md:pt-32">

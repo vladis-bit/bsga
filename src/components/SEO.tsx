@@ -1,8 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://bsga.sk";
-const DEFAULT_OG_IMAGE =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/HpavsgOHofdkbH1lIuwA8kv2W203/social-images/social-1775797342318-Screenshot_2026-04-10_at_07.02.10.webp";
+const DEFAULT_OG_IMAGE = "https://bsga.sk/og/default.jpg";
 
 type SEOProps = {
   title: string;
