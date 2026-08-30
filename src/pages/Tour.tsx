@@ -259,11 +259,11 @@ const Tour = () => {
       />
 
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-0 pt-20 sm:px-4 sm:pt-24 md:px-6">
+          <section className="relative w-full bg-background px-0 sm:px-4 md:px-6">
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={ostraviceImg}

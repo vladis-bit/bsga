@@ -250,12 +250,11 @@ const StartGolf = () => {
       />
 
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
-
       <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* HERO */}
-          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 md:pt-32">
+          <section className="relative overflow-hidden bg-background pb-12 sm:pb-16">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
