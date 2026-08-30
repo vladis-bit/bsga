@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle, RotateCw, ArrowLeft } from "lucide-react";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
@@ -228,6 +229,11 @@ const CoachCard = ({ member, variant = "team" }: { member: TeamMember; variant?:
   );
 };
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Tréneri", url: "https://bsga.sk/o-nas" },
+];
+
 const About = () => {
   const people = [...founders, ...team].map((m) => ({
     "@context": "https://schema.org",
@@ -262,13 +268,13 @@ const About = () => {
         title="Tréneri - BSGA"
         description="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností."
         path="/o-nas"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Tréneri", url: "https://bsga.sk/o-nas" },
-        ]}
+        image="https://bsga.sk/og/o-nas.jpg"
+        imageAlt="Tím trénerov Best Swing Golf Academy"
+        breadcrumbs={BREADCRUMBS}
         jsonLd={[aboutPageSchema, ...people]}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}

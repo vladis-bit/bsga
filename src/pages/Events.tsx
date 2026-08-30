@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Calendar, Mail, MapPin, FileText, Phone, Sparkles, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import EventsWaitlistForm from "@/components/EventsWaitlistForm";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -506,6 +507,11 @@ const EventCard = ({
   );
 };
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Eventy, teambuildingy a golfové pobyty", url: "https://bsga.sk/eventy" },
+];
+
 const Events = () => {
   const [floridaOpen, setFloridaOpen] = useState(false);
 
@@ -568,13 +574,11 @@ const Events = () => {
         title="Eventy, teambuildingy a golfové pobyty | BSGA"
         description="Golfové eventy, teambuildingy a pobyty s BSGA a cestovnou agentúrou Doni-Travel. Pozrite si nasledujúce akcie a prihláste sa."
         path="/eventy"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Eventy, teambuildingy a golfové pobyty", url: "https://bsga.sk/eventy" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={eventSchemas}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 md:pt-32">

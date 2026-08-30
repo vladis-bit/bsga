@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Mail, FileText, Trophy, CalendarDays, MapPin } from "lucide-react";
@@ -190,6 +191,11 @@ const ORGANIZER = {
   url: "https://bsga.sk/",
 };
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "BSGA Tour", url: "https://bsga.sk/tour" },
+];
+
 const Tour = () => {
   const toIso = (d: string) => {
     const [day, month, year] = d.split(".");
@@ -237,27 +243,23 @@ const Tour = () => {
     seriesSchema(2026, tournaments, false),
     seriesSchema(2025, tournaments2025 as never, true),
   ];
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
-      { "@type": "ListItem", position: 2, name: "Tour 2026", item: "https://bsga.sk/tour" },
-    ],
-  };
+
+
 
   return <>
       <SEO
         title="BSGA Tour 2026 – termíny a výsledky golfových turnajov"
         description="Kalendár BSGA Tour 2026: Hrubá Borša, Tále, Penati Heritage, Penati Legend a Ostravice. Propozície, priebežné poradie, výsledky a galérie z turnajov."
         path="/tour"
-        image={abs(ostraviceImg)}
-        imageAlt="Golfové ihrisko Ostravice – dejisko piateho turnaja BSGA Tour 2026"
+        image="https://bsga.sk/og/tour.jpg"
+        imageAlt="BSGA Tour 2026 – golfové turnaje Best Swing Golf Academy"
+        breadcrumbs={BREADCRUMBS}
         preloadImage={ostraviceImg}
-        jsonLd={[breadcrumb, ...eventSchemas]}
+        jsonLd={eventSchemas}
       />
 
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}

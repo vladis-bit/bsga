@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import { X } from "lucide-react";
 import galleryTeamMenAsset from "@/assets/gallery-team-men.webp.asset.json";
@@ -219,6 +220,11 @@ insertPositions.forEach((pos, i) => {
   if (extraImages[i]) images.splice(pos + i, 0, extraImages[i]);
 });
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Galéria", url: "https://bsga.sk/galeria" },
+];
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const gallerySchema = {
@@ -244,13 +250,11 @@ const Gallery = () => {
         title="Galéria | BSGA - Best Swing Golf Academy"
         description="Fotogaléria BSGA - nahliadnite do našich tréningov, turnajov a podujatí. Profesionálne golfové momenty z najkrajších slovenských ihrísk."
         path="/galeria"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Galéria", url: "https://bsga.sk/galeria" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={gallerySchema}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main className="bg-background pt-24 sm:pt-28 md:pt-32">
           <section aria-labelledby="galeria-heading" className="bg-background pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">

@@ -1,0 +1,21 @@
+{
+  "name": "Best Swing Golf Academy",
+  "short_name": "BSGA",
+  "theme_color": "#c9a227",
+  "background_color": "#0f2a1d",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

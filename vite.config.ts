@@ -37,7 +37,6 @@ export default defineConfig(({ mode }) => ({
           "motion-vendor": ["framer-motion"],
           "query-vendor": ["@tanstack/react-query"],
           "icons-vendor": ["lucide-react"],
-          "charts-vendor": ["recharts"],
         },
       },
     },

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
@@ -7,6 +8,11 @@ import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
 import IvoryContactForm from "@/components/IvoryContactForm";
 import { Mail, Phone } from "lucide-react";
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Juniorský golf", url: "https://bsga.sk/akademia" },
+];
+
 const Akademia = () => {
   const campEvents = [
     { name: "Denný golfový tábor – Turnus 1", startDate: "2026-07-06", endDate: "2026-07-10", soldOut: true },
@@ -69,15 +75,15 @@ const Akademia = () => {
         title="Juniorský golf | BSGA - Best Swing Golf Academy"
         description="BSGA Juniorský golf - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku."
         path="/akademia"
+        image="https://bsga.sk/og/akademia.jpg"
+        imageAlt="Juniorský golf BSGA – detská golfová akadémia"
         geo={{ region: "SK-TA", placename: "Hrubá Borša", latitude: 48.1667, longitude: 17.4333 }}
 
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Juniorský golf", url: "https://bsga.sk/akademia" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={[juniorCourse, ...campEvents]}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero Section */}

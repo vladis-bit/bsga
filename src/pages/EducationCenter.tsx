@@ -3,7 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ClipboardCheck, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
+
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
+];
 
 const EducationCenter = () => {
   const eduJsonLd = [
@@ -58,14 +64,12 @@ const EducationCenter = () => {
         title="Edukačné centrum | BSGA"
         description="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how."
         path="/edukacne-centrum"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Edukačné centrum", url: "https://bsga.sk/edukacne-centrum" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={eduJsonLd}
       />
 
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
 
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>

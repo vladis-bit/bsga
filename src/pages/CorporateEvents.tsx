@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Users, Calendar, MessageSquare, PartyPopper, Camera, Quote } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import CorporateContactForm from "@/components/CorporateContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
@@ -62,6 +63,11 @@ const RevealCard = ({ children, index }: { children: React.ReactNode; index: num
   );
 };
 
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Firemné akcie a teambuildingy", url: "https://bsga.sk/firemne-akcie" },
+];
+
 const CorporateEvents = () => {
   const eventSchema = {
     "@context": "https://schema.org",
@@ -89,13 +95,11 @@ const CorporateEvents = () => {
         title="Firemné akcie a teambuildingy | BSGA Golf Academy"
         description="Zorganizujte golfový teambuilding alebo firemnú akciu na kľúč. PGA tréneri, ihrisko, catering, vybavenie aj ceny – BSGA sa postará o všetko."
         path="/firemne-akcie"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Firemné akcie a teambuildingy", url: "https://bsga.sk/firemne-akcie" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={[breadcrumb, eventSchema]}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
           {/* Hero – no image */}

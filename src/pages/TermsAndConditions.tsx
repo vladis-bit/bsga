@@ -1,6 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Obchodné podmienky", url: "https://bsga.sk/obchodne-podmienky" },
+];
 
 const TermsAndConditions = () => {
   return (
@@ -9,12 +15,10 @@ const TermsAndConditions = () => {
         title="Obchodné podmienky | BSGA"
         description="Obchodné podmienky BSGA - Best Swing Golf Academy. Všeobecné obchodné podmienky poskytovania služieb platné od 9. marca 2026."
         path="/obchodne-podmienky"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Obchodné podmienky", url: "https://bsga.sk/obchodne-podmienky" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
       />
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
       <main>
         <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-2">

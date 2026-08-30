@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import VoucherCard from "@/components/shop/VoucherCard";
@@ -22,6 +23,11 @@ import merchSportsBag from "@/assets/merch/sports-bag.png.asset.json";
 import hoodieBlack from "@/assets/merch/hoodie-black.png.asset.json";
 import hoodieYellow from "@/assets/merch/hoodie-yellow.png.asset.json";
 import hoodieGreen from "@/assets/merch/hoodie-green.png.asset.json";
+
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Obchod", url: "https://bsga.sk/obchod" },
+];
 
 const Shop = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -189,15 +195,10 @@ const Shop = () => {
         title="Obchod | BSGA - Best Swing Golf Academy"
         description="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
         path="/obchod"
+        image="https://bsga.sk/og/obchod.jpg"
+        imageAlt="Darčekové poukážky a golfové služby BSGA"
+        breadcrumbs={BREADCRUMBS}
         jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
-              { "@type": "ListItem", position: 2, name: "Obchod", item: "https://bsga.sk/obchod" },
-            ],
-          },
           ...vouchers.map((v) => ({
             "@context": "https://schema.org",
             "@type": "Product",
@@ -243,6 +244,7 @@ const Shop = () => {
       />
 
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
 
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <section className="relative overflow-hidden bg-background pb-10 pt-24 md:pt-32 md:pb-14">

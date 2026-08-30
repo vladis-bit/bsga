@@ -5,6 +5,7 @@ import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, M
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseReviews, { reviews as courseReviews } from "@/components/CourseReviews";
@@ -46,6 +47,11 @@ const Reveal = ({
 };
 
 // Connector between milestones - vertical line with chevron
+const BREADCRUMBS = [
+  { name: "Domov", url: "https://bsga.sk/" },
+  { name: "Začni s golfom", url: "https://bsga.sk/zacni-s-golfom" },
+];
+
 const MilestoneConnector = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -239,14 +245,12 @@ const StartGolf = () => {
         title="Začni s golfom | BSGA - Best Swing Golf Academy"
         description="Začni s golfom - Víkendový kurz zelenej karty, kurz zelenej karty a individuálne lekcie. Vyber si program a kúp si kurz online."
         path="/zacni-s-golfom"
-        breadcrumbs={[
-          { name: "Domov", url: "https://bsga.sk/" },
-          { name: "Začni s golfom", url: "https://bsga.sk/zacni-s-golfom" },
-        ]}
+        breadcrumbs={BREADCRUMBS}
         jsonLd={[...courseSchemas, faqJsonLd, reviewSchema]}
       />
 
       <Navbar />
+      <Breadcrumbs items={BREADCRUMBS} />
 
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
