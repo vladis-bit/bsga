@@ -21,9 +21,10 @@ const Breadcrumbs = ({ items, className = "" }: { items: Crumb[]; className?: st
   if (!items || items.length === 0) return null;
 
   return (
-    <div className={`container mx-auto px-4 pt-20 sm:px-6 sm:pt-24 ${className}`}>
-      <Breadcrumb>
-        <BreadcrumbList className="text-xs text-muted-foreground sm:text-sm">
+    <nav aria-label="Drobčeková navigácia">
+      <div className={`container mx-auto px-4 pt-24 pb-3 sm:px-6 sm:pt-28 sm:pb-4 ${className}`}>
+        <Breadcrumb>
+          <BreadcrumbList className="text-xs text-muted-foreground sm:text-sm">
           {items.map((item, i) => {
             const isLast = i === items.length - 1;
             return (
@@ -46,8 +47,9 @@ const Breadcrumbs = ({ items, className = "" }: { items: Crumb[]; className?: st
             );
           })}
         </BreadcrumbList>
-      </Breadcrumb>
-    </div>
+        </Breadcrumb>
+      </div>
+    </nav>
   );
 };
 

@@ -99,11 +99,11 @@ const CorporateEvents = () => {
         jsonLd={[breadcrumb, eventSchema]}
       />
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
+        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* Hero – no image */}
-          <section className="relative w-full bg-transparent pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
+          <section className="relative w-full bg-transparent pb-12 sm:pb-16 md:pb-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-5xl text-center">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-semibold text-gold backdrop-blur-sm sm:text-sm">

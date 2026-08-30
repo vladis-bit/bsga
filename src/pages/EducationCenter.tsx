@@ -69,11 +69,10 @@ const EducationCenter = () => {
       />
 
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
-
       <div className="theme-ivory min-h-screen bg-background text-foreground">
+        <Breadcrumbs items={BREADCRUMBS} />
         <main>
-          <section className="bg-background pb-10 pt-28 md:pt-32">
+          <section className="bg-background pb-10">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
