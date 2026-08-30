@@ -254,9 +254,9 @@ const Gallery = () => {
         jsonLd={gallerySchema}
       />
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <main className="bg-background pt-24 sm:pt-28 md:pt-32">
+        <Breadcrumbs items={BREADCRUMBS} />
+        <main className="bg-background">
           <section aria-labelledby="galeria-heading" className="bg-background pb-12 pt-2 sm:pb-16 sm:pt-4 md:pb-24 md:pt-6">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col items-center text-center sm:mb-14">
