@@ -116,7 +116,7 @@ const Akademia = () => {
         geo={{ region: "SK-TA", placename: "Hrubá Borša", latitude: 48.1667, longitude: 17.4333 }}
 
         breadcrumbs={BREADCRUMBS}
-        jsonLd={[juniorCourse, ...campEvents]}
+        jsonLd={[juniorCourse, ...campEvents, faqJsonLd]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
