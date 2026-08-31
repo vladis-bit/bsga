@@ -8,6 +8,7 @@ import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
 import IvoryContactForm from "@/components/IvoryContactForm";
 import { buildFaqJsonLd } from "@/lib/buildFaqJsonLd";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Mail, Phone } from "lucide-react";
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
