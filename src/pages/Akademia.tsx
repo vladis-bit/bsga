@@ -7,6 +7,8 @@ import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
 import IvoryContactForm from "@/components/IvoryContactForm";
+import { buildFaqJsonLd } from "@/lib/buildFaqJsonLd";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Mail, Phone } from "lucide-react";
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
@@ -70,6 +72,41 @@ const Akademia = () => {
     },
   };
 
+  const faqs = [
+    {
+      question: "Pre koho je BSGA Junior Level System™ určený?",
+      answer:
+        "BSGA Junior Level System™ je dlhodobý rozvojový program pre deti a juniorov od 5 rokov. Sprevádza ich od prvých krokov s golfovou palicou až po výkonnostný golf, prijatie na americkú univerzitu alebo profesionálnu kariéru.",
+    },
+    {
+      question: "Kedy prebiehajú detské golfové tábory v roku 2026?",
+      answer:
+        "V roku 2026 pripravujeme tri turnusy denných golfových táborov: 6. – 10. júl, 3. – 7. august a 24. – 28. august. Tábory prebiehajú v Golfovom klube Hrubá Borša.",
+    },
+    {
+      question: "Koľko stojí detský golfový tábor?",
+      answer:
+        "Cena golfového tábora je 340 € pre nečlenov GKHB a 310 € pre členov Golfového klubu Hrubá Borša. Poistenie dieťaťa je už zahrnuté v cene tábora.",
+    },
+    {
+      question: "Čo si deti majú priniesť na tábor?",
+      answer:
+        "Deti si môžu priniesť ruksak so šiltovkou alebo letným klobúčikom, opaľovacím krémom, mikinou a nohavicami na horšie počasie, prípadne malou sladkosťou či džúsikom. Ak majú vlastné golfové palice, určite si ich prineste.",
+    },
+    {
+      question: "Sú deti počas tábora poistené?",
+      answer:
+        "Áno, poistenie dieťaťa je už zahrnuté v cene golfového tábora. Deti sú počas celého dňa pod dohľadom skúsených trénerov.",
+    },
+    {
+      question: "Kto vedie detské tábory a tréningy?",
+      answer:
+        "Detské tábory a juniorské tréningy vedú skúsení tréneri Vanessa Fajkusová, Vladimír Leško a Jakub Hrbáň. Vďaka individuálnemu prístupu sa každé dieťa rozvíja vlastným tempom.",
+    },
+  ];
+
+  const faqJsonLd = buildFaqJsonLd(faqs);
+
   return <>
       <SEO
         title="Juniorský golf | BSGA - Best Swing Golf Academy"
@@ -80,7 +117,7 @@ const Akademia = () => {
         geo={{ region: "SK-TA", placename: "Hrubá Borša", latitude: 48.1667, longitude: 17.4333 }}
 
         breadcrumbs={BREADCRUMBS}
-        jsonLd={[juniorCourse, ...campEvents]}
+        jsonLd={[juniorCourse, ...campEvents, faqJsonLd]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
@@ -154,6 +191,38 @@ const Akademia = () => {
               </div>
               <CampCards />
               <CampProgramSection />
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="bg-background py-12 sm:py-16 md:py-24">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-8 border-b border-border pb-6 text-center sm:mb-12">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl">
+                  Časté otázky
+                </h2>
+                <p className="mt-2 inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+                  FAQ
+                </p>
+              </div>
+              <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem
+                      key={index}
+                      value={`akademia-faq-${index}`}
+                      className="rounded-2xl border border-border bg-card px-4 sm:px-6 data-[state=open]:border-gold/40"
+                    >
+                      <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold py-4 sm:py-6 hover:no-underline text-sm sm:text-base">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground pb-4 sm:pb-6 leading-relaxed text-sm sm:text-base">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
           </section>
 
