@@ -49,10 +49,10 @@
     /* Accessible gold for small text on the ivory background (WCAG AA) */
     --gold-text: 38 62% 30%;
 
-    --font-sans: Manrope, ui-sans-serif, system-ui, sans-serif;
-    --font-serif: Sora, ui-sans-serif, system-ui, sans-serif;
+    --font-sans: Poppins, ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-    font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+    font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
   }
 
   .theme-ivory .font-serif,
@@ -61,7 +61,7 @@
   .theme-ivory h3,
   .theme-ivory h4,
   .theme-ivory h5 {
-    font-family: Sora, ui-sans-serif, system-ui, sans-serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     letter-spacing: -0.02em;
   }
 
