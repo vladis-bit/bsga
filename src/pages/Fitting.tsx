@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { buildFaqJsonLd } from "@/lib/buildFaqJsonLd";
 import fittingImgAsset from "@/assets/service-fitting.webp.asset.json";
 const fittingImg = fittingImgAsset.url;
 import fittingHeroImg from "@/assets/fitting-hero.png.asset.json";
@@ -88,15 +89,7 @@ const BREADCRUMBS = [
 ];
 
 const Fitting = () => {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
-    })),
-  };
+  const faqJsonLd = buildFaqJsonLd(faqs);
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",

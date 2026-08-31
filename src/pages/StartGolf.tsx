@@ -10,6 +10,7 @@ import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseReviews, { reviews as courseReviews } from "@/components/CourseReviews";
 import IvoryContactForm from "@/components/IvoryContactForm";
+import { buildFaqJsonLd } from "@/lib/buildFaqJsonLd";
 import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
 const serviceStartCardsImg = serviceStartCardsImgAsset.url;
 import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
@@ -118,15 +119,9 @@ const StartGolf = () => {
     { q: "Kde tréning Course Management prebieha?", a: "Tréning prebieha priamo na golfovom ihrisku (zvyčajne Hrubá Borša alebo Red Oak Nitra) so svojím PGA trénerom." },
     { q: "Sú v cene Course Management zahrnuté green fee a ďalšie poplatky?", a: "V cene je zahrnutá lekcia s PGA trénerom. Green fee a prípadný buggy si hráč hradí samostatne." },
   ];
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: allFaqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  const faqJsonLd = buildFaqJsonLd(
+    allFaqs.map((f) => ({ question: f.q, answer: f.a }))
+  );
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
