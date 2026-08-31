@@ -7,6 +7,7 @@ import CampCards from "@/components/CampCards";
 import JuniorLevelSystem from "@/components/JuniorLevelSystem";
 import CampProgramSection from "@/components/CampProgramSection";
 import IvoryContactForm from "@/components/IvoryContactForm";
+import { buildFaqJsonLd } from "@/lib/buildFaqJsonLd";
 import { Mail, Phone } from "lucide-react";
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
@@ -69,6 +70,41 @@ const Akademia = () => {
       availability: "https://schema.org/InStock",
     },
   };
+
+  const faqs = [
+    {
+      question: "Pre koho je BSGA Junior Level System™ určený?",
+      answer:
+        "BSGA Junior Level System™ je dlhodobý rozvojový program pre deti a juniorov od 5 rokov. Sprevádza ich od prvých krokov s golfovou palicou až po výkonnostný golf, prijatie na americkú univerzitu alebo profesionálnu kariéru.",
+    },
+    {
+      question: "Kedy prebiehajú detské golfové tábory v roku 2026?",
+      answer:
+        "V roku 2026 pripravujeme tri turnusy denných golfových táborov: 6. – 10. júl, 3. – 7. august a 24. – 28. august. Tábory prebiehajú v Golfovom klube Hrubá Borša.",
+    },
+    {
+      question: "Koľko stojí detský golfový tábor?",
+      answer:
+        "Cena golfového tábora je 340 € pre nečlenov GKHB a 310 € pre členov Golfového klubu Hrubá Borša. Poistenie dieťaťa je už zahrnuté v cene tábora.",
+    },
+    {
+      question: "Čo si deti majú priniesť na tábor?",
+      answer:
+        "Deti si môžu priniesť ruksak so šiltovkou alebo letným klobúčikom, opaľovacím krémom, mikinou a nohavicami na horšie počasie, prípadne malou sladkosťou či džúsikom. Ak majú vlastné golfové palice, určite si ich prineste.",
+    },
+    {
+      question: "Sú deti počas tábora poistené?",
+      answer:
+        "Áno, poistenie dieťaťa je už zahrnuté v cene golfového tábora. Deti sú počas celého dňa pod dohľadom skúsených trénerov.",
+    },
+    {
+      question: "Kto vedie detské tábory a tréningy?",
+      answer:
+        "Detské tábory a juniorské tréningy vedú skúsení tréneri Vanessa Fajkusová, Vladimír Leško a Jakub Hrbáň. Vďaka individuálnemu prístupu sa každé dieťa rozvíja vlastným tempom.",
+    },
+  ];
+
+  const faqJsonLd = buildFaqJsonLd(faqs);
 
   return <>
       <SEO
