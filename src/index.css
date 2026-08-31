@@ -1,26 +1,14 @@
 /* Self-hosted fonts (no render-blocking Google Fonts CSS) */
-@import "@fontsource/sora/latin-400.css";
-@import "@fontsource/sora/latin-ext-400.css";
-@import "@fontsource/sora/latin-600.css";
-@import "@fontsource/sora/latin-ext-600.css";
-@import "@fontsource/sora/latin-700.css";
-@import "@fontsource/sora/latin-ext-700.css";
-@import "@fontsource/sora/latin-800.css";
-@import "@fontsource/sora/latin-ext-800.css";
-@import "@fontsource/manrope/latin-300.css";
-@import "@fontsource/manrope/latin-ext-300.css";
-@import "@fontsource/manrope/latin-400.css";
-@import "@fontsource/manrope/latin-ext-400.css";
-@import "@fontsource/manrope/latin-500.css";
-@import "@fontsource/manrope/latin-ext-500.css";
-@import "@fontsource/manrope/latin-600.css";
-@import "@fontsource/manrope/latin-ext-600.css";
-@import "@fontsource/manrope/latin-700.css";
-@import "@fontsource/manrope/latin-ext-700.css";
 @import "@fontsource/poppins/latin-400.css";
 @import "@fontsource/poppins/latin-ext-400.css";
+@import "@fontsource/poppins/latin-600.css";
+@import "@fontsource/poppins/latin-ext-600.css";
+@import "@fontsource/poppins/latin-700.css";
+@import "@fontsource/poppins/latin-ext-700.css";
 @import "@fontsource/cormorant-garamond/latin-400.css";
 @import "@fontsource/cormorant-garamond/latin-ext-400.css";
+@import "@fontsource/cormorant-garamond/latin-700.css";
+@import "@fontsource/cormorant-garamond/latin-ext-700.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,10 +49,10 @@
     /* Accessible gold for small text on the ivory background (WCAG AA) */
     --gold-text: 38 62% 30%;
 
-    --font-sans: Manrope, ui-sans-serif, system-ui, sans-serif;
-    --font-serif: Sora, ui-sans-serif, system-ui, sans-serif;
+    --font-sans: Poppins, ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-    font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+    font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
   }
 
   .theme-ivory .font-serif,
@@ -73,7 +61,7 @@
   .theme-ivory h3,
   .theme-ivory h4,
   .theme-ivory h5 {
-    font-family: Sora, ui-sans-serif, system-ui, sans-serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     letter-spacing: -0.02em;
   }
 
