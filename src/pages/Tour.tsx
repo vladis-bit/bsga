@@ -239,10 +239,26 @@ const Tour = () => {
     subEvent: list.map((t) => buildEvent(t as never, season, isPast)),
   });
 
+  const tourPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/tour#webpage`,
+    name: "BSGA Tour 2026 – termíny a výsledky golfových turnajov",
+    description:
+      "Kalendár, propozície, priebežné poradie a výsledky amatérskej golfovej série BSGA Tour 2026 na Slovensku a v Česku.",
+    url: `${SITE_URL}/tour`,
+    inLanguage: "sk-SK",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/tour#seria-2026` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+
   const eventSchemas = [
+    tourPageSchema,
     seriesSchema(2026, tournaments, false),
     seriesSchema(2025, tournaments2025 as never, true),
   ];
+
 
 
 

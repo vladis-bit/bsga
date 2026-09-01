@@ -9,6 +9,19 @@ const BREADCRUMBS = [
 ];
 
 const GDPR = () => {
+  const privacySchema = {
+    "@context": "https://schema.org",
+    "@type": "PrivacyPolicy",
+    "@id": "https://bsga.sk/gdpr#privacy",
+    name: "Zásady ochrany osobných údajov",
+    url: "https://bsga.sk/gdpr",
+    inLanguage: "sk-SK",
+    datePublished: "2026-03-08",
+    isPartOf: { "@id": "https://bsga.sk/#website" },
+    publisher: { "@id": "https://bsga.sk/#organization" },
+    about: { "@type": "Thing", name: "Spracovanie a ochrana osobných údajov (GDPR)" },
+  };
+
   return (
     <>
       <SEO
@@ -16,7 +29,9 @@ const GDPR = () => {
         description="Zásady ochrany osobných údajov BSGA - Best Swing Golf Academy. Informácie o spracovaní a ochrane vašich osobných údajov platné od 8. marca 2026."
         path="/gdpr"
         breadcrumbs={BREADCRUMBS}
+        jsonLd={privacySchema}
       />
+
       <Navbar />
       <Breadcrumbs items={BREADCRUMBS} />
       <main>

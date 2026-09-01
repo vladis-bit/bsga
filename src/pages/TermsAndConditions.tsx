@@ -9,6 +9,22 @@ const BREADCRUMBS = [
 ];
 
 const TermsAndConditions = () => {
+  const termsSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://bsga.sk/obchodne-podmienky#webpage",
+    name: "Obchodné podmienky",
+    url: "https://bsga.sk/obchodne-podmienky",
+    inLanguage: "sk-SK",
+    datePublished: "2026-03-09",
+    isPartOf: { "@id": "https://bsga.sk/#website" },
+    publisher: { "@id": "https://bsga.sk/#organization" },
+    about: {
+      "@type": "Thing",
+      name: "Všeobecné obchodné podmienky golfových služieb, kurzov a poukážok",
+    },
+  };
+
   return (
     <>
       <SEO
@@ -16,7 +32,9 @@ const TermsAndConditions = () => {
         description="Všeobecné obchodné podmienky BSGA – Best Swing Golf Academy. Podmienky objednávok golfových služieb, kurzov, poukážok, platieb, storna a reklamácií."
         path="/obchodne-podmienky"
         breadcrumbs={BREADCRUMBS}
+        jsonLd={termsSchema}
       />
+
       <Navbar />
       <Breadcrumbs items={BREADCRUMBS} />
       <main>
