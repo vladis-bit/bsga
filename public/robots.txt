@@ -7,7 +7,6 @@ Disallow: /rezervacia/
 
 User-agent: Googlebot
 Allow: /
-Allow: /tour
 Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
@@ -19,7 +18,6 @@ Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
-Allow: /tour
 Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
@@ -30,5 +28,36 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+# AI / LLM crawlers – explicitly allowed
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /rezervacia/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /rezervacia/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /rezervacia/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /rezervacia/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /rezervacia/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /rezervacia/
 
 Sitemap: https://bsga.sk/sitemap.xml
