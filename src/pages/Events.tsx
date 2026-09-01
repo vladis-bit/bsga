@@ -38,7 +38,53 @@ interface EventItem {
 }
 
 
+/** Posledné termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
+const weekendCourseDates = ["5. – 6. 9. 2026", "19. – 20. 9. 2026", "3. – 4. 10. 2026"];
+
+const weekendGreenCardEvent = (date: string): EventItem => ({
+  title: "Víkendový kurz zelenej karty",
+  date,
+  location: "Green Resort Hrubá Borša (cca 30 km od Bratislavy)",
+  hidePoster: true,
+  details: {
+    subtitle: "Intenzívny dvojdňový kurz pre úplných začiatočníkov",
+    intro:
+      "Ideálny program pre úplných začiatočníkov. Počas víkendu získate pevné základy, pochopíte, ako golf funguje, a pripravíte sa na získanie zelenej karty. Kurz vedú profesionálni tréneri (členovia PGA SK) a kvalifikovaní golfoví inštruktori, vybavenie vám zapožičiame.",
+    price: "139,99 € / osoba",
+    priceNote:
+      "V cene nie je zahrnutý doplatok 80 € za záverečnú skúšku a vydanie zelenej karty (platba na mieste). Termín je možné po dohode neskôr zmeniť a presúva sa v prípade nepriaznivého počasia alebo nedostatočného počtu prihlásených.",
+    schedule: [
+      {
+        day: "1. deň (sobota)",
+        title: "Základy techniky a pravidlá",
+        items: [
+          "Úvod do techniky golfového švihu",
+          "Tréning s profesionálnymi trénermi PGA SK",
+          "Pravidlá golfu a golfová etika",
+          "Zapožičanie golfového vybavenia a loptičiek",
+        ],
+      },
+      {
+        day: "2. deň (nedeľa)",
+        title: "Príprava na zelenú kartu",
+        items: [
+          "Pokračovanie tréningu – celkovo 12 hodín kurzu",
+          "Praktický tréning na ihrisku",
+          "Záverečná skúška na zelenú kartu",
+          "Darček v cene a zelená karta po úspešnom absolvovaní",
+        ],
+      },
+    ],
+    contact: {
+      name: "BSGA tím",
+      email: "bsga@bsga.sk",
+      phone: "+421 917 225 276",
+    },
+  },
+});
+
 const events: EventItem[] = [
+
   {
     title: "DONI-TRAVEL × BSGA — Turnaj Pro-Am Tímov",
     date: "13. – 15. 9. 2026",
