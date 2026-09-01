@@ -262,7 +262,7 @@ const EventCard = ({
   event,
   index,
   variant = "small",
-  hideSignup = false,
+  hideSignup: hideSignupProp = false,
   soldOut = false,
 }: {
   event: EventItem;
@@ -271,9 +271,12 @@ const EventCard = ({
   hideSignup?: boolean;
   soldOut?: boolean;
 }) => {
+  const hideSignup = hideSignupProp || event.hideSignup === true;
+  const hidePoster = event.hidePoster === true;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [infoOpen, setInfoOpen] = useState(false);
+
   const contactEmail = event.details?.contact.email;
   const signupEmail = Array.isArray(contactEmail) ? contactEmail.join(",") : contactEmail ?? "peter@doni-travel.sk";
   const contactPhone = event.details?.contact.phone ?? "+421 905 335 501";
