@@ -528,7 +528,7 @@ const EventCard = ({
                     Stiahnuť plagát
                   </a>
                 )}
-                {!soldOut ? (
+                {hideSignup ? null : !soldOut ? (
                   <a
                     href={`mailto:${signupEmail}?subject=${mailSubject}`}
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
