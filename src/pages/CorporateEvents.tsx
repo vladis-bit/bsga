@@ -79,15 +79,6 @@ const CorporateEvents = () => {
     description:
       "Golfové firemné akcie a teambuildingy na kľúč – od rezervácie ihriska, cez inštruktorský tím, až po catering a ceny pre víťazov.",
   };
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Domov", item: "https://bsga.sk/" },
-      { "@type": "ListItem", position: 2, name: "Služby", item: "https://bsga.sk/sluzby" },
-      { "@type": "ListItem", position: 3, name: "Firemné akcie", item: "https://bsga.sk/firemne-akcie" },
-    ],
-  };
 
   return (
     <>
@@ -96,7 +87,7 @@ const CorporateEvents = () => {
         description="Zorganizujte golfový teambuilding alebo firemnú akciu na kľúč. PGA tréneri, ihrisko, catering, vybavenie aj ceny – BSGA sa postará o všetko."
         path="/firemne-akcie"
         breadcrumbs={BREADCRUMBS}
-        jsonLd={[breadcrumb, eventSchema]}
+        jsonLd={[eventSchema]}
       />
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
