@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Events from "./Events";
+import Events from "@/pages/Events";
 
 // Prevent canvas/animation side effects in jsdom
 vi.mock("@/components/WavesCanvas", () => ({
