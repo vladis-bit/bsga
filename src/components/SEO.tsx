@@ -15,6 +15,8 @@ type SEOProps = {
   noindex?: boolean;
   nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Ďalšie Schema.org objekty (alias pre jsonLd) – vykreslí sa ako <script type="application/ld+json">. */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; url: string }>;
   /** Geo targeting override for routes tied to another locality (e.g. Nitra, Hrubá Borša). */
   geo?: {
