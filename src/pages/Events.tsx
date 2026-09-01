@@ -23,6 +23,10 @@ interface EventItem {
   date: string;
   location?: string;
   posterUrl?: string;
+  /** Skryje tlačidlo "Prihlásiť sa" (karta aj detail). */
+  hideSignup?: boolean;
+  /** Skryje tlačidlo plagátu aj placeholder "Plagát čoskoro". */
+  hidePoster?: boolean;
   details?: {
     subtitle: string;
     intro: string;
@@ -32,6 +36,7 @@ interface EventItem {
     contact: { name: string; email: string | string[]; phone: string };
   };
 }
+
 
 const events: EventItem[] = [
   {
