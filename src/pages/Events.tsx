@@ -37,6 +37,30 @@ interface EventItem {
   };
 }
 
+/** Parse the start date from a Slovak date range like "5. – 6. 9. 2026" or "26. 3. – 2. 4. 2027". */
+const parseEventDate = (dateStr: string): number => {
+  const normalized = dateStr.replace(/–/g, "-").trim();
+  // "D. M. – D. M. YYYY"
+  let match = normalized.match(/(\d{1,2})\.\s*(\d{1,2})\.\s*-\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+  if (match) {
+    const [, day, month] = match;
+    return new Date(Number(match[5]), Number(month) - 1, Number(day)).getTime();
+  }
+  // "D. – D. M. YYYY"
+  match = normalized.match(/(\d{1,2})\.\s*-\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+  if (match) {
+    const [, day, , month, year] = match;
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+  }
+  // "D. M. YYYY"
+  match = normalized.match(/(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+  if (match) {
+    const [, day, month, year] = match;
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+  }
+  return 0;
+};
+
 
 /** Posledné termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
 const weekendCourseDates = ["5. – 6. 9. 2026", "19. – 20. 9. 2026", "3. – 4. 10. 2026"];
@@ -182,6 +206,9 @@ const events: EventItem[] = [
 
   ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
+/** Sort upcoming events chronologically by their start date. */
+events.sort((a, b) => parseEventDate(a.date) - parseEventDate(b.date));
 
 
 const archivedEvents: EventItem[] = [
