@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import PcContactBlock from "@/components/performance-center/PcContactBlock";
 import { useToast } from "@/hooks/use-toast";
 
