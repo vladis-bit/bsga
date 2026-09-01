@@ -127,9 +127,9 @@ const SEO = ({
       {imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
 
 
-      {schemas.map((schema, i) => (
+      {schemas.map((s, i) => (
         <script key={i} type="application/ld+json">
-          {JSON.stringify(schema)}
+          {JSON.stringify(s)}
         </script>
       ))}
     </Helmet>
