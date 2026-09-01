@@ -170,8 +170,8 @@ const events: EventItem[] = [
     details: {
       subtitle: "Jednokolový pozvánkový turnaj",
       intro: "Jednokolový pozvánkový turnaj konajúci sa na golfovom ihrisku v Hrubej Borši (GKHB). Môžete sa tešiť na welcome drink, občerstvenie, obed po hre a vyhlásenie aj s cenami.",
-      price: "Cena a prihláška na vyžiadanie",
-      priceNote: "Turnaj je prístupný na pozvánku – bližšie informácie o štartovnom, kapacite a registrácii získate na kontakte nižšie.",
+      price: "Pozvánkový turnaj",
+      priceNote: "Turnaj je prístupný na pozvánku.",
       schedule: [
         { day: "Piatok 25. 9.", title: "Švajlen Invitational", items: ["Welcome drink a registrácia hráčov", "Občerstvenie počas hry", "Obed po hre", "Vyhlásenie výsledkov a odovzdávanie cien"] },
       ],
