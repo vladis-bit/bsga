@@ -179,7 +179,10 @@ const events: EventItem[] = [
       },
     },
   },
+
+  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
 
 const archivedEvents: EventItem[] = [
   {
