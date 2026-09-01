@@ -16,7 +16,7 @@ const NotFound = () => {
     <div className="theme-ivory flex min-h-screen flex-col bg-background text-foreground">
       <SEO
         title="Stránka nenájdená (404) | BSGA"
-        description="Stránka, ktorú hľadáte, neexistuje alebo bola presunutá. Vráťte sa na domovskú stránku BSGA a nájdite golfové kurzy, tréningy, turnaje aj rezervácie Performance Centra."
+        description="Stránka, ktorú hľadáte, neexistuje alebo bola presunutá. Vráťte sa na domovskú stránku BSGA a nájdite golfové kurzy, tréningy, turnaje aj rezervácie."
         path="/404"
         noindex
       />

@@ -58,7 +58,7 @@ const BookingCancel = () => {
     <>
       <SEO
         title="Zrušenie rezervácie | BSGA Performance Center"
-        description="Zrušenie rezervácie simulátora v BSGA Performance Center."
+        description="Zrušenie rezervácie golfového simulátora v BSGA Performance Center v Bratislave. Skontrolujte detaily termínu a zrušte rezerváciu jedným kliknutím online."
         path="/rezervacia/zrusit"
         noindex
         nofollow

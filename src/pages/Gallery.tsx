@@ -248,7 +248,7 @@ const Gallery = () => {
   return <>
       <SEO
         title="Galéria | BSGA - Best Swing Golf Academy"
-        description="Fotogaléria BSGA - nahliadnite do našich tréningov, turnajov a podujatí. Profesionálne golfové momenty z najkrajších slovenských ihrísk."
+        description="Fotogaléria BSGA – nahliadnite do našich tréningov, detských táborov, turnajov BSGA Tour a firemných podujatí. Atmosféra najväčšej golfovej akadémie na SK."
         path="/galeria"
         breadcrumbs={BREADCRUMBS}
         jsonLd={gallerySchema}

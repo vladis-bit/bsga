@@ -266,7 +266,7 @@ const About = () => {
   return <>
       <SEO
         title="Tréneri - BSGA"
-        description="Spoznajte tím BSGA. Peter Švajlen a Jakub Hrbáň - plne kvalifikovaní PGA profesionáli s viac ako 8 rokmi skúseností."
+        description="Spoznajte tím BSGA – Peter Švajlen, Jakub Hrbáň a kolegovia. Plne kvalifikovaní PGA tréneri, ktorí vás naučia golf od prvého úderu až po turnaje."
         path="/o-nas"
         image="https://bsga.sk/og/o-nas.jpg"
         imageAlt="Tím trénerov Best Swing Golf Academy"

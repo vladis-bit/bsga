@@ -56,7 +56,7 @@ const BookingDetail = () => {
     <>
       <SEO
         title="Detail rezervácie | BSGA Performance Center"
-        description="Detail vašej rezervácie simulátora v BSGA Performance Center."
+        description="Detail vašej rezervácie golfového simulátora v BSGA Performance Center Bratislava. Nájdete tu termín, dĺžku, cenu aj možnosť zrušenia rezervácie online."
         path="/rezervacia/detail"
         noindex
         nofollow

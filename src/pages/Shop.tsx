@@ -193,7 +193,7 @@ const Shop = () => {
     <>
       <SEO
         title="Obchod | BSGA - Best Swing Golf Academy"
-        description="Nakúpte darčekové poukážky a golfové služby online. Individuálne lekcie, kurzy zelenej karty a štart karty."
+        description="Nakúpte darčekové poukážky a golfové služby BSGA online. Individuálne lekcie, kurzy zelenej karty, detské tábory aj originálny BSGA merch s doručením."
         path="/obchod"
         image="https://bsga.sk/og/obchod.jpg"
         imageAlt="Darčekové poukážky a golfové služby BSGA"

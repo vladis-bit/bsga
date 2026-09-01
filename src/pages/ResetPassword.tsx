@@ -56,7 +56,7 @@ const ResetPassword = () => {
     <main className="flex min-h-screen items-center justify-center bg-background px-4">
       <SEO
         title="Obnova hesla | BSGA"
-        description="Obnova hesla pre BSGA administrátorský účet."
+        description="Obnova hesla pre administrátorský účet BSGA. Zadajte nové heslo a pokračujte do administrácie rezervácií BSGA Performance Center v Bratislave Petržalke."
         path="/reset-password"
         noindex
         nofollow

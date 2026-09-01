@@ -109,8 +109,8 @@ const Akademia = () => {
 
   return <>
       <SEO
-        title="Juniorský golf | BSGA - Best Swing Golf Academy"
-        description="BSGA Juniorský golf - profesionálne golfové tréningy, detské tábory 2026 a development program pre mladých golfistov. Staň sa súčasťou najväčšej golfovej akadémie na Slovensku."
+        title="Juniorský golf a detské tábory | BSGA"
+        description="Juniorský golf BSGA: profesionálne tréningy pre deti, detské golfové tábory 2026 a development program. Prihláste dieťa do najväčšej akadémie na Slovensku."
         path="/akademia"
         image="https://bsga.sk/og/akademia.jpg"
         imageAlt="Juniorský golf BSGA – detská golfová akadémia"

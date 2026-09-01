@@ -110,8 +110,8 @@ const Fitting = () => {
   return (
     <>
       <SEO
-        title="Fitting – vybavenie na mieru | BSGA - Best Swing Golf Academy"
-        description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s Trackmanom. Nájdeme vybavenie, ktoré vám skutočne sedí."
+        title="Golfový fitting palíc na mieru | BSGA"
+        description="Profesionálny golfový fitting v BSGA. Meranie a testovanie palíc na mieru s TrackMan technológiou a PGA trénermi. Získajte vybavenie presne pre váš švih."
         path="/fitting"
         image="https://bsga.sk/og/fitting.jpg"
         imageAlt="Golfový fitting v BSGA Performance Center"
