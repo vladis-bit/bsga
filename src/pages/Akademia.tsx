@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import { hrubaBorsaLocation } from "@/lib/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
@@ -105,6 +106,26 @@ const Akademia = () => {
     },
   ];
 
+  const juniorService = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Juniorský golf – BSGA Junior Level System™",
+    serviceType: "Golf",
+    url: "https://bsga.sk/akademia",
+    description:
+      "Golfové tréningy pre deti a juniorov od 5 rokov a denné golfové tábory v Golfovom klube Hrubá Borša.",
+    provider: { "@id": "https://bsga.sk/#organization" },
+    areaServed: { "@type": "Country", name: "Slovensko" },
+    offers: {
+      "@type": "Offer",
+      name: "Denný golfový tábor – cena pre členov GKHB",
+      price: "310",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: "https://bsga.sk/akademia",
+    },
+  };
+
   const faqJsonLd = buildFaqJsonLd(faqs);
 
   return <>
@@ -118,6 +139,7 @@ const Akademia = () => {
 
         breadcrumbs={BREADCRUMBS}
         jsonLd={[juniorCourse, ...campEvents, faqJsonLd]}
+        schema={[juniorService, hrubaBorsaLocation]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">

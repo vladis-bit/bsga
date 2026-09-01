@@ -15,6 +15,8 @@ type SEOProps = {
   noindex?: boolean;
   nofollow?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Ďalšie Schema.org objekty (alias pre jsonLd) – vykreslí sa ako <script type="application/ld+json">. */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; url: string }>;
   /** Geo targeting override for routes tied to another locality (e.g. Nitra, Hrubá Borša). */
   geo?: {
@@ -44,6 +46,7 @@ const SEO = ({
   noindex = false,
   nofollow = false,
   jsonLd,
+  schema,
   breadcrumbs,
   geo,
 }: SEOProps) => {
@@ -58,7 +61,9 @@ const SEO = ({
     window.location.hostname === "bsga.sk" ||
     window.location.hostname === "www.bsga.sk";
   const shouldNoindex = noindex || !isProdHost;
-  const schemas = jsonLd ? (Array.isArray(jsonLd) ? [...jsonLd] : [jsonLd]) : [];
+  const toArray = (v?: Record<string, unknown> | Record<string, unknown>[]) =>
+    v ? (Array.isArray(v) ? [...v] : [v]) : [];
+  const schemas = [...toArray(jsonLd), ...toArray(schema)];
   if (breadcrumbs && breadcrumbs.length > 0) {
     schemas.unshift({
       "@context": "https://schema.org",
@@ -122,9 +127,9 @@ const SEO = ({
       {imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
 
 
-      {schemas.map((schema, i) => (
+      {schemas.map((s, i) => (
         <script key={i} type="application/ld+json">
-          {JSON.stringify(schema)}
+          {JSON.stringify(s)}
         </script>
       ))}
     </Helmet>
