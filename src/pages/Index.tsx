@@ -7,6 +7,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import SimpleContactForm from "@/components/SimpleContactForm";
 import Footer from "@/components/Footer";
+import { organizationSchema, webSiteSchema } from "@/lib/schema";
 
 const faqs = [
   {
@@ -86,6 +87,7 @@ const Index = () => {
         description="Najväčšia golfová akadémia na Slovensku od roku 2016. Lekcie golfu s PGA trénermi, zelené karty, juniorský golf, fitting palíc, firemné akcie a BSGA Tour."
         path="/"
         jsonLd={[homeWebPageJsonLd, faqJsonLd, siteNavJsonLd]}
+        schema={[organizationSchema, webSiteSchema]}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">

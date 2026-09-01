@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
+import { allLocations } from "@/lib/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle, RotateCw, ArrowLeft } from "lucide-react";
@@ -272,6 +273,7 @@ const About = () => {
         imageAlt="Tím trénerov Best Swing Golf Academy"
         breadcrumbs={BREADCRUMBS}
         jsonLd={[aboutPageSchema, ...people]}
+        schema={allLocations}
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
