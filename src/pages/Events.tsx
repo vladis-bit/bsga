@@ -254,7 +254,7 @@ const archivedEvents: EventItem[] = [
     },
   },
 
-  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
+
 ];
 
 
