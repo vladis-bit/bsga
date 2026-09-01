@@ -118,6 +118,7 @@ const events: EventItem[] = [
     date: "13. – 15. 9. 2026",
     location: "Golf Resort Kaskáda",
     posterUrl: proamPoster.url,
+    soldOut: true,
     details: {
       subtitle: "Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi",
       intro: "Destinácia: Golf Resort Kaskáda. Formát: Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi. Tímy: Team Švajlen | Team Hrbáň | Team Fajkusová | Team Gajan.",
@@ -185,6 +186,7 @@ const events: EventItem[] = [
     title: "BSGA Ryder Cup – Švajlen vs Hrbáň",
     date: "10. – 17. 10. 2026",
     location: "Voyage Belek Golf & Spa 5★, Turecko",
+    soldOut: true,
     details: {
       subtitle: "DONI-TRAVEL × BSGA — Ryder Cup 2026",
       intro: "Spoločný zájazd v BSGA Ryder Cup formáte – Team Švajlen vs. Team Hrbáň. Čaká na vás týždeň plný kvalitného golfu, tímovej súťaže a oddychu v luxusnom rezorte Voyage Belek Golf & Spa 5★.",
@@ -750,7 +752,7 @@ const Events = () => {
                     event={event}
                     index={index}
                     variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
-                    soldOut={index === 0 || index === 3}
+                    soldOut={event.soldOut}
                   />
                 ))}
               </div>
