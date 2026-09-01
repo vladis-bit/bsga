@@ -27,6 +27,8 @@ interface EventItem {
   hideSignup?: boolean;
   /** Skryje tlačidlo plagátu aj placeholder "Plagát čoskoro". */
   hidePoster?: boolean;
+  /** Označí akciu ako vypredanú/obsadenú. */
+  soldOut?: boolean;
   details?: {
     subtitle: string;
     intro: string;
@@ -36,6 +38,32 @@ interface EventItem {
     contact: { name: string; email: string | string[]; phone: string };
   };
 }
+
+
+
+/** Parse the start date from a Slovak date range like "5. – 6. 9. 2026" or "26. 3. – 2. 4. 2027". */
+const parseEventDate = (dateStr: string): number => {
+  const normalized = dateStr.replace(/–/g, "-").trim();
+  // "D. M. – D. M. YYYY"
+  let match = normalized.match(/(\d{1,2})\.\s*(\d{1,2})\.\s*-\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+  if (match) {
+    const [, day, month] = match;
+    return new Date(Number(match[5]), Number(month) - 1, Number(day)).getTime();
+  }
+  // "D. – D. M. YYYY"
+  match = normalized.match(/(\d{1,2})\.\s*-\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+  if (match) {
+    const [, day, , month, year] = match;
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+  }
+  // "D. M. YYYY"
+  match = normalized.match(/(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+  if (match) {
+    const [, day, month, year] = match;
+    return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+  }
+  return 0;
+};
 
 
 /** Posledné termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
@@ -90,6 +118,7 @@ const events: EventItem[] = [
     date: "13. – 15. 9. 2026",
     location: "Golf Resort Kaskáda",
     posterUrl: proamPoster.url,
+    soldOut: true,
     details: {
       subtitle: "Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi",
       intro: "Destinácia: Golf Resort Kaskáda. Formát: Tímová súťaž 6–8 členných tímov vedených hrajúcimi profesionálmi. Tímy: Team Švajlen | Team Hrbáň | Team Fajkusová | Team Gajan.",
@@ -157,6 +186,7 @@ const events: EventItem[] = [
     title: "BSGA Ryder Cup – Švajlen vs Hrbáň",
     date: "10. – 17. 10. 2026",
     location: "Voyage Belek Golf & Spa 5★, Turecko",
+    soldOut: true,
     details: {
       subtitle: "DONI-TRAVEL × BSGA — Ryder Cup 2026",
       intro: "Spoločný zájazd v BSGA Ryder Cup formáte – Team Švajlen vs. Team Hrbáň. Čaká na vás týždeň plný kvalitného golfu, tímovej súťaže a oddychu v luxusnom rezorte Voyage Belek Golf & Spa 5★.",
@@ -182,6 +212,9 @@ const events: EventItem[] = [
 
   ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
+/** Sort upcoming events chronologically by their start date. */
+events.sort((a, b) => parseEventDate(a.date) - parseEventDate(b.date));
 
 
 const archivedEvents: EventItem[] = [
@@ -719,7 +752,7 @@ const Events = () => {
                     event={event}
                     index={index}
                     variant={index === 0 ? "featured" : index === 1 ? "side" : "small"}
-                    soldOut={index === 0 || index === 3}
+                    soldOut={event.soldOut}
                   />
                 ))}
               </div>
@@ -810,78 +843,8 @@ const Events = () => {
                   Zverejníme už čoskoro
                 </p>
 
-                {/* Featured: Florida PGA Swing — OBSADENÉ */}
-                <div className="relative mt-10 sm:mt-12 rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
-                  <div className="pointer-events-none absolute -right-12 top-5 z-20 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
-                    OBSADENÉ
-                  </div>
-                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
-                    <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
-                  </div>
-                  <div className="p-6 sm:p-10 text-left opacity-80">
-                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
-                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-serif font-bold text-xl sm:text-2xl bg-muted text-muted-foreground">
-                        2027
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold leading-tight text-foreground">
-                          Florida PGA Swing
-                        </h3>
-                        <p className="mt-2 text-base sm:text-lg text-muted-foreground">
-                          Exkluzívny golfový zájazd s BSGA & DONI-Travel počas Veľkej noci
-                        </p>
-                        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base text-muted-foreground">
-                          <div className="flex items-center gap-1.5">
-                            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-                            <span className="font-medium">26. 3. – 2. 4. 2027</span>
-                          </div>
-                          <div className="flex items-center gap-1.5">
-                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-                            <span className="font-medium">Florida, USA</span>
-                          </div>
-                        </div>
-
-                        <div className="mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
-                          <span
-                            aria-disabled="true"
-                            className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
-                          >
-                            <FileText className="w-4 h-4" />
-                            Plagát čoskoro
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => setFloridaOpen(true)}
-                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 bg-gold/15 text-gold hover:bg-gold/25 border border-gold/40"
-                          >
-                            <Info className="w-4 h-4" />
-                            Informácie
-                          </button>
-                          <span
-                            aria-disabled="true"
-                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
-                          >
-                            Vypredané
-                          </span>
-                        </div>
-                        <p data-testid="florida-soldout-note" className="mt-3 text-xs sm:text-sm text-muted-foreground">
-                          Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
-                          alebo zápise na waitlist Vás informujeme na{" "}
-                          <a href="mailto:peter@doni-travel.sk" className="text-gold hover:underline font-medium">
-                            peter@doni-travel.sk
-                          </a>{" "}
-                          alebo na{" "}
-                          <a href="tel:+421905335501" className="text-gold hover:underline font-medium">
-                            +421 905 335 501
-                          </a>
-                          .
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 sm:mt-8 rounded-2xl border border-border bg-card shadow-xl p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-2xl hover:shadow-gold/10">
+                {/* Jarný tréningový kemp v Turecku — 13. – 20. 3. 2027 */}
+                <div className="mt-10 sm:mt-12 rounded-2xl border border-border bg-card shadow-xl p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-2xl hover:shadow-gold/10">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                     <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
                       2027
@@ -926,6 +889,70 @@ const Events = () => {
                           <Mail className="w-4 h-4" />
                           <span>Prihlásiť sa</span>
                         </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Featured: Florida PGA Swing — OBSADENÉ */}
+                <div className="relative mt-6 sm:mt-8 rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
+                  <div className="pointer-events-none absolute -right-12 top-5 z-20 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
+                    OBSADENÉ
+                  </div>
+                  <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
+                    <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
+                  </div>
+                  <div className="p-6 sm:p-10 text-left opacity-80">
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
+                      <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-serif font-bold text-xl sm:text-2xl bg-muted text-muted-foreground">
+                        2027
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold leading-tight text-foreground">
+                          Florida PGA Swing
+                        </h3>
+                        <p className="mt-2 text-base sm:text-lg text-muted-foreground">
+                          Exkluzívny golfový zájazd s BSGA & DONI-Travel počas Veľkej noci
+                        </p>
+                        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base text-muted-foreground">
+                          <div className="flex items-center gap-1.5">
+                            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                            <span className="font-medium">26. 3. – 2. 4. 2027</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                            <span className="font-medium">Florida, USA</span>
+                          </div>
+                        </div>
+
+                        <div className="mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
+                          <button
+                            type="button"
+                            onClick={() => setFloridaOpen(true)}
+                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 bg-gold/15 text-gold hover:bg-gold/25 border border-gold/40"
+                          >
+                            <Info className="w-4 h-4" />
+                            Informácie
+                          </button>
+                          <span
+                            aria-disabled="true"
+                            className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
+                          >
+                            Vypredané
+                          </span>
+                        </div>
+                        <p data-testid="florida-soldout-note" className="mt-3 text-xs sm:text-sm text-muted-foreground">
+                          Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                          alebo zápise na waitlist Vás informujeme na{" "}
+                          <a href="mailto:peter@doni-travel.sk" className="text-gold hover:underline font-medium">
+                            peter@doni-travel.sk
+                          </a>{" "}
+                          alebo na{" "}
+                          <a href="tel:+421905335501" className="text-gold hover:underline font-medium">
+                            +421 905 335 501
+                          </a>
+                          .
+                        </p>
                       </div>
                     </div>
                   </div>
