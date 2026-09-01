@@ -349,7 +349,7 @@ const EventCard = ({
                   <FileText className="w-4 h-4" />
                   Plagát
                 </a>
-              ) : (
+              ) : hidePoster ? null : (
                 <span
                   aria-disabled="true"
                   className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
@@ -358,6 +358,7 @@ const EventCard = ({
                   Plagát čoskoro
                 </span>
               )}
+
               {event.details ? (
                 <button
                   type="button"
