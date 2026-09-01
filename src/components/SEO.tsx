@@ -46,6 +46,7 @@ const SEO = ({
   noindex = false,
   nofollow = false,
   jsonLd,
+  schema,
   breadcrumbs,
   geo,
 }: SEOProps) => {
@@ -60,7 +61,9 @@ const SEO = ({
     window.location.hostname === "bsga.sk" ||
     window.location.hostname === "www.bsga.sk";
   const shouldNoindex = noindex || !isProdHost;
-  const schemas = jsonLd ? (Array.isArray(jsonLd) ? [...jsonLd] : [jsonLd]) : [];
+  const toArray = (v?: Record<string, unknown> | Record<string, unknown>[]) =>
+    v ? (Array.isArray(v) ? [...v] : [v]) : [];
+  const schemas = [...toArray(jsonLd), ...toArray(schema)];
   if (breadcrumbs && breadcrumbs.length > 0) {
     schemas.unshift({
       "@context": "https://schema.org",
