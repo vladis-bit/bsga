@@ -27,6 +27,8 @@ interface EventItem {
   hideSignup?: boolean;
   /** Skryje tlačidlo plagátu aj placeholder "Plagát čoskoro". */
   hidePoster?: boolean;
+  /** Označí akciu ako vypredanú/obsadenú. */
+  soldOut?: boolean;
   details?: {
     subtitle: string;
     intro: string;
@@ -36,6 +38,8 @@ interface EventItem {
     contact: { name: string; email: string | string[]; phone: string };
   };
 }
+
+
 
 /** Parse the start date from a Slovak date range like "5. – 6. 9. 2026" or "26. 3. – 2. 4. 2027". */
 const parseEventDate = (dateStr: string): number => {
