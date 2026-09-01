@@ -88,6 +88,9 @@ const events: EventItem[] = [
     title: "Švajlen Invitational",
     date: "25. 9. 2026",
     location: "Golfový klub Hrubá Borša, Slovensko",
+    hideSignup: true,
+    hidePoster: true,
+
     details: {
       subtitle: "Jednokolový pozvánkový turnaj",
       intro: "Jednokolový pozvánkový turnaj konajúci sa na golfovom ihrisku v Hrubej Borši (GKHB). Môžete sa tešiť na welcome drink, občerstvenie, obed po hre a vyhlásenie aj s cenami.",
