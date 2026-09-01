@@ -11,11 +11,11 @@
  *  - any route whose page component renders <SEO ... noindex />
  *
  * <lastmod> comes from the last git commit date of the route's page component
- * (page-specific, authoritative). If git history is unavailable the field is
- * omitted rather than faked with the build date.
+ * (page-specific, authoritative), falling back to that file's modification time.
+ * changefreq/priority are intentionally omitted — Google ignores them.
  */
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -99,7 +99,12 @@ const lastmodOf = (component) => {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
     }).trim();
-    return out ? out.slice(0, 10) : undefined;
+    if (out) return out.slice(0, 10);
+  } catch {
+    // git history unavailable -> fall back to the file's modification time
+  }
+  try {
+    return statSync(file).mtime.toISOString().slice(0, 10);
   } catch {
     return undefined;
   }
@@ -114,13 +119,7 @@ for (const r of routes) {
   if (seen.has(r.path)) continue;
   seen.add(r.path);
 
-  const depth = r.path === "/" ? 0 : r.path.split("/").filter(Boolean).length;
-  entries.push({
-    path: r.path,
-    lastmod: lastmodOf(r.element),
-    changefreq: depth === 0 ? "weekly" : depth === 1 ? "monthly" : "yearly",
-    priority: depth === 0 ? "1.0" : depth === 1 ? "0.8" : "0.6",
-  });
+  entries.push({ path: r.path, lastmod: lastmodOf(r.element) });
 }
 
 entries.sort((a, b) => (a.path === "/" ? -1 : b.path === "/" ? 1 : a.path.localeCompare(b.path)));
@@ -133,8 +132,6 @@ const xml = [
       `  <url>`,
       `    <loc>${BASE_URL}${e.path === "/" ? "/" : e.path}</loc>`,
       e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
-      `    <changefreq>${e.changefreq}</changefreq>`,
-      `    <priority>${e.priority}</priority>`,
       `  </url>`,
     ]
       .filter(Boolean)
