@@ -23,6 +23,10 @@ interface EventItem {
   date: string;
   location?: string;
   posterUrl?: string;
+  /** Skryje tlačidlo "Prihlásiť sa" (karta aj detail). */
+  hideSignup?: boolean;
+  /** Skryje tlačidlo plagátu aj placeholder "Plagát čoskoro". */
+  hidePoster?: boolean;
   details?: {
     subtitle: string;
     intro: string;
@@ -33,7 +37,54 @@ interface EventItem {
   };
 }
 
+
+/** Posledné termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
+const weekendCourseDates = ["5. – 6. 9. 2026", "19. – 20. 9. 2026", "3. – 4. 10. 2026"];
+
+const weekendGreenCardEvent = (date: string): EventItem => ({
+  title: "Víkendový kurz zelenej karty",
+  date,
+  location: "Green Resort Hrubá Borša (cca 30 km od Bratislavy)",
+  hidePoster: true,
+  details: {
+    subtitle: "Intenzívny dvojdňový kurz pre úplných začiatočníkov",
+    intro:
+      "Ideálny program pre úplných začiatočníkov. Počas víkendu získate pevné základy, pochopíte, ako golf funguje, a pripravíte sa na získanie zelenej karty. Kurz vedú profesionálni tréneri (členovia PGA SK) a kvalifikovaní golfoví inštruktori, vybavenie vám zapožičiame.",
+    price: "139,99 € / osoba",
+    priceNote:
+      "V cene nie je zahrnutý doplatok 80 € za záverečnú skúšku a vydanie zelenej karty (platba na mieste). Termín je možné po dohode neskôr zmeniť a presúva sa v prípade nepriaznivého počasia alebo nedostatočného počtu prihlásených.",
+    schedule: [
+      {
+        day: "1. deň (sobota)",
+        title: "Základy techniky a pravidlá",
+        items: [
+          "Úvod do techniky golfového švihu",
+          "Tréning s profesionálnymi trénermi PGA SK",
+          "Pravidlá golfu a golfová etika",
+          "Zapožičanie golfového vybavenia a loptičiek",
+        ],
+      },
+      {
+        day: "2. deň (nedeľa)",
+        title: "Príprava na zelenú kartu",
+        items: [
+          "Pokračovanie tréningu – celkovo 12 hodín kurzu",
+          "Praktický tréning na ihrisku",
+          "Záverečná skúška na zelenú kartu",
+          "Darček v cene a zelená karta po úspešnom absolvovaní",
+        ],
+      },
+    ],
+    contact: {
+      name: "BSGA tím",
+      email: "bsga@bsga.sk",
+      phone: "+421 917 225 276",
+    },
+  },
+});
+
 const events: EventItem[] = [
+
   {
     title: "DONI-TRAVEL × BSGA — Turnaj Pro-Am Tímov",
     date: "13. – 15. 9. 2026",
@@ -83,6 +134,9 @@ const events: EventItem[] = [
     title: "Švajlen Invitational",
     date: "25. 9. 2026",
     location: "Golfový klub Hrubá Borša, Slovensko",
+    hideSignup: true,
+    hidePoster: true,
+
     details: {
       subtitle: "Jednokolový pozvánkový turnaj",
       intro: "Jednokolový pozvánkový turnaj konajúci sa na golfovom ihrisku v Hrubej Borši (GKHB). Môžete sa tešiť na welcome drink, občerstvenie, obed po hre a vyhlásenie aj s cenami.",
@@ -125,7 +179,10 @@ const events: EventItem[] = [
       },
     },
   },
+
+  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
 
 const archivedEvents: EventItem[] = [
   {
@@ -200,13 +257,15 @@ const archivedEvents: EventItem[] = [
     },
   },
 
+
 ];
+
 
 const EventCard = ({
   event,
   index,
   variant = "small",
-  hideSignup = false,
+  hideSignup: hideSignupProp = false,
   soldOut = false,
 }: {
   event: EventItem;
@@ -215,9 +274,12 @@ const EventCard = ({
   hideSignup?: boolean;
   soldOut?: boolean;
 }) => {
+  const hideSignup = hideSignupProp || event.hideSignup === true;
+  const hidePoster = event.hidePoster === true;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [infoOpen, setInfoOpen] = useState(false);
+
   const contactEmail = event.details?.contact.email;
   const signupEmail = Array.isArray(contactEmail) ? contactEmail.join(",") : contactEmail ?? "peter@doni-travel.sk";
   const contactPhone = event.details?.contact.phone ?? "+421 905 335 501";
@@ -290,7 +352,7 @@ const EventCard = ({
                   <FileText className="w-4 h-4" />
                   Plagát
                 </a>
-              ) : (
+              ) : hidePoster ? null : (
                 <span
                   aria-disabled="true"
                   className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
@@ -299,6 +361,7 @@ const EventCard = ({
                   Plagát čoskoro
                 </span>
               )}
+
               {event.details ? (
                 <button
                   type="button"
@@ -468,7 +531,7 @@ const EventCard = ({
                     Stiahnuť plagát
                   </a>
                 )}
-                {!soldOut ? (
+                {hideSignup ? null : !soldOut ? (
                   <a
                     href={`mailto:${signupEmail}?subject=${mailSubject}`}
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
