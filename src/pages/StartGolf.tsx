@@ -149,6 +149,26 @@ const StartGolf = () => {
       publisher: { "@id": "https://bsga.sk/#organization" },
     })),
   };
+  const serviceSchemas = [
+    { name: "Individuálna lekcia golfu", price: "59.99" },
+    { name: "Víkendový kurz zelenej karty", price: "139.99" },
+    { name: "Kurz zelenej karty", price: "549.99" },
+  ].map((x) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: x.name,
+    serviceType: "Golf",
+    url: "https://bsga.sk/zacni-s-golfom",
+    provider: { "@id": "https://bsga.sk/#organization" },
+    areaServed: { "@type": "Country", name: "Slovensko" },
+    offers: {
+      "@type": "Offer",
+      price: x.price,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: "https://bsga.sk/obchod",
+    },
+  }));
   const courseSchemas = [
     {
       name: "Víkendový kurz zelenej karty",
@@ -242,6 +262,7 @@ const StartGolf = () => {
         path="/zacni-s-golfom"
         breadcrumbs={BREADCRUMBS}
         jsonLd={[...courseSchemas, faqJsonLd, reviewSchema]}
+        schema={serviceSchemas}
       />
 
       <Navbar />
