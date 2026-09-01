@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const IndoorLeague = () => (
   <div className="space-y-6">
+    <SEO
+      title="BSGA Indoor League | Performance Center"
+      description="Zimná indoor liga BSGA v Performance Center Bratislava. Pripravujeme termíny, formát súťaže a prihlasovanie pre hráčov všetkých výkonnostných úrovní."
+      path="/admin/performance-center/indoor-league"
+      noindex
+    />
     <Link
       to="/admin/performance-center"
       className="text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground"

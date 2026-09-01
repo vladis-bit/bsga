@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
     <>
       <SEO
         title="Obchodné podmienky | BSGA"
-        description="Obchodné podmienky BSGA - Best Swing Golf Academy. Všeobecné obchodné podmienky poskytovania služieb platné od 9. marca 2026."
+        description="Všeobecné obchodné podmienky BSGA – Best Swing Golf Academy. Podmienky objednávok golfových služieb, kurzov, poukážok, platieb, storna a reklamácií."
         path="/obchodne-podmienky"
         breadcrumbs={BREADCRUMBS}
       />

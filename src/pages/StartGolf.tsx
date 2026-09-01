@@ -238,7 +238,7 @@ const StartGolf = () => {
     <>
       <SEO
         title="Začni s golfom | BSGA - Best Swing Golf Academy"
-        description="Začni s golfom - Víkendový kurz zelenej karty, kurz zelenej karty a individuálne lekcie. Vyber si program a kúp si kurz online."
+        description="Začnite s golfom v BSGA – víkendový kurz zelenej karty, kompletný kurz ZK a individuálne lekcie s PGA trénermi. Bez vlastného vybavenia, vybavenie zapožičiame."
         path="/zacni-s-golfom"
         breadcrumbs={BREADCRUMBS}
         jsonLd={[...courseSchemas, faqJsonLd, reviewSchema]}

@@ -56,7 +56,7 @@ const EducationTestsKids = () => {
     <>
       <SEO
         title="Záverečný test ZK pre deti | Edukačné centrum | BSGA"
-        description="Detský záverečný test na zelenú kartu – 30 otázok z golfovej etikety, bezpečnosti a pravidiel golfu."
+        description="Detský záverečný test na zelenú kartu – 30 otázok z golfovej etikety, bezpečnosti a pravidiel, prispôsobených juniorom. Vyskúšajte si test online zadarmo."
         path="/edukacne-centrum/testy-deti"
         breadcrumbs={[
           { name: "Domov", url: "https://bsga.sk/" },

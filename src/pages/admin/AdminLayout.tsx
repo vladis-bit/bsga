@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -228,6 +229,13 @@ const AdminLayout = () => {
 
   return (
     <div className="theme-ivory min-h-screen bg-background text-foreground">
+      <SEO
+        title="BSGA Admin"
+        description="Interná administrácia BSGA – správa rezervácií Performance Centra, kalendár termínov, prijaté správy z formulárov a nastavenia pre administrátorov akadémie."
+        path="/admin"
+        noindex
+        nofollow
+      />
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-3 lg:gap-6">

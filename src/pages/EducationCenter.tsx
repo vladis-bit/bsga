@@ -62,7 +62,7 @@ const EducationCenter = () => {
     <>
       <SEO
         title="Edukačné centrum | BSGA"
-        description="Edukačné centrum BSGA - golfové rady, otázky, analýzy a know-how."
+        description="Edukačné centrum BSGA – golfové rady, testy pravidiel a etikety, kalkulačky a know-how od PGA trénerov. Naučte sa všetko potrebné pred vstupom na ihrisko."
         path="/edukacne-centrum"
         breadcrumbs={BREADCRUMBS}
         jsonLd={eduJsonLd}

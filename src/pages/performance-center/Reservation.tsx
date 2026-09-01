@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import BookingCalendar from "@/components/performance-center/BookingCalendar";
 
 const Reservation = () => (
   <div className="space-y-6">
+    <SEO
+      title="Rezervácia simulátora | BSGA Performance Center"
+      description="Rezervačný kalendár golfových simulátorov Trackman 4 a Trackman iO v BSGA Performance Center Bratislava. Vyberte si termín a dĺžku tréningu online."
+      path="/admin/performance-center/rezervacia"
+      noindex
+    />
     <header className="space-y-3">
       <Link
         to="/admin/performance-center"

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import PcContactBlock from "@/components/performance-center/PcContactBlock";
 import { useToast } from "@/hooks/use-toast";
 
@@ -46,6 +47,12 @@ const PerformanceCenterHome = () => {
 
   return (
   <div className="space-y-6 sm:space-y-8">
+    <SEO
+      title="BSGA Performance Center Bratislava"
+      description="BSGA Performance Center na Zuzany Chalupovej 12 v Bratislave Petržalke. Trackman simulátory, indoor tréningy s PGA trénermi a online rezervácia termínov."
+      path="/admin/performance-center"
+      noindex
+    />
     <header className="space-y-3">
       <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary">
         Bratislava · Zuzany Chalupovej 12
