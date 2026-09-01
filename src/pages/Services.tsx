@@ -206,14 +206,35 @@ const BREADCRUMBS = [
 ];
 
 const Services = () => {
-  const serviceSchemas = services.map((s) => ({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: s.title,
-    provider: { "@id": "https://bsga.sk/#organization" },
-    areaServed: "SK",
-    serviceType: "Golf",
-  }));
+  // Ceny podľa cenníka v obchode BSGA – Offer pridávame len tam, kde cena existuje.
+  const servicePrices: Record<string, string> = {
+    "Individuálne lekcie": "59.99",
+    "Víkendový kurz zelenej karty": "139.99",
+    "Zelené karty": "549.99",
+    "Detské kempy": "310",
+  };
+  const serviceSchemas = services.map((s) => {
+    const price = servicePrices[s.title];
+    return {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: s.title,
+      provider: { "@id": "https://bsga.sk/#organization" },
+      areaServed: { "@type": "Country", name: "Slovensko" },
+      serviceType: "Golf",
+      ...(price
+        ? {
+            offers: {
+              "@type": "Offer",
+              price,
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: "https://bsga.sk/obchod",
+            },
+          }
+        : {}),
+    };
+  });
   return (
     <>
       <SEO
