@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import WavesCanvas from "@/components/WavesCanvas";
 import peterPhoto from "@/assets/team/peter-svajlen.webp";
 import marosPhoto from "@/assets/team/maros-gajan.webp";
+import domkaPhoto from "@/assets/team/donka-svajlenova.webp";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
 import czechPgaPoster from "@/assets/event-posters/doni-travel-czech-pga-tour.pdf.asset.json";
 import camiralPoster from "@/assets/event-posters/doni-travel-camiral.pdf.asset.json";
@@ -104,7 +105,7 @@ const weekendGreenCardEvent = (date: string): EventItem => ({
       },
     ],
     contact: {
-      name: "BSGA tím",
+      name: "Domka Švajlenová",
       email: "bsga@bsga.sk",
       phone: "+421 917 225 276",
     },
@@ -545,7 +546,13 @@ const EventCard = ({
                 </div>
                 </div>
                 <img
-                  src={event.details.contact.name.includes("Maroš") ? marosPhoto : peterPhoto}
+                  src={
+                    event.details.contact.name.includes("Maroš")
+                      ? marosPhoto
+                      : event.details.contact.name.includes("Domka")
+                        ? domkaPhoto
+                        : peterPhoto
+                  }
                   alt={`Kontaktná osoba ${event.details.contact.name}`}
                   loading="lazy"
                   className="w-28 h-32 sm:w-32 sm:h-40 rounded-2xl object-cover object-[center_20%] border border-gold/40 shadow-md shadow-gold/10 flex-shrink-0 self-center"
