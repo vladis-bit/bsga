@@ -45,15 +45,27 @@ for (const m of appSource.matchAll(importRe)) {
 /** Parse <Route ...> declarations, tracking nesting so children inherit the parent path. */
 const routes = [];
 const stack = [];
-const routeRe = /<Route\b([^>]*?)(\/?)>|<\/Route>/g;
-for (const m of appSource.matchAll(routeRe)) {
-  if (m[0] === "</Route>") {
+
+/** Scan the source for <Route ...> / </Route>, honouring JSX braces inside attributes. */
+for (let i = 0; i < appSource.length; i++) {
+  if (appSource.startsWith("</Route>", i)) {
     stack.pop();
+    i += 7;
     continue;
   }
-  const attrs = m[1];
-  const selfClosing = m[2] === "/";
-  const pathAttr = attrs.match(/path=["'](.*?)["']/)?.[1];
+  if (!appSource.startsWith("<Route", i)) continue;
+
+  let depth = 0;
+  let j = i + 6;
+  for (; j < appSource.length; j++) {
+    const c = appSource[j];
+    if (c === "{") depth++;
+    else if (c === "}") depth--;
+    else if (c === ">" && depth === 0) break;
+  }
+  const attrs = appSource.slice(i + 6, j);
+  const selfClosing = attrs.trimEnd().endsWith("/");
+  const pathAttr = attrs.match(/\bpath=["'](.*?)["']/)?.[1];
   const isIndex = /\bindex\b/.test(attrs);
   const element = attrs.match(/element=\{<(\w+)/)?.[1];
 
@@ -65,7 +77,9 @@ for (const m of appSource.matchAll(routeRe)) {
 
   routes.push({ path: full, element });
   if (!selfClosing) stack.push(full);
+  i = j;
 }
+
 
 const EXCLUDED_PREFIXES = ["/admin", "/rezervacia", "/reset-password"];
 
