@@ -638,51 +638,81 @@ const Events = () => {
     return {};
   };
 
-  const eventSchemas = events
-    .map((e) => {
-      const { startDate, endDate } = parseEventDates(e.date);
-      if (!startDate) return null;
-      return {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        name: e.title,
-        description: e.details?.intro,
-        startDate,
-        ...(endDate ? { endDate } : {}),
-        eventStatus: "https://schema.org/EventScheduled",
-        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        location: e.location
-          ? {
-              "@type": "Place",
-              name: e.location,
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: e.location,
-                addressCountry: /florida|usa|turec|turkey|belek/i.test(e.location)
-                  ? undefined
-                  : "SK",
-              },
-            }
-          : undefined,
-        organizer: { "@id": "https://bsga.sk/#organization" },
-        url: "https://bsga.sk/eventy",
-        inLanguage: "sk-SK",
-        ...(e.details?.price
-          ? {
-              offers: {
-                "@type": "Offer",
-                priceCurrency: "EUR",
-                availability: e.soldOut
+  /** Slug pre stabilné @id jednotlivých eventov. */
+  const slugify = (value: string) =>
+    value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+
+  /** Odhad krajiny z názvu miesta – pomáha AI presne lokalizovať event. */
+  const countryFromLocation = (loc: string): string | undefined => {
+    const l = loc.toLowerCase();
+    if (/florida|usa|amerik/.test(l)) return "US";
+    if (/turec|turkey|belek|antaly/.test(l)) return "TR";
+    if (/špan|spanie|camiral|andalucia|barcelon/.test(l)) return "ES";
+    if (/česk|czech|kaskád|kaskada|brno/.test(l)) return "CZ";
+    if (/portug|quinta do lago|algarve/.test(l)) return "PT";
+    return "SK";
+  };
+
+  const buildEventSchema = (e: EventItem, past: boolean) => {
+    const { startDate, endDate } = parseEventDates(e.date);
+    if (!startDate) return null;
+    const id = `https://bsga.sk/eventy#${slugify(`${e.title}-${startDate}`)}`;
+    return {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "@id": id,
+      name: e.title,
+      description: e.details?.intro ?? e.details?.subtitle,
+      startDate,
+      ...(endDate ? { endDate } : {}),
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      isAccessibleForFree: false,
+      image: "https://bsga.sk/og/eventy.jpg",
+      location: e.location
+        ? {
+            "@type": "Place",
+            name: e.location,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: e.location.split(",")[0].trim(),
+              addressCountry: countryFromLocation(e.location),
+            },
+          }
+        : undefined,
+      organizer: { "@id": "https://bsga.sk/#organization" },
+      performer: { "@id": "https://bsga.sk/#organization" },
+      superEvent: { "@id": "https://bsga.sk/eventy#series" },
+      url: `https://bsga.sk/eventy#${slugify(e.title)}`,
+      inLanguage: "sk-SK",
+      ...(e.details?.price
+        ? {
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "EUR",
+              availability: past
+                ? "https://schema.org/SoldOut"
+                : e.soldOut
                   ? "https://schema.org/SoldOut"
                   : "https://schema.org/InStock",
-                url: "https://bsga.sk/eventy",
-                description: e.details.price,
-              },
-            }
-          : {}),
-      };
-    })
-    .filter(Boolean) as Record<string, unknown>[];
+              url: "https://bsga.sk/eventy",
+              description: e.details.price,
+            },
+          }
+        : {}),
+    };
+  };
+
+  const eventSchemas = [
+    ...events.map((e) => buildEventSchema(e, false)),
+    ...archivedEvents.map((e) => buildEventSchema(e, true)),
+  ].filter(Boolean) as Record<string, unknown>[];
+
 
   /** Geo / entity context – pomáha AI vyhľadávaniu (SGE, ChatGPT search, Perplexity). */
   const geoSchemas: Record<string, unknown>[] = [
