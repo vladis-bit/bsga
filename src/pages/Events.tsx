@@ -674,8 +674,8 @@ const Events = () => {
   return (
     <>
       <SEO
-        title="Eventy, teambuildingy a golfové pobyty | BSGA"
-        description="Golfové eventy, teambuildingy a zájazdy s BSGA a Doni-Travel. Golfové pobyty na Slovensku aj v zahraničí, turnaje, Ryder Cup a Florida PGA Swing 2027."
+        title="Eventy, teambuildingy a pozvánkový turnaj | BSGA"
+        description="Golfové eventy, teambuildingy a pozvánkový turnaj s BSGA. Turnaj je prístupný na pozvánku. Zájazdy, Ryder Cup a Florida 2027."
         path="/eventy"
         breadcrumbs={BREADCRUMBS}
         jsonLd={eventSchemas}
