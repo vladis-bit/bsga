@@ -652,16 +652,29 @@ const Events = () => {
         eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         location: e.location
-          ? { "@type": "Place", name: e.location, address: { "@type": "PostalAddress", addressCountry: "SK" } }
+          ? {
+              "@type": "Place",
+              name: e.location,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: e.location,
+                addressCountry: /florida|usa|turec|turkey|belek/i.test(e.location)
+                  ? undefined
+                  : "SK",
+              },
+            }
           : undefined,
         organizer: { "@id": "https://bsga.sk/#organization" },
         url: "https://bsga.sk/eventy",
+        inLanguage: "sk-SK",
         ...(e.details?.price
           ? {
               offers: {
                 "@type": "Offer",
                 priceCurrency: "EUR",
-                availability: "https://schema.org/InStock",
+                availability: e.soldOut
+                  ? "https://schema.org/SoldOut"
+                  : "https://schema.org/InStock",
                 url: "https://bsga.sk/eventy",
                 description: e.details.price,
               },
@@ -671,15 +684,65 @@ const Events = () => {
     })
     .filter(Boolean) as Record<string, unknown>[];
 
+  /** Geo / entity context – pomáha AI vyhľadávaniu (SGE, ChatGPT search, Perplexity). */
+  const geoSchemas: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "@id": "https://bsga.sk/#performance-center",
+      name: "BSGA Performance Center Bratislava",
+      description:
+        "Organizátor golfových eventov, firemných teambuildingov, pozvánkových turnajov a golfových pobytov na Slovensku.",
+      url: "https://bsga.sk/eventy",
+      image: "https://bsga.sk/og/eventy.jpg",
+      parentOrganization: { "@id": "https://bsga.sk/#organization" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Zuzany Chalupovej 12",
+        addressLocality: "Bratislava",
+        addressRegion: "Bratislavský kraj",
+        postalCode: "851 07",
+        addressCountry: "SK",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: 48.1108, longitude: 17.1247 },
+      areaServed: [
+        { "@type": "City", name: "Bratislava" },
+        { "@type": "City", name: "Nitra" },
+        { "@type": "AdministrativeArea", name: "Bratislavský kraj" },
+        { "@type": "Country", name: "Slovensko" },
+      ],
+      knowsLanguage: ["sk", "en"],
+      makesOffer: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Firemné golfové eventy a teambuildingy" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Golfové pobyty a zájazdy" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Pozvánkové golfové turnaje" } },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "EventSeries",
+      name: "BSGA Eventy, teambuildingy a golfové pobyty",
+      url: "https://bsga.sk/eventy",
+      inLanguage: "sk-SK",
+      organizer: { "@id": "https://bsga.sk/#organization" },
+      location: { "@id": "https://bsga.sk/#performance-center" },
+    },
+  ];
+
   return (
     <>
       <SEO
         title="Eventy, teambuildingy a pozvánkový turnaj | BSGA"
         description="Golfové eventy, teambuildingy a pozvánkový turnaj s BSGA. Turnaj je prístupný na pozvánku. Zájazdy, Ryder Cup a Florida 2027."
         path="/eventy"
+        ogType="website"
+        image="https://bsga.sk/og/eventy.jpg"
+        imageAlt="Golfové eventy, teambuildingy a pobyty s BSGA"
+        geo={{ region: "SK-BL", placename: "Bratislava", latitude: 48.1108, longitude: 17.1247 }}
         breadcrumbs={BREADCRUMBS}
-        jsonLd={eventSchemas}
+        jsonLd={[...geoSchemas, ...eventSchemas]}
       />
+
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <Breadcrumbs items={BREADCRUMBS} />
