@@ -750,12 +750,15 @@ const Events = () => {
     },
     {
       "@context": "https://schema.org",
+      "@context": "https://schema.org",
       "@type": "EventSeries",
+      "@id": "https://bsga.sk/eventy#series",
       name: "BSGA Eventy, teambuildingy a golfové pobyty",
       url: "https://bsga.sk/eventy",
       inLanguage: "sk-SK",
       organizer: { "@id": "https://bsga.sk/#organization" },
       location: { "@id": "https://bsga.sk/#performance-center" },
+      subEvent: eventSchemas.map((s) => ({ "@id": s["@id"] })),
     },
   ];
 
