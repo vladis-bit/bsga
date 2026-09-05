@@ -294,6 +294,26 @@ const archivedEvents: EventItem[] = [
 
 ];
 
+/**
+ * Akcie sezóny 2027 zobrazené v sekcii "Akcie a pobyty v roku 2027".
+ * Slúžia ako zdroj pravdy pre JSON-LD (dátumy zodpovedajú textom v UI).
+ */
+const events2027: EventItem[] = [
+  {
+    title: "Jarný tréningový kemp v Turecku",
+    date: "13. – 20. 3. 2027",
+    location: "Belek, Turecko",
+  },
+  {
+    title: "Florida PGA Swing by DONI-Travel",
+    date: "26. 3. – 2. 4. 2027",
+    location: "Florida, USA",
+    soldOut: true,
+  },
+];
+
+
+
 
 const EventCard = ({
   event,
@@ -619,24 +639,36 @@ const Events = () => {
   const [floridaOpen, setFloridaOpen] = useState(false);
 
   const parseEventDates = (dateStr: string): { startDate?: string; endDate?: string } => {
-    // Handles: "1. – 6. 5. 2026" | "20. – 23. 8. 2026" | "25. 9. 2026" | "10. – 17. 10. 2026"
-    const months: Record<string, string> = {};
-    const clean = dateStr.replace(/\s+/g, " ").trim();
-    const rangeMatch = clean.match(/^(\d+)\.\s*(?:–|-)\s*(\d+)\.\s*(\d+)\.\s*(\d{4})$/);
-    if (rangeMatch) {
-      const [, d1, d2, m, y] = rangeMatch;
+    // Handles: "1. – 6. 5. 2026" | "25. 9. 2026" | "26. 3. – 2. 4. 2027"
+    const clean = dateStr.replace(/\s+/g, " ").replace(/–/g, "-").trim();
+    const pad = (v: string) => v.padStart(2, "0");
+
+    // "D. M. - D. M. YYYY" (rozsah cez dva mesiace)
+    const crossMonth = clean.match(/^(\d{1,2})\.\s*(\d{1,2})\.\s*-\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})$/);
+    if (crossMonth) {
+      const [, d1, m1, d2, m2, y] = crossMonth;
       return {
-        startDate: `${y}-${m.padStart(2, "0")}-${d1.padStart(2, "0")}`,
-        endDate: `${y}-${m.padStart(2, "0")}-${d2.padStart(2, "0")}`,
+        startDate: `${y}-${pad(m1)}-${pad(d1)}`,
+        endDate: `${y}-${pad(m2)}-${pad(d2)}`,
       };
     }
-    const single = clean.match(/^(\d+)\.\s*(\d+)\.\s*(\d{4})$/);
+
+    // "D. - D. M. YYYY" (rozsah v rámci jedného mesiaca)
+    const rangeMatch = clean.match(/^(\d{1,2})\.\s*-\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})$/);
+    if (rangeMatch) {
+      const [, d1, d2, m, y] = rangeMatch;
+      return { startDate: `${y}-${pad(m)}-${pad(d1)}`, endDate: `${y}-${pad(m)}-${pad(d2)}` };
+    }
+
+    // "D. M. YYYY" (jednodňová akcia)
+    const single = clean.match(/^(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})$/);
     if (single) {
       const [, d, m, y] = single;
-      return { startDate: `${y}-${m.padStart(2, "0")}-${d.padStart(2, "0")}` };
+      return { startDate: `${y}-${pad(m)}-${pad(d)}` };
     }
     return {};
   };
+
 
   /** Slug pre stabilné @id jednotlivých eventov. */
   const slugify = (value: string) =>
@@ -710,7 +742,9 @@ const Events = () => {
 
   const eventSchemas = [
     ...events.map((e) => buildEventSchema(e, false)),
+    ...events2027.map((e) => buildEventSchema(e, false)),
     ...archivedEvents.map((e) => buildEventSchema(e, true)),
+
   ].filter(Boolean) as Record<string, unknown>[];
 
 
