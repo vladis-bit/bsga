@@ -294,6 +294,26 @@ const archivedEvents: EventItem[] = [
 
 ];
 
+/**
+ * Akcie sezóny 2027 zobrazené v sekcii "Akcie a pobyty v roku 2027".
+ * Slúžia ako zdroj pravdy pre JSON-LD (dátumy zodpovedajú textom v UI).
+ */
+const events2027: EventItem[] = [
+  {
+    title: "Jarný tréningový kemp v Turecku",
+    date: "13. – 20. 3. 2027",
+    location: "Belek, Turecko",
+  },
+  {
+    title: "Florida PGA Swing by DONI-Travel",
+    date: "26. 3. – 2. 4. 2027",
+    location: "Florida, USA",
+    soldOut: true,
+  },
+];
+
+
+
 
 const EventCard = ({
   event,
