@@ -81,7 +81,7 @@ const tournaments = [
     image: ostraviceImg,
     presenter: "Altron",
     promoUrl: promo5Asset.url,
-    links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "#", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
+    links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "https://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj?id=1300146509", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
   }
 ];
 
