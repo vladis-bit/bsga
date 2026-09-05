@@ -722,7 +722,9 @@ const Events = () => {
 
   const eventSchemas = [
     ...events.map((e) => buildEventSchema(e, false)),
+    ...events2027.map((e) => buildEventSchema(e, false)),
     ...archivedEvents.map((e) => buildEventSchema(e, true)),
+
   ].filter(Boolean) as Record<string, unknown>[];
 
 
