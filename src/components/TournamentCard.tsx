@@ -47,8 +47,8 @@ const TournamentCard = ({
   const ivory = theme === "ivory";
   const imageAlt = `${tournamentTitle(number, tourLabel)}${season ? ` ${season}` : ""} – golfové ihrisko ${location}`;
   const shellClass = ivory
-    ? "bg-card border border-border rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-xl hover:shadow-gold/10"
-    : "bg-primary border border-gold/30 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10";
+    ? `bg-card border border-border rounded-3xl overflow-hidden transition-all duration-300 hover:border-gold/60 hover:shadow-xl hover:shadow-gold/10 ${teaser ? "cursor-default" : "cursor-pointer"}`
+    : `bg-primary border border-gold/30 rounded-3xl overflow-hidden transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10 ${teaser ? "cursor-default" : "cursor-pointer"}`;
   const titleClass = ivory ? "text-foreground" : "text-primary-foreground";
   const imageFrame = ivory ? "border-border" : "border-gold/20";
   const dividerClass = ivory ? "border-border" : "border-gold/20";
