@@ -111,12 +111,12 @@ const TournamentCard = ({
             </span>
           </div>
           {/* Desktop: single row */}
-          <div className="hidden sm:flex items-center justify-between gap-4">
-            <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
-            <div className="flex flex-col items-center flex-1 min-w-0 gap-0.5">
-              <span className={`${titleClass} font-serif font-bold text-lg tracking-wide whitespace-nowrap`}>
-                {tournamentTitle(number, tourLabel)}
-              </span>
+            <div className="hidden sm:flex items-center justify-between gap-4">
+              <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
+              <div className="flex flex-col items-center flex-1 min-w-0 gap-0.5">
+                <span className={`${titleClass} font-serif font-bold text-lg tracking-wide ${teaser ? "whitespace-normal text-center" : "whitespace-nowrap"}`}>
+                  {tournamentTitle(number, tourLabel)}
+                </span>
               {presenter && (
                 <span className="text-gold text-[10px] uppercase tracking-wider truncate max-w-full">
                   presented by {presenter}
