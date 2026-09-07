@@ -47,8 +47,8 @@ const TournamentCard = ({
   const ivory = theme === "ivory";
   const imageAlt = `${tournamentTitle(number, tourLabel)}${season ? ` ${season}` : ""} – golfové ihrisko ${location}`;
   const shellClass = ivory
-    ? "bg-card border border-border rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-xl hover:shadow-gold/10"
-    : "bg-primary border border-gold/30 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10";
+    ? `bg-card border border-border rounded-3xl overflow-hidden transition-all duration-300 hover:border-gold/60 hover:shadow-xl hover:shadow-gold/10 ${teaser ? "cursor-default" : "cursor-pointer"}`
+    : `bg-primary border border-gold/30 rounded-3xl overflow-hidden transition-all duration-300 hover:border-gold/60 hover:shadow-lg hover:shadow-gold/10 ${teaser ? "cursor-default" : "cursor-pointer"}`;
   const titleClass = ivory ? "text-foreground" : "text-primary-foreground";
   const imageFrame = ivory ? "border-border" : "border-gold/20";
   const dividerClass = ivory ? "border-border" : "border-gold/20";
@@ -111,12 +111,12 @@ const TournamentCard = ({
             </span>
           </div>
           {/* Desktop: single row */}
-          <div className="hidden sm:flex items-center justify-between gap-4">
-            <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
-            <div className="flex flex-col items-center flex-1 min-w-0 gap-0.5">
-              <span className={`${titleClass} font-serif font-bold text-lg tracking-wide whitespace-nowrap`}>
-                {tournamentTitle(number, tourLabel)}
-              </span>
+            <div className="hidden sm:flex items-center justify-between gap-4">
+              <span className="text-gold text-lg font-sans flex-shrink-0">{date}</span>
+              <div className="flex flex-col items-center flex-1 min-w-0 gap-0.5">
+                <span className={`${titleClass} font-serif font-bold text-lg tracking-wide ${teaser ? "whitespace-normal text-center" : "whitespace-nowrap"}`}>
+                  {tournamentTitle(number, tourLabel)}
+                </span>
               {presenter && (
                 <span className="text-gold text-[10px] uppercase tracking-wider truncate max-w-full">
                   presented by {presenter}
