@@ -18,5 +18,7 @@ const SK_ORDINALS = [
 export const skOrdinal = (n: number) => SK_ORDINALS[n] ?? `${n}.`;
 
 /** Názov turnaja v tvare "Prvý turnaj BSGA Tour". */
-export const tournamentTitle = (n: number, tourLabel = "BSGA Tour") =>
-  `${skOrdinal(n)} turnaj ${tourLabel}`;
+export const tournamentTitle = (n: number, tourLabel = "BSGA Tour") => {
+  const base = `${skOrdinal(n)} turnaj`;
+  return tourLabel ? `${base} ${tourLabel}` : base;
+};

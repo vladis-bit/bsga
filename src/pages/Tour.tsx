@@ -147,6 +147,14 @@ const tournaments2022 = [
   { number: 5, date: "2022", location: "Hrubá Borša", image: hrubaBorsaImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1m2WOPzWxIUhmIzHm8XdeLT1cBHMZKUC9?usp=drive_link" } },
 ];
 
+const tournaments2027 = [
+  { number: 1, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 2, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 3, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 4, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 5, date: "TBD", location: "TBD", image: undefined, links: {} },
+];
+
 const SITE_URL = "https://bsga.sk";
 const abs = (p: string) => (p.startsWith("http") ? p : `${SITE_URL}${p}`);
 
@@ -385,6 +393,49 @@ const Tour = () => {
                 </a>
               </div>
 
+            </div>
+          </section>
+
+          {/* BSGA Tour 2027 — Sneak peek */}
+          <section className="bg-muted/30 py-16 md:py-24">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                    BSGA Tour 2027
+                  </h2>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Sneak peek</p>
+                </div>
+                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
+                  Dátumy a lokality budú čoskoro
+                </span>
+              </div>
+
+              <div className="max-w-3xl mx-auto relative">
+                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
+                  <CarouselContent>
+                    {tournaments2027.map((tournament) => (
+                      <CarouselItem key={tournament.number}>
+                        <TournamentCard
+                          theme="ivory"
+                          number={tournament.number}
+                          date={tournament.date}
+                          location={tournament.location}
+                          season="2027"
+                          image={tournament.image}
+                          links={tournament.links}
+                          tourLabel=""
+                          teaser
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
+                  </div>
+                </Carousel>
+              </div>
             </div>
           </section>
 
