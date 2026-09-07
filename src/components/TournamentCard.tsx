@@ -176,4 +176,6 @@ const TournamentCard = ({
         </AnimatePresence>
       )}
     </motion.div>;
+};
+
 export default TournamentCard;
