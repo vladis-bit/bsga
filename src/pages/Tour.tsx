@@ -363,6 +363,9 @@ const Tour = () => {
           {/* Tournament Schedule */}
           <section className="bg-background pt-6 pb-16 sm:pt-8 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
+              <h2 className="mb-8 text-center font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:mb-10 sm:text-4xl">
+                Dôležité dokumenty
+              </h2>
               <div className="mb-10 flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-4 sm:mb-14">
                 <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
                   <FileText size={16} className="text-gold" />
@@ -378,7 +381,7 @@ const Tour = () => {
                 </a>
                 <a href={rd4StandingsAsset.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
                   <Trophy size={16} />
-                  Priebežné poradie
+                  Kompletné poradie
                 </a>
               </div>
 
