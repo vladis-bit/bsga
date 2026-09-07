@@ -410,7 +410,7 @@ const Tour = () => {
                   <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
                 </div>
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
-                  Sezóna 2026
+                  {"\n"}
                 </span>
               </div>
 
