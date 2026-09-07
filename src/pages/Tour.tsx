@@ -404,37 +404,27 @@ const Tour = () => {
                   <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
                     BSGA Tour 2027
                   </h2>
-                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">{"\n"}</p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">11. ročník</p>
                 </div>
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
                   Dátumy a lokality budú čoskoro
                 </span>
               </div>
 
-              <div className="max-w-3xl mx-auto relative">
-                <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
-                  <CarouselContent>
-                    {tournaments2027.map((tournament) => (
-                      <CarouselItem key={tournament.number}>
-                        <TournamentCard
-                          theme="ivory"
-                          number={tournament.number}
-                          date={tournament.date}
-                          location={tournament.location}
-                          season="2027"
-                          image={tournament.image}
-                          links={tournament.links}
-                          tourLabel=""
-                          teaser
-                        />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <div className="flex justify-center gap-4 mt-6">
-                    <CarouselPrevious className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
-                    <CarouselNext className="static translate-y-0 rounded-full bg-card border-border text-foreground hover:border-gold/60 hover:bg-muted" />
-                  </div>
-                </Carousel>
+              <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                {tournaments2027.map((tournament) => (
+                  <TournamentCard
+                    key={tournament.number}
+                    theme="ivory"
+                    number={tournament.number}
+                    date={tournament.date}
+                    location={tournament.location}
+                    season="2027"
+                    image={tournament.image}
+                    links={tournament.links}
+                    teaser
+                  />
+                ))}
               </div>
             </div>
           </section>
