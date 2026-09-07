@@ -23,6 +23,8 @@ interface TournamentCardProps {
   season?: string;
   /** Render the image eagerly (only for above-the-fold cards). */
   eager?: boolean;
+  /** Teaser / sneak-peek mode: disables expansion and action buttons. */
+  teaser?: boolean;
 }
 
 const TournamentCard = ({
@@ -38,7 +40,8 @@ const TournamentCard = ({
   hideLocation = false,
   theme = "dark",
   season,
-  eager = false
+  eager = false,
+  teaser = false,
 }: TournamentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const ivory = theme === "ivory";
