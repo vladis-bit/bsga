@@ -58,7 +58,7 @@ const TournamentCard = ({
     ...(!hideResults ? [{ icon: Trophy, label: "VÝSLEDKY", url: links?.resultsUrl }] : []),
     { icon: Camera, label: "GALÉRIA", url: links?.galleryUrl },
   ];
-  return <motion.div className={shellClass} onClick={() => setIsExpanded(!isExpanded)} layout>
+  return <motion.div className={shellClass} onClick={teaser ? undefined : () => setIsExpanded(!isExpanded)} layout>
       {/* Course Image */}
       <div className="p-3 sm:p-4 pb-0">
         <div className={`relative w-full aspect-[16/9] rounded-2xl overflow-hidden border ${imageFrame}`}>
@@ -130,47 +130,50 @@ const TournamentCard = ({
         </div>
 
         {/* Expand indicator */}
-        <motion.div animate={{
-        rotate: isExpanded ? 180 : 0
-      }} transition={{
-        duration: 0.3
-      }} className="flex-shrink-0">
-          <ChevronDown className="text-gold" size={20} />
-        </motion.div>
+        {!teaser && (
+          <motion.div animate={{
+          rotate: isExpanded ? 180 : 0
+        }} transition={{
+          duration: 0.3
+        }} className="flex-shrink-0">
+            <ChevronDown className="text-gold" size={20} />
+          </motion.div>
+        )}
       </div>
 
       {/* Expandable content */}
-      <AnimatePresence>
-        {isExpanded && <motion.div initial={{
-        height: 0,
-        opacity: 0
-      }} animate={{
-        height: "auto",
-        opacity: 1
-      }} exit={{
-        height: 0,
-        opacity: 0
-      }} transition={{
-        duration: 0.3,
-        ease: "easeOut"
-      }}>
-            <div className={`px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t ${dividerClass}`}>
-              <div className={`grid gap-3 sm:gap-4 ${actionButtons.length === 1 ? "grid-cols-1 place-items-center" : "grid-cols-1 sm:grid-cols-2"}`}>
-{actionButtons.map((button, index) => <a key={index} href={button.url || "#"} target={button.url && button.url !== "#" ? "_blank" : undefined} rel={button.url && button.url !== "#" ? "noopener noreferrer" : undefined} aria-label={button.label} onClick={e => {
-              e.stopPropagation();
-              if (!button.url || button.url === "#") {
-                e.preventDefault();
-              }
-            }} className={`flex items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-primary transition-colors duration-300 ${actionButtons.length === 1 ? "w-full max-w-xs" : "w-full"} ${button.url && button.url !== "#" ? "hover:bg-gold-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2" : "opacity-50 cursor-not-allowed hover:bg-gold"}`}>
-                    <button.icon size={18} />
-                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">
-                      {button.label}
-                    </span>
-                  </a>)}
+      {!teaser && (
+        <AnimatePresence>
+          {isExpanded && <motion.div initial={{
+          height: 0,
+          opacity: 0
+        }} animate={{
+          height: "auto",
+          opacity: 1
+        }} exit={{
+          height: 0,
+          opacity: 0
+        }} transition={{
+          duration: 0.3,
+          ease: "easeOut"
+        }}>
+              <div className={`px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t ${dividerClass}`}>
+                <div className={`grid gap-3 sm:gap-4 ${actionButtons.length === 1 ? "grid-cols-1 place-items-center" : "grid-cols-1 sm:grid-cols-2"}`}>
+  {actionButtons.map((button, index) => <a key={index} href={button.url || "#"} target={button.url && button.url !== "#" ? "_blank" : undefined} rel={button.url && button.url !== "#" ? "noopener noreferrer" : undefined} aria-label={button.label} onClick={e => {
+                e.stopPropagation();
+                if (!button.url || button.url === "#") {
+                  e.preventDefault();
+                }
+              }} className={`flex items-center justify-center gap-2 rounded-xl bg-gold px-4 py-3 text-primary transition-colors duration-300 ${actionButtons.length === 1 ? "w-full max-w-xs" : "w-full"} ${button.url && button.url !== "#" ? "hover:bg-gold-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2" : "opacity-50 cursor-not-allowed hover:bg-gold"}`}>
+                      <button.icon size={18} />
+                      <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">
+                        {button.label}
+                      </span>
+                    </a>)}
+                </div>
               </div>
-            </div>
-          </motion.div>}
-      </AnimatePresence>
+            </motion.div>}
+        </AnimatePresence>
+      )}
     </motion.div>;
-};
 export default TournamentCard;
