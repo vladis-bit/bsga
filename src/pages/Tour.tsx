@@ -451,7 +451,7 @@ const Tour = () => {
                   <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
                     BSGA Tour 2026
                   </h2>
-                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív — 10. ročník</p>
                 </div>
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
                   {"\n"}
