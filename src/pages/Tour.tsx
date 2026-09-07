@@ -382,14 +382,32 @@ const Tour = () => {
                 </a>
               </div>
 
+            </div>
+          </section>
+
+          {/* Registration */}
+          <section className="bg-foreground py-16 md:py-24">
+            <div className="container mx-auto px-4 sm:px-6">
+              <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-muted p-8 text-center sm:p-10 md:p-12">
+                <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">Oslovila vás BSGA Tour ?</h2>
+                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-foreground/70 sm:text-lg">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
+                <a href="mailto:touroffice@bsga.sk" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
+                  <Mail size={18} />
+                  touroffice@bsga.sk
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* BSGA Tour 2026 */}
+          <section className="bg-background py-16 md:py-24">
+            <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
                   <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
-                    Termíny turnajov
+                    BSGA Tour 2026
                   </h2>
-                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">
-                    <CalendarDays className="h-4 w-4" /> Kalendár
-                  </p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">Archív</p>
                 </div>
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
                   Sezóna 2026
@@ -424,22 +442,9 @@ const Tour = () => {
             </div>
           </section>
 
-          {/* Registration */}
-          <section className="bg-foreground py-16 md:py-24">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-muted p-8 text-center sm:p-10 md:p-12">
-                <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">Oslovila vás BSGA Tour ?</h2>
-                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-foreground/70 sm:text-lg">Pre prihlásenie alebo viac informácií nás kontaktujte</p>
-                <a href="mailto:touroffice@bsga.sk" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
-                  <Mail size={18} />
-                  touroffice@bsga.sk
-                </a>
-              </div>
-            </div>
-          </section>
-
           {/* BSGA Tour 2025 */}
           <section className="bg-muted/50 py-16 md:py-24">
+
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
