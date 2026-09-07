@@ -147,6 +147,14 @@ const tournaments2022 = [
   { number: 5, date: "2022", location: "Hrubá Borša", image: hrubaBorsaImg, links: { galleryUrl: "https://drive.google.com/drive/folders/1m2WOPzWxIUhmIzHm8XdeLT1cBHMZKUC9?usp=drive_link" } },
 ];
 
+const tournaments2027 = [
+  { number: 1, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 2, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 3, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 4, date: "TBD", location: "TBD", image: undefined, links: {} },
+  { number: 5, date: "TBD", location: "TBD", image: undefined, links: {} },
+];
+
 const SITE_URL = "https://bsga.sk";
 const abs = (p: string) => (p.startsWith("http") ? p : `${SITE_URL}${p}`);
 
