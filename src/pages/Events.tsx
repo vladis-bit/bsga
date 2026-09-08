@@ -1031,7 +1031,7 @@ const Events = () => {
                 </div>
 
                 {/* Featured: Florida PGA Swing — OBSADENÉ */}
-                <div className="relative mt-6 sm:mt-8 rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
+                <div className="relative mt-6 sm:mt-8 overflow-hidden rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
                   <div className="pointer-events-none absolute -right-12 top-5 z-20 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
                     OBSADENÉ
                   </div>
