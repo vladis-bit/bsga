@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Users, Calendar, MessageSquare, PartyPopper, Camera, Quote } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import Footer from "@/components/Footer";
 import CorporateContactForm from "@/components/CorporateContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
@@ -91,10 +91,9 @@ const CorporateEvents = () => {
       />
       <Navbar />
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* Hero – no image */}
-          <section className="relative w-full bg-transparent pb-12 sm:pb-16 md:pb-20">
+          <section className="relative w-full bg-transparent pb-12 pt-24 sm:pb-16 sm:pt-28 md:pb-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-5xl text-center">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-semibold text-gold backdrop-blur-sm sm:text-sm">

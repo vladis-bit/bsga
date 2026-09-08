@@ -5,7 +5,7 @@ import { Award, Check, ArrowRight, Flag, User, Users, TrendingUp, ChevronDown, M
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseReviews, { reviews as courseReviews } from "@/components/CourseReviews";
@@ -267,10 +267,9 @@ const StartGolf = () => {
 
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* HERO */}
-          <section className="relative overflow-hidden bg-background pb-12 sm:pb-16">
+          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}

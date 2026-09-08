@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ClipboardCheck, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import Footer from "@/components/Footer";
 
 const BREADCRUMBS = [
@@ -70,9 +70,8 @@ const EducationCenter = () => {
 
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
-          <section className="bg-background pb-10">
+          <section className="bg-background pb-10 pt-24 sm:pt-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">

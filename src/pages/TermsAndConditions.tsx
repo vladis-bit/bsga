@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
 
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
@@ -36,9 +35,8 @@ const TermsAndConditions = () => {
       />
 
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
       <main>
-        <div className="container mx-auto px-4 sm:px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-2">
             Obchodné podmienky
           </h1>

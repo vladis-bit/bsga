@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
@@ -246,9 +246,8 @@ const Services = () => {
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
-          <section className="relative overflow-hidden bg-background pb-12 sm:pb-16">
+          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
             <div className="container relative z-10 mx-auto px-4">
               <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
