@@ -20,6 +20,7 @@ import promo3Asset from "@/assets/tour-promos/promo-tour-3.pdf.asset.json";
 import promo4Asset from "@/assets/tour-promos/promo-tour-4.pdf.asset.json";
 import promo5Asset from "@/assets/tour-promos/promo-tour-5.pdf.asset.json";
 import rd4StandingsAsset from "@/assets/tour-promos/bsga-tour-rd4.pdf.asset.json";
+import tour5FinalAsset from "@/assets/tour-promos/bsga-tour5-final.pdf.asset.json";
 
 
 import hrubaBorsaImg from "@/assets/courses/hruba-borsa.webp";
@@ -387,7 +388,7 @@ const Tour = () => {
                   <FileText size={16} className="text-gold" />
                   Prezentácia BSGA Tour
                 </a>
-                <a href={rd4StandingsAsset.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
+                <a href={tour5FinalAsset.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground">
                   <Trophy size={16} />
                   Kompletné poradie
                 </a>
