@@ -269,7 +269,7 @@ const StartGolf = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* HERO */}
-          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
+          <section id="zacni-uvod" data-section="Úvod" className="scroll-mt-28 relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -296,7 +296,7 @@ const StartGolf = () => {
           </section>
 
           {/* MILESTONES OVERVIEW (timeline) */}
-          <section className="bg-background pb-12 sm:pb-16 md:pb-20">
+          <section id="zacni-milestones" data-section="Postup" className="scroll-mt-28 bg-background pb-12 sm:pb-16 md:pb-20">
             <div className="container mx-auto px-4">
               <div className="max-w-5xl mx-auto">
                 {/* Desktop horizontal timeline */}
@@ -397,7 +397,7 @@ const StartGolf = () => {
           </section>
 
           {/* KROK 1 - VÍKENDOVÝ KURZ */}
-          <section id="vikendovy-kurz" className="scroll-mt-24 bg-muted/50 py-12 sm:py-16">
+          <section id="vikendovy-kurz" data-section="Víkendový kurz" className="scroll-mt-28 bg-muted/50 py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal>
                 <div className="mx-auto mb-8 sm:mb-12 max-w-3xl border-b border-border pb-6 text-center">
@@ -555,7 +555,7 @@ const StartGolf = () => {
           </section>
 
           {/* ZELENÁ KARTA - súčasť Kroku 1 */}
-          <section id="zelena-karta" className="scroll-mt-24 bg-background py-12 sm:py-16">
+          <section id="zelena-karta" data-section="Zelená karta" className="scroll-mt-28 bg-background py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal delay={0.1}>
                 <div className="max-w-5xl mx-auto">
@@ -627,7 +627,7 @@ const StartGolf = () => {
           <MilestoneConnector />
 
           {/* KROK 3 - ZLEPŠUJ SA */}
-          <section id="zlepsuj-sa" className="scroll-mt-24 bg-muted/50 py-12 sm:py-16">
+          <section id="zlepsuj-sa" data-section="Zlepšuj sa" className="scroll-mt-28 bg-muted/50 py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal>
                 <div className="mx-auto mb-8 sm:mb-12 max-w-3xl border-b border-border pb-6 text-center">
@@ -757,7 +757,7 @@ const StartGolf = () => {
           <MilestoneConnector />
 
           {/* KROK 4 - DOMINUJ V HRE */}
-          <section id="dominuj" className="scroll-mt-24 bg-background py-12 sm:py-16">
+          <section id="dominuj" data-section="Dominuj" className="scroll-mt-28 bg-background py-12 sm:py-16">
             <div className="container mx-auto px-4">
               <Reveal>
                 <div className="mx-auto mb-8 sm:mb-12 max-w-3xl border-b border-border pb-6 text-center">
@@ -841,8 +841,9 @@ const StartGolf = () => {
           </section>
 
           {/* CTA + Contact Form */}
-          <IvoryContactForm
-            id="kontakt"
+          <div id="zacni-kontakt" data-section="Kontakt" className="scroll-mt-28">
+            <IvoryContactForm
+              id="kontakt"
             goldLabel="Začnite s golfom"
             title="Napíšte nám a začnite hrať"
             description="Neviete, čo si vybrať? Vyplňte formulár a my vám pomôžeme nájsť ideálny program podľa vašich cieľov a skúseností."
@@ -859,6 +860,7 @@ const StartGolf = () => {
             ]}
             submitText="Odoslať správu"
           />
+          </div>
         </main>
       </div>
 

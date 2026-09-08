@@ -812,7 +812,7 @@ const Events = () => {
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
+          <section id="eventy-uvod" data-section="Úvod" className="scroll-mt-28 relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -856,7 +856,7 @@ const Events = () => {
             </div>
           </section>
 
-          <section id="akcie" className="scroll-mt-24 bg-background pb-16 pt-8 md:pb-24 md:pt-10">
+          <section id="akcie" data-section="Akcie 2026" className="scroll-mt-28 bg-background pb-16 pt-8 md:pb-24 md:pt-10">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -921,7 +921,7 @@ const Events = () => {
           </section>
 
 
-          <section id="kontakt-eventy" className="scroll-mt-24 bg-background pb-20 md:pb-28">
+          <section id="kontakt-eventy" data-section="Kontakt" className="scroll-mt-28 bg-background pb-20 md:pb-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="max-w-5xl mx-auto rounded-3xl border border-border bg-muted p-6 sm:p-10 md:p-12">
                 <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 md:gap-8 text-center sm:text-left">
@@ -965,7 +965,7 @@ const Events = () => {
             </div>
           </section>
 
-          <section className="bg-foreground py-20 md:py-28">
+          <section id="eventy-2027" data-section="Akcie 2027" className="scroll-mt-28 bg-foreground py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="max-w-5xl mx-auto text-left">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-gold">
@@ -1096,7 +1096,7 @@ const Events = () => {
             </div>
           </section>
 
-          <section id="archiv-eventov" className="scroll-mt-24 bg-muted/50 py-20 md:py-28">
+          <section id="archiv-eventov" data-section="Archív" className="scroll-mt-28 bg-muted/50 py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -1119,7 +1119,9 @@ const Events = () => {
               </div>
             </div>
           </section>
-          <EventsWaitlistForm />
+          <div id="eventy-waitlist" data-section="Waitlist" className="scroll-mt-28">
+            <EventsWaitlistForm />
+          </div>
         </main>
       </div>
       <Dialog open={floridaOpen} onOpenChange={setFloridaOpen}>

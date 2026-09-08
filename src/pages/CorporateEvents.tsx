@@ -93,7 +93,7 @@ const CorporateEvents = () => {
       <AuroraBackground className="min-h-screen bg-primary text-primary-foreground" showRadialGradient={false}>
         <main>
           {/* Hero – no image */}
-          <section className="relative w-full bg-transparent pb-12 pt-24 sm:pb-16 sm:pt-28 md:pb-20">
+          <section id="firemne-uvod" data-section="Úvod" className="scroll-mt-28 relative w-full bg-transparent pb-12 pt-24 sm:pb-16 sm:pt-28 md:pb-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-5xl text-center">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-semibold text-gold backdrop-blur-sm sm:text-sm">
@@ -128,7 +128,7 @@ const CorporateEvents = () => {
           </section>
 
           {/* Intro */}
-          <section className="bg-transparent py-12 sm:py-16 md:py-20">
+          <section id="firemne-precon" data-section="Prečo firemný golf" className="scroll-mt-28 bg-transparent py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-4xl">
                 <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
@@ -152,7 +152,7 @@ const CorporateEvents = () => {
           </section>
 
           {/* HC Slovan reference */}
-          <section className="bg-transparent py-12 sm:py-16 md:py-20">
+          <section id="firemne-referencie" data-section="Referencia" className="scroll-mt-28 bg-transparent py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-4xl">
                 <div className="text-center mb-8 sm:mb-10">
@@ -191,7 +191,7 @@ const CorporateEvents = () => {
           </section>
 
           {/* How it works */}
-          <section className="bg-transparent pb-16 sm:pb-20 md:pb-24">
+          <section id="firemne-ako" data-section="Ako to funguje" className="scroll-mt-28 bg-transparent pb-16 sm:pb-20 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="text-center mb-10 sm:mb-14">
                 <span className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase">
@@ -250,7 +250,9 @@ const CorporateEvents = () => {
             </div>
           </section>
 
-          <CorporateContactForm />
+          <div id="firemne-kontakt" data-section="Kontakt" className="scroll-mt-28">
+            <CorporateContactForm />
+          </div>
         </main>
       </AuroraBackground>
       <Footer />

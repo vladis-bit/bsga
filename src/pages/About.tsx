@@ -279,7 +279,7 @@ const About = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-4 pb-8 pt-24 sm:pb-12 sm:pt-28 md:px-6 md:pb-16">
+          <section id="o-nas-uvod" data-section="Úvod" className="scroll-mt-28 relative w-full bg-background px-4 pb-8 pt-24 sm:pb-12 sm:pt-28 md:px-6 md:pb-16">
             <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-2xl min-h-[420px] sm:min-h-[600px] sm:rounded-3xl md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
               <picture className="absolute inset-0 h-full w-full">
@@ -318,7 +318,7 @@ const About = () => {
           </section>
 
           {/* Mission quote */}
-          <section className="bg-foreground pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
+          <section id="o-nas-misia" data-section="Misia" className="scroll-mt-28 bg-foreground pb-12 pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
                 <span className="mb-5 font-serif text-5xl leading-none text-gold/60 sm:mb-6 sm:text-6xl">
@@ -332,7 +332,7 @@ const About = () => {
           </section>
 
           {/* Team - Founders */}
-          <section className="bg-background py-12 sm:py-16 md:py-24">
+          <section id="o-nas-zakladatelia" data-section="Zakladatelia" className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-24">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-2 border-b border-border pb-6 sm:mb-14">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
@@ -350,7 +350,7 @@ const About = () => {
           </section>
 
           {/* Team */}
-          <section className="bg-muted/50 py-12 sm:py-16 md:py-24">
+          <section id="o-nas-tim" data-section="Tím" className="scroll-mt-28 bg-muted/50 py-12 sm:py-16 md:py-24">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-2 border-b border-border pb-6 sm:mb-14">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
@@ -368,7 +368,7 @@ const About = () => {
           </section>
 
           {/* Career CTA */}
-          <section id="kariera" className="bg-foreground py-16 sm:py-20 md:py-28">
+          <section id="kariera" data-section="Kariéra" className="scroll-mt-28 bg-foreground py-16 sm:py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="max-w-3xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-12 text-center shadow-sm">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">

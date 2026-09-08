@@ -245,7 +245,7 @@ const Shop = () => {
 
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <section className="relative overflow-hidden bg-background pb-10 pt-24 md:pb-14 md:pt-28">
+        <section id="obchod-uvod" data-section="Obchod" className="scroll-mt-28 relative overflow-hidden bg-background pb-10 pt-24 md:pb-14 md:pt-28">
           <div className="container relative z-10 mx-auto px-4">
             <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
               <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
@@ -299,7 +299,7 @@ const Shop = () => {
           </div>
         </section>
 
-        <section id="poukazky" className="scroll-mt-24 bg-background pb-16 pt-6 md:pb-24 md:pt-10">
+        <section id="poukazky" data-section="Poukážky" className="scroll-mt-28 bg-background pb-16 pt-6 md:pb-24 md:pt-10">
           <div className="container mx-auto px-4">
             <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
               <div>
@@ -321,7 +321,7 @@ const Shop = () => {
           </div>
         </section>
 
-        <section id="sluzby" className="scroll-mt-24 bg-background py-16 md:py-24">
+        <section id="sluzby" data-section="Služby" className="scroll-mt-28 bg-background py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
               <div>
@@ -354,7 +354,7 @@ const Shop = () => {
           </div>
         </section>
 
-        <section id="merch" className="scroll-mt-24 bg-background py-16 md:py-24">
+        <section id="merch" data-section="Merch" className="scroll-mt-28 bg-background py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
               <div>

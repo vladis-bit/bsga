@@ -122,7 +122,7 @@ const Fitting = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6">
+          <section id="fitting-uvod" data-section="Fitting" className="scroll-mt-28 relative w-full bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6">
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
               <img
                 src={fittingHeroImg.url}
@@ -159,7 +159,7 @@ const Fitting = () => {
           </section>
 
           {/* Benefits */}
-          <section className="bg-background py-16 md:py-24">
+          <section id="fitting-vyhody" data-section="Výhody" className="scroll-mt-28 bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -193,7 +193,7 @@ const Fitting = () => {
           </section>
 
           {/* Process */}
-          <section className="bg-background py-16 md:py-24">
+          <section id="fitting-proces" data-section="Proces" className="scroll-mt-28 bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
                 <div>
@@ -261,7 +261,7 @@ const Fitting = () => {
           </section>
 
           {/* Trust block */}
-          <section className="bg-background pb-16 md:pb-24">
+          <section id="fitting-specialista" data-section="Špecialista" className="scroll-mt-28 bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="overflow-hidden rounded-3xl border border-border bg-card">
                 <div className="grid gap-0 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
@@ -321,7 +321,7 @@ const Fitting = () => {
           </section>
 
           {/* FAQ */}
-          <section className="bg-background pb-16 md:pb-24">
+          <section id="fitting-faq" data-section="FAQ" className="scroll-mt-28 bg-background pb-16 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 border-b border-border pb-6">
                 <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
@@ -350,7 +350,9 @@ const Fitting = () => {
             </div>
           </section>
 
-          <FittingContactForm />
+          <div id="fitting-kontakt" data-section="Kontakt" className="scroll-mt-28">
+            <FittingContactForm />
+          </div>
         </main>
       </div>
       <Footer />

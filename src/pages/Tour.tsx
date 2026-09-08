@@ -287,7 +287,7 @@ const Tour = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6">
+          <section id="tour-hero" data-section="Najbližší turnaj" className="scroll-mt-28 relative w-full bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6">
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
                 <img
                   src={ostraviceImg}
@@ -350,7 +350,7 @@ const Tour = () => {
           </section>
 
           {/* Partners */}
-          <section className="bg-muted/50 py-8 sm:py-12">
+          <section id="tour-partneri" data-section="Partneri" className="scroll-mt-28 bg-muted/50 py-8 sm:py-12">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-border bg-card px-4 py-6 sm:gap-6 sm:px-6 sm:py-8">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
@@ -369,7 +369,7 @@ const Tour = () => {
           </section>
 
           {/* Tournament Schedule */}
-          <section className="bg-background pt-6 pb-16 sm:pt-8 md:pb-24">
+          <section id="tour-dokumenty" data-section="Dokumenty" className="scroll-mt-28 bg-background pt-6 pb-16 sm:pt-8 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
               <h2 className="mb-8 text-center font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:mb-10 sm:text-4xl">
                 Dôležité dokumenty
@@ -401,7 +401,7 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2027 — Sneak peek */}
-          <section className="bg-muted/30 py-16 md:py-24">
+          <section id="tour-2027" data-section="Tour 2027" className="scroll-mt-28 bg-muted/30 py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -442,7 +442,7 @@ const Tour = () => {
           </section>
 
           {/* Registration */}
-          <section className="bg-foreground py-16 md:py-24">
+          <section id="tour-registracia" data-section="Registrácia" className="scroll-mt-28 bg-foreground py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-muted p-8 text-center sm:p-10 md:p-12">
                 <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">Oslovila vás BSGA Tour ?</h2>
@@ -456,7 +456,7 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2026 */}
-          <section className="bg-background py-16 md:py-24">
+          <section id="tour-2026" data-section="Archív 2026" className="scroll-mt-28 bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -499,7 +499,7 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2025 */}
-          <section className="bg-muted/50 py-16 md:py-24">
+          <section id="tour-2025" data-section="Archív 2025" className="scroll-mt-28 bg-muted/50 py-16 md:py-24">
 
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
@@ -538,7 +538,7 @@ const Tour = () => {
             </div>
           </section>
           {/* BSGA Tour 2024 */}
-          <section className="bg-background py-16 md:py-24">
+          <section id="tour-2024" data-section="Archív 2024" className="scroll-mt-28 bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -578,7 +578,7 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2023 */}
-          <section className="bg-muted/50 py-16 md:py-24">
+          <section id="tour-2023" data-section="Archív 2023" className="scroll-mt-28 bg-muted/50 py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -618,7 +618,7 @@ const Tour = () => {
           </section>
 
           {/* BSGA Tour 2022 */}
-          <section className="bg-background py-16 md:py-24">
+          <section id="tour-2022" data-section="Archív 2022" className="scroll-mt-28 bg-background py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>

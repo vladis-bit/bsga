@@ -247,7 +247,7 @@ const Services = () => {
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
+          <section id="sluzby-uvod" data-section="Úvod" className="scroll-mt-28 relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
             <div className="container relative z-10 mx-auto px-4">
               <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
@@ -265,7 +265,7 @@ const Services = () => {
             </div>
           </section>
 
-          <section className="bg-background pb-16 pt-8 md:pb-24 md:pt-10">
+          <section id="sluzby-ponuka" data-section="Ponuka" className="scroll-mt-28 bg-background pb-16 pt-8 md:pb-24 md:pt-10">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -345,7 +345,9 @@ const Services = () => {
             </div>
           </section>
 
-          <ContactForm />
+          <div id="sluzby-kontakt" data-section="Kontakt" className="scroll-mt-28">
+            <ContactForm />
+          </div>
         </main>
       </div>
       <Footer />

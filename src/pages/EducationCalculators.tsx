@@ -38,7 +38,7 @@ const EducationCalculators = () => {
           </h1>
         </div>
 
-        <section className="py-16 md:py-24">
+        <section id="kalkulacky" data-section="Kalkulačky" className="scroll-mt-28 py-16 md:py-24">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="flex flex-col items-center justify-center text-center py-16">
               <div className="p-6 rounded-2xl bg-gold/10 mb-6">
