@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import { hrubaBorsaLocation } from "@/lib/schema";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
@@ -143,10 +142,9 @@ const Akademia = () => {
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* Hero Section */}
-          <section className="relative w-full overflow-hidden bg-background">
+          <section className="relative w-full overflow-hidden bg-background pt-24 sm:pt-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="text-center">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
