@@ -53,9 +53,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
-          <div className="theme-ivory">
-            <SectionNav />
-          </div>
+          <SectionNav />
           <Suspense fallback={<div className="min-h-screen bg-primary" />}>
           <Routes>
             <Route path="/" element={<Index />} />
