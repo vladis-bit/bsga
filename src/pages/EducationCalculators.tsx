@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import Breadcrumbs from "@/components/Breadcrumbs";
 
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
@@ -24,9 +23,8 @@ const EducationCalculators = () => {
       />
 
       <Navbar />
-      <Breadcrumbs items={BREADCRUMBS} />
 
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28">
         <div className="container mx-auto px-4 sm:px-6">
           <Link to="/edukacne-centrum">
             <Button variant="ghost" className="mb-6 gap-2 text-muted-foreground hover:text-foreground">
