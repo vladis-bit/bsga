@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import { hrubaBorsaLocation } from "@/lib/schema";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
 import DevelopmentTimeline from "@/components/DevelopmentTimeline";
 import CampCards from "@/components/CampCards";
