@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Calendar, Mail, MapPin, FileText, Phone, Sparkles, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import Footer from "@/components/Footer";
 import EventsWaitlistForm from "@/components/EventsWaitlistForm";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -811,9 +811,8 @@ const Events = () => {
 
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
-          <section className="relative overflow-hidden bg-background pb-12 sm:pb-16">
+          <section className="relative overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
             <div className="container relative z-10 mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}

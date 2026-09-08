@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import VoucherCard from "@/components/shop/VoucherCard";
@@ -245,8 +245,7 @@ const Shop = () => {
 
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
-        <section className="relative overflow-hidden bg-background pb-10 md:pb-14">
+        <section className="relative overflow-hidden bg-background pb-10 pt-24 md:pb-14 md:pt-28">
           <div className="container relative z-10 mx-auto px-4">
             <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
               <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">

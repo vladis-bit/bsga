@@ -2,7 +2,7 @@ import { Sparkles, Mail, Phone, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import FittingContactForm from "@/components/FittingContactForm";
 import CursorGlowCard from "@/components/CursorGlowCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -120,10 +120,9 @@ const Fitting = () => {
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-0 sm:px-4 md:px-6">
+          <section className="relative w-full bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6">
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[480px] sm:min-h-[580px] md:min-h-[680px]">
               <img
                 src={fittingHeroImg.url}

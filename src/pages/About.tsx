@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import { allLocations } from "@/lib/schema";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import Footer from "@/components/Footer";
 import { Mail, Phone, CheckCircle, RotateCw, ArrowLeft } from "lucide-react";
 import peterSvajlenImg from "@/assets/team/peter-svajlen.webp";
@@ -277,10 +277,9 @@ const About = () => {
       />
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
-        <Breadcrumbs items={BREADCRUMBS} />
         <main>
           {/* Hero */}
-          <section className="relative w-full bg-background px-4 pb-8 sm:pb-12 md:px-6 md:pb-16">
+          <section className="relative w-full bg-background px-4 pb-8 pt-24 sm:pb-12 sm:pt-28 md:px-6 md:pb-16">
             <h1 className="sr-only">Najväčšia golfová akadémia na Slovensku</h1>
             <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-2xl min-h-[420px] sm:min-h-[600px] sm:rounded-3xl md:min-h-[760px] lg:min-h-[calc(100vh-6rem)]">
               <picture className="absolute inset-0 h-full w-full">
