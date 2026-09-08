@@ -144,7 +144,7 @@ const Akademia = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero Section */}
-          <section className="relative w-full overflow-hidden bg-background pt-24 sm:pt-28">
+          <section id="akademia-uvod" data-section="Úvod" className="scroll-mt-28 relative w-full overflow-hidden bg-background pt-24 sm:pt-28">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="text-center">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
@@ -181,10 +181,12 @@ const Akademia = () => {
           </section>
 
           {/* Junior Level System */}
-          <JuniorLevelSystem />
+          <div id="akademia-level-system" data-section="Level system" className="scroll-mt-28">
+            <JuniorLevelSystem />
+          </div>
 
           {/* Development Timeline Section */}
-          <section id="timeline" className="scroll-mt-24 bg-muted/50 py-12 sm:py-16 md:py-20">
+          <section id="timeline" data-section="Rozvoj detí" className="scroll-mt-28 bg-muted/50 py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14">
                 <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">Rozvoj detí od skorého veku</h2>
@@ -196,7 +198,7 @@ const Akademia = () => {
           </section>
 
           {/* Summer Camps Section */}
-          <section id="tabory" className="scroll-mt-24 bg-background py-12 sm:py-16 md:py-20">
+          <section id="tabory" data-section="Tábory" className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-20">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 border-b border-border pb-6 text-center sm:mb-14">
                 <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
@@ -215,7 +217,7 @@ const Akademia = () => {
           </section>
 
           {/* FAQ */}
-          <section className="bg-background py-12 sm:py-16 md:py-24">
+          <section id="akademia-faq" data-section="FAQ" className="scroll-mt-28 bg-background py-12 sm:py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-8 border-b border-border pb-6 text-center sm:mb-12">
                 <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl">
@@ -247,8 +249,9 @@ const Akademia = () => {
           </section>
 
           {/* CTA + Contact Form */}
-          <IvoryContactForm
-            id="kontakt"
+          <div id="akademia-kontakt" data-section="Kontakt" className="scroll-mt-28">
+            <IvoryContactForm
+              id="kontakt"
             goldLabel="Juniorský golf"
             title="Máte nezodpovedané otázky?"
             description="Vyplňte formulár a dozviete sa viac o našich programoch pre mladých golfistov – krúžkoch, táboroch aj rozvojových tréningoch."
@@ -264,6 +267,7 @@ const Akademia = () => {
             ]}
             submitText="Odoslať správu"
           />
+          </div>
         </main>
       </div>
       <Footer />

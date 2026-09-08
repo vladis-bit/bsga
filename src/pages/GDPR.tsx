@@ -33,17 +33,17 @@ const GDPR = () => {
 
       <Navbar />
       <main>
-        <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 text-center">
+        <section id="gdpr-uvod" data-section="Úvod" className="scroll-mt-28 container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground mb-2">
             Zásady ochrany osobných údajov
           </h1>
           <p className="text-muted-foreground text-sm sm:text-base">
             Platné od 8. marca 2026
           </p>
-        </div>
+        </section>
 
         {/* Content */}
-        <section className="py-10 sm:py-12 md:py-16 bg-background">
+        <section id="gdpr-obsah" data-section="GDPR" className="scroll-mt-28 py-10 sm:py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto">
               <div className="space-y-6 sm:space-y-8 text-muted-foreground">

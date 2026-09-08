@@ -92,12 +92,24 @@ const Index = () => {
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          <HeroSlider />
-          <ServicesSlider />
-          <PartnersLoop />
-          <Testimonials />
-          <FAQ />
-          <SimpleContactForm />
+          <div id="hero" data-section="Domov" className="scroll-mt-28">
+            <HeroSlider />
+          </div>
+          <div id="sluzby" data-section="Služby" className="scroll-mt-28">
+            <ServicesSlider />
+          </div>
+          <div id="partneri" data-section="Partneri" className="scroll-mt-28">
+            <PartnersLoop />
+          </div>
+          <div id="referencie" data-section="Referencie" className="scroll-mt-28">
+            <Testimonials />
+          </div>
+          <div id="faq" data-section="FAQ" className="scroll-mt-28">
+            <FAQ />
+          </div>
+          <div id="kontakt" data-section="Kontakt" className="scroll-mt-28">
+            <SimpleContactForm />
+          </div>
         </main>
       </div>
       <Footer />

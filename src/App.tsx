@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
+import SectionNav from "./components/SectionNav";
 import Index from "./pages/Index";
 const CookieBanner = lazy(() => import("./components/CookieBanner"));
 const MobileCTABar = lazy(() => import("./components/MobileCTABar"));
@@ -52,6 +53,9 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <div className="theme-ivory">
+            <SectionNav />
+          </div>
           <Suspense fallback={<div className="min-h-screen bg-primary" />}>
           <Routes>
             <Route path="/" element={<Index />} />

@@ -256,7 +256,7 @@ const Gallery = () => {
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main className="bg-background">
-          <section aria-labelledby="galeria-heading" className="bg-background pb-12 pt-24 sm:pb-16 sm:pt-28 md:pb-24">
+          <section id="galeria" data-section="Galéria" aria-labelledby="galeria-heading" className="scroll-mt-28 bg-background pb-12 pt-24 sm:pb-16 sm:pt-28 md:pb-24">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-10 flex flex-col items-center text-center sm:mb-14">
                 <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
