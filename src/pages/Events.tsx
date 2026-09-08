@@ -210,9 +210,8 @@ const events: EventItem[] = [
       },
     },
   },
-
-  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
 
 /** Sort upcoming events chronologically by their start date. */
 events.sort((a, b) => parseEventDate(a.date) - parseEventDate(b.date));
@@ -290,9 +289,9 @@ const archivedEvents: EventItem[] = [
       },
     },
   },
-
-
+  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
 
 /**
  * Akcie sezóny 2027 zobrazené v sekcii "Akcie a pobyty v roku 2027".
