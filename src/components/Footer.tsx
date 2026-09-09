@@ -51,52 +51,43 @@ const Footer = () => {
 
       <div className="relative container mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-10">
         {/* Top — Brand block */}
-        <div className="pb-10 sm:pb-12 border-b border-background/10">
-          <img loading="lazy" decoding="async" src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-14 sm:h-16 w-auto mb-6" />
-          <p className="mb-4 text-balance font-serif text-2xl leading-snug text-background sm:text-3xl">
-            Najväčšia golfová akadémia na Slovensku.
-          </p>
-          <p className="text-background/60 text-sm leading-relaxed max-w-md">
-            Od roku 2016 pomáhame ľuďom objavovať krásu golfu — od prvého odpalu až po profesionálnu úroveň.
-          </p>
+        <div className="pb-10 sm:pb-12">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+            <div>
+              <img loading="lazy" decoding="async" src={bsgaLogo} alt="BSGA - Best Swing Golf Academy" className="h-14 sm:h-16 w-auto mb-6" />
+              <p className="mb-4 text-balance font-serif text-2xl leading-snug text-background sm:text-3xl">
+                Najväčšia golfová akadémia na Slovensku.
+              </p>
+              <p className="text-background/60 text-sm leading-relaxed max-w-md">
+                Od roku 2016 pomáhame ľuďom objavovať krásu golfu — od prvého odpalu až po profesionálnu úroveň.
+              </p>
+            </div>
 
-          {/* Socials */}
-          <div className="flex gap-2.5 mt-8">
-            {[
-              { icon: Instagram, href: "https://www.instagram.com/bsga.sk/", label: "Instagram" },
-              { icon: Facebook, href: "https://www.facebook.com/p/Best-Swing-Golf-Academy-100057246887696/?locale=sk_SK", label: "Facebook" },
-              { icon: ExternalLink, href: "https://linktr.ee/BSGAmedia", label: "Linktree" },
-              { icon: FolderOpen, href: "https://drive.google.com/drive/folders/1XOqhY_QPTgG02WjEoDbi-Zb5JJH6R8Jd?usp=sharing", label: "Drive" },
-            ].map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 transition-all hover:border-gold hover:bg-gold hover:text-foreground"
-              >
-                <Icon className="w-[16px] h-[16px]" />
-              </a>
-            ))}
+            {/* Socials */}
+            <div className="flex gap-2.5 lg:mb-1">
+              {[
+                { icon: Instagram, href: "https://www.instagram.com/bsga.sk/", label: "Instagram" },
+                { icon: Facebook, href: "https://www.facebook.com/p/Best-Swing-Golf-Academy-100057246887696/?locale=sk_SK", label: "Facebook" },
+                { icon: ExternalLink, href: "https://linktr.ee/BSGAmedia", label: "Linktree" },
+                { icon: FolderOpen, href: "https://drive.google.com/drive/folders/1XOqhY_QPTgG02WjEoDbi-Zb5JJH6R8Jd?usp=sharing", label: "Drive" },
+              ].map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 transition-all hover:border-gold hover:bg-gold hover:text-foreground"
+                >
+                  <Icon className="w-[16px] h-[16px]" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Link columns */}
         <div className="grid grid-cols-1 gap-10 pt-12 sm:pt-16 md:grid-cols-2 lg:grid-cols-5">
-          {/* Služby */}
-          <div className="md:col-span-2 lg:col-span-2">
-            <h4 className={columnHeadingClass}>Služby</h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-              <ul className="space-y-3">
-                {serviceLinksLeft.map(renderServiceLink)}
-              </ul>
-              <ul className="space-y-3">
-                {serviceLinksRight.map(renderServiceLink)}
-              </ul>
-            </div>
-          </div>
-
           {/* Navigácia */}
           <div>
             <h4 className={columnHeadingClass}>Navigácia</h4>
@@ -109,6 +100,19 @@ const Footer = () => {
               <li><Link to="/akademia" className={linkClass}>Juniorský golf</Link></li>
               <li><Link to="/obchod" className={linkClass}>Obchod</Link></li>
             </ul>
+          </div>
+
+          {/* Služby */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className={columnHeadingClass}>Služby</h4>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+              <ul className="space-y-3">
+                {serviceLinksLeft.map(renderServiceLink)}
+              </ul>
+              <ul className="space-y-3">
+                {serviceLinksRight.map(renderServiceLink)}
+              </ul>
+            </div>
           </div>
 
           {/* Objavte */}
