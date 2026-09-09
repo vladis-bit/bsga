@@ -1024,55 +1024,10 @@ const Events = () => {
                 </p>
 
                 {/* Jarný tréningový kemp v Turecku — 13. – 20. 3. 2027 */}
-                <div className="mt-10 sm:mt-12 rounded-2xl border border-border bg-card shadow-xl p-5 sm:p-6 text-left transition-all hover:border-gold/40 hover:shadow-2xl hover:shadow-gold/10">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-serif font-bold text-lg bg-gold/10 text-gold">
-                      2027
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-foreground">
-                        Jarný tréningový kemp v Turecku
-                      </h3>
-                      <p className="mt-1.5 text-sm text-muted-foreground">
-                        Rozohranie sa a príprava na novú golfovú sezónu pod vedením 4 BSGA trénerov.
-                      </p>
-                      <div className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar className="w-4 h-4 text-gold" />
-                          <span>13. – 20. 3. 2027</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <MapPin className="w-4 h-4 text-gold" />
-                          <span>Belek, Turecko</span>
-                        </div>
-                      </div>
-
-                      <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-                        <span
-                          aria-disabled="true"
-                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full bg-muted/60 text-muted-foreground cursor-not-allowed"
-                        >
-                          <FileText className="w-4 h-4" />
-                          Plagát čoskoro
-                        </span>
-                        <a
-                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Informácie – Jarný tréningový kemp v Turecku")}`}
-                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold/10 text-gold hover:bg-gold/20 border border-gold/20"
-                        >
-                          <Info className="w-4 h-4" />
-                          Informácie
-                        </a>
-                        <a
-                          href={`mailto:peter@doni-travel.sk?subject=${encodeURIComponent("Prihlásenie – Jarný tréningový kemp v Turecku")}`}
-                          className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 bg-gold text-primary hover:bg-gold-light hover:shadow-md hover:shadow-gold/30"
-                        >
-                          <Mail className="w-4 h-4" />
-                          <span>Prihlásiť sa</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <div className="mt-10 sm:mt-12 grid text-left">
+                  <EventCard event={turkeyCamp2027} index={0} variant="small" />
                 </div>
+
 
                 {/* Featured: Florida PGA Swing — OBSADENÉ */}
                 <div className="relative mt-6 sm:mt-8 overflow-hidden rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
