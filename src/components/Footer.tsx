@@ -164,15 +164,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col items-center justify-between gap-4 pt-12 sm:pt-16 border-t border-background/10 mt-12 sm:mt-16">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-12 sm:pt-16 border-t border-background/10 mt-12 sm:mt-16">
           <p className="text-xs uppercase tracking-[0.14em] text-background/40">
             © {new Date().getFullYear()} Best Swing Golf Academy. Všetky práva vyhradené.
           </p>
-          <div className="flex items-center gap-6">
-            <Link to="/obchodne-podmienky" className="text-xs uppercase tracking-[0.14em] text-background/40 transition-colors hover:text-gold">
+          <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto">
+            <Link to="/obchodne-podmienky" className="text-xs uppercase tracking-[0.14em] text-background/40 transition-colors hover:text-gold whitespace-nowrap">
               Obchodné podmienky
             </Link>
-            <Link to="/gdpr" className="text-xs uppercase tracking-[0.14em] text-background/40 transition-colors hover:text-gold">
+            <Link to="/gdpr" className="text-xs uppercase tracking-[0.14em] text-background/40 transition-colors hover:text-gold whitespace-nowrap">
               Ochrana údajov
             </Link>
           </div>
