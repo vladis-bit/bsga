@@ -18,6 +18,8 @@ import camiralPoster from "@/assets/event-posters/doni-travel-camiral.pdf.asset.
 import livPoster from "@/assets/event-posters/doni-travel-liv.pdf.asset.json";
 import proamPoster from "@/assets/event-posters/doni-turnaj-4teams.pdf.asset.json";
 import kaskadaPoster from "@/assets/event-posters/kaskada-golfovy-vikend.pdf.asset.json";
+import turkeyPoster from "@/assets/event-posters/bsga-turecko-2027.pdf.asset.json";
+
 
 interface EventItem {
   title: string;
@@ -297,12 +299,55 @@ const archivedEvents: EventItem[] = [
  * Akcie sezóny 2027 zobrazené v sekcii "Akcie a pobyty v roku 2027".
  * Slúžia ako zdroj pravdy pre JSON-LD (dátumy zodpovedajú textom v UI).
  */
-const events2027: EventItem[] = [
-  {
-    title: "Jarný tréningový kemp v Turecku",
-    date: "13. – 20. 3. 2027",
-    location: "Belek, Turecko",
+const turkeyCamp2027: EventItem = {
+  title: "Jarný tréningový kemp v Turecku",
+  date: "13. – 20. 3. 2027",
+  location: "Belek, Turecko",
+  posterUrl: turkeyPoster.url,
+  details: {
+    subtitle: "GOLF Training Camp Turkey 2027 – Cornelia Diamond Golf Resort & Spa",
+    intro:
+      "Týždenný jarný tréningový kemp v Beleku pod vedením štyroch trénerov Best Swing Golf Academy (Peter Švajlen, Jakub Hrbáň, Maroš Gajan, Vladimír Leško). V cene je letecká doprava SunExpress Viedeň – Antalya, preprava golfových bagov, 7 nocí v hoteli Cornelia Diamond v režime Ultra All Inclusive, 5 × 18 jamiek (3× Faldo, 1× Gloria, 1× Montgomerie) a skupinové tréningy aj hra na ihrisku s trénermi BSGA.",
+    price: "2 550 € / golfista (DBL room) · 1 350 € / negolfista (DBL room)",
+    priceNote:
+      "Golfer SNG room 2 900 € / osoba (príplatok za jednolôžkovú izbu 350 €). Cena zahŕňa leteckú dopravu, prepravu golfových bagov, 7 nocí Ultra All Inclusive a 5 green fee.",
+    schedule: [
+      {
+        day: "13. 3. 2027",
+        title: "Odlet a ubytovanie",
+        items: [
+          "Let SunExpress Viedeň – Antalya",
+          "Preprava golfových bagov v cene",
+          "Ubytovanie v Cornelia Diamond Golf Resort & Spa – Ultra All Inclusive",
+        ],
+      },
+      {
+        day: "14. – 19. 3. 2027",
+        title: "Golf a tréningy s trénermi BSGA",
+        items: [
+          "5 × 18 jamiek: 3× Faldo Golf Course, 1× Gloria Golf Course, 1× Montgomerie Golf Course",
+          "Skupinové tréningy s trénermi Best Swing Golf Academy",
+          "Hra na ihrisku s trénermi (playing lessons)",
+          "Ultra All Inclusive a wellness v rezorte Cornelia Diamond",
+        ],
+      },
+      {
+        day: "20. 3. 2027",
+        title: "Odlet domov",
+        items: ["Transfer na letisko v Antalyi", "Let SunExpress Antalya – Viedeň"],
+      },
+    ],
+    contact: {
+      name: "Peter Švajlen, MBA",
+      email: "peter@doni-travel.sk",
+      phone: "+421 905 335 501",
+    },
   },
+};
+
+const events2027: EventItem[] = [
+  turkeyCamp2027,
+
   {
     title: "Florida PGA Swing by DONI-Travel",
     date: "26. 3. – 2. 4. 2027",
