@@ -88,19 +88,6 @@ const Footer = () => {
 
         {/* Link columns */}
         <div className="grid grid-cols-1 gap-10 pt-12 sm:pt-16 md:grid-cols-2 lg:grid-cols-5">
-          {/* Služby */}
-          <div className="md:col-span-2 lg:col-span-2">
-            <h4 className={columnHeadingClass}>Služby</h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-              <ul className="space-y-3">
-                {serviceLinksLeft.map(renderServiceLink)}
-              </ul>
-              <ul className="space-y-3">
-                {serviceLinksRight.map(renderServiceLink)}
-              </ul>
-            </div>
-          </div>
-
           {/* Navigácia */}
           <div>
             <h4 className={columnHeadingClass}>Navigácia</h4>
@@ -113,6 +100,19 @@ const Footer = () => {
               <li><Link to="/akademia" className={linkClass}>Juniorský golf</Link></li>
               <li><Link to="/obchod" className={linkClass}>Obchod</Link></li>
             </ul>
+          </div>
+
+          {/* Služby */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className={columnHeadingClass}>Služby</h4>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+              <ul className="space-y-3">
+                {serviceLinksLeft.map(renderServiceLink)}
+              </ul>
+              <ul className="space-y-3">
+                {serviceLinksRight.map(renderServiceLink)}
+              </ul>
+            </div>
           </div>
 
           {/* Objavte */}
