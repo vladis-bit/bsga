@@ -67,6 +67,19 @@ const productPartners: ProductPartner[] = [
   { name: "XPeng Hedin Automotive", logo: xpengHedinAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
+const tourPartners: ProductPartner[] = [
+  { name: "Arcgeo", logo: arcgeoAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Broker Consulting", logo: brokerConsultingAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Cyllium", logo: cylliumAsset.url, logoClass: "max-w-[80%] max-h-[80%]" },
+  { name: "Dolgit", logo: dolgitAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Gapit", logo: gapitAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Homola", logo: homolaAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Megawatts", logo: megawattsAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Metlife", logo: metlifeAsset.url, logoClass: "max-w-[80%] max-h-[80%]" },
+  { name: "Mobilné chladenie", logo: mobilneChladenieAsset.url, logoClass: "max-w-[92%] max-h-[85%]" },
+  { name: "O2 Business Services", logo: o2BusinessServicesAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+];
+
 const tournaments = [
   {
     number: 1,
