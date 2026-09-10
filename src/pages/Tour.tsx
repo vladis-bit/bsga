@@ -9,6 +9,11 @@ const tourHeroImage = tourHeroImageAsset.url;
 import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
 const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointAsset from "@/assets/partner-checkpoint.webp.asset.json";
+import bozinAsset from "@/assets/partners/partner-bozin-roastery.webp.asset.json";
+import lahoferAsset from "@/assets/partners/partner-lahofer.webp.asset.json";
+import nilioAsset from "@/assets/partners/partner-nilio.webp.asset.json";
+import stNicolausAsset from "@/assets/partners/partner-st-nicolaus.webp.asset.json";
+import xpengHedinAsset from "@/assets/partners/partner-xpeng-hedin.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
 import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -37,6 +42,20 @@ import kacovAsset from "@/assets/courses/panorama-kacov.webp.asset.json";
 const kacovImg = kacovAsset.url;
 import apexAsset from "@/assets/apex-golf-club.webp.asset.json";
 const apexImg = apexAsset.url;
+
+interface ProductPartner {
+  name: string;
+  logo: string;
+  logoClass?: string;
+}
+
+const productPartners: ProductPartner[] = [
+  { name: "Bozin Roastery", logo: bozinAsset.url },
+  { name: "Lahofer Vinařství", logo: lahoferAsset.url, logoClass: "max-w-[80%] max-h-[75%]" },
+  { name: "Nilio Brewery", logo: nilioAsset.url, logoClass: "max-w-[85%] max-h-[80%]" },
+  { name: "St. Nicolaus", logo: stNicolausAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "XPeng Hedin Automotive", logo: xpengHedinAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+];
 
 const tournaments = [
   {
@@ -350,7 +369,7 @@ const Tour = () => {
           </section>
 
           {/* Partners */}
-          <section id="tour-partneri" data-section="Partneri" className="scroll-mt-28 bg-muted/50 py-8 sm:py-12">
+          <section id="tour-generalni-partneri" data-section="Generální partneri" className="scroll-mt-28 bg-muted/50 py-8 sm:py-12">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-border bg-card px-4 py-6 sm:gap-6 sm:px-6 sm:py-8">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
@@ -394,6 +413,70 @@ const Tour = () => {
               </div>
 
             </div>
+          </section>
+
+          {/* Produktoví partneri */}
+          <section id="tour-product-partneri" data-section="Produktoví partneri" className="py-12 bg-muted/50 overflow-hidden">
+            <div className="container mx-auto px-6 mb-10">
+              <div className="mx-auto max-w-xl border-b border-border pb-6 text-center">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground md:text-4xl">Produktoví partneri</h2>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+                  Spolupracujeme
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10" />
+
+              <div className="flex w-max animate-scroll-tour motion-reduce:animate-none">
+                {[...productPartners, ...productPartners].map((partner, index) => (
+                  <div
+                    key={`${partner.name}-${index}`}
+                    className="flex-shrink-0 px-6 sm:px-8 md:px-10 py-4 flex items-center justify-center"
+                  >
+                    <div className="flex w-44 h-36 items-center justify-center rounded-2xl border border-border bg-card sm:w-52 sm:h-44 md:w-60 md:h-56">
+                      <img
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        loading="lazy"
+                        decoding="async"
+                        draggable={false}
+                        className={`${partner.logoClass ?? "max-w-[80%] max-h-[80%]"} w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <style>{`
+              @keyframes scroll-tour {
+                0% {
+                  transform: translate3d(0, 0, 0);
+                }
+                100% {
+                  transform: translate3d(-50%, 0, 0);
+                }
+              }
+              .animate-scroll-tour {
+                will-change: transform;
+                backface-visibility: hidden;
+                transform: translate3d(0, 0, 0);
+                animation: scroll-tour 22s linear infinite;
+              }
+              @media (max-width: 640px) {
+                .animate-scroll-tour {
+                  animation-duration: 30s;
+                }
+              }
+              @media (hover: hover) {
+                .animate-scroll-tour:hover {
+                  animation-play-state: paused;
+                }
+              }
+            `}</style>
           </section>
 
           {/* BSGA Tour 2027 — Sneak peek */}
