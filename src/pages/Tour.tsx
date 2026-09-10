@@ -50,11 +50,11 @@ interface ProductPartner {
 }
 
 const productPartners: ProductPartner[] = [
-  { name: "Bozin Roastery", logo: bozinAsset.logo },
-  { name: "Lahofer Vinařství", logo: lahoferAsset.logo, logoClass: "max-w-[80%] max-h-[75%]" },
-  { name: "Nilio Brewery", logo: nilioAsset.logo, logoClass: "max-w-[85%] max-h-[80%]" },
-  { name: "St. Nicolaus", logo: stNicolausAsset.logo, logoClass: "max-w-[92%] max-h-[80%]" },
-  { name: "XPeng Hedin Automotive", logo: xpengHedinAsset.logo, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Bozin Roastery", logo: bozinAsset.url },
+  { name: "Lahofer Vinařství", logo: lahoferAsset.url, logoClass: "max-w-[80%] max-h-[75%]" },
+  { name: "Nilio Brewery", logo: nilioAsset.url, logoClass: "max-w-[85%] max-h-[80%]" },
+  { name: "St. Nicolaus", logo: stNicolausAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "XPeng Hedin Automotive", logo: xpengHedinAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
 const tournaments = [
