@@ -33,6 +33,7 @@ import unionAsset from "@/assets/partners/partner-union.webp.asset.json";
 import uniqaAsset from "@/assets/partners/partner-uniqa.webp.asset.json";
 import unityAsset from "@/assets/partners/partner-unity.webp.asset.json";
 import vnetAsset from "@/assets/partners/partner-vnet.webp.asset.json";
+import itcAsset from "@/assets/partners/partner-itc.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
 import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -96,6 +97,7 @@ const tourPartners: ProductPartner[] = [
   { name: "UNIQA", logo: uniqaAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
   { name: "Unity Media", logo: unityAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
   { name: "VNET", logo: vnetAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "ITC", logo: itcAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
 const tournaments = [
@@ -505,11 +507,11 @@ const Tour = () => {
                 will-change: transform;
                 backface-visibility: hidden;
                 transform: translate3d(0, 0, 0);
-                animation: scroll-tour-partners 28s linear infinite;
+                animation: scroll-tour-partners 50s linear infinite;
               }
               @media (max-width: 640px) {
                 .animate-scroll-tour-partners {
-                  animation-duration: 38s;
+                  animation-duration: 65s;
                 }
               }
               @media (hover: hover) {
