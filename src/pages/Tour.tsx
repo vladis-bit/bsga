@@ -456,6 +456,70 @@ const Tour = () => {
             </div>
           </section>
 
+          {/* Partneri túry */}
+          <section id="tour-partneri-tury" data-section="Partneri túry" className="py-12 bg-muted/50 overflow-hidden">
+            <div className="container mx-auto px-6 mb-10">
+              <div className="mx-auto max-w-xl border-b border-border pb-6 text-center">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground md:text-4xl">Partneri túry</h2>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+                  Spolupracujeme
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10" />
+
+              <div className="flex w-max animate-scroll-tour-partners motion-reduce:animate-none">
+                {[...tourPartners, ...tourPartners].map((partner, index) => (
+                  <div
+                    key={`${partner.name}-${index}`}
+                    className="flex-shrink-0 px-6 sm:px-8 md:px-10 py-4 flex items-center justify-center"
+                  >
+                    <div className="flex w-44 h-36 items-center justify-center rounded-2xl border border-border bg-card sm:w-52 sm:h-44 md:w-60 md:h-56">
+                      <img
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        loading="lazy"
+                        decoding="async"
+                        draggable={false}
+                        className={`${partner.logoClass ?? "max-w-[80%] max-h-[80%]"} w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <style>{`
+              @keyframes scroll-tour-partners {
+                0% {
+                  transform: translate3d(0, 0, 0);
+                }
+                100% {
+                  transform: translate3d(-50%, 0, 0);
+                }
+              }
+              .animate-scroll-tour-partners {
+                will-change: transform;
+                backface-visibility: hidden;
+                transform: translate3d(0, 0, 0);
+                animation: scroll-tour-partners 28s linear infinite;
+              }
+              @media (max-width: 640px) {
+                .animate-scroll-tour-partners {
+                  animation-duration: 38s;
+                }
+              }
+              @media (hover: hover) {
+                .animate-scroll-tour-partners:hover {
+                  animation-play-state: paused;
+                }
+              }
+            `}</style>
+          </section>
+
           {/* Produktoví partneri */}
           <section id="tour-product-partneri" data-section="Produktoví partneri" className="py-12 bg-muted/50 overflow-hidden">
             <div className="container mx-auto px-6 mb-10">
