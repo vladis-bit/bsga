@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { Mail, FileText, Trophy, CalendarDays, MapPin, Download } from "lucide-react";
+import { Mail, FileText, Trophy, CalendarDays, MapPin } from "lucide-react";
 import asbisAsset from "@/assets/partner-asbis.webp.asset.json";
 import tourHeroImageAsset from "@/assets/tour-hero-2026.webp.asset.json";
 const tourHeroImage = tourHeroImageAsset.url;
@@ -390,10 +390,6 @@ const Tour = () => {
                 <a href={tour5FinalAsset.url} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:w-auto">
                   <Trophy size={16} />
                   Kompletné poradie
-                </a>
-                <a href={tour5FinalAsset.url} download="BSGA_Tour_kompletne_poradie.pdf" className="flex w-full items-center justify-center gap-2 rounded-full border border-gold/60 bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:bg-muted sm:w-auto">
-                  <Download size={16} className="text-gold" />
-                  Stiahnuť PDF
                 </a>
               </div>
 
