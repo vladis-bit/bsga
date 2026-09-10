@@ -87,6 +87,15 @@ const tourPartners: ProductPartner[] = [
   { name: "Metlife", logo: metlifeAsset.url, logoClass: "max-w-[80%] max-h-[80%]" },
   { name: "Mobilné chladenie", logo: mobilneChladenieAsset.url, logoClass: "max-w-[92%] max-h-[85%]" },
   { name: "O2 Business Services", logo: o2BusinessServicesAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Proced Consulting", logo: procedConsultingAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Plaut", logo: plautAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Stars for Stars", logo: starsForStarsAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Technopol International", logo: technopolAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Torreol", logo: torreolAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Union poisťovňa", logo: unionAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "UNIQA", logo: uniqaAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Unity Media", logo: unityAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "VNET", logo: vnetAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
 const tournaments = [
