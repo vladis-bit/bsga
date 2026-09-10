@@ -34,6 +34,7 @@ import uniqaAsset from "@/assets/partners/partner-uniqa.webp.asset.json";
 import unityAsset from "@/assets/partners/partner-unity.webp.asset.json";
 import vnetAsset from "@/assets/partners/partner-vnet.webp.asset.json";
 import itcAsset from "@/assets/partners/partner-itc.webp.asset.json";
+import jucad2Asset from "@/assets/partners/partner-jucad-2.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
 import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -75,6 +76,7 @@ const productPartners: ProductPartner[] = [
   { name: "Nilio Brewery", logo: nilioAsset.url, logoClass: "max-w-[85%] max-h-[80%]" },
   { name: "St. Nicolaus", logo: stNicolausAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
   { name: "XPeng Hedin Automotive", logo: xpengHedinAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "JuCad", logo: jucad2Asset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
 const tourPartners: ProductPartner[] = [
