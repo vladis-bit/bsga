@@ -369,7 +369,7 @@ const Tour = () => {
           </section>
 
           {/* Partners */}
-          <section id="tour-partneri" data-section="Partneri" className="scroll-mt-28 bg-muted/50 py-8 sm:py-12">
+          <section id="tour-generalni-partneri" data-section="Generální partneri" className="scroll-mt-28 bg-muted/50 py-8 sm:py-12">
             <div className="container mx-auto px-4 sm:px-6">
               <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-border bg-card px-4 py-6 sm:gap-6 sm:px-6 sm:py-8">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
@@ -416,7 +416,7 @@ const Tour = () => {
           </section>
 
           {/* Produktoví partneri */}
-          <section id="tour-partneri" data-section="Partneri" className="py-12 bg-muted/50 overflow-hidden">
+          <section id="tour-product-partneri" data-section="Produktoví partneri" className="py-12 bg-muted/50 overflow-hidden">
             <div className="container mx-auto px-6 mb-10">
               <div className="mx-auto max-w-xl border-b border-border pb-6 text-center">
                 <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground md:text-4xl">Produktoví partneri</h2>
