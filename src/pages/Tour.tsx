@@ -24,6 +24,15 @@ import megawattsAsset from "@/assets/partners/partner-megawatts.webp.asset.json"
 import metlifeAsset from "@/assets/partners/partner-metlife.webp.asset.json";
 import mobilneChladenieAsset from "@/assets/partners/partner-mobilne-chladenie.webp.asset.json";
 import o2BusinessServicesAsset from "@/assets/partners/partner-o2-business-services.webp.asset.json";
+import procedConsultingAsset from "@/assets/partners/partner-proced-consulting.webp.asset.json";
+import plautAsset from "@/assets/partners/partner-plaut.webp.asset.json";
+import starsForStarsAsset from "@/assets/partners/partner-stars-for-stars.webp.asset.json";
+import technopolAsset from "@/assets/partners/partner-technopol.webp.asset.json";
+import torreolAsset from "@/assets/partners/partner-torreol.webp.asset.json";
+import unionAsset from "@/assets/partners/partner-union.webp.asset.json";
+import uniqaAsset from "@/assets/partners/partner-uniqa.webp.asset.json";
+import unityAsset from "@/assets/partners/partner-unity.webp.asset.json";
+import vnetAsset from "@/assets/partners/partner-vnet.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
 import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
