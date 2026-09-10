@@ -14,6 +14,16 @@ import lahoferAsset from "@/assets/partners/partner-lahofer.webp.asset.json";
 import nilioAsset from "@/assets/partners/partner-nilio.webp.asset.json";
 import stNicolausAsset from "@/assets/partners/partner-st-nicolaus.webp.asset.json";
 import xpengHedinAsset from "@/assets/partners/partner-xpeng-hedin.webp.asset.json";
+import arcgeoAsset from "@/assets/partners/partner-arcgeo.webp.asset.json";
+import brokerConsultingAsset from "@/assets/partners/partner-broker-consulting.webp.asset.json";
+import cylliumAsset from "@/assets/partners/partner-cyllium.webp.asset.json";
+import dolgitAsset from "@/assets/partners/partner-dolgit.webp.asset.json";
+import gapitAsset from "@/assets/partners/partner-gapit.webp.asset.json";
+import homolaAsset from "@/assets/partners/partner-homola.webp.asset.json";
+import megawattsAsset from "@/assets/partners/partner-megawatts.webp.asset.json";
+import metlifeAsset from "@/assets/partners/partner-metlife.webp.asset.json";
+import mobilneChladenieAsset from "@/assets/partners/partner-mobilne-chladenie.webp.asset.json";
+import o2BusinessServicesAsset from "@/assets/partners/partner-o2-business-services.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
 import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -55,6 +65,19 @@ const productPartners: ProductPartner[] = [
   { name: "Nilio Brewery", logo: nilioAsset.url, logoClass: "max-w-[85%] max-h-[80%]" },
   { name: "St. Nicolaus", logo: stNicolausAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
   { name: "XPeng Hedin Automotive", logo: xpengHedinAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+];
+
+const tourPartners: ProductPartner[] = [
+  { name: "Arcgeo", logo: arcgeoAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Broker Consulting", logo: brokerConsultingAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Cyllium", logo: cylliumAsset.url, logoClass: "max-w-[80%] max-h-[80%]" },
+  { name: "Dolgit", logo: dolgitAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Gapit", logo: gapitAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Homola", logo: homolaAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Megawatts", logo: megawattsAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Metlife", logo: metlifeAsset.url, logoClass: "max-w-[80%] max-h-[80%]" },
+  { name: "Mobilné chladenie", logo: mobilneChladenieAsset.url, logoClass: "max-w-[92%] max-h-[85%]" },
+  { name: "O2 Business Services", logo: o2BusinessServicesAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
 const tournaments = [
@@ -385,6 +408,70 @@ const Tour = () => {
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Partneri túry */}
+          <section id="tour-partneri-tury" data-section="Partneri túry" className="py-12 bg-muted/50 overflow-hidden">
+            <div className="container mx-auto px-6 mb-10">
+              <div className="mx-auto max-w-xl border-b border-border pb-6 text-center">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground md:text-4xl">Partneri túry</h2>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">
+                  Spolupracujeme
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10" />
+
+              <div className="flex w-max animate-scroll-tour-partners motion-reduce:animate-none">
+                {[...tourPartners, ...tourPartners].map((partner, index) => (
+                  <div
+                    key={`${partner.name}-${index}`}
+                    className="flex-shrink-0 px-6 sm:px-8 md:px-10 py-4 flex items-center justify-center"
+                  >
+                    <div className="flex w-44 h-36 items-center justify-center rounded-2xl border border-border bg-card sm:w-52 sm:h-44 md:w-60 md:h-56">
+                      <img
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        loading="lazy"
+                        decoding="async"
+                        draggable={false}
+                        className={`${partner.logoClass ?? "max-w-[80%] max-h-[80%]"} w-auto h-auto object-contain hover:scale-105 transition-transform cursor-pointer select-none`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <style>{`
+              @keyframes scroll-tour-partners {
+                0% {
+                  transform: translate3d(0, 0, 0);
+                }
+                100% {
+                  transform: translate3d(-50%, 0, 0);
+                }
+              }
+              .animate-scroll-tour-partners {
+                will-change: transform;
+                backface-visibility: hidden;
+                transform: translate3d(0, 0, 0);
+                animation: scroll-tour-partners 28s linear infinite;
+              }
+              @media (max-width: 640px) {
+                .animate-scroll-tour-partners {
+                  animation-duration: 38s;
+                }
+              }
+              @media (hover: hover) {
+                .animate-scroll-tour-partners:hover {
+                  animation-play-state: paused;
+                }
+              }
+            `}</style>
           </section>
 
           {/* Tournament Schedule */}
