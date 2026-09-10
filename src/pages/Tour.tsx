@@ -63,6 +63,11 @@ import kacovAsset from "@/assets/courses/panorama-kacov.webp.asset.json";
 const kacovImg = kacovAsset.url;
 import apexAsset from "@/assets/apex-golf-club.webp.asset.json";
 const apexImg = apexAsset.url;
+import tour2026Card1Asset from "@/assets/courses/tour-2026-card-1.webp.asset.json";
+import tour2026Card2Asset from "@/assets/courses/tour-2026-card-2.webp.asset.json";
+import tour2026Card3Asset from "@/assets/courses/tour-2026-card-3.webp.asset.json";
+import tour2026Card4Asset from "@/assets/courses/tour-2026-card-4.webp.asset.json";
+import tour2026Card5Asset from "@/assets/courses/tour-2026-card-5.webp.asset.json";
 
 interface ProductPartner {
   name: string;
