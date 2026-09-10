@@ -24,6 +24,15 @@ import megawattsAsset from "@/assets/partners/partner-megawatts.webp.asset.json"
 import metlifeAsset from "@/assets/partners/partner-metlife.webp.asset.json";
 import mobilneChladenieAsset from "@/assets/partners/partner-mobilne-chladenie.webp.asset.json";
 import o2BusinessServicesAsset from "@/assets/partners/partner-o2-business-services.webp.asset.json";
+import procedConsultingAsset from "@/assets/partners/partner-proced-consulting.webp.asset.json";
+import plautAsset from "@/assets/partners/partner-plaut.webp.asset.json";
+import starsForStarsAsset from "@/assets/partners/partner-stars-for-stars.webp.asset.json";
+import technopolAsset from "@/assets/partners/partner-technopol.webp.asset.json";
+import torreolAsset from "@/assets/partners/partner-torreol.webp.asset.json";
+import unionAsset from "@/assets/partners/partner-union.webp.asset.json";
+import uniqaAsset from "@/assets/partners/partner-uniqa.webp.asset.json";
+import unityAsset from "@/assets/partners/partner-unity.webp.asset.json";
+import vnetAsset from "@/assets/partners/partner-vnet.webp.asset.json";
 import TournamentCard from "@/components/TournamentCard";
 import { tournamentTitle } from "@/lib/ordinals";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -78,6 +87,15 @@ const tourPartners: ProductPartner[] = [
   { name: "Metlife", logo: metlifeAsset.url, logoClass: "max-w-[80%] max-h-[80%]" },
   { name: "Mobilné chladenie", logo: mobilneChladenieAsset.url, logoClass: "max-w-[92%] max-h-[85%]" },
   { name: "O2 Business Services", logo: o2BusinessServicesAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Proced Consulting", logo: procedConsultingAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Plaut", logo: plautAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Stars for Stars", logo: starsForStarsAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Technopol International", logo: technopolAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Torreol", logo: torreolAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Union poisťovňa", logo: unionAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "UNIQA", logo: uniqaAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "Unity Media", logo: unityAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
+  { name: "VNET", logo: vnetAsset.url, logoClass: "max-w-[92%] max-h-[80%]" },
 ];
 
 const tournaments = [
@@ -410,6 +428,34 @@ const Tour = () => {
             </div>
           </section>
 
+          {/* Tournament Schedule */}
+          <section id="tour-dokumenty" data-section="Dokumenty" className="scroll-mt-28 bg-background pt-6 pb-6 sm:pt-8 md:pb-10">
+            <div className="container mx-auto px-4 sm:px-6">
+              <h2 className="mb-8 text-center font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:mb-10 sm:text-4xl">
+                Dôležité dokumenty
+              </h2>
+              <div className="flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-4">
+                <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
+                  <FileText size={16} className="text-gold" />
+                  Propozície
+                </a>
+                <a href="/documents/BSGA_Tour_2026_program.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
+                  <FileText size={16} className="text-gold" />
+                  Program turnaja
+                </a>
+                <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
+                  <FileText size={16} className="text-gold" />
+                  Prezentácia BSGA Tour
+                </a>
+                <a href={tour5FinalAsset.url} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:w-auto">
+                  <Trophy size={16} />
+                  Kompletné poradie
+                </a>
+              </div>
+
+            </div>
+          </section>
+
           {/* Partneri túry */}
           <section id="tour-partneri-tury" data-section="Partneri túry" className="py-12 bg-muted/50 overflow-hidden">
             <div className="container mx-auto px-6 mb-10">
@@ -472,34 +518,6 @@ const Tour = () => {
                 }
               }
             `}</style>
-          </section>
-
-          {/* Tournament Schedule */}
-          <section id="tour-dokumenty" data-section="Dokumenty" className="scroll-mt-28 bg-background pt-6 pb-6 sm:pt-8 md:pb-10">
-            <div className="container mx-auto px-4 sm:px-6">
-              <h2 className="mb-8 text-center font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:mb-10 sm:text-4xl">
-                Dôležité dokumenty
-              </h2>
-              <div className="flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-4">
-                <a href="/documents/BSGA_Tour_2026_propozicie.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
-                  <FileText size={16} className="text-gold" />
-                  Propozície
-                </a>
-                <a href="/documents/BSGA_Tour_2026_program.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
-                  <FileText size={16} className="text-gold" />
-                  Program turnaja
-                </a>
-                <a href="/documents/BSGA_Tour_2026.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted">
-                  <FileText size={16} className="text-gold" />
-                  Prezentácia BSGA Tour
-                </a>
-                <a href={tour5FinalAsset.url} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:w-auto">
-                  <Trophy size={16} />
-                  Kompletné poradie
-                </a>
-              </div>
-
-            </div>
           </section>
 
           {/* Produktoví partneri */}
