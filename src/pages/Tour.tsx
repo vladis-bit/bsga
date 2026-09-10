@@ -63,6 +63,11 @@ import kacovAsset from "@/assets/courses/panorama-kacov.webp.asset.json";
 const kacovImg = kacovAsset.url;
 import apexAsset from "@/assets/apex-golf-club.webp.asset.json";
 const apexImg = apexAsset.url;
+import tour2026Card1Asset from "@/assets/courses/tour-2026-card-1.webp.asset.json";
+import tour2026Card2Asset from "@/assets/courses/tour-2026-card-2.webp.asset.json";
+import tour2026Card3Asset from "@/assets/courses/tour-2026-card-3.webp.asset.json";
+import tour2026Card4Asset from "@/assets/courses/tour-2026-card-4.webp.asset.json";
+import tour2026Card5Asset from "@/assets/courses/tour-2026-card-5.webp.asset.json";
 
 interface ProductPartner {
   name: string;
@@ -107,7 +112,7 @@ const tournaments = [
     number: 1,
     date: "15.5.2026",
     location: "Hrubá Borša",
-    image: hrubaBorsaImg,
+    image: tour2026Card1Asset.url,
     presenter: "NN",
     promoUrl: promo1Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/4RYGX7fM6i6JNign6", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028130", galleryUrl: "https://drive.google.com/drive/folders/1TLphxWdQEHPAuaNvflVUHiIw8qfApUiC?usp=sharing" }
@@ -116,7 +121,7 @@ const tournaments = [
     number: 2,
     date: "5.6.2026",
     location: "Tále",
-    image: taleImg,
+    image: tour2026Card2Asset.url,
     presenter: "Soitron",
     promoUrl: promo2Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/etftEGLtnH7MNFyBA", resultsUrl: "https://www.skga.sk/turnaje/turnaj?id=1000028133", galleryUrl: "https://drive.google.com/drive/folders/1WsLb9zka0RqK7mYmQU-koTFq_0IgcpOP?usp=sharing" }
@@ -125,7 +130,7 @@ const tournaments = [
     number: 3,
     date: "17.7.2026",
     location: "Penati Heritage",
-    image: heritageImg,
+    image: tour2026Card3Asset.url,
     presenter: "ELV produkt a.s.",
     promoUrl: promo3Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "https://www.golfgenius.com/pages/12463043224119850432", galleryUrl: "https://drive.google.com/drive/folders/1D6lcI6d3Ojp6wXup8qxJmXqqY88ed_LX?usp=drive_link" }
@@ -134,7 +139,7 @@ const tournaments = [
     number: 4,
     date: "14.8.2026",
     location: "Penati Legend",
-    image: legendImg,
+    image: tour2026Card4Asset.url,
     presenter: "ELcomp s.r.o.",
     promoUrl: promo4Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/BZufvXZoWCtmWYgj9", resultsUrl: "https://www.golfgenius.com/pages/12463049917557945799", galleryUrl: "https://drive.google.com/drive/folders/12TcsW8fck2_i5miq28QNIDxl_tdyDmpu?usp=drive_link" }
@@ -143,7 +148,7 @@ const tournaments = [
     number: 5,
     date: "4.9.2026",
     location: "Ostravice",
-    image: ostraviceImg,
+    image: tour2026Card5Asset.url,
     presenter: "Altron",
     promoUrl: promo5Asset.url,
     links: { locationUrl: "https://maps.app.goo.gl/A3H9g8qwsKDs9DEx7", resultsUrl: "https://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj?id=1300146509", galleryUrl: "https://drive.google.com/drive/folders/14x4ceHAhcAK09kfIsNbTOSi48UROPHzb?usp=drive_link" }
