@@ -70,7 +70,7 @@ const parseEventDate = (dateStr: string): number => {
 
 
 /** Posledné termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
-const weekendCourseDates = ["5. – 6. 9. 2026", "19. – 20. 9. 2026", "3. – 4. 10. 2026"];
+const weekendCourseDates = ["5. – 6. 9. 2026"];
 
 const weekendGreenCardEvent = (date: string): EventItem => ({
   title: "Víkendový kurz zelenej karty",
@@ -162,6 +162,9 @@ const events: EventItem[] = [
       },
     },
   },
+
+  ...["19. – 20. 9. 2026", "3. – 4. 10. 2026"].map((d) => weekendGreenCardEvent(d)),
+
   {
     title: "Švajlen Invitational",
     date: "25. 9. 2026",
@@ -1037,7 +1040,7 @@ const Events = () => {
                   <div className="absolute -top-3 left-6 z-10 inline-flex items-center gap-1.5 rounded-full px-3 py-1 bg-gold text-primary-foreground text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" /> Highlight 2027
                   </div>
-                  <div className="p-6 sm:p-10 text-left opacity-80">
+                  <div className="p-6 sm:p-10 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
                       <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-serif font-bold text-xl sm:text-2xl bg-muted text-muted-foreground">
                         2027
