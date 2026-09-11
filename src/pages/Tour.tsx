@@ -363,8 +363,12 @@ const Tour = () => {
                 </span>
 
                 <h1 className="mt-6 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                  Ďakujeme za úžasnú sezónu
+                  BSGA Tour – celoročná séria golfových turnajov
                 </h1>
+
+                <p className="mx-auto mt-4 max-w-2xl text-pretty font-serif text-xl text-foreground sm:text-2xl">
+                  Ďakujeme za úžasnú sezónu
+                </p>
 
                 <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
                   Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom, ktorí ho svojou účasťou a podporou spravili výnimočným.

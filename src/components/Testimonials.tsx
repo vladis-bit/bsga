@@ -159,6 +159,7 @@ const Testimonials = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevSlide}
+              aria-label="Predchádzajúca referencia"
               className="p-3 bg-card border border-border rounded-full hover:border-gold hover:text-gold transition-all hover:scale-105"
             >
               <ChevronLeft size={20} className="text-foreground" />
@@ -169,6 +170,8 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
+                  aria-label={`Zobraziť referenciu ${index + 1}`}
+                  aria-current={index === currentIndex ? "true" : undefined}
                   className={cn(
                     "w-2.5 h-2.5 rounded-full transition-all duration-300",
                     index === currentIndex ? "bg-gold w-8" : "bg-background/30 hover:bg-gold/50"
@@ -179,6 +182,7 @@ const Testimonials = () => {
             
             <button
               onClick={nextSlide}
+              aria-label="Ďalšia referencia"
               className="p-3 bg-card border border-border rounded-full hover:border-gold hover:text-gold transition-all hover:scale-105"
             >
               <ChevronRight size={20} className="text-foreground" />
