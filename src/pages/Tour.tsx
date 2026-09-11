@@ -366,9 +366,9 @@ const Tour = () => {
               </h1>
 
               <p className="mx-auto mt-6 max-w-3xl text-pretty text-sm leading-relaxed text-foreground/70 sm:text-base md:text-lg">
-                Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom,
-                ktorí ho svojou účasťou a podporou spravili výnimočným. Tešíme sa na vás pri oslave
-                víťazov a už teraz pripravujeme jedenásty ročník na rok 2027.
+                Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom, ktorí ho svojou účasťou a podporou spravili výnimočným. 
+
+                Tešíme sa na vás opať na jedenástom ročníku v  roku 2027.
               </p>
 
               <div className="mt-8 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
