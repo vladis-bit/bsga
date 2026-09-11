@@ -2,13 +2,10 @@ import Navbar from "@/components/Navbar";
 
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { Mail, FileText, Trophy, CalendarDays, MapPin } from "lucide-react";
+import { Mail, FileText, Trophy } from "lucide-react";
 import asbisAsset from "@/assets/partner-asbis.webp.asset.json";
-import tourHeroImageAsset from "@/assets/tour-hero-2026.webp.asset.json";
-const tourHeroImage = tourHeroImageAsset.url;
-import tourHeroImageAvifAsset from "@/assets/tour-hero-2026.avif.asset.json";
-const tourHeroImageAvif = tourHeroImageAvifAsset.url;
 import checkpointAsset from "@/assets/partner-checkpoint.webp.asset.json";
+import vitaziAsset from "@/assets/tour-promos/vitazi-bsga-tour-2026.pdf.asset.json";
 import bozinAsset from "@/assets/partners/partner-bozin-roastery.webp.asset.json";
 import lahoferAsset from "@/assets/partners/partner-lahofer.webp.asset.json";
 import nilioAsset from "@/assets/partners/partner-nilio.webp.asset.json";
