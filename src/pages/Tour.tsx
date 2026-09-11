@@ -353,51 +353,53 @@ const Tour = () => {
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
           {/* Hero – poďakovanie za sezónu 2026 */}
-          <section id="tour-hero" data-section="Poďakovanie" className="scroll-mt-28 relative w-full bg-background px-0 pt-28 sm:px-4 sm:pt-32 md:px-6 md:pt-40">
-            <div className="container mx-auto px-4 pb-14 text-center sm:px-6 sm:pb-16 md:pb-20">
-              <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
-                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-                <Trophy size={13} /> BSGA Tour 2026
-                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-              </span>
+          <section id="tour-hero" data-section="Poďakovanie" className="scroll-mt-28 relative w-full overflow-hidden bg-background pb-12 pt-24 sm:pb-16 sm:pt-28">
+            <div className="container mx-auto px-4 text-center sm:px-6">
+              <div className="mx-auto flex max-w-4xl flex-col items-center">
+                <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                  <Trophy size={13} /> BSGA Tour 2026
+                  <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                </span>
 
-              <h1 className="mt-5 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">
-                Ďakujeme za úžasnú sezónu
-              </h1>
+                <h1 className="mt-6 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                  Ďakujeme za úžasnú sezónu
+                </h1>
 
-              <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
-                Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom, ktorí ho svojou účasťou a podporou spravili výnimočným.
-              </p>
-              <p className="mx-auto mt-3 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
-                Tešíme sa na vás opäť na jedenástom ročníku v roku 2027.
-              </p>
+                <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
+                  Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom, ktorí ho svojou účasťou a podporou spravili výnimočným.
+                </p>
+                <p className="mx-auto mt-3 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
+                  Tešíme sa na vás opäť na jedenástom ročníku v roku 2027.
+                </p>
 
-              <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-                <a
-                  href={tour5FinalAsset.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98] sm:px-10"
-                >
-                  <Trophy size={16} />
-                  Kompletné poradie
-                </a>
-                <a
-                  href={vitaziAsset.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-8 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted active:scale-[0.98] sm:px-10"
-                >
-                  <FileText size={16} className="text-gold" />
-                  Víťazi BSGA Tour 2026
-                </a>
-                <a
-                  href="mailto:touroffice@bsga.sk?subject=Prihlásenie na 11. ročník turnajov v 2027"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-background hover:text-foreground active:scale-[0.98] sm:px-10"
-                >
-                  <Mail size={16} />
-                  Prihlásiť sa na 11. ročník
-                </a>
+                <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
+                  <a
+                    href={tour5FinalAsset.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98] sm:w-auto sm:px-10"
+                  >
+                    <Trophy size={16} />
+                    Kompletné poradie
+                  </a>
+                  <a
+                    href={vitaziAsset.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-8 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted active:scale-[0.98] sm:w-auto sm:px-10"
+                  >
+                    <FileText size={16} className="text-gold" />
+                    Víťazi BSGA Tour 2026
+                  </a>
+                  <a
+                    href="mailto:touroffice@bsga.sk?subject=Prihlásenie na 11. ročník turnajov v 2027"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-background hover:text-foreground active:scale-[0.98] sm:w-auto sm:px-10"
+                  >
+                    <Mail size={16} />
+                    Prihlásiť sa na 11. ročník
+                  </a>
+                </div>
               </div>
             </div>
           </section>
