@@ -352,66 +352,52 @@ const Tour = () => {
       <Navbar />
       <div className="theme-ivory min-h-screen bg-background text-foreground">
         <main>
-          {/* Hero */}
-          <section id="tour-hero" data-section="Najbližší turnaj" className="scroll-mt-28 relative w-full bg-background px-0 pt-24 sm:px-4 sm:pt-28 md:px-6">
-            <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl min-h-[460px] sm:min-h-[560px] md:min-h-[680px] max-h-[calc(100vh-4rem)]">
-                <img
-                  src={ostraviceImg}
-                  alt="Golfové ihrisko Ostravice – dejisko piateho turnaja BSGA Tour 2026"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                  {...({ fetchpriority: "high" } as any)}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/35" />
+          {/* Hero – poďakovanie za sezónu 2026 */}
+          <section id="tour-hero" data-section="Poďakovanie" className="scroll-mt-28 relative w-full bg-background px-0 pt-28 sm:px-4 sm:pt-32 md:px-6 md:pt-40">
+            <div className="container mx-auto px-4 pb-14 text-center sm:px-6 sm:pb-16 md:pb-20">
+              <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
+                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+                <Trophy size={13} /> BSGA Tour 2026
+                <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
+              </span>
 
-                <div className="relative z-10 flex h-full min-h-[460px] items-center sm:min-h-[560px] md:min-h-[680px]">
-                  <div className="container mx-auto px-4 py-14 text-center sm:px-6 sm:py-16 md:py-20">
-                    <span className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-gold sm:text-xs">
-                      <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-                      <Trophy size={13} /> Najbližší turnaj
-                      <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
-                    </span>
-                    <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-primary-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
-                      Piaty turnaj BSGA Tour
-                    </h1>
-                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm md:text-base">
-                      presented by Altron
-                    </p>
+              <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
+                Ďakujeme za úžasnú sezónu
+              </h1>
 
-                    <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:mt-8 sm:gap-3">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
-                        <CalendarDays size={15} className="text-gold" /> 4. september 2026
-                      </span>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-black/40 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm sm:text-sm">
-                        <MapPin size={15} className="text-gold" /> Ostravice Golf Resort
-                      </span>
-                    </div>
+              <p className="mx-auto mt-6 max-w-3xl text-pretty text-sm leading-relaxed text-foreground/70 sm:text-base md:text-lg">
+                Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom,
+                ktorí ho svojou účasťou a podporou spravili výnimočným. Tešíme sa na vás pri oslave
+                víťazov a už teraz pripravujeme jedenásty ročník na rok 2027.
+              </p>
 
-                    <p className="mx-auto mt-6 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 whitespace-pre-line sm:text-base md:text-lg">
-                      Piaty turnaj série BSGA Tour 2026 v krásnom prostredí Ostravíc.{"\u00A0"}{"\n"}
-                      Kapacita je obmedzená – zabezpečte si svoje miesto včas.
-                    </p>
-
-                    <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-                      <a
-                        href="mailto:touroffice@bsga.sk?subject=Prihlásenie na Piaty turnaj BSGA Tour – Ostravice"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
-                      >
-                        Prihlásiť sa
-                      </a>
-                      <a
-                        href={promo5Asset.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-foreground px-10 py-4 text-sm font-bold text-primary-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-primary-foreground hover:text-primary active:scale-[0.98] sm:w-auto"
-                      >
-                        <FileText size={16} className="text-gold" />
-                        Promo leták
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              <div className="mt-8 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+                <a
+                  href={tour5FinalAsset.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-bold text-primary transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground active:scale-[0.98] sm:px-10"
+                >
+                  <Trophy size={16} />
+                  Kompletné poradie
+                </a>
+                <a
+                  href={vitaziAsset.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-8 py-4 text-sm font-bold text-foreground transition-colors duration-300 hover:border-gold/60 hover:bg-muted active:scale-[0.98] sm:px-10"
+                >
+                  <FileText size={16} className="text-gold" />
+                  Víťazi BSGA Tour 2026
+                </a>
+                <a
+                  href="mailto:touroffice@bsga.sk?subject=Prihlásenie na 11. ročník turnajov v 2027"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-4 text-sm font-bold text-primary-foreground transition-colors duration-300 hover:bg-background hover:text-foreground active:scale-[0.98] sm:px-10"
+                >
+                  <Mail size={16} />
+                  Prihlásiť sa na 11. ročník
+                </a>
+              </div>
             </div>
           </section>
 
