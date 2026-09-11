@@ -361,7 +361,7 @@ const Tour = () => {
                 <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
               </span>
 
-              <h1 className="mt-5 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-6xl md:text-7xl lg:text-8xl">
+              <h1 className="mt-5 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">
                 Ďakujeme za úžasnú sezónu
               </h1>
 
