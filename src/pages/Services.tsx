@@ -239,7 +239,7 @@ const Services = () => {
     <>
       <SEO
         title="Služby | BSGA - Best Swing Golf Academy"
-        description="Kompletné golfové služby - individuálne a skupinové lekcie, zelené karty, detská akadémia, firemné akcie, turnaje BSGA Tour a fitting na mieru."
+        description="Kurz zelenej karty už od 199 €, individuálne aj skupinové golfové lekcie, fitting palíc na mieru, detská akadémia a firemné turnaje v Bratislave a okolí."
         path="/sluzby"
         breadcrumbs={BREADCRUMBS}
         jsonLd={serviceSchemas}
@@ -256,7 +256,7 @@ const Services = () => {
                   <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                 </span>
                 <h1 className="mt-2 text-balance font-serif text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                  Čo ponúkame
+                  Profesionálne golfové lekcie a kurzy v BSGA
                 </h1>
                 <p className="mt-2 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
                   12 profesionálnych služieb pre každého golfistu

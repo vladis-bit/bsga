@@ -153,8 +153,11 @@ const Akademia = () => {
                   <span className="h-px w-8 bg-gold/60" aria-hidden="true" />
                 </span>
                 <h1 className="mt-5 text-balance font-serif text-3xl font-bold leading-[1.08] text-foreground sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">
-                  Spúšťame jesennú časť detských krúžkov
+                  Juniorská golfová akadémia BSGA
                 </h1>
+                <p className="mx-auto mt-4 max-w-2xl text-pretty font-serif text-xl text-foreground sm:text-2xl">
+                  Spúšťame jesennú časť detských krúžkov
+                </p>
                 <p className="mx-auto mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-foreground/70 sm:max-w-3xl sm:text-base md:text-lg">
                   Golfové krúžky pre deti pokračujú aj na jeseň. Pod vedením skúsených trénerov sa deti naučia základy golfovej techniky, pravidlá a etiketu hry v príjemnom prostredí.
                 </p>
