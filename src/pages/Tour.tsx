@@ -365,13 +365,14 @@ const Tour = () => {
                 Ďakujeme za úžasnú sezónu
               </h1>
 
-              <p className="mx-auto mt-6 max-w-3xl text-pretty text-sm leading-relaxed text-foreground/70 sm:text-base md:text-lg">
-                Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom, ktorí ho svojou účasťou a podporou spravili výnimočným. 
-
-                Tešíme sa na vás opať na jedenástom ročníku v  roku 2027.
+              <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
+                Desiaty ročník BSGA Tour je za nami. Ďakujeme všetkým hráčom, partnerom a fanúšikom, ktorí ho svojou účasťou a podporou spravili výnimočným.
+              </p>
+              <p className="mx-auto mt-3 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
+                Tešíme sa na vás opäť na jedenástom ročníku v roku 2027.
               </p>
 
-              <div className="mt-8 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+              <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                 <a
                   href={tour5FinalAsset.url}
                   target="_blank"
