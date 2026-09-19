@@ -182,14 +182,20 @@ const AdminLayout = () => {
       );
     }
 
+    const isSignup = mode === "signup";
+
     return (
       <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-10">
         <form
-          onSubmit={signIn}
+          onSubmit={isSignup ? signUp : signIn}
           className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8"
         >
           <h1 className="font-serif text-2xl text-foreground">BSGA Admin</h1>
-          <p className="text-sm text-muted-foreground">Prihláste sa do administrácie.</p>
+          <p className="text-sm text-muted-foreground">
+            {isSignup
+              ? "Vytvorte si účet. Prístup do administrácie vám potom pridelí existujúci správca."
+              : "Prihláste sa do administrácie."}
+          </p>
           <Input
             type="email"
             placeholder="E-mail"
@@ -200,20 +206,38 @@ const AdminLayout = () => {
           <Input
             type="password"
             placeholder="Heslo"
+            autoComplete={isSignup ? "new-password" : "current-password"}
+            minLength={isSignup ? 8 : undefined}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Prihlasujem…" : "Prihlásiť sa"}
+            {loading
+              ? isSignup
+                ? "Registrujem…"
+                : "Prihlasujem…"
+              : isSignup
+                ? "Zaregistrovať sa"
+                : "Prihlásiť sa"}
           </Button>
-          <button
+          <Button
             type="button"
-            onClick={() => setMode("reset")}
-            className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            variant="outline"
+            className="w-full"
+            onClick={() => setMode(isSignup ? "signin" : "signup")}
           >
-            Zabudnuté heslo?
-          </button>
+            {isSignup ? "Späť na prihlásenie" : "Zaregistrovať sa"}
+          </Button>
+          {!isSignup && (
+            <button
+              type="button"
+              onClick={() => setMode("reset")}
+              className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            >
+              Zabudnuté heslo?
+            </button>
+          )}
         </form>
       </main>
     );
