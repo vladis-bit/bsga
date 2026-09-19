@@ -23,6 +23,10 @@ const BookingCancel = () => {
   const [error, setError] = useState<string | null>(null);
   const [cancelled, setCancelled] = useState(false);
 
+  /** Zrušiť online sa dá najneskôr 3 hodiny pred začiatkom rezervácie. */
+  const tooLate =
+    !!detail && new Date(detail.starts_at).getTime() - Date.now() <= 3 * 60 * 60 * 1000;
+
   useEffect(() => {
     if (!token) return;
     supabase.rpc("get_pc_booking_by_token", { _token: token }).then(({ data }) => {
