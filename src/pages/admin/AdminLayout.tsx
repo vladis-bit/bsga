@@ -48,7 +48,7 @@ const AdminLayout = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [mode, setMode] = useState<"signin" | "reset">("signin");
+  const [mode, setMode] = useState<"signin" | "signup" | "reset">("signin");
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -99,6 +99,33 @@ const AdminLayout = () => {
     setLoading(false);
     if (error)
       toast({ title: "Prihlásenie zlyhalo", description: error.message, variant: "destructive" });
+  };
+
+  const signUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}/admin` },
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Registrácia zlyhala", description: error.message, variant: "destructive" });
+      return;
+    }
+    if (!data.session) {
+      toast({
+        title: "Skontrolujte e-mail",
+        description: "Poslali sme vám potvrdzovací odkaz. Po potvrdení sa prihláste.",
+      });
+      setMode("signin");
+      return;
+    }
+    toast({
+      title: "Účet vytvorený",
+      description: "Prístup do administrácie vám musí prideliť existujúci správca.",
+    });
   };
 
   const sendReset = async (e: React.FormEvent) => {
