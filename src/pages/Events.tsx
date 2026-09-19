@@ -292,8 +292,11 @@ const archivedEvents: EventItem[] = [
       },
     },
   },
-  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
+  ...archivedWeekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
+/** Zoradenie archívu od najnovšieho termínu. */
+archivedEvents.sort((a, b) => parseEventDate(b.date) - parseEventDate(a.date));
 
 
 /**
