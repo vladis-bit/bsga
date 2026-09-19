@@ -388,7 +388,11 @@ const AdminLayout = () => {
                       })}
                     </ul>
                   </nav>
-                  <div className="border-t border-border p-4">
+                  <div className="space-y-3 border-t border-border p-4">
+                    <p className="truncate text-xs text-muted-foreground">
+                      Prihlásený admin:{" "}
+                      <strong className="font-semibold text-foreground">{session.user.email}</strong>
+                    </p>
                     <Button
                       variant="outline"
                       className="min-h-[48px] w-full rounded-2xl"
