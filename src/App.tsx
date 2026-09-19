@@ -87,7 +87,7 @@ const App = () => (
               <Route path="admini" element={<AdminAdmins />} />
               <Route path="nastavenia" element={<AdminSettings />} />
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
-              <Route path="performance-center/vytvorit-rezervaciu" element={<AdminCreateBooking />} />
+              <Route path="vytvorit-rezervaciu" element={<AdminCreateBooking />} />
             </Route>
             <Route path="/rezervacia/detail" element={<BookingDetail />} />
             <Route path="/rezervacia/zrusit" element={<BookingCancel />} />
