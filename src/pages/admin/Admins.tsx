@@ -13,6 +13,7 @@ const Admins = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
+  const [myEmail, setMyEmail] = useState<string | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -24,6 +25,10 @@ const Admins = () => {
     }
     setAdmins((data ?? []) as AdminUser[]);
   };
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => setMyEmail(data.user?.email ?? null));
+  }, []);
 
   useEffect(() => {
     load();
@@ -102,7 +107,14 @@ const Admins = () => {
             )}
             {admins.map((a) => (
               <tr key={a.user_id} className="border-t border-border">
-                <td className="px-6 py-4 font-medium text-foreground">{a.email}</td>
+                <td className="px-6 py-4 font-medium text-foreground">
+                  {a.email}
+                  {myEmail && a.email.toLowerCase() === myEmail.toLowerCase() && (
+                    <span className="ml-2 rounded-full bg-gold/20 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-foreground">
+                      Vy
+                    </span>
+                  )}
+                </td>
                 <td className="px-6 py-4 text-muted-foreground">{fmtDateTime(a.granted_at)}</td>
                 <td className="px-6 py-4 text-right">
                   <Button variant="destructive" size="sm" disabled={busy} onClick={() => revoke(a.email)}>
