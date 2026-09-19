@@ -229,30 +229,6 @@ const galleryImages = images.map((image, index) => ({
   id: `gallery-photo-${String(index + 1).padStart(2, "0")}`,
 }));
 
-type SearchMatch = { id: string; relevance: number };
-
-type SearchResponse = {
-  summary: string;
-  matches: SearchMatch[];
-};
-
-const readFunctionError = async (error: unknown) => {
-  const fallback = "AI vyhľadávanie sa nepodarilo dokončiť. Skúste to, prosím, znova.";
-  if (!error || typeof error !== "object") return fallback;
-
-  const context = (error as { context?: Response }).context;
-  if (context instanceof Response) {
-    try {
-      const payload = await context.clone().json();
-      if (typeof payload?.message === "string") return payload.message;
-    } catch {
-      // The service did not return a readable JSON error.
-    }
-  }
-
-  const message = (error as { message?: unknown }).message;
-  return typeof message === "string" && message.trim() ? message : fallback;
-};
 
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
