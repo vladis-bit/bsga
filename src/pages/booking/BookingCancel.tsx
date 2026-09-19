@@ -79,6 +79,27 @@ const BookingCancel = () => {
           <p className="rounded-2xl border border-border bg-muted/40 p-4 text-sm text-foreground">
             Rezervácia bola zrušená. Termín je opäť voľný pre ostatných klientov.
           </p>
+        ) : tooLate ? (
+          <div className="space-y-3">
+            {detail && (
+              <p className="text-sm text-muted-foreground">
+                {detail.simulator_name} · {fmtBookingDate(detail.starts_at)} o{" "}
+                {fmtBookingTime(detail.starts_at)} ({Number(detail.duration_hours)} h)
+              </p>
+            )}
+            <p className="rounded-2xl border border-border bg-muted/40 p-4 text-sm text-foreground">
+              Rezerváciu je možné zrušiť online najneskôr 3 hodiny pred jej začiatkom. Ozvite sa nám,
+              prosím, na{" "}
+              <a className="font-bold underline" href="mailto:peter@bsga.sk">
+                peter@bsga.sk
+              </a>{" "}
+              alebo{" "}
+              <a className="font-bold underline" href="tel:+421905335501">
+                +421 905 335 501
+              </a>
+              .
+            </p>
+          </div>
         ) : (
           <>
             {detail && (
