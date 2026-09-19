@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, MapPin } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-footer-logo.png";
 
 const serviceLinks = [
@@ -24,23 +24,11 @@ const Footer = () => {
   const linkClass = "group inline-flex items-center gap-1.5 text-background/60 hover:text-gold transition-colors text-sm";
   const columnHeadingClass = "mb-5 text-[10px] font-bold uppercase tracking-[0.3em] text-gold";
 
-  const renderServiceLink = ({ label, href, external }: typeof serviceLinks[0]) => (
+  const renderServiceLink = ({ label, href }: typeof serviceLinks[0]) => (
     <li key={label}>
-      {external ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={linkClass}
-        >
-          {label}
-          <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-        </a>
-      ) : (
-        <Link to={href} className={linkClass}>
-          {label}
-        </Link>
-      )}
+      <Link to={href} className={linkClass}>
+        {label}
+      </Link>
     </li>
   );
 
