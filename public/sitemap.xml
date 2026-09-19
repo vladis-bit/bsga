@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://bsga.sk/eventy</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://bsga.sk/firemne-akcie</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://bsga.sk/galeria</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://bsga.sk/gdpr</loc>
@@ -51,6 +51,22 @@
   <url>
     <loc>https://bsga.sk/obchodne-podmienky</loc>
     <lastmod>2026-09-08</lastmod>
+  </url>
+  <url>
+    <loc>https://bsga.sk/performance-center</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://bsga.sk/performance-center/clenstva</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://bsga.sk/performance-center/indoor-liga</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://bsga.sk/performance-center/rezervacia</loc>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://bsga.sk/sluzby</loc>
