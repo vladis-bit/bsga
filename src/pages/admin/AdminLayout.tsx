@@ -21,7 +21,7 @@ const links = [
   { to: "/admin/rezervacie", label: "Rezervácie" },
   { to: "/admin/kalendar", label: "Kalendár" },
   { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
-  { to: "/admin/performance-center/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu" },
+  { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu" },
   { to: "/admin/spravy", label: "Správy" },
   { to: "/admin/nastavenia", label: "Nastavenia" },
 ];
