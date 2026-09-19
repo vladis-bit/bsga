@@ -237,62 +237,11 @@ const BREADCRUMBS = [
 
 const Gallery = () => {
   const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
-  const [searchResult, setSearchResult] = useState<SearchResponse | null>(null);
-  const [isSearching, setIsSearching] = useState(false);
-  const [searchError, setSearchError] = useState<string | null>(null);
-
-  const displayedImages = useMemo(() => {
-    if (!searchResult) return galleryImages;
-    const byId = new Map(galleryImages.map((image) => [image.id, image]));
-    return searchResult.matches.flatMap((match) => {
-      const image = byId.get(match.id);
-      return image ? [image] : [];
-    });
-  }, [searchResult]);
 
   const selectedImage = selectedImageId
     ? galleryImages.find((image) => image.id === selectedImageId)
     : undefined;
 
-  const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const normalizedQuery = query.trim();
-    if (normalizedQuery.length < 3) {
-      setSearchError("Napíšte aspoň 3 znaky.");
-      return;
-    }
-
-    setIsSearching(true);
-    setSearchError(null);
-
-    try {
-      const { data, error } = await supabase.functions.invoke<SearchResponse>("ai-gallery-search", {
-        body: {
-          query: normalizedQuery,
-          catalog: galleryImages.map(({ id, alt }) => ({ id, description: alt })),
-        },
-      });
-
-      if (error) throw error;
-      if (!data || !Array.isArray(data.matches) || typeof data.summary !== "string") {
-        throw new Error("AI vyhľadávanie vrátilo neúplnú odpoveď.");
-      }
-
-      setSearchResult(data);
-    } catch (error) {
-      setSearchResult(null);
-      setSearchError(await readFunctionError(error));
-    } finally {
-      setIsSearching(false);
-    }
-  };
-
-  const resetSearch = () => {
-    setQuery("");
-    setSearchResult(null);
-    setSearchError(null);
-  };
 
   const gallerySchema = {
     "@context": "https://schema.org",
