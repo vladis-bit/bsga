@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, ExternalLink, FolderOpen, Phone, Mail, MapPin } from "lucide-react";
 import bsgaLogo from "@/assets/bsga-footer-logo.png";
 
 const serviceLinks = [
@@ -14,7 +14,7 @@ const serviceLinks = [
   { label: "Fitting – vybavenie na mieru", href: "/fitting" },
   { label: "Eventy a \u00a0golfové pobyty", href: "/eventy" },
   { label: "Course Management", href: "/zacni-s-golfom#dominuj" },
-  { label: "Performance Center", href: "https://bsga-performance-center.reenio.sk/sk/terms/", external: true },
+  { label: "Performance Center", href: "/performance-center" },
 ];
 
 const serviceLinksLeft = serviceLinks.slice(0, 6);
@@ -24,23 +24,11 @@ const Footer = () => {
   const linkClass = "group inline-flex items-center gap-1.5 text-background/60 hover:text-gold transition-colors text-sm";
   const columnHeadingClass = "mb-5 text-[10px] font-bold uppercase tracking-[0.3em] text-gold";
 
-  const renderServiceLink = ({ label, href, external }: typeof serviceLinks[0]) => (
+  const renderServiceLink = ({ label, href }: typeof serviceLinks[0]) => (
     <li key={label}>
-      {external ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={linkClass}
-        >
-          {label}
-          <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-        </a>
-      ) : (
-        <Link to={href} className={linkClass}>
-          {label}
-        </Link>
-      )}
+      <Link to={href} className={linkClass}>
+        {label}
+      </Link>
     </li>
   );
 
@@ -120,9 +108,7 @@ const Footer = () => {
             <h4 className={columnHeadingClass}>Objavte</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://bsga-performance-center.reenio.sk/sk/terms/" target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  Performance Centre <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
+                <Link to="/performance-center" className={linkClass}>Performance Center</Link>
               </li>
               <li><Link to="/edukacne-centrum" className={linkClass}>Edukačné centrum</Link></li>
               <li><Link to="/eventy" className={linkClass}>Eventy</Link></li>
