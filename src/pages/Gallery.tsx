@@ -1,11 +1,9 @@
-import { FormEvent, useMemo, useState } from "react";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { supabase } from "@/integrations/supabase/client";
-import { LoaderCircle, RotateCcw, Search, Sparkles, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import galleryTeamMenAsset from "@/assets/gallery-team-men.webp.asset.json";
 const galleryTeamMen = galleryTeamMenAsset.url;
 import galleryTrainingAsset from "@/assets/gallery-training.webp.asset.json";
