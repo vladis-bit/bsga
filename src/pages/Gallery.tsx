@@ -75,6 +75,8 @@ import newKidsUmbrella from "@/assets/gallery/gallery-new-11-2.png.asset.json";
 import newKidsPutting from "@/assets/gallery/gallery-new-10-3.png.asset.json";
 import newKidsGreen from "@/assets/gallery/gallery-new-9-3.png.asset.json";
 import newKidsDiplomas from "@/assets/gallery/gallery-new-8-7.png.asset.json";
+import tourGroup2026 from "@/assets/gallery/bsga-tour-group-2026.webp.asset.json";
+import tourWinners2026 from "@/assets/gallery/bsga-tour-winners-2026.webp.asset.json";
 
 const images = [
   {
@@ -212,10 +214,12 @@ const extraImages = [
   { src: upload14.url, alt: "Veľká skupina študentov na golfovom kempe" },
   { src: upload15.url, alt: "Tím BSGA pri Ryder Cup Camiral 2031" },
   { src: upload16.url, alt: "Skupinová fotografia golfistov na odpalisku" },
+  { src: tourGroup2026.url, alt: "Účastníci turnaja BSGA Tour 2026 s trofejou na golfovom ihrisku" },
+  { src: tourWinners2026.url, alt: "Víťazi turnaja BSGA Tour 2026 s trofejou" },
 ];
 
 // Insert extra images at scattered positions for a random feel
-const insertPositions = [1, 3, 5, 7, 10, 13, 17, 21, 25, 28, 30, 32, 34];
+const insertPositions = [1, 3, 5, 7, 10, 13, 17, 21, 25, 28, 30, 32, 34, 36];
 insertPositions.forEach((pos, i) => {
   if (extraImages[i]) images.splice(pos + i, 0, extraImages[i]);
 });
