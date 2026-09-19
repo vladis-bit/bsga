@@ -115,7 +115,7 @@ const weekendGreenCardEvent = (date: string): EventItem => ({
 });
 
 const events: EventItem[] = [
-  ...["19. – 20. 9. 2026", "3. – 4. 10. 2026"].map((d) => weekendGreenCardEvent(d)),
+  ...["3. – 4. 10. 2026"].map((d) => weekendGreenCardEvent(d)),
 
   {
     title: "Švajlen Invitational",
