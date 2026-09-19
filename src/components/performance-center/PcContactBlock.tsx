@@ -51,7 +51,7 @@ const PcContactBlock = () => (
     <div className="h-[340px] w-full overflow-hidden rounded-3xl border border-border bg-card sm:h-[440px] lg:h-[520px]">
       <iframe
         title="Interaktívna mapa – BSGA Performance Center, Zuzany Chalupovej 12, Bratislava"
-        src="https://maps.google.com/maps?q=Zuzany%20Chalupovej%2012%2C%20851%2007%20Bratislava-Petr%C5%BEalka&z=16&hl=sk&output=embed"
+        src="https://www.google.com/maps?q=Zuzany%20Chalupovej%2012%2C%20851%2007%20Bratislava-Petr%C5%BEalka&z=16&hl=sk&output=embed"
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"

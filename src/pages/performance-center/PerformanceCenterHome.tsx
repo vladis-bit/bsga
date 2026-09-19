@@ -103,14 +103,14 @@ const PerformanceCenterHome = () => {
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">Performance Center</span>
               </div>
 
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+              <div className="grid grid-cols-1 gap-6 md:gap-8">
                 {cards.map((card, index) => {
                   const Icon = card.icon;
                   const cardClass = card.variant === "featured"
-                    ? "md:col-span-8 border-l-4 border-gold bg-card shadow-sm hover:shadow-lg"
+                    ? "border-l-4 border-gold bg-card shadow-sm hover:shadow-lg"
                     : card.variant === "side"
-                      ? "md:col-span-4 bg-muted hover:bg-muted/70"
-                      : "md:col-span-12 border border-border bg-card hover:border-gold/50";
+                      ? "border border-border bg-muted hover:bg-muted/70"
+                      : "border border-border bg-card hover:border-gold/50";
                   return (
                     <motion.div key={card.n} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.4, delay: index * 0.1 }} className={cardClass + " rounded-2xl transition-all duration-300"}>
                       <Link to={card.to} className="group flex h-full flex-col justify-between gap-8 p-6 sm:p-8 md:p-10" aria-label={`${card.title} – zobraziť detail`}>
