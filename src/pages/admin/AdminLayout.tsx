@@ -320,6 +320,13 @@ const AdminLayout = () => {
               })}
             </nav>
             <div className="flex shrink-0 items-center gap-2">
+              <span className="hidden max-w-[220px] items-center gap-2 truncate rounded-full bg-muted px-3 py-1.5 text-xs text-muted-foreground lg:inline-flex">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                <span className="truncate">
+                  Prihlásený admin:{" "}
+                  <strong className="font-semibold text-foreground">{session.user.email}</strong>
+                </span>
+              </span>
               <Button
                 variant="outline"
                 size="sm"
