@@ -6,3 +6,4 @@
 - [x] Overiť galériu na počítači a mobile
 - [x] Skontrolovať zostavenie projektu
 - [x] Upraviť kontakt Performance Center s fotkou, tlačidlami a interaktívnou mapou
+- [x] Zoradiť karty Performance Center pod seba a opraviť zobrazenie mapy
