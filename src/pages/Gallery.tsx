@@ -2,7 +2,6 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import galleryTeamMenAsset from "@/assets/gallery-team-men.webp.asset.json";
 const galleryTeamMen = galleryTeamMenAsset.url;
