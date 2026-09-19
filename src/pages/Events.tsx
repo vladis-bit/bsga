@@ -69,8 +69,8 @@ const parseEventDate = (dateStr: string): number => {
 };
 
 
-/** Posledné termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
-const weekendCourseDates = ["5. – 6. 9. 2026"];
+/** Archivované termíny víkendového kurzu zelenej karty v sezóne 2026 (viď /zacni-s-golfom). */
+const archivedWeekendCourseDates = ["19. – 20. 9. 2026", "5. – 6. 9. 2026"];
 
 const weekendGreenCardEvent = (date: string): EventItem => ({
   title: "Víkendový kurz zelenej karty",
@@ -115,7 +115,7 @@ const weekendGreenCardEvent = (date: string): EventItem => ({
 });
 
 const events: EventItem[] = [
-  ...["19. – 20. 9. 2026", "3. – 4. 10. 2026"].map((d) => weekendGreenCardEvent(d)),
+  ...["3. – 4. 10. 2026"].map((d) => weekendGreenCardEvent(d)),
 
   {
     title: "Švajlen Invitational",
@@ -292,8 +292,11 @@ const archivedEvents: EventItem[] = [
       },
     },
   },
-  ...weekendCourseDates.map((d) => weekendGreenCardEvent(d)),
+  ...archivedWeekendCourseDates.map((d) => weekendGreenCardEvent(d)),
 ];
+
+/** Zoradenie archívu od najnovšieho termínu. */
+archivedEvents.sort((a, b) => parseEventDate(b.date) - parseEventDate(a.date));
 
 
 /**
