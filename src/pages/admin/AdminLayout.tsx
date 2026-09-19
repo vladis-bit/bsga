@@ -23,6 +23,7 @@ const links = [
   { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
   { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu" },
   { to: "/admin/spravy", label: "Správy" },
+  { to: "/admin/pouzivatelia", label: "Používatelia" },
   { to: "/admin/nastavenia", label: "Nastavenia" },
 ];
 
