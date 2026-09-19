@@ -69,6 +69,7 @@ const App = () => (
             
             <Route path="/obchod" element={<Shop />} />
             <Route path="/fitting" element={<Fitting />} />
+            <Route path="/performance-center" element={<PerformanceCenterHome />} />
             <Route path="/firemne-akcie" element={<CorporateEvents />} />
             <Route path="/eventy" element={<Events />} />
             <Route path="/zacni-s-golfom" element={<StartGolf />} />
@@ -82,7 +83,6 @@ const App = () => (
               <Route path="admini" element={<AdminAdmins />} />
               <Route path="nastavenia" element={<AdminSettings />} />
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
-              <Route path="performance-center" element={<PerformanceCenterHome />} />
               <Route path="performance-center/rezervacia" element={<PcReservation />} />
               <Route path="performance-center/vytvorit-rezervaciu" element={<AdminCreateBooking />} />
               <Route path="performance-center/indoor-league" element={<PcIndoorLeague />} />

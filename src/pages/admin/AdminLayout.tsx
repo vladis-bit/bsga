@@ -22,15 +22,13 @@ const links = [
   { to: "/admin/kalendar", label: "Kalendár" },
   { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
   { to: "/admin/performance-center/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu" },
-  { to: "/admin/performance-center", label: "Performance Center" },
   { to: "/admin/spravy", label: "Správy" },
   { to: "/admin/nastavenia", label: "Nastavenia" },
 ];
 
 const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
 
-/** Najdlhšia zhoda vyhráva, takže napr. /admin/performance-center/vytvorit-rezervaciu
- *  nezvýrazní zároveň aj položku Performance Center. */
+/** Najdlhšia zhoda vyhráva pri vnorených administračných cestách. */
 const useActivePath = (pathname: string) => {
   const current = normalize(pathname);
   let best = "";
