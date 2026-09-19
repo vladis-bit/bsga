@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
-
 import Footer from "@/components/Footer";
-import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
+import { LoaderCircle, RotateCcw, Search, Sparkles, X } from "lucide-react";
 import galleryTeamMenAsset from "@/assets/gallery-team-men.webp.asset.json";
 const galleryTeamMen = galleryTeamMenAsset.url;
 import galleryTrainingAsset from "@/assets/gallery-training.webp.asset.json";
@@ -224,13 +226,100 @@ insertPositions.forEach((pos, i) => {
   if (extraImages[i]) images.splice(pos + i, 0, extraImages[i]);
 });
 
+const galleryImages = images.map((image, index) => ({
+  ...image,
+  id: `gallery-photo-${String(index + 1).padStart(2, "0")}`,
+}));
+
+type SearchMatch = { id: string; relevance: number };
+
+type SearchResponse = {
+  summary: string;
+  matches: SearchMatch[];
+};
+
+const readFunctionError = async (error: unknown) => {
+  const fallback = "AI vyhľadávanie sa nepodarilo dokončiť. Skúste to, prosím, znova.";
+  if (!error || typeof error !== "object") return fallback;
+
+  const context = (error as { context?: Response }).context;
+  if (context instanceof Response) {
+    try {
+      const payload = await context.clone().json();
+      if (typeof payload?.message === "string") return payload.message;
+    } catch {
+      // The service did not return a readable JSON error.
+    }
+  }
+
+  const message = (error as { message?: unknown }).message;
+  return typeof message === "string" && message.trim() ? message : fallback;
+};
+
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
   { name: "Galéria", url: "https://bsga.sk/galeria" },
 ];
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [searchResult, setSearchResult] = useState<SearchResponse | null>(null);
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
+
+  const displayedImages = useMemo(() => {
+    if (!searchResult) return galleryImages;
+    const byId = new Map(galleryImages.map((image) => [image.id, image]));
+    return searchResult.matches.flatMap((match) => {
+      const image = byId.get(match.id);
+      return image ? [image] : [];
+    });
+  }, [searchResult]);
+
+  const selectedImage = selectedImageId
+    ? galleryImages.find((image) => image.id === selectedImageId)
+    : undefined;
+
+  const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const normalizedQuery = query.trim();
+    if (normalizedQuery.length < 3) {
+      setSearchError("Napíšte aspoň 3 znaky.");
+      return;
+    }
+
+    setIsSearching(true);
+    setSearchError(null);
+
+    try {
+      const { data, error } = await supabase.functions.invoke<SearchResponse>("ai-gallery-search", {
+        body: {
+          query: normalizedQuery,
+          catalog: galleryImages.map(({ id, alt }) => ({ id, description: alt })),
+        },
+      });
+
+      if (error) throw error;
+      if (!data || !Array.isArray(data.matches) || typeof data.summary !== "string") {
+        throw new Error("AI vyhľadávanie vrátilo neúplnú odpoveď.");
+      }
+
+      setSearchResult(data);
+    } catch (error) {
+      setSearchResult(null);
+      setSearchError(await readFunctionError(error));
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const resetSearch = () => {
+    setQuery("");
+    setSearchResult(null);
+    setSearchError(null);
+  };
+
   const gallerySchema = {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
@@ -241,7 +330,7 @@ const Gallery = () => {
       "Fotogaléria Best Swing Golf Academy – tréningy, detské kempy, turnaje BSGA Tour a golfové pobyty.",
     isPartOf: { "@id": "https://bsga.sk/#website" },
     author: { "@id": "https://bsga.sk/#organization" },
-    associatedMedia: images.slice(0, 20).map((img) => ({
+    associatedMedia: galleryImages.slice(0, 20).map((img) => ({
       "@type": "ImageObject",
       contentUrl: img.src,
       caption: img.alt,
@@ -276,9 +365,48 @@ const Gallery = () => {
                 </p>
               </div>
 
+              <div className="mx-auto mb-10 max-w-3xl border-y border-border py-7 sm:mb-14 sm:py-9">
+                <div className="mb-4 flex items-center justify-center gap-2 text-gold">
+                  <Sparkles className="h-5 w-5" aria-hidden="true" />
+                  <h2 className="text-sm font-bold uppercase tracking-[0.18em]">Nájdite záber pomocou AI</h2>
+                </div>
+                <form onSubmit={handleSearch} className="flex flex-col gap-3 sm:flex-row" aria-describedby="gallery-search-status">
+                  <label htmlFor="gallery-search" className="sr-only">Opíšte fotografiu, ktorú hľadáte</label>
+                  <Input
+                    id="gallery-search"
+                    type="search"
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    maxLength={300}
+                    placeholder="Napríklad: deti trénujúce na greene"
+                    className="h-12 rounded-md bg-card px-4 text-foreground placeholder:text-muted-foreground sm:flex-1"
+                    disabled={isSearching}
+                  />
+                  <Button type="submit" className="h-12 px-6 font-bold" disabled={isSearching || query.trim().length < 3}>
+                    {isSearching ? <LoaderCircle className="animate-spin" aria-hidden="true" /> : <Search aria-hidden="true" />}
+                    {isSearching ? "Hľadám…" : "Nájsť fotografie"}
+                  </Button>
+                </form>
+
+                <div id="gallery-search-status" className="mt-4 min-h-6 text-center text-sm" aria-live="polite">
+                  {searchError && <p className="font-medium text-destructive">{searchError}</p>}
+                  {searchResult && (
+                    <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                      <p className="text-foreground/75">
+                        {searchResult.summary} <strong>Počet záberov: {displayedImages.length}.</strong>
+                      </p>
+                      <Button type="button" variant="ghost" size="sm" onClick={resetSearch} className="font-bold text-foreground">
+                        <RotateCcw aria-hidden="true" />
+                        Zobraziť všetky
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <h2 className="sr-only">Fotogaléria BSGA</h2>
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-                {images.map((image, index) => <button key={index} onClick={() => setSelectedImage(index)} className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-xl sm:rounded-2xl md:rounded-3xl">
+              {displayedImages.length > 0 ? <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+                {displayedImages.map((image) => <button key={image.id} onClick={() => setSelectedImageId(image.id)} className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-xl sm:rounded-2xl md:rounded-3xl">
                     <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/45 transition-all duration-300 flex items-center justify-center">
                       <span className="rounded-full bg-gold px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-sm">
@@ -286,16 +414,20 @@ const Gallery = () => {
                       </span>
                     </div>
                   </button>)}
-              </div>
+              </div> : <div className="border-y border-border py-14 text-center">
+                <Search className="mx-auto mb-4 h-8 w-8 text-gold" aria-hidden="true" />
+                <p className="font-bold text-foreground">Nenašli sme zodpovedajúci záber.</p>
+                <p className="mt-2 text-sm text-foreground/65">Skúste iný opis alebo všeobecnejšiu otázku.</p>
+              </div>}
             </div>
           </section>
 
-          {selectedImage !== null && <div className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelectedImage(null)}>
-              <button aria-label="Zatvoriť" className="absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full border border-background/30 p-2 text-background hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}>
+          {selectedImage && <div className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelectedImageId(null)}>
+              <button aria-label="Zatvoriť" className="absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full border border-background/30 p-2 text-background hover:text-gold transition-colors z-10" onClick={() => setSelectedImageId(null)}>
                 <X size={28} className="sm:w-8 sm:h-8" aria-hidden="true" />
                 <span className="sr-only">Zatvoriť</span>
               </button>
-              <img loading="lazy" decoding="async" src={images[selectedImage].src} alt={images[selectedImage].alt} className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-2xl" onClick={e => e.stopPropagation()} />
+              <img loading="lazy" decoding="async" src={selectedImage.src} alt={selectedImage.alt} className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-2xl" onClick={e => e.stopPropagation()} />
             </div>}
         </main>
       </div>
