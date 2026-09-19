@@ -48,7 +48,7 @@ const AdminLayout = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [mode, setMode] = useState<"signin" | "reset">("signin");
+  const [mode, setMode] = useState<"signin" | "signup" | "reset">("signin");
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -99,6 +99,33 @@ const AdminLayout = () => {
     setLoading(false);
     if (error)
       toast({ title: "Prihlásenie zlyhalo", description: error.message, variant: "destructive" });
+  };
+
+  const signUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}/admin` },
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Registrácia zlyhala", description: error.message, variant: "destructive" });
+      return;
+    }
+    if (!data.session) {
+      toast({
+        title: "Skontrolujte e-mail",
+        description: "Poslali sme vám potvrdzovací odkaz. Po potvrdení sa prihláste.",
+      });
+      setMode("signin");
+      return;
+    }
+    toast({
+      title: "Účet vytvorený",
+      description: "Prístup do administrácie vám musí prideliť existujúci správca.",
+    });
   };
 
   const sendReset = async (e: React.FormEvent) => {
@@ -155,14 +182,20 @@ const AdminLayout = () => {
       );
     }
 
+    const isSignup = mode === "signup";
+
     return (
       <main className="theme-ivory flex min-h-screen items-center justify-center bg-background px-4 py-10">
         <form
-          onSubmit={signIn}
+          onSubmit={isSignup ? signUp : signIn}
           className="w-full max-w-sm space-y-4 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8"
         >
           <h1 className="font-serif text-2xl text-foreground">BSGA Admin</h1>
-          <p className="text-sm text-muted-foreground">Prihláste sa do administrácie.</p>
+          <p className="text-sm text-muted-foreground">
+            {isSignup
+              ? "Vytvorte si účet. Prístup do administrácie vám potom pridelí existujúci správca."
+              : "Prihláste sa do administrácie."}
+          </p>
           <Input
             type="email"
             placeholder="E-mail"
@@ -173,20 +206,38 @@ const AdminLayout = () => {
           <Input
             type="password"
             placeholder="Heslo"
+            autoComplete={isSignup ? "new-password" : "current-password"}
+            minLength={isSignup ? 8 : undefined}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Prihlasujem…" : "Prihlásiť sa"}
+            {loading
+              ? isSignup
+                ? "Registrujem…"
+                : "Prihlasujem…"
+              : isSignup
+                ? "Zaregistrovať sa"
+                : "Prihlásiť sa"}
           </Button>
-          <button
+          <Button
             type="button"
-            onClick={() => setMode("reset")}
-            className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            variant="outline"
+            className="w-full"
+            onClick={() => setMode(isSignup ? "signin" : "signup")}
           >
-            Zabudnuté heslo?
-          </button>
+            {isSignup ? "Späť na prihlásenie" : "Zaregistrovať sa"}
+          </Button>
+          {!isSignup && (
+            <button
+              type="button"
+              onClick={() => setMode("reset")}
+              className="w-full text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            >
+              Zabudnuté heslo?
+            </button>
+          )}
         </form>
       </main>
     );
@@ -269,6 +320,13 @@ const AdminLayout = () => {
               })}
             </nav>
             <div className="flex shrink-0 items-center gap-2">
+              <span className="hidden max-w-[220px] items-center gap-2 truncate rounded-full bg-muted px-3 py-1.5 text-xs text-muted-foreground lg:inline-flex">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                <span className="truncate">
+                  Prihlásený admin:{" "}
+                  <strong className="font-semibold text-foreground">{session.user.email}</strong>
+                </span>
+              </span>
               <Button
                 variant="outline"
                 size="sm"
@@ -330,7 +388,11 @@ const AdminLayout = () => {
                       })}
                     </ul>
                   </nav>
-                  <div className="border-t border-border p-4">
+                  <div className="space-y-3 border-t border-border p-4">
+                    <p className="truncate text-xs text-muted-foreground">
+                      Prihlásený admin:{" "}
+                      <strong className="font-semibold text-foreground">{session.user.email}</strong>
+                    </p>
                     <Button
                       variant="outline"
                       className="min-h-[48px] w-full rounded-2xl"
