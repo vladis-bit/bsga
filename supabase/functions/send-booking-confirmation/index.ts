@@ -1,5 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendEmail } from "../_shared/resend.ts";
+import { createBookingCalendarAttachment } from "../_shared/bookingCalendar.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -596,6 +597,18 @@ Deno.serve(async (req) => {
       reply_to: "peter@bsga.sk",
       subject: `Potvrdenie rezervácie – ${simName}, ${dateStr} o ${fmtTime(b.starts_at)}`,
       html,
+      attachments: [
+        createBookingCalendarAttachment({
+          bookingId: b.id,
+          simulatorName: simName,
+          startsAt: b.starts_at,
+          endsAt,
+          priceEur: Number(b.price_eur),
+          durationHours: Number(b.duration_hours),
+          detailUrl,
+          sequence: 0,
+        }),
+      ],
     });
 
     if (!res.ok) {

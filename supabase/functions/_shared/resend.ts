@@ -10,6 +10,11 @@ export type EmailPayload = {
   html: string;
   bcc?: string[];
   reply_to?: string;
+  attachments?: {
+    filename: string;
+    content: string;
+    content_type?: string;
+  }[];
 };
 
 export type SendResult =
