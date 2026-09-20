@@ -13,9 +13,7 @@ import {
 import {
   Simulator,
   PC_TIME_SLOTS,
-  addDays,
   fetchSimulators,
-  startOfDay,
   translateDbError,
   validateOpeningHours,
   PC_OPEN_HOUR,
@@ -23,15 +21,19 @@ import {
   fetchBookingWindowDays,
   DEFAULT_BOOKING_WINDOW_DAYS,
 } from "@/pages/admin/shared";
+import {
+  addCalendarDays,
+  bratislavaDateTimeToDate,
+  bratislavaToday,
+  calendarDateKey,
+  formatCalendarDate,
+} from "@/lib/bratislava-time";
 
 type Slot = { simulator_id: string; starts_at: string; ends_at: string; kind: string };
 type SlotState = "free" | "booked" | "blocked" | "past";
 
-const pad = (n: number) => String(n).padStart(2, "0");
-const dateKey = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-
 const fmtFullDate = (d: Date) => {
-  const s = d.toLocaleDateString("sk-SK", {
+  const s = formatCalendarDate(d, {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -40,19 +42,12 @@ const fmtFullDate = (d: Date) => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-const slotDate = (day: Date, time: string) => {
-  const [h, m] = time.split(":").map(Number);
-  const d = new Date(day);
-  d.setHours(h, m || 0, 0, 0);
-  return d;
-};
-
 const emptyForm = { first_name: "", last_name: "", email: "", phone: "", hours: "1" };
 
 /** Klientský rezervačný kalendár BSGA Performance Center (funguje aj bez prihlásenia). */
 const BookingCalendar = () => {
   const { toast } = useToast();
-  const [day, setDay] = useState(() => startOfDay(new Date()));
+  const [day, setDay] = useState(() => bratislavaToday());
   const [simulators, setSimulators] = useState<Simulator[]>([]);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [loading, setLoading] = useState(true);
@@ -68,8 +63,8 @@ const BookingCalendar = () => {
     fetchBookingWindowDays().then(setWindowDays).catch(() => undefined);
   }, []);
 
-  const today = useMemo(() => startOfDay(new Date()), []);
-  const lastDay = useMemo(() => addDays(today, windowDays), [today, windowDays]);
+  const today = useMemo(() => bratislavaToday(), []);
+  const lastDay = useMemo(() => addCalendarDays(today, windowDays), [today, windowDays]);
   const outOfWindow = day < today || day > lastDay;
 
   const load = useCallback(async () => {
@@ -77,7 +72,7 @@ const BookingCalendar = () => {
     try {
       const [sims, res] = await Promise.all([
         fetchSimulators(),
-        supabase.rpc("get_pc_day_slots", { _day: dateKey(day) }),
+        supabase.rpc("get_pc_day_slots", { _day: calendarDateKey(day) }),
       ]);
       if (res.error) throw res.error;
       setSimulators(sims.filter((s) => s.is_active));
@@ -99,7 +94,7 @@ const BookingCalendar = () => {
 
   const stateOf = useMemo(() => {
     return (simId: string, time: string): SlotState => {
-      const start = slotDate(day, time).getTime();
+      const start = bratislavaDateTimeToDate(calendarDateKey(day), time).getTime();
       const end = start + 30 * 60 * 1000;
       if (start <= Date.now()) return "past";
       if (outOfWindow) return "past";
@@ -126,7 +121,7 @@ const BookingCalendar = () => {
       toast({ title: "Mimo otváracích hodín", description: hoursError, variant: "destructive" });
       return;
     }
-    const starts = slotDate(day, picked.time);
+    const starts = bratislavaDateTimeToDate(calendarDateKey(day), picked.time);
     const price = hours * Number(picked.sim.hourly_rate_eur);
     setSaving(true);
     const { data, error } = await supabase
@@ -183,7 +178,7 @@ const BookingCalendar = () => {
             size="sm"
             className="rounded-full"
             disabled={day <= today}
-            onClick={() => setDay(addDays(day, -1))}
+            onClick={() => setDay(addCalendarDays(day, -1))}
           >
             ←
           </Button>
@@ -200,7 +195,7 @@ const BookingCalendar = () => {
             size="sm"
             className="rounded-full"
             disabled={day >= lastDay}
-            onClick={() => setDay(addDays(day, 1))}
+            onClick={() => setDay(addCalendarDays(day, 1))}
           >
             →
           </Button>
@@ -222,7 +217,7 @@ const BookingCalendar = () => {
       <p className="text-xs text-muted-foreground">
         Otváracie hodiny: {PC_OPEN_HOUR}:00 – {PC_CLOSE_HOUR}:00. Kliknite na voľný termín a vyplňte
         krátky formulár. Rezervovať sa dá najviac {windowDays} dní dopredu (do{" "}
-        {lastDay.toLocaleDateString("sk-SK")}).
+        {formatCalendarDate(lastDay, { day: "numeric", month: "numeric", year: "numeric" })}).
       </p>
 
       {outOfWindow && (
@@ -293,6 +288,10 @@ const BookingCalendar = () => {
           </div>
         </div>
       </div>
+
+      <p className="text-xs text-muted-foreground">
+        Všetky časy sú uvedené v stredoeurópskom čase (Bratislava).
+      </p>
 
       <Dialog open={!!picked} onOpenChange={(o) => !o && setPicked(null)}>
         <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-md">

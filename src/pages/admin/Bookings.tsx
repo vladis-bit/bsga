@@ -32,6 +32,7 @@ import {
   PC_CLOSE_HOUR,
   PC_LAST_START_HOUR,
 } from "./shared";
+import { bratislavaDateTimeToIso } from "@/lib/bratislava-time";
 
 type RangeKey = "today" | "week" | "month" | "all";
 
@@ -160,7 +161,6 @@ const Bookings = () => {
       return;
     }
     setSaving(true);
-    const starts = new Date(`${form.date}T${form.time}`);
     const hours = Number(form.duration_hours) || 1;
     const { data, error } = await supabase
       .from("pc_bookings")
@@ -170,7 +170,7 @@ const Bookings = () => {
         last_name: form.last_name || null,
         email: form.email,
         phone: form.phone || null,
-        starts_at: starts.toISOString(),
+        starts_at: bratislavaDateTimeToIso(form.date, form.time),
         duration_hours: hours,
         price_eur: hours * Number(simulator.hourly_rate_eur || 0),
         status: "confirmed",
