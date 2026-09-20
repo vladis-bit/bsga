@@ -3,7 +3,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import {
   Booking,
   PAYMENT_LABEL,
@@ -34,6 +45,9 @@ const Bookings = () => {
   const [q, setQ] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [cancelling, setCancelling] = useState(false);
+  const [bookingToCancel, setBookingToCancel] = useState<Booking | null>(null);
+  const [skipCancellationEmail, setSkipCancellationEmail] = useState(false);
   const [form, setForm] = useState({
     simulator_id: "",
     first_name: "",
@@ -97,9 +111,42 @@ const Bookings = () => {
     const { error } = await supabase.from("pc_bookings").update(values).eq("id", id);
     if (error) {
       toast({ title: "Chyba", description: translateDbError(error.message), variant: "destructive" });
-      return;
+      return false;
     }
     setBookings((list) => list.map((b) => (b.id === id ? { ...b, ...values } : b)));
+    return true;
+  };
+
+  const cancelBooking = async () => {
+    if (!bookingToCancel) return;
+    setCancelling(true);
+
+    const updated = await patch(bookingToCancel.id, { status: "cancelled" });
+    if (!updated) {
+      setCancelling(false);
+      return;
+    }
+
+    if (skipCancellationEmail) {
+      toast({ title: "Rezervácia zrušená", description: "Klientovi nebol odoslaný e-mail." });
+    } else {
+      const { data, error } = await supabase.functions.invoke("send-booking-cancellation", {
+        body: { bookingId: bookingToCancel.id },
+      });
+      if (error || data?.error) {
+        toast({
+          title: "Rezervácia bola zrušená, e-mail sa nepodarilo odoslať",
+          description: error?.message ?? data?.error ?? "Odoslanie zlyhalo.",
+          variant: "destructive",
+        });
+      } else {
+        toast({ title: "Rezervácia zrušená", description: "Informačný e-mail bol odoslaný klientovi." });
+      }
+    }
+
+    setCancelling(false);
+    setBookingToCancel(null);
+    setSkipCancellationEmail(false);
   };
 
   const createBooking = async (e: React.FormEvent) => {
@@ -115,24 +162,44 @@ const Bookings = () => {
     setSaving(true);
     const starts = new Date(`${form.date}T${form.time}`);
     const hours = Number(form.duration_hours) || 1;
-    const { error } = await supabase.from("pc_bookings").insert({
-      simulator_id: form.simulator_id,
-      first_name: form.first_name,
-      last_name: form.last_name || null,
-      email: form.email,
-      phone: form.phone || null,
-      starts_at: starts.toISOString(),
-      duration_hours: hours,
-      price_eur: hours * Number(simulator.hourly_rate_eur || 0),
-      status: "confirmed",
-      note: form.note || null,
-    });
-    setSaving(false);
+    const { data, error } = await supabase
+      .from("pc_bookings")
+      .insert({
+        simulator_id: form.simulator_id,
+        first_name: form.first_name,
+        last_name: form.last_name || null,
+        email: form.email,
+        phone: form.phone || null,
+        starts_at: starts.toISOString(),
+        duration_hours: hours,
+        price_eur: hours * Number(simulator.hourly_rate_eur || 0),
+        status: "confirmed",
+        note: form.note || null,
+        created_by_admin: true,
+      })
+      .select("id")
+      .single();
     if (error) {
+      setSaving(false);
       toast({ title: "Chyba", description: translateDbError(error.message), variant: "destructive" });
       return;
     }
-    toast({ title: "Rezervácia pridaná" });
+
+    const { data: emailData, error: emailError } = await supabase.functions.invoke(
+      "send-booking-confirmation",
+      { body: { bookingId: data.id } },
+    );
+    setSaving(false);
+
+    if (emailError || emailData?.error) {
+      toast({
+        title: "Rezervácia pridaná, e-mail čaká na opätovné odoslanie",
+        description: emailError?.message ?? emailData?.error ?? "Odoslanie potvrdenia zlyhalo.",
+        variant: "destructive",
+      });
+    } else {
+      toast({ title: "Rezervácia pridaná", description: "Potvrdenie bolo odoslané klientovi." });
+    }
     setShowForm(false);
     setForm((f) => ({ ...f, first_name: "", last_name: "", email: "", phone: "", note: "" }));
     load();
@@ -327,7 +394,15 @@ const Bookings = () => {
                 </Button>
               )}
               {b.status !== "cancelled" && (
-                <Button size="sm" variant="outline" className="rounded-full" onClick={() => patch(b.id, { status: "cancelled" })}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-full"
+                  onClick={() => {
+                    setSkipCancellationEmail(false);
+                    setBookingToCancel(b);
+                  }}
+                >
                   Zrušiť
                 </Button>
               )}
@@ -340,6 +415,38 @@ const Bookings = () => {
           </article>
         ))}
       </div>
+
+      <AlertDialog
+        open={bookingToCancel !== null}
+        onOpenChange={(open) => {
+          if (!open && !cancelling) {
+            setBookingToCancel(null);
+            setSkipCancellationEmail(false);
+          }
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Zrušiť rezerváciu?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Zrušiť rezerváciu a poslať klientovi informačný e-mail?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-border p-3 text-sm text-foreground">
+            <Checkbox
+              checked={skipCancellationEmail}
+              onCheckedChange={(checked) => setSkipCancellationEmail(checked === true)}
+            />
+            Neposielať e-mail
+          </label>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={cancelling}>Späť</AlertDialogCancel>
+            <AlertDialogAction onClick={cancelBooking} disabled={cancelling}>
+              {cancelling ? "Ruším…" : "Zrušiť rezerváciu"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

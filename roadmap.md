@@ -7,3 +7,6 @@
 - [x] Skontrolovať zostavenie projektu
 - [x] Upraviť kontakt Performance Center s fotkou, tlačidlami a interaktívnou mapou
 - [x] Zoradiť karty Performance Center pod seba a opraviť zobrazenie mapy
+- [x] Pridať potvrdzovací dialóg a voliteľný storno e-mail pri zrušení rezervácie adminom
+- [x] Posielať potvrdenie a označiť pôvod pri rezerváciách vytvorených adminom
+- [x] Zapisovať úspech alebo chybu storno e-mailu k rezervácii
