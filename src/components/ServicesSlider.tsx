@@ -282,6 +282,8 @@ interface ServiceCardProps {
 const ServiceCard = ({ service }: ServiceCardProps) => {
   const target = service.externalLink || service.link || "/sluzby";
   const isExternal = !!service.externalLink;
+  const isPerformanceCenter = service.title === "Performance Center";
+  const ctaLabel = isPerformanceCenter ? "Rezervovať termín" : "Zobraziť detaily služby";
 
   const cardInner = (
     <div className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-gold/40 hover:shadow-lg h-full flex flex-col hover:-translate-y-1">
@@ -301,7 +303,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </p>
         <div className="mt-4 flex flex-grow items-end justify-center pt-2">
           <span className="inline-flex items-center justify-center rounded-full border border-border bg-background px-5 py-2 text-sm font-semibold text-foreground transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-primary">
-            Zobraziť detaily služby
+            {ctaLabel}
           </span>
         </div>
       </div>
@@ -310,13 +312,13 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
   if (isExternal) {
     return (
-      <a href={target} target="_blank" rel="noopener noreferrer" aria-label={`Zobraziť detaily služby: ${service.title}`} className="block h-full">
+      <a href={target} target="_blank" rel="noopener noreferrer" aria-label={`${ctaLabel}: ${service.title}`} className="block h-full">
         {cardInner}
       </a>
     );
   }
   return (
-    <Link to={target} aria-label={`Zobraziť detaily služby: ${service.title}`} className="block h-full">
+    <Link to={target} aria-label={`${ctaLabel}: ${service.title}`} className="block h-full">
       {cardInner}
     </Link>
   );
