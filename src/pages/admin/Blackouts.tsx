@@ -109,7 +109,7 @@ const Blackouts = () => {
 
       <form
         onSubmit={submit}
-        className="grid gap-3 rounded-3xl border border-border bg-card p-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-4 rounded-2xl border border-border bg-card p-4 sm:grid-cols-2 sm:p-6 xl:grid-cols-3"
       >
         <select
           className={selectCls}
@@ -133,7 +133,6 @@ const Blackouts = () => {
           />
           Celý deň ({OPEN}–{CLOSE})
         </label>
-        <div className="hidden lg:block" />
 
         <div className="space-y-1">
           <span className="block text-xs uppercase tracking-wide text-muted-foreground">Od dátumu</span>
@@ -154,7 +153,6 @@ const Blackouts = () => {
             onChange={(e) => setForm({ ...form, date_to: e.target.value })}
           />
         </div>
-        <div className="hidden lg:block" />
 
         {!wholeDay && (
           <>
@@ -174,7 +172,6 @@ const Blackouts = () => {
                 onChange={(e) => setForm({ ...form, time_to: e.target.value })}
               />
             </div>
-            <div className="hidden lg:block" />
           </>
         )}
 
@@ -189,7 +186,7 @@ const Blackouts = () => {
         </Button>
       </form>
 
-      <div className="overflow-x-auto rounded-3xl border border-border bg-card">
+      <div className="overflow-x-auto rounded-2xl border border-border bg-card">
         <table className="w-full min-w-[700px] text-left text-sm">
           <thead className="bg-muted/50 text-xs uppercase tracking-wide text-muted-foreground">
             <tr>
