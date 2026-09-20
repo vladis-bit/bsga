@@ -114,7 +114,7 @@ const Users = () => {
   const visible = term ? users.filter((u) => u.email.toLowerCase().includes(term)) : users;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <header>
         <h1 className="font-serif text-3xl text-foreground">Používatelia</h1>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -145,12 +145,12 @@ const Users = () => {
         {visible.map((user) => (
           <article
             key={user.id}
-            className="rounded-3xl border border-border bg-card p-5 sm:p-6"
+          className="rounded-2xl border border-border bg-card p-4 sm:p-6"
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="min-w-0 space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="truncate font-semibold text-foreground">{user.email}</h2>
+                  <h2 className="break-all font-semibold text-foreground sm:break-normal">{user.email}</h2>
                   {user.is_self && (
                     <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-foreground">
                       Vy
@@ -179,13 +179,13 @@ const Users = () => {
                 size="sm"
                 disabled={busyId === user.id || user.is_self}
                 onClick={() => toggleActive(user)}
-                className="shrink-0"
+                className="w-full shrink-0 sm:w-auto"
               >
                 {user.deactivated ? "Aktivovať" : "Deaktivovať"}
               </Button>
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-4 grid grid-cols-1 gap-2 min-[460px]:grid-cols-3 sm:flex sm:flex-wrap">
               {ROLES.map((role) => {
                 const active = user.roles.includes(role);
                 return (

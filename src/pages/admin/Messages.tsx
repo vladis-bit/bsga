@@ -55,8 +55,8 @@ const Messages = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <h1 className="flex items-center gap-3 font-serif text-3xl text-foreground">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="flex flex-wrap items-center gap-3 font-serif text-3xl text-foreground">
           Správy
           {unread > 0 && (
             <Badge className="rounded-full bg-primary text-primary-foreground">
@@ -64,7 +64,7 @@ const Messages = () => {
             </Badge>
           )}
         </h1>
-        <div className="flex gap-2">
+        <div className="grid grid-cols-3 gap-2 sm:flex">
           {(["all", "unread", "read"] as const).map((f) => (
             <Button
               key={f}
@@ -84,7 +84,7 @@ const Messages = () => {
         {list.map((m) => (
           <article
             key={m.id}
-            className={`rounded-3xl border p-6 transition-colors ${
+             className={`rounded-2xl border p-4 transition-colors sm:p-6 ${
               m.is_read
                 ? "border-border/60 bg-muted/40 opacity-90"
                 : "border-primary/60 bg-card shadow-md ring-1 ring-primary/20"
@@ -131,7 +131,7 @@ const Messages = () => {
                 {fmtDateTime(m.created_at)} · {m.source}
               </span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="break-words text-sm text-muted-foreground">
               {m.email}
               {m.phone ? ` · ${m.phone}` : ""}
               {m.service ? ` · ${m.service}` : ""}

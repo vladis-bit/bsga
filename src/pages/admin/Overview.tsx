@@ -102,7 +102,7 @@ const Overview = () => {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:gap-6 lg:grid-cols-3">
+      <section className="grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
         {[
           {
             to: "/admin/kalendar",
@@ -139,7 +139,7 @@ const Overview = () => {
           <Link
             key={c.to}
             to={c.to}
-            className="group flex h-full flex-col rounded-2xl border border-gold/30 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:rounded-3xl sm:p-8"
+            className="group flex h-full flex-col rounded-2xl border border-gold/30 bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:p-6 xl:p-7"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold sm:text-xs">
               {c.eyebrow}
@@ -148,7 +148,7 @@ const Overview = () => {
               {c.title}
             </h2>
             <p className="mt-3 flex-1 text-sm text-foreground/60">{c.desc}</p>
-            <div className="mt-6 grid grid-cols-3 gap-3">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {c.stats.map((st) => (
                 <div key={st.label}>
                   <p className="font-serif text-xl text-foreground">{st.value}</p>

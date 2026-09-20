@@ -183,7 +183,7 @@ const CreateBooking = () => {
       <header className="space-y-3">
         <Link
           to="/admin/performance-center"
-          className="text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground"
+          className="text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground"
         >
           ← Performance Center
         </Link>
@@ -196,7 +196,7 @@ const CreateBooking = () => {
 
       <form
         onSubmit={submit}
-        className="grid gap-3 rounded-3xl border border-border bg-card p-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-4 rounded-2xl border border-border bg-card p-4 sm:grid-cols-2 sm:p-6 xl:grid-cols-3"
       >
         <div className="space-y-1">
           <span className="block text-xs uppercase tracking-wide text-muted-foreground">Simulátor</span>
@@ -222,7 +222,6 @@ const CreateBooking = () => {
             required
           />
         </div>
-        <div className="hidden lg:block" />
 
         <div className="space-y-1">
           <span className="block text-xs uppercase tracking-wide text-muted-foreground">Čas od</span>
@@ -242,7 +241,6 @@ const CreateBooking = () => {
             required
           />
         </div>
-        <div className="hidden lg:block" />
 
         <Input
           placeholder="Meno"
@@ -255,7 +253,6 @@ const CreateBooking = () => {
           value={form.last_name}
           onChange={(e) => setForm({ ...form, last_name: e.target.value })}
         />
-        <div className="hidden lg:block" />
 
         <Input
           type="email"
@@ -270,7 +267,6 @@ const CreateBooking = () => {
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
         />
-        <div className="hidden lg:block" />
 
         <Input
           placeholder="Poznámka"
@@ -278,7 +274,6 @@ const CreateBooking = () => {
           onChange={(e) => setForm({ ...form, note: e.target.value })}
           className="sm:col-span-2"
         />
-        <div className="hidden lg:block" />
 
         <label className="flex items-center gap-2 text-sm text-foreground sm:col-span-2">
           <input

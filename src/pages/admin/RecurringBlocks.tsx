@@ -128,7 +128,7 @@ const RecurringBlocks = ({ simulators }: { simulators: Simulator[] }) => {
 
       <form
         onSubmit={submit}
-        className="grid gap-3 rounded-3xl border border-border bg-card p-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-4 rounded-2xl border border-border bg-card p-4 sm:grid-cols-2 sm:p-6 xl:grid-cols-3"
       >
         <div className="space-y-1">
           <span className="block text-xs uppercase tracking-wide text-muted-foreground">Simulátor</span>
@@ -161,7 +161,6 @@ const RecurringBlocks = ({ simulators }: { simulators: Simulator[] }) => {
             ))}
           </select>
         </div>
-        <div className="hidden lg:block" />
 
         <div className="space-y-1">
           <span className="block text-xs uppercase tracking-wide text-muted-foreground">Čas od</span>
@@ -181,7 +180,6 @@ const RecurringBlocks = ({ simulators }: { simulators: Simulator[] }) => {
             required
           />
         </div>
-        <div className="hidden lg:block" />
 
         <div className="space-y-1">
           <span className="block text-xs uppercase tracking-wide text-muted-foreground">
@@ -204,7 +202,6 @@ const RecurringBlocks = ({ simulators }: { simulators: Simulator[] }) => {
             onChange={(e) => setForm({ ...form, valid_until: e.target.value })}
           />
         </div>
-        <div className="hidden lg:block" />
 
         <Input
           placeholder="Dôvod (napr. stály klient)"
@@ -217,7 +214,7 @@ const RecurringBlocks = ({ simulators }: { simulators: Simulator[] }) => {
         </Button>
       </form>
 
-      <div className="overflow-x-auto rounded-3xl border border-border bg-card">
+      <div className="overflow-x-auto rounded-2xl border border-border bg-card">
         <table className="w-full min-w-[760px] text-left text-sm">
           <thead className="bg-muted/50 text-xs uppercase tracking-wide text-muted-foreground">
             <tr>

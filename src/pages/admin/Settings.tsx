@@ -42,7 +42,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div>
         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
           03 — Správa systému
@@ -50,20 +50,20 @@ const Settings = () => {
         <h1 className="mt-1 font-serif text-3xl text-foreground">Nastavenia</h1>
       </div>
 
-      <section className="overflow-hidden rounded-3xl border border-border bg-card">
+      <section className="overflow-hidden rounded-2xl border border-border bg-card">
         <div className="bg-foreground px-6 py-5">
           <h2 className="font-serif text-2xl text-background">Admin prístupy</h2>
           <p className="mt-1 text-sm text-background/70">
             Pridaj alebo odober admin rolu podľa e-mailu. Účet musí už existovať.
           </p>
         </div>
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 lg:p-8">
           <Admins />
         </div>
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-3xl border border-border bg-card p-6">
+        <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
           <h2 className="font-serif text-xl text-foreground">Môj účet</h2>
           <p className="mt-1 text-sm text-muted-foreground">{email || "—"}</p>
           <form onSubmit={changePassword} className="mt-4 space-y-3">
@@ -87,7 +87,7 @@ const Settings = () => {
           </Button>
         </div>
 
-        <div className="rounded-3xl border border-border bg-card p-6">
+        <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
           <h2 className="font-serif text-xl text-foreground">Performance Center</h2>
           <p className="mt-1 text-sm text-muted-foreground">
             Otváracie hodiny {PC_OPEN_HOUR}:00–{PC_CLOSE_HOUR}:00 · posledná rezervácia začína o{" "}
@@ -95,7 +95,7 @@ const Settings = () => {
           </p>
           <ul className="mt-4 space-y-3">
             {simulators.map((s) => (
-              <li key={s.id} className="flex items-center justify-between rounded-2xl border border-border p-4 text-sm">
+              <li key={s.id} className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-border p-4 text-sm">
                 <span className="font-semibold text-foreground">{s.name}</span>
                 <span className="font-bold text-primary">{s.hourly_rate_eur} €/hod</span>
               </li>

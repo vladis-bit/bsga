@@ -181,14 +181,14 @@ const CalendarView = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col gap-4">
         <h1 className="font-serif text-3xl text-foreground">Kalendár</h1>
         <p className="w-full text-xs text-muted-foreground">
           Otváracie hodiny: {PC_OPEN_HOUR}:00 – {PC_CLOSE_HOUR}:00 · posledná rezervácia začína o{" "}
           {PC_LAST_START_HOUR}:00 (Trackman 4 aj Trackman iO).
         </p>
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="mr-2 flex flex-wrap rounded-full border border-border p-1">
+        <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-center">
+          <div className="flex flex-wrap rounded-2xl border border-border p-1 sm:rounded-full">
             <button
               onClick={() => setSimFilter("all")}
               className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
@@ -209,7 +209,7 @@ const CalendarView = () => {
               </button>
             ))}
           </div>
-          <div className="mr-2 flex rounded-full border border-border p-1">
+          <div className="flex rounded-full border border-border p-1">
             <button
               onClick={() => setView("day")}
               className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
@@ -229,25 +229,25 @@ const CalendarView = () => {
           </div>
           {view === "day" ? (
             <>
-              <Button variant="outline" className="rounded-full" onClick={() => setDay(addDays(day, -1))}>
+              <Button variant="outline" className="w-full rounded-full sm:w-auto" onClick={() => setDay(addDays(day, -1))}>
                 ← Predchádzajúci
               </Button>
-              <Button variant="outline" className="rounded-full" onClick={() => setDay(startOfDay(new Date()))}>
+              <Button variant="outline" className="w-full rounded-full sm:w-auto" onClick={() => setDay(startOfDay(new Date()))}>
                 Dnes
               </Button>
-              <Button variant="outline" className="rounded-full" onClick={() => setDay(addDays(day, 1))}>
+              <Button variant="outline" className="w-full rounded-full sm:w-auto" onClick={() => setDay(addDays(day, 1))}>
                 Nasledujúci →
               </Button>
             </>
           ) : (
             <>
-          <Button variant="outline" className="rounded-full" onClick={() => setWeekStart(addDays(weekStart, -7))}>
+          <Button variant="outline" className="w-full rounded-full sm:w-auto" onClick={() => setWeekStart(addDays(weekStart, -7))}>
             ← Predchádzajúci
           </Button>
-          <Button variant="outline" className="rounded-full" onClick={() => setWeekStart(startOfWeek(new Date()))}>
+          <Button variant="outline" className="w-full rounded-full sm:w-auto" onClick={() => setWeekStart(startOfWeek(new Date()))}>
             Tento týždeň
           </Button>
-          <Button variant="outline" className="rounded-full" onClick={() => setWeekStart(addDays(weekStart, 7))}>
+          <Button variant="outline" className="w-full rounded-full sm:w-auto" onClick={() => setWeekStart(addDays(weekStart, 7))}>
             Nasledujúci →
           </Button>
             </>
@@ -256,8 +256,8 @@ const CalendarView = () => {
       </div>
 
       {view === "day" && (
-        <div className="overflow-hidden rounded-3xl border border-border bg-card">
-          <div className="flex items-center justify-between gap-4 border-b border-border bg-foreground px-5 py-4">
+        <div className="overflow-hidden rounded-2xl border border-border bg-card">
+          <div className="flex flex-col gap-3 border-b border-border bg-foreground px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
             <span className="font-serif text-lg capitalize text-background">{fmtFullDate(day)}</span>
             <span className="flex flex-wrap items-center gap-3 text-[11px] font-bold uppercase tracking-wider text-background/70">
               <span className="flex items-center gap-1.5">
@@ -356,7 +356,7 @@ const CalendarView = () => {
       )}
 
       {view === "week" && (
-      <div className="overflow-x-auto rounded-3xl border border-border bg-card">
+      <div className="overflow-x-auto rounded-2xl border border-border bg-card">
         <table className="w-full min-w-[900px] border-collapse text-sm">
           <thead>
             <tr>
@@ -425,8 +425,8 @@ const CalendarView = () => {
       )}
 
       {selected && (
-        <div className="rounded-3xl border border-border bg-card p-6">
-          <div className="flex items-start justify-between gap-4">
+        <div className="rounded-2xl border border-border bg-card p-4 sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h2 className="font-serif text-xl text-foreground">
                 {selected.first_name} {selected.last_name ?? ""}
@@ -436,7 +436,7 @@ const CalendarView = () => {
                 {fmtTime(selected.starts_at)} · {simName[selected.simulator_id] ?? "—"} ·{" "}
                 {selected.duration_hours} h · {selected.price_eur} €
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="break-words text-sm text-muted-foreground">
                 {selected.email}
                 {selected.phone ? ` · ${selected.phone}` : ""}
               </p>
@@ -448,12 +448,12 @@ const CalendarView = () => {
                 <p className="mt-3 whitespace-pre-wrap text-sm text-foreground">{selected.note}</p>
               )}
             </div>
-            <Button variant="outline" size="sm" className="rounded-full" onClick={() => setSelected(null)}>
+            <Button variant="outline" size="sm" className="w-full rounded-full sm:w-auto" onClick={() => setSelected(null)}>
               Zavrieť
             </Button>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-5 grid gap-2 sm:flex sm:flex-wrap">
             {selected.status !== "confirmed" && (
               <Button
                 size="sm"
