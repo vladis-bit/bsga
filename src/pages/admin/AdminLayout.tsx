@@ -1,6 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import {
+  Ban,
+  CalendarDays,
+  CalendarPlus,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  MessageSquare,
+  Settings,
+  Users,
+  X,
+} from "lucide-react";
 import bsgaLogo from "@/assets/logo2.png";
 import {
   Sheet,
@@ -17,14 +28,14 @@ import { useToast } from "@/hooks/use-toast";
 import type { Session } from "@supabase/supabase-js";
 
 const links = [
-  { to: "/admin", label: "Prehľad", end: true },
-  { to: "/admin/rezervacie", label: "Rezervácie" },
-  { to: "/admin/kalendar", label: "Kalendár" },
-  { to: "/admin/blokovane-terminy", label: "Blokované termíny" },
-  { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu" },
-  { to: "/admin/spravy", label: "Správy" },
-  { to: "/admin/pouzivatelia", label: "Používatelia" },
-  { to: "/admin/nastavenia", label: "Nastavenia" },
+  { to: "/admin", label: "Prehľad", end: true, icon: LayoutDashboard },
+  { to: "/admin/rezervacie", label: "Rezervácie", icon: CalendarDays },
+  { to: "/admin/kalendar", label: "Kalendár", icon: CalendarDays },
+  { to: "/admin/blokovane-terminy", label: "Blokované termíny", icon: Ban },
+  { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu", icon: CalendarPlus },
+  { to: "/admin/spravy", label: "Správy", icon: MessageSquare },
+  { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
+  { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
 ];
 
 const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
@@ -286,9 +297,8 @@ const AdminLayout = () => {
         noindex
         nofollow
       />
-      <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
-          <div className="flex items-center justify-between gap-3 lg:gap-6">
+      <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur lg:hidden">
+        <div className="flex min-h-16 items-center justify-between gap-3 px-4 sm:px-6">
             <Link
               to="/admin"
               aria-label="BSGA Admin — prehľad"
@@ -297,45 +307,11 @@ const AdminLayout = () => {
               <img
                 src={bsgaLogo}
                 alt="BSGA Admin"
-                className="h-8 w-auto lg:h-10"
+                className="h-8 w-auto"
                 decoding="async"
               />
             </Link>
-            <nav aria-label="Hlavná administrácia" className="hidden flex-1 items-center gap-1 lg:flex">
-              {links.map((l) => {
-                const isActive = normalize(l.to) === activePath;
-                return (
-                  <Link
-                    key={l.to}
-                    to={l.to}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-bold uppercase tracking-wider transition-colors xl:px-4 xl:text-xs ${
-                      isActive
-                        ? "bg-foreground text-background"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                    }`}
-                  >
-                    {l.label}
-                  </Link>
-                );
-              })}
-            </nav>
             <div className="flex shrink-0 items-center gap-2">
-              <span className="hidden max-w-[220px] items-center gap-2 truncate rounded-full bg-muted px-3 py-1.5 text-xs text-muted-foreground lg:inline-flex">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                <span className="truncate">
-                  Prihlásený admin:{" "}
-                  <strong className="font-semibold text-foreground">{session.user.email}</strong>
-                </span>
-              </span>
-              <Button
-                variant="outline"
-                size="sm"
-                className="hidden rounded-full lg:inline-flex"
-                onClick={() => supabase.auth.signOut()}
-              >
-                Odhlásiť
-              </Button>
               <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                 <SheetTrigger asChild>
                   <Button
@@ -345,7 +321,7 @@ const AdminLayout = () => {
                     aria-expanded={menuOpen}
                     aria-haspopup="dialog"
                     aria-controls="admin-mobile-menu"
-                    className="min-h-11 min-w-11 rounded-full lg:hidden"
+                    className="min-h-11 min-w-11 rounded-full"
                   >
                     {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
                   </Button>
@@ -376,12 +352,13 @@ const AdminLayout = () => {
                               to={l.to}
                               aria-current={isActive ? "page" : undefined}
                               onClick={() => setMenuOpen(false)}
-                              className={`flex min-h-[48px] items-center rounded-2xl px-4 text-sm font-bold uppercase tracking-wider transition-colors ${
+                              className={`flex min-h-[48px] items-center gap-3 rounded-xl px-4 text-sm font-bold transition-colors ${
                                 isActive
                                   ? "bg-foreground text-background"
                                   : "bg-muted/60 text-muted-foreground hover:text-foreground"
                               }`}
                             >
+                              <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
                               {l.label}
                             </Link>
                           </li>
@@ -408,13 +385,58 @@ const AdminLayout = () => {
                 </SheetContent>
               </Sheet>
             </div>
-
-          </div>
         </div>
       </header>
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
-        <Outlet />
-      </main>
+      <div className="mx-auto flex w-full max-w-[1600px]">
+        <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-border bg-card lg:flex">
+          <div className="flex h-24 items-center border-b border-border px-6">
+            <Link to="/admin" aria-label="BSGA Admin — prehľad">
+              <img src={bsgaLogo} alt="BSGA Admin" className="h-10 w-auto" decoding="async" />
+            </Link>
+          </div>
+          <nav aria-label="Hlavná administrácia" className="flex-1 overflow-y-auto px-3 py-5">
+            <p className="px-3 pb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">Administrácia</p>
+            <ul className="space-y-1.5">
+              {links.map((l) => {
+                const isActive = normalize(l.to) === activePath;
+                return (
+                  <li key={l.to}>
+                    <Link
+                      to={l.to}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition-colors ${
+                        isActive
+                          ? "bg-foreground text-background"
+                          : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      }`}
+                    >
+                      <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      <span>{l.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+          <div className="border-t border-border p-4">
+            <div className="mb-3 flex items-start gap-2 rounded-xl bg-muted/60 p-3">
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+              <div className="min-w-0">
+                <p className="text-xs text-muted-foreground">Prihlásený admin</p>
+                <p className="truncate text-xs font-semibold text-foreground">{session.user.email}</p>
+              </div>
+            </div>
+            <Button variant="outline" className="w-full justify-start gap-2 rounded-xl" onClick={() => supabase.auth.signOut()}>
+              <LogOut className="h-4 w-4" /> Odhlásiť
+            </Button>
+          </div>
+        </aside>
+        <main className="min-w-0 flex-1 px-4 py-6 sm:px-6 sm:py-8 xl:px-10 xl:py-10">
+          <div className="mx-auto w-full max-w-6xl">
+            <Outlet />
+          </div>
+        </main>
+      </div>
     </div>
   );
 };

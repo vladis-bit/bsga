@@ -167,9 +167,9 @@ const Bookings = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="font-serif text-3xl text-foreground">Rezervácie</h1>
-        <div className="flex gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:flex">
           <Button variant="outline" className="rounded-full" onClick={exportCsv}>
             Export CSV
           </Button>
@@ -182,7 +182,7 @@ const Bookings = () => {
       {showForm && (
         <form
           onSubmit={createBooking}
-          className="grid gap-3 rounded-3xl border border-border bg-card p-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-3 rounded-2xl border border-border bg-card p-4 sm:grid-cols-2 sm:p-6 xl:grid-cols-3"
         >
           <select
             className={selectCls}
@@ -262,7 +262,7 @@ const Bookings = () => {
         </form>
       )}
 
-      <div className="flex flex-wrap gap-2">
+      <div className="grid gap-2 rounded-2xl border border-border bg-card p-3 sm:grid-cols-2 sm:p-4 xl:grid-cols-[auto_auto_auto_minmax(14rem,1fr)]">
         <select className={selectCls} value={range} onChange={(e) => setRange(e.target.value as RangeKey)}>
           <option value="today">Dnes</option>
           <option value="week">Najbližších 7 dní</option>
@@ -284,7 +284,7 @@ const Bookings = () => {
           <option value="cancelled">Zrušená</option>
         </select>
         <Input
-          className="max-w-xs"
+          className="w-full"
           placeholder="Hľadať meno, e-mail, telefón"
           value={q}
           onChange={(e) => setQ(e.target.value)}
@@ -296,7 +296,7 @@ const Bookings = () => {
           <p className="text-sm text-muted-foreground">Žiadne rezervácie pre zvolený filter.</p>
         )}
         {filtered.map((b) => (
-          <article key={b.id} className="rounded-3xl border border-border bg-card p-5">
+          <article key={b.id} className="rounded-2xl border border-border bg-card p-4 sm:p-5">
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-semibold text-foreground">
                 {b.first_name} {b.last_name ?? ""}
@@ -311,16 +311,16 @@ const Bookings = () => {
                 {PAYMENT_LABEL[b.payment_status] ?? b.payment_status}
               </Badge>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 break-words text-sm text-muted-foreground">
               {fmtDateTime(b.starts_at)} · {simById[b.simulator_id]?.name ?? "—"} · {b.duration_hours} h
               · {b.price_eur} €
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="break-words text-sm text-muted-foreground">
               {b.email}
               {b.phone ? ` · ${b.phone}` : ""}
             </p>
             {b.note && <p className="mt-2 whitespace-pre-wrap text-sm text-foreground">{b.note}</p>}
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-4 grid gap-2 sm:flex sm:flex-wrap">
               {b.status !== "confirmed" && (
                 <Button size="sm" variant="outline" className="rounded-full" onClick={() => patch(b.id, { status: "confirmed" })}>
                   Potvrdiť

@@ -63,7 +63,7 @@ const Admins = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <header>
         <h1 className="font-serif text-3xl text-foreground">Správa adminov</h1>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -71,7 +71,7 @@ const Admins = () => {
         </p>
       </header>
 
-      <form onSubmit={grant} className="flex flex-col gap-3 rounded-3xl border border-border bg-card p-6 sm:flex-row">
+      <form onSubmit={grant} className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-4 sm:flex-row sm:p-6">
         <Input
           type="email"
           required
@@ -85,8 +85,8 @@ const Admins = () => {
         </Button>
       </form>
 
-      <div className="overflow-hidden rounded-3xl border border-border bg-card">
-        <table className="w-full text-left text-sm">
+      <div className="overflow-x-auto rounded-2xl border border-border bg-card">
+        <table className="w-full min-w-[600px] text-left text-sm">
           <thead className="bg-muted/50 text-xs uppercase tracking-wide text-muted-foreground">
             <tr>
               <th className="px-6 py-3">E-mail</th>
