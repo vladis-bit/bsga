@@ -10,4 +10,4 @@
 - [x] Pridať potvrdzovací dialóg a voliteľný storno e-mail pri zrušení rezervácie adminom
 - [x] Posielať potvrdenie a označiť pôvod pri rezerváciách vytvorených adminom
 - [x] Zapisovať úspech alebo chybu storno e-mailu k rezervácii
-- [ ] Zjednotiť klientsky a admin rezervačný kalendár na čas Europe/Bratislava
+- [x] Zjednotiť klientsky a admin rezervačný kalendár na čas Europe/Bratislava
