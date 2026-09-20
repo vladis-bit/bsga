@@ -27,10 +27,10 @@ Deno.serve(async (req) => {
 
     const supabase = createClient(SUPABASE_URL, SERVICE_ROLE);
     const query = supabase.from("pc_bookings").select("*, pc_simulators(name)");
-    const { data: b, error } = await (token
+    const filteredQuery = token
       ? query.eq("cancellation_token", token)
-      : query.eq("id", bookingId!)
-    ).maybeSingle();
+      : query.eq("id", bookingId as string);
+    const { data: b, error } = await filteredQuery.maybeSingle();
     if (error) throw error;
     if (!b) return json({ error: "Booking not found" }, 404);
     if (b.status !== "cancelled") return json({ error: "Booking is not cancelled" }, 400);
@@ -60,11 +60,24 @@ Deno.serve(async (req) => {
       subject: `Zrušenie rezervácie – ${simName}, ${fmtDate(b.starts_at)} o ${fmtTime(b.starts_at)}`,
       html,
     });
-    if (!res.ok) return json({ error: "Resend failed", status: res.status, details: res.details }, res.status);
+    if (!res.ok) {
+      await supabase
+        .from("pc_bookings")
+        .update({
+          cancel_email_status: "failed",
+          cancel_email_error: `[${res.status}] ${res.details}`.slice(0, 500),
+        })
+        .eq("id", b.id);
+      return json({ error: "Resend failed", status: res.status, details: res.details }, res.status);
+    }
 
     await supabase
       .from("pc_bookings")
-      .update({ cancel_email_at: new Date().toISOString() })
+      .update({
+        cancel_email_at: new Date().toISOString(),
+        cancel_email_status: "sent",
+        cancel_email_error: null,
+      })
       .eq("id", b.id);
 
     return json({ ok: true, id: res.id });

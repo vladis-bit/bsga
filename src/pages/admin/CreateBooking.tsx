@@ -35,7 +35,6 @@ const CreateBooking = () => {
   const [simulators, setSimulators] = useState<Simulator[]>([]);
   const [recurring, setRecurring] = useState<RecurringBlock[]>([]);
   const [form, setForm] = useState(emptyForm);
-  const [sendEmail, setSendEmail] = useState(true);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
@@ -154,9 +153,8 @@ const CreateBooking = () => {
       })
       .select("id")
       .single();
-    setSaving(false);
-
     if (error) {
+      setSaving(false);
       toast({
         title: "Rezerváciu sa nepodarilo vytvoriť",
         description: translateDbError(error.message),
@@ -165,16 +163,21 @@ const CreateBooking = () => {
       return;
     }
 
-    if (sendEmail) {
-      supabase.functions
-        .invoke("send-booking-confirmation", { body: { bookingId: data.id } })
-        .catch((err) => console.error("send-booking-confirmation failed:", err));
-    }
+    const { data: emailData, error: emailError } = await supabase.functions.invoke(
+      "send-booking-confirmation",
+      { body: { bookingId: data.id } },
+    );
+    setSaving(false);
 
-    toast({
-      title: "Rezervácia vytvorená",
-      description: sendEmail ? "Potvrdenie sme odoslali klientovi." : "Bez potvrdzovacieho e-mailu.",
-    });
+    if (emailError || emailData?.error) {
+      toast({
+        title: "Rezervácia vytvorená, e-mail čaká na opätovné odoslanie",
+        description: emailError?.message ?? emailData?.error ?? "Odoslanie potvrdenia zlyhalo.",
+        variant: "destructive",
+      });
+    } else {
+      toast({ title: "Rezervácia vytvorená", description: "Potvrdenie sme odoslali klientovi." });
+    }
     setForm((f) => ({ ...f, first_name: "", last_name: "", email: "", phone: "", note: "" }));
   };
 
@@ -274,16 +277,6 @@ const CreateBooking = () => {
           onChange={(e) => setForm({ ...form, note: e.target.value })}
           className="sm:col-span-2"
         />
-
-        <label className="flex items-center gap-2 text-sm text-foreground sm:col-span-2">
-          <input
-            type="checkbox"
-            checked={sendEmail}
-            onChange={(e) => setSendEmail(e.target.checked)}
-            className="h-4 w-4"
-          />
-          Odoslať potvrdzovací e-mail klientovi
-        </label>
 
         <p className="text-sm text-muted-foreground sm:col-span-2">
           Dĺžka: <strong className="text-foreground">{hours > 0 ? hours : 0} h</strong> · Cena:{" "}
