@@ -313,6 +313,7 @@ const Services = () => {
                   );
                   const externalLink = (service as any).externalLink as string | undefined;
                   const internalLink = (service as any).link as string | undefined;
+                  const serviceCtaLabel = service.title === "Performance Center" ? "Rezervovať termín" : "Zobraziť detaily služby";
                   let inner: JSX.Element;
                   if (externalLink) {
                     inner = (
@@ -320,7 +321,7 @@ const Services = () => {
                         href={externalLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Zobraziť detaily služby: ${service.title}`}
+                        aria-label={`${serviceCtaLabel}: ${service.title}`}
                         className="block h-full"
                       >
                         {card}
@@ -328,7 +329,7 @@ const Services = () => {
                     );
                   } else if (internalLink) {
                     inner = (
-                      <Link to={internalLink} aria-label={`Zobraziť detaily služby: ${service.title}`} className="block h-full">
+                      <Link to={internalLink} aria-label={`${serviceCtaLabel}: ${service.title}`} className="block h-full">
                         {card}
                       </Link>
                     );
