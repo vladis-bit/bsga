@@ -115,7 +115,7 @@ const TermsAndConditions = () => {
 
                   <h3 className="font-semibold text-foreground text-sm sm:text-base mb-2">2.1.5 BSGA Performance Centre</h3>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    Rezervácia tréningových termínov v Performance Centre (Zuzany Chalupovej 12, Bratislava – Petržalka) prebieha výlučne online prostredníctvom rezervačného systému na adrese https://bsga-performance-center.reenio.sk/sk/terms/. Dostupné technológie: Trackman 4 a FlightScope Mevo+. Vstup do centra je bezkontaktný a flexibilný – podrobnosti obdrží Klient po rezervácii.
+                    Rezervácia tréningových termínov v Performance Centre (Zuzany Chalupovej 12, Bratislava – Petržalka) prebieha výlučne online prostredníctvom interného rezervačného systému na stránke www.bsga.sk/performance-center/rezervacia. Dostupné technológie: Trackman 4 a FlightScope Mevo+. Vstup do centra je bezkontaktný a flexibilný – podrobnosti obdrží Klient po rezervácii.
                   </p>
                 </div>
 

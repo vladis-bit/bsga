@@ -130,7 +130,7 @@ const services = [
     icon: Target,
     title: "Performance Center",
     image: servicePerformanceImg,
-    externalLink: "https://bsga-performance-center.reenio.sk/sk/terms/",
+    link: "/performance-center/rezervacia",
     description: (
       <>Tréningové centrum počas <strong>zimných mesiacov</strong> s <strong>Trackmanom</strong> a <strong>Flightscopom</strong> priamo v <strong>Petržalke</strong>.</>
     ),
