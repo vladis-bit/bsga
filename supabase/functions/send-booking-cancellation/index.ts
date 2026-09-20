@@ -34,7 +34,15 @@ Deno.serve(async (req) => {
     if (error) throw error;
     if (!b) return json({ error: "Booking not found" }, 404);
     if (b.status !== "cancelled") return json({ error: "Booking is not cancelled" }, 400);
-    if (b.cancel_email_at) return json({ ok: true, skipped: "already sent" });
+    if (b.cancel_email_at) {
+      if (b.cancel_email_status !== "sent" || b.cancel_email_error) {
+        await supabase
+          .from("pc_bookings")
+          .update({ cancel_email_status: "sent", cancel_email_error: null })
+          .eq("id", b.id);
+      }
+      return json({ ok: true, skipped: "already sent" });
+    }
 
     const simName = (b as { pc_simulators?: { name?: string } }).pc_simulators?.name ?? "Simulátor";
     const endsAt =
