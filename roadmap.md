@@ -11,3 +11,4 @@
 - [x] Posielať potvrdenie a označiť pôvod pri rezerváciách vytvorených adminom
 - [x] Zapisovať úspech alebo chybu storno e-mailu k rezervácii
 - [x] Zjednotiť klientsky a admin rezervačný kalendár na čas Europe/Bratislava
+- [x] Pridať ICS kalendárovú prílohu do potvrdenia a pripomienky rezervácie
