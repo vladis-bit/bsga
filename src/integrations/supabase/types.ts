@@ -638,6 +638,7 @@ export type Database = {
         Args: { _email: string; _first_name: string; _token: string }
         Returns: Json
       }
+      cancel_pc_booking_by_token: { Args: { _token: string }; Returns: Json }
       get_pc_booking_by_token: {
         Args: { _token: string }
         Returns: {
