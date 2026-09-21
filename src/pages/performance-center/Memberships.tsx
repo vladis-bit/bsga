@@ -93,7 +93,6 @@ const Memberships = () => {
     handleSubmit,
     watch,
     setValue,
-    reset,
     formState: { errors },
   } = useForm<PurchaseFormValues>({
     resolver: zodResolver(purchaseSchema),
