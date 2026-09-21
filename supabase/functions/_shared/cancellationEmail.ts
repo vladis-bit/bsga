@@ -1,5 +1,6 @@
 // Šablóna e-mailu o zrušení rezervácie BSGA Performance Center.
 import { esc } from "./bookingEmail.ts";
+import { SOCIAL_ICONS_HTML } from "./socialFooter.ts";
 
 const TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" lang="sk">
