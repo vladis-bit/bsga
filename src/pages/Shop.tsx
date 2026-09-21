@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
+import { User, Award, Flag, Gift, Briefcase, ShoppingBag, Ticket, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 import SEO from "@/components/SEO";
@@ -23,6 +24,10 @@ import merchSportsBag from "@/assets/merch/sports-bag.png.asset.json";
 import hoodieBlack from "@/assets/merch/hoodie-black.png.asset.json";
 import hoodieYellow from "@/assets/merch/hoodie-yellow.png.asset.json";
 import hoodieGreen from "@/assets/merch/hoodie-green.png.asset.json";
+import poukazka1 from "@/assets/vouchers/poukazka-1.webp.asset.json";
+import poukazka5 from "@/assets/vouchers/poukazka-5.webp.asset.json";
+import poukazka10 from "@/assets/vouchers/poukazka-10.webp.asset.json";
+import poukazka20 from "@/assets/vouchers/poukazka-20.webp.asset.json";
 
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
