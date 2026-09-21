@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Award, Flag, Gift, Briefcase, ShoppingBag } from "lucide-react";
+import { User, Award, Flag, Gift, Briefcase, ShoppingBag, Ticket, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 import SEO from "@/components/SEO";
@@ -23,6 +24,10 @@ import merchSportsBag from "@/assets/merch/sports-bag.png.asset.json";
 import hoodieBlack from "@/assets/merch/hoodie-black.png.asset.json";
 import hoodieYellow from "@/assets/merch/hoodie-yellow.png.asset.json";
 import hoodieGreen from "@/assets/merch/hoodie-green.png.asset.json";
+import poukazka1 from "@/assets/vouchers/poukazka-1.webp.asset.json";
+import poukazka5 from "@/assets/vouchers/poukazka-5.webp.asset.json";
+import poukazka10 from "@/assets/vouchers/poukazka-10.webp.asset.json";
+import poukazka20 from "@/assets/vouchers/poukazka-20.webp.asset.json";
 
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
@@ -58,6 +63,48 @@ const Shop = () => {
     { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/3cIeVd86Xft877u28Y8so0q" },
     { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/dRmcN53QH4Ou3Vi00Q8so08" },
   ];
+
+  const memberships = [
+    {
+      entries: 1,
+      label: "1 vstup",
+      price: 24.99,
+      pricePerEntry: 24.99,
+      savings: null as string | null,
+      badge: null as string | null,
+      image: poukazka1.url,
+    },
+    {
+      entries: 5,
+      label: "5 vstupov",
+      price: 119.99,
+      pricePerEntry: 24.0,
+      savings: "ušetríte 4,96 €",
+      badge: null as string | null,
+      image: poukazka5.url,
+    },
+    {
+      entries: 10,
+      label: "10 vstupov",
+      price: 229.99,
+      pricePerEntry: 23.0,
+      savings: "ušetríte 19,91 €",
+      badge: "Najobľúbenejšie",
+      image: poukazka10.url,
+    },
+    {
+      entries: 20,
+      label: "20 vstupov",
+      price: 399.99,
+      pricePerEntry: 20.0,
+      savings: "ušetríte 99,81 € (−20 %)",
+      badge: "Najvýhodnejšie",
+      image: poukazka20.url,
+    },
+  ];
+
+  const formatPrice = (value: number) =>
+    value.toLocaleString("sk-SK", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 
   const services = [
     {
@@ -213,6 +260,20 @@ const Shop = () => {
               url: v.purchaseUrl,
             },
           })),
+          ...memberships.map((m) => ({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `BSGA Performance Center – ${m.label}`,
+            category: "Membership",
+            brand: { "@type": "Brand", name: "BSGA" },
+            offers: {
+              "@type": "Offer",
+              price: m.price,
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: "https://bsga.sk/performance-center/clenstva",
+            },
+          })),
           ...services.map((s) => ({
             "@context": "https://schema.org",
             "@type": "Product",
@@ -281,6 +342,13 @@ const Shop = () => {
                   Poukážky
                 </button>
                 <button
+                  onClick={() => scrollToSection("clenstva")}
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-xs font-bold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:text-sm"
+                >
+                  <Ticket className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  Členstvá
+                </button>
+                <button
                   onClick={() => scrollToSection("sluzby")}
                   className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-xs font-bold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:text-sm"
                 >
@@ -317,6 +385,71 @@ const Shop = () => {
               {vouchers.map((voucher) => (
                 <VoucherCard key={voucher.value} value={voucher.value} image={voucher.image} purchaseUrl={voucher.purchaseUrl} />
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="clenstva" data-section="Členstvá" className="scroll-mt-28 bg-background py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
+                  Členstvá Performance Center
+                </h2>
+                <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">TrackMan simulátor</p>
+              </div>
+              <p className="max-w-md text-sm leading-relaxed text-foreground/70 sm:text-base">
+                Vstupy do indoor centra pre seba alebo ako darček. Každý vstup je 60 minút, platnosť 6 mesiacov.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8 items-stretch pt-4 sm:pt-6">
+              {memberships.map((m) => {
+                const featured = m.badge !== null;
+                return (
+                  <div
+                    key={m.entries}
+                    className={`relative flex flex-col overflow-hidden rounded-[1.25rem] border bg-card shadow-[0_10px_30px_-12px_rgba(0,0,0,0.15),0_2px_8px_-2px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:-translate-y-1 ${
+                      featured ? "border-gold ring-2 ring-gold/60 lg:scale-[1.03]" : "border-border"
+                    }`}
+                  >
+                    {m.badge && (
+                      <span className="absolute left-1/2 top-3 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-md">
+                        {m.badge}
+                      </span>
+                    )}
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-foreground/5">
+                      <img
+                        loading="lazy"
+                        decoding="async"
+                        src={m.image}
+                        alt={`Darčeková poukážka BSGA Performance Center – ${m.label}`}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col gap-2 p-5 text-center">
+                      <p className="font-serif text-3xl font-bold text-foreground">{m.label}</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/60">na 60 minút</p>
+                      <p className="mt-1 text-2xl font-bold text-foreground">{formatPrice(m.price)}</p>
+                      <p className="text-sm text-foreground/70">{formatPrice(m.pricePerEntry)} / vstup</p>
+                      {m.savings && (
+                        <span className="mx-auto mt-1 inline-block rounded-full border border-gold/60 bg-gold/10 px-3 py-1 text-xs font-bold text-foreground">
+                          {m.savings}
+                        </span>
+                      )}
+                      <p className="mt-1 flex items-center justify-center gap-1.5 text-xs text-foreground/60">
+                        <Check className="h-3.5 w-3.5 text-gold" /> Platnosť 6 mesiacov
+                      </p>
+                      <Link
+                        to="/performance-center/clenstva"
+                        className="mt-auto inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 pt-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-foreground"
+                      >
+                        Zobraziť ponuku
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
