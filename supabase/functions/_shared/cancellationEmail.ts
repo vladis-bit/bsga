@@ -1,5 +1,6 @@
 // Šablóna e-mailu o zrušení rezervácie BSGA Performance Center.
 import { esc } from "./bookingEmail.ts";
+import { SOCIAL_ICONS_HTML } from "./socialFooter.ts";
 
 const TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" lang="sk">
@@ -377,9 +378,10 @@ const TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                                         style="color:#8f6f38;text-decoration-line:none;text-decoration:underline"
                                         target="_blank"
                                         ><u>info@bsga.sk</u></a
-                                      >, +421 905 335 501
-                                    </p>
-                                  </td>
+                                       >, +421 905 335 501
+                                     </p>
+                                     <div style="margin:16px 0 0">{{{social_icons}}}</div>
+                                   </td>
                                 </tr>
                                 <tr style="margin:0;padding:0">
                                   <td
@@ -505,6 +507,7 @@ export const renderCancellationEmail = (d: CancellationEmailData) => {
     phone_line: phone ? `<br />${esc(phone)}` : "",
     simulator: esc(d.simulator),
     duration: esc(d.duration),
+    social_icons: SOCIAL_ICONS_HTML,
   };
   return TEMPLATE.replace(/\{\{\{?(\w+)\}\}\}?/g, (_m, key: string) => vars[key] ?? "");
 };
