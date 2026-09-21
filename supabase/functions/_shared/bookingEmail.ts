@@ -1,4 +1,5 @@
 // Spoločné pomôcky a šablóna pre e-maily k rezerváciám BSGA Performance Center.
+import { SOCIAL_ICONS_HTML } from "./socialFooter.ts";
 export const esc = (v: unknown) =>
   String(v ?? "").replace(
     /[&<>"']/g,
@@ -13,8 +14,6 @@ export const fmtDate = (iso: string) =>
     year: "numeric",
     timeZone: "Europe/Bratislava",
   });
-
-import { SOCIAL_ICONS_HTML } from "./socialFooter.ts";
 
 export const fmtTime = (iso: string) =>
   new Date(iso).toLocaleTimeString("sk-SK", {
