@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import {
   Accordion,
   AccordionContent,
@@ -103,11 +102,6 @@ const Memberships = () => {
 
   const isGift = watch("isGift");
   const consent = watch("consent");
-
-  const openDialog = (pkg: Package) => {
-    reset({ isGift: false, recipientName: "", dedication: "", consent: undefined as unknown as true, buyerName: "", buyerEmail: "" });
-    setSelected(pkg);
-  };
 
   const onSubmit = async (values: PurchaseFormValues) => {
     if (!selected) return;
