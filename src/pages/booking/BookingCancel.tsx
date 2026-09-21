@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { fmtBookingDate, fmtBookingTime } from "./BookingDetail";
 import SEO from "@/components/SEO";
 
@@ -17,8 +16,6 @@ const BookingCancel = () => {
   const [params] = useSearchParams();
   const token = params.get("token");
   const [detail, setDetail] = useState<Detail | null>(null);
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [cancelled, setCancelled] = useState(false);
@@ -36,20 +33,20 @@ const BookingCancel = () => {
     });
   }, [token]);
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const submit = async () => {
     if (!token) return;
     setLoading(true);
     setError(null);
-    const { data, error: rpcError } = await supabase.rpc("cancel_pc_booking", {
-      _token: token,
-      _first_name: firstName,
-      _email: email,
-    });
+    const { data, error: rpcError } = await (
+      supabase.rpc as unknown as (
+        fn: string,
+        args: Record<string, unknown>,
+      ) => Promise<{ data: unknown; error: unknown }>
+    )("cancel_pc_booking_by_token", { _token: token });
     setLoading(false);
     const result = data as { success?: boolean; error?: string } | null;
     if (rpcError || !result?.success) {
-      setError(result?.error ?? "Zadané údaje sa nezhodujú s rezerváciou.");
+      setError(result?.error ?? "Rezerváciu sa nepodarilo zrušiť. Skúste to, prosím, znova.");
       return;
     }
     setCancelled(true);
@@ -80,9 +77,14 @@ const BookingCancel = () => {
         {!token ? (
           <p className="text-sm text-muted-foreground">Chýba odkaz s kódom rezervácie.</p>
         ) : cancelled ? (
-          <p className="rounded-2xl border border-border bg-muted/40 p-4 text-sm text-foreground">
-            Rezervácia bola zrušená. Termín je opäť voľný pre ostatných klientov.
-          </p>
+          <div className="space-y-3">
+            <p className="rounded-2xl border border-border bg-muted/40 p-4 text-sm text-foreground">
+              Rezervácia bola zrušená. Termín je opäť voľný a môžete si kedykoľvek vybrať nový.
+            </p>
+            <Button asChild className="w-full rounded-full">
+              <Link to="/performance-center/rezervacia">Rezervovať nový termín</Link>
+            </Button>
+          </div>
         ) : tooLate ? (
           <div className="space-y-3">
             {detail && (
@@ -112,28 +114,20 @@ const BookingCancel = () => {
                 {fmtBookingTime(detail.starts_at)} ({Number(detail.duration_hours)} h)
               </p>
             )}
-            <form onSubmit={submit} className="space-y-3">
+            <div className="space-y-3">
               <p className="text-sm text-foreground">
-                Zadajte meno a e-mail pre potvrdenie stornovania.
+                Kliknutím potvrdíte zrušenie tejto rezervácie. Termín sa následne opäť uvoľní.
               </p>
-              <Input
-                placeholder="Meno"
-                required
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              <Input
-                type="email"
-                placeholder="E-mail"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
               {error && <p className="text-sm font-bold text-destructive">{error}</p>}
-              <Button type="submit" className="w-full rounded-full" disabled={loading}>
-                {loading ? "Ruším…" : "Zrušiť rezerváciu"}
+              <Button
+                type="button"
+                onClick={submit}
+                className="w-full rounded-full"
+                disabled={loading}
+              >
+                {loading ? "Ruším…" : "Stornovať rezerváciu"}
               </Button>
-            </form>
+            </div>
           </>
         )}
       </div>
