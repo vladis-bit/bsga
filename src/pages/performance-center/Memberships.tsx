@@ -175,10 +175,13 @@ const Memberships = () => {
             </div>
           </section>
 
-          <AuroraBackground variant="gold" className="bg-background">
-            <section className="pb-16 pt-6 md:pb-24 md:pt-10">
-              <div className="container mx-auto px-4 sm:px-6">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 items-stretch">
+          <section className="bg-background pb-16 pt-6 md:pb-24 md:pt-10">
+            <div className="container mx-auto px-4 sm:px-6">
+              <p className="mx-auto mb-8 max-w-2xl rounded-2xl border border-gold/40 bg-gold/10 px-5 py-4 text-center text-sm leading-relaxed text-foreground">
+                Online predaj členstiev zatiaľ pripravujeme. Pre kúpu nás kontaktujte na{" "}
+                <a href="mailto:peter@bsga.sk" className="font-bold underline-offset-4 hover:underline">peter@bsga.sk</a>.
+              </p>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 items-stretch">
                   {packages.map((pkg) => {
                     const featured = pkg.badge !== null;
                     return (
@@ -217,8 +220,8 @@ const Memberships = () => {
                           </p>
                           <button
                             type="button"
-                            onClick={() => openDialog(pkg)}
-                            className="mt-auto inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-foreground"
+                            disabled
+                            className="mt-auto inline-flex cursor-not-allowed items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary-foreground opacity-60"
                           >
                             Kúpiť
                           </button>
