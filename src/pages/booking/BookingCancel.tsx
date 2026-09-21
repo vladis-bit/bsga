@@ -16,8 +16,6 @@ const BookingCancel = () => {
   const [params] = useSearchParams();
   const token = params.get("token");
   const [detail, setDetail] = useState<Detail | null>(null);
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [cancelled, setCancelled] = useState(false);
