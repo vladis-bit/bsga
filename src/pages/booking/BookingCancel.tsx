@@ -77,9 +77,14 @@ const BookingCancel = () => {
         {!token ? (
           <p className="text-sm text-muted-foreground">Chýba odkaz s kódom rezervácie.</p>
         ) : cancelled ? (
-          <p className="rounded-2xl border border-border bg-muted/40 p-4 text-sm text-foreground">
-            Rezervácia bola zrušená. Termín je opäť voľný pre ostatných klientov.
-          </p>
+          <div className="space-y-3">
+            <p className="rounded-2xl border border-border bg-muted/40 p-4 text-sm text-foreground">
+              Rezervácia bola zrušená. Termín je opäť voľný a môžete si kedykoľvek vybrať nový.
+            </p>
+            <Button asChild className="w-full rounded-full">
+              <Link to="/performance-center/rezervacia">Rezervovať nový termín</Link>
+            </Button>
+          </div>
         ) : tooLate ? (
           <div className="space-y-3">
             {detail && (
