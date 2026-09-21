@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CalendarDays, ChevronRight, Trophy, Users, MapPin, Mail } from "lucide-react";
+import { BookOpen, CalendarDays, ChevronRight, Trophy, Users, MapPin, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { performanceCenterLocation } from "@/lib/schema";
 import PcContactBlock from "@/components/performance-center/PcContactBlock";
+import guidePdf from "@/assets/performance-center/bsga-performance-center-2027.pdf.asset.json";
 
 const cards: {
   n: string;
