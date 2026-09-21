@@ -12,7 +12,7 @@ const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const SITE_URL = Deno.env.get("SITE_URL") ?? "https://bsga.sk";
 
-/** Pošle pripomienku pre rezervácie začínajúce v najbližších ~24 hodinách. */
+/** Pošle jednu pripomienku pre rezervácie začínajúce do 3 hodín. */
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   const json = (body: unknown, status = 200) =>
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
       .eq("status", "confirmed")
       .is("reminder_sent_at", null)
       .gte("starts_at", new Date(now).toISOString())
-      .lte("starts_at", new Date(now + 26 * 3600000).toISOString())
+      .lte("starts_at", new Date(now + 3 * 3600000).toISOString())
       .order("starts_at", { ascending: true })
       .limit(50);
     if (error) throw error;
@@ -47,8 +47,8 @@ Deno.serve(async (req) => {
 
       const html = renderBookingEmail({
         badge: "Pripomienka",
-        heading: "Zajtra vás čakáme v Performance Center",
-        intro: `Dobrý deň, ${esc(b.first_name)}, pripomíname Vám blížiaci sa termín na simulátore. Prídite, prosím, cca 10 minút vopred.`,
+        heading: "O 3 hodiny vás čakáme v Performance Center",
+        intro: `Dobrý deň, ${esc(b.first_name)}, pripomíname Vám dnešný termín na simulátore, ktorý začína o približne 3 hodiny. Prídite, prosím, cca 10 minút vopred.`,
         rows: [
           ["Simulátor", simName],
           ["Dátum", fmtDate(b.starts_at)],
