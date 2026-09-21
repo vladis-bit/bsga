@@ -114,28 +114,20 @@ const BookingCancel = () => {
                 {fmtBookingTime(detail.starts_at)} ({Number(detail.duration_hours)} h)
               </p>
             )}
-            <form onSubmit={submit} className="space-y-3">
+            <div className="space-y-3">
               <p className="text-sm text-foreground">
-                Zadajte meno a e-mail pre potvrdenie stornovania.
+                Kliknutím potvrdíte zrušenie tejto rezervácie. Termín sa následne opäť uvoľní.
               </p>
-              <Input
-                placeholder="Meno"
-                required
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              <Input
-                type="email"
-                placeholder="E-mail"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
               {error && <p className="text-sm font-bold text-destructive">{error}</p>}
-              <Button type="submit" className="w-full rounded-full" disabled={loading}>
-                {loading ? "Ruším…" : "Zrušiť rezerváciu"}
+              <Button
+                type="button"
+                onClick={submit}
+                className="w-full rounded-full"
+                disabled={loading}
+              >
+                {loading ? "Ruším…" : "Stornovať rezerváciu"}
               </Button>
-            </form>
+            </div>
           </>
         )}
       </div>
