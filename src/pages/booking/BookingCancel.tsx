@@ -33,20 +33,20 @@ const BookingCancel = () => {
     });
   }, [token]);
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const submit = async () => {
     if (!token) return;
     setLoading(true);
     setError(null);
-    const { data, error: rpcError } = await supabase.rpc("cancel_pc_booking", {
-      _token: token,
-      _first_name: firstName,
-      _email: email,
-    });
+    const { data, error: rpcError } = await (
+      supabase.rpc as unknown as (
+        fn: string,
+        args: Record<string, unknown>,
+      ) => Promise<{ data: unknown; error: unknown }>
+    )("cancel_pc_booking_by_token", { _token: token });
     setLoading(false);
     const result = data as { success?: boolean; error?: string } | null;
     if (rpcError || !result?.success) {
-      setError(result?.error ?? "Zadané údaje sa nezhodujú s rezerváciou.");
+      setError(result?.error ?? "Rezerváciu sa nepodarilo zrušiť. Skúste to, prosím, znova.");
       return;
     }
     setCancelled(true);
