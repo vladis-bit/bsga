@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import {
   Accordion,
   AccordionContent,
@@ -94,7 +93,6 @@ const Memberships = () => {
     handleSubmit,
     watch,
     setValue,
-    reset,
     formState: { errors },
   } = useForm<PurchaseFormValues>({
     resolver: zodResolver(purchaseSchema),
@@ -103,11 +101,6 @@ const Memberships = () => {
 
   const isGift = watch("isGift");
   const consent = watch("consent");
-
-  const openDialog = (pkg: Package) => {
-    reset({ isGift: false, recipientName: "", dedication: "", consent: undefined as unknown as true, buyerName: "", buyerEmail: "" });
-    setSelected(pkg);
-  };
 
   const onSubmit = async (values: PurchaseFormValues) => {
     if (!selected) return;
@@ -181,10 +174,13 @@ const Memberships = () => {
             </div>
           </section>
 
-          <AuroraBackground variant="gold" className="bg-background">
-            <section className="pb-16 pt-6 md:pb-24 md:pt-10">
-              <div className="container mx-auto px-4 sm:px-6">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 items-stretch">
+          <section className="bg-background pb-16 pt-6 md:pb-24 md:pt-10">
+            <div className="container mx-auto px-4 sm:px-6">
+              <p className="mx-auto mb-8 max-w-2xl rounded-2xl border border-gold/40 bg-gold/10 px-5 py-4 text-center text-sm leading-relaxed text-foreground">
+                Online predaj členstiev zatiaľ pripravujeme. Pre kúpu nás kontaktujte na{" "}
+                <a href="mailto:peter@bsga.sk" className="font-bold underline-offset-4 hover:underline">peter@bsga.sk</a>.
+              </p>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 items-stretch">
                   {packages.map((pkg) => {
                     const featured = pkg.badge !== null;
                     return (
@@ -223,8 +219,8 @@ const Memberships = () => {
                           </p>
                           <button
                             type="button"
-                            onClick={() => openDialog(pkg)}
-                            className="mt-auto inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-foreground"
+                            disabled
+                            className="mt-auto inline-flex cursor-not-allowed items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-bold text-primary-foreground opacity-60"
                           >
                             Kúpiť
                           </button>
@@ -234,20 +230,22 @@ const Memberships = () => {
                   })}
                 </div>
               </div>
-            </section>
-          </AuroraBackground>
+          </section>
 
-          <section className="bg-background pb-20 md:pb-28">
+          <section className="bg-background py-12 sm:py-16 md:py-24">
             <div className="container mx-auto px-4 sm:px-6">
+              <div className="mb-8 border-b border-border pb-6 text-center sm:mb-12 md:mb-16">
+                <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">Časté otázky</h2>
+                <p className="mt-2 inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">FAQ</p>
+              </div>
               <div className="mx-auto max-w-3xl">
-                <h2 className="text-center font-serif text-3xl font-bold text-foreground sm:text-4xl">Časté otázky</h2>
-                <Accordion type="single" collapsible className="mt-8">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
                   {faqItems.map((item, index) => (
-                    <AccordionItem key={index} value={`faq-${index}`}>
-                      <AccordionTrigger className="text-left text-base font-bold text-foreground">
+                    <AccordionItem key={index} value={`faq-${index}`} className="rounded-2xl border border-border bg-card px-4 sm:px-6 data-[state=open]:border-gold/40">
+                      <AccordionTrigger className="py-4 text-left text-sm font-medium text-foreground hover:text-gold hover:no-underline sm:py-6 sm:text-base">
                         {item.q}
                       </AccordionTrigger>
-                      <AccordionContent className="text-sm leading-relaxed text-foreground/70 sm:text-base">
+                      <AccordionContent className="pb-4 text-sm leading-relaxed text-muted-foreground sm:pb-6 sm:text-base">
                         {item.a}
                       </AccordionContent>
                     </AccordionItem>
