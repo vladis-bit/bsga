@@ -64,6 +64,48 @@ const Shop = () => {
     { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/dRmcN53QH4Ou3Vi00Q8so08" },
   ];
 
+  const memberships = [
+    {
+      entries: 1,
+      label: "1 vstup",
+      price: 24.99,
+      pricePerEntry: 24.99,
+      savings: null as string | null,
+      badge: null as string | null,
+      image: poukazka1.url,
+    },
+    {
+      entries: 5,
+      label: "5 vstupov",
+      price: 119.99,
+      pricePerEntry: 24.0,
+      savings: "ušetríte 4,96 €",
+      badge: null as string | null,
+      image: poukazka5.url,
+    },
+    {
+      entries: 10,
+      label: "10 vstupov",
+      price: 229.99,
+      pricePerEntry: 23.0,
+      savings: "ušetríte 19,91 €",
+      badge: "Najobľúbenejšie",
+      image: poukazka10.url,
+    },
+    {
+      entries: 20,
+      label: "20 vstupov",
+      price: 399.99,
+      pricePerEntry: 20.0,
+      savings: "ušetríte 99,81 € (−20 %)",
+      badge: "Najvýhodnejšie",
+      image: poukazka20.url,
+    },
+  ];
+
+  const formatPrice = (value: number) =>
+    value.toLocaleString("sk-SK", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+
   const services = [
     {
       title: "Individuálna lekcia",
@@ -284,6 +326,13 @@ const Shop = () => {
                 >
                   <Gift className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   Poukážky
+                </button>
+                <button
+                  onClick={() => scrollToSection("clenstva")}
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-xs font-bold text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground sm:text-sm"
+                >
+                  <Ticket className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  Členstvá
                 </button>
                 <button
                   onClick={() => scrollToSection("sluzby")}
