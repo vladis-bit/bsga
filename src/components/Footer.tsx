@@ -14,7 +14,7 @@ const serviceLinks = [
   { label: "Fitting – vybavenie na mieru", href: "/fitting" },
   { label: "Eventy a \u00a0golfové pobyty", href: "/eventy" },
   { label: "Course Management", href: "/zacni-s-golfom#dominuj" },
-  { label: "Performance Center", href: "/performance-center/rezervacia" },
+  { label: "Performance Center", href: "/performance-center" },
 ];
 
 const serviceLinksLeft = serviceLinks.slice(0, 6);
@@ -108,7 +108,7 @@ const Footer = () => {
             <h4 className={columnHeadingClass}>Objavte</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/performance-center/rezervacia" className={linkClass}>Performance Center</Link>
+                <Link to="/performance-center" className={linkClass}>Performance Center</Link>
               </li>
               <li><Link to="/edukacne-centrum" className={linkClass}>Edukačné centrum</Link></li>
               <li><Link to="/eventy" className={linkClass}>Eventy</Link></li>
