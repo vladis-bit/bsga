@@ -507,6 +507,7 @@ export const renderCancellationEmail = (d: CancellationEmailData) => {
     phone_line: phone ? `<br />${esc(phone)}` : "",
     simulator: esc(d.simulator),
     duration: esc(d.duration),
+    social_icons: SOCIAL_ICONS_HTML,
   };
   return TEMPLATE.replace(/\{\{\{?(\w+)\}\}\}?/g, (_m, key: string) => vars[key] ?? "");
 };
