@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CalendarDays, ChevronRight, Trophy, Users, MapPin, Mail } from "lucide-react";
+import { BookOpen, CalendarDays, ChevronRight, Trophy, Users, MapPin, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { performanceCenterLocation } from "@/lib/schema";
 import PcContactBlock from "@/components/performance-center/PcContactBlock";
+import guidePdf from "@/assets/performance-center/bsga-performance-center-2027.pdf.asset.json";
 
 const cards: {
   n: string;
@@ -81,11 +82,19 @@ const PerformanceCenterHome = () => {
                 <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
                   Indoor golfové centrum s profesionálnymi simulátormi pre tréning, hru aj súťaženie počas celého roka.
                 </p>
-                <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
-                  <Link to="/performance-center/rezervacia" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary-foreground transition-colors hover:bg-foreground sm:w-auto">
+                <div className="mt-10 flex w-full flex-col flex-wrap items-center justify-center gap-4 sm:flex-row sm:w-auto">
+                  <Link to="/performance-center/rezervacia" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-bold text-primary-foreground transition-colors hover:bg-foreground sm:w-auto lg:px-10">
                     <CalendarDays className="h-4 w-4" /> Rezervovať simulátor
                   </Link>
-                  <a href="#kontakt-performance" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground px-10 py-4 text-sm font-bold text-foreground transition-colors hover:bg-muted sm:w-auto">
+                  <a
+                    href={guidePdf.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground px-6 py-4 text-sm font-bold text-foreground transition-colors hover:bg-muted sm:w-auto lg:px-10"
+                  >
+                    <BookOpen className="h-4 w-4 text-gold" /> Sprievodca u nás
+                  </a>
+                  <a href="#kontakt-performance" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground px-6 py-4 text-sm font-bold text-foreground transition-colors hover:bg-muted sm:w-auto lg:px-10">
                     <Mail className="h-4 w-4 text-gold" /> Kontaktujte nás
                   </a>
                 </div>
