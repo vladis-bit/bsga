@@ -63,7 +63,7 @@ Deno.serve(async (req) => {
       const res = await sendEmail({
         from: "BSGA Performance Center <noreply@bsga.sk>",
         to: [b.email],
-        reply_to: "info@bsga.sk",
+        reply_to: "peter@bsga.sk",
         subject: `Pripomienka – ${simName}, ${fmtDate(b.starts_at)} o ${fmtTime(b.starts_at)}`,
         html,
         attachments: [

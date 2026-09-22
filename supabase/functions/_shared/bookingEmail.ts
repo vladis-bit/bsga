@@ -67,7 +67,7 @@ export const renderBookingEmail = (l: Layout) => `<!DOCTYPE html>
     ${l.note ? `<tr><td style="padding:24px 40px 0 40px;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;color:#4a453d;">${l.note}</td></tr>` : ""}
     <tr><td style="padding:28px 40px 36px 40px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:19px;color:#a09786;">
       BSGA Performance Center · Zuzany Chalupovej 12, 851 07 Bratislava<br />
-      <a href="mailto:info@bsga.sk" style="color:#C5A059;text-decoration:none;">info@bsga.sk</a> · <a href="https://www.bsga.sk" style="color:#C5A059;text-decoration:none;">www.bsga.sk</a>
+      <a href="mailto:peter@bsga.sk" style="color:#C5A059;text-decoration:none;">peter@bsga.sk</a> · <a href="https://www.bsga.sk" style="color:#C5A059;text-decoration:none;">www.bsga.sk</a>
       <div style="margin:18px 0 0;">${SOCIAL_ICONS_HTML}</div>
     </td></tr>
   </table>
