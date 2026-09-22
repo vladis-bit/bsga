@@ -4,6 +4,7 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: Googlebot
 Allow: /
@@ -11,6 +12,7 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: Googlebot-Image
 Allow: /
@@ -22,6 +24,7 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /reset-password
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: Twitterbot
 Allow: /
@@ -34,30 +37,36 @@ User-agent: GPTBot
 Allow: /
 Disallow: /admin/
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /admin/
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /admin/
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /admin/
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /admin/
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /admin/
 Disallow: /rezervacia/
+Disallow: /performance-center/clenstva/dakujeme
 
 Sitemap: https://bsga.sk/sitemap.xml
