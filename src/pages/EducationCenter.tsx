@@ -20,7 +20,7 @@ const EducationCenter = () => {
       url: "https://bsga.sk/edukacne-centrum",
       inLanguage: "sk-SK",
       description:
-        "Golfové vzdelávacie centrum BSGA – testy pravidiel a etikety, kalkulačky handicapu a praktické know-how pre golfistov.",
+        "Golfové vzdelávacie centrum BSGA – testy pravidiel a etikety a praktické know-how pre golfistov.",
       isPartOf: { "@id": "https://bsga.sk/#website" },
       publisher: { "@id": "https://bsga.sk/#organization" },
       hasPart: [
@@ -32,14 +32,6 @@ const EducationCenter = () => {
           educationalLevel: "Beginner",
           inLanguage: "sk",
           teaches: "Pravidlá golfu a golfová etiketa",
-        },
-        {
-          "@type": "LearningResource",
-          name: "Golfové kalkulačky",
-          url: "https://bsga.sk/edukacne-centrum/kalkulacky",
-          learningResourceType: "Interactive tool",
-          inLanguage: "sk",
-          teaches: "Výpočet handicapu a skóre",
         },
       ],
     },
