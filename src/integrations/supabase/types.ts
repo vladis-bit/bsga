@@ -331,6 +331,7 @@ export type Database = {
           cena_eur: number
           created_at: string
           id: string
+          is_published: boolean
           kategoria: string
           popis: string | null
           slug: string
@@ -343,6 +344,7 @@ export type Database = {
           cena_eur?: number
           created_at?: string
           id?: string
+          is_published?: boolean
           kategoria: string
           popis?: string | null
           slug: string
@@ -355,6 +357,7 @@ export type Database = {
           cena_eur?: number
           created_at?: string
           id?: string
+          is_published?: boolean
           kategoria?: string
           popis?: string | null
           slug?: string
@@ -547,6 +550,7 @@ export type Database = {
           foto: string | null
           id: string
           ikona: string | null
+          is_published: boolean
           nazov: string
           odkaz: string | null
           popis: string | null
@@ -560,6 +564,7 @@ export type Database = {
           foto?: string | null
           id?: string
           ikona?: string | null
+          is_published?: boolean
           nazov: string
           odkaz?: string | null
           popis?: string | null
@@ -573,6 +578,7 @@ export type Database = {
           foto?: string | null
           id?: string
           ikona?: string | null
+          is_published?: boolean
           nazov?: string
           odkaz?: string | null
           popis?: string | null
@@ -587,6 +593,7 @@ export type Database = {
           created_at: string
           farby: string | null
           id: string
+          is_published: boolean
           nazov: string
           obrazok: string | null
           odkaz_na_kupu: string | null
@@ -601,6 +608,7 @@ export type Database = {
           created_at?: string
           farby?: string | null
           id?: string
+          is_published?: boolean
           nazov: string
           obrazok?: string | null
           odkaz_na_kupu?: string | null
@@ -615,6 +623,7 @@ export type Database = {
           created_at?: string
           farby?: string | null
           id?: string
+          is_published?: boolean
           nazov?: string
           obrazok?: string | null
           odkaz_na_kupu?: string | null
@@ -632,6 +641,7 @@ export type Database = {
           created_at: string
           datum: string | null
           id: string
+          is_published: boolean
           lokalita: string
           obrazok: string | null
           odkaz_galeria: string | null
@@ -647,6 +657,7 @@ export type Database = {
           created_at?: string
           datum?: string | null
           id?: string
+          is_published?: boolean
           lokalita: string
           obrazok?: string | null
           odkaz_galeria?: string | null
@@ -662,6 +673,7 @@ export type Database = {
           created_at?: string
           datum?: string | null
           id?: string
+          is_published?: boolean
           lokalita?: string
           obrazok?: string | null
           odkaz_galeria?: string | null
