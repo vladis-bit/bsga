@@ -41,6 +41,7 @@ const PerformanceCenterHome = lazy(() => import("./pages/performance-center/Perf
 const PcReservation = lazy(() => import("./pages/performance-center/Reservation"));
 const PcIndoorLeague = lazy(() => import("./pages/performance-center/IndoorLeague"));
 const PcMemberships = lazy(() => import("./pages/performance-center/Memberships"));
+const PcVoucherThankYou = lazy(() => import("./pages/performance-center/VoucherThankYou"));
 const BookingDetail = lazy(() => import("./pages/booking/BookingDetail"));
 const BookingCancel = lazy(() => import("./pages/booking/BookingCancel"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
@@ -75,6 +76,7 @@ const App = () => (
             <Route path="/performance-center/rezervacia" element={<PcReservation />} />
             <Route path="/performance-center/indoor-liga" element={<PcIndoorLeague />} />
             <Route path="/performance-center/clenstva" element={<PcMemberships />} />
+            <Route path="/performance-center/clenstva/dakujeme" element={<PcVoucherThankYou />} />
             <Route path="/firemne-akcie" element={<CorporateEvents />} />
             <Route path="/eventy" element={<Events />} />
             <Route path="/zacni-s-golfom" element={<StartGolf />} />

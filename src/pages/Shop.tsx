@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Award, Flag, Gift, Briefcase, ShoppingBag, Ticket, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
