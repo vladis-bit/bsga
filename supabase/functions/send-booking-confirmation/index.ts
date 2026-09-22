@@ -438,6 +438,7 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitiona
                                         ><u>peter@bsga.sk</u></a
                                       >, +421 905 335 501
                                     </p>
+                                    <div style="margin:16px 0 0">{{{social_icons}}}</div>
                                   </td>
                                 </tr>
                                 <tr style="margin:0;padding:0">
@@ -593,7 +594,7 @@ Deno.serve(async (req) => {
     const res = await sendEmail({
       from: "BSGA Performance Center <noreply@bsga.sk>",
       to: [b.email],
-      bcc: ["info@bsga.sk"],
+      bcc: ["peter@bsga.sk"],
       reply_to: "peter@bsga.sk",
       subject: `Potvrdenie rezervácie – ${simName}, ${dateStr} o ${fmtTime(b.starts_at)}`,
       html,

@@ -373,11 +373,11 @@ const TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                                     <p style="margin:0;padding:0">
                                       <strong>BSGA Performance Center</strong><br />Zuzany Chalupovej 12, 85107
                                       Bratislava<br />Slovenská republika<br /><a
-                                        href="mailto:info@bsga.sk"
+                                        href="mailto:peter@bsga.sk"
                                         rel="noopener noreferrer nofollow"
                                         style="color:#8f6f38;text-decoration-line:none;text-decoration:underline"
                                         target="_blank"
-                                        ><u>info@bsga.sk</u></a
+                                        ><u>peter@bsga.sk</u></a
                                        >, +421 905 335 501
                                      </p>
                                      <div style="margin:16px 0 0">{{{social_icons}}}</div>
