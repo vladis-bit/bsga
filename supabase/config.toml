@@ -2,3 +2,6 @@ project_id = "yrjhlhvrivchgomnurdl"
 
 [functions.admin-users]
 verify_jwt = true
+
+[functions.stripe-voucher-webhook]
+verify_jwt = false
