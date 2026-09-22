@@ -473,6 +473,72 @@ export type Database = {
         }
         Relationships: []
       }
+      pc_vouchers: {
+        Row: {
+          buyer_email: string
+          buyer_name: string
+          created_at: string
+          dedication: string | null
+          email_error: string | null
+          email_status: string
+          id: string
+          is_gift: boolean
+          package_entries: number
+          price_eur: number
+          purchased_at: string | null
+          recipient_name: string | null
+          remaining_entries: number
+          status: string
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          updated_at: string
+          valid_until: string | null
+          voucher_code: string | null
+        }
+        Insert: {
+          buyer_email: string
+          buyer_name: string
+          created_at?: string
+          dedication?: string | null
+          email_error?: string | null
+          email_status?: string
+          id?: string
+          is_gift?: boolean
+          package_entries: number
+          price_eur: number
+          purchased_at?: string | null
+          recipient_name?: string | null
+          remaining_entries?: number
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string
+          valid_until?: string | null
+          voucher_code?: string | null
+        }
+        Update: {
+          buyer_email?: string
+          buyer_name?: string
+          created_at?: string
+          dedication?: string | null
+          email_error?: string | null
+          email_status?: string
+          id?: string
+          is_gift?: boolean
+          package_entries?: number
+          price_eur?: number
+          purchased_at?: string | null
+          recipient_name?: string | null
+          remaining_entries?: number
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string
+          valid_until?: string | null
+          voucher_code?: string | null
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           cena: string | null
