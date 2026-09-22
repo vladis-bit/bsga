@@ -15,8 +15,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  esbuild: {
+    target: "es2022",
+    supported: {
+      destructuring: true,
+    },
+  },
   build: {
-    target: "es2020",
+    target: "es2022",
     cssCodeSplit: true,
     sourcemap: false,
     minify: "esbuild",

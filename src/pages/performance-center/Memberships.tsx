@@ -238,7 +238,6 @@ const Memberships = () => {
             <div className="container mx-auto px-4 sm:px-6">
               <div className="mb-8 border-b border-border pb-6 text-center sm:mb-12 md:mb-16">
                 <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">Časté otázky</h2>
-                <p className="mt-2 inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold sm:text-sm">{"\n"}</p>
               </div>
               <div className="mx-auto max-w-3xl">
                 <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
