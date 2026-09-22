@@ -712,10 +712,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      cancel_pc_booking: {
-        Args: { _email: string; _first_name: string; _token: string }
-        Returns: Json
-      }
       cancel_pc_booking_by_token: { Args: { _token: string }; Returns: Json }
       get_pc_booking_by_token: {
         Args: { _token: string }
@@ -757,6 +753,7 @@ export type Database = {
           user_id: string
         }[]
       }
+      pc_vouchers_housekeeping: { Args: never; Returns: undefined }
       revoke_admin_by_email: { Args: { _email: string }; Returns: string }
     }
     Enums: {
