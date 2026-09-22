@@ -1,6 +1,7 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendEmail } from "../_shared/resend.ts";
 import { createBookingCalendarAttachment } from "../_shared/bookingCalendar.ts";
+import { SOCIAL_ICONS_HTML } from "../_shared/socialFooter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -589,6 +590,7 @@ Deno.serve(async (req) => {
       phone: esc(b.phone ?? "—"),
       reservation_detail_url: detailUrl,
       reservation_cancel_url: cancelUrl,
+      social_icons: SOCIAL_ICONS_HTML,
     });
 
     const res = await sendEmail({
