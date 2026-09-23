@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { str, useCms } from "@/lib/cms";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import { allLocations } from "@/lib/schema";
@@ -292,7 +293,7 @@ const About = () => {
     mainEntity: {
       "@type": "ItemList",
       name: "Trénerský tím BSGA",
-      itemListElement: [...founders, ...team].map((m, i) => ({
+      itemListElement: [...displayFounders, ...displayTeam].map((m, i) => ({
         "@type": "ListItem",
         position: i + 1,
         name: m.name,
@@ -379,7 +380,7 @@ const About = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 items-stretch gap-8 md:gap-10 max-w-3xl mx-auto">
-                {founders.map((member, index) => <CoachCard key={index} member={member} variant="founder" />)}
+                {displayFounders.map((member, index) => <CoachCard key={index} member={member} variant="founder" />)}
               </div>
             </div>
           </section>
@@ -397,7 +398,7 @@ const About = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-8 md:gap-10">
-                {team.map((member, index) => <CoachCard key={index} member={member} />)}
+                {displayTeam.map((member, index) => <CoachCard key={index} member={member} />)}
               </div>
             </div>
           </section>
