@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.contact_messages_rate_limit() FROM PUBLIC, anon, authenticated;
