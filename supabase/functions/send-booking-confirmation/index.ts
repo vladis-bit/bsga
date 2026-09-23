@@ -126,20 +126,14 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitiona
                                     class="pad"
                                     align="center"
                                     data-id="__react-email-column"
-                                    style="margin:0;padding:34px 40px 30px 40px;background-color:#f7f5f0;border-radius:24px"
+                                    style="margin:0;padding:24px 40px;background-color:#f7f5f0;border-radius:24px"
                                   >
-                                    <div
-                                      style="margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;font-size:11px;line-height:16px;mso-line-height-rule:exactly;letter-spacing:3px;text-transform:uppercase;color:#a8874f;font-weight:bold;padding-top:18px"
-                                    >
-                                      <img
-                                        alt="Best Swing Golf Academy"
-                                        height="94"
-                                        src="https://bsga.sk/assets/emails/bsga-logo-trim.png"
-                                        style="display:block;outline:none;border:0;text-decoration:none;height:94px;width:96px;margin:0 auto"
-                                        width="96"
-                                      />
-                                      <p style="margin:0;padding:0">BSGA Performance Center</p>
-                                    </div>
+                                    <img
+                                      alt="BSGA Performance Center"
+                                      src="https://www.bsga.sk/assets/emails/bsga-performance-center-logo.png"
+                                      style="display:block;outline:none;border:0;text-decoration:none;width:100%;max-width:360px;height:auto;margin:0 auto"
+                                      width="360"
+                                    />
                                   </td>
                                 </tr>
                                 <tr style="margin:0;padding:0">
