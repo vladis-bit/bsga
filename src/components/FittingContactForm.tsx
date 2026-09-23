@@ -11,6 +11,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useAntiSpam } from "@/lib/antispam";
+import { contactErrorMessage } from "@/lib/contactError";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
@@ -54,7 +55,7 @@ const FittingContactForm = () => {
     if (error) {
       toast({
         title: "Nepodarilo sa odoslať",
-        description: "Nastala chyba pri odosielaní. Skúste to prosím znova.",
+        description: contactErrorMessage(error.message),
         variant: "destructive",
       });
       return;
