@@ -20,6 +20,7 @@ export type Database = {
           email: string | null
           foto: string | null
           id: string
+          is_published: boolean
           licencia: string | null
           meno: string
           ocenenia: string | null
@@ -35,6 +36,7 @@ export type Database = {
           email?: string | null
           foto?: string | null
           id?: string
+          is_published?: boolean
           licencia?: string | null
           meno: string
           ocenenia?: string | null
@@ -50,6 +52,7 @@ export type Database = {
           email?: string | null
           foto?: string | null
           id?: string
+          is_published?: boolean
           licencia?: string | null
           meno?: string
           ocenenia?: string | null
@@ -542,6 +545,27 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limit_hits: {
+        Row: {
+          created_at: string
+          id: string
+          identifier: string
+          scope: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          identifier: string
+          scope: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          identifier?: string
+          scope?: string
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           cena: string | null
@@ -713,6 +737,15 @@ export type Database = {
     }
     Functions: {
       cancel_pc_booking_by_token: { Args: { _token: string }; Returns: Json }
+      consume_rate_limit: {
+        Args: {
+          _identifier: string
+          _limit?: number
+          _scope: string
+          _window_seconds?: number
+        }
+        Returns: boolean
+      }
       get_pc_booking_by_token: {
         Args: { _token: string }
         Returns: {
