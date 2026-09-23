@@ -9,6 +9,10 @@ import {
   Menu,
   MessageSquare,
   Settings,
+  ShoppingBag,
+  Sparkles,
+  Trophy,
+  UserRound,
   Users,
   X,
 } from "lucide-react";
@@ -34,6 +38,10 @@ const links = [
   { to: "/admin/blokovane-terminy", label: "Blokované termíny", icon: Ban },
   { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu", icon: CalendarPlus },
   { to: "/admin/spravy", label: "Správy", icon: MessageSquare },
+  { to: "/admin/obsah/sluzby", label: "Služby", icon: Sparkles },
+  { to: "/admin/obsah/obchod", label: "Obchod", icon: ShoppingBag },
+  { to: "/admin/obsah/treneri", label: "Tréneri", icon: UserRound },
+  { to: "/admin/obsah/turnaje", label: "Turnaje", icon: Trophy },
   { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
   { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
 ];

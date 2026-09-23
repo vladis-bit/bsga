@@ -36,6 +36,10 @@ const AdminUsers = lazy(() => import("./pages/admin/Users"));
 const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const AdminBlackouts = lazy(() => import("./pages/admin/Blackouts"));
 const AdminCreateBooking = lazy(() => import("./pages/admin/CreateBooking"));
+const AdminContentServices = lazy(() => import("./pages/admin/content/Services"));
+const AdminContentProducts = lazy(() => import("./pages/admin/content/Products"));
+const AdminContentCoaches = lazy(() => import("./pages/admin/content/Coaches"));
+const AdminContentTournaments = lazy(() => import("./pages/admin/content/Tournaments"));
 const PerformanceCenterHome = lazy(() => import("./pages/performance-center/PerformanceCenterHome"));
 const PcReservation = lazy(() => import("./pages/performance-center/Reservation"));
 const PcIndoorLeague = lazy(() => import("./pages/performance-center/IndoorLeague"));
@@ -90,6 +94,10 @@ const App = () => (
               <Route path="nastavenia" element={<AdminSettings />} />
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
               <Route path="vytvorit-rezervaciu" element={<AdminCreateBooking />} />
+              <Route path="obsah/sluzby" element={<AdminContentServices />} />
+              <Route path="obsah/obchod" element={<AdminContentProducts />} />
+              <Route path="obsah/treneri" element={<AdminContentCoaches />} />
+              <Route path="obsah/turnaje" element={<AdminContentTournaments />} />
             </Route>
             <Route path="/rezervacia/detail" element={<BookingDetail />} />
             <Route path="/rezervacia/zrusit" element={<BookingCancel />} />
