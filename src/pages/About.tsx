@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { str, useCms } from "@/lib/cms";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import { allLocations } from "@/lib/schema";
@@ -236,7 +237,42 @@ const BREADCRUMBS = [
 ];
 
 const About = () => {
-  const people = [...founders, ...team].map((m) => ({
+  // Tím spravovaný v admin centre (tabuľka coaches); prázdna tabuľka = zabudovaný tím.
+  const { rows } = useCms("coaches", [{ column: "sort_order" }, { column: "meno" }]);
+  const allDefaults = [...founders, ...team];
+  const dbPeople = useMemo(() => {
+    if (rows.length === 0) return null;
+    const byName = new Map(allDefaults.map((d) => [d.name.trim().toLowerCase(), d]));
+    const lines = (v: unknown) =>
+      str(v)
+        .split("\n")
+        .map((l) => l.trim())
+        .filter(Boolean);
+    const mapped = rows.map((row) => {
+      const base = byName.get(str(row.meno).trim().toLowerCase());
+      const member: TeamMember & { founder: boolean } = {
+        name: str(row.meno),
+        role: str(row.pozicia) || base?.role || "",
+        phone: str(row.telefon) || base?.phone || "",
+        email: str(row.email) || base?.email || "",
+        image: str(row.foto) || base?.image,
+        achievements: lines(row.ocenenia).length ? lines(row.ocenenia) : base?.achievements,
+        bio: lines(row.popis).length ? lines(row.popis) : base?.bio,
+        founder: Boolean(row.zakladajuci_clen),
+      };
+      return member;
+    });
+    return {
+      founders: mapped.filter((m) => m.founder),
+      team: mapped.filter((m) => !m.founder),
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rows]);
+
+  const displayFounders = dbPeople?.founders ?? founders;
+  const displayTeam = dbPeople?.team ?? team;
+
+  const people = [...displayFounders, ...displayTeam].map((m) => ({
     "@context": "https://schema.org",
     "@type": "Person",
     name: m.name,
@@ -257,7 +293,7 @@ const About = () => {
     mainEntity: {
       "@type": "ItemList",
       name: "Trénerský tím BSGA",
-      itemListElement: [...founders, ...team].map((m, i) => ({
+      itemListElement: [...displayFounders, ...displayTeam].map((m, i) => ({
         "@type": "ListItem",
         position: i + 1,
         name: m.name,
@@ -344,7 +380,7 @@ const About = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 items-stretch gap-8 md:gap-10 max-w-3xl mx-auto">
-                {founders.map((member, index) => <CoachCard key={index} member={member} variant="founder" />)}
+                {displayFounders.map((member, index) => <CoachCard key={index} member={member} variant="founder" />)}
               </div>
             </div>
           </section>
@@ -362,7 +398,7 @@ const About = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-8 md:gap-10">
-                {team.map((member, index) => <CoachCard key={index} member={member} />)}
+                {displayTeam.map((member, index) => <CoachCard key={index} member={member} />)}
               </div>
             </div>
           </section>

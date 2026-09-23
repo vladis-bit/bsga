@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useAntiSpam } from "@/lib/antispam";
+import { contactErrorMessage } from "@/lib/contactError";
 import { supabase } from "@/integrations/supabase/client";
 import { notifyContactMessage, newMessageId } from "@/lib/notifyContact";
 
@@ -45,7 +46,7 @@ const SimpleContactForm = () => {
     if (error) {
       toast({
         title: "Nepodarilo sa odoslať",
-        description: "Nastala chyba pri odosielaní. Skúste to prosím znova.",
+        description: contactErrorMessage(error.message),
         variant: "destructive",
       });
       return;

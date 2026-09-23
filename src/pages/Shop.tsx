@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { str, useCms } from "@/lib/cms";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Award, Flag, Gift, Briefcase, ShoppingBag, Ticket, Check } from "lucide-react";
@@ -35,6 +36,8 @@ const BREADCRUMBS = [
 ];
 
 const Shop = () => {
+  // Produkty spravované v admin centre (tabuľka shop_products).
+  const { rows: productRows } = useCms("shop_products", [{ column: "typ" }, { column: "sort_order" }]);
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(() => ["darčekové poukážky", "služby", "merch"], []);
 
@@ -58,7 +61,7 @@ const Shop = () => {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
-  const vouchers = [
+  const defaultVouchers = [
     { value: 50, image: voucher50, purchaseUrl: "https://buy.stripe.com/9B6bJ13QH94K1NaaFu8so0r" },
     { value: 100, image: voucher100, purchaseUrl: "https://buy.stripe.com/3cIeVd86Xft877u28Y8so0q" },
     { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/dRmcN53QH4Ou3Vi00Q8so08" },
@@ -106,7 +109,7 @@ const Shop = () => {
   const formatPrice = (value: number) =>
     value.toLocaleString("sk-SK", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 
-  const services = [
+  const defaultShopServices = [
     {
       title: "Individuálna lekcia",
       price: 59.99,
@@ -152,7 +155,7 @@ const Shop = () => {
     },
   ];
 
-  const merch = [
+  const defaultMerch = [
     {
       title: "Športová mikina",
       price: 59.99,
@@ -235,6 +238,78 @@ const Shop = () => {
       image: merchPracticeSticks.url,
     },
   ];
+
+  const lines = (v: unknown) =>
+    str(v).split("\n").map((l) => l.trim()).filter(Boolean);
+  const parseColors = (v: unknown) =>
+    str(v)
+      .split(";")
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .map((part) => {
+        const [name, hex] = part.split("|").map((x) => x.trim());
+        return { name: name ?? "", hex: hex ?? "#cccccc" };
+      });
+
+  const vouchers = useMemo(() => {
+    const db = productRows.filter((r) => str(r.typ) === "poukazka");
+    if (db.length === 0) return defaultVouchers;
+    return db.map((row) => {
+      const value = Number(str(row.cena)) || 0;
+      const base = defaultVouchers.find((v) => v.value === value);
+      return {
+        value,
+        image: str(row.obrazok) || base?.image || "",
+        purchaseUrl: str(row.odkaz_na_kupu) || base?.purchaseUrl || "#",
+      };
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productRows]);
+
+  const services = useMemo(() => {
+    const db = productRows.filter((r) => str(r.typ) === "sluzba");
+    if (db.length === 0) return defaultShopServices;
+    return db.map((row) => {
+      const title = str(row.nazov);
+      const base = defaultShopServices.find((s) => s.title === title);
+      return {
+        ...(base ?? { icon: Briefcase }),
+        title,
+        price: Number(str(row.cena)) || base?.price || 0,
+        features: lines(row.popis).length ? lines(row.popis) : base?.features ?? [],
+        note: str(row.poznamka) || (base as { note?: string } | undefined)?.note,
+        purchaseUrl: str(row.odkaz_na_kupu) || base?.purchaseUrl || "#",
+      };
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productRows]);
+
+  const merch = useMemo(() => {
+    const db = productRows.filter((r) => str(r.typ) === "merch");
+    if (db.length === 0) return defaultMerch;
+    return db.map((row) => {
+      const title = str(row.nazov);
+      const base = defaultMerch.find((m) => m.title === title);
+      const baseVariants = (base as { colorVariants?: { name: string; hex: string; image: string }[] } | undefined)
+        ?.colorVariants;
+      const colors = parseColors(row.farby);
+      const image = str(row.obrazok) || base?.image || "";
+      return {
+        ...(base ?? {}),
+        title,
+        price: Number(str(row.cena)) || base?.price || 0,
+        description: str(row.popis) || base?.description || "",
+        image,
+        colorVariants: colors.length
+          ? colors.map((c) => ({
+              ...c,
+              image: baseVariants?.find((b) => b.name.toLowerCase() === c.name.toLowerCase())?.image || image,
+            }))
+          : baseVariants,
+      };
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productRows]);
 
   return (
     <>

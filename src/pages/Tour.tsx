@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { str, useCms } from "@/lib/cms";
 import Navbar from "@/components/Navbar";
 
 import SEO from "@/components/SEO";
@@ -272,6 +274,42 @@ const BREADCRUMBS = [
 ];
 
 const Tour = () => {
+  // Turnaje spravované v admin centre (tabuľka tour_events).
+  const { rows: tourRows } = useCms("tour_events", [{ column: "rok", ascending: false }, { column: "cislo_turnaja" }]);
+  const seasons = useMemo(() => {
+    const defaults: Record<number, typeof tournaments> = {
+      2027: tournaments2027 as never,
+      2026: tournaments,
+      2025: tournaments2025 as never,
+      2024: tournaments2024 as never,
+      2023: tournaments2023 as never,
+      2022: tournaments2022 as never,
+    };
+    if (tourRows.length === 0) return defaults;
+    const out: Record<number, typeof tournaments> = {};
+    for (const row of tourRows) {
+      const year = Number(row.rok);
+      if (!Number.isFinite(year)) continue;
+      const number = Number(row.cislo_turnaja) || 0;
+      const base = (defaults[year] ?? []).find((t) => t.number === number);
+      const item = {
+        number,
+        date: str(row.datum) || base?.date || "TBD",
+        location: str(row.lokalita) || base?.location || "TBD",
+        image: str(row.obrazok) || base?.image,
+        presenter: str(row.partner_prezentujuci) || (base as { presenter?: string } | undefined)?.presenter,
+        promoUrl: str(row.promo_letak) || (base as { promoUrl?: string } | undefined)?.promoUrl,
+        links: {
+          locationUrl: str(row.odkaz_lokalita) || base?.links?.locationUrl,
+          resultsUrl: str(row.odkaz_vysledky) || base?.links?.resultsUrl,
+          galleryUrl: str(row.odkaz_galeria) || base?.links?.galleryUrl,
+        },
+      };
+      (out[year] ||= []).push(item as never);
+    }
+    return { ...defaults, ...out };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tourRows]);
   const toIso = (d: string) => {
     const [day, month, year] = d.split(".");
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
@@ -330,8 +368,8 @@ const Tour = () => {
 
   const eventSchemas = [
     tourPageSchema,
-    seriesSchema(2026, tournaments, false),
-    seriesSchema(2025, tournaments2025 as never, true),
+    seriesSchema(2026, seasons[2026] ?? [], false),
+    seriesSchema(2025, seasons[2025] ?? [], true),
   ];
 
 
@@ -601,7 +639,7 @@ const Tour = () => {
               <div className="max-w-3xl mx-auto relative">
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
-                    {tournaments2027.map((tournament) => (
+                    {(seasons[2027] ?? []).map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           theme="ivory"
@@ -656,7 +694,7 @@ const Tour = () => {
               <div className="max-w-3xl mx-auto relative">
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
-                    {tournaments.map((tournament) => (
+                    {(seasons[2026] ?? []).map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           theme="ivory"
@@ -697,7 +735,7 @@ const Tour = () => {
               <div className="max-w-3xl mx-auto relative">
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
-                    {tournaments2025.map((tournament) => (
+                    {(seasons[2025] ?? []).map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           theme="ivory"
@@ -735,7 +773,7 @@ const Tour = () => {
               <div className="max-w-3xl mx-auto relative">
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
-                    {tournaments2024.map((tournament) => (
+                    {(seasons[2024] ?? []).map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           theme="ivory"
@@ -775,7 +813,7 @@ const Tour = () => {
               <div className="max-w-3xl mx-auto relative">
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
-                    {tournaments2023.map((tournament) => (
+                    {(seasons[2023] ?? []).map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           theme="ivory"
@@ -815,7 +853,7 @@ const Tour = () => {
               <div className="max-w-3xl mx-auto relative">
                 <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full">
                   <CarouselContent>
-                    {tournaments2022.map((tournament) => (
+                    {(seasons[2022] ?? []).map((tournament) => (
                       <CarouselItem key={tournament.number}>
                         <TournamentCard
                           theme="ivory"
