@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { str, useCms } from "@/lib/cms";
 import Navbar from "@/components/Navbar";
 
 import SEO from "@/components/SEO";
