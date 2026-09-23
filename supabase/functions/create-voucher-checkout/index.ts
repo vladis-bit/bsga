@@ -37,6 +37,35 @@ Deno.serve(async (req) => {
     const supabase = adminClient();
     const origin = req.headers.get("origin") ?? SITE_URL;
 
+    // Ochrana proti zneužitiu: max. 25 objednávok za hodinu z jednej IP adresy aj z jedného e-mailu.
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("cf-connecting-ip") ||
+      "";
+    const limits: [string, string][] = [
+      ["voucher_checkout_email", body.buyerEmail],
+      ...(ip ? ([["voucher_checkout_ip", ip]] as [string, string][]) : []),
+    ];
+    for (const [scope, identifier] of limits) {
+      const { data: allowed, error: limitError } = await supabase.rpc("consume_rate_limit", {
+        _scope: scope,
+        _identifier: identifier,
+        _limit: 25,
+        _window_seconds: 3600,
+      });
+      if (limitError) console.error("rate limit check failed", limitError);
+      if (allowed === false) {
+        return new Response(
+          JSON.stringify({
+            error:
+              "Príliš veľa pokusov o objednávku. Skúste to prosím o hodinu alebo nás kontaktujte na peter@bsga.sk.",
+          }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+        );
+      }
+    }
+
+
     const { data: voucher, error: insertError } = await supabase
       .from("pc_vouchers")
       .insert({
