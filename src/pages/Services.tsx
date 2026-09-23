@@ -64,7 +64,17 @@ const RevealCard = ({ children, index }: { children: React.ReactNode; index: num
   );
 };
 
-const services = [
+type ServiceItem = {
+  icon: typeof Target;
+  title: string;
+  image?: string;
+  objectPosition?: string;
+  link?: string;
+  externalLink?: string;
+  description: ReactNode;
+};
+
+const services: ServiceItem[] = [
   {
     icon: User,
     title: "Individuálne lekcie",
