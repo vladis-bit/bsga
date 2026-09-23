@@ -159,7 +159,9 @@ const ContentManager = ({ table, heading, intro, fields, order, newRow }: Props)
       else payload[f.name] = raw === "" ? null : raw;
     }
     setSavingId(id);
-    const { error } = await supabase.from(table).update(payload as never).eq("id", id);
+    // Tabuľka je dynamická, preto generický typ klienta obchádzame.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase.from(table) as any).update(payload).eq("id", id);
     setSavingId(null);
     if (error) {
       toast({ title: "Uloženie zlyhalo", description: translateDbError(error.message), variant: "destructive" });
