@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useMemo, useRef, type ReactNode } from "react";
+import { mergeCms, richText, str, useCms } from "@/lib/cms";
 import { motion, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
@@ -206,6 +207,27 @@ const BREADCRUMBS = [
 ];
 
 const Services = () => {
+  // Obsah spravovaný v admin centre (tabuľka services); ak je prázdny, použijú sa zabudované texty.
+  const { rows } = useCms("services", [{ column: "sort_order" }, { column: "nazov" }]);
+  const displayServices = useMemo(
+    () =>
+      mergeCms(
+        services as ServiceItem[],
+        rows,
+        (s) => s.title,
+        (r) => str(r.nazov),
+        (base, row) => ({
+          icon: base?.icon ?? Target,
+          title: str(row.nazov),
+          image: str(row.foto) || base?.image,
+          objectPosition: base?.objectPosition,
+          link: str(row.odkaz) || base?.link,
+          description: row.popis ? richText(str(row.popis)) : base?.description,
+        }),
+      ),
+    [rows],
+  );
+
   // Ceny podľa cenníka v obchode BSGA – Offer pridávame len tam, kde cena existuje.
   const servicePrices: Record<string, string> = {
     "Individuálne lekcie": "59.99",
@@ -213,7 +235,7 @@ const Services = () => {
     "Zelené karty": "549.99",
     "Detské kempy": "310",
   };
-  const serviceSchemas = services.map((s) => {
+  const serviceSchemas = displayServices.map((s) => {
     const price = servicePrices[s.title];
     return {
       "@context": "https://schema.org",
@@ -259,7 +281,7 @@ const Services = () => {
                   Profesionálne golfové lekcie a kurzy v BSGA
                 </h1>
                 <p className="mt-2 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-xl">
-                  12 profesionálnych služieb pre každého golfistu
+                  {displayServices.length} profesionálnych služieb pre každého golfistu
                 </p>
               </div>
             </div>
@@ -277,12 +299,12 @@ const Services = () => {
                   </p>
                 </div>
                 <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
-                  12 služieb
+                  {displayServices.length} služieb
                 </span>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:grid-cols-3">
-                {services.map((service, index) => {
+                {displayServices.map((service, index) => {
                   const card = (
                       <CursorGlowCard
                         className={`group h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-gold/40 hover:shadow-xl ${
