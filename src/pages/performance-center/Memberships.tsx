@@ -26,27 +26,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
-import poukazka1 from "@/assets/vouchers/poukazka-1.webp.asset.json";
-import poukazka5 from "@/assets/vouchers/poukazka-5.webp.asset.json";
-import poukazka10 from "@/assets/vouchers/poukazka-10.webp.asset.json";
-import poukazka20 from "@/assets/vouchers/poukazka-20.webp.asset.json";
+import { useMembershipPackages, type MembershipPackage as Package } from "@/lib/memberships";
 
-type Package = {
-  entries: 1 | 5 | 10 | 20;
-  label: string;
-  price: number;
-  pricePerEntry: number;
-  savings: string | null;
-  badge: string | null;
-  image: string;
-};
-
-const packages: Package[] = [
-  { entries: 1, label: "1 vstup", price: 24.99, pricePerEntry: 24.99, savings: null, badge: null, image: poukazka1.url },
-  { entries: 5, label: "5 vstupov", price: 119.99, pricePerEntry: 24.0, savings: "ušetríte 4,96 €", badge: null, image: poukazka5.url },
-  { entries: 10, label: "10 vstupov", price: 229.99, pricePerEntry: 23.0, savings: "ušetríte 19,91 €", badge: "Najobľúbenejšie", image: poukazka10.url },
-  { entries: 20, label: "20 vstupov", price: 399.99, pricePerEntry: 20.0, savings: "ušetríte 99,81 € (−20 %)", badge: "Najvýhodnejšie", image: poukazka20.url },
-];
 
 const faqItems = [
   {
@@ -85,6 +66,7 @@ const inputClass =
   "border-border bg-background text-black placeholder:text-black/50 focus-visible:ring-gold";
 
 const Memberships = () => {
+  const packages = useMembershipPackages();
   const [selected, setSelected] = useState<Package | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -217,7 +199,7 @@ const Memberships = () => {
                             </span>
                           )}
                           <p className="mt-1 flex items-center justify-center gap-1.5 text-xs text-foreground/60">
-                            <Check className="h-3.5 w-3.5 text-gold" /> Platnosť 6 mesiacov
+                            <Check className="h-3.5 w-3.5 text-gold" /> Platnosť {pkg.validityMonths} mesiacov
                           </p>
                           <button
                             type="button"

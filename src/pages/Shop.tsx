@@ -1,3 +1,4 @@
+import { useMembershipPackages } from "@/lib/memberships";
 import { useEffect, useMemo, useState } from "react";
 import { str, useCms } from "@/lib/cms";
 import { Link } from "react-router-dom";
@@ -25,10 +26,6 @@ import merchSportsBag from "@/assets/merch/sports-bag.png.asset.json";
 import hoodieBlack from "@/assets/merch/hoodie-black.png.asset.json";
 import hoodieYellow from "@/assets/merch/hoodie-yellow.png.asset.json";
 import hoodieGreen from "@/assets/merch/hoodie-green.png.asset.json";
-import poukazka1 from "@/assets/vouchers/poukazka-1.webp.asset.json";
-import poukazka5 from "@/assets/vouchers/poukazka-5.webp.asset.json";
-import poukazka10 from "@/assets/vouchers/poukazka-10.webp.asset.json";
-import poukazka20 from "@/assets/vouchers/poukazka-20.webp.asset.json";
 
 const BREADCRUMBS = [
   { name: "Domov", url: "https://bsga.sk/" },
@@ -67,44 +64,7 @@ const Shop = () => {
     { value: 200, image: voucher200, purchaseUrl: "https://buy.stripe.com/dRmcN53QH4Ou3Vi00Q8so08" },
   ];
 
-  const memberships = [
-    {
-      entries: 1,
-      label: "1 vstup",
-      price: 24.99,
-      pricePerEntry: 24.99,
-      savings: null as string | null,
-      badge: null as string | null,
-      image: poukazka1.url,
-    },
-    {
-      entries: 5,
-      label: "5 vstupov",
-      price: 119.99,
-      pricePerEntry: 24.0,
-      savings: "ušetríte 4,96 €",
-      badge: null as string | null,
-      image: poukazka5.url,
-    },
-    {
-      entries: 10,
-      label: "10 vstupov",
-      price: 229.99,
-      pricePerEntry: 23.0,
-      savings: "ušetríte 19,91 €",
-      badge: "Najobľúbenejšie",
-      image: poukazka10.url,
-    },
-    {
-      entries: 20,
-      label: "20 vstupov",
-      price: 399.99,
-      pricePerEntry: 20.0,
-      savings: "ušetríte 99,81 € (−20 %)",
-      badge: "Najvýhodnejšie",
-      image: poukazka20.url,
-    },
-  ];
+  const memberships = useMembershipPackages();
 
   const formatPrice = (value: number) =>
     value.toLocaleString("sk-SK", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";

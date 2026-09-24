@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import {
   Ban,
+  CalendarRange,
+  Ticket,
   CalendarDays,
   CalendarPlus,
   LayoutDashboard,
@@ -42,6 +44,8 @@ const links = [
   { to: "/admin/obsah/obchod", label: "Obchod", icon: ShoppingBag },
   { to: "/admin/obsah/treneri", label: "Tréneri", icon: UserRound },
   { to: "/admin/obsah/turnaje", label: "Turnaje", icon: Trophy },
+  { to: "/admin/obsah/eventy", label: "Eventy", icon: CalendarRange },
+  { to: "/admin/obsah/clenstva", label: "Členstvá", icon: Ticket },
   { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
   { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
 ];
