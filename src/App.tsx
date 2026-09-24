@@ -40,6 +40,7 @@ const AdminContentServices = lazy(() => import("./pages/admin/content/Services")
 const AdminContentProducts = lazy(() => import("./pages/admin/content/Products"));
 const AdminContentCoaches = lazy(() => import("./pages/admin/content/Coaches"));
 const AdminContentTournaments = lazy(() => import("./pages/admin/content/Tournaments"));
+const AdminVouchers = lazy(() => import("./pages/admin/Vouchers"));
 const AdminContentMemberships = lazy(() => import("./pages/admin/content/Memberships"));
 const AdminContentEvents = lazy(() => import("./pages/admin/content/Events"));
 const PerformanceCenterHome = lazy(() => import("./pages/performance-center/PerformanceCenterHome"));
@@ -93,6 +94,7 @@ const App = () => (
               <Route path="spravy" element={<AdminMessages />} />
               <Route path="admini" element={<AdminAdmins />} />
               <Route path="pouzivatelia" element={<AdminUsers />} />
+              <Route path="poukazky" element={<AdminVouchers />} />
               <Route path="nastavenia" element={<AdminSettings />} />
               <Route path="blokovane-terminy" element={<AdminBlackouts />} />
               <Route path="vytvorit-rezervaciu" element={<AdminCreateBooking />} />
