@@ -115,7 +115,7 @@ const BookingCalendar = () => {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!picked) return;
-    const hours = Number(form.hours) || 1;
+    const hours = Math.max(1, Math.round(Number(form.hours) || 1));
     const hoursError = validateOpeningHours(picked.time, hours);
     if (hoursError) {
       toast({ title: "Mimo otváracích hodín", description: hoursError, variant: "destructive" });
