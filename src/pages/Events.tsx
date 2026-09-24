@@ -341,6 +341,7 @@ const BREADCRUMBS = [
 
 const Events = () => {
   const [floridaOpen, setFloridaOpen] = useState(false);
+  const { fromDb, events, events2027, archived: archivedEvents } = useEventsData();
 
   const parseEventDates = (dateStr: string): { startDate?: string; endDate?: string } => {
     // Handles: "1. – 6. 5. 2026" | "25. 9. 2026" | "26. 3. – 2. 4. 2027"
@@ -683,9 +684,17 @@ const Events = () => {
                   Zverejníme už čoskoro
                 </p>
 
+                {fromDb ? (
+                  <div className="mt-10 sm:mt-12 grid gap-6 text-left sm:gap-8">
+                    {events2027.map((event, index) => (
+                      <EventCard key={`2027-${index}`} event={event} index={index} variant="small" soldOut={event.soldOut} />
+                    ))}
+                  </div>
+                ) : (
+                  <>
                 {/* Jarný tréningový kemp v Turecku — 13. – 20. 3. 2027 */}
                 <div className="mt-10 sm:mt-12 grid text-left">
-                  <EventCard event={turkeyCamp2027} index={0} variant="small" />
+                  <EventCard event={defaultEvents2027[0]} index={0} variant="small" />
                 </div>
 
 
@@ -749,6 +758,8 @@ const Events = () => {
                     </div>
                   </div>
                 </div>
+                  </>
+                )}
               </div>
             </div>
           </section>
