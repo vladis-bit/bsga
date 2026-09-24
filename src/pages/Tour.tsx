@@ -631,9 +631,6 @@ const Tour = () => {
                   </h2>
                   <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">11. ročník</p>
                 </div>
-                <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-foreground/40 md:block">
-                  Dátumy a lokality budú čoskoro
-                </span>
               </div>
 
               <div className="max-w-3xl mx-auto relative">
