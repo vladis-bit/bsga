@@ -13,7 +13,7 @@ import peterPhoto from "@/assets/team/peter-svajlen.webp";
 import marosPhoto from "@/assets/team/maros-gajan.webp";
 import domkaPhoto from "@/assets/team/donka-svajlenova.webp";
 import doniTravelLogo from "@/assets/partner-doni-travel.png";
-import { type EventItem, parseEventDate, defaultEvents, defaultEvents2027, defaultArchivedEvents } from "@/data/events";
+import { type EventItem, defaultEvents2027 } from "@/data/events";
 import { useEventsData } from "@/lib/events-cms";
 
 
