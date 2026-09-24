@@ -1,10 +1,10 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import Stripe from "https://esm.sh/stripe@17.7.0?target=deno";
 import { z } from "https://esm.sh/zod@3.23.8";
-import { PACKAGES, adminClient } from "../_shared/voucher.ts";
+import { adminClient } from "../_shared/voucher.ts";
 
 const BodySchema = z.object({
-  package: z.union([z.literal(1), z.literal(5), z.literal(10), z.literal(20)]),
+  package: z.number().int().min(1).max(200),
   buyerName: z.string().trim().min(2).max(100),
   buyerEmail: z.string().trim().email().max(255),
   isGift: z.boolean(),
@@ -32,9 +32,21 @@ Deno.serve(async (req) => {
       });
     }
     const body = parsed.data;
-    const pkg = PACKAGES[body.package];
-
     const supabase = adminClient();
+    // Cena sa berie výhradne z databázy (admin centrum), nikdy z frontendu.
+    const { data: pkgRow } = await supabase
+      .from("pc_membership_packages")
+      .select("entries, price_eur, label")
+      .eq("entries", body.package)
+      .eq("is_published", true)
+      .maybeSingle();
+    if (!pkgRow) {
+      return new Response(JSON.stringify({ error: "Balík nie je dostupný." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const pkg = { entries: pkgRow.entries as number, price: Number(pkgRow.price_eur), label: pkgRow.label as string };
     const origin = req.headers.get("origin") ?? SITE_URL;
 
     // Ochrana proti zneužitiu: max. 25 objednávok za hodinu z jednej IP adresy aj z jedného e-mailu.
