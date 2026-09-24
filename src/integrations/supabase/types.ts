@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      camps: {
+        Row: {
+          created_at: string
+          datum: string | null
+          id: string
+          is_published: boolean
+          lokalita: string | null
+          nazov: string
+          plagat: string | null
+          popis: string | null
+          sold_out: boolean
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          datum?: string | null
+          id?: string
+          is_published?: boolean
+          lokalita?: string | null
+          nazov: string
+          plagat?: string | null
+          popis?: string | null
+          sold_out?: boolean
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          datum?: string | null
+          id?: string
+          is_published?: boolean
+          lokalita?: string | null
+          nazov?: string
+          plagat?: string | null
+          popis?: string | null
+          sold_out?: boolean
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       coaches: {
         Row: {
           created_at: string
