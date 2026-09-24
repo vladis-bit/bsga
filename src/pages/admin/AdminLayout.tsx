@@ -364,29 +364,34 @@ const AdminLayout = () => {
                       Navigácia v administrácii. Zatvoríte klávesou Escape.
                     </SheetDescription>
                   </div>
-                  <nav aria-label="Administrácia — mobilné menu" className="flex-1 overflow-y-auto p-4">
-                    <ul className="space-y-2">
-                      {links.map((l) => {
-                        const isActive = normalize(l.to) === activePath;
-                        return (
-                          <li key={l.to}>
-                            <Link
-                              to={l.to}
-                              aria-current={isActive ? "page" : undefined}
-                              onClick={() => setMenuOpen(false)}
-                              className={`flex min-h-[48px] items-center gap-3 rounded-xl px-4 text-sm font-bold transition-colors ${
-                                isActive
-                                  ? "bg-foreground text-background"
-                                  : "bg-muted/60 text-muted-foreground hover:text-foreground"
-                              }`}
-                            >
-                              <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                              {l.label}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                  <nav aria-label="Administrácia — mobilné menu" className="flex-1 overflow-y-auto p-4 space-y-5">
+                    {sections.map((section) => (
+                      <div key={section.key}>
+                        <p className="px-2 pb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">{section.label}</p>
+                        <ul className="space-y-2">
+                          {section.links.map((l) => {
+                            const isActive = normalize(l.to) === activePath;
+                            return (
+                              <li key={l.to}>
+                                <Link
+                                  to={l.to}
+                                  aria-current={isActive ? "page" : undefined}
+                                  onClick={() => setMenuOpen(false)}
+                                  className={`flex min-h-[48px] items-center gap-3 rounded-xl px-4 text-sm font-bold transition-colors ${
+                                    isActive
+                                      ? "bg-foreground text-background"
+                                      : "bg-muted/60 text-muted-foreground hover:text-foreground"
+                                  }`}
+                                >
+                                  <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                                  {l.label}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))}
                   </nav>
                   <div className="space-y-3 border-t border-border p-4">
                     <p className="truncate text-xs text-muted-foreground">
@@ -416,29 +421,33 @@ const AdminLayout = () => {
               <img src={bsgaLogo} alt="BSGA Admin" className="h-10 w-auto" decoding="async" />
             </Link>
           </div>
-          <nav aria-label="Hlavná administrácia" className="flex-1 overflow-y-auto px-3 py-5">
-            <p className="px-3 pb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">Administrácia</p>
-            <ul className="space-y-1.5">
-              {links.map((l) => {
-                const isActive = normalize(l.to) === activePath;
-                return (
-                  <li key={l.to}>
-                    <Link
-                      to={l.to}
-                      aria-current={isActive ? "page" : undefined}
-                      className={`flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition-colors ${
-                        isActive
-                          ? "bg-foreground text-background"
-                          : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                      }`}
-                    >
-                      <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                      <span>{l.label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+          <nav aria-label="Hlavná administrácia" className="flex-1 overflow-y-auto px-3 py-5 space-y-5">
+            {sections.map((section) => (
+              <div key={section.key}>
+                <p className="px-3 pb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">{section.label}</p>
+                <ul className="space-y-1.5">
+                  {section.links.map((l) => {
+                    const isActive = normalize(l.to) === activePath;
+                    return (
+                      <li key={l.to}>
+                        <Link
+                          to={l.to}
+                          aria-current={isActive ? "page" : undefined}
+                          className={`flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition-colors ${
+                            isActive
+                              ? "bg-foreground text-background"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                          }`}
+                        >
+                          <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                          <span>{l.label}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
           </nav>
           <div className="border-t border-border p-4">
             <div className="mb-3 flex items-start gap-2 rounded-xl bg-muted/60 p-3">
