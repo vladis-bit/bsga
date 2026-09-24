@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState, type ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 /** Tabuľky spravovateľné z admin centra. */
-export type CmsTable = "services" | "shop_products" | "coaches" | "tour_events";
+export type CmsTable = "services" | "shop_products" | "coaches" | "tour_events" | "pc_membership_packages";
 
 export type CmsRow = Record<string, unknown> & { id: string };
 
