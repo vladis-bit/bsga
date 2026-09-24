@@ -34,7 +34,7 @@ import {
 } from "./shared";
 import { bratislavaDateTimeToIso } from "@/lib/bratislava-time";
 
-type RangeKey = "today" | "week" | "month" | "all";
+type RangeKey = "today" | "week" | "month" | "all" | "custom";
 
 const Bookings = () => {
   const { toast } = useToast();
@@ -44,6 +44,8 @@ const Bookings = () => {
   const [sim, setSim] = useState<string>("all");
   const [status, setStatus] = useState<string>("all");
   const [q, setQ] = useState("");
+  const [customFrom, setCustomFrom] = useState("");
+  const [customTo, setCustomTo] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [saving, setSaving] = useState(false);
   const [cancelling, setCancelling] = useState(false);
@@ -87,9 +89,15 @@ const Bookings = () => {
   );
 
   const filtered = useMemo(() => {
-    const from = startOfDay(new Date());
-    const to =
+    let from = startOfDay(new Date());
+    let to =
       range === "today" ? addDays(from, 1) : range === "week" ? addDays(from, 7) : addDays(from, 31);
+    if (range === "custom") {
+      from = customFrom ? new Date(bratislavaDateTimeToIso(customFrom, "00:00")) : new Date(0);
+      to = customTo
+        ? addDays(new Date(bratislavaDateTimeToIso(customTo, "00:00")), 1)
+        : new Date(8640000000000000);
+    }
     const needle = q.trim().toLowerCase();
     return bookings
       .filter((b) => {
@@ -106,7 +114,7 @@ const Bookings = () => {
         return true;
       })
       .sort((a, b) => b.starts_at.localeCompare(a.starts_at));
-  }, [bookings, range, sim, status, q]);
+  }, [bookings, range, sim, status, q, customFrom, customTo]);
 
   const patch = async (id: string, values: Partial<Booking>) => {
     const { error } = await supabase.from("pc_bookings").update(values).eq("id", id);
@@ -224,7 +232,9 @@ const Bookings = () => {
     const url = URL.createObjectURL(new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `bsga-rezervacie-${new Date().toISOString().slice(0, 10)}.csv`;
+    const suffix =
+      range === "custom" ? `${customFrom || "zaciatok"}_${customTo || "koniec"}` : new Date().toISOString().slice(0, 10);
+    a.download = `bsga-rezervacie-${suffix}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -335,6 +345,7 @@ const Bookings = () => {
           <option value="week">Najbližších 7 dní</option>
           <option value="month">Najbližších 31 dní</option>
           <option value="all">Všetko</option>
+          <option value="custom">Vlastné obdobie…</option>
         </select>
         <select className={selectCls} value={sim} onChange={(e) => setSim(e.target.value)}>
           <option value="all">Všetky simulátory</option>
@@ -356,7 +367,18 @@ const Bookings = () => {
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
+        {range === "custom" && (
+          <div className="flex flex-wrap items-center gap-2 sm:col-span-2 xl:col-span-4">
+            <label className="text-sm text-foreground">Od</label>
+            <Input type="date" className="w-auto" value={customFrom} onChange={(e) => setCustomFrom(e.target.value)} />
+            <label className="text-sm text-foreground">Do</label>
+            <Input type="date" className="w-auto" value={customTo} onChange={(e) => setCustomTo(e.target.value)} />
+          </div>
+        )}
       </div>
+      <p className="text-sm text-muted-foreground">
+        Zobrazených rezervácií: {filtered.length} · Export CSV stiahne presne tento výber.
+      </p>
 
       <div className="space-y-3">
         {filtered.length === 0 && (

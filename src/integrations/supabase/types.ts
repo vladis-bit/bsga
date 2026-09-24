@@ -530,6 +530,41 @@ export type Database = {
         }
         Relationships: []
       }
+      pc_voucher_redemptions: {
+        Row: {
+          created_at: string
+          entries: number
+          id: string
+          note: string | null
+          redeemed_by: string | null
+          voucher_id: string
+        }
+        Insert: {
+          created_at?: string
+          entries?: number
+          id?: string
+          note?: string | null
+          redeemed_by?: string | null
+          voucher_id: string
+        }
+        Update: {
+          created_at?: string
+          entries?: number
+          id?: string
+          note?: string | null
+          redeemed_by?: string | null
+          voucher_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pc_voucher_redemptions_voucher_id_fkey"
+            columns: ["voucher_id"]
+            isOneToOne: false
+            referencedRelation: "pc_vouchers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pc_vouchers: {
         Row: {
           buyer_email: string
@@ -838,6 +873,10 @@ export type Database = {
         }[]
       }
       pc_vouchers_housekeeping: { Args: never; Returns: undefined }
+      redeem_pc_voucher: {
+        Args: { _code: string; _entries?: number; _note?: string }
+        Returns: Json
+      }
       revoke_admin_by_email: { Args: { _email: string }; Returns: string }
     }
     Enums: {

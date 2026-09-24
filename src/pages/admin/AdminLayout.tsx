@@ -40,6 +40,7 @@ const pcLinks = [
   { to: "/admin/blokovane-terminy", label: "Blokované termíny", icon: Ban },
   { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu", icon: CalendarPlus },
   { to: "/admin/obsah/clenstva", label: "Členstvá", icon: Ticket },
+  { to: "/admin/poukazky", label: "Poukážky", icon: Ticket },
   { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
   { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
 ];
