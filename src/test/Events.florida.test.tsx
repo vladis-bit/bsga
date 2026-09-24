@@ -18,13 +18,13 @@ const renderEvents = () =>
     </HelmetProvider>
   );
 
-describe("Events – Florida PGA Swing 2027 (obsadené)", () => {
-  it("zobrazí OBSADENÉ ribbon na karte Florida PGA Swing", () => {
+describe("Events – Florida PGA Swing 2027 (vypredané)", () => {
+  it("zobrazí VYPREDANÉ ribbon na karte Florida PGA Swing", () => {
     renderEvents();
     const heading = screen.getByRole("heading", { name: /Florida PGA Swing/i });
     const card = heading.closest("div.relative") as HTMLElement;
     expect(card).not.toBeNull();
-    expect(within(card).getByText("OBSADENÉ")).toBeInTheDocument();
+    expect(within(card).getByText("VYPREDANÉ")).toBeInTheDocument();
   });
 
   it("má vypnutú registráciu (disabled 'Vypredané' namiesto buttonu Prihlásiť sa)", () => {
@@ -46,7 +46,7 @@ describe("Events – Florida PGA Swing 2027 (obsadené)", () => {
   it("zobrazí vysvetlenie s kontaktom na waitlist", () => {
     renderEvents();
     const note = screen.getByTestId("florida-soldout-note");
-    expect(note).toHaveTextContent(/obsaden/i);
+    expect(note).toHaveTextContent(/vypredan/i);
     expect(note).toHaveTextContent(/waitlist/i);
 
     const mail = within(note).getByRole("link", { name: /peter@doni-travel\.sk/i });
@@ -68,7 +68,7 @@ describe("Events – Florida PGA Swing 2027 (obsadené)", () => {
     expect(vypredane).toHaveAttribute("aria-disabled", "true");
 
     const note = within(dialog).getByTestId("florida-soldout-note-dialog");
-    expect(note).toHaveTextContent(/obsaden/i);
+    expect(note).toHaveTextContent(/vypredan/i);
     expect(within(note).getByRole("link", { name: /peter@doni-travel\.sk/i })).toHaveAttribute(
       "href",
       "mailto:peter@doni-travel.sk"

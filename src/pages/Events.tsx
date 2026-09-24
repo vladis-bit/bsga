@@ -62,7 +62,7 @@ const EventCard = ({
       >
         {soldOut && (
           <div className="pointer-events-none absolute -right-12 top-5 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
-            OBSADENÉ
+            VYPREDANÉ
           </div>
         )}
 
@@ -157,7 +157,7 @@ const EventCard = ({
               )}
               {soldOut && (
                 <p className="mt-1 w-full text-xs sm:text-sm text-muted-foreground">
-                  Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                  Zájazd je momentálne <strong className="text-foreground">vypredaný</strong>. O náhradných termínoch
                   alebo zápise na waitlist Vás informujeme na{" "}
                   <a href={`mailto:${displayEmail}`} className="text-gold hover:underline font-medium">
                     {displayEmail}
@@ -314,7 +314,7 @@ const EventCard = ({
               </div>
               {soldOut && (
                 <p className="text-xs sm:text-sm text-muted-foreground">
-                  Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                   Zájazd je momentálne <strong className="text-foreground">vypredaný</strong>. O náhradných termínoch
                   alebo zápise na waitlist Vás informujeme na{" "}
                   <a href={`mailto:${displayEmail}`} className="text-gold hover:underline font-medium">
                     {displayEmail}
@@ -698,10 +698,10 @@ const Events = () => {
                 </div>
 
 
-                {/* Featured: Florida PGA Swing — OBSADENÉ */}
+                {/* Featured: Florida PGA Swing — VYPREDANÉ */}
                 <div className="relative mt-6 sm:mt-8 overflow-hidden rounded-2xl border-l-4 border-gold bg-card shadow-2xl transition-all">
                   <div className="pointer-events-none absolute -right-12 top-5 z-20 rotate-45 bg-foreground text-background text-[10px] sm:text-xs font-bold tracking-widest px-12 py-1 shadow-md">
-                    OBSADENÉ
+                    VYPREDANÉ
                   </div>
                   <div className="p-6 sm:p-10 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
@@ -743,7 +743,7 @@ const Events = () => {
                           </span>
                         </div>
                         <p data-testid="florida-soldout-note" className="mt-3 text-xs sm:text-sm text-muted-foreground">
-                          Zájazd je momentálne <strong className="text-foreground">obsadený</strong>. O náhradných termínoch
+                           Zájazd je momentálne <strong className="text-foreground">vypredaný</strong>. O náhradných termínoch
                           alebo zápise na waitlist Vás informujeme na{" "}
                           <a href="mailto:peter@doni-travel.sk" className="text-gold hover:underline font-medium">
                             peter@doni-travel.sk
@@ -972,7 +972,7 @@ const Events = () => {
                 Vypredané
               </span>
               <p data-testid="florida-soldout-note-dialog" className="text-xs sm:text-sm text-muted-foreground">
-                Podujatie je momentálne <strong className="text-foreground">obsadené</strong>. Náhradné termíny
+                 Podujatie je momentálne <strong className="text-foreground">vypredané</strong>. Náhradné termíny
                 alebo zápis na waitlist vybavíte cez{" "}
                 <a href="mailto:peter@doni-travel.sk" className="text-gold hover:underline font-medium">
                   peter@doni-travel.sk
