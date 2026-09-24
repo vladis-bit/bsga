@@ -53,7 +53,7 @@ const webLinks = [
   { to: "/admin/obsah/eventy", label: "Eventy", icon: CalendarRange },
 ];
 
-const links = [...pcLinks, ...webLinks];
+const links: { to: string; label: string; icon: typeof Settings; end?: boolean }[] = [...pcLinks, ...webLinks];
 
 const sections = [
   { key: "pc" as const, label: "BSGA PC admin", links: pcLinks },
