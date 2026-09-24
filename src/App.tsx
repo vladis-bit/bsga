@@ -43,6 +43,7 @@ const AdminContentTournaments = lazy(() => import("./pages/admin/content/Tournam
 const AdminVouchers = lazy(() => import("./pages/admin/Vouchers"));
 const AdminContentMemberships = lazy(() => import("./pages/admin/content/Memberships"));
 const AdminContentEvents = lazy(() => import("./pages/admin/content/Events"));
+const AdminContentCamps = lazy(() => import("./pages/admin/content/Camps"));
 const PerformanceCenterHome = lazy(() => import("./pages/performance-center/PerformanceCenterHome"));
 const PcReservation = lazy(() => import("./pages/performance-center/Reservation"));
 const PcIndoorLeague = lazy(() => import("./pages/performance-center/IndoorLeague"));
@@ -104,6 +105,7 @@ const App = () => (
               <Route path="obsah/turnaje" element={<AdminContentTournaments />} />
               <Route path="obsah/clenstva" element={<AdminContentMemberships />} />
               <Route path="obsah/eventy" element={<AdminContentEvents />} />
+              <Route path="obsah/tabory" element={<AdminContentCamps />} />
             </Route>
             <Route path="/rezervacia/detail" element={<BookingDetail />} />
             <Route path="/rezervacia/zrusit" element={<BookingCancel />} />

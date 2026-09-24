@@ -52,6 +52,7 @@ const webLinks = [
   { to: "/admin/obsah/treneri", label: "Tréneri", icon: UserRound },
   { to: "/admin/obsah/turnaje", label: "Turnaje", icon: Trophy },
   { to: "/admin/obsah/eventy", label: "Eventy", icon: CalendarRange },
+  { to: "/admin/obsah/tabory", label: "Detské tábory", icon: Tent },
 ];
 
 const links: { to: string; label: string; icon: typeof Settings; end?: boolean }[] = [...pcLinks, ...webLinks];
