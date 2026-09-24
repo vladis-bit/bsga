@@ -33,21 +33,31 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import type { Session } from "@supabase/supabase-js";
 
-const links = [
+const pcLinks = [
   { to: "/admin", label: "Prehľad", end: true, icon: LayoutDashboard },
   { to: "/admin/rezervacie", label: "Rezervácie", icon: CalendarDays },
   { to: "/admin/kalendar", label: "Kalendár", icon: CalendarDays },
   { to: "/admin/blokovane-terminy", label: "Blokované termíny", icon: Ban },
   { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu", icon: CalendarPlus },
+  { to: "/admin/obsah/clenstva", label: "Členstvá", icon: Ticket },
+  { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
+  { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
+];
+
+const webLinks = [
   { to: "/admin/spravy", label: "Správy", icon: MessageSquare },
   { to: "/admin/obsah/sluzby", label: "Služby", icon: Sparkles },
   { to: "/admin/obsah/obchod", label: "Obchod", icon: ShoppingBag },
   { to: "/admin/obsah/treneri", label: "Tréneri", icon: UserRound },
   { to: "/admin/obsah/turnaje", label: "Turnaje", icon: Trophy },
   { to: "/admin/obsah/eventy", label: "Eventy", icon: CalendarRange },
-  { to: "/admin/obsah/clenstva", label: "Členstvá", icon: Ticket },
-  { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
-  { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
+];
+
+const links: { to: string; label: string; icon: typeof Settings; end?: boolean }[] = [...pcLinks, ...webLinks];
+
+const sections = [
+  { key: "pc" as const, label: "BSGA PC admin", links: pcLinks },
+  { key: "web" as const, label: "Web editor", links: webLinks },
 ];
 
 const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
@@ -354,29 +364,34 @@ const AdminLayout = () => {
                       Navigácia v administrácii. Zatvoríte klávesou Escape.
                     </SheetDescription>
                   </div>
-                  <nav aria-label="Administrácia — mobilné menu" className="flex-1 overflow-y-auto p-4">
-                    <ul className="space-y-2">
-                      {links.map((l) => {
-                        const isActive = normalize(l.to) === activePath;
-                        return (
-                          <li key={l.to}>
-                            <Link
-                              to={l.to}
-                              aria-current={isActive ? "page" : undefined}
-                              onClick={() => setMenuOpen(false)}
-                              className={`flex min-h-[48px] items-center gap-3 rounded-xl px-4 text-sm font-bold transition-colors ${
-                                isActive
-                                  ? "bg-foreground text-background"
-                                  : "bg-muted/60 text-muted-foreground hover:text-foreground"
-                              }`}
-                            >
-                              <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                              {l.label}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                  <nav aria-label="Administrácia — mobilné menu" className="flex-1 overflow-y-auto p-4 space-y-5">
+                    {sections.map((section) => (
+                      <div key={section.key}>
+                        <p className="px-2 pb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">{section.label}</p>
+                        <ul className="space-y-2">
+                          {section.links.map((l) => {
+                            const isActive = normalize(l.to) === activePath;
+                            return (
+                              <li key={l.to}>
+                                <Link
+                                  to={l.to}
+                                  aria-current={isActive ? "page" : undefined}
+                                  onClick={() => setMenuOpen(false)}
+                                  className={`flex min-h-[48px] items-center gap-3 rounded-xl px-4 text-sm font-bold transition-colors ${
+                                    isActive
+                                      ? "bg-foreground text-background"
+                                      : "bg-muted/60 text-muted-foreground hover:text-foreground"
+                                  }`}
+                                >
+                                  <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                                  {l.label}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))}
                   </nav>
                   <div className="space-y-3 border-t border-border p-4">
                     <p className="truncate text-xs text-muted-foreground">
@@ -406,29 +421,33 @@ const AdminLayout = () => {
               <img src={bsgaLogo} alt="BSGA Admin" className="h-10 w-auto" decoding="async" />
             </Link>
           </div>
-          <nav aria-label="Hlavná administrácia" className="flex-1 overflow-y-auto px-3 py-5">
-            <p className="px-3 pb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">Administrácia</p>
-            <ul className="space-y-1.5">
-              {links.map((l) => {
-                const isActive = normalize(l.to) === activePath;
-                return (
-                  <li key={l.to}>
-                    <Link
-                      to={l.to}
-                      aria-current={isActive ? "page" : undefined}
-                      className={`flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition-colors ${
-                        isActive
-                          ? "bg-foreground text-background"
-                          : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                      }`}
-                    >
-                      <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                      <span>{l.label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+          <nav aria-label="Hlavná administrácia" className="flex-1 overflow-y-auto px-3 py-5 space-y-5">
+            {sections.map((section) => (
+              <div key={section.key}>
+                <p className="px-3 pb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">{section.label}</p>
+                <ul className="space-y-1.5">
+                  {section.links.map((l) => {
+                    const isActive = normalize(l.to) === activePath;
+                    return (
+                      <li key={l.to}>
+                        <Link
+                          to={l.to}
+                          aria-current={isActive ? "page" : undefined}
+                          className={`flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition-colors ${
+                            isActive
+                              ? "bg-foreground text-background"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                          }`}
+                        >
+                          <l.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                          <span>{l.label}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
           </nav>
           <div className="border-t border-border p-4">
             <div className="mb-3 flex items-start gap-2 rounded-xl bg-muted/60 p-3">
