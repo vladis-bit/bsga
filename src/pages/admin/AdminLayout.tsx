@@ -33,21 +33,31 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import type { Session } from "@supabase/supabase-js";
 
-const links = [
+const pcLinks = [
   { to: "/admin", label: "Prehľad", end: true, icon: LayoutDashboard },
   { to: "/admin/rezervacie", label: "Rezervácie", icon: CalendarDays },
   { to: "/admin/kalendar", label: "Kalendár", icon: CalendarDays },
   { to: "/admin/blokovane-terminy", label: "Blokované termíny", icon: Ban },
   { to: "/admin/vytvorit-rezervaciu", label: "Vytvoriť rezerváciu", icon: CalendarPlus },
+  { to: "/admin/obsah/clenstva", label: "Členstvá", icon: Ticket },
+  { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
+  { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
+];
+
+const webLinks = [
   { to: "/admin/spravy", label: "Správy", icon: MessageSquare },
   { to: "/admin/obsah/sluzby", label: "Služby", icon: Sparkles },
   { to: "/admin/obsah/obchod", label: "Obchod", icon: ShoppingBag },
   { to: "/admin/obsah/treneri", label: "Tréneri", icon: UserRound },
   { to: "/admin/obsah/turnaje", label: "Turnaje", icon: Trophy },
   { to: "/admin/obsah/eventy", label: "Eventy", icon: CalendarRange },
-  { to: "/admin/obsah/clenstva", label: "Členstvá", icon: Ticket },
-  { to: "/admin/pouzivatelia", label: "Používatelia", icon: Users },
-  { to: "/admin/nastavenia", label: "Nastavenia", icon: Settings },
+];
+
+const links = [...pcLinks, ...webLinks];
+
+const sections = [
+  { key: "pc" as const, label: "BSGA PC admin", links: pcLinks },
+  { key: "web" as const, label: "Web editor", links: webLinks },
 ];
 
 const normalize = (path: string) => path.replace(/\/+$/, "") || "/";

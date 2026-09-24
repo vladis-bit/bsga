@@ -95,7 +95,7 @@ const BookingCalendar = () => {
   const stateOf = useMemo(() => {
     return (simId: string, time: string): SlotState => {
       const start = bratislavaDateTimeToDate(calendarDateKey(day), time).getTime();
-      const end = start + 30 * 60 * 1000;
+      const end = start + 60 * 60 * 1000;
       if (start <= Date.now()) return "past";
       if (outOfWindow) return "past";
       const hit = slots.find((s) => {
@@ -250,7 +250,7 @@ const BookingCalendar = () => {
             {loading ? (
               <div className="p-8 text-center text-sm text-muted-foreground">Načítavam…</div>
             ) : (
-              PC_TIME_SLOTS.map((time) => (
+              PC_TIME_SLOTS.filter((t) => t.endsWith(":00")).map((time) => (
                 <div
                   key={time}
                   className="grid border-b border-border last:border-0"
@@ -336,7 +336,7 @@ const BookingCalendar = () => {
                 type="number"
                 min={1}
                 max={8}
-                step={0.5}
+                step={1}
                 required
                 value={form.hours}
                 onChange={(e) => setForm({ ...form, hours: e.target.value })}
