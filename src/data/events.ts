@@ -15,7 +15,7 @@ export interface EventItem {
   hideSignup?: boolean;
   /** Skryje tlačidlo plagátu aj placeholder "Plagát čoskoro". */
   hidePoster?: boolean;
-  /** Označí akciu ako vypredanú/obsadenú. */
+  /** Označí akciu ako vypredanú. */
   soldOut?: boolean;
   details?: {
     subtitle: string;
