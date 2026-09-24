@@ -134,12 +134,14 @@ export type Database = {
           created_at: string
           date_label: string | null
           details: Json | null
+          hide_poster: boolean
           hide_signup: boolean
           id: string
           is_active: boolean
           is_featured: boolean
           location: string | null
           poster_url: string | null
+          sold_out: boolean
           sort_order: number
           subtitle: string | null
           title: string
@@ -151,12 +153,14 @@ export type Database = {
           created_at?: string
           date_label?: string | null
           details?: Json | null
+          hide_poster?: boolean
           hide_signup?: boolean
           id?: string
           is_active?: boolean
           is_featured?: boolean
           location?: string | null
           poster_url?: string | null
+          sold_out?: boolean
           sort_order?: number
           subtitle?: string | null
           title: string
@@ -168,12 +172,14 @@ export type Database = {
           created_at?: string
           date_label?: string | null
           details?: Json | null
+          hide_poster?: boolean
           hide_signup?: boolean
           id?: string
           is_active?: boolean
           is_featured?: boolean
           location?: string | null
           poster_url?: string | null
+          sold_out?: boolean
           sort_order?: number
           subtitle?: string | null
           title?: string
@@ -326,6 +332,51 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      pc_membership_packages: {
+        Row: {
+          badge: string | null
+          created_at: string
+          entries: number
+          id: string
+          image: string | null
+          is_published: boolean
+          label: string
+          price_eur: number
+          savings: string | null
+          sort_order: number
+          updated_at: string
+          validity_months: number
+        }
+        Insert: {
+          badge?: string | null
+          created_at?: string
+          entries: number
+          id?: string
+          image?: string | null
+          is_published?: boolean
+          label: string
+          price_eur: number
+          savings?: string | null
+          sort_order?: number
+          updated_at?: string
+          validity_months?: number
+        }
+        Update: {
+          badge?: string | null
+          created_at?: string
+          entries?: number
+          id?: string
+          image?: string | null
+          is_published?: boolean
+          label?: string
+          price_eur?: number
+          savings?: string | null
+          sort_order?: number
+          updated_at?: string
+          validity_months?: number
+        }
+        Relationships: []
       }
       pc_pricing_slots: {
         Row: {
