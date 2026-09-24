@@ -2,6 +2,7 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendEmail } from "../_shared/resend.ts";
 import { createBookingCalendarAttachment } from "../_shared/bookingCalendar.ts";
 import { SOCIAL_ICONS_HTML } from "../_shared/socialFooter.ts";
+import { BOOKING_EMAIL_LOGO_ATTACHMENT } from "../_shared/emailLogo.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -129,10 +130,10 @@ const EMAIL_TEMPLATE = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitiona
                                     style="margin:0;padding:24px 40px;background-color:#f7f5f0;border-radius:24px"
                                   >
                                     <img
-                                      alt="BSGA Performance Center"
-                                      src="https://www.bsga.sk/assets/emails/bsga-performance-center-logo.png"
-                                      style="display:block;outline:none;border:0;text-decoration:none;width:100%;max-width:360px;height:auto;margin:0 auto"
-                                      width="360"
+                                      alt="Best Swing Golf Academy"
+                                      src="cid:bsga-booking-logo"
+                                      style="display:block;outline:none;border:0;text-decoration:none;width:100%;max-width:322px;height:auto;margin:0 auto"
+                                      width="322"
                                     />
                                   </td>
                                 </tr>
@@ -595,6 +596,7 @@ Deno.serve(async (req) => {
       subject: `Potvrdenie rezervácie – ${simName}, ${dateStr} o ${fmtTime(b.starts_at)}`,
       html,
       attachments: [
+        BOOKING_EMAIL_LOGO_ATTACHMENT,
         createBookingCalendarAttachment({
           bookingId: b.id,
           simulatorName: simName,

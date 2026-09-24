@@ -41,7 +41,7 @@ export const renderBookingEmail = (l: Layout) => `<!DOCTYPE html>
 <tr><td align="center">
   <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:24px;overflow:hidden;">
     <tr><td align="center" style="padding:24px 40px;background-color:#f7f5f0;">
-      <img src="https://www.bsga.sk/assets/emails/bsga-performance-center-logo.png" width="360" alt="BSGA Performance Center" style="display:block;outline:none;border:0;text-decoration:none;width:100%;max-width:360px;height:auto;margin:0 auto;" />
+      <img src="cid:bsga-booking-logo" width="322" alt="Best Swing Golf Academy" style="display:block;outline:none;border:0;text-decoration:none;width:100%;max-width:322px;height:auto;margin:0 auto;" />
     </td></tr>
     <tr><td style="padding:36px 40px 8px 40px;font-family:Helvetica,Arial,sans-serif;">
       <span style="display:inline-block;background:#C5A059;color:#ffffff;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;border-radius:999px;">${esc(l.badge)}</span>

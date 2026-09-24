@@ -14,6 +14,7 @@ export type EmailPayload = {
     filename: string;
     content: string;
     content_type?: string;
+    content_id?: string;
   }[];
 };
 

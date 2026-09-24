@@ -2,6 +2,7 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 import { sendEmail } from "../_shared/resend.ts";
 import { fmtDate, fmtTime } from "../_shared/bookingEmail.ts";
 import { renderCancellationEmail } from "../_shared/cancellationEmail.ts";
+import { BOOKING_EMAIL_LOGO_ATTACHMENT } from "../_shared/emailLogo.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -67,6 +68,7 @@ Deno.serve(async (req) => {
       reply_to: "peter@bsga.sk",
       subject: `Zrušenie rezervácie – ${simName}, ${fmtDate(b.starts_at)} o ${fmtTime(b.starts_at)}`,
       html,
+      attachments: [BOOKING_EMAIL_LOGO_ATTACHMENT],
     });
     if (!res.ok) {
       await supabase
