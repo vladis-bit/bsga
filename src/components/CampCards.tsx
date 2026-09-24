@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, Mail, MapPin, Sparkles, FileText } from "lucide-react";
+import { useCms, str } from "@/lib/cms";
 
 interface Camp {
   title: string;
@@ -138,12 +139,23 @@ const CampCard = ({ camp, index }: { camp: Camp; index: number }) => {
 };
 
 const CampCards = () => {
+  const { rows } = useCms("camps", [{ column: "sort_order" }, { column: "datum" }]);
+  const list: Camp[] = rows.length
+    ? rows.map((r) => ({
+        title: str(r.nazov),
+        date: str(r.datum),
+        location: str(r.lokalita) || undefined,
+        description: str(r.popis) || undefined,
+        posterUrl: str(r.plagat) || undefined,
+        soldOut: r.sold_out === true,
+      }))
+    : camps;
+
   return (
     <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
-      {camps.map((camp, index) => (
+      {list.map((camp, index) => (
         <CampCard key={index} camp={camp} index={index} />
       ))}
-      
     </div>
   );
 };
