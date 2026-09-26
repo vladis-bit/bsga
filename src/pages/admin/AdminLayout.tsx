@@ -5,7 +5,6 @@ import {
   CalendarRange,
   Tent,
   Flag,
-  CalendarDays,
   Ticket,
   CalendarDays,
   CalendarPlus,
