@@ -29,6 +29,8 @@ type Props = {
   order: { column: string; ascending?: boolean }[];
   /** Predvolené hodnoty pre novú položku. */
   newRow: Record<string, unknown>;
+  /** Zobrazí len položky s danou hodnotou stĺpca. */
+  filter?: { column: string; value: string | number | boolean };
 };
 
 const SIGNED_URL_TTL = 60 * 60 * 24 * 365 * 10; // 10 rokov
@@ -116,7 +118,7 @@ const ImageField = ({
   );
 };
 
-const ContentManager = ({ table, heading, intro, fields, order, newRow }: Props) => {
+const ContentManager = ({ table, heading, intro, fields, order, newRow, filter }: Props) => {
   const { toast } = useToast();
   const [rows, setRows] = useState<CmsRow[]>([]);
   const [drafts, setDrafts] = useState<Record<string, Record<string, unknown>>>({});
@@ -127,7 +129,7 @@ const ContentManager = ({ table, heading, intro, fields, order, newRow }: Props)
   const load = async () => {
     setLoading(true);
     try {
-      const data = await fetchCms(table, order);
+      const data = await fetchCms(table, order, filter);
       setRows(data);
       setDrafts(Object.fromEntries(data.map((r) => [r.id, { ...r }])));
     } catch (e) {
