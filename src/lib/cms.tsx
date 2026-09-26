@@ -2,14 +2,20 @@ import { Fragment, useEffect, useState, type ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 /** Tabuľky spravovateľné z admin centra. */
-export type CmsTable = "services" | "shop_products" | "coaches" | "tour_events" | "pc_membership_packages" | "camps";
+export type CmsTable = "services" | "shop_products" | "coaches" | "tour_events" | "pc_membership_packages" | "camps" | "weekend_course_dates";
 
 export type CmsRow = Record<string, unknown> & { id: string };
 
 type OrderSpec = { column: string; ascending?: boolean };
 
-export async function fetchCms(table: CmsTable, order: OrderSpec[]): Promise<CmsRow[]> {
-  let query = supabase.from(table).select("*");
+export async function fetchCms(
+  table: CmsTable,
+  order: OrderSpec[],
+  filter?: { column: string; value: string | number | boolean },
+): Promise<CmsRow[]> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let query: any = supabase.from(table).select("*");
+  if (filter) query = query.eq(filter.column, filter.value);
   for (const o of order) query = query.order(o.column, { ascending: o.ascending ?? true });
   const { data, error } = await query;
   if (error) throw error;

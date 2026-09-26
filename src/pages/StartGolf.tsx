@@ -11,6 +11,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import CourseReviews, { reviews as courseReviews } from "@/components/CourseReviews";
 import IvoryContactForm from "@/components/IvoryContactForm";
 import { buildFaqJsonLd } from "@/lib/buildFaqJsonLd";
+import { useCms, str } from "@/lib/cms";
+
+const DEFAULT_WEEKEND_DATES = ["11. – 12. 4. 2026","25. – 26. 4. 2026","9. – 10. 5. 2026","16. – 17. 5. 2026","23. – 24. 5. 2026","6. – 7. 6. 2026","13. – 14. 6. 2026","20. – 21. 6. 2026","4. – 5. 7. 2026","18. – 19. 7. 2026","1. – 2. 8. 2026","15. – 16. 8. 2026","22. – 23. 8. 2026","5. – 6. 9. 2026","19. – 20. 9. 2026","3. – 4. 10. 2026"];
 import serviceStartCardsImgAsset from "@/assets/service-start-cards.jpg.asset.json";
 const serviceStartCardsImg = serviceStartCardsImgAsset.url;
 import serviceGreenCardsImgAsset from "@/assets/service-green-cards.webp.asset.json";
@@ -108,6 +111,13 @@ const StepFAQ = ({
 );
 
 const StartGolf = () => {
+  const { rows: weekendRows } = useCms("weekend_course_dates", [{ column: "sort_order" }, { column: "created_at" }]);
+  const weekendDates =
+    weekendRows.length > 0
+      ? weekendRows
+          .filter((r) => r.is_published !== false)
+          .map((r) => ({ date: str(r.datum), note: str(r.poznamka), soldOut: Boolean(r.sold_out) }))
+      : DEFAULT_WEEKEND_DATES.map((date) => ({ date, note: "", soldOut: false }));
   const allFaqs = [
     { q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?", a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí vám pohodlné športové oblečenie a obuv s plochou podrážkou. Všetko vybavenie – palice aj loptičky – vám zapožičiame priamo na mieste." },
     { q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?", a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získate základy a pripravíte sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test." },
@@ -465,30 +475,15 @@ const StartGolf = () => {
                             </AccordionTrigger>
                             <AccordionContent className="pb-4">
                               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                {[
-                                  "11. – 12. 4. 2026",
-                                  "25. – 26. 4. 2026",
-                                  "9. – 10. 5. 2026",
-                                  "16. – 17. 5. 2026",
-                                  "23. – 24. 5. 2026",
-                                  "6. – 7. 6. 2026",
-                                  "13. – 14. 6. 2026",
-                                  "20. – 21. 6. 2026",
-                                  "4. – 5. 7. 2026",
-                                  "18. – 19. 7. 2026",
-                                  "1. – 2. 8. 2026",
-                                  "15. – 16. 8. 2026",
-                                  "22. – 23. 8. 2026",
-                                  "5. – 6. 9. 2026",
-                                  "19. – 20. 9. 2026",
-                                  "3. – 4. 10. 2026",
-                                ].map((date) => (
+                                {weekendDates.map(({ date, note, soldOut }) => (
                                   <li
                                     key={date}
                                     className="flex items-center gap-2 text-sm text-foreground/80"
                                   >
                                     <Check className="w-4 h-4 text-gold flex-shrink-0" />
-                                    <span>{date}</span>
+                                    <span className={soldOut ? "line-through opacity-60" : undefined}>{date}</span>
+                                    {soldOut && <span className="text-xs font-bold uppercase text-gold">Vypredané</span>}
+                                    {note && !soldOut && <span className="text-xs text-foreground/60">{note}</span>}
                                   </li>
                                 ))}
                               </ul>

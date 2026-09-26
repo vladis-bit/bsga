@@ -787,6 +787,27 @@ export type Database = {
         }
         Relationships: []
       }
+      site_texts: {
+        Row: {
+          created_at: string
+          key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          key: string
+          updated_at?: string
+          value?: string
+        }
+        Update: {
+          created_at?: string
+          key?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
       tour_events: {
         Row: {
           cislo_turnaja: number
@@ -856,6 +877,39 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      weekend_course_dates: {
+        Row: {
+          created_at: string
+          datum: string
+          id: string
+          is_published: boolean
+          poznamka: string | null
+          sold_out: boolean
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          datum: string
+          id?: string
+          is_published?: boolean
+          poznamka?: string | null
+          sold_out?: boolean
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          datum?: string
+          id?: string
+          is_published?: boolean
+          poznamka?: string | null
+          sold_out?: boolean
+          sort_order?: number
+          updated_at?: string
         }
         Relationships: []
       }

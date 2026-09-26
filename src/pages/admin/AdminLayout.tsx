@@ -4,6 +4,7 @@ import {
   Ban,
   CalendarRange,
   Tent,
+  Flag,
   Ticket,
   CalendarDays,
   CalendarPlus,
@@ -54,6 +55,8 @@ const webLinks = [
   { to: "/admin/obsah/turnaje", label: "Turnaje", icon: Trophy },
   { to: "/admin/obsah/eventy", label: "Eventy", icon: CalendarRange },
   { to: "/admin/obsah/tabory", label: "Detské tábory", icon: Tent },
+  { to: "/admin/obsah/tour-2027", label: "BSGA Tour 2027", icon: Flag },
+  { to: "/admin/obsah/vikendove-kurzy", label: "Termíny víkend. kurzu ZK", icon: CalendarDays },
 ];
 
 const links: { to: string; label: string; icon: typeof Settings; end?: boolean }[] = [...pcLinks, ...webLinks];

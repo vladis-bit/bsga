@@ -1,3 +1,4 @@
+import { useSiteTexts } from "@/lib/site-texts";
 import { useMemo } from "react";
 import { str, useCms } from "@/lib/cms";
 import Navbar from "@/components/Navbar";
@@ -274,6 +275,7 @@ const BREADCRUMBS = [
 ];
 
 const Tour = () => {
+  const t2027 = useSiteTexts(["tour2027_title", "tour2027_subtitle", "tour2027_intro"]);
   // Turnaje spravované v admin centre (tabuľka tour_events).
   const { rows: tourRows } = useCms("tour_events", [{ column: "rok", ascending: false }, { column: "cislo_turnaja" }]);
   const seasons = useMemo(() => {
@@ -627,9 +629,12 @@ const Tour = () => {
               <div className="mb-10 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
                   <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
-                    BSGA Tour 2027
+                    {t2027.tour2027_title || "BSGA Tour 2027"}
                   </h2>
-                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">11. ročník</p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-gold">{t2027.tour2027_subtitle || "11. ročník"}</p>
+                  {t2027.tour2027_intro && (
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground/70 sm:text-base">{t2027.tour2027_intro}</p>
+                  )}
                 </div>
               </div>
 
