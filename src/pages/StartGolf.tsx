@@ -111,6 +111,13 @@ const StepFAQ = ({
 );
 
 const StartGolf = () => {
+  const { rows: weekendRows } = useCms("weekend_course_dates", [{ column: "sort_order" }, { column: "created_at" }]);
+  const weekendDates =
+    weekendRows.length > 0
+      ? weekendRows
+          .filter((r) => r.is_published !== false)
+          .map((r) => ({ date: str(r.datum), note: str(r.poznamka), soldOut: Boolean(r.sold_out) }))
+      : DEFAULT_WEEKEND_DATES.map((date) => ({ date, note: "", soldOut: false }));
   const allFaqs = [
     { q: "Pre koho sú tieto kurzy vhodné a čo si mám priniesť?", a: "Kurzy sú určené pre úplných začiatočníkov bez predchádzajúcich skúseností. Stačí vám pohodlné športové oblečenie a obuv s plochou podrážkou. Všetko vybavenie – palice aj loptičky – vám zapožičiame priamo na mieste." },
     { q: "Aký je rozdiel medzi víkendovým kurzom a kurzom zelenej karty?", a: "Víkendový kurz je intenzívny dvojdňový formát, počas ktorého získate základy a pripravíte sa na zelenú kartu. Kurz zelenej karty je kompletný program rozložený na 1–2 týždne, ktorý zahŕňa techniku, pravidlá, etiku a záverečný test." },
